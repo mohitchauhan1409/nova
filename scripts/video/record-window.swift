@@ -77,6 +77,8 @@ final class WindowRecorder: NSObject, SCStreamOutput, SCStreamDelegate, @uncheck
             writer.startSession(atSourceTime: .zero)
             origin = ProcessInfo.processInfo.systemUptime
             started = true
+            print("First encoded frame epoch milliseconds: \(Int64(Date().timeIntervalSince1970 * 1000))")
+            fflush(stdout)
         }
     }
 
