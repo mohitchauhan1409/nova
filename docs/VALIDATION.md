@@ -10,7 +10,7 @@ Core passed 200 unit/integration tests in 19 files, the production build, and is
 
 The Bolna branch passed the production build and all 224 tests before the additional hostname-scope test; the affected suites then passed all 29 tests including that new case (225 total cases now). Both the generic and Bolna panel checks passed, along with the packaged launcher open/close/reload checks. The Bolna panel was visually inspected; a browser assertion verifies that switching to another hostname restores the core appearance. No signed-in Bolna task or outbound communication was performed for this repository split.
 
-The client additions are isolated in site profiles, scoped theme hooks, client fixtures/scripts and `BOLNA-*` documents. Existing local profiles are preserved. Historical live workflow observations are retained in [the original validation log](BOLNA-VALIDATION-HISTORY.md) and [workflow lab](BOLNA-WORKFLOW-LAB.md); reports remain local and ignored. The original and both sound-comparison recordings are archived in Git LFS only on this branch; see [recordings and recovery](BOLNA-RECORDINGS.md).
+The client additions are isolated in site profiles, scoped theme hooks, client fixtures/scripts and `BOLNA-*` documents. Existing local profiles are preserved. Historical live workflow observations are retained in [the original validation log](BOLNA-VALIDATION-HISTORY.md) and [workflow lab](BOLNA-WORKFLOW-LAB.md); reports remain local and ignored. The original, silent edit and click-only recordings are archived in Git LFS only on this branch; see [recordings and recovery](BOLNA-RECORDINGS.md).
 
 ## Repeatable checks
 
