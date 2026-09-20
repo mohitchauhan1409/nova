@@ -48,6 +48,29 @@ describe('deterministic action policy', () => {
   it('does not treat a message composer, sensitive rename or generic form as an inline title',()=>{
     for(const patch of [{name:'Message'},{name:'Rename permissions'},{name:'Rename draft',submission:{scope:'composer',label:'message',fields:[]}}]){const page={...snapshot,elements:[{...snapshot.elements[0],role:'textbox',type:'text',...patch}]};expect(checkAction(action({kind:'press',ref:'search',value:'Enter',risk:'change'}),page,page.url).outcome).toBe('approve');}
   });
+  it('saves explicitly requested spelling corrections without approving arbitrary Add forms', () => {
+    const context = 'Term (correct spelling) Heard as (mishearing) Add';
+    const fields = ['Term (correct spelling)', 'Heard as (mishearing)'].map((name, i) => ({
+      ref: `field-${i}`, tag: 'input', role: '', name, type: 'text', context, form: true,
+      disabled: false, sensitive: false, edit: { revision: `v${i}`, empty: false },
+    }));
+    const button = { ref: 'add', tag: 'button', role: '', name: 'Add', type: 'submit', context, form: true, disabled: false, sensitive: false };
+    const page = { ...snapshot, elements: [...fields, button] };
+    const change = action({ref: 'add', risk: 'change'});
+    expect(checkAction(change, page, page.url, 'Add these vocabulary corrections: Acme heard as Ack Me. Save both terms.').outcome).toBe('allow');
+    for (const intent of ['Inspect the vocabulary', 'Do not add these terms', 'How do I add vocabulary terms?', 'Add vocabulary terms after my confirmation']) {
+      expect(checkAction(change, page, page.url, intent).outcome).toBe('approve');
+    }
+    for (const patch of [{name: 'Email'}, {sensitive: true}, {edit: {revision: 'x', empty: true}}]) {
+      const changed = {...page, elements: [{...fields[0], ...patch}, fields[1], button]};
+      expect(checkAction(change, changed, page.url, 'Add these vocabulary terms').outcome).not.toBe('allow');
+    }
+    for (const name of ['Send', 'Publish', 'Grant access', 'Delete']) {
+      expect(checkAction(change, {...page, elements: [...fields, {...button, name}]}, page.url, 'Add vocabulary terms').outcome).toBe('approve');
+    }
+    expect(checkAction({...change, risk:'sensitive'}, page, page.url, 'Add vocabulary terms').outcome).toBe('approve');
+    expect(checkAction(change, {...page, elements: [...fields, {...button, submission:{scope:'chat',label:'Message',fields:[]}}]}, page.url, 'Add vocabulary terms').outcome).toBe('approve');
+  });
   it('rejects unsupported model actions', () => { expect(actionSchema.safeParse({...action(),kind:'eval'}).success).toBe(false); });
   it('does not mistake MacBook product names for booking actions',()=>{const page={...snapshot,elements:snapshot.elements.map(e=>e.ref==='link'?{...e,name:'USB-C adapter compatible with MacBook | Windows Laptop'}:e)};expect(checkAction(action({ref:'link'}),page,snapshot.url).outcome).toBe('allow');});
   it('allows combined search only for an observed search input',()=>{expect(checkAction(action({kind:'search',ref:'search',value:'adapter'}),snapshot,snapshot.url).outcome).toBe('allow');expect(checkAction(action({kind:'search',ref:'cart',value:'adapter'}),snapshot,snapshot.url).outcome).toBe('block');});
