@@ -1,11 +1,31 @@
 // Record one explicitly selected macOS window. No audio and no whole-display fallback.
 // swift scripts/video/record-window.swift list
-// swift scripts/video/record-window.swift record WINDOW_ID OUTPUT.mov [SECONDS]
+// swift scripts/video/record-window.swift record WINDOW_ID OUTPUT.mov [SECONDS] [--masks PLAN.json]
 import Foundation
 import AppKit
 import ScreenCaptureKit
 import AVFoundation
 import CoreMedia
+import CoreImage
+
+// Coordinates use native video pixels from the top-left. A declared canvas
+// prevents a resized window from silently moving private details outside masks.
+struct PrivacyMask: Decodable {
+    let x: Int, y: Int, width: Int, height: Int
+    let color: String
+}
+struct PrivacyPlan: Decodable {
+    let width: Int, height: Int
+    let masks: [PrivacyMask]
+    func validate(width actualWidth: Int, height actualHeight: Int) throws {
+        guard width == actualWidth, height == actualHeight, !masks.isEmpty,
+            masks.allSatisfy({ m in
+                m.x >= 0 && m.y >= 0 && m.width > 0 && m.height > 0 &&
+                m.x + m.width <= width && m.y + m.height <= height &&
+                m.color.range(of: "^#[0-9a-fA-F]{6}$", options: .regularExpression) != nil
+            }) else { throw NSError(domain: "NovaRecorder", code: 3, userInfo: [NSLocalizedDescriptionKey: "Privacy masks must fit the exact native capture dimensions and use #RRGGBB colors."]) }
+    }
+}
 
 final class WindowRecorder: NSObject, SCStreamOutput, SCStreamDelegate, @unchecked Sendable {
     var writer: AVAssetWriter!
@@ -18,6 +38,8 @@ final class WindowRecorder: NSObject, SCStreamOutput, SCStreamDelegate, @uncheck
     var origin = 0.0
     var timer: DispatchSourceTimer?
     var failed: String?
+    var privacy: PrivacyPlan?
+    let imageContext = CIContext()
     let queue = DispatchQueue(label: "nova.window.recorder")
 
     func stream(_ stream: SCStream, didStopWithError error: Error) { failed = error.localizedDescription }
@@ -25,9 +47,33 @@ final class WindowRecorder: NSObject, SCStreamOutput, SCStreamDelegate, @uncheck
         guard type == .screen, sample.isValid, CMSampleBufferGetImageBuffer(sample) != nil else { return }
         guard let attachments = CMSampleBufferGetSampleAttachmentsArray(sample, createIfNecessary: false) as? [[SCStreamFrameInfo: Any]],
               let status = attachments.first?[.status] as? Int, status == SCFrameStatus.complete.rawValue else { return }
-        latest = CMSampleBufferGetImageBuffer(sample)
+        let source = CMSampleBufferGetImageBuffer(sample)!
+        if let privacy {
+            // Do not retain or write an unredacted frame when masks are enabled.
+            guard CVPixelBufferGetWidth(source) == privacy.width,
+                  CVPixelBufferGetHeight(source) == privacy.height,
+                  let pool = adaptor.pixelBufferPool else {
+                failed = "Capture dimensions changed or the privacy buffer is unavailable."
+                latest = nil
+                return
+            }
+            var destination: CVPixelBuffer?
+            guard CVPixelBufferPoolCreatePixelBuffer(nil, pool, &destination) == kCVReturnSuccess,
+                  let destination else { failed = "Could not allocate privacy buffer"; latest = nil; return }
+            var rendered = CIImage(cvPixelBuffer: source)
+            for mask in privacy.masks {
+                let rgb = UInt32(mask.color.dropFirst(), radix: 16)!
+                let color = CIColor(red: CGFloat((rgb >> 16) & 255) / 255,
+                                    green: CGFloat((rgb >> 8) & 255) / 255,
+                                    blue: CGFloat(rgb & 255) / 255, alpha: 1)
+                let rect = CGRect(x: mask.x, y: privacy.height - mask.y - mask.height,
+                                  width: mask.width, height: mask.height)
+                rendered = CIImage(color: color).cropped(to: rect).composited(over: rendered)
+            }
+            imageContext.render(rendered, to: destination)
+            latest = destination
+        } else { latest = source }
         if !started {
-            guard writer.startWriting() else { failed = writer.error?.localizedDescription; return }
             writer.startSession(atSourceTime: .zero)
             origin = ProcessInfo.processInfo.systemUptime
             started = true
@@ -54,6 +100,7 @@ final class WindowRecorder: NSObject, SCStreamOutput, SCStreamDelegate, @uncheck
         let scale = Int(filter.pointPixelScale)
         config.width = Int(filter.contentRect.width) * scale
         config.height = Int(filter.contentRect.height) * scale
+        try privacy?.validate(width: config.width, height: config.height)
         config.minimumFrameInterval = CMTime(value: 1, timescale: 30)
         config.queueDepth = 6
         config.showsCursor = true
@@ -69,7 +116,15 @@ final class WindowRecorder: NSObject, SCStreamOutput, SCStreamDelegate, @uncheck
         ])
         input.expectsMediaDataInRealTime = true
         writer.add(input)
-        adaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: input, sourcePixelBufferAttributes: nil)
+        adaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: input, sourcePixelBufferAttributes: [
+            kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA,
+            kCVPixelBufferWidthKey as String: config.width,
+            kCVPixelBufferHeightKey as String: config.height,
+            kCVPixelBufferIOSurfacePropertiesKey as String: [:]
+        ])
+        // Starting the writer here makes its pixel-buffer pool available before
+        // the first source frame is processed by the privacy filter.
+        guard writer.startWriting() else { throw writer.error ?? NSError(domain:"NovaRecorder",code:4) }
         stream = SCStream(filter: filter, configuration: config, delegate: self)
         try stream.addStreamOutput(self, type: .screen, sampleHandlerQueue: queue)
         let clock = DispatchSource.makeTimerSource(queue: queue)
@@ -107,6 +162,10 @@ if args.count == 2 && args[1] == "list" {
     let output = URL(fileURLWithPath: args[3])
     guard !FileManager.default.fileExists(atPath: output.path) else { fatalError("Will not overwrite source recording") }
     let recorder = WindowRecorder()
+    if let flag = args.firstIndex(of: "--masks") {
+        guard args.indices.contains(flag + 1) else { fatalError("--masks needs a JSON path") }
+        recorder.privacy = try JSONDecoder().decode(PrivacyPlan.self, from: Data(contentsOf: URL(fileURLWithPath: args[flag + 1])))
+    }
     try await recorder.start(window: window, output: output)
     if args.count > 4, let seconds = Double(args[4]), seconds > 0 {
         try await Task.sleep(nanoseconds: UInt64(seconds * 1_000_000_000))
@@ -116,4 +175,4 @@ if args.count == 2 && args[1] == "list" {
         }
     }
     try await recorder.stop()
-} else { print("Usage: record-window.swift list | record WINDOW_ID OUTPUT.mov [SECONDS]"); exit(2) }
+} else { print("Usage: record-window.swift list | record WINDOW_ID OUTPUT.mov [SECONDS] [--masks PLAN.json]"); exit(2) }
