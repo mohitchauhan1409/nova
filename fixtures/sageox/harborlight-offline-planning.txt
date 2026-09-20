@@ -1,0 +1,9 @@
+Harborlight product planning — September 20, 2026
+Synthetic private demonstration; all people and business facts are fictional.
+Maya Chen, product lead: Harborlight makes scheduling software for independent repair workshops. We need reliable offline access for the pilot.
+Eli Brooks, engineering lead: Cache the next seven days of appointments for read-only offline access. Creating an appointment requires a connection. Do not queue offline writes.
+Maya: Show last-sync time and a persistent offline indicator. Never claim a booking is confirmed before server acceptance. Exclude customer phone numbers from logs.
+Eli: I will draft the cache plan. Tests must cover airplane-mode reopen, stale cache, reconnect, and logout clearing the cache. Retention is seven days.
+Maya: I will review offline copy and the pilot checklist by September 25, 2026. This is an internal review, not a launch. Do not notify customers.
+Eli: Per-user cache encryption is an open question for security review before production. Offline appointment creation is deferred.
+Maya: Agreed: read-only offline access, seven-day retention, visible freshness, server-confirmed bookings, and security review. No rollout or customer messages.
