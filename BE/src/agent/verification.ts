@@ -9,6 +9,17 @@ export function actionEffect(action: Action, before: Snapshot, after: Snapshot, 
   const targetBefore = before.elements.find(e=>e.ref===action.ref);
   const targetAfter = after.elements.find(e=>e.ref===action.ref);
   if(before.url!==after.url) return {action:action.kind,verified:true,detail:`Navigation observed: ${after.url}`};
+  const destination = action.kind === 'navigate' ? action.url :
+    ['click','double_click'].includes(action.kind) ? targetBefore?.href : undefined;
+  if (destination) {
+    try {
+      const intended = new URL(destination, before.url);
+      const current = new URL(before.url);
+      if (intended.origin !== current.origin || intended.pathname !== current.pathname || intended.search !== current.search) {
+        return {action:action.kind,verified:false,detail:'The requested navigation is still pending. Wait for the destination before planning another click.'};
+      }
+    } catch { /* Invalid destinations are rejected by policy before dispatch. */ }
+  }
   // A submit button often disappears behind a spinner before persistence. Its
   // label/disabled-state change alone must not release the next planned action.
   if (['click','double_click'].includes(action.kind) && targetBefore?.type === 'submit' &&

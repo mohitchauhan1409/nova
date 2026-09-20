@@ -219,7 +219,7 @@ export class AgentRunner {
           let after = await this.observe();
           if(action.kind!=='wait'){
             pendingEffect={action,before:snapshot,result};effect=actionEffect(action,snapshot,after,result);
-            if(effect.verified&&/^Visible (page content|controls) changed/.test(effect.detail)){
+            if(effect.verified&&/^(Visible (page content|controls) changed|Navigation observed:)/.test(effect.detail)){
               await new Promise(resolve=>setTimeout(resolve,200));if(signal.aborted)return;
               after=await this.observe();effect=actionEffect(action,snapshot,after,result);
             }
