@@ -6,7 +6,7 @@ These three videos are archived only on `bolna-nova`, using Git LFS. `main` does
 | --- | --- | --- | --- |
 | Original two-flow recording | 11:16.6 | 543,480,247 bytes | [Original MP4](../artifacts/bolna/founder-recording-v2/nova-bolna-two-flows-raw.mp4) |
 | Silent final edit | 6:38.8 | 225,921,462 bytes | [Silent MP4](../artifacts/bolna/founder-recording-v2/edit-v2/nova-bolna.mp4) |
-| Approved click-only edit | 6:38.8 | 226,508,936 bytes | [Click-only MP4](../artifacts/bolna/founder-recording-v2/edit-v4/nova-bolna-clicks-only.mp4) |
+| Approved click-only edit | 6:38.8 | 226,508,936 bytes | [Click-only MP4](../artifacts/bolna/founder-recording-v2/edit-v4/nova-bolna.mp4) |
 
 All three are 3024 × 1964 H.264 videos at 30 fps. Screenshots, earlier takes, duplicate containers, intermediate edits and test audio were removed. Other runtime data and generated artifacts remain ignored.
 
@@ -25,7 +25,7 @@ git switch bolna-nova
 git restore --source=origin/bolna-nova -- \
   artifacts/bolna/founder-recording-v2/nova-bolna-two-flows-raw.mp4 \
   artifacts/bolna/founder-recording-v2/edit-v2/nova-bolna.mp4 \
-  artifacts/bolna/founder-recording-v2/edit-v4/nova-bolna-clicks-only.mp4
+  artifacts/bolna/founder-recording-v2/edit-v4/nova-bolna.mp4
 git lfs pull origin bolna-nova
 ```
 
