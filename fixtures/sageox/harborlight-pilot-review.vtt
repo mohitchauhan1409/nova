@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:20.000
+<v Maya Chen>This is a synthetic Harborlight pilot review. BaySync provides read-only offline access to the next seven days of workshop appointments. WorkLedger remains the server record. New bookings need a connection and server confirmation.</v>
+
+00:00:20.000 --> 00:00:40.000
+<v Eli Brooks>I will prepare the BaySync cache plan and tests for airplane-mode reopen, stale data, reconnect, and logout clearing the cache. Show last-sync time and an offline indicator. Keep customer phone numbers out of logs.</v>
+
+00:00:40.000 --> 00:01:00.000
+<v Maya Chen>I will review the offline copy and internal pilot checklist by September 25, 2026. That is an internal review date, not a public launch. Keep the work in draft and do not notify customers.</v>
+
+00:01:00.000 --> 00:01:20.000
+<v Eli Brooks>Per-user cache encryption is still an open question for security review. Offline booking creation is deferred. We have agreed on read-only access, seven-day retention, visible freshness, and a security review before production.</v>
