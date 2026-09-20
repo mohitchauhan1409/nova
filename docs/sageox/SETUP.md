@@ -45,3 +45,23 @@ tracked. Compare them against `recording/checksums.sha256` using `shasum -a 256 
 The final delivery report records remote branch placement and an independent fresh
 LFS recovery check. Runtime observations, credentials and account identities are
 excluded from source control.
+
+For the exact current edit, render to temporary paths (the editor refuses to
+overwrite deliverables), then replace the editor's temporary soundtrack using
+the established tap renderer:
+
+```sh
+python3 scripts/video/edit-recording.py \
+  artifacts/sageox/media/nova-sageox-original.mov \
+  docs/sageox/recording/edit-plan.json \
+  /tmp/sageox-silent.mp4 /tmp/sageox-temporary-effects.mp4
+python3 scripts/video/add-click-sounds.py \
+  --source /tmp/sageox-silent.mp4 \
+  --cues docs/sageox/recording/sound-cues.json \
+  --output /tmp/sageox-clicks.mp4 --report /tmp/sageox-sound-check.json
+```
+
+The second utility requires numpy. After checking the final files, remove the
+temporary effects copy. The raw's account information is intentionally visible in
+this private revision at the owner's request; only the debugger row is covered
+in the two edited versions.

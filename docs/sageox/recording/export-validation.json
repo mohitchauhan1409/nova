@@ -74,5 +74,10 @@
       "source_frame": 10090,
       "label": "Verified Summary ending"
     }
-  ]
+  ],
+  "video_stream_hash": "0,v,SHA256=3dcdd856598acc467a5a881a84911762dfab8b8cab6ac055c33c8707578a3f43",
+  "video_stream_identical": true,
+  "decoded_audio_peak_dbfs": -13.73,
+  "audio_duration_seconds": 294.5,
+  "max_abs_audio_attack_offset_ms": 1.771
 }
