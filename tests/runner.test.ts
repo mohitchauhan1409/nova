@@ -51,6 +51,35 @@ describe('browser agent execution boundaries',()=>{
     f.planner.decide=vi.fn().mockResolvedValueOnce({...act('fill'),ref:'editor',value:'Best AI phones?'}).mockResolvedValueOnce({...act('fill'),ref:'editor',value:'Find the best AI smartphones.'}).mockResolvedValueOnce({...act('fill'),ref:'editor',value:'Compare AI phones for me.'});
     await f.runner.command('Write one prompt');expect(f.driver.execute).toHaveBeenCalledTimes(1);expect(f.session.preparedInputs?.[0].value).toBe('Best AI phones?');expect(f.session.status).toBe('ready');
   });
+  it('reuses cleared fields after a verified ordinary record addition', async () => {
+    const f = fixture();
+    const context = 'Term (correct spelling) Heard as (mishearing) Add';
+    let revision = 0;
+    let values = ['', ''];
+    const records: string[][] = [];
+    const render = (): Snapshot => ({...base, text: `Saved terms: ${records.map(r=>r.join(' / ')).join('; ')}`, elements: [
+      ...['Term (correct spelling)', 'Heard as (mishearing)'].map((name,i)=>({ref:`field-${i}`,tag:'input',role:'',name,type:'text',context,form:true,disabled:false,sensitive:false,edit:{revision:`v${revision}-${i}`,empty:!values[i]}})),
+      {ref:'add',tag:'button',role:'',name:'Add',type:'submit',context,form:true,disabled:false,sensitive:false},
+    ]});
+    f.driver.snapshot = async () => render();
+    f.driver.execute = vi.fn(async (action: Action) => {
+      if (action.kind === 'fill') { values[Number(action.ref!.slice(-1))] = action.value!; revision++; return {ok:true,verification:{status:'verified',detail:'Draft matches'}}; }
+      records.push([...values]); values=['','']; revision++; return {ok:true};
+    });
+    const actions: Action[] = [];
+    for (const row of [['First','Furst'],['Second','Sekond']]) {
+      row.forEach((value,i)=>actions.push({...act('fill'),ref:`field-${i}`,value}));
+      actions.push({...act('click'),summary:'Add the requested spelling correction'});
+    }
+    actions.push({...act('done'),summary:'Both terms are saved.',completion:{status:'completed',evidence:[{source:'text',ref:null,value:'Saved terms: First / Furst; Second / Sekond'}]}});
+    f.planner.decide = async () => actions.shift()!;
+    await f.runner.command('Add these two vocabulary corrections and save both terms.');
+    expect(records).toEqual([['First','Furst'],['Second','Sekond']]);
+    expect(f.driver.execute).toHaveBeenCalledTimes(6);
+    expect(f.session.preparedInputs).toEqual([]);
+    expect(f.session.status).toBe('ready');
+    expect(f.session.approval).toBeUndefined();
+  });
   it('preserves an existing user draft on send it even without a saved agent draft',async()=>{
     const f=fixture();f.setState({...base,elements:[{...base.elements[0],ref:'editor',tag:'textarea',name:'Ask assistant',edit:{revision:'user-draft',empty:false}}]});
     f.planner.decide=async()=>({...act('fill'),ref:'editor',value:'Unrequested replacement'});
