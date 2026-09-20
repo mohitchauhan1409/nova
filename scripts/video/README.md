@@ -60,3 +60,5 @@ Validation performed with a moving 120-frame synthetic source: 30 normal frames,
 Both exports contained 85 frames at 30 fps; a source-frame-45 click mapped to
 1.25 seconds, peak 0.06449, and encoded video hashes matched after AAC muxing.
 This checks the utility, not the correctness of any real recording's EDL.
+
+A mask file can be atomically replaced during recording as the page layout changes. The recorder validates and applies it before the next captured frame and logs the update epoch. Invalid or missing plans fail closed. Keep every applied plan and its event time with the take notes.
