@@ -62,3 +62,20 @@ Both exports contained 85 frames at 30 fps; a source-frame-45 click mapped to
 This checks the utility, not the correctness of any real recording's EDL.
 
 A mask file can be atomically replaced during recording as the page layout changes. The recorder validates and applies it before the next captured frame and logs the update epoch. Invalid or missing plans fail closed. Keep every applied plan and its event time with the take notes.
+
+### Established tap sound
+
+`add-click-sounds.py` adds the established mechanical tap effect to an existing
+silent edit, copying its encoded video stream. It accepts a cue JSON with
+`duration` and `events` (`time`, `actor`: `operator` or `nova`, `strength`, and an
+`evidence` note). Use frame-inspected edited times for both operator and agent
+clicks, including actual mouse clicks used to focus fields. Do not cue narration,
+hovering, rejected actions, or mere keyboard events. Requires numpy and FFmpeg.
+
+```
+python3 scripts/video/add-click-sounds.py --source silent.mp4 --cues cues.json \
+  --output clicks.mp4 --report sound-verification.json
+```
+
+The renderer verifies stream identity, duration and sound confined to the cues;
+visual synchronization still requires inspection of the specific recording.
