@@ -1,0 +1,2 @@
+artifacts/bolna/founder-recording-v2/nova-bolna-two-flows-raw.mp4 filter=lfs diff=lfs merge=lfs -text
+artifacts/bolna/founder-recording-v2/edit-v2/nova-bolna.mp4 filter=lfs diff=lfs merge=lfs -text

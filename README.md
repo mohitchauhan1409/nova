@@ -2,6 +2,8 @@
 
 This is the **`bolna-nova` customer branch**. It contains the complete reusable Nova product plus Bolna workflow guides, a Bolna-scoped panel/launcher theme, and customer regression/demo tools. For the general product or a new startup, start from [`main`](https://github.com/mohitchauhan1409/nova/tree/main).
 
+The original and final edited recordings are archived on this branch with Git LFS. See [recordings and recovery instructions](docs/BOLNA-RECORDINGS.md).
+
 See [Bolna coverage](docs/BOLNA.md), [creation and recording flows](docs/BOLNA-FOUNDER-DEMO.md), and [historical live validation](docs/BOLNA-VALIDATION-HISTORY.md). The history records individual observations and remaining limits; it is not a claim of exhaustive dashboard coverage.
 
 
