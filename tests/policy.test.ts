@@ -74,6 +74,11 @@ describe('deterministic action policy', () => {
     const page = { ...snapshot, elements: [...fields, button] };
     const change = action({ref: 'add', risk: 'change'});
     expect(checkAction(change, page, page.url, 'Add these vocabulary corrections: Acme heard as Ack Me. Save both terms.').outcome).toBe('allow');
+    const clarified = 'Help me add two new product names for our rollout.\nTwo product names and mishearings: FleetDesk and QueuePilot\nHow might each product name be misheard?: FleetDesk: Fleet Desk. QueuePilot: Queue Pilot.';
+    expect(checkAction(change, page, page.url, clarified).outcome).toBe('allow');
+    for (const restriction of ['Do not add product names', 'Wait to add vocabulary terms until I confirm', 'How do I add vocabulary terms?']) {
+      expect(checkAction(change, page, page.url, clarified + '\n' + restriction).outcome).toBe('approve');
+    }
     for (const intent of ['Inspect the vocabulary', 'Do not add these terms', 'How do I add vocabulary terms?', 'Add vocabulary terms after my confirmation']) {
       expect(checkAction(change, page, page.url, intent).outcome).toBe('approve');
     }

@@ -239,7 +239,7 @@ export class AgentRunner {
             // Reusable creation forms clear their inputs after a verified Add.
             // Retire only those drafts, not unrelated editors or message composers.
             const committedTarget = snapshot.elements.find(e => e.ref === action.ref);
-            if (effect.verified && policy.outcome === 'allow' && action.risk === 'change' &&
+            if (effect.verified && action.risk === 'change' &&
                 ['click', 'double_click'].includes(action.kind) && committedTarget?.type === 'submit' &&
                 !committedTarget.submission && /^(add|create|save)(?:\s|$)/i.test(committedTarget.name)) {
               for (const before of snapshot.elements) {

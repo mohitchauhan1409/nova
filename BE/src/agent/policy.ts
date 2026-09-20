@@ -47,10 +47,13 @@ function requestedTerminologyEdit(action: Action, snapshot: Snapshot, intent: st
   if (fields.length !== 2 || fields.some(e => e.sensitive || e.disabled || e.edit?.empty !== false)) return false;
   if (!fields.some(e => /^(term(?: \(correct spelling\))?|correct spelling)$/i.test(e.name)) ||
       !fields.some(e => /^(heard as(?: \(mishearing\))?|mishearing)$/i.test(e.name))) return false;
-  const relevant = intent.split('\n').reverse().find(line => /\b(vocabulary|terminology|terms?|mishearings?|corrections?)\b/i.test(line));
+  const topic = /\b(vocabulary|terminology|terms?|mishearings?|corrections?|product names?)\b/i;
+  // Clarification labels and values do not revoke the original request. A later
+  // actual instruction, including a negation or request to wait, still wins.
+  const relevant = intent.split('\n').reverse().find(line => topic.test(line) && /\b(add|save|create|update|change|edit|stop|cancel|never|wait)\b/i.test(line));
   if (!relevant || /\b(how|what if|explain|after|until|confirmation|approve|approval)\b|\b(ask|check with) me\b/i.test(relevant)) return false;
   const affirmative = relevant.replace(/\b(don['’]?t|do not|never|without|stop|cancel)\b[^,;.!?]*/gi, '');
-  return /\b(add|save|create|update)\b/i.test(affirmative) && /\b(vocabulary|terminology|terms?|mishearings?|corrections?)\b/i.test(affirmative);
+  return /\b(add|save|create|update)\b/i.test(affirmative) && topic.test(affirmative);
 }
 export function checkAction(action: Action, snapshot: Snapshot, _scope: string, intent = ''): PolicyDecision {
   const target = snapshot.elements.find(e => e.ref === action.ref);
