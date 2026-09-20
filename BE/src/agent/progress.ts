@@ -1,4 +1,21 @@
 import type {Action,Session,Snapshot,ElementRef} from '../../../shared/types';
+import {createHash} from 'node:crypto';
+
+// A successful tab switch can still be part of an unproductive A/B cycle.
+// Compare observed content and semantic controls, not ephemeral element refs.
+export function repeatedTabInspection(action:Action,snapshot:Snapshot,visits:Map<string,number>){
+  const target=snapshot.elements.find(e=>e.ref===action.ref);
+  if(action.kind!=='click'||target?.role!=='tab')return false;
+  const controls=snapshot.elements.filter(e=>!e.sensitive).map(e=>({
+    role:e.role,name:e.name,disabled:e.disabled,
+    state:(e.state||[]).filter(s=>/^(value|selected|checked|pressed|valuenow):/.test(s)),
+    revision:e.edit?.revision,
+  }));
+  const key=createHash('sha256').update(JSON.stringify([snapshot.url,snapshot.text,target.name,controls])).digest('hex');
+  const count=visits.get(key)||0;visits.set(key,count+1);
+  if(visits.size>48)visits.delete(visits.keys().next().value!);
+  return count>=2;
+}
 export function observeProgress(session:Session,snapshot:Snapshot){
   const progress=session.progress;if(!progress)return;
   if(progress.url!==snapshot.url){progress.url=snapshot.url;progress.settings=[];}

@@ -9,7 +9,7 @@ import { quickAction } from './quick-actions';
 import { actionEffect, completionProblem, type Effect } from './verification';
 import { siteExperience } from '../../../shared/site-experience';
 import { companionOutput, conversationReply, latestTask, pagePrivacy } from './conversation';
-import {observeProgress,recordProgress,beforeProgressAction} from './progress';
+import {observeProgress,recordProgress,beforeProgressAction,repeatedTabInspection} from './progress';
 import {makeClarification,questionText,validateAnswers} from './clarification';
 
 export class AgentRunner {
@@ -130,6 +130,7 @@ export class AgentRunner {
   }
   private async run(signal: AbortSignal) {
     const written=new Set<string>();let preventedWrites=0;
+    const tabVisits=new Map<string,number>();let preventedTabCycles=0;
     let failures = 0; let lastAction = ''; let repeated = 0; let screenshot: string | undefined; let observed: Snapshot | undefined;
     let effect: Effect | undefined; let attempted = false; let completionFailures = 0;
     let pendingEffect: {action:Action;before:Snapshot;result:unknown;mayCommit:boolean}|undefined;
@@ -167,6 +168,11 @@ export class AgentRunner {
         if (repeated >= 2) { this.say('This action is not making progress. Please adjust the page or tell me how you would like to continue.'); this.session.status = 'stopped'; return; }
         const policy = checkAction(action, snapshot, this.scope, this.intent());
         if (policy.outcome === 'block') { this.trace('error', policy.reason); if (++failures >= 3 || snapshot.elements.find(e => e.ref === action.ref)?.sensitive) { this.say(policy.reason); this.session.status = 'stopped'; return; } continue; }
+        if(!policy.mayCommit&&repeatedTabInspection(action,snapshot,tabVisits)){
+          this.trace('error','No click sent: these tab contents have already been inspected twice without new information. Stop alternating unchanged views. Use an available source, report processing as pending, or ask a focused question.');
+          if(++preventedTabCycles>=2){this.say('These views have not produced new information. I preserved the saved result; tell me which available source you want to use next.');this.session.status='ready';return;}
+          continue;
+        }
         if(['fill','type','paste','clear'].includes(action.kind)&&action.ref){
           const key=`${snapshot.url}|${action.ref}`;const target=snapshot.elements.find(e=>e.ref===action.ref);
           const saved=this.session.preparedInputs?.find(d=>d.ref===action.ref&&d.url===snapshot.url);

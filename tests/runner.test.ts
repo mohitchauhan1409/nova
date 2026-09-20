@@ -15,6 +15,19 @@ function fixture() {
   return {runner,session,execute,driver,planner,setState:(s:Snapshot)=>{state=s;}};
 }
 describe('browser agent execution boundaries',()=>{
+  it('replans an alternating unchanged tab cycle before dispatching another repeat',async()=>{
+    const f=fixture();let selected='Summary',revision=0;
+    f.driver.snapshot=async()=>({...base,text:selected==='Summary'?'Saved summary':'Processing is pending',elements:['Summary','Details'].map(name=>({...base.elements[0],ref:`${name}-${revision}`,name,role:'tab',state:[`selected:${name===selected}`]}))});
+    f.driver.execute=vi.fn(async(action:Action)=>{selected=action.ref!.split('-')[0];revision++;return {ok:true};});
+    f.planner.decide=async(session,_site,snapshot)=>{
+      if(session.traces.some(t=>t.text.includes('Stop alternating unchanged views')))return {...act('done'),summary:'The saved summary is available; details are still processing.',completion:{status:'answer',evidence:[{source:'text',ref:null,value:snapshot.text}]}};
+      return {...act('click'),risk:'read',ref:snapshot.elements.find(e=>e.name!==selected)!.ref,summary:'Inspect the other view'};
+    };
+    await f.runner.command('Review the saved summary and check processing');
+    expect(f.driver.execute).toHaveBeenCalledTimes(4);
+    expect(f.session.status).toBe('ready');
+    expect(f.session.messages.at(-1)?.text).toContain('still processing');
+  });
   it('waits for a delayed link destination without planning against focused old controls', async () => {
     const f=fixture();
     const old={...base,elements:[{...base.elements[0],tag:'a',name:'Settings',href:'https://shop.example.com/settings'}]};

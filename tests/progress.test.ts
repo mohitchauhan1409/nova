@@ -1,5 +1,5 @@
 import {describe,it,expect} from 'vitest';
-import {observeProgress,beforeProgressAction} from '../BE/src/agent/progress';
+import {observeProgress,beforeProgressAction,repeatedTabInspection} from '../BE/src/agent/progress';
 import {relevantFlows} from '../BE/src/agent/flow-context';
 import {completionProblem} from '../BE/src/agent/verification';
 import {actionSchema,type Action,type Snapshot} from '../shared/types';
@@ -9,6 +9,17 @@ import {workflowProfile} from './fixtures/profiles';
 import type {Session} from '../shared/types';
 const session=()=>({messages:[{role:'user',text:'Verify my workflow delay and End outcome. Do not create campaigns.'}],traces:[],progress:{url:snapshot.url,reloads:0,actions:[],settings:[]}} as unknown as Session);
 describe('persistent run observations',()=>{
+ it('detects unchanged tab cycles despite new refs and allows new content or field state',()=>{
+  const visits=new Map<string,number>();
+  const tab=(ref:string):Snapshot=>({...snapshot,text:'Processing is pending',elements:[{...snapshot.elements[0],ref,tag:'button',role:'tab',name:'Summary',state:['selected:false']}]});
+  expect(repeatedTabInspection(action({ref:'a'}),tab('a'),visits)).toBe(false);
+  expect(repeatedTabInspection(action({ref:'b'}),tab('b'),visits)).toBe(false);
+  expect(repeatedTabInspection(action({ref:'c'}),tab('c'),visits)).toBe(true);
+  expect(repeatedTabInspection(action({ref:'d'}),{...tab('d'),text:'Processed decisions are available'},visits)).toBe(false);
+  const changed=tab('e');changed.elements.push({...snapshot.elements[0],state:['value:2']});
+  expect(repeatedTabInspection(action({ref:'e'}),changed,visits)).toBe(false);
+  for(let i=0;i<4;i++)expect(repeatedTabInspection(action({ref:'field'}),snapshot,visits)).toBe(false);
+ });
  it('retains inspected settings across panels and invalidates them on reload or field editing',()=>{
   const s=session();const snap={...snapshot,elements:[{...snapshot.elements[0],ref:'wait',name:'Wait',state:['value:1','scrollY:0']}]};observeProgress(s,snap);observeProgress(s,{...snapshot,elements:[]});expect(s.progress!.settings[0].state).toEqual(['value:1']);
   const done=action({kind:'done',completion:{status:'completed',evidence:[{source:'state',ref:'wait',value:'value:1'}]}});expect(completionProblem(done,{...snapshot,elements:[]},undefined,false,s.progress)).toBeUndefined();
