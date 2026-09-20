@@ -39,6 +39,8 @@ final class WindowRecorder: NSObject, SCStreamOutput, SCStreamDelegate, @uncheck
     var timer: DispatchSourceTimer?
     var failed: String?
     var privacy: PrivacyPlan?
+    var privacyURL: URL?
+    var privacyBytes: Data?
     let imageContext = CIContext()
     let queue = DispatchQueue(label: "nova.window.recorder")
 
@@ -48,6 +50,23 @@ final class WindowRecorder: NSObject, SCStreamOutput, SCStreamDelegate, @uncheck
         guard let attachments = CMSampleBufferGetSampleAttachmentsArray(sample, createIfNecessary: false) as? [[SCStreamFrameInfo: Any]],
               let status = attachments.first?[.status] as? Int, status == SCFrameStatus.complete.rawValue else { return }
         let source = CMSampleBufferGetImageBuffer(sample)!
+        if let privacyURL {
+            do {
+                let data = try Data(contentsOf: privacyURL)
+                if data != privacyBytes {
+                    let updated = try JSONDecoder().decode(PrivacyPlan.self, from: data)
+                    try updated.validate(width: CVPixelBufferGetWidth(source), height: CVPixelBufferGetHeight(source))
+                    privacy = updated
+                    privacyBytes = data
+                    print("Privacy plan updated before source frame at epoch milliseconds: \(Int64(Date().timeIntervalSince1970 * 1000))")
+                    fflush(stdout)
+                }
+            } catch {
+                failed = "Privacy plan reload failed: \(error.localizedDescription)"
+                latest = nil
+                return
+            }
+        }
         if let privacy {
             // Do not retain or write an unredacted frame when masks are enabled.
             guard CVPixelBufferGetWidth(source) == privacy.width,
@@ -166,7 +185,11 @@ if args.count == 2 && args[1] == "list" {
     let recorder = WindowRecorder()
     if let flag = args.firstIndex(of: "--masks") {
         guard args.indices.contains(flag + 1) else { fatalError("--masks needs a JSON path") }
-        recorder.privacy = try JSONDecoder().decode(PrivacyPlan.self, from: Data(contentsOf: URL(fileURLWithPath: args[flag + 1])))
+        let privacyURL = URL(fileURLWithPath: args[flag + 1])
+        let privacyBytes = try Data(contentsOf: privacyURL)
+        recorder.privacyURL = privacyURL
+        recorder.privacyBytes = privacyBytes
+        recorder.privacy = try JSONDecoder().decode(PrivacyPlan.self, from: privacyBytes)
     }
     try await recorder.start(window: window, output: output)
     if args.count > 4, let seconds = Double(args[4]), seconds > 0 {
