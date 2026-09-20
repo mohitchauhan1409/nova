@@ -1,0 +1,4 @@
+import {readFile} from 'node:fs/promises';
+import {SarvamVoice} from '../../BE/src/providers/sarvam';
+const file=await readFile(process.argv[2]);let pcm=Buffer.alloc(0);for(let o=12;o+8<=file.length;){const n=file.readUInt32LE(o+4);if(file.toString('ascii',o,o+4)==='data'){pcm=file.subarray(o+8,o+8+n);break;}o+=8+n+(n%2)}
+const voice=new SarvamVoice(e=>{if(['transcript','error'].includes(e.event))console.log(JSON.stringify(e));},t=>console.log(JSON.stringify({transcript:t})),()=>{});voice.start();await new Promise(r=>setTimeout(r,600));for(let o=0;o<pcm.length;o+=3200){voice.audio(pcm.subarray(o,o+3200).toString('base64'));await new Promise(r=>setTimeout(r,100));}for(let i=0;i<30;i++){voice.audio(Buffer.alloc(3200).toString('base64'));await new Promise(r=>setTimeout(r,100));}voice.close();

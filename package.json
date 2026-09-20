@@ -29,7 +29,12 @@
     "test:question-panel": "tsx scripts/question-panel-smoke.ts",
     "test:workflow-loop": "tsx scripts/workflow-loop-smoke.ts",
     "test:panel": "tsx scripts/panel-experience-smoke.ts",
-    "test:launcher-visibility": "tsx scripts/launcher-visibility-smoke.ts"
+    "test:launcher-visibility": "tsx scripts/launcher-visibility-smoke.ts",
+    "test:bolna": "tsx scripts/bolna-smoke.ts",
+    "demo:bolna": "tsx scripts/bolna-demo.ts",
+    "test:bolna-demo": "tsx scripts/bolna-demo-smoke.ts",
+    "test:bolna-creation": "tsx scripts/bolna-creation-smoke.ts",
+    "test:bolna-panel": "tsx scripts/bolna-panel-smoke.ts"
   },
   "dependencies": {
     "@fastify/cors": "^11.1.0",

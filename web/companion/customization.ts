@@ -1,2 +1,7 @@
-// Optional customer theme. Browser actions and activation rules stay shared.
-export function launcherStylesFor(_url: string): string { return ''; }
+// Only the Bolna tab receives this customer-specific launcher appearance.
+export function launcherStylesFor(url: string): string {
+  try {
+    if (new URL(url).hostname !== 'platform.bolna.ai') return '';
+  } catch { return ''; }
+  return "    .launch{gap:11px;padding:9px 13px 9px 9px;border:1px solid #ffffffc9;border-radius:21px;background:linear-gradient(135deg,#fffffffa,#f6f9ffed);box-shadow:0 2px 5px #2441780c,0 12px 36px #24417826,inset 0 1px 0 white;min-width:178px;color:#263b5b}\n    .symbol{height:42px;width:42px;border-radius:14px;background:linear-gradient(145deg,var(--site-ink,#3860d5),#233a70);color:#fff;position:relative;box-shadow:inset 0 1px 0 #ffffff40,0 3px 8px #2e4e9420}.symbol svg{width:27px;height:27px}.symbol circle{fill:var(--site-ink,#3860d5)}.symbol:after{content:'';position:absolute;inset:-3px;border:1px solid #dbe5fa;border-radius:17px}\n    .word{display:flex;flex-direction:column;gap:5px;align-items:flex-start;letter-spacing:0;max-width:180px}.word strong{font-size:12px;letter-spacing:-.2px;font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.word small{font-size:8px;letter-spacing:.55px;color:#8795ac;font-weight:500}.divider{background:#e2e9f5;height:23px}.panel-icon{color:#6d86af}.dot{right:4px;top:4px;width:7px;height:7px;background:#48af8c;border:2px solid white}.hint{bottom:92px;background:#233851;box-shadow:0 4px 15px #20304714}.notice{bottom:94px}.cursor b{border-radius:8px;box-shadow:0 3px 12px #29486a1c;font-size:10px;padding:6px 9px}.ring{border-color:var(--site-ink,#3860d5)}";
+}

@@ -1,0 +1,11 @@
+import {config} from '../BE/src/config';
+import {bolnaDemoProfile} from '../BE/src/sites/bolna-demo';
+import {mkdir,writeFile} from 'node:fs/promises';
+const base=`http://127.0.0.1:${config.port}`;
+const headers={authorization:`Bearer ${config.token}`,'content-type':'application/json'};
+const response=await fetch(`${base}/api/sites`,{headers});if(!response.ok)throw new Error(`Read profiles: ${response.status}`);
+const sites=await response.json();const current=sites.find((s:{domain:string})=>s.domain==='platform.bolna.ai');if(!current)throw new Error('Bolna profile not found');
+await mkdir('artifacts/bolna',{recursive:true});await writeFile(`artifacts/bolna/profile-before-demo-${Date.now()}.json`,JSON.stringify(current,null,2),{mode:0o600});
+const {name,color,description,instructions,flows}=bolnaDemoProfile;
+const updated=await fetch(`${base}/api/sites/${current.id}`,{method:'PATCH',headers,body:JSON.stringify({name,color,description,instructions,flows})});if(!updated.ok)throw new Error(`Update profile: ${updated.status}`);
+console.log('Bolna recording preset enabled: three creation journeys plus four supporting flows. The previous profile is backed up in artifacts/bolna. Start a new conversation before rehearsal.');process.exit(0);

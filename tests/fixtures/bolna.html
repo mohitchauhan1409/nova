@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Voice operations test workspace</title>
+<style>body{font:17px system-ui;margin:40px;max-width:1000px}button,input,textarea,select{font:inherit;padding:10px;margin:8px}label{display:block}textarea{width:650px;height:100px}[hidden]{display:none}</style>
+<h1>Agent Studio — fictional test workspace</h1><p>No real calls or customer records exist in this fixture.</p>
+<nav><button role="tab" aria-selected="true" onclick="tab('agent',this)">Agent</button><button role="tab" aria-selected="false" onclick="tab('intelligence',this)">Intelligence</button><button role="tab" aria-selected="false" onclick="tab('engine',this)">Engine</button></nav>
+<section id="agent"><h2>Agent</h2><label>Welcome message<textarea id="welcome" oninput="if(this.value==='Hello {first_name}, how can I help?'){writes++;counts()}"></textarea></label></section>
+<section id="intelligence" hidden><h2>Intelligence</h2><label>Provider<select><option>Test provider</option></select></label><label>Model<select><option>Test model</option></select></label><label>Temperature<input id="temperature" type="number" step="0.1" min="0" max="1" value="0.2"></label><label>Output tokens<input id="tokens" type="number" value="250"></label></section>
+<section id="engine" hidden><h2>Engine</h2><label>Total call timeout (seconds)<input id="timeout" type="number" value="300"></label></section>
+<button onclick="save()">Save agent</button><button onclick="calls++;counts()">Get a call from agent</button>
+<p id="counts" role="status">Draft writes: 0. Saves: 0. Calls dispatched: 0.</p><p id="saved" role="status">Unsaved draft</p>
+<script>
+let writes=0,saves=0,calls=0;
+function tab(id,button){document.querySelectorAll('section').forEach(s=>s.hidden=s.id!==id);document.querySelectorAll('[role=tab]').forEach(b=>b.setAttribute('aria-selected',String(b===button)));}
+function counts(){document.getElementById('counts').textContent=`Draft writes: ${writes}. Saves: ${saves}. Calls dispatched: ${calls}.`;}
+function save(){document.getElementById('saved').textContent='Saving agent…';setTimeout(()=>{saves++;counts();document.getElementById('saved').textContent=`Agent saved successfully. Temperature ${document.getElementById('temperature').value}; output tokens ${document.getElementById('tokens').value}; total call timeout ${document.getElementById('timeout').value} seconds.`;},200);}
+</script></html>

@@ -1,4 +1,9 @@
-# Nova
+# Nova for Bolna
+
+This is the **`bolna-nova` customer branch**. It contains the complete reusable Nova product plus Bolna workflow guides, a Bolna-scoped panel/launcher theme, and customer regression/demo tools. For the general product or a new startup, start from [`main`](https://github.com/mohitchauhan1409/nova/tree/main).
+
+See [Bolna coverage](docs/BOLNA.md), [creation and recording flows](docs/BOLNA-FOUNDER-DEMO.md), and [historical live validation](docs/BOLNA-VALIDATION-HISTORY.md). The history records individual observations and remaining limits; it is not a claim of exhaustive dashboard coverage.
+
 
 A local, website-aware AI companion with real browser actions, English voice conversation, editable site guides, and confirmation before consequential actions.
 
@@ -66,7 +71,7 @@ Nova cannot inject into browser internal pages, the extension store, or other pr
 - `docs/RESEARCH.md`: Research, library decisions, competitor lessons, performance strategy, and release criteria.
 - `docs/VALIDATION.md`: What has actually been tested and the remaining limits.
 
-Built-in guides cover Amazon India, YouTube, and Google. Additional public URLs can be registered. First-page observation can suggest simple unverified flows and an accent color; use **Flow library** to add domain-specific instructions and steps. Guides are hints, not an exhaustive map of every website state.
+This branch also registers Bolna alongside Amazon India, YouTube, and Google. Bolna appearance applies only on `platform.bolna.ai`; other websites retain the core design. A fresh checkout gets the full Bolna guide catalogue. Existing local Bolna profile edits and the chosen recording preset remain in `BE/data/sites.json`. Run `npm run demo:bolna` only when intentionally switching to the curated demo guide set (it backs up the prior profile). Additional public URLs can be registered. First-page observation can suggest simple unverified flows and an accent color; use **Flow library** to add domain-specific instructions and steps. Guides are hints, not an exhaustive map of every website state.
 
 ## Interactions
 
