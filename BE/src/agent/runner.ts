@@ -236,6 +236,20 @@ export class AgentRunner {
               const value=action.kind==='clear'?'':action.kind==='type'?(prior?.value||'')+(action.value||''):action.value||'';
               this.session.preparedInputs=[...(this.session.preparedInputs||[]).filter(d=>d.ref!==action.ref||d.url!==snapshot.url),{ref:action.ref,url:snapshot.url,revision:target?.edit?.revision,value,kind:action.kind,...(identity?{target:{name:identity.name,tag:identity.tag,type:identity.type,context:identity.context}}:{})}].slice(-8);
             }
+            // Reusable creation forms clear their inputs after a verified Add.
+            // Retire only those drafts, not unrelated editors or message composers.
+            const committedTarget = snapshot.elements.find(e => e.ref === action.ref);
+            if (effect.verified && policy.outcome === 'allow' && action.risk === 'change' &&
+                ['click', 'double_click'].includes(action.kind) && committedTarget?.type === 'submit' &&
+                !committedTarget.submission && /^(add|create|save)(?:\s|$)/i.test(committedTarget.name)) {
+              for (const before of snapshot.elements) {
+                if (before.context !== committedTarget.context || before.edit?.empty !== false) continue;
+                const current = after.elements.find(e => e.ref === before.ref);
+                if (current?.edit?.empty !== true || current.edit.revision === before.edit.revision) continue;
+                written.delete(`${snapshot.url}|${before.ref}`);
+                this.session.preparedInputs = this.session.preparedInputs?.filter(d => d.ref !== before.ref || d.url !== snapshot.url);
+              }
+            }
             if(policy.mayCommit&&!effect.verified){this.say('I sent the action, but the website has not confirmed the result. Please check before retrying so it is not performed twice.');this.session.status='stopped';return;}
           }
           recordProgress(this.session,action,snapshot.elements.find(e=>e.ref===action.ref),effect?.detail||'Input sent; inspect outcome.');
