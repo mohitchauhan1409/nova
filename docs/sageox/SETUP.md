@@ -37,7 +37,7 @@ window, zoom, sidebar width or website layout changes. Do not reuse pixels blind
 ## Private media recovery
 
 Install Git LFS, clone the existing private repository with your own GitHub access,
-checkout `sageox-nova`, and run `git lfs pull`. Exactly three named media files are
+checkout `sageox-nova`, run `git lfs install --local`, then `git lfs pull`. Exactly three named media files are
 tracked. Compare them against `recording/checksums.sha256` using `shasum -a 256 -c`.
 The final delivery report records remote branch placement and an independent fresh
 LFS recovery check. Runtime observations, credentials and account identities are
