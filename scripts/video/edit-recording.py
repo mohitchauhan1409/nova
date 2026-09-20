@@ -83,11 +83,14 @@ def render(source, plan, silent, clicks):
             filters = [f'trim=end_frame={b-a}', 'setpts=PTS-STARTPTS', f'setpts={ratio:.12f}*PTS',
                        f'fps={fps}', 'tpad=stop_mode=clone:stop_duration=1', f'trim=end_frame={n}']
             for mask in plan.get('masks', []):
-                start = max(0, (mask.get('start_frame', a)-a)*ratio/fps)
-                end = min(n/fps, (mask.get('end_frame', b)-a)*ratio/fps)
+                # The filter is downstream of fps/trim, so n is the exact local
+                # output frame. Decimal time comparisons can miss a one-frame
+                # cover when a 30 fps boundary rounds upward (e.g. 1/30).
+                start = max(0, math.ceil((mask.get('start_frame', a)-a)*ratio-1e-7))
+                end = min(n, math.ceil((mask.get('end_frame', b)-a)*ratio-1e-7))
                 if end <= start:
                     continue
-                filters.append(f"drawbox=x={mask['x']}:y={mask['y']}:w={mask['width']}:h={mask['height']}:color=0x{mask['color'][1:]}:t=fill:enable='gte(t,{start:.9f})*lt(t,{end:.9f})'")
+                filters.append(f"drawbox=x={mask['x']}:y={mask['y']}:w={mask['width']}:h={mask['height']}:color=0x{mask['color'][1:]}:t=fill:enable='gte(n,{start})*lt(n,{end})'")
             part = root / f'{index:04d}.mp4'
             run('ffmpeg', '-v', 'error', '-ss', f'{a/fps:.9f}', '-i', source, '-an', '-vf', ','.join(filters),
                 '-frames:v', n, '-c:v', 'libx264', '-preset', 'fast', '-crf', '18', '-pix_fmt', 'yuv420p',
