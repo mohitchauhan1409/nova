@@ -67,7 +67,7 @@ describe('browser agent execution boundaries',()=>{
     f.planner.decide=vi.fn().mockResolvedValueOnce({...act('fill'),ref:'editor',value:'Best AI phones?'}).mockResolvedValueOnce({...act('fill'),ref:'editor',value:'Find the best AI smartphones.'}).mockResolvedValueOnce({...act('fill'),ref:'editor',value:'Compare AI phones for me.'});
     await f.runner.command('Write one prompt');expect(f.driver.execute).toHaveBeenCalledTimes(1);expect(f.session.preparedInputs?.[0].value).toBe('Best AI phones?');expect(f.session.status).toBe('ready');
   });
-  it.each([false, true])('reuses cleared fields after a verified ordinary record addition (delayed: %s)', async (delayed) => {
+  it.each([[false,false],[true,false],[false,true],[true,true]])('reuses cleared fields after a verified record addition (delayed: %s, approved: %s)', async (delayed, approved) => {
     const f = fixture();
     const context = 'Term (correct spelling) Heard as (mishearing) Add';
     let revision = 0;
@@ -95,7 +95,14 @@ describe('browser agent execution boundaries',()=>{
     }
     actions.push({...act('done'),summary:'Both terms are saved.',completion:{status:'completed',evidence:[{source:'text',ref:null,value:'Saved terms: First / Furst; Second / Sekond'}]}});
     f.planner.decide = async () => {expect(pending).toBeUndefined();return actions.shift()!;};
-    await f.runner.command('Add these two vocabulary corrections and save both terms.');
+    const run = f.runner.command(approved ? 'Prepare two entries for review.' : 'Add these two vocabulary corrections and save both terms.');
+    if (approved) {
+      for (let i=0;i<2;i++) {
+        await vi.waitFor(()=>expect(f.session.approval).toBeDefined(),{timeout:3000});
+        await f.runner.approve(f.session.approval!.id,true);
+      }
+    }
+    await run;
     expect(records).toEqual([['First','Furst'],['Second','Sekond']]);
     expect(f.driver.execute).toHaveBeenCalledTimes(6);
     expect(f.session.preparedInputs).toEqual([]);
