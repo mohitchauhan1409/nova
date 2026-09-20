@@ -168,12 +168,16 @@ def click_sound(rng, weight=1):
     return x*rng.uniform(.12,.18)*weight
 
 
-def render(cue_path, work):
+def render(cue_path, work, clicks_only=False):
     cues=json.loads(cue_path.read_text());rng=np.random.default_rng(2071)
     mix=np.zeros((round(cues['duration']*SR),2),dtype=np.float32)
     for event in cues['events']:
         sample=(key_sound if event['kind']=='key' else click_sound)(rng,event['strength'])
         pan=rng.uniform(-.10,.10)+(0.10 if event['actor']=='operator' else -.10)
+        # Consume the same random sequence so retained clicks keep their exact
+        # sound, timing and stereo position when keyboard effects are omitted.
+        if clicks_only and event['kind']=='key':
+            continue
         stereo=np.column_stack((sample*np.sqrt((1-pan)/2),sample*np.sqrt((1+pan)/2)))
         start=round(event['time']*SR);size=min(len(sample),len(mix)-start)
         mix[start:start+size]+=stereo[:size]
@@ -200,9 +204,16 @@ def render(cue_path, work):
     assert abs(float(metadata['format']['duration'])-cues['duration'])<.04
     assert metadata['streams'][0]['nb_frames']=='11964'
     assert not np.any(np.abs(mix)>=1)
+    if clicks_only:
+        permitted=np.zeros(len(mix),dtype=bool)
+        for event in cues['events']:
+            if event['kind']=='click':
+                a=round(event['time']*SR);permitted[a:a+int(SR*.13)]=True
+        assert not np.any(mix[~permitted]),'Sound outside a click cue'
     report={'output':str(OUTPUT),'video_stream_identical':True,
+        'sound_mode':'clicks-only' if clicks_only else 'keyboard-and-clicks',
         'audio_peak_dbfs':round(20*math.log10(float(np.max(np.abs(mix)))),2),
-        'key_events':sum(e['kind']=='key' for e in cues['events']),
+        'key_events':0 if clicks_only else sum(e['kind']=='key' for e in cues['events']),
         'click_events':sum(e['kind']=='click' for e in cues['events']),'metadata':metadata}
     (OUTPUT.parent/'sound-verification.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report,indent=2),flush=True)
@@ -216,9 +227,10 @@ if __name__=='__main__':
     parser.add_argument('--cues',type=Path,default=ROOT/'scripts/video/bolna-sound-cues.json')
     parser.add_argument('--analyze',action='store_true')
     parser.add_argument('--render',action='store_true')
+    parser.add_argument('--clicks-only',action='store_true',help='Omit keyboard effects while preserving the exact click sounds.')
     args=parser.parse_args();args.work.mkdir(parents=True,exist_ok=True)
     VIDEO=args.source.resolve();OUTPUT=args.output.resolve()
     if VIDEO==OUTPUT:raise ValueError('Use a separate output file to preserve the source.')
     cues=args.cues;cues.parent.mkdir(parents=True,exist_ok=True)
     if args.analyze:analyze(cues)
-    if args.render:render(cues,args.work)
+    if args.render:render(cues,args.work,args.clicks_only)

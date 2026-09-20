@@ -1,13 +1,14 @@
 # Bolna recordings
 
-These two videos are archived only on `bolna-nova`, using Git LFS. `main` does not contain them. Git LFS preserves both files exactly. The final sound edit copies the existing video stream without re-encoding; only the new audio track is encoded.
+These three videos are archived only on `bolna-nova`, using Git LFS. `main` does not contain them. Git LFS preserves all three files exactly. The final sound edit copies the existing video stream without re-encoding; only the new audio track is encoded.
 
 | Recording | Duration | Size | File |
 | --- | --- | --- | --- |
 | Original two-flow recording | 11:16.6 | 543,480,247 bytes | [Original MP4](../artifacts/bolna/founder-recording-v2/nova-bolna-two-flows-raw.mp4) |
 | Final edit with synchronized typing and click effects | 6:38.8 | 229,615,858 bytes | [Final MP4](../artifacts/bolna/founder-recording-v2/edit-v3/nova-bolna-with-sounds.mp4) |
+| Click-only comparison, keyboard removed | 6:38.8 | 226,508,936 bytes | [Click-only MP4](../artifacts/bolna/founder-recording-v2/edit-v4/nova-bolna-clicks-only.mp4) |
 
-Both are 3024 × 1964 H.264 videos at 30 fps. Screenshots, earlier takes, duplicate containers, intermediate edits and test audio were removed. Other runtime data and generated artifacts remain ignored.
+All three are 3024 × 1964 H.264 videos at 30 fps. Screenshots, earlier takes, duplicate containers, intermediate edits and test audio were removed. Other runtime data and generated artifacts remain ignored.
 
 ## Download from GitHub
 
@@ -23,11 +24,12 @@ git fetch origin
 git switch bolna-nova
 git restore --source=origin/bolna-nova -- \
   artifacts/bolna/founder-recording-v2/nova-bolna-two-flows-raw.mp4 \
-  artifacts/bolna/founder-recording-v2/edit-v3/nova-bolna-with-sounds.mp4
+  artifacts/bolna/founder-recording-v2/edit-v3/nova-bolna-with-sounds.mp4 \
+  artifacts/bolna/founder-recording-v2/edit-v4/nova-bolna-clicks-only.mp4
 git lfs pull origin bolna-nova
 ```
 
-The restore command deliberately replaces the two local copies with the archived versions. It works when either local recording has been deleted. To obtain them on a new computer, install Git LFS, clone this private repository with `--branch bolna-nova`, and run `git lfs pull`.
+The restore command deliberately replaces the three local copies with the archived versions. It works when any local recording has been deleted. To obtain them on a new computer, install Git LFS, clone this private repository with `--branch bolna-nova`, and run `git lfs pull`.
 
 ## Integrity
 
@@ -35,14 +37,15 @@ SHA-256 checksums:
 
 ```text
 Original: 6ad6809b18eb4babf6fef53ec1ea2c89be7ab7056e2079d9c17c22aba375e65e
-Final:    7d1bffc8bfdb1145d913d8ad97f52f102090d4f87a1dda030a16c3f493ec1911
+Full sound: 7d1bffc8bfdb1145d913d8ad97f52f102090d4f87a1dda030a16c3f493ec1911
+Clicks only: c656ad78874030216801528e0d6e38481bea73cd0b0c6e73c7e98c4154dc5347
 ```
 
 ## Added interaction sounds
 
-The latest final includes synthesized keyboard and mouse foley aligned to visible text changes and recorded action receipts. It contains 974 key effects and 66 clicks, with varied timbre/level, silent reading pauses, and no music or ambient noise bed. These are added editing effects, not microphone audio. Duration, resolution, frame count, and every encoded video packet are unchanged from the silent edit.
+The keyboard-and-click final includes synthesized keyboard and mouse foley aligned to visible text changes and recorded action receipts. It contains 974 key effects and 66 clicks, with varied timbre/level, silent reading pauses, and no music or ambient noise bed. These are added editing effects, not microphone audio. Duration, resolution, frame count, and every encoded video packet are unchanged from the silent edit.
 
-The prior silent final remains recoverable from [commit 9d61204](https://github.com/mohitchauhan1409/nova/blob/9d61204d73ada528fb0ffbecfd11efe7de70925c/artifacts/bolna/founder-recording-v2/edit-v2/nova-bolna.mp4). Only the original and latest final are retained in the current branch checkout.
+The prior silent final remains recoverable from [commit 9d61204](https://github.com/mohitchauhan1409/nova/blob/9d61204d73ada528fb0ffbecfd11efe7de70925c/artifacts/bolna/founder-recording-v2/edit-v2/nova-bolna.mp4). The original, keyboard-and-click edit, and click-only comparison are retained in the current branch checkout.
 
 The repeatable cue sheet is `scripts/video/bolna-sound-cues.json`; `scripts/video/add-bolna-sounds.py` generates the original sound effects using Python, numpy and FFmpeg. Render a fresh copy from the current final (its existing audio is ignored):
 
@@ -53,3 +56,5 @@ python3 scripts/video/add-bolna-sounds.py --render \
 ```
 
 The optional analysis mode requires the local edit plan and retained session receipts; ordinary rendering needs only the committed cue sheet and video.
+
+The click-only comparison omits all 974 keyboard effects and preserves the exact 66 click effects, including their timing, variation, level and stereo position. Add `--clicks-only` to the render command and choose a separate output path to reproduce it. The full-sound video is unchanged.

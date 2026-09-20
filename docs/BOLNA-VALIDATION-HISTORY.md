@@ -1,4 +1,4 @@
-> Historical engineering log retained from the original Bolna workspace. Entries describe the state at their recorded date and may have been superseded by later entries. Historical artifacts, local objects and temporary files are not included in Git. The two retained recordings are now archived on this branch using Git LFS; see [recordings and recovery](BOLNA-RECORDINGS.md). See VALIDATION.md for the current branch checks.
+> Historical engineering log retained from the original Bolna workspace. Entries describe the state at their recorded date and may have been superseded by later entries. Historical artifacts, local objects and temporary files are not included in Git. The original and both sound-comparison recordings are now archived on this branch using Git LFS; see [recordings and recovery](BOLNA-RECORDINGS.md). See VALIDATION.md for the current branch checks.
 
 # Nova validation record
 
