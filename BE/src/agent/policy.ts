@@ -115,6 +115,15 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
   // Inline title editors commit on Enter; they are not message composers.
   // Keep this after the consequential-action and sensitive-settings gates.
   if(action.kind==='press'&&action.value==='Enter'&&/^(rename|edit (?:name|title))\b/i.test(target.name.trim())&&(['input','textarea'].includes(target.tag)||target.role==='textbox')&&!target.submission)return result('allow','Save the requested inline name or title',true);
+  if (action.kind === 'press' && action.value === 'Enter' && action.risk === 'change' &&
+      target.tag === 'input' && target.type === 'text' && target.form === false && !target.submission &&
+      target.edit?.empty === false && /^(?:(?:document|discussion|project|workflow|folder|page|file|note|record|item) )?(?:name|title)$/i.test(target.name.trim())) {
+    const request = intent.split('\n').reverse().find(line => /\b(rename|(?:change|edit|update).{0,20}(?:name|title))\b/i.test(line));
+    if (request && !/\b(how|what if|explain|after|until|confirmation|approve|approval)\b|\b(ask|check with) me\b/i.test(request)) {
+      const affirmative = request.replace(/\b(don['’]?t|do not|never|without|stop|cancel)\b[^,;.!?]*/gi, '');
+      if (/\b(rename|(?:change|edit|update).{0,20}(?:name|title))\b/i.test(affirmative)) return result('allow','Save the explicitly requested inline metadata title',true);
+    }
+  }
   if (cartControl.test(target.name)) return intentAllows(intent, 'cart') ? result('allow', 'Make the cart change you requested', true) : result('approve', 'Changing this cart was not clear from your request.', true);
   if (['select', 'check'].includes(action.kind)) return result('allow', 'Choose the requested filter, option, or variant', true);
   if (requestedTerminologyEdit(action, snapshot, intent)) return result('allow', 'Save the terminology correction explicitly requested in this observed form', true);
