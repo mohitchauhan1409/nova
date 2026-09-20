@@ -103,6 +103,14 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
   }
   if (action.kind === 'press' && action.value === 'Enter' && /search|query|find/i.test(`${target.name} ${target.type}`)) return result('allow', 'Submit a search query');
   const context = `${target.name} ${target.context}`;
+  // An ellipsis in an ordinary import menu opens a preparation dialog. It is
+  // separate from the later form/file submission, which retains its own gate.
+  if (action.risk === 'read' && ['click','double_click'].includes(action.kind) &&
+      target.role === 'menuitem' && target.type !== 'submit' && !target.form && !target.submission && !target.href &&
+      /^(upload|import)(?: (?:an? )?(?:files?|recordings?|transcripts?|data))?(?:…|\.{3})$/i.test(target.name.trim()) &&
+      !serious.test(target.context) && !sensitiveSettings.test(context)) {
+    return result('allow', 'Open the import preparation dialog');
+  }
   if (serious.test(target.name) || action.risk === 'sensitive' || sensitiveSettings.test(context) || /\b(subscribe|subscription|upgrade)\b/i.test(target.name) && /\b(pay|paid|billing|charge|per month|monthly|annual|trial)\b|[$₹€£]/i.test(target.context)) return result('approve', 'Review this purchase, communication, deletion, agreement, or sensitive account change.', true);
   // Inline title editors commit on Enter; they are not message composers.
   // Keep this after the consequential-action and sensitive-settings gates.

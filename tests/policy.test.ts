@@ -11,6 +11,15 @@ export const snapshot: Snapshot = { id: 's1', url: 'https://www.amazon.in/dp/dem
 ], viewport:{width:1200,height:800},theme:{color:'#000',font:'Arial'},frames:0,capturedAt:0 };
 export const action = (patch: Partial<Action> = {}): Action => ({kind:'click',ref:'cart',url:null,value:null,x:null,y:null,summary:'Add the adapter to cart for ₹799',risk:'read',...patch});
 describe('deterministic action policy', () => {
+  it('opens an ellipsis import menu without authorizing a file submission or publication', () => {
+    const target = {...snapshot.elements[0],ref:'import',tag:'div',role:'menuitem',type:'',name:'Upload a recording…'};
+    const check = (patch = {}) => checkAction(action({ref:'import'}), {...snapshot,elements:[{...target,...patch}]},snapshot.url);
+    expect(check().outcome).toBe('allow');
+    expect(check().mayCommit).toBe(false);
+    for(const patch of [{name:'Upload now'}, {type:'submit'}, {form:true}, {name:'Upload and publish…'}, {context:'Make public'}, {name:'Upload permissions…'}]) {
+      expect(check(patch).outcome).toBe('approve');
+    }
+  });
   it('allows targetless Escape but never targetless Enter or Delete',()=>{
     expect(checkAction(action({kind:'press',ref:null,value:'Escape'}),snapshot,snapshot.url).outcome).toBe('allow');
     for(const value of ['Enter','Delete'])expect(checkAction(action({kind:'press',ref:null,value}),snapshot,snapshot.url).outcome).toBe('block');
