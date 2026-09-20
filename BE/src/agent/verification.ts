@@ -2,7 +2,7 @@ import type { Action, ActionResult, Snapshot, Session } from '../../../shared/ty
 
 export type Effect = { verified: boolean; detail: string; action: Action['kind'] };
 const normalize = (text: string) => text.replace(/\s+/g,' ').trim();
-export function actionEffect(action: Action, before: Snapshot, after: Snapshot, result?: unknown): Effect {
+export function actionEffect(action: Action, before: Snapshot, after: Snapshot, result?: unknown, mayCommit = false): Effect {
   const receipt = result as ActionResult | undefined;
   if(receipt?.ok === false) return {action:action.kind,verified:false,detail:receipt.detail || 'The browser rejected this action.'};
   if(receipt?.verification?.status === 'verified') return {action:action.kind,verified:true,detail:receipt.verification.detail};
@@ -19,6 +19,17 @@ export function actionEffect(action: Action, before: Snapshot, after: Snapshot, 
         return {action:action.kind,verified:false,detail:'The requested navigation is still pending. Wait for the destination before planning another click.'};
       }
     } catch { /* Invalid destinations are rejected by policy before dispatch. */ }
+  }
+  // A commit can dismiss autofill or move focus while its unchanged draft is
+  // still waiting for the server. Those control changes are not a saved result.
+  const retainedDraft = targetBefore && before.elements.some(e =>
+    e.context === targetBefore.context && e.edit?.empty === false &&
+    after.elements.some(next => next.ref === e.ref && next.edit?.empty === false && next.edit.revision === e.edit?.revision));
+  const semanticState = (states?: string[]) => states?.filter(s => /^(checked|selected|pressed|expanded|value):/.test(s));
+  const controlChanged = JSON.stringify(semanticState(targetBefore?.state)) !== JSON.stringify(semanticState(targetAfter?.state));
+  if (mayCommit && !controlChanged && ['click','double_click','press'].includes(action.kind) && targetAfter && retainedDraft &&
+      (targetAfter.disabled || normalize(before.text) === normalize(after.text))) {
+    return {action:action.kind,verified:false,detail:'The submitted draft is still present without a saved result. Wait for the website before planning another submission.'};
   }
   // A submit button often disappears behind a spinner before persistence. Its
   // label/disabled-state change alone must not release the next planned action.

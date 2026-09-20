@@ -81,7 +81,7 @@ export class AgentRunner {
       const policy=checkAction(action,snapshot,this.scope,this.intent());if(policy.outcome!=='allow'){this.say(policy.reason);this.session.status='stopped';return;}
       const step=this.beginStep(action);const started=performance.now();const result=await this.driver.execute(action);this.stepResult(step,'checking');if(signal.aborted)return;
       this.session.steps++;this.trace('act',action.summary,Math.round(performance.now()-started));const after=await this.observe();
-      if(signal.aborted)return;const effect=actionEffect(action,snapshot,after,result);this.trace('verify',effect.detail);this.stepResult(step,effect.verified?'verified':'unverified',effect.detail);
+      if(signal.aborted)return;const effect=actionEffect(action,snapshot,after,result,policy.mayCommit);this.trace('verify',effect.detail);this.stepResult(step,effect.verified?'verified':'unverified',effect.detail);
       this.say(effect.verified?(action.kind==='zoom'?'Zoom adjusted.':action.kind==='media'?effect.detail:'Scrolled.'):action.kind==='media'?'The player did not confirm the requested change.':'The page position did not change. It may already be at the limit, or this page may use a separate scroll area.');this.session.status='ready';
     }finally{if(this.session.status==='running')this.session.status='ready';this.update();}
   }
@@ -132,13 +132,13 @@ export class AgentRunner {
     const written=new Set<string>();let preventedWrites=0;
     let failures = 0; let lastAction = ''; let repeated = 0; let screenshot: string | undefined; let observed: Snapshot | undefined;
     let effect: Effect | undefined; let attempted = false; let completionFailures = 0;
-    let pendingEffect: {action:Action;before:Snapshot;result:unknown}|undefined;
+    let pendingEffect: {action:Action;before:Snapshot;result:unknown;mayCommit:boolean}|undefined;
     const deadline = Date.now() + 8 * 60 * 1000;
     try {
       for (let step = 0; step < 48 && Date.now() < deadline; step++) {
         if (signal.aborted) return;
         const snapshot = observed || await this.observe(); observed = undefined;
-        if(pendingEffect){effect=actionEffect(pendingEffect.action,pendingEffect.before,snapshot,pendingEffect.result);if(effect.verified)pendingEffect=undefined;}
+        if(pendingEffect){effect=actionEffect(pendingEffect.action,pendingEffect.before,snapshot,pendingEffect.result,pendingEffect.mayCommit);if(effect.verified)pendingEffect=undefined;}
         if (signal.aborted) return;
         if (snapshot.blocked) { this.say(snapshot.blocked); this.session.status = 'stopped'; return; }
         if (!sameSite(this.scope, snapshot.url)) { this.say('The browser moved to another website. Attach that website or start a session there to continue.'); this.session.status = 'stopped'; return; }
@@ -218,13 +218,13 @@ export class AgentRunner {
           this.trace('act', action.summary, Math.round(performance.now() - actionStart));this.stepResult(actionStep,'checking');
           let after = await this.observe();
           if(action.kind!=='wait'){
-            pendingEffect={action,before:snapshot,result};effect=actionEffect(action,snapshot,after,result);
+            pendingEffect={action,before:snapshot,result,mayCommit:policy.mayCommit};effect=actionEffect(action,snapshot,after,result,policy.mayCommit);
             if(effect.verified&&/^(Visible (page content|controls) changed|Navigation observed:)/.test(effect.detail)){
               await new Promise(resolve=>setTimeout(resolve,200));if(signal.aborted)return;
-              after=await this.observe();effect=actionEffect(action,snapshot,after,result);
+              after=await this.observe();effect=actionEffect(action,snapshot,after,result,policy.mayCommit);
             }
             // Observe delayed UI updates without replaying a click or waiting for analytics/network-idle.
-            for(const delay of policy.mayCommit?[150,300,600,1000,1500]:[120,240,480,700]){if(effect.verified||signal.aborted)break;await new Promise(resolve=>setTimeout(resolve,delay));if(signal.aborted)return;after=await this.observe();effect=actionEffect(action,snapshot,after,result);}
+            for(const delay of policy.mayCommit?[150,300,600,1000,1500,2000,3000]:[120,240,480,700]){if(effect.verified||signal.aborted)break;await new Promise(resolve=>setTimeout(resolve,delay));if(signal.aborted)return;after=await this.observe();effect=actionEffect(action,snapshot,after,result,policy.mayCommit);}
             if(effect.verified)pendingEffect=undefined;
             this.stepResult(actionStep,effect.verified?'verified':'unverified',effect.detail);
             this.trace('verify',`${effect.verified?'Verified change':'Unverified action'} ${action.kind}: ${effect.detail}`);
@@ -261,7 +261,7 @@ export class AgentRunner {
           this.trace('error', safeError(error));
           // Never repeat a potentially committed action after an ambiguous transport failure.
           if (policy.mayCommit) { this.say('The browser did not confirm this action. Check the page before retrying; it may already have taken effect.'); this.session.status = 'stopped'; return; }
-          pendingEffect={action,before:snapshot,result:undefined};
+          pendingEffect={action,before:snapshot,result:undefined,mayCommit:policy.mayCommit};
           if (++failures >= 3) { this.say(`I could not complete this step: ${safeError(error)}`); this.session.status = 'error'; return; }
         }
       }

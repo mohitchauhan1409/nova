@@ -6,6 +6,17 @@ import type {Action,Snapshot,Session,SiteProfile} from '../shared/types';
 const before:Snapshot={id:'a',url:'https://example.com/',title:'Page',text:'Player',elements:[{ref:'v',tag:'video',role:'',name:'Player',type:'',context:'',disabled:false,sensitive:false,state:['paused:false']}],viewport:{width:1200,height:800,scrollY:0},theme:{color:'#000',font:'Arial'},frames:0,capturedAt:0};
 const action:Action={kind:'click',ref:'v',url:null,value:null,x:null,y:null,summary:'Pause',risk:'read'};
 describe('observed outcome verification',()=>{
+  it('waits when a non-form import only dismisses auxiliary controls with its draft intact', () => {
+    const submit={...action,risk:'sensitive' as const};
+    const button={...before.elements[0],tag:'button',name:'Import',type:'button',state:[]};
+    const draft={...button,ref:'draft',tag:'textarea',name:'Transcript',edit:{revision:'v1',empty:false}};
+    const page={...before,text:'Import transcript',elements:[button,draft,{...button,ref:'suggestion',name:'Autocomplete'}]};
+    const pending={...page,elements:[button,draft]};
+    expect(actionEffect(submit,page,pending,{ok:true},true).verified).toBe(false);
+    expect(actionEffect(submit,page,{...pending,text:'Importing',elements:[{...button,disabled:true},draft]},{ok:true},true).verified).toBe(false);
+    expect(actionEffect(submit,page,{...pending,elements:[{...button,state:['pressed:true']},draft]},{ok:true},true).verified).toBe(true);
+    expect(actionEffect(submit,page,{...pending,url:'https://example.com/records/1',text:'Saved transcript'},{ok:true},true).verified).toBe(true);
+  });
   it('does not mistake a focused link for its delayed navigation', () => {
     const page = {...before,elements:[{...before.elements[0],tag:'a',name:'Settings',href:'https://example.com/settings',state:[]}]};
     const focused = {...page,elements:page.elements.map(e=>({...e,state:['focused:true']}))};
