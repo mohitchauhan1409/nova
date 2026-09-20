@@ -36,8 +36,8 @@ try {
   const cdp=await context.newCDPSession(site);let target='';
   for(let i=0;i<100&&!target;i++){target=(await cdp.send('Target.getTargets')).targetInfos.find(t=>t.url.includes('/panel.html?tabId='))?.targetId||'';if(!target)await site.waitForTimeout(70);}
   const panel=await attachPanel(cdp,target);await panel.waitFor("document.querySelector('textarea')&&!document.querySelector('textarea').disabled");
-  await panel.waitFor("document.querySelector('.np-context strong').textContent==='Nova Demo Shop'");
-  assert.match(await panel.evaluate("document.querySelector('.np-welcome h1').textContent"),/Nova Demo Shop/);
+  await panel.waitFor("document.querySelector('.np-page-context')?.textContent==='Nova Demo Shop'");
+  assert.match(await panel.evaluate("document.querySelector('.np-welcome>p').textContent"),/Nova Demo Shop/);
   assert.match(await panel.evaluate("document.querySelector('.np-app').style.getPropertyValue('--site-accent')"),/^#[0-9a-f]{6}$/i);
   checks.push('The actual attached site profile supplies the panel identity and accent');
   const request=async(method:string,data?:unknown,targetTab=tabId)=>worker.evaluate(({method,data,tabId})=>(self as any).__driver(method,data,tabId),{method,data,tabId:targetTab});
@@ -97,7 +97,7 @@ try {
   await act('click','Open diagram');assert.equal(await site.evaluate(()=>document.body.dataset.svg),'yes');
   checks.push('Visual inspection resolves an unmarked control without clicking; subsequent trusted input uses the inspected point, and SVG controls work');
   await act('check','Enabled option','true');assert.equal(await site.locator('#check').isChecked(),true);await act('check','Enabled option','true');assert.equal(await site.locator('#check').isChecked(),true);checks.push('Checkbox state is verified and an already-selected checkbox is not toggled off');
-  const blocked=await request('execute',{kind:'fill',ref:(await snapshot()).elements.find(e=>e.type==='password')!.ref,value:'never-enter',url:null,x:null,y:null,risk:'read',summary:'test'});assert.match(blocked.error,/sensitive|unavailable/);assert.equal(await site.locator('#control-fixture input[type=password]').inputValue(),'');checks.push('Private input remains blocked even through the native input path');
+  const blocked=await request('execute',{kind:'fill',ref:(await snapshot()).elements.find(e=>e.type==='password')!.ref,value:'never-enter',url:null,x:null,y:null,risk:'read',summary:'test'});assert.equal(blocked.result?.ok,false);assert.equal(blocked.result?.dispatch,'not-sent');assert.match(blocked.result?.detail,/sensitive|unavailable/);assert.equal(await site.locator('#control-fixture input[type=password]').inputValue(),'');checks.push('Private input remains blocked even through the native input path');
   const wav=Buffer.alloc(44+16000*2*25);wav.write('RIFF');wav.writeUInt32LE(wav.length-8,4);wav.write('WAVEfmt ',8);wav.writeUInt32LE(16,16);wav.writeUInt16LE(1,20);wav.writeUInt16LE(1,22);wav.writeUInt32LE(16000,24);wav.writeUInt32LE(32000,28);wav.writeUInt16LE(2,32);wav.writeUInt16LE(16,34);wav.write('data',36);wav.writeUInt32LE(wav.length-44,40);
   await site.locator('#media').evaluate((el,src)=>{(el as HTMLAudioElement).src=src;(el as HTMLAudioElement).muted=true;},`data:audio/wav;base64,${wav.toString('base64')}`);
   await site.waitForFunction(()=>document.querySelector<HTMLAudioElement>('#media')!.readyState>=2);

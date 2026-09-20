@@ -35,6 +35,23 @@ const intentAllows = (intent: string, category: 'cart' | 'preference' | 'drag') 
   }
   return false;
 };
+// A small, observed terminology form is a reversible metadata edit, not an
+// arbitrary submission. This rule has no domain, route, or site-guide override.
+function requestedTerminologyEdit(action: Action, snapshot: Snapshot, intent: string): boolean {
+  const target = snapshot.elements.find(e => e.ref === action.ref);
+  if (!target || action.risk !== 'change' || !['click', 'double_click'].includes(action.kind) ||
+      !/^(add|save)(?: term| correction)?$/i.test(target.name.trim()) || target.submission) return false;
+  if (serious.test(target.context) || sensitiveSettings.test(target.context)) return false;
+  const fields = snapshot.elements.filter(e => e.context === target.context &&
+    (['input', 'textarea'].includes(e.tag) || e.role === 'textbox'));
+  if (fields.length !== 2 || fields.some(e => e.sensitive || e.disabled || e.edit?.empty !== false)) return false;
+  if (!fields.some(e => /^(term(?: \(correct spelling\))?|correct spelling)$/i.test(e.name)) ||
+      !fields.some(e => /^(heard as(?: \(mishearing\))?|mishearing)$/i.test(e.name))) return false;
+  const relevant = intent.split('\n').reverse().find(line => /\b(vocabulary|terminology|terms?|mishearings?|corrections?)\b/i.test(line));
+  if (!relevant || /\b(how|what if|explain|after|until|confirmation|approve|approval)\b|\b(ask|check with) me\b/i.test(relevant)) return false;
+  const affirmative = relevant.replace(/\b(don['’]?t|do not|never|without|stop|cancel)\b[^,;.!?]*/gi, '');
+  return /\b(add|save|create|update)\b/i.test(affirmative) && /\b(vocabulary|terminology|terms?|mishearings?|corrections?)\b/i.test(affirmative);
+}
 export function checkAction(action: Action, snapshot: Snapshot, _scope: string, intent = ''): PolicyDecision {
   const target = snapshot.elements.find(e => e.ref === action.ref);
   const name = target?.name || action.url || action.kind;
@@ -92,6 +109,7 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
   if(action.kind==='press'&&action.value==='Enter'&&/^(rename|edit (?:name|title))\b/i.test(target.name.trim())&&(['input','textarea'].includes(target.tag)||target.role==='textbox')&&!target.submission)return result('allow','Save the requested inline name or title',true);
   if (cartControl.test(target.name)) return intentAllows(intent, 'cart') ? result('allow', 'Make the cart change you requested', true) : result('approve', 'Changing this cart was not clear from your request.', true);
   if (['select', 'check'].includes(action.kind)) return result('allow', 'Choose the requested filter, option, or variant', true);
+  if (requestedTerminologyEdit(action, snapshot, intent)) return result('allow', 'Save the terminology correction explicitly requested in this observed form', true);
   if (preferenceControl.test(target.name.replace(/\b(?:I['’]d|(?:I|we|you)\s+would)\s+like\s+to\b/gi, ''))) return intentAllows(intent, 'preference') ? result('allow', 'Make the preference change you requested', true) : result('approve', 'This saved preference was not clear from your request.', true);
   if (browsingControl.test(target.name) && !(serious.test(target.context) && (target.form || target.type === 'submit'))) return result('allow', 'Operate the website’s browsing controls');
   if (target.type === 'submit' || target.form && ['click', 'double_click', 'press'].includes(action.kind) || action.kind === 'press' && action.value === 'Enter') return result('approve', 'Review this form submission before information is sent.', true);
