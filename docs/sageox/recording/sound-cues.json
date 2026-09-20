@@ -1,0 +1,422 @@
+{
+  "duration": 294.5,
+  "sample_rate": 48000,
+  "effect_reference": "Bolna click-only edit: identical band_noise and click_sound synthesis functions, seed 2071, stereo gain 1.6. No keyboard effects.",
+  "alignment": "Individually inspected source frames mapped through the EDL; no blanket native-input offset. Source video is 30 fps.",
+  "events": [
+    {
+      "id": 0,
+      "source_frame": 112,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Launcher activates immediately before the first panel-opening frame (113): Open Nova",
+      "dispatch_estimate_seconds": 2.857,
+      "time": 3.7333333333333334
+    },
+    {
+      "id": 1,
+      "source_frame": 226,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus opening problem",
+      "dispatch_estimate_seconds": 7.272,
+      "time": 7.533333333333333
+    },
+    {
+      "id": 2,
+      "source_frame": 657,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Send opening problem",
+      "dispatch_estimate_seconds": 21.88,
+      "time": 19.9
+    },
+    {
+      "id": 3,
+      "source_frame": 1010,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus partial names",
+      "dispatch_estimate_seconds": 33.186,
+      "time": 31.666666666666668
+    },
+    {
+      "id": 4,
+      "source_frame": 1091,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Help me choose",
+      "dispatch_estimate_seconds": 36.339,
+      "time": 34.03333333333333
+    },
+    {
+      "id": 5,
+      "source_frame": 1592,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus mishearings",
+      "dispatch_estimate_seconds": 52.813,
+      "time": 46.833333333333336
+    },
+    {
+      "id": 6,
+      "source_frame": 2353,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus title",
+      "dispatch_estimate_seconds": 77.955,
+      "time": 63.8
+    },
+    {
+      "id": 7,
+      "source_frame": 2432,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus transcript",
+      "dispatch_estimate_seconds": 80.82,
+      "time": 66.03333333333333
+    },
+    {
+      "id": 8,
+      "source_frame": 2574,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Save discussion choice",
+      "dispatch_estimate_seconds": 85.313,
+      "time": 70.76666666666667
+    },
+    {
+      "id": 9,
+      "source_frame": 2596,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Continue details",
+      "dispatch_estimate_seconds": 86.507,
+      "time": 71.5
+    },
+    {
+      "id": 10,
+      "source_frame": 2968,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Visible field focus/input transition: I\u2019m entering BayBoard as the first new Harborlight product term.",
+      "dispatch_estimate_seconds": 98.764,
+      "time": 83.9
+    },
+    {
+      "id": 11,
+      "source_frame": 3053,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Visible field focus/input transition: I\u2019m entering Bay Board as the speech-recognition mishearing for BayBoard.",
+      "dispatch_estimate_seconds": 101.607,
+      "time": 86.73333333333333
+    },
+    {
+      "id": 12,
+      "source_frame": 3131,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m adding BayBoard with \u201cBay Board\u201d as its recognized mishearing.",
+      "dispatch_estimate_seconds": 104.234,
+      "time": 89.33333333333333
+    },
+    {
+      "id": 13,
+      "source_frame": 3248,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Visible field focus/input transition: I\u2019m entering CrewLedger as the second Harborlight product term.",
+      "dispatch_estimate_seconds": 108.085,
+      "time": 93.23333333333333
+    },
+    {
+      "id": 14,
+      "source_frame": 3339,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Visible field focus/input transition: I\u2019m entering \u201cCrew Ledger\u201d as the mishearing for CrewLedger.",
+      "dispatch_estimate_seconds": 111.118,
+      "time": 96.26666666666667
+    },
+    {
+      "id": 15,
+      "source_frame": 3450,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m adding CrewLedger with \u201cCrew Ledger\u201d as its recognized mishearing.",
+      "dispatch_estimate_seconds": 114.843,
+      "time": 99.96666666666667
+    },
+    {
+      "id": 16,
+      "source_frame": 3574,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: The two Harborlight terms are saved; I\u2019m opening the discussion import options for the meeting notes.",
+      "dispatch_estimate_seconds": 118.939,
+      "time": 104.1
+    },
+    {
+      "id": 17,
+      "source_frame": 3652,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening the recording upload dialog to prepare the Harborlight meeting notes.",
+      "dispatch_estimate_seconds": 121.566,
+      "time": 106.7
+    },
+    {
+      "id": 18,
+      "source_frame": 3839,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Visible field focus/input transition: I\u2019m pasting the complete speaker-labeled Harborlight transcript so the title and import controls appear.",
+      "dispatch_estimate_seconds": 127.822,
+      "time": 112.93333333333334
+    },
+    {
+      "id": 19,
+      "source_frame": 3954,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Visible field focus/input transition: I\u2019m setting the exact discussion title before importing the prepared Harborlight transcript.",
+      "dispatch_estimate_seconds": 131.636,
+      "time": 116.76666666666667
+    },
+    {
+      "id": 20,
+      "source_frame": 4485,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Confirm import",
+      "dispatch_estimate_seconds": 149.49,
+      "time": 130.16666666666666
+    },
+    {
+      "id": 21,
+      "source_frame": 4489,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m importing \u201cHarborlight field review\u201d with the prepared 01:20 WEBVTT transcript.",
+      "dispatch_estimate_seconds": 149.509,
+      "time": 130.3
+    },
+    {
+      "id": 22,
+      "source_frame": 4833,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening \u201cHarborlight field review\u201d to verify the saved record and imported transcript.",
+      "dispatch_estimate_seconds": 160.983,
+      "time": 141.76666666666668
+    },
+    {
+      "id": 23,
+      "source_frame": 5006,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening the Transcript tab to verify the imported speakers, duration, and source content.",
+      "dispatch_estimate_seconds": 166.683,
+      "time": 147.53333333333333
+    },
+    {
+      "id": 24,
+      "source_frame": 5083,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m expanding the transcript to verify the saved Harborlight source content.",
+      "dispatch_estimate_seconds": 169.253,
+      "time": 150.1
+    },
+    {
+      "id": 25,
+      "source_frame": 5617,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus rename",
+      "dispatch_estimate_seconds": 186.989,
+      "time": 167.9
+    },
+    {
+      "id": 26,
+      "source_frame": 6222,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Send rename",
+      "dispatch_estimate_seconds": 207.357,
+      "time": 182.1
+    },
+    {
+      "id": 27,
+      "source_frame": 6326,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening the same Harborlight discussion to rename it and update its saved-for-later status.",
+      "dispatch_estimate_seconds": 210.68,
+      "time": 185.56666666666666
+    },
+    {
+      "id": 28,
+      "source_frame": 6502,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening the discussion title field to rename this same record.",
+      "dispatch_estimate_seconds": 216.58,
+      "time": 191.43333333333334
+    },
+    {
+      "id": 29,
+      "source_frame": 6596,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m reopening the title editor for this same Harborlight discussion.",
+      "dispatch_estimate_seconds": 219.723,
+      "time": 194.56666666666666
+    },
+    {
+      "id": 30,
+      "source_frame": 6706,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Visible field focus/input transition: I\u2019m entering the new title for this same Harborlight discussion.",
+      "dispatch_estimate_seconds": 223.398,
+      "time": 198.23333333333332
+    },
+    {
+      "id": 31,
+      "source_frame": 6778,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Mouse refocus of the editable title before Enter, confirmed by native-input implementation and action receipt; no keyboard sound: I\u2019m saving the new title on this same discussion.",
+      "dispatch_estimate_seconds": 225.816,
+      "time": 200.63333333333333
+    },
+    {
+      "id": 32,
+      "source_frame": 6894,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening the Discussions list to save the renamed Harborlight discussion for later.",
+      "dispatch_estimate_seconds": 229.583,
+      "time": 204.5
+    },
+    {
+      "id": 33,
+      "source_frame": 6951,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus Plans question",
+      "dispatch_estimate_seconds": 231.431,
+      "time": 206.4
+    },
+    {
+      "id": 34,
+      "source_frame": 7079,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m saving \u201cHarborlight field decisions\u201d for later.",
+      "dispatch_estimate_seconds": 235.825,
+      "time": 210.66666666666666
+    },
+    {
+      "id": 35,
+      "source_frame": 7410,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Send Plans question",
+      "dispatch_estimate_seconds": 246.974,
+      "time": 217.6
+    },
+    {
+      "id": 36,
+      "source_frame": 7940,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus Plans clarification",
+      "dispatch_estimate_seconds": 264.41,
+      "time": 226.86666666666667
+    },
+    {
+      "id": 37,
+      "source_frame": 8250,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Send Plans clarification",
+      "dispatch_estimate_seconds": 274.971,
+      "time": 234.96666666666667
+    },
+    {
+      "id": 38,
+      "source_frame": 8323,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening Plans to check for a browser-based creation option.",
+      "dispatch_estimate_seconds": 277.252,
+      "time": 237.4
+    },
+    {
+      "id": 39,
+      "source_frame": 8658,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus final request",
+      "dispatch_estimate_seconds": 288.336,
+      "time": 248.56666666666666
+    },
+    {
+      "id": 40,
+      "source_frame": 9186,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Send final request",
+      "dispatch_estimate_seconds": 306.204,
+      "time": 263.6333333333333
+    },
+    {
+      "id": 41,
+      "source_frame": 9250,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m returning to Discussions to reopen the saved Harborlight record.",
+      "dispatch_estimate_seconds": 308.147,
+      "time": 265.76666666666665
+    },
+    {
+      "id": 42,
+      "source_frame": 9337,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening \u201cHarborlight field decisions\u201d to verify its transcript and review the unresolved question.",
+      "dispatch_estimate_seconds": 311.048,
+      "time": 268.6666666666667
+    },
+    {
+      "id": 43,
+      "source_frame": 9443,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening the transcript to verify its speakers, duration, and unresolved security question.",
+      "dispatch_estimate_seconds": 314.63,
+      "time": 272.2
+    },
+    {
+      "id": 44,
+      "source_frame": 9547,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m expanding the verified 2-speaker, 01:20 transcript to read the unresolved question.",
+      "dispatch_estimate_seconds": 318.067,
+      "time": 275.6666666666667
+    },
+    {
+      "id": 45,
+      "source_frame": 9683,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m leaving Summary open after verifying the transcript and its unresolved security question.",
+      "dispatch_estimate_seconds": 322.618,
+      "time": 280.2
+    }
+  ]
+}

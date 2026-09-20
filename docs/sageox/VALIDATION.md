@@ -159,3 +159,36 @@ Remaining product limit: SageOx Distillation was still processing in the take.
 The imported source and Summary were available and verified. Broader integrations,
 file-chooser uploads, sharing, live recording and browser plan creation are not
 claimed as tested working journeys.
+
+## Private-video revision after owner feedback
+
+The owner requested removal of all account/tab covers except the browser debugging
+row and reuse of the Bolna click sound for both operator and Nova taps. Since the
+original account covers were baked during capture, a new source was required.
+
+The local backend was restarted. A read-only live Nova preflight reopened
+Harborlight decisions, verified two speakers and 01:20, used the transcript for
+the encryption question and left Summary open without tab cycling. The tab was
+closed and a new SageOx tab was launched through Nova, starting at Home with Nova
+closed. An operator accessibility-index mismatch stopped an initial new attempt
+before any website writes. The next continuous take completed successfully.
+
+Live outcomes: BayBoard and CrewLedger saved as two additional vocabulary pairs;
+one Harborlight field review import saved and its complete two-speaker 01:20
+transcript checked; same record renamed Harborlight field decisions and bookmarked;
+Plans inspected after a natural clarification; processed Summary left visible with
+the correct unresolved encryption question. One stale row target was rejected
+before input dispatch and recovered through observation. No duplicate record or
+external communication was created. All recovery is retained in the delivered take.
+
+The existing 216-test application/build validation remains applicable; no runtime
+code changed in this revision. Main received only the reusable click-only renderer
+and documentation (05fd218), verified by a real stream-copy render, duration/frame
+checks and exact AST comparison with Bolna's synthesis functions. Media, fixtures,
+EDL, individual cue decisions and live timing evidence remain on sageox-nova.
+
+The final export check found a one-frame cover gap caused by decimal time
+rounding in drawbox enable expressions. Shared editor fix 6b37b43 uses integer
+output-frame boundaries. A real 30 fps render with adjacent one-frame covers
+verified both covered frames and unchanged neighboring frames; the full export
+was regenerated and its slide-in frames rechecked. No runtime/agent code changed.

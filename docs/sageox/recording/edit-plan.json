@@ -2,343 +2,372 @@
   "fps": 30,
   "width": 3024,
   "height": 1776,
-  "source_sha256": "ce252052397cb11190a63ca905d6fee7e9f3dc21f3d54768c9337b88339f8beb",
+  "source_first_frame_epoch_ms": 1789910487261,
+  "source_sha256": "4b81cb91eada8549635020a2fd87f9d7043f70953956d5a28e140f582fcc6c82",
   "segments": [
     {
       "start_frame": 0,
-      "end_frame": 180,
-      "output_frames": 180,
+      "end_frame": 112,
+      "output_frames": 112,
       "kind": "establishing",
-      "reason": "Fresh Home establishing view, Nova closed."
+      "reason": "Freshly launched Home view with Nova closed."
     },
     {
-      "start_frame": 180,
-      "end_frame": 348,
-      "output_frames": 168,
+      "start_frame": 112,
+      "end_frame": 227,
+      "output_frames": 115,
       "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
+      "reason": "Preserve visible interaction, response, scroll and reading time."
     },
     {
-      "start_frame": 348,
-      "end_frame": 690,
-      "output_frames": 285,
+      "start_frame": 227,
+      "end_frame": 590,
+      "output_frames": 303,
       "kind": "operator-typing",
-      "reason": "Opening problem at no more than 1.2x; all visible text retained."
+      "reason": "Opening problem at no more than 1.2x."
     },
     {
-      "start_frame": 690,
-      "end_frame": 720,
-      "output_frames": 30,
+      "start_frame": 590,
+      "end_frame": 656,
+      "output_frames": 66,
       "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
+      "reason": "Preserve visible interaction, response, scroll and reading time."
     },
     {
-      "start_frame": 720,
-      "end_frame": 1092,
-      "output_frames": 45,
-      "kind": "operator-idle",
-      "reason": "Operator pause after opening input; retain typed text, pointer movement and Send."
-    },
-    {
-      "start_frame": 1092,
-      "end_frame": 1120,
-      "output_frames": 28,
-      "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
-    },
-    {
-      "start_frame": 1120,
-      "end_frame": 1321,
-      "output_frames": 201,
+      "start_frame": 656,
+      "end_frame": 881,
+      "output_frames": 225,
       "kind": "agent",
-      "reason": "Unchanged real-time Nova execution, including asynchronous processing and final source clarification."
+      "reason": "Nova execution retained at real speed, including verification and recorded recovery."
     },
     {
-      "start_frame": 1321,
-      "end_frame": 1485,
-      "output_frames": 164,
+      "start_frame": 881,
+      "end_frame": 1011,
+      "output_frames": 130,
       "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
+      "reason": "Preserve visible interaction, response, scroll and reading time."
     },
     {
-      "start_frame": 1485,
-      "end_frame": 1600,
+      "start_frame": 1011,
+      "end_frame": 1075,
+      "output_frames": 54,
+      "kind": "operator-typing",
+      "reason": "Partial product names at no more than 1.2x."
+    },
+    {
+      "start_frame": 1075,
+      "end_frame": 1090,
+      "output_frames": 15,
+      "kind": "reading",
+      "reason": "Preserve visible interaction, response, scroll and reading time."
+    },
+    {
+      "start_frame": 1090,
+      "end_frame": 1281,
+      "output_frames": 191,
+      "kind": "agent",
+      "reason": "Nova execution retained at real speed, including verification and recorded recovery."
+    },
+    {
+      "start_frame": 1281,
+      "end_frame": 1365,
+      "output_frames": 84,
+      "kind": "reading",
+      "reason": "Preserve visible interaction, response, scroll and reading time."
+    },
+    {
+      "start_frame": 1365,
+      "end_frame": 1557,
+      "output_frames": 75,
+      "kind": "operator-idle",
+      "reason": "Operator reading pause after the clarified card; retain six seconds of total card reading."
+    },
+    {
+      "start_frame": 1557,
+      "end_frame": 1594,
+      "output_frames": 37,
+      "kind": "reading",
+      "reason": "Preserve visible interaction, response, scroll and reading time."
+    },
+    {
+      "start_frame": 1594,
+      "end_frame": 1642,
+      "output_frames": 40,
+      "kind": "operator-typing",
+      "reason": "First spelling pair at no more than 1.2x."
+    },
+    {
+      "start_frame": 1642,
+      "end_frame": 1659,
+      "output_frames": 17,
+      "kind": "reading",
+      "reason": "Preserve visible interaction, response, scroll and reading time."
+    },
+    {
+      "start_frame": 1659,
+      "end_frame": 1764,
       "output_frames": 30,
       "kind": "operator-idle",
-      "reason": "Operator pause after reading initial questions."
+      "reason": "Operator pause between the two spelling pairs."
     },
     {
-      "start_frame": 1600,
-      "end_frame": 1632,
-      "output_frames": 32,
+      "start_frame": 1764,
+      "end_frame": 1775,
+      "output_frames": 11,
       "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
+      "reason": "Preserve visible interaction, response, scroll and reading time."
     },
     {
-      "start_frame": 1632,
-      "end_frame": 1700,
-      "output_frames": 57,
+      "start_frame": 1775,
+      "end_frame": 1836,
+      "output_frames": 51,
       "kind": "operator-typing",
-      "reason": "Partial product names at no more than 1.2x; all visible text retained."
+      "reason": "Second spelling pair at no more than 1.2x."
     },
     {
-      "start_frame": 1700,
-      "end_frame": 1707,
-      "output_frames": 7,
-      "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
-    },
-    {
-      "start_frame": 1707,
+      "start_frame": 1836,
       "end_frame": 1908,
-      "output_frames": 201,
-      "kind": "agent",
-      "reason": "Unchanged real-time Nova execution, including asynchronous processing and final source clarification."
+      "output_frames": 72,
+      "kind": "reading",
+      "reason": "Preserve visible interaction, response, scroll and reading time."
     },
     {
       "start_frame": 1908,
-      "end_frame": 2077,
-      "output_frames": 169,
-      "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
-    },
-    {
-      "start_frame": 2077,
-      "end_frame": 2103,
-      "output_frames": 22,
-      "kind": "operator-typing",
-      "reason": "DockBoard mishearing at no more than 1.2x; all visible text retained."
-    },
-    {
-      "start_frame": 2103,
-      "end_frame": 2235,
-      "output_frames": 132,
-      "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
-    },
-    {
-      "start_frame": 2235,
-      "end_frame": 2505,
-      "output_frames": 45,
-      "kind": "operator-idle",
-      "reason": "Operator pause before bringing an offscreen card field into view; no website work."
-    },
-    {
-      "start_frame": 2505,
-      "end_frame": 2565,
-      "output_frames": 60,
-      "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
-    },
-    {
-      "start_frame": 2565,
-      "end_frame": 2697,
+      "end_frame": 1977,
       "output_frames": 30,
       "kind": "operator-idle",
-      "reason": "Operator pause between card scrolls; both scrolls retained."
+      "reason": "Operator pause between scrolls; scroll movement retained."
     },
     {
-      "start_frame": 2697,
-      "end_frame": 2816,
-      "output_frames": 119,
+      "start_frame": 1977,
+      "end_frame": 2172,
+      "output_frames": 195,
       "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
+      "reason": "Preserve visible interaction, response, scroll and reading time."
     },
     {
-      "start_frame": 2816,
-      "end_frame": 2847,
-      "output_frames": 26,
+      "start_frame": 2172,
+      "end_frame": 2322,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Operator pause after centering the title field."
+    },
+    {
+      "start_frame": 2322,
+      "end_frame": 2354,
+      "output_frames": 32,
+      "kind": "reading",
+      "reason": "Preserve visible interaction, response, scroll and reading time."
+    },
+    {
+      "start_frame": 2354,
+      "end_frame": 2427,
+      "output_frames": 61,
       "kind": "operator-typing",
-      "reason": "ShiftPilot mishearing visible at no more than 1.2x; all visible text retained."
+      "reason": "Discussion title at no more than 1.2x."
     },
     {
-      "start_frame": 2847,
-      "end_frame": 2959,
-      "output_frames": 112,
+      "start_frame": 2427,
+      "end_frame": 2595,
+      "output_frames": 168,
       "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
+      "reason": "Preserve visible interaction, response, scroll and reading time."
     },
     {
-      "start_frame": 2959,
-      "end_frame": 3037,
-      "output_frames": 65,
-      "kind": "operator-typing",
-      "reason": "Discussion title at no more than 1.2x; all visible text retained."
+      "start_frame": 2595,
+      "end_frame": 4036,
+      "output_frames": 1441,
+      "kind": "agent",
+      "reason": "Nova execution retained at real speed, including verification and recorded recovery."
     },
     {
-      "start_frame": 3037,
-      "end_frame": 3360,
-      "output_frames": 323,
+      "start_frame": 4036,
+      "end_frame": 4290,
+      "output_frames": 254,
       "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
+      "reason": "Preserve visible interaction, response, scroll and reading time."
     },
     {
-      "start_frame": 3360,
-      "end_frame": 3525,
+      "start_frame": 4290,
+      "end_frame": 4464,
       "output_frames": 45,
       "kind": "operator-idle",
-      "reason": "Operator pause after selecting import outcome."
+      "reason": "Operator approval review pause; retain more than eight seconds before confirmation."
     },
     {
-      "start_frame": 3525,
-      "end_frame": 3549,
+      "start_frame": 4464,
+      "end_frame": 4484,
+      "output_frames": 20,
+      "kind": "reading",
+      "reason": "Preserve visible interaction, response, scroll and reading time."
+    },
+    {
+      "start_frame": 4484,
+      "end_frame": 5502,
+      "output_frames": 1018,
+      "kind": "agent",
+      "reason": "Nova execution retained at real speed, including verification and recorded recovery."
+    },
+    {
+      "start_frame": 5502,
+      "end_frame": 5618,
+      "output_frames": 116,
+      "kind": "reading",
+      "reason": "Preserve visible interaction, response, scroll and reading time."
+    },
+    {
+      "start_frame": 5618,
+      "end_frame": 6008,
+      "output_frames": 325,
+      "kind": "operator-typing",
+      "reason": "Rename request at no more than 1.2x."
+    },
+    {
+      "start_frame": 6008,
+      "end_frame": 6036,
+      "output_frames": 28,
+      "kind": "reading",
+      "reason": "Preserve visible interaction, response, scroll and reading time."
+    },
+    {
+      "start_frame": 6036,
+      "end_frame": 6195,
+      "output_frames": 45,
+      "kind": "operator-idle",
+      "reason": "Operator pause after typing the rename request."
+    },
+    {
+      "start_frame": 6195,
+      "end_frame": 6220,
+      "output_frames": 25,
+      "kind": "reading",
+      "reason": "Preserve visible interaction, response, scroll and reading time."
+    },
+    {
+      "start_frame": 6220,
+      "end_frame": 7164,
+      "output_frames": 944,
+      "kind": "agent",
+      "reason": "Nova execution retained at real speed, including verification and recorded recovery."
+    },
+    {
+      "start_frame": 7164,
+      "end_frame": 7215,
+      "output_frames": 51,
+      "kind": "reading",
+      "reason": "Preserve visible interaction, response, scroll and reading time."
+    },
+    {
+      "start_frame": 7215,
+      "end_frame": 7383,
+      "output_frames": 45,
+      "kind": "operator-idle",
+      "reason": "Operator reading/send pause after the saved-for-later confirmation."
+    },
+    {
+      "start_frame": 7383,
+      "end_frame": 7409,
+      "output_frames": 26,
+      "kind": "reading",
+      "reason": "Preserve visible interaction, response, scroll and reading time."
+    },
+    {
+      "start_frame": 7409,
+      "end_frame": 7487,
+      "output_frames": 78,
+      "kind": "agent",
+      "reason": "Nova execution retained at real speed, including verification and recorded recovery."
+    },
+    {
+      "start_frame": 7487,
+      "end_frame": 7605,
+      "output_frames": 118,
+      "kind": "reading",
+      "reason": "Preserve visible interaction, response, scroll and reading time."
+    },
+    {
+      "start_frame": 7605,
+      "end_frame": 7917,
+      "output_frames": 60,
+      "kind": "operator-idle",
+      "reason": "Operator pause before clarifying the Plans question; prior reply retained."
+    },
+    {
+      "start_frame": 7917,
+      "end_frame": 7941,
       "output_frames": 24,
       "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
+      "reason": "Preserve visible interaction, response, scroll and reading time."
     },
     {
-      "start_frame": 3549,
-      "end_frame": 4904,
-      "output_frames": 1355,
-      "kind": "agent",
-      "reason": "Unchanged real-time Nova execution, including asynchronous processing and final source clarification."
-    },
-    {
-      "start_frame": 4904,
-      "end_frame": 5115,
-      "output_frames": 211,
-      "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
-    },
-    {
-      "start_frame": 5115,
-      "end_frame": 5421,
-      "output_frames": 45,
-      "kind": "operator-idle",
-      "reason": "Operator review pause; retain seven seconds to read the concrete synthetic import review."
-    },
-    {
-      "start_frame": 5421,
-      "end_frame": 5439,
-      "output_frames": 18,
-      "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
-    },
-    {
-      "start_frame": 5439,
-      "end_frame": 6688,
-      "output_frames": 1249,
-      "kind": "agent",
-      "reason": "Unchanged real-time Nova execution, including asynchronous processing and final source clarification."
-    },
-    {
-      "start_frame": 6688,
-      "end_frame": 6885,
-      "output_frames": 197,
-      "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
-    },
-    {
-      "start_frame": 6885,
-      "end_frame": 7243,
-      "output_frames": 299,
+      "start_frame": 7941,
+      "end_frame": 8130,
+      "output_frames": 158,
       "kind": "operator-typing",
-      "reason": "Rename and save follow-up at no more than 1.2x; all visible text retained."
+      "reason": "Plans clarification at no more than 1.2x."
     },
     {
-      "start_frame": 7243,
-      "end_frame": 7325,
-      "output_frames": 82,
+      "start_frame": 8130,
+      "end_frame": 8160,
+      "output_frames": 30,
       "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
+      "reason": "Preserve visible interaction, response, scroll and reading time."
     },
     {
-      "start_frame": 7325,
-      "end_frame": 8212,
-      "output_frames": 887,
-      "kind": "agent",
-      "reason": "Unchanged real-time Nova execution, including asynchronous processing and final source clarification."
-    },
-    {
-      "start_frame": 8212,
-      "end_frame": 8385,
-      "output_frames": 173,
-      "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
-    },
-    {
-      "start_frame": 8385,
-      "end_frame": 8564,
-      "output_frames": 150,
-      "kind": "operator-typing",
-      "reason": "Plans prerequisite question at no more than 1.2x; all visible text retained."
-    },
-    {
-      "start_frame": 8564,
-      "end_frame": 8572,
-      "output_frames": 8,
-      "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
-    },
-    {
-      "start_frame": 8572,
-      "end_frame": 8788,
-      "output_frames": 216,
-      "kind": "agent",
-      "reason": "Unchanged real-time Nova execution, including asynchronous processing and final source clarification."
-    },
-    {
-      "start_frame": 8788,
-      "end_frame": 8970,
-      "output_frames": 182,
-      "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
-    },
-    {
-      "start_frame": 8970,
-      "end_frame": 9058,
+      "start_frame": 8160,
+      "end_frame": 8226,
       "output_frames": 30,
       "kind": "operator-idle",
-      "reason": "Operator pause after reading Plans prerequisite."
+      "reason": "Operator pause before sending clarification."
     },
     {
-      "start_frame": 9058,
-      "end_frame": 9081,
+      "start_frame": 8226,
+      "end_frame": 8249,
       "output_frames": 23,
       "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
+      "reason": "Preserve visible interaction, response, scroll and reading time."
     },
     {
-      "start_frame": 9081,
-      "end_frame": 9495,
-      "output_frames": 345,
-      "kind": "operator-typing",
-      "reason": "Final source and summary request at no more than 1.2x; all visible text retained."
-    },
-    {
-      "start_frame": 9495,
-      "end_frame": 9513,
-      "output_frames": 18,
-      "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
-    },
-    {
-      "start_frame": 9513,
-      "end_frame": 9711,
-      "output_frames": 45,
-      "kind": "operator-idle",
-      "reason": "Operator pause after final-result input, before Send."
-    },
-    {
-      "start_frame": 9711,
-      "end_frame": 9734,
-      "output_frames": 23,
-      "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
-    },
-    {
-      "start_frame": 9734,
-      "end_frame": 11704,
-      "output_frames": 1970,
+      "start_frame": 8249,
+      "end_frame": 8506,
+      "output_frames": 257,
       "kind": "agent",
-      "reason": "Unchanged real-time Nova execution, including asynchronous processing and final source clarification."
+      "reason": "Nova execution retained at real speed, including verification and recorded recovery."
     },
     {
-      "start_frame": 11704,
-      "end_frame": 12004,
+      "start_frame": 8506,
+      "end_frame": 8659,
+      "output_frames": 153,
+      "kind": "reading",
+      "reason": "Preserve visible interaction, response, scroll and reading time."
+    },
+    {
+      "start_frame": 8659,
+      "end_frame": 9115,
+      "output_frames": 380,
+      "kind": "operator-typing",
+      "reason": "Final verification request at no more than 1.2x."
+    },
+    {
+      "start_frame": 9115,
+      "end_frame": 9186,
+      "output_frames": 71,
+      "kind": "reading",
+      "reason": "Preserve visible interaction, response, scroll and reading time."
+    },
+    {
+      "start_frame": 9186,
+      "end_frame": 9812,
+      "output_frames": 626,
+      "kind": "agent",
+      "reason": "Nova execution retained at real speed, including verification and recorded recovery."
+    },
+    {
+      "start_frame": 9812,
+      "end_frame": 10112,
       "output_frames": 300,
       "kind": "reading",
-      "reason": "Retain visible interaction, response and reading time."
+      "reason": "Preserve visible interaction, response, scroll and reading time."
     }
   ],
   "masks": [
@@ -346,41 +375,31 @@
       "x": 16,
       "y": 174,
       "width": 2220,
-      "height": 8,
+      "height": 30,
       "color": "#f9f8ff",
-      "start_frame": 3846,
-      "end_frame": 3847,
-      "reason": "Browser-owned debugger strip, measured onset animation and close icon; actual protection remains enabled."
+      "start_frame": 2965,
+      "end_frame": 2966,
+      "reason": "Only the browser debugger row, including close icon; security remains enabled."
     },
     {
       "x": 16,
       "y": 174,
       "width": 2220,
-      "height": 40,
+      "height": 54,
       "color": "#f9f8ff",
-      "start_frame": 3847,
-      "end_frame": 3848,
-      "reason": "Browser-owned debugger strip, measured onset animation and close icon; actual protection remains enabled."
+      "start_frame": 2966,
+      "end_frame": 2967,
+      "reason": "Only the browser debugger row, including close icon; security remains enabled."
     },
     {
       "x": 16,
       "y": 174,
       "width": 2220,
-      "height": 64,
+      "height": 94,
       "color": "#f9f8ff",
-      "start_frame": 3848,
-      "end_frame": 3849,
-      "reason": "Browser-owned debugger strip, measured onset animation and close icon; actual protection remains enabled."
-    },
-    {
-      "x": 16,
-      "y": 174,
-      "width": 2220,
-      "height": 104,
-      "color": "#f9f8ff",
-      "start_frame": 3849,
-      "end_frame": 3850,
-      "reason": "Browser-owned debugger strip, measured onset animation and close icon; actual protection remains enabled."
+      "start_frame": 2967,
+      "end_frame": 2968,
+      "reason": "Only the browser debugger row, including close icon; security remains enabled."
     },
     {
       "x": 16,
@@ -388,137 +407,379 @@
       "width": 2220,
       "height": 112,
       "color": "#f9f8ff",
-      "start_frame": 3850,
-      "end_frame": 12004,
-      "reason": "Browser-owned debugger strip, measured onset animation and close icon; actual protection remains enabled."
+      "start_frame": 2968,
+      "end_frame": 10112,
+      "reason": "Only the browser debugger row, including close icon; security remains enabled."
     }
   ],
   "clicks": [
     {
-      "source_frame": 211,
-      "evidence": "Recorded direct operator click: Open Nova; aligned to visible response after native input dispatch",
-      "strength": 0.8,
-      "dispatch_frame": 181
+      "id": 0,
+      "source_frame": 112,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Launcher activates immediately before the first panel-opening frame (113): Open Nova",
+      "dispatch_estimate_seconds": 2.857
     },
     {
-      "source_frame": 345,
-      "evidence": "Recorded direct operator click: Opening problem; aligned to visible response after native input dispatch",
-      "strength": 0.9,
-      "dispatch_frame": 340
+      "id": 1,
+      "source_frame": 226,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus opening problem",
+      "dispatch_estimate_seconds": 7.272
     },
     {
-      "source_frame": 1117,
-      "evidence": "Recorded direct operator click: Send opening problem; aligned to visible response after native input dispatch",
-      "strength": 0.8,
-      "dispatch_frame": 1112
+      "id": 2,
+      "source_frame": 657,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Send opening problem",
+      "dispatch_estimate_seconds": 21.88
     },
     {
-      "source_frame": 1624,
-      "evidence": "Recorded direct operator click: Partial product names; aligned to visible response after native input dispatch",
-      "strength": 0.9,
-      "dispatch_frame": 1619
+      "id": 3,
+      "source_frame": 1010,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus partial names",
+      "dispatch_estimate_seconds": 33.186
     },
     {
-      "source_frame": 1705,
-      "evidence": "Recorded direct operator click: Help me choose; aligned to visible response after native input dispatch",
-      "strength": 0.8,
-      "dispatch_frame": 1700
+      "id": 4,
+      "source_frame": 1091,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Help me choose",
+      "dispatch_estimate_seconds": 36.339
     },
     {
-      "source_frame": 2074,
-      "evidence": "Recorded direct operator click: DockBoard mishearing; aligned to visible response after native input dispatch",
-      "strength": 0.9,
-      "dispatch_frame": 2069
+      "id": 5,
+      "source_frame": 1592,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus mishearings",
+      "dispatch_estimate_seconds": 52.813
     },
     {
-      "source_frame": 2184,
-      "evidence": "Recorded direct operator click: ShiftPilot offscreen click; no text entered; aligned to visible response after native input dispatch",
-      "strength": 0.8,
-      "dispatch_frame": 2179
+      "id": 6,
+      "source_frame": 2353,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus title",
+      "dispatch_estimate_seconds": 77.955
     },
     {
-      "source_frame": 2807,
-      "evidence": "Recorded direct operator click: ShiftPilot mishearing visible; aligned to visible response after native input dispatch",
-      "strength": 0.9,
-      "dispatch_frame": 2802
+      "id": 7,
+      "source_frame": 2432,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus transcript",
+      "dispatch_estimate_seconds": 80.82
     },
     {
-      "source_frame": 2956,
-      "evidence": "Recorded direct operator click: Discussion title; aligned to visible response after native input dispatch",
-      "strength": 0.8,
-      "dispatch_frame": 2951
+      "id": 8,
+      "source_frame": 2574,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Save discussion choice",
+      "dispatch_estimate_seconds": 85.313
     },
     {
-      "source_frame": 3124,
-      "evidence": "Recorded direct operator click: Meeting transcript field; aligned to visible response after native input dispatch",
-      "strength": 1,
-      "dispatch_frame": 3119
+      "id": 9,
+      "source_frame": 2596,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Continue details",
+      "dispatch_estimate_seconds": 86.507
     },
     {
-      "source_frame": 3333,
-      "evidence": "Recorded direct operator click: Import and verify choice; aligned to visible response after native input dispatch",
-      "strength": 0.85,
-      "dispatch_frame": 3328
+      "id": 10,
+      "source_frame": 2968,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Visible field focus/input transition: I\u2019m entering BayBoard as the first new Harborlight product term.",
+      "dispatch_estimate_seconds": 98.764
     },
     {
-      "source_frame": 3547,
-      "evidence": "Recorded direct operator click: Continue complete details; aligned to visible response after native input dispatch",
-      "strength": 1,
-      "dispatch_frame": 3542
+      "id": 11,
+      "source_frame": 3053,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Visible field focus/input transition: I\u2019m entering Bay Board as the speech-recognition mishearing for BayBoard.",
+      "dispatch_estimate_seconds": 101.607
     },
     {
-      "source_frame": 5444,
-      "evidence": "Recorded direct operator click: Confirm synthetic import; aligned to visible response after native input dispatch",
-      "strength": 0.8,
-      "dispatch_frame": 5439
+      "id": 12,
+      "source_frame": 3131,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m adding BayBoard with \u201cBay Board\u201d as its recognized mishearing.",
+      "dispatch_estimate_seconds": 104.234
     },
     {
-      "source_frame": 6883,
-      "evidence": "Recorded direct operator click: Rename and save follow-up; aligned to visible response after native input dispatch",
-      "strength": 0.9,
-      "dispatch_frame": 6878
+      "id": 13,
+      "source_frame": 3248,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Visible field focus/input transition: I\u2019m entering CrewLedger as the second Harborlight product term.",
+      "dispatch_estimate_seconds": 108.085
     },
     {
-      "source_frame": 7323,
-      "evidence": "Recorded direct operator click: Send rename and save follow-up; aligned to visible response after native input dispatch",
-      "strength": 0.8,
-      "dispatch_frame": 7318
+      "id": 14,
+      "source_frame": 3339,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Visible field focus/input transition: I\u2019m entering \u201cCrew Ledger\u201d as the mishearing for CrewLedger.",
+      "dispatch_estimate_seconds": 111.118
     },
     {
-      "source_frame": 8382,
-      "evidence": "Recorded direct operator click: Plans prerequisite question; aligned to visible response after native input dispatch",
-      "strength": 0.9,
-      "dispatch_frame": 8377
+      "id": 15,
+      "source_frame": 3450,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m adding CrewLedger with \u201cCrew Ledger\u201d as its recognized mishearing.",
+      "dispatch_estimate_seconds": 114.843
     },
     {
-      "source_frame": 8569,
-      "evidence": "Recorded direct operator click: Send Plans question; aligned to visible response after native input dispatch",
-      "strength": 0.8,
-      "dispatch_frame": 8564
+      "id": 16,
+      "source_frame": 3574,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: The two Harborlight terms are saved; I\u2019m opening the discussion import options for the meeting notes.",
+      "dispatch_estimate_seconds": 118.939
     },
     {
-      "source_frame": 9079,
-      "evidence": "Recorded direct operator click: Final source and summary request; aligned to visible response after native input dispatch",
-      "strength": 0.9,
-      "dispatch_frame": 9074
+      "id": 17,
+      "source_frame": 3652,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening the recording upload dialog to prepare the Harborlight meeting notes.",
+      "dispatch_estimate_seconds": 121.566
     },
     {
-      "source_frame": 9732,
-      "evidence": "Recorded direct operator click: Send final verification request; aligned to visible response after native input dispatch",
-      "strength": 0.8,
-      "dispatch_frame": 9727
+      "id": 18,
+      "source_frame": 3839,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Visible field focus/input transition: I\u2019m pasting the complete speaker-labeled Harborlight transcript so the title and import controls appear.",
+      "dispatch_estimate_seconds": 127.822
     },
     {
-      "source_frame": 11132,
-      "evidence": "Recorded direct operator click: Clarify pending distillation; aligned to visible response after native input dispatch",
-      "strength": 0.9,
-      "dispatch_frame": 11127
+      "id": 19,
+      "source_frame": 3954,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Visible field focus/input transition: I\u2019m setting the exact discussion title before importing the prepared Harborlight transcript.",
+      "dispatch_estimate_seconds": 131.636
     },
     {
-      "source_frame": 11498,
-      "evidence": "Recorded direct operator click: Send source clarification; aligned to visible response after native input dispatch",
-      "strength": 0.8,
-      "dispatch_frame": 11493
+      "id": 20,
+      "source_frame": 4485,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Confirm import",
+      "dispatch_estimate_seconds": 149.49
+    },
+    {
+      "id": 21,
+      "source_frame": 4489,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m importing \u201cHarborlight field review\u201d with the prepared 01:20 WEBVTT transcript.",
+      "dispatch_estimate_seconds": 149.509
+    },
+    {
+      "id": 22,
+      "source_frame": 4833,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening \u201cHarborlight field review\u201d to verify the saved record and imported transcript.",
+      "dispatch_estimate_seconds": 160.983
+    },
+    {
+      "id": 23,
+      "source_frame": 5006,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening the Transcript tab to verify the imported speakers, duration, and source content.",
+      "dispatch_estimate_seconds": 166.683
+    },
+    {
+      "id": 24,
+      "source_frame": 5083,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m expanding the transcript to verify the saved Harborlight source content.",
+      "dispatch_estimate_seconds": 169.253
+    },
+    {
+      "id": 25,
+      "source_frame": 5617,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus rename",
+      "dispatch_estimate_seconds": 186.989
+    },
+    {
+      "id": 26,
+      "source_frame": 6222,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Send rename",
+      "dispatch_estimate_seconds": 207.357
+    },
+    {
+      "id": 27,
+      "source_frame": 6326,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening the same Harborlight discussion to rename it and update its saved-for-later status.",
+      "dispatch_estimate_seconds": 210.68
+    },
+    {
+      "id": 28,
+      "source_frame": 6502,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening the discussion title field to rename this same record.",
+      "dispatch_estimate_seconds": 216.58
+    },
+    {
+      "id": 29,
+      "source_frame": 6596,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m reopening the title editor for this same Harborlight discussion.",
+      "dispatch_estimate_seconds": 219.723
+    },
+    {
+      "id": 30,
+      "source_frame": 6706,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Visible field focus/input transition: I\u2019m entering the new title for this same Harborlight discussion.",
+      "dispatch_estimate_seconds": 223.398
+    },
+    {
+      "id": 31,
+      "source_frame": 6778,
+      "actor": "nova",
+      "strength": 0.58,
+      "evidence": "Mouse refocus of the editable title before Enter, confirmed by native-input implementation and action receipt; no keyboard sound: I\u2019m saving the new title on this same discussion.",
+      "dispatch_estimate_seconds": 225.816
+    },
+    {
+      "id": 32,
+      "source_frame": 6894,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening the Discussions list to save the renamed Harborlight discussion for later.",
+      "dispatch_estimate_seconds": 229.583
+    },
+    {
+      "id": 33,
+      "source_frame": 6951,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus Plans question",
+      "dispatch_estimate_seconds": 231.431
+    },
+    {
+      "id": 34,
+      "source_frame": 7079,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m saving \u201cHarborlight field decisions\u201d for later.",
+      "dispatch_estimate_seconds": 235.825
+    },
+    {
+      "id": 35,
+      "source_frame": 7410,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Send Plans question",
+      "dispatch_estimate_seconds": 246.974
+    },
+    {
+      "id": 36,
+      "source_frame": 7940,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus Plans clarification",
+      "dispatch_estimate_seconds": 264.41
+    },
+    {
+      "id": 37,
+      "source_frame": 8250,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Send Plans clarification",
+      "dispatch_estimate_seconds": 274.971
+    },
+    {
+      "id": 38,
+      "source_frame": 8323,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening Plans to check for a browser-based creation option.",
+      "dispatch_estimate_seconds": 277.252
+    },
+    {
+      "id": 39,
+      "source_frame": 8658,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus final request",
+      "dispatch_estimate_seconds": 288.336
+    },
+    {
+      "id": 40,
+      "source_frame": 9186,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Send final request",
+      "dispatch_estimate_seconds": 306.204
+    },
+    {
+      "id": 41,
+      "source_frame": 9250,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m returning to Discussions to reopen the saved Harborlight record.",
+      "dispatch_estimate_seconds": 308.147
+    },
+    {
+      "id": 42,
+      "source_frame": 9337,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening \u201cHarborlight field decisions\u201d to verify its transcript and review the unresolved question.",
+      "dispatch_estimate_seconds": 311.048
+    },
+    {
+      "id": 43,
+      "source_frame": 9443,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m opening the transcript to verify its speakers, duration, and unresolved security question.",
+      "dispatch_estimate_seconds": 314.63
+    },
+    {
+      "id": 44,
+      "source_frame": 9547,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m expanding the verified 2-speaker, 01:20 transcript to read the unresolved question.",
+      "dispatch_estimate_seconds": 318.067
+    },
+    {
+      "id": 45,
+      "source_frame": 9683,
+      "actor": "nova",
+      "strength": 0.76,
+      "evidence": "Visible click feedback or immediate control/page response: I\u2019m leaving Summary open after verifying the transcript and its unresolved security question.",
+      "dispatch_estimate_seconds": 322.618
     }
   ]
 }

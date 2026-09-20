@@ -1,0 +1,524 @@
+{
+  "fps": 30,
+  "width": 3024,
+  "height": 1776,
+  "source_sha256": "ce252052397cb11190a63ca905d6fee7e9f3dc21f3d54768c9337b88339f8beb",
+  "segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 180,
+      "output_frames": 180,
+      "kind": "establishing",
+      "reason": "Fresh Home establishing view, Nova closed."
+    },
+    {
+      "start_frame": 180,
+      "end_frame": 348,
+      "output_frames": 168,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 348,
+      "end_frame": 690,
+      "output_frames": 285,
+      "kind": "operator-typing",
+      "reason": "Opening problem at no more than 1.2x; all visible text retained."
+    },
+    {
+      "start_frame": 690,
+      "end_frame": 720,
+      "output_frames": 30,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 720,
+      "end_frame": 1092,
+      "output_frames": 45,
+      "kind": "operator-idle",
+      "reason": "Operator pause after opening input; retain typed text, pointer movement and Send."
+    },
+    {
+      "start_frame": 1092,
+      "end_frame": 1120,
+      "output_frames": 28,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 1120,
+      "end_frame": 1321,
+      "output_frames": 201,
+      "kind": "agent",
+      "reason": "Unchanged real-time Nova execution, including asynchronous processing and final source clarification."
+    },
+    {
+      "start_frame": 1321,
+      "end_frame": 1485,
+      "output_frames": 164,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 1485,
+      "end_frame": 1600,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Operator pause after reading initial questions."
+    },
+    {
+      "start_frame": 1600,
+      "end_frame": 1632,
+      "output_frames": 32,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 1632,
+      "end_frame": 1700,
+      "output_frames": 57,
+      "kind": "operator-typing",
+      "reason": "Partial product names at no more than 1.2x; all visible text retained."
+    },
+    {
+      "start_frame": 1700,
+      "end_frame": 1707,
+      "output_frames": 7,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 1707,
+      "end_frame": 1908,
+      "output_frames": 201,
+      "kind": "agent",
+      "reason": "Unchanged real-time Nova execution, including asynchronous processing and final source clarification."
+    },
+    {
+      "start_frame": 1908,
+      "end_frame": 2077,
+      "output_frames": 169,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 2077,
+      "end_frame": 2103,
+      "output_frames": 22,
+      "kind": "operator-typing",
+      "reason": "DockBoard mishearing at no more than 1.2x; all visible text retained."
+    },
+    {
+      "start_frame": 2103,
+      "end_frame": 2235,
+      "output_frames": 132,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 2235,
+      "end_frame": 2505,
+      "output_frames": 45,
+      "kind": "operator-idle",
+      "reason": "Operator pause before bringing an offscreen card field into view; no website work."
+    },
+    {
+      "start_frame": 2505,
+      "end_frame": 2565,
+      "output_frames": 60,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 2565,
+      "end_frame": 2697,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Operator pause between card scrolls; both scrolls retained."
+    },
+    {
+      "start_frame": 2697,
+      "end_frame": 2816,
+      "output_frames": 119,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 2816,
+      "end_frame": 2847,
+      "output_frames": 26,
+      "kind": "operator-typing",
+      "reason": "ShiftPilot mishearing visible at no more than 1.2x; all visible text retained."
+    },
+    {
+      "start_frame": 2847,
+      "end_frame": 2959,
+      "output_frames": 112,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 2959,
+      "end_frame": 3037,
+      "output_frames": 65,
+      "kind": "operator-typing",
+      "reason": "Discussion title at no more than 1.2x; all visible text retained."
+    },
+    {
+      "start_frame": 3037,
+      "end_frame": 3360,
+      "output_frames": 323,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 3360,
+      "end_frame": 3525,
+      "output_frames": 45,
+      "kind": "operator-idle",
+      "reason": "Operator pause after selecting import outcome."
+    },
+    {
+      "start_frame": 3525,
+      "end_frame": 3549,
+      "output_frames": 24,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 3549,
+      "end_frame": 4904,
+      "output_frames": 1355,
+      "kind": "agent",
+      "reason": "Unchanged real-time Nova execution, including asynchronous processing and final source clarification."
+    },
+    {
+      "start_frame": 4904,
+      "end_frame": 5115,
+      "output_frames": 211,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 5115,
+      "end_frame": 5421,
+      "output_frames": 45,
+      "kind": "operator-idle",
+      "reason": "Operator review pause; retain seven seconds to read the concrete synthetic import review."
+    },
+    {
+      "start_frame": 5421,
+      "end_frame": 5439,
+      "output_frames": 18,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 5439,
+      "end_frame": 6688,
+      "output_frames": 1249,
+      "kind": "agent",
+      "reason": "Unchanged real-time Nova execution, including asynchronous processing and final source clarification."
+    },
+    {
+      "start_frame": 6688,
+      "end_frame": 6885,
+      "output_frames": 197,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 6885,
+      "end_frame": 7243,
+      "output_frames": 299,
+      "kind": "operator-typing",
+      "reason": "Rename and save follow-up at no more than 1.2x; all visible text retained."
+    },
+    {
+      "start_frame": 7243,
+      "end_frame": 7325,
+      "output_frames": 82,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 7325,
+      "end_frame": 8212,
+      "output_frames": 887,
+      "kind": "agent",
+      "reason": "Unchanged real-time Nova execution, including asynchronous processing and final source clarification."
+    },
+    {
+      "start_frame": 8212,
+      "end_frame": 8385,
+      "output_frames": 173,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 8385,
+      "end_frame": 8564,
+      "output_frames": 150,
+      "kind": "operator-typing",
+      "reason": "Plans prerequisite question at no more than 1.2x; all visible text retained."
+    },
+    {
+      "start_frame": 8564,
+      "end_frame": 8572,
+      "output_frames": 8,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 8572,
+      "end_frame": 8788,
+      "output_frames": 216,
+      "kind": "agent",
+      "reason": "Unchanged real-time Nova execution, including asynchronous processing and final source clarification."
+    },
+    {
+      "start_frame": 8788,
+      "end_frame": 8970,
+      "output_frames": 182,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 8970,
+      "end_frame": 9058,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Operator pause after reading Plans prerequisite."
+    },
+    {
+      "start_frame": 9058,
+      "end_frame": 9081,
+      "output_frames": 23,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 9081,
+      "end_frame": 9495,
+      "output_frames": 345,
+      "kind": "operator-typing",
+      "reason": "Final source and summary request at no more than 1.2x; all visible text retained."
+    },
+    {
+      "start_frame": 9495,
+      "end_frame": 9513,
+      "output_frames": 18,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 9513,
+      "end_frame": 9711,
+      "output_frames": 45,
+      "kind": "operator-idle",
+      "reason": "Operator pause after final-result input, before Send."
+    },
+    {
+      "start_frame": 9711,
+      "end_frame": 9734,
+      "output_frames": 23,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    },
+    {
+      "start_frame": 9734,
+      "end_frame": 11704,
+      "output_frames": 1970,
+      "kind": "agent",
+      "reason": "Unchanged real-time Nova execution, including asynchronous processing and final source clarification."
+    },
+    {
+      "start_frame": 11704,
+      "end_frame": 12004,
+      "output_frames": 300,
+      "kind": "reading",
+      "reason": "Retain visible interaction, response and reading time."
+    }
+  ],
+  "masks": [
+    {
+      "x": 16,
+      "y": 174,
+      "width": 2220,
+      "height": 8,
+      "color": "#f9f8ff",
+      "start_frame": 3846,
+      "end_frame": 3847,
+      "reason": "Browser-owned debugger strip, measured onset animation and close icon; actual protection remains enabled."
+    },
+    {
+      "x": 16,
+      "y": 174,
+      "width": 2220,
+      "height": 40,
+      "color": "#f9f8ff",
+      "start_frame": 3847,
+      "end_frame": 3848,
+      "reason": "Browser-owned debugger strip, measured onset animation and close icon; actual protection remains enabled."
+    },
+    {
+      "x": 16,
+      "y": 174,
+      "width": 2220,
+      "height": 64,
+      "color": "#f9f8ff",
+      "start_frame": 3848,
+      "end_frame": 3849,
+      "reason": "Browser-owned debugger strip, measured onset animation and close icon; actual protection remains enabled."
+    },
+    {
+      "x": 16,
+      "y": 174,
+      "width": 2220,
+      "height": 104,
+      "color": "#f9f8ff",
+      "start_frame": 3849,
+      "end_frame": 3850,
+      "reason": "Browser-owned debugger strip, measured onset animation and close icon; actual protection remains enabled."
+    },
+    {
+      "x": 16,
+      "y": 174,
+      "width": 2220,
+      "height": 112,
+      "color": "#f9f8ff",
+      "start_frame": 3850,
+      "end_frame": 12004,
+      "reason": "Browser-owned debugger strip, measured onset animation and close icon; actual protection remains enabled."
+    }
+  ],
+  "clicks": [
+    {
+      "source_frame": 211,
+      "evidence": "Recorded direct operator click: Open Nova; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 181
+    },
+    {
+      "source_frame": 345,
+      "evidence": "Recorded direct operator click: Opening problem; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 340
+    },
+    {
+      "source_frame": 1117,
+      "evidence": "Recorded direct operator click: Send opening problem; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 1112
+    },
+    {
+      "source_frame": 1624,
+      "evidence": "Recorded direct operator click: Partial product names; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 1619
+    },
+    {
+      "source_frame": 1705,
+      "evidence": "Recorded direct operator click: Help me choose; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 1700
+    },
+    {
+      "source_frame": 2074,
+      "evidence": "Recorded direct operator click: DockBoard mishearing; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 2069
+    },
+    {
+      "source_frame": 2184,
+      "evidence": "Recorded direct operator click: ShiftPilot offscreen click; no text entered; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 2179
+    },
+    {
+      "source_frame": 2807,
+      "evidence": "Recorded direct operator click: ShiftPilot mishearing visible; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 2802
+    },
+    {
+      "source_frame": 2956,
+      "evidence": "Recorded direct operator click: Discussion title; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 2951
+    },
+    {
+      "source_frame": 3124,
+      "evidence": "Recorded direct operator click: Meeting transcript field; aligned to visible response after native input dispatch",
+      "strength": 1,
+      "dispatch_frame": 3119
+    },
+    {
+      "source_frame": 3333,
+      "evidence": "Recorded direct operator click: Import and verify choice; aligned to visible response after native input dispatch",
+      "strength": 0.85,
+      "dispatch_frame": 3328
+    },
+    {
+      "source_frame": 3547,
+      "evidence": "Recorded direct operator click: Continue complete details; aligned to visible response after native input dispatch",
+      "strength": 1,
+      "dispatch_frame": 3542
+    },
+    {
+      "source_frame": 5444,
+      "evidence": "Recorded direct operator click: Confirm synthetic import; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 5439
+    },
+    {
+      "source_frame": 6883,
+      "evidence": "Recorded direct operator click: Rename and save follow-up; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 6878
+    },
+    {
+      "source_frame": 7323,
+      "evidence": "Recorded direct operator click: Send rename and save follow-up; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 7318
+    },
+    {
+      "source_frame": 8382,
+      "evidence": "Recorded direct operator click: Plans prerequisite question; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 8377
+    },
+    {
+      "source_frame": 8569,
+      "evidence": "Recorded direct operator click: Send Plans question; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 8564
+    },
+    {
+      "source_frame": 9079,
+      "evidence": "Recorded direct operator click: Final source and summary request; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 9074
+    },
+    {
+      "source_frame": 9732,
+      "evidence": "Recorded direct operator click: Send final verification request; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 9727
+    },
+    {
+      "source_frame": 11132,
+      "evidence": "Recorded direct operator click: Clarify pending distillation; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 11127
+    },
+    {
+      "source_frame": 11498,
+      "evidence": "Recorded direct operator click: Send source clarification; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 11493
+    }
+  ]
+}

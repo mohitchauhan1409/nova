@@ -1,0 +1,230 @@
+{
+  "source_first_frame_epoch_ms": 1789908335678,
+  "events": [
+    {
+      "kind": "click",
+      "at": 1789908341703,
+      "label": "Open Nova"
+    },
+    {
+      "kind": "click",
+      "at": 1789908347021,
+      "label": "Opening problem"
+    },
+    {
+      "kind": "typing-start",
+      "at": 1789908347269,
+      "label": "Opening problem"
+    },
+    {
+      "kind": "typing-end",
+      "at": 1789908358684,
+      "label": "Opening problem"
+    },
+    {
+      "kind": "click",
+      "at": 1789908372756,
+      "label": "Send opening problem"
+    },
+    {
+      "kind": "click",
+      "at": 1789908389631,
+      "label": "Partial product names"
+    },
+    {
+      "kind": "typing-start",
+      "at": 1789908390071,
+      "label": "Partial product names"
+    },
+    {
+      "kind": "typing-end",
+      "at": 1789908392332,
+      "label": "Partial product names"
+    },
+    {
+      "kind": "click",
+      "at": 1789908392332,
+      "label": "Help me choose"
+    },
+    {
+      "kind": "click",
+      "at": 1789908404659,
+      "label": "DockBoard mishearing"
+    },
+    {
+      "kind": "typing-start",
+      "at": 1789908404915,
+      "label": "DockBoard mishearing"
+    },
+    {
+      "kind": "typing-end",
+      "at": 1789908405778,
+      "label": "DockBoard mishearing"
+    },
+    {
+      "kind": "click",
+      "at": 1789908408315,
+      "label": "ShiftPilot offscreen click; no text entered"
+    },
+    {
+      "kind": "typing-start",
+      "at": 1789908408573,
+      "label": "No-input attempt"
+    },
+    {
+      "kind": "typing-end",
+      "at": 1789908409593,
+      "label": "No-input attempt"
+    },
+    {
+      "kind": "scroll",
+      "at": 1789908419701,
+      "label": "Bring card inputs into view"
+    },
+    {
+      "kind": "scroll",
+      "at": 1789908426137,
+      "label": "View remaining terminology inputs"
+    },
+    {
+      "kind": "click",
+      "at": 1789908429086,
+      "label": "ShiftPilot mishearing visible"
+    },
+    {
+      "kind": "typing-start",
+      "at": 1789908429555,
+      "label": "ShiftPilot mishearing visible"
+    },
+    {
+      "kind": "typing-end",
+      "at": 1789908430584,
+      "label": "ShiftPilot mishearing visible"
+    },
+    {
+      "kind": "click",
+      "at": 1789908434048,
+      "label": "Discussion title"
+    },
+    {
+      "kind": "typing-start",
+      "at": 1789908434306,
+      "label": "Discussion title"
+    },
+    {
+      "kind": "typing-end",
+      "at": 1789908436917,
+      "label": "Discussion title"
+    },
+    {
+      "kind": "click",
+      "at": 1789908439655,
+      "label": "Meeting transcript field"
+    },
+    {
+      "kind": "paste",
+      "at": 1789908439916,
+      "label": "Paste complete synthetic VTT"
+    },
+    {
+      "kind": "scroll",
+      "at": 1789908443185,
+      "label": "View import choice"
+    },
+    {
+      "kind": "click",
+      "at": 1789908446628,
+      "label": "Import and verify choice"
+    },
+    {
+      "kind": "click",
+      "at": 1789908453731,
+      "label": "Continue complete details"
+    },
+    {
+      "kind": "click",
+      "at": 1789908516978,
+      "label": "Confirm synthetic import"
+    },
+    {
+      "kind": "click",
+      "at": 1789908564948,
+      "label": "Rename and save follow-up"
+    },
+    {
+      "kind": "typing-start",
+      "at": 1789908565189,
+      "label": "Rename and save follow-up"
+    },
+    {
+      "kind": "typing-end",
+      "at": 1789908577101,
+      "label": "Rename and save follow-up"
+    },
+    {
+      "kind": "click",
+      "at": 1789908579606,
+      "label": "Send rename and save follow-up"
+    },
+    {
+      "kind": "click",
+      "at": 1789908614927,
+      "label": "Plans prerequisite question"
+    },
+    {
+      "kind": "typing-start",
+      "at": 1789908615183,
+      "label": "Plans prerequisite question"
+    },
+    {
+      "kind": "typing-end",
+      "at": 1789908621157,
+      "label": "Plans prerequisite question"
+    },
+    {
+      "kind": "click",
+      "at": 1789908621157,
+      "label": "Send Plans question"
+    },
+    {
+      "kind": "click",
+      "at": 1789908638132,
+      "label": "Final source and summary request"
+    },
+    {
+      "kind": "typing-start",
+      "at": 1789908638373,
+      "label": "Final source and summary request"
+    },
+    {
+      "kind": "typing-end",
+      "at": 1789908652176,
+      "label": "Final source and summary request"
+    },
+    {
+      "kind": "click",
+      "at": 1789908659897,
+      "label": "Send final verification request"
+    },
+    {
+      "kind": "click",
+      "at": 1789908706582,
+      "label": "Clarify pending distillation"
+    },
+    {
+      "kind": "typing-start",
+      "at": 1789908706819,
+      "label": "Clarify pending distillation"
+    },
+    {
+      "kind": "typing-end",
+      "at": 1789908715682,
+      "label": "Clarify pending distillation"
+    },
+    {
+      "kind": "click",
+      "at": 1789908718775,
+      "label": "Send source clarification"
+    }
+  ]
+}

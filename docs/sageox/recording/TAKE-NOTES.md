@@ -1,60 +1,76 @@
-# Fresh final take
+# Private-video revision
 
-Source: `artifacts/sageox/media/nova-sageox-original.mov`.
-Chrome window 24110; first encoded frame epoch 1789908335678 ms.
-3024 × 1776, 30 fps, no microphone or system audio. Freshly launched from Nova,
-Home establishing view with panel closed and browser security indicator absent.
-Normal direct operator clicks; source transcript pasted as existing notes.
-Privacy plans are applied before encoding, with update times retained separately.
-The source is preserved byte-for-byte after recording. Editorial timing and the
-browser-owned indicator mask affect only the exported copies.
+The current deliverables are a new continuous take, freshly launched from Nova
+onto SageOx Home with the panel closed. The prior capture had account masks baked
+into its pixels, so those could not be removed from that source. Its original
+bytes remain recoverable from customer-branch commit 8747138; previous edit receipts
+are retained in `previous-masked-take/`.
 
+Per the owner's revised instruction, this recording has no account, tab, URL,
+avatar, greeting, uploader, sidebar, or page-content redactions. The raw source is
+unmodified after capture. Only the browser-owned debugging row is covered in the
+edited copies; the actual browser security feature stays enabled.
 
-## Inspected edit
+## Capture and edit
 
-Raw: 12,717 frames / 423.900 seconds. Edited: 10,426 frames / 347.533 seconds
-(about 5:48). Retained source frames 0–12003 inclusive; the unused tail after the
-last result plus ten seconds of reading was trimmed. The frame EDL is contiguous.
-Eight prolonged operator pauses were compressed. Eight non-overlapping typing
-intervals were accelerated by at most 1.2×; typing during active Nova work stayed
-at real speed. All agent execution, clicks, scrolling, meaningful responses and
-pending-tab recovery are retained. No successful outcome was fabricated or spliced.
+Chrome window 24466, first encoded frame epoch 1789910487261 ms. Native
+3024 × 1776, 30 fps, 10,470 frames / 349.000 seconds, no captured audio.
+The final edits contain 8,835 frames / 294.500 seconds (4:54.5).
 
-The debugger strip begins its real slide-in at source frame 3846. Its mask follows
-observed heights 8, 40, 64, 104, then 112 native pixels over frames 3846–3850, at
-x=16, y=174, width=2220. The close icon is inside the measured mask. It conceals
-browser chrome in the edited copies only. The untouched raw retains that indicator.
+Frames 0–10111 are retained, including ten seconds after the last reply. The
+52-segment contiguous EDL shortens nine operator pauses and modestly accelerates
+eight typing intervals, at no more than 1.2×. Plans-question typing overlapped
+Nova's work and therefore remains at real speed. All 4,780 frames of active Nova
+execution remain at 1×. Pointer movement, scrolling, clicks and actual responses
+are retained. No successful result is fabricated, replaced, or spliced.
 
-Capture-time account redaction used the measured profiles in privacy-events.json.
-Those overlays protect the browser title, URL identifiers, avatar, scope/footer,
-Home greeting/activity authors and transient uploader byline. Some whitespace and
-nearby metadata are obscured while layouts transition. No task outcome was replaced.
-The byline overlay was removed once the saved record visibly showed no personal
-uploader, before the final source/summary view. Source and output checkpoint frames
-were inspected, including Home, cards, Vocabulary, Import, saved record, bookmark,
-Plans, the pending view and the final Summary.
+The sole cover is x=16, y=174, width=2220 in native pixels. The browser row's
+observed slide-in starts at frame 2965, with heights 30, 54, 94, then 112 pixels
+at frames 2965–2968. The cover includes its close icon and does not cover product
+content or the Nova panel. The raw retains the real indicator.
 
-## Audio and integrity
+## Sound
 
-The silent export has no audio stream. The final export adds 21 subtle original
-synthesized mouse-click cues for recorded operator interactions, mapped through the
-EDL and aligned to their visible responses. Website action narration has no sound;
-there is no keyboard sound, microphone, music or ambience. The opening cue was
-aligned to source frame 211 after inspecting the native launch response; subsequent
-cues retain a five-frame native-dispatch allowance. Cue amplitudes vary slightly.
-The source and mapping are in operator-events.json, edit-plan.json and
-export-validation.json. These effects do not purport to be recorded live audio.
+The click-only soundtrack uses exactly the `band_noise` and `click_sound`
+synthesis functions from the Bolna recording utility (verified by AST comparison),
+with the same 48 kHz stereo construction and gain. There are 46 individually
+aligned cues: 19 operator clicks and 27 Nova clicks, including mouse focus of
+editable fields. There are no keyboard effects, narration cues, music, ambient
+sound, or invented taps for rejected input.
 
-Both exports retain 3024 × 1776 at 30 fps. Silent/click versions have identical
-encoded video-stream hashes, verified after audio muxing with video copy. AAC and
-video duration differ by less than one millisecond. Decoded audio peak is −24.3 dBFS;
-no clipping. Source SHA-256 is unchanged. Exact file hashes are in checksums.sha256.
+Each source cue was inspected around its actual visible focus, click feedback or
+control response and mapped through the EDL. The opening cue is frame 112, just
+before panel motion begins at 113. The transcript-focus cue is before the paste,
+not on the later text change. The title refocus before Enter gets a mouse cue,
+not a keyboard sound. The prior blanket five-frame offset is not used.
 
-## Coverage boundary
+`sound-cues.json` records each frame, actor, evidence and edited time. These are
+added editorial effects, not recorded microphone audio. `add-click-sounds.py`
+copies the encoded silent video stream and validates audio duration, cue bounds,
+levels and stream identity. Decoded audio peaks at −13.73 dBFS; all 46 attack
+peaks fall within 1.8 ms of their assigned frame time, with zero decoded signal
+outside cue windows. Final validation and checksums are recorded alongside.
 
-The final source request revisited unchanged pending Distillation tabs and was
-steered with the recorded clarification. A post-take shared regression guard was
-added on main (b770ad9), merged into the customer branch and tested with the full
-216-test suite. That later fix is not portrayed as part of the already captured
-live behavior. Saved transcript and generated Summary passed; Distillation completion
-and browser plan creation are not claimed.
+## Live outcome and honest recovery
+
+Nova added BayBoard / Bay Board and CrewLedger / Crew Ledger, reopened Vocabulary
+and observed 13 total terms. It imported one complete synthetic VTT, verified Maya
+Chen and Eli Brooks and 01:20 duration, renamed the same discussion to
+**Harborlight field decisions**, and saved it for later. Its final Summary was
+processed and visible, with per-user cache encryption accurately identified as
+unresolved. No sharing, messages, CLI connection or production work occurred.
+
+One stale discussion-row target was rejected without sending input; Nova then
+observed the saved detail page and completed verification. Its first Plans answer
+was incomplete, so the operator clarified: “Open Plans and check whether there is
+a browser create option.” Nova inspected Plans and correctly reported no visible
+browser creation option; the page subsequently showed its coding-session commands.
+Both moments remain in this continuous take. The ending flow completed without
+cycling through Distillation.
+
+A short live preflight on the existing saved discussion passed before the fresh
+launch. An earlier unmasked attempt was stopped before any website writes after
+an operator accessibility-index mismatch opened Chrome's menu; it is not part of
+the delivered take. During this take a missing semicolon key mapping caused a brief
+operator typing pause, then the same field was completed normally. Only that idle
+pause was compressed; the source remains untouched.

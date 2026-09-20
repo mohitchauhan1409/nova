@@ -31,8 +31,11 @@ Processing is asynchronous; no fixed completion time is promised. Plans in the
 observed account require a coding session; no browser plan creation was claimed.
 
 For capture and rendering, see `scripts/video/README.md` and `recording/`.
-Recorder masks were measured for the retained 3024 × 1776 window; remeasure if the
-window, zoom, sidebar width or website layout changes. Do not reuse pixels blindly.
+The current private recording uses no capture-time masks. Only the browser debugger
+row is covered in edited copies. Its bounds were measured for 3024 × 1776; remeasure
+if the window, zoom or sidebar changes. Do not reuse pixels blindly. Use the EDL
+with edit-recording.py for the silent export, then add-click-sounds.py with
+recording/sound-cues.json for the established Bolna tap effect.
 
 ## Private media recovery
 

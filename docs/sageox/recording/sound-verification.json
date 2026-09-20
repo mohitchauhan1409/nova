@@ -1,0 +1,272 @@
+{
+  "video_stream_identical": true,
+  "video_stream_hash": "0,v,SHA256=3dcdd856598acc467a5a881a84911762dfab8b8cab6ac055c33c8707578a3f43",
+  "sound_mode": "clicks-only",
+  "effect": "Nova established mechanical tap; 48 kHz stereo; seed 2071",
+  "audio_peak_dbfs": -13.73,
+  "click_events": 46,
+  "operator_clicks": 19,
+  "nova_clicks": 27,
+  "metadata": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 3024,
+        "height": 1776,
+        "nb_frames": "8835"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "channels": 2,
+        "nb_frames": "13806"
+      }
+    ],
+    "format": {
+      "duration": "294.500000"
+    }
+  },
+  "output_sha256": "1f2eb4249613a9e0ae9e6d35b7f394bef6192f48b4e0872d43ae8aee8c2da9d9",
+  "decoded_peak_dbfs": -13.73,
+  "decoded_audio_duration_seconds": 294.5,
+  "max_abs_attack_offset_ms": 1.771,
+  "max_amplitude_outside_cue_windows": 0.0,
+  "decoded_attack_checks": [
+    {
+      "id": 0,
+      "edited_frame": 112,
+      "decoded_attack_peak_offset_ms": 0.583
+    },
+    {
+      "id": 1,
+      "edited_frame": 226,
+      "decoded_attack_peak_offset_ms": 0.208
+    },
+    {
+      "id": 2,
+      "edited_frame": 597,
+      "decoded_attack_peak_offset_ms": 0.646
+    },
+    {
+      "id": 3,
+      "edited_frame": 950,
+      "decoded_attack_peak_offset_ms": 0.75
+    },
+    {
+      "id": 4,
+      "edited_frame": 1021,
+      "decoded_attack_peak_offset_ms": 0.521
+    },
+    {
+      "id": 5,
+      "edited_frame": 1405,
+      "decoded_attack_peak_offset_ms": 1.0
+    },
+    {
+      "id": 6,
+      "edited_frame": 1914,
+      "decoded_attack_peak_offset_ms": 0.479
+    },
+    {
+      "id": 7,
+      "edited_frame": 1981,
+      "decoded_attack_peak_offset_ms": 0.771
+    },
+    {
+      "id": 8,
+      "edited_frame": 2123,
+      "decoded_attack_peak_offset_ms": 0.396
+    },
+    {
+      "id": 9,
+      "edited_frame": 2145,
+      "decoded_attack_peak_offset_ms": 0.667
+    },
+    {
+      "id": 10,
+      "edited_frame": 2517,
+      "decoded_attack_peak_offset_ms": 1.292
+    },
+    {
+      "id": 11,
+      "edited_frame": 2602,
+      "decoded_attack_peak_offset_ms": 0.583
+    },
+    {
+      "id": 12,
+      "edited_frame": 2680,
+      "decoded_attack_peak_offset_ms": 0.667
+    },
+    {
+      "id": 13,
+      "edited_frame": 2797,
+      "decoded_attack_peak_offset_ms": 0.188
+    },
+    {
+      "id": 14,
+      "edited_frame": 2888,
+      "decoded_attack_peak_offset_ms": 0.312
+    },
+    {
+      "id": 15,
+      "edited_frame": 2999,
+      "decoded_attack_peak_offset_ms": 0.667
+    },
+    {
+      "id": 16,
+      "edited_frame": 3123,
+      "decoded_attack_peak_offset_ms": 0.396
+    },
+    {
+      "id": 17,
+      "edited_frame": 3201,
+      "decoded_attack_peak_offset_ms": 0.083
+    },
+    {
+      "id": 18,
+      "edited_frame": 3388,
+      "decoded_attack_peak_offset_ms": 0.229
+    },
+    {
+      "id": 19,
+      "edited_frame": 3503,
+      "decoded_attack_peak_offset_ms": 0.438
+    },
+    {
+      "id": 20,
+      "edited_frame": 3905,
+      "decoded_attack_peak_offset_ms": 1.271
+    },
+    {
+      "id": 21,
+      "edited_frame": 3909,
+      "decoded_attack_peak_offset_ms": 0.604
+    },
+    {
+      "id": 22,
+      "edited_frame": 4253,
+      "decoded_attack_peak_offset_ms": 0.312
+    },
+    {
+      "id": 23,
+      "edited_frame": 4426,
+      "decoded_attack_peak_offset_ms": 0.396
+    },
+    {
+      "id": 24,
+      "edited_frame": 4503,
+      "decoded_attack_peak_offset_ms": 0.562
+    },
+    {
+      "id": 25,
+      "edited_frame": 5037,
+      "decoded_attack_peak_offset_ms": 1.104
+    },
+    {
+      "id": 26,
+      "edited_frame": 5463,
+      "decoded_attack_peak_offset_ms": 1.354
+    },
+    {
+      "id": 27,
+      "edited_frame": 5567,
+      "decoded_attack_peak_offset_ms": 0.646
+    },
+    {
+      "id": 28,
+      "edited_frame": 5743,
+      "decoded_attack_peak_offset_ms": 0.146
+    },
+    {
+      "id": 29,
+      "edited_frame": 5837,
+      "decoded_attack_peak_offset_ms": 0.438
+    },
+    {
+      "id": 30,
+      "edited_frame": 5947,
+      "decoded_attack_peak_offset_ms": 0.583
+    },
+    {
+      "id": 31,
+      "edited_frame": 6019,
+      "decoded_attack_peak_offset_ms": 1.375
+    },
+    {
+      "id": 32,
+      "edited_frame": 6135,
+      "decoded_attack_peak_offset_ms": 0.271
+    },
+    {
+      "id": 33,
+      "edited_frame": 6192,
+      "decoded_attack_peak_offset_ms": 0.521
+    },
+    {
+      "id": 34,
+      "edited_frame": 6320,
+      "decoded_attack_peak_offset_ms": 1.771
+    },
+    {
+      "id": 35,
+      "edited_frame": 6528,
+      "decoded_attack_peak_offset_ms": 0.75
+    },
+    {
+      "id": 36,
+      "edited_frame": 6806,
+      "decoded_attack_peak_offset_ms": 1.125
+    },
+    {
+      "id": 37,
+      "edited_frame": 7049,
+      "decoded_attack_peak_offset_ms": 0.979
+    },
+    {
+      "id": 38,
+      "edited_frame": 7122,
+      "decoded_attack_peak_offset_ms": 0.667
+    },
+    {
+      "id": 39,
+      "edited_frame": 7457,
+      "decoded_attack_peak_offset_ms": 0.375
+    },
+    {
+      "id": 40,
+      "edited_frame": 7909,
+      "decoded_attack_peak_offset_ms": 0.354
+    },
+    {
+      "id": 41,
+      "edited_frame": 7973,
+      "decoded_attack_peak_offset_ms": 0.208
+    },
+    {
+      "id": 42,
+      "edited_frame": 8060,
+      "decoded_attack_peak_offset_ms": 0.271
+    },
+    {
+      "id": 43,
+      "edited_frame": 8166,
+      "decoded_attack_peak_offset_ms": 0.521
+    },
+    {
+      "id": 44,
+      "edited_frame": 8270,
+      "decoded_attack_peak_offset_ms": 0.375
+    },
+    {
+      "id": 45,
+      "edited_frame": 8406,
+      "decoded_attack_peak_offset_ms": 0.208
+    }
+  ],
+  "audio_stream_hash": "0,a,SHA256=19ff69018580cf1f80228e5cd714c1cf0af397752f9604caef60acccd39ed96f",
+  "audio_identical_after_debugger_cover_boundary_fix": true
+}

@@ -1,0 +1,156 @@
+{
+  "source_sha256": "ce252052397cb11190a63ca905d6fee7e9f3dc21f3d54768c9337b88339f8beb",
+  "frames": 10426,
+  "seconds": 347.53333333333336,
+  "peak_amplitude": 0.06261911988258362,
+  "clicks": [
+    {
+      "source_frame": 211,
+      "evidence": "Recorded direct operator click: Open Nova; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 181,
+      "edited_seconds": 7.033333333333333
+    },
+    {
+      "source_frame": 345,
+      "evidence": "Recorded direct operator click: Opening problem; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 340,
+      "edited_seconds": 11.5
+    },
+    {
+      "source_frame": 1117,
+      "evidence": "Recorded direct operator click: Send opening problem; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 1112,
+      "edited_seconds": 24.433333333333334
+    },
+    {
+      "source_frame": 1624,
+      "evidence": "Recorded direct operator click: Partial product names; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 1619,
+      "edited_seconds": 38.5
+    },
+    {
+      "source_frame": 1705,
+      "evidence": "Recorded direct operator click: Help me choose; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 1700,
+      "edited_seconds": 40.833333333333336
+    },
+    {
+      "source_frame": 2074,
+      "evidence": "Recorded direct operator click: DockBoard mishearing; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 2069,
+      "edited_seconds": 53.13333333333333
+    },
+    {
+      "source_frame": 2184,
+      "evidence": "Recorded direct operator click: ShiftPilot offscreen click; no text entered; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 2179,
+      "edited_seconds": 56.666666666666664
+    },
+    {
+      "source_frame": 2807,
+      "evidence": "Recorded direct operator click: ShiftPilot mishearing visible; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 2802,
+      "edited_seconds": 66.53333333333333
+    },
+    {
+      "source_frame": 2956,
+      "evidence": "Recorded direct operator click: Discussion title; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 2951,
+      "edited_seconds": 71.33333333333333
+    },
+    {
+      "source_frame": 3124,
+      "evidence": "Recorded direct operator click: Meeting transcript field; aligned to visible response after native input dispatch",
+      "strength": 1,
+      "dispatch_frame": 3119,
+      "edited_seconds": 76.5
+    },
+    {
+      "source_frame": 3333,
+      "evidence": "Recorded direct operator click: Import and verify choice; aligned to visible response after native input dispatch",
+      "strength": 0.85,
+      "dispatch_frame": 3328,
+      "edited_seconds": 83.46666666666667
+    },
+    {
+      "source_frame": 3547,
+      "evidence": "Recorded direct operator click: Continue complete details; aligned to visible response after native input dispatch",
+      "strength": 1,
+      "dispatch_frame": 3542,
+      "edited_seconds": 86.6
+    },
+    {
+      "source_frame": 5444,
+      "evidence": "Recorded direct operator click: Confirm synthetic import; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 5439,
+      "edited_seconds": 141.13333333333333
+    },
+    {
+      "source_frame": 6883,
+      "evidence": "Recorded direct operator click: Rename and save follow-up; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 6878,
+      "edited_seconds": 189.1
+    },
+    {
+      "source_frame": 7323,
+      "evidence": "Recorded direct operator click: Send rename and save follow-up; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 7318,
+      "edited_seconds": 201.8
+    },
+    {
+      "source_frame": 8382,
+      "evidence": "Recorded direct operator click: Plans prerequisite question; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 8377,
+      "edited_seconds": 237.1
+    },
+    {
+      "source_frame": 8569,
+      "evidence": "Recorded direct operator click: Send Plans question; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 8564,
+      "edited_seconds": 242.36666666666667
+    },
+    {
+      "source_frame": 9079,
+      "evidence": "Recorded direct operator click: Final source and summary request; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 9074,
+      "edited_seconds": 257.43333333333334
+    },
+    {
+      "source_frame": 9732,
+      "evidence": "Recorded direct operator click: Send final verification request; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 9727,
+      "edited_seconds": 271.8
+    },
+    {
+      "source_frame": 11132,
+      "evidence": "Recorded direct operator click: Clarify pending distillation; aligned to visible response after native input dispatch",
+      "strength": 0.9,
+      "dispatch_frame": 11127,
+      "edited_seconds": 318.46666666666664
+    },
+    {
+      "source_frame": 11498,
+      "evidence": "Recorded direct operator click: Send source clarification; aligned to visible response after native input dispatch",
+      "strength": 0.8,
+      "dispatch_frame": 11493,
+      "edited_seconds": 330.6666666666667
+    }
+  ],
+  "video_stream_hash": "SHA256=5edd537bb7b0f5061347181c7e2660ea1c88bb35193022a58ca71c97489cddad"
+}

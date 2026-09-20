@@ -1,0 +1,23 @@
+{
+  "commit": "87471385f01479c9abed633c13113c19c48f9853",
+  "files": [
+    {
+      "path": "artifacts/sageox/media/nova-sageox-original.mov",
+      "sha256": "ce252052397cb11190a63ca905d6fee7e9f3dc21f3d54768c9337b88339f8beb",
+      "bytes": 100434485,
+      "recovered_from_remote": true
+    },
+    {
+      "path": "artifacts/sageox/media/nova-sageox-silent.mp4",
+      "sha256": "daf266a5fe33b3aae4b7b754d3205109baa88a4a7e4777cc3773441f06fd7229",
+      "bytes": 31765966,
+      "recovered_from_remote": true
+    },
+    {
+      "path": "artifacts/sageox/media/nova-sageox-clicks.mp4",
+      "sha256": "84205e486705e57a2124ed9dba5cd8d554e5695f483c2ee4f79b8e5d1e13910b",
+      "bytes": 32118550,
+      "recovered_from_remote": true
+    }
+  ]
+}

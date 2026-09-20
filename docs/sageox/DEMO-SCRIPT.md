@@ -101,3 +101,27 @@ on screen.”** Nova then left Summary visible and reported the transcript’s t
 speakers, 1:20 duration and unresolved per-user cache encryption decision. All
 repeated inspections and the clarification remain at real speed; no failed action
 was cut into apparent success. The complete take is one continuous source.
+
+## Current private-video revision
+
+The current media supersedes the masked take described above. It uses new terms
+**BayBoard / Bay Board** and **CrewLedger / Crew Ledger** and the complete
+`fixtures/sageox/harborlight-field-review.vtt` source. Opening wording is unchanged.
+The first card received only **BayBoard and CrewLedger**, followed by **Help me
+choose**. The next card asked for both mishearings, title, transcript and outcome.
+The answers were **BayBoard: Bay Board; CrewLedger: Crew Ledger**, **Harborlight
+field review**, the full VTT, and **Save the discussion**. The prepared synthetic
+import was reviewed and confirmed.
+
+Follow-up: “Rename that same discussion to Harborlight field decisions, and save
+it for later. Keep its transcript and sharing unchanged.”
+
+Plans question: “Can I create the implementation plan from this browser page?”
+Its first answer was incomplete. The recorded clarification was: “Open Plans and
+check whether there is a browser create option.”
+
+Final request: “Return to our saved discussion. Verify its two speakers and 1:20
+transcript, then leave Summary open. Use the transcript for the unresolved question.”
+Nova completed this check and left processed Summary visible. The current take has
+no account/privacy boxes; only the browser debugging row is covered in the edits.
+See `recording/TAKE-NOTES.md`, the EDL and cue sheet for timing and retained recovery.

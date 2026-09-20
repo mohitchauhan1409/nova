@@ -1,230 +1,204 @@
 {
-  "source_first_frame_epoch_ms": 1789908335678,
-  "events": [
+  "source_first_frame_epoch_ms": 1789910487261,
+  "source": "Tool-call intervals recovered from this task and then visually aligned to capture frames; timing is not inferred from a uniform offset.",
+  "clicks": [
     {
-      "kind": "click",
-      "at": 1789908341703,
-      "label": "Open Nova"
+      "id": 0,
+      "source_frame": 112,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Launcher activates immediately before the first panel-opening frame (113): Open Nova",
+      "dispatch_estimate_seconds": 2.857
     },
     {
-      "kind": "click",
-      "at": 1789908347021,
-      "label": "Opening problem"
+      "id": 1,
+      "source_frame": 226,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus opening problem",
+      "dispatch_estimate_seconds": 7.272
     },
     {
-      "kind": "typing-start",
-      "at": 1789908347269,
-      "label": "Opening problem"
+      "id": 2,
+      "source_frame": 657,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Send opening problem",
+      "dispatch_estimate_seconds": 21.88
     },
     {
-      "kind": "typing-end",
-      "at": 1789908358684,
-      "label": "Opening problem"
+      "id": 3,
+      "source_frame": 1010,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus partial names",
+      "dispatch_estimate_seconds": 33.186
     },
     {
-      "kind": "click",
-      "at": 1789908372756,
-      "label": "Send opening problem"
+      "id": 4,
+      "source_frame": 1091,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Help me choose",
+      "dispatch_estimate_seconds": 36.339
     },
     {
-      "kind": "click",
-      "at": 1789908389631,
-      "label": "Partial product names"
+      "id": 5,
+      "source_frame": 1592,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus mishearings",
+      "dispatch_estimate_seconds": 52.813
     },
     {
-      "kind": "typing-start",
-      "at": 1789908390071,
-      "label": "Partial product names"
+      "id": 6,
+      "source_frame": 2353,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus title",
+      "dispatch_estimate_seconds": 77.955
     },
     {
-      "kind": "typing-end",
-      "at": 1789908392332,
-      "label": "Partial product names"
+      "id": 7,
+      "source_frame": 2432,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus transcript",
+      "dispatch_estimate_seconds": 80.82
     },
     {
-      "kind": "click",
-      "at": 1789908392332,
-      "label": "Help me choose"
+      "id": 8,
+      "source_frame": 2574,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Save discussion choice",
+      "dispatch_estimate_seconds": 85.313
     },
     {
-      "kind": "click",
-      "at": 1789908404659,
-      "label": "DockBoard mishearing"
+      "id": 9,
+      "source_frame": 2596,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Continue details",
+      "dispatch_estimate_seconds": 86.507
     },
     {
-      "kind": "typing-start",
-      "at": 1789908404915,
-      "label": "DockBoard mishearing"
+      "id": 20,
+      "source_frame": 4485,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Confirm import",
+      "dispatch_estimate_seconds": 149.49
     },
     {
-      "kind": "typing-end",
-      "at": 1789908405778,
-      "label": "DockBoard mishearing"
+      "id": 25,
+      "source_frame": 5617,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus rename",
+      "dispatch_estimate_seconds": 186.989
     },
     {
-      "kind": "click",
-      "at": 1789908408315,
-      "label": "ShiftPilot offscreen click; no text entered"
+      "id": 26,
+      "source_frame": 6222,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Send rename",
+      "dispatch_estimate_seconds": 207.357
     },
     {
-      "kind": "typing-start",
-      "at": 1789908408573,
-      "label": "No-input attempt"
+      "id": 33,
+      "source_frame": 6951,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus Plans question",
+      "dispatch_estimate_seconds": 231.431
     },
     {
-      "kind": "typing-end",
-      "at": 1789908409593,
-      "label": "No-input attempt"
+      "id": 35,
+      "source_frame": 7410,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Send Plans question",
+      "dispatch_estimate_seconds": 246.974
     },
     {
-      "kind": "scroll",
-      "at": 1789908419701,
-      "label": "Bring card inputs into view"
+      "id": 36,
+      "source_frame": 7940,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus Plans clarification",
+      "dispatch_estimate_seconds": 264.41
     },
     {
-      "kind": "scroll",
-      "at": 1789908426137,
-      "label": "View remaining terminology inputs"
+      "id": 37,
+      "source_frame": 8250,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Send Plans clarification",
+      "dispatch_estimate_seconds": 274.971
     },
     {
-      "kind": "click",
-      "at": 1789908429086,
-      "label": "ShiftPilot mishearing visible"
+      "id": 39,
+      "source_frame": 8658,
+      "actor": "operator",
+      "strength": 0.83,
+      "evidence": "Visible field focus/input transition: Focus final request",
+      "dispatch_estimate_seconds": 288.336
     },
     {
-      "kind": "typing-start",
-      "at": 1789908429555,
-      "label": "ShiftPilot mishearing visible"
-    },
-    {
-      "kind": "typing-end",
-      "at": 1789908430584,
-      "label": "ShiftPilot mishearing visible"
-    },
-    {
-      "kind": "click",
-      "at": 1789908434048,
-      "label": "Discussion title"
-    },
-    {
-      "kind": "typing-start",
-      "at": 1789908434306,
-      "label": "Discussion title"
-    },
-    {
-      "kind": "typing-end",
-      "at": 1789908436917,
-      "label": "Discussion title"
-    },
-    {
-      "kind": "click",
-      "at": 1789908439655,
-      "label": "Meeting transcript field"
-    },
-    {
-      "kind": "paste",
-      "at": 1789908439916,
-      "label": "Paste complete synthetic VTT"
-    },
-    {
-      "kind": "scroll",
-      "at": 1789908443185,
-      "label": "View import choice"
-    },
-    {
-      "kind": "click",
-      "at": 1789908446628,
-      "label": "Import and verify choice"
-    },
-    {
-      "kind": "click",
-      "at": 1789908453731,
-      "label": "Continue complete details"
-    },
-    {
-      "kind": "click",
-      "at": 1789908516978,
-      "label": "Confirm synthetic import"
-    },
-    {
-      "kind": "click",
-      "at": 1789908564948,
-      "label": "Rename and save follow-up"
-    },
-    {
-      "kind": "typing-start",
-      "at": 1789908565189,
-      "label": "Rename and save follow-up"
-    },
-    {
-      "kind": "typing-end",
-      "at": 1789908577101,
-      "label": "Rename and save follow-up"
-    },
-    {
-      "kind": "click",
-      "at": 1789908579606,
-      "label": "Send rename and save follow-up"
-    },
-    {
-      "kind": "click",
-      "at": 1789908614927,
-      "label": "Plans prerequisite question"
-    },
-    {
-      "kind": "typing-start",
-      "at": 1789908615183,
-      "label": "Plans prerequisite question"
-    },
-    {
-      "kind": "typing-end",
-      "at": 1789908621157,
-      "label": "Plans prerequisite question"
-    },
-    {
-      "kind": "click",
-      "at": 1789908621157,
-      "label": "Send Plans question"
-    },
-    {
-      "kind": "click",
-      "at": 1789908638132,
-      "label": "Final source and summary request"
-    },
-    {
-      "kind": "typing-start",
-      "at": 1789908638373,
-      "label": "Final source and summary request"
-    },
-    {
-      "kind": "typing-end",
-      "at": 1789908652176,
-      "label": "Final source and summary request"
-    },
-    {
-      "kind": "click",
-      "at": 1789908659897,
-      "label": "Send final verification request"
-    },
-    {
-      "kind": "click",
-      "at": 1789908706582,
-      "label": "Clarify pending distillation"
-    },
-    {
-      "kind": "typing-start",
-      "at": 1789908706819,
-      "label": "Clarify pending distillation"
-    },
-    {
-      "kind": "typing-end",
-      "at": 1789908715682,
-      "label": "Clarify pending distillation"
-    },
-    {
-      "kind": "click",
-      "at": 1789908718775,
-      "label": "Send source clarification"
+      "id": 40,
+      "source_frame": 9186,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "Visible click feedback or immediate control/page response: Send final request",
+      "dispatch_estimate_seconds": 306.204
     }
+  ],
+  "typing_windows": [
+    {
+      "start_frame": 227,
+      "end_frame": 590,
+      "label": "Opening problem"
+    },
+    {
+      "start_frame": 1011,
+      "end_frame": 1075,
+      "label": "Partial product names"
+    },
+    {
+      "start_frame": 1594,
+      "end_frame": 1642,
+      "label": "First spelling pair"
+    },
+    {
+      "start_frame": 1775,
+      "end_frame": 1836,
+      "label": "Second spelling pair"
+    },
+    {
+      "start_frame": 2354,
+      "end_frame": 2427,
+      "label": "Discussion title"
+    },
+    {
+      "start_frame": 5618,
+      "end_frame": 6008,
+      "label": "Rename request"
+    },
+    {
+      "start_frame": 7941,
+      "end_frame": 8130,
+      "label": "Plans clarification"
+    },
+    {
+      "start_frame": 8659,
+      "end_frame": 9115,
+      "label": "Final verification request"
+    }
+  ],
+  "notes": [
+    "Plans-question typing overlaps active Nova work and remains at real speed.",
+    "A semicolon-key pause remains in the continuous source and is shortened only as operator idle."
   ]
 }
