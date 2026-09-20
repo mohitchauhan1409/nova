@@ -1,0 +1,37 @@
+{
+  "source_first_frame_epoch_ms": 1789908335678,
+  "events": [
+    {
+      "applied_before_frame_epoch_ms": 1789908335678,
+      "plan": "privacy-home-initial.json"
+    },
+    {
+      "applied_before_frame_epoch_ms": 1789908342554,
+      "plan": "privacy-home-open-initial.json"
+    },
+    {
+      "applied_before_frame_epoch_ms": 1789908454027,
+      "plan": "privacy-home-open.json"
+    },
+    {
+      "applied_before_frame_epoch_ms": 1789908469831,
+      "plan": "privacy-base.json"
+    },
+    {
+      "applied_before_frame_epoch_ms": 1789908511977,
+      "plan": "privacy-discussion.json"
+    },
+    {
+      "applied_before_frame_epoch_ms": 1789908629847,
+      "plan": "privacy-base.json"
+    },
+    {
+      "applied_before_frame_epoch_ms": 1789908657715,
+      "plan": "privacy-discussion.json"
+    },
+    {
+      "applied_before_frame_epoch_ms": 1789908674376,
+      "plan": "privacy-base.json"
+    }
+  ]
+}

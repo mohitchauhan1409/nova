@@ -1,0 +1,80 @@
+{
+  "source": "Backend wall-clock receipts; edited durations are not latency",
+  "runs": [
+    {
+      "prompt": "I'm a little lost. Help me add two new product names for our Harborlight rollout, then bring in the meeting notes.",
+      "first_response_ms": 6705,
+      "first_question_ms": 6705,
+      "first_action_ms": null,
+      "last_reply_ms": 6705,
+      "reply": "Harborlight rollout details\nPlease provide the terminology and notes to import into this private team.\nTwo product names and mishearings\nDiscussion title\nMeeting notes or transcript\nDesired result Choices: Prepare only; Import and verify.",
+      "verified_actions": 0,
+      "failed_actions": 0
+    },
+    {
+      "prompt": "Help me choose: explain the remaining questions in plain language. Keep my original task and the details I already provided.\nMy answers so far:\nTwo product names and mishearings: DockBoard and ShiftPilot",
+      "first_response_ms": 6711,
+      "first_question_ms": 6711,
+      "first_action_ms": null,
+      "last_reply_ms": 6711,
+      "reply": "Finish the Harborlight details\n\u201cHeard as\u201d means the incorrect wording SageOx might hear\u2014for example, \u201cDock Board\u201d instead of \u201cDockBoard.\u201d I\u2019ll keep both product names you supplied.\nHow might DockBoard be misheard?\nHow might ShiftPilot be misheard?\nWhat should the meeting discussion be titled?\nWhat are the meeting notes or transcript?\nWhat should I do with the notes? Choices: Prepare only; Import and verify.",
+      "verified_actions": 0,
+      "failed_actions": 0
+    },
+    {
+      "prompt": "Details for Finish the Harborlight details:\nHow might DockBoard be misheard?: Dock Board\nHow might ShiftPilot be misheard?: Shift Pilot\nWhat should the meeting discussion be titled?: Harborlight dispatch review\nWhat are the meeting notes or transcript?: WEBVTT\n\n00:00:00.000 --> 00:00:20.000\n<v Maya Chen>This is a synthetic Harborlight rollout review. DockBoard provides read-only offline access to the next seven days of workshop appointments. ShiftPilot remains the server record. New bookings need a connection and server confirmation.</v>\n\n00:00:20.000 --> 00:00:40.000\n<v Eli Brooks>I will prepare the DockBoard cache plan and tests for airplane-mode reopen, stale data, reconnect, and logout clearing the cache. Show last-sync time and an offline indicator. Keep customer phone numbers out of logs.</v>\n\n00:00:40.000 --> 00:01:00.000\n<v Maya Chen>I will review the offline copy and internal pilot checklist by September 25, 2026. That is an internal review date, not a public launch. Keep the work in draft and do not notify customers.</v>\n\n00:01:00.000 --> 00:01:20.000\n<v Eli Brooks>Per-user cache encryption is still an open question for security review. Offline booking creation is deferred. We have agreed on read-only access, seven-day retention, visible freshness, and a security review before production.</v>\nWhat should I do with the notes?: Import and verify",
+      "first_response_ms": 45165,
+      "first_question_ms": null,
+      "first_action_ms": 3549,
+      "last_reply_ms": 104622,
+      "reply": "Added both Harborlight terms and imported the meeting notes as \u201cHarborlight dispatch review.\u201d The saved transcript persists with 2 speakers and a 01:20 duration.",
+      "verified_actions": 19,
+      "failed_actions": 1
+    },
+    {
+      "prompt": "Rename that same discussion to Harborlight decisions, and save it for later. Keep its transcript and sharing unchanged.",
+      "first_response_ms": 29547,
+      "first_question_ms": null,
+      "first_action_ms": 3093,
+      "last_reply_ms": 29547,
+      "reply": "Renamed the same discussion to \u201cHarborlight decisions\u201d and saved it for later. Its transcript and sharing were left unchanged.",
+      "verified_actions": 7,
+      "failed_actions": 0
+    },
+    {
+      "prompt": "Can I create the implementation plan from this browser page?",
+      "first_response_ms": 7227,
+      "first_question_ms": null,
+      "first_action_ms": 3027,
+      "last_reply_ms": 7227,
+      "reply": "No. This Plans page has no browser creation control. Plans must be produced from a coding session using `ox plan render` and saved with `ox plan save`.",
+      "verified_actions": 1,
+      "failed_actions": 0
+    },
+    {
+      "prompt": "Return to our saved discussion. Check its two speakers and 1:20 transcript, then show me the processed summary and the unresolved decision.",
+      "first_response_ms": null,
+      "first_question_ms": null,
+      "first_action_ms": 3236,
+      "last_reply_ms": null,
+      "reply": null,
+      "verified_actions": 15,
+      "failed_actions": 0
+    },
+    {
+      "prompt": "Use the saved transcript for the open question, and leave the processed Summary on screen.",
+      "first_response_ms": 6779,
+      "first_question_ms": null,
+      "first_action_ms": 2476,
+      "last_reply_ms": 6779,
+      "reply": "\u201cHarborlight decisions\u201d is open with the processed Summary visible. The 1:20 transcript has two speakers\u2014Maya Chen and Eli Brooks\u2014and the unresolved decision is whether to use per-user cache encryption for security review.",
+      "verified_actions": 1,
+      "failed_actions": 0
+    }
+  ],
+  "notes": [
+    "Return-to-result request was steered while running after repetitive Summary/Distillation inspection. It has no standalone final reply.",
+    "Clarification used the already verified saved transcript and left processed Summary visible.",
+    "All agent execution and the recovery are retained at real speed."
+  ]
+}

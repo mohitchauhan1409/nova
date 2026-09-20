@@ -21,7 +21,7 @@ SageOx captures team discussions and coding sessions and makes derived context a
 2. First plain-text synthetic import was saved as **Harborlight offline booking decision**, but SageOx parsed one speaker containing the transcript preamble, showed **99:59:59**, and initially showed **No highlights**. This is failed parsing/processing evidence, not a successful context extraction. Created by Computer during research, not by Nova. Exact record identity is retained only in ignored `BE/data/sageox/synthetic-manifest.json`.
 3. The discussion menu requested microphone permission. It was dismissed; chat/transcript work does not need live audio.
 
-At this early research checkpoint no Nova live rehearsal had passed. Current results are tracked in VALIDATION.md; recording remains pending.
+At this early research checkpoint no Nova live rehearsal had passed. Later completed rehearsal and final-take results are tracked in VALIDATION.md.
 
 
 ## Follow-up observations and shared repairs
@@ -40,4 +40,4 @@ The repaired approval flow saved the first term, then hit a second core bug: dra
 
 Two Nova vocabulary rehearsals have now passed independent inspection: three exact saved pairs, then a same-row BaySync mishearing revision with unchanged count. The asynchronous Add spinner required an additional shared verification fix before the successful recovery.
 
-Nova imported the timestamped VTT through the paste field, saved the exact title **Harborlight pilot readiness review**, and reopened it. Independent UI inspection confirmed Maya Chen and Eli Brooks, **2 speakers / 01:20**, and all four complete turns at 00:00, 00:20, 00:40 and 01:00. Summary initially remains **No highlights**; processed output has not yet passed. No file chooser handoff was used. Microphone permission was explicitly denied after the menu requested it; text import continued.
+Nova imported the timestamped VTT through the paste field, saved the exact title **Harborlight pilot readiness review**, and reopened it. Independent UI inspection confirmed Maya Chen and Eli Brooks, **2 speakers / 01:20**, and all four complete turns at 00:00, 00:20, 00:40 and 01:00. Summary initially showed **No highlights**. Subsequent reopens and the complete combined rehearsal verified the processed summary, including the open security question. No file chooser handoff was used. Microphone permission was explicitly denied after the menu requested it; text import continued.

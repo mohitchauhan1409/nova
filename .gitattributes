@@ -1,0 +1,3 @@
+artifacts/sageox/media/nova-sageox-original.mov filter=lfs diff=lfs merge=lfs -text
+artifacts/sageox/media/nova-sageox-silent.mp4 filter=lfs diff=lfs merge=lfs -text
+artifacts/sageox/media/nova-sageox-clicks.mp4 filter=lfs diff=lfs merge=lfs -text

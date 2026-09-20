@@ -42,7 +42,7 @@ The configured provider/model strategy was retained.
 
 ## Checks completed
 
-The complete customer build and all **208 tests in 20 files passed** after the shared
+The complete customer build and all **216 tests in 20 files passed** after the shared
 fixes. Targeted runner, verification and policy checks also passed. Type checking passed. Packaged-browser control
 checks passed all 12 scenarios after correcting stale smoke-test expectations.
 The panel experience check passed.
@@ -52,14 +52,10 @@ over 3 seconds at 30 fps, no audio, and capture-time privacy masks. The frame ed
 was tested with a synthetic moving source: exact output frame count and identical
 encoded video streams before/after click-audio muxing. Final footage remains pending.
 
-## Remaining live gates
+## Delivery gates
 
-- Verify VTT duration/source and actual processed summary; repeat import/recovery.
-- Rehearse grouped clarification, partial answers, help choosing and correction.
-- Rehearse discussion rename/save-for-later, Plans prerequisite and Stop/resume.
-- Complete final Nova-only take, frame inspection, privacy review, edited exports,
-  checksum verification and private branch/LFS backup.
-
+The live rehearsal gates below are complete. Final-take inspection, frame edits,
+checksums and independent private LFS recovery are recorded in `recording/`.
 
 ## Clarification and interruption rehearsal
 
@@ -81,3 +77,85 @@ Independent inspection confirmed all four turns and timestamps, two speakers and
 01:20 duration. First action 3.908 s; concrete import review 19.455 s; final reply
 67.477 s including operator review time. Summary was reported honestly as No
 highlights, so extraction was still pending at that checkpoint.
+
+## Combined-flow regression (recording candidate, rejected)
+
+The natural combined prompt and Help me choose answers followed a different intent
+path from the earlier individually rehearsed flows. A clarification label obscured
+the original terminology instruction, requesting unnecessary Add review. After that
+review, the verified form reset did not retire its prepared input records because
+the cleanup was limited to automatically allowed actions. FleetDesk was saved once;
+QueuePilot was not yet saved. The take stopped rather than implying completion.
+
+Main now preserves the original explicit terminology request across non-instruction
+answer lines, with later negations/review requirements retaining priority. Verified,
+cleared ordinary creation fields can be reused after an approved Add too. Regression
+coverage exercises synchronous and delayed forms with and without approval. Full
+build and 214 tests in 20 files pass. A complete live combined rehearsal is required
+before another final take.
+
+Additional discarded opening attempts covered Home responsive privacy masks, an
+interrupted operator input, and a keyboard-focus cursor workaround the user rejected.
+Final operator input uses ordinary direct clicks; no footer/keyboard focus trick.
+
+
+## Complete frozen-sequence rehearsal
+
+The exact combined opening, partial answer and Help me choose sequence passed with
+RouteDesk / Route Desk and DepotPilot / Depot Pilot. The same run imported one
+Harborlight handover review, verified two speakers and 01:20 full VTT, reopened the
+nine-row vocabulary list and observed its generated summary. An intermediate stale
+row target was safely rejected with no input and recovered from a fresh observation.
+There was no repeat import or unnecessary vocabulary approval.
+
+The final pending-save fix (main f5519a4) waits for actual committed changes while
+an unchanged populated draft remains visible, including a disabled Import control;
+dismissing an auxiliary file input no longer counts as a saved result. The failed
+preceding import remained a single record; a proposed retry was canceled.
+
+After the combined import, same-record rename to Harborlight handover notes and
+Save for later passed; Plans correctly disclosed the coding-session prerequisite;
+returning to source and summary confirmed per-user cache encryption remains open.
+Independent UI inspection confirmed nine exact vocabulary rows and one matching
+saved discussion, with its new title and saved-for-later toggle enabled.
+
+Wall-clock timings: opening card 7.102 s; Help card 8.730 s; combined first action
+2.733 s, import review 46.405 s, final 197.629 s including operator review time and
+SageOx processing; rename/save 2.907 s / 24.446 s; Plans 4.606 s / 12.569 s;
+source/summary return 2.029 s / 23.243 s (first action / final reply).
+Application and site-guide code were frozen after this pass. Subsequent capture
+privacy layout adjustments do not change Nova's reasoning or website actions.
+
+
+## Recorded outcome and later regression guard
+
+The continuous final take added DockBoard / Dock Board and ShiftPilot / Shift Pilot
+(11 vocabulary rows total), imported exactly one new discussion (five total),
+renamed that same record to Harborlight decisions and enabled Save for later.
+The visible source reports two speakers and 01:20; its processed Summary matches
+the read-only seven-day scope, server-confirmed bookings and internal review.
+Plans has no browser creation control. No sharing, messaging, CLI installation,
+access change or production deployment occurred.
+
+Opening and help cards took 6.705 s and 6.711 s. Combined first website action was
+3.549 s; import review arrived at 45.165 s; final reply at 104.622 s including
+operator approval and processing. Rename/save: 3.093 s first action, 29.547 s
+completion. Plans: 3.027 s first action, 7.227 s completion. The last source request
+was steered after 58.883 s of repeated pending-tab inspection; the clarifying
+request completed in 6.779 s. Detailed wall-clock receipts are in
+`recording/measured-timings.json`; these are not edited video durations.
+
+The recording preserves the real safe stale-target recovery, denied visual
+inspection of incidental private text, and later pending-tab repetition. It is
+not presented as a flawless run. A post-take shared guard (main b770ad9) detects
+repeated tab inspection from unchanged content and semantic controls even when
+refs change. It requests a different source/strategy before another repeated
+click and stops safely if that is ignored. Updated content and field state remain
+eligible. The alternating-view regression passed, followed by the complete build
+and **216 tests in 20 files**. This final guard is regression-tested; it was added
+after the recorded live take and is not claimed as live-rehearsed in this video.
+
+Remaining product limit: SageOx Distillation was still processing in the take.
+The imported source and Summary were available and verified. Broader integrations,
+file-chooser uploads, sharing, live recording and browser plan creation are not
+claimed as tested working journeys.

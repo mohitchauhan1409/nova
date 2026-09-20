@@ -1,0 +1,78 @@
+{
+  "width": 3024,
+  "height": 1776,
+  "masks": [
+    {
+      "x": 300,
+      "y": 10,
+      "width": 365,
+      "height": 51,
+      "color": "#edf0fa",
+      "reason": "Private team name in browser tab"
+    },
+    {
+      "x": 440,
+      "y": 96,
+      "width": 2110,
+      "height": 58,
+      "color": "#e9ecf6",
+      "reason": "Account and record identifiers in URL; domain remains visible"
+    },
+    {
+      "x": 2880,
+      "y": 96,
+      "width": 62,
+      "height": 62,
+      "color": "#f7f8fc",
+      "reason": "Signed-in browser avatar"
+    },
+    {
+      "x": 44,
+      "y": 382,
+      "width": 366,
+      "height": 100,
+      "color": "#f7f6f3",
+      "reason": "Private scope label in normal and settings sidebars"
+    },
+    {
+      "x": 43,
+      "y": 1575,
+      "width": 367,
+      "height": 104,
+      "color": "#f7f6f3",
+      "reason": "Account name and email in sidebar footer"
+    },
+    {
+      "x": 895,
+      "y": 327,
+      "width": 231,
+      "height": 189,
+      "color": "#ffffff",
+      "reason": "Home personal greeting with browser indicator present or absent"
+    },
+    {
+      "x": 43,
+      "y": 270,
+      "width": 330,
+      "height": 73,
+      "color": "#f7f6f3",
+      "reason": "Home private team label before browser control attaches"
+    },
+    {
+      "x": 493,
+      "y": 1709,
+      "width": 1700,
+      "height": 67,
+      "color": "#ffffff",
+      "reason": "Home activity author at bottom edge before browser control attaches"
+    },
+    {
+      "x": 620,
+      "y": 1430,
+      "width": 1040,
+      "height": 346,
+      "color": "#ffffff",
+      "reason": "Personal authors in responsive Home activity panel"
+    }
+  ]
+}
