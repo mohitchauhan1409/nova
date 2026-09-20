@@ -9,6 +9,15 @@ export function actionEffect(action: Action, before: Snapshot, after: Snapshot, 
   const targetBefore = before.elements.find(e=>e.ref===action.ref);
   const targetAfter = after.elements.find(e=>e.ref===action.ref);
   if(before.url!==after.url) return {action:action.kind,verified:true,detail:`Navigation observed: ${after.url}`};
+  // A submit button often disappears behind a spinner before persistence. Its
+  // label/disabled-state change alone must not release the next planned action.
+  if (['click','double_click'].includes(action.kind) && targetBefore?.type === 'submit' &&
+      !targetBefore.disabled && targetAfter?.disabled &&
+      (!targetAfter.name.trim() || /\b(saving|adding|creating|submitting|loading)\b/i.test(targetAfter.name)) &&
+      before.elements.some(e => e.context === targetBefore.context && e.edit?.empty === false &&
+        after.elements.some(next => next.ref === e.ref && next.edit?.empty === false && next.edit.revision === e.edit?.revision))) {
+    return {action:action.kind,verified:false,detail:'The form is still submitting. Wait for the saved result without submitting again.'};
+  }
   if(['scroll','scroll_to','zoom'].includes(action.kind)&&JSON.stringify(before.viewport)!==JSON.stringify(after.viewport)) return {action:action.kind,verified:true,detail:'The browser viewport changed.'};
   if(targetBefore && targetAfter && JSON.stringify(targetBefore.state)!==JSON.stringify(targetAfter.state)) return {action:action.kind,verified:true,detail:`Control state changed: ${targetAfter.name} ${targetAfter.state?.join(', ') || ''}`};
   if(normalize(before.text)!==normalize(after.text)) return {action:action.kind,verified:true,detail:'Visible page content changed. Completion still requires evidence of the requested outcome.'};
