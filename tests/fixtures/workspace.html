@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Juniper workspace</title>
+<style>body{font:16px system-ui;margin:40px;color:#243630;background:#f4f8f6}main{max-width:850px;margin:auto}header{margin-bottom:28px}article,.filters{padding:22px;border:1px solid #cee1d7;border-radius:14px;margin:16px 0;background:white}button,[role=combobox],[role=option]{font:inherit;padding:12px;border:1px solid #b2cfc2;border-radius:8px;background:#eff7f3;cursor:pointer}[role=option]{margin:6px 0}[hidden]{display:none!important}</style>
+<main><header><h1>Juniper workspace</h1><p>Project reviews for your team</p></header>
+<section class="filters"><div role="combobox" tabindex="0" aria-label="Project status" aria-expanded="false" aria-controls="options">All projects</div><div id="options" role="listbox" hidden><div role="option" tabindex="0">All projects</div><div role="option" tabindex="0">Ready</div><div role="option" tabindex="0">Draft</div></div><p id="filter-state">Showing all projects</p></section>
+<article data-status="Ready"><h2>Atlas refresh</h2><p>Ready · Owner: Mina</p><button id="details">Open Atlas refresh</button><section id="project" hidden><h3>Atlas refresh details</h3><p>Deadline: 24 October 2026</p><button id="favorite" aria-pressed="false">Favorite Atlas refresh</button><p id="result">Not favorited</p></section></article>
+<article data-status="Draft"><h2>Harbor review</h2><p>Draft · Owner: Dev</p></article></main>
+<script>
+const menu=document.querySelector('[role=combobox]'),options=document.getElementById('options');
+menu.onclick=e=>{if(!e.isTrusted)return;options.hidden=!options.hidden;menu.setAttribute('aria-expanded',String(!options.hidden));};
+for(const option of document.querySelectorAll('[role=option]'))option.onclick=e=>{if(!e.isTrusted)return;menu.textContent=option.textContent;menu.setAttribute('aria-expanded','false');options.hidden=true;for(const article of document.querySelectorAll('article[data-status]'))article.hidden=option.textContent!=='All projects'&&article.dataset.status!==option.textContent;document.getElementById('filter-state').textContent='Showing '+option.textContent+' projects';};
+document.getElementById('details').onclick=e=>{if(e.isTrusted){document.getElementById('project').hidden=false;document.getElementById('details').setAttribute('aria-expanded','true');}};
+document.getElementById('favorite').onclick=e=>{if(!e.isTrusted)return;e.currentTarget.setAttribute('aria-pressed','true');document.getElementById('result').textContent='Atlas refresh is in your favorites';};
+</script></html>

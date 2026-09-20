@@ -1,0 +1,14 @@
+// Local reproduction of the a live customer website inline-title confirmation regression.
+import {createServer} from 'node:http';
+import {writeFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import {ControlledBrowser} from '../BE/src/browser/controlled';
+import {AgentRunner} from '../BE/src/agent/runner';
+import {config} from '../BE/src/config';
+import type {Session,Action} from '../shared/types';
+config.allowLocalTests=true;config.headless=true;
+const server=createServer((_,res)=>{res.setHeader('Content-Type','text/html');res.end('<title>Workflow draft</title><h1>Untitled workflow</h1><p>Local inline editor regression</p><input aria-label="Rename Untitled workflow" onkeydown="if(event.key===\'Enter\'){document.querySelector(\'h1\').textContent=this.value;document.querySelector(\'p\').textContent=\'Draft title saved\';this.remove()}">');});await new Promise<void>(r=>server.listen(0,'127.0.0.1',r));const url=`http://127.0.0.1:${(server.address() as {port:number}).port}`;const driver=new ControlledBrowser();let approvals=0;
+const session:Session={id:'rename-fixture',siteId:'fixture',mode:'browser',url,title:'Workflow draft',status:'ready',messages:[],traces:[],steps:0,model:'test',startedAt:Date.now()};let turn=0;
+const action=(kind:Action['kind'],ref:string|null,value:string|null):Action=>({kind,ref,value,url:null,x:null,y:null,risk:'change',summary:'Rename the draft'});
+const runner=new AgentRunner(session,driver,{decide:async(_s,_site,snapshot)=>{turn++;if(turn===1)return action('fill',snapshot.elements.find(e=>e.name==='Rename Untitled workflow')!.ref,'Project — Guided Workflow');if(turn===2)return action('press',snapshot.elements.find(e=>e.name==='Rename Untitled workflow')!.ref,'Enter');return {...action('done',null,null),summary:'The draft title is saved.',completion:{status:'completed',evidence:[{source:'text',ref:null,value:'Project — Guided Workflow'},{source:'text',ref:null,value:'Draft title saved'}]}};}},{id:'fixture',name:'Workflow test',url,domain:'127.0.0.1',color:'#555555',instructions:'',description:'',flows:[],observations:0},s=>{if(s.approval){approvals++;runner.stop();}});
+try{await driver.open(url);await runner.command('Rename this workflow to Project — Guided Workflow');assert.equal(approvals,0);assert.equal(session.status,'ready');assert.equal(session.steps,2);assert.match((await driver.snapshot()).text,/Draft title saved/);const report={ok:true,scope:'Local inline editor with real trusted browser input; deterministic planner',checks:['One verified fill','Enter commits title without unnecessary approval','Observed saved title required for completion']};await writeFile('artifacts/core/inline-rename-regression.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report));}finally{await runner.close();await new Promise<void>(r=>server.close(()=>r()));}

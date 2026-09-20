@@ -1,0 +1,19 @@
+import { beforeAll, afterAll, describe, expect, it } from 'vitest';
+import { spawn, type ChildProcess } from 'node:child_process';
+import { WebSocket } from 'ws';
+import { request as httpRequest } from 'node:http';
+import { config } from '../BE/src/config';
+const port=18987;const base=`http://127.0.0.1:${port}`;let server:ChildProcess;
+beforeAll(async()=>{server=spawn(process.execPath,['--import','tsx','BE/src/server.ts'],{env:{...process.env,PORT:String(port)},stdio:['ignore','pipe','pipe']});await new Promise<void>((resolve,reject)=>{const timer=setTimeout(()=>reject(new Error('Test API did not start')),15000);server.stdout!.on('data',data=>{if(data.toString().includes('Nova backend ready')){clearTimeout(timer);resolve();}});server.once('exit',()=>{clearTimeout(timer);reject(new Error('Test API exited during startup'));});});});
+afterAll(async()=>{if(server&&server.exitCode===null){server.kill('SIGTERM');await new Promise<void>(resolve=>server.once('exit',()=>resolve()));}});
+describe('HTTP and WebSocket authentication',()=>{
+  it('exposes health without exposing provider keys',async()=>{const r=await fetch(base+'/api/health');expect(r.status).toBe(200);expect(await r.json()).toEqual({ok:true,version:'0.1.0'});});
+  it('requires bearer authentication for site access',async()=>{const r=await fetch(base+'/api/sites');expect(r.status).toBe(401);const good=await fetch(base+'/api/sites',{headers:{Authorization:`Bearer ${config.token}`}});expect(good.status).toBe(200);});
+  it('authenticates release metadata while serving the public extension archive',async()=>{expect((await fetch(base+'/api/extension-release')).status).toBe(401);const info=await fetch(base+'/api/extension-release',{headers:{Authorization:`Bearer ${config.token}`}});expect((await info.json()).available).toBe(true);const zip=await fetch(base+'/downloads/nova-extension.zip');expect(zip.status).toBe(200);expect(zip.headers.get('content-type')).toBe('application/zip');await zip.arrayBuffer();});
+  it('does not turn an unknown download into a dashboard HTML response',async()=>{expect((await fetch(base+'/downloads/missing.zip')).status).toBe(404);});
+  it('rejects foreign origins',async()=>{expect((await fetch(base+'/api/bootstrap',{headers:{Origin:'https://attacker.example'}})).status).toBe(403);});
+  it('rejects DNS-rebinding hostnames',async()=>{const status=await new Promise<number|undefined>((resolve,reject)=>{const request=httpRequest(base+'/api/bootstrap',{headers:{host:'attacker.example'}},response=>{response.resume();resolve(response.statusCode);});request.on('error',reject);request.end();});expect(status).toBe(403);});
+  it('does not expose provider secrets in bootstrap',async()=>{const r=await fetch(base+'/api/bootstrap');const text=await r.text();for(const key of [config.openaiKey,config.sarvamKey].filter(Boolean)) expect(text).not.toContain(key);expect(text).not.toContain('OPENAI_API_KEY');expect(text).not.toContain('SARVAM_API_KEY');expect(r.headers.get('cache-control')).toBe('no-store');expect(r.headers.get('content-security-policy')).toContain("frame-ancestors 'none'");});
+  it('rejects an invalid WebSocket pairing token',async()=>{const code=await new Promise<number>((resolve,reject)=>{const ws=new WebSocket(`ws://127.0.0.1:${port}/socket`);ws.on('open',()=>ws.send(JSON.stringify({type:'auth',role:'ui',token:'invalid'})));ws.on('close',resolve);ws.on('error',reject);});expect(code).toBe(1008);});
+  it('authenticates a valid WebSocket and returns sessions',async()=>{const result=await new Promise<string[]>((resolve,reject)=>{const types:string[]=[];const ws=new WebSocket(`ws://127.0.0.1:${port}/socket`);ws.on('open',()=>ws.send(JSON.stringify({type:'auth',role:'ui',token:config.token})));ws.on('message',data=>{const event=JSON.parse(data.toString());types.push(event.type);if(event.type==='sessions'){ws.close();resolve(types);}});ws.on('error',reject);});expect(result).toEqual(['ready','sessions']);});
+});

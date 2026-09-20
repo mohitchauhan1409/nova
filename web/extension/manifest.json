@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Nova",
+  "version": "0.7.1",
+  "description": "AI support that takes action. Talk through a task, watch each step, and review the result beside your website.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "sidePanel",
+    "debugger"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8787/*",
+    "http://localhost:8787/*",
+    "http://127.0.0.1:5173/*",
+    "http://localhost:5173/*"
+  ],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://127.0.0.1/*",
+        "http://localhost/*"
+      ],
+      "js": [
+        "dashboard.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_title": "Open Nova on this website"
+  },
+  "side_panel": {
+    "default_path": "panel.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' ws://127.0.0.1:8787 http://127.0.0.1:8787; style-src 'self'; font-src 'self'; img-src 'self' data:;"
+  }
+}

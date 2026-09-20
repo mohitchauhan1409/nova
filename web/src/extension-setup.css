@@ -1,0 +1,32 @@
+.browser-setup{background:#fff;border:1px solid #e7e4ee;border-radius:22px;margin-bottom:24px;overflow:hidden}
+.browser-setup-header{display:flex;gap:18px;padding:30px 30px 24px;background:linear-gradient(120deg,#f4f0ff,#fff 85%)}
+.browser-setup-icon{flex-shrink:0;display:grid;place-items:center;width:52px;height:52px;background:#ece5ff;color:#7451d7;border-radius:16px}
+.browser-setup-kicker{font-size:10px;letter-spacing:1.6px;color:#8065ae;font-weight:700}
+.browser-setup h2{font-size:24px;letter-spacing:-.7px;margin:7px 0 9px;color:#2e273d}
+.browser-setup p{font-size:13px;line-height:1.75;color:#716b7d;margin:8px 0 13px}
+.browser-setup strong{color:#4a425b}.browser-setup code{font-size:12px;overflow-wrap:anywhere;background:#f3f0f7;padding:2px 5px;border-radius:4px}
+.browser-connection{margin:0 30px;padding:16px;display:flex;align-items:center;gap:12px;border:1px solid #e8e2ef;border-radius:12px;background:#faf8fc}
+.browser-connection-dot{height:8px;width:8px;flex-shrink:0;border-radius:50%;background:#b4a7c3}
+.browser-connection.is-connected{background:#f3faf5;border-color:#d6eadb}.browser-connection.is-connected .browser-connection-dot{background:#4a9e67}
+.browser-connection>div{flex:1;font-size:12px}.browser-connection small{display:block;color:#827a8d;margin-top:5px;font-size:11px}
+.browser-connection button{white-space:nowrap;font-size:11px}
+.browser-install-steps{list-style:none;padding:8px 30px 0;margin:0;counter-reset:steps}
+.browser-install-steps>li{display:flex;gap:17px;padding:25px 0;border-bottom:1px solid #efecf3}.browser-install-steps>li:last-child{border-bottom:0}
+.browser-install-steps>li>div{min-width:0;flex:1}.browser-step-number{width:29px;height:29px;flex-shrink:0;border:1px solid #e5dcef;background:#faf7ff;color:#8961c6;display:grid;place-items:center;border-radius:50%;font-size:12px;font-weight:700}
+.browser-setup h3{font-size:16px;margin:3px 0 9px;color:#3e354d;letter-spacing:-.2px}
+.browser-step-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:16px 0 2px}
+.browser-download-meta{font-size:11px;line-height:1.7;color:#93889e}.browser-setup a.button{text-decoration:none}
+.browser-picker{display:inline-flex;padding:4px;border-radius:9px;background:#f4f1f8;gap:3px;margin:8px 0}
+.browser-picker button{padding:8px 13px;border:0;border-radius:6px;background:transparent;color:#897e96;font-size:12px;cursor:pointer}.browser-picker button[aria-pressed=true]{background:#fff;color:#714aad;box-shadow:0 1px 4px #3820580d}
+.browser-address{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:460px;padding:9px 12px;border:1px solid #e7e1ee;background:#fcfaff;border-radius:9px}
+.browser-address code{background:none;padding:0;font-size:13px;color:#68448b;user-select:all}.browser-address button{font-size:11px;padding:8px 12px;white-space:nowrap}
+.browser-step-note{display:block;color:#9b90a5;font-size:11px;line-height:1.7;margin-top:13px}
+.browser-setup-warning{padding:12px 16px;background:#fff9e9;border-radius:9px}.browser-setup>.browser-setup-warning{margin:14px 30px}
+.browser-setup-notice:empty{display:none}.browser-setup>.browser-setup-notice{position:fixed;z-index:100;right:24px;bottom:22px;max-width:min(420px,calc(100vw - 48px));margin:0;padding:14px 18px;border:1px solid #ddd1ec;border-radius:12px;background:#fff;box-shadow:0 5px 30px #35204720;color:#7650a6;font-size:12px}
+.browser-setup-footer{display:flex;align-items:flex-start;gap:10px;margin:0 30px 20px;padding:15px;background:#f7f8f6;border-radius:10px;color:#718271}
+.browser-setup-footer svg{flex-shrink:0;margin-top:3px}.browser-setup-footer p{margin:0;font-size:11px;line-height:1.8}
+.browser-setup-details{margin:0 30px;border-top:1px solid #efecf3;padding:17px 0;font-size:12px}.browser-setup-details:last-child{margin-bottom:9px}
+.browser-setup-details summary{cursor:pointer;font-weight:600;color:#645570;line-height:1.6}.browser-setup-details p,.browser-setup-details li{font-size:12px;line-height:1.8}.browser-setup-details ul{padding-left:20px;color:#716b7d}.browser-setup-details li{margin:8px 0}
+.browser-setup-details a{color:#8155b9;overflow-wrap:anywhere}.browser-setup-details pre{background:#f7f4fb;padding:16px;border-radius:9px;line-height:1.8;color:#6a4a87;overflow-x:auto}
+.browser-setup button:focus-visible,.browser-setup a:focus-visible,.browser-setup summary:focus-visible{outline:2px solid #9668cf;outline-offset:4px}
+@media(max-width:650px){.browser-setup-header{padding:22px 18px;gap:12px}.browser-setup-icon{width:39px;height:39px;border-radius:12px}.browser-setup h2{font-size:21px}.browser-connection{margin:0 18px;flex-wrap:wrap}.browser-connection>div{min-width:170px}.browser-connection>button{margin-left:20px}.browser-install-steps{padding:5px 18px 0}.browser-install-steps>li{gap:11px}.browser-setup-footer,.browser-setup-details{margin-left:18px;margin-right:18px}.browser-address{flex-wrap:wrap}.browser-picker button{padding:8px 9px;font-size:11px}.browser-setup .button{font-size:11px}.browser-setup>.browser-setup-notice,.browser-setup>.browser-setup-warning{margin-left:18px;margin-right:18px}}

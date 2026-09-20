@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Shopping assistant fixture</title><style>body{font:16px system-ui;margin:30px}section{max-width:550px;padding:25px;border:1px solid #ccc}textarea{width:440px;height:100px}button{padding:12px;margin:10px}[hidden]{display:none!important}</style>
+<p id="banner">Offer 0</p><button id="open" aria-label="Open shopping assistant" aria-expanded="false">?</button>
+<section aria-label="Shopping assistant" id="panel" hidden><h2>Shopping assistant</h2><textarea aria-label="Ask a question"></textarea><button id="send">Send</button><div role="log" id="conversation"></div></section>
+<p id="counts">Draft writes: 0. Messages sent: 0.</p>
+<script>
+let tick=0,writes=0,sends=0;setInterval(()=>document.getElementById('banner').textContent='Offer '+(++tick),120);
+const editor=document.querySelector('textarea');const counts=()=>document.getElementById('counts').textContent=`Draft writes: ${writes}. Messages sent: ${sends}.`;
+document.getElementById('open').onclick=e=>{if(!e.isTrusted)return;document.getElementById('panel').hidden=false;e.currentTarget.setAttribute('aria-label','Close shopping assistant');e.currentTarget.setAttribute('aria-expanded','true');};
+let writeTimer;editor.oninput=e=>{if(e.isTrusted){clearTimeout(writeTimer);writeTimer=setTimeout(()=>{writes++;counts();},100);}};
+function send(e){if(!e.isTrusted||!editor.value.trim())return;sends++;document.getElementById('conversation').textContent='Your message: '+editor.value+'\nAssistant response: I will compare the available AI phones.';editor.value='';counts();}
+document.getElementById('send').onclick=send;editor.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send(e);}};
+</script></html>
