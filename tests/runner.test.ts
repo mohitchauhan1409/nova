@@ -15,6 +15,22 @@ function fixture() {
   return {runner,session,execute,driver,planner,setState:(s:Snapshot)=>{state=s;}};
 }
 describe('browser agent execution boundaries',()=>{
+  it('waits for a delayed link destination without planning against focused old controls', async () => {
+    const f=fixture();
+    const old={...base,elements:[{...base.elements[0],tag:'a',name:'Settings',href:'https://shop.example.com/settings'}]};
+    let clicked=false, reads=0;
+    f.driver.execute=vi.fn(async()=>{clicked=true;return {ok:true};});
+    f.driver.snapshot=async()=> !clicked ? old : ++reads < 3 ? {...old,elements:old.elements.map(e=>({...e,state:['focused:true']}))} : {...old,url:'https://shop.example.com/settings',text:'Settings ready'};
+    let plans=0;
+    f.planner.decide=async(_session,_site,snapshot)=> {
+      if(++plans===1)return {...act('click'),risk:'read'};
+      expect(snapshot.url).toBe('https://shop.example.com/settings');
+      return {...act('done'),summary:'Settings is open.',completion:{status:'completed',evidence:[{source:'text',ref:null,value:'Settings ready'}]}};
+    };
+    await f.runner.command('Open settings');
+    expect(f.driver.execute).toHaveBeenCalledTimes(1);
+    expect(f.session.status).toBe('ready');
+  });
   it('binds visible action receipts to the task and marks rejected input as failed, never verified',async()=>{
     const f=fixture();f.setState({...base,elements:[{...base.elements[0],name:'Open details'}]});
     let release:()=>void=()=>{};f.driver.execute=vi.fn(()=>new Promise(resolve=>{release=()=>resolve({ok:false,dispatch:'not-sent',detail:'Target covered'});}));

@@ -6,6 +6,14 @@ import type {Action,Snapshot,Session,SiteProfile} from '../shared/types';
 const before:Snapshot={id:'a',url:'https://example.com/',title:'Page',text:'Player',elements:[{ref:'v',tag:'video',role:'',name:'Player',type:'',context:'',disabled:false,sensitive:false,state:['paused:false']}],viewport:{width:1200,height:800,scrollY:0},theme:{color:'#000',font:'Arial'},frames:0,capturedAt:0};
 const action:Action={kind:'click',ref:'v',url:null,value:null,x:null,y:null,summary:'Pause',risk:'read'};
 describe('observed outcome verification',()=>{
+  it('does not mistake a focused link for its delayed navigation', () => {
+    const page = {...before,elements:[{...before.elements[0],tag:'a',name:'Settings',href:'https://example.com/settings',state:[]}]};
+    const focused = {...page,elements:page.elements.map(e=>({...e,state:['focused:true']}))};
+    expect(actionEffect(action,page,focused)).toMatchObject({verified:false,detail:expect.stringContaining('navigation is still pending')});
+    expect(actionEffect(action,page,{...focused,url:'https://example.com/settings',text:'Settings'}).verified).toBe(true);
+    const anchor = {...page,elements:page.elements.map(e=>({...e,href:'https://example.com/#details'}))};
+    expect(actionEffect(action,anchor,{...anchor,url:'https://example.com/#details'}).verified).toBe(true);
+  });
   it('accepts an actually observed accessible panel label and equivalent ARIA state spelling',()=>{
     const snap={...before,elements:[{...before.elements[0],ref:'panel',name:'Close assistant panel',state:['expanded:true']}]};
     const effect={action:'click' as const,verified:true,detail:'Expanded'};
