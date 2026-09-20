@@ -54,6 +54,13 @@ describe('deterministic action policy', () => {
     const page={...snapshot,elements:[{...snapshot.elements[0],role:'textbox',type:'text',name:'Rename Untitled workflow'}]};
     expect(checkAction(action({kind:'press',ref:'search',value:'Enter',risk:'change'}),page,page.url,'Build a workflow named Nova Demo').outcome).toBe('allow');
   });
+  it('saves requested inline metadata titles but retains form, message and intent boundaries', () => {
+    const field = {...snapshot.elements[0],ref:'title',role:'',type:'text',form:false,name:'Discussion title',edit:{revision:'v1',empty:false}};
+    const check = (intent:string, patch={}) => checkAction(action({kind:'press',ref:'title',value:'Enter',risk:'change'}),{...snapshot,elements:[{...field,...patch}]},snapshot.url,intent);
+    expect(check('Rename that discussion to Weekly decisions. Keep sharing unchanged.').outcome).toBe('allow');
+    for(const intent of ['Read the discussion','Do not rename the discussion','Rename it only after my confirmation','How would I rename this?']) expect(check(intent).outcome).toBe('approve');
+    for(const patch of [{form:true},{name:'Account permissions title'},{submission:{scope:'composer',label:'message',fields:[]}},{name:'Message'}]) expect(check('Rename the title to Weekly decisions',patch).outcome).toBe('approve');
+  });
   it('does not treat a message composer, sensitive rename or generic form as an inline title',()=>{
     for(const patch of [{name:'Message'},{name:'Rename permissions'},{name:'Rename draft',submission:{scope:'composer',label:'message',fields:[]}}]){const page={...snapshot,elements:[{...snapshot.elements[0],role:'textbox',type:'text',...patch}]};expect(checkAction(action({kind:'press',ref:'search',value:'Enter',risk:'change'}),page,page.url).outcome).toBe('approve');}
   });
