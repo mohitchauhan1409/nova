@@ -13,12 +13,12 @@ Creem is a merchant-of-record platform for software and digital products. This s
 
 | Journey | Value and dependencies | Status |
 | --- | --- | --- |
-| Complete subscription configuration | Commercial pricing, interval and trial decisions; saved product feeds the second flow | Selected; operator baseline and first Nova creation verified |
-| Product-specific discount | Requires exact saved product; amount, duration, cap and expiry decisions | Selected; operator WELCOME15 saved; Nova verification pending |
-| Trial revision | Proves context retention and changing the same saved object | Selected; in rehearsal |
+| Complete subscription configuration | Commercial pricing, interval and trial decisions; saved product feeds the second flow | Live-tested twice: Vector Business and Vector Studio; exact saved IDs reopened |
+| Product-specific discount | Requires exact saved product; amount, duration, cap and expiry decisions | Live-tested twice: TEAMS20 and STUDIO15; exact product link verified |
+| Trial revision | Proves context retention and changing the same saved object | Live-tested: Business 14→21 days and Studio 7→14 days, same IDs |
 | Home / catalog questions | Natural closing tasks; must reflect actual sandbox values | Inspected |
-| Sandbox checkout activity | Required to populate real customer, payment and MRR widgets | Attempt stalled at Processing; no payment/customer claimed |
-| Metered billing | Potential richer catalog dependency; requires usage unit and pricing knowledge | Documentation only; dashboard inspection pending |
+| Sandbox checkout activity | Required to populate real customer, payment and MRR widgets | Successful official test checkout; paid $49 order, one synthetic customer and $49 MRR on Home |
+| Metered billing | Potential richer catalog dependency; requires usage unit and pricing knowledge | Dashboard/template inspected; production-like usage requires event ingestion; excluded from the recorded scope |
 | Customer creation/import | Dashboard has no create/import control; test customers originate from checkouts | Inspected |
 | Affiliates, revenue splits, business verification | External recipients or consequential account changes | Excluded |
 
@@ -28,8 +28,10 @@ Product creation has editable name, Markdown description, payment type, USD pric
 
 Discount creation is a modal with percentage/fixed options, name, uppercase alphanumeric code (14 characters maximum), required product selection, optional expiry and redemption cap, and optional recurring behavior. Once saved, discount codes cannot be edited. The UI explicitly says delete and recreate, so the demonstration's revision belongs on the product instead. No silent deletion/recreation.
 
-Customer list explains that test customers appear after test checkout. The opened checkout explicitly states no real payment is taken and no card is charged. A synthetic reserved-domain email was used; the checkout remained at Processing after Continue to payment. No actual card was entered.
+Customer list explains that test customers appear after test checkout. The opened checkout explicitly states no real payment is taken and no card is charged. A synthetic reserved-domain email and the documented vendor test-card value were used. The checkout required an additional billing-address stage and then returned “Thank you for subscribing!” Order ORD-1A0C1E1AC916036E appeared on Home as a paid $49 Vector Pro subscription. No real payment instrument or charge was involved.
 
 ## Coverage discipline
 
-`verified:false` remains on built-in guides until the selected Nova rehearsals succeed. Operator setup is not Nova execution evidence. Fixture rendering proves layout only. No production orders, real customers, fabricated metrics, or historical revenue will be represented as genuine.
+The product and discount guides have now passed two live runs; the store report passed after interruption and resume. Operator setup is not Nova execution evidence. Fixture rendering proves layout only. No production orders, real customers, fabricated metrics, or historical revenue will be represented as genuine.
+
+Meter research: templates include LLM tokens, API requests, compute minutes, storage and active seats. The real LLM form uses event ai_usage, sum(tokens), unit label, optional filters and a preview of matched events. Definitions lock after event processing/subscription. A full metering story requires event ingestion beyond the UI; catalog and targeted offers provide stronger fully visible saved outcomes within the authorized scope. No meter was created.
