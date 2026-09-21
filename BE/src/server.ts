@@ -121,6 +121,12 @@ wss.on('connection', (socket, request) => {
         const runner = new AgentRunner(session, driver, planner, site, emit, text => speakFor(session.id, text), snapshot=>{if(!site.observations)sites.observe(site.id,snapshot);},text=>progressFor(session.id,text)); attached = { driver, runner }; runners.set(session.id, runner); clientSessions.set(socket,session.id); emit(session); return;
       }
       if ('sessionId' in message && role === 'extension' && message.sessionId !== attached?.runner.session.id) throw new Error('Attach this website before controlling it.');
+      if (message.type === 'recording-click') {
+        if (role !== 'extension' || !attached || Math.abs(Date.now()-message.event.at)>10000) return;
+        const session=attached.runner.session;
+        session.recordingClicks=[...(session.recordingClicks||[]),message.event].slice(-4000);
+        return;
+      }
       if (message.type === 'command') executeCommand(message.sessionId, message.text, message.voice);
       else if(message.type==='answer'){const runner=runners.get(message.sessionId);if(!runner)throw new Error('Session not found');ownedRuns.add(message.sessionId);await runner.answer(message.clarificationId,message.answers);}
       else if (message.type === 'stop') runners.get(message.sessionId)?.stop();

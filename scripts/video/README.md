@@ -144,3 +144,25 @@ python3 scripts/video/add-click-sounds.py --source silent.mp4 --cues cues.json \
 
 The renderer verifies stream identity, duration and sound confined to the cues;
 visual synchronization still requires inspection of the specific recording.
+
+### Cursor-free capture build and click evidence
+
+`NOVA_RECORDING_MODE=true npm run build` opts the built extension into recording
+mode. Reload that extension and launch a fresh website session. Normal builds
+keep the usual visible action cursor. Recording builds hide the action cursor,
+its label and rings through scoped launcher CSS, without changing website content
+or input timing. For the system pointer, pass `--hide-cursor` to the desktop
+window recorder. Do not use capture-time masks for ordinary account details.
+
+Recording builds collect trusted panel/launcher clicks and successful browser
+mouse press/release pairs, including input-focus clicks, in the local session's
+`recordingClicks` array. They contain epoch milliseconds, actor, button and a
+bounded control label/reference, never field values. Hover, scrolling, typing
+without a focus click, rejected targets and failed release are not cues. These
+receipts support editing; correlate each with the visible result in decoded
+output and map through the final EDL before adding taps. Keyboard activation or
+an ambiguous tool event still needs independent operator/frame evidence.
+
+The recorder's first-frame epoch links clicks to source frames. Preserve that
+log, the session's click evidence, the EDL and decoded export checks. A callback
+receipt alone is not proof that a business outcome happened.

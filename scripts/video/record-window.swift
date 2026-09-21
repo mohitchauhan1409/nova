@@ -1,6 +1,6 @@
 // Record one explicitly selected macOS window. No audio and no whole-display fallback.
 // swift scripts/video/record-window.swift list
-// swift scripts/video/record-window.swift record WINDOW_ID OUTPUT.mov [SECONDS] [--masks PLAN.json]
+// swift scripts/video/record-window.swift record WINDOW_ID OUTPUT.mov [SECONDS] [--masks PLAN.json] [--hide-cursor]
 import Foundation
 import AppKit
 import ScreenCaptureKit
@@ -31,6 +31,7 @@ final class WindowRecorder: NSObject, SCStreamOutput, SCStreamDelegate, @uncheck
     var writer: AVAssetWriter!
     var input: AVAssetWriterInput!
     var stream: SCStream!
+    var showsCursor = true
     var started = false
     var frameCount = 0
     var adaptor: AVAssetWriterInputPixelBufferAdaptor!
@@ -124,7 +125,7 @@ final class WindowRecorder: NSObject, SCStreamOutput, SCStreamDelegate, @uncheck
         try privacy?.validate(width: config.width, height: config.height)
         config.minimumFrameInterval = CMTime(value: 1, timescale: 30)
         config.queueDepth = 6
-        config.showsCursor = true
+        config.showsCursor = showsCursor
         config.capturesAudio = false
         config.pixelFormat = kCVPixelFormatType_32BGRA
         config.scalesToFit = false
@@ -183,6 +184,7 @@ if args.count == 2 && args[1] == "list" {
     let output = URL(fileURLWithPath: args[3])
     guard !FileManager.default.fileExists(atPath: output.path) else { fatalError("Will not overwrite source recording") }
     let recorder = WindowRecorder()
+    recorder.showsCursor = !args.contains("--hide-cursor")
     if let flag = args.firstIndex(of: "--masks") {
         guard args.indices.contains(flag + 1) else { fatalError("--masks needs a JSON path") }
         let privacyURL = URL(fileURLWithPath: args[flag + 1])
@@ -200,4 +202,4 @@ if args.count == 2 && args[1] == "list" {
         }
     }
     try await recorder.stop()
-} else { print("Usage: record-window.swift list | record WINDOW_ID OUTPUT.mov [SECONDS] [--masks PLAN.json]"); exit(2) }
+} else { print("Usage: record-window.swift list | record WINDOW_ID OUTPUT.mov [SECONDS] [--masks PLAN.json] [--hide-cursor]"); exit(2) }
