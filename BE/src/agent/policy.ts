@@ -147,6 +147,15 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
     }
   }
   if (preferenceControl.test(target.name.replace(/\b(?:I['’]d|(?:I|we|you)\s+would)\s+like\s+to\b/gi, ''))) return intentAllows(intent, 'preference') ? result('allow', 'Make the preference change you requested', true) : result('approve', 'This saved preference was not clear from your request.', true);
+  // Form membership alone does not make an editor control a submission.
+  // Keep explicit submit controls, message composers and consequential actions
+  // gated; ordinary option selection and draft structure need no extra review.
+  if (['click', 'double_click'].includes(action.kind) && target.form &&
+      target.type !== 'submit' && !target.submission &&
+      (['combobox', 'listbox', 'option', 'radio', 'checkbox', 'switch', 'tab'].includes(target.role) ||
+       target.type === 'button' && /^(add|remove)(?: another)? (?:condition|filter|rule|group|row|field|clause)(?: group)?$/i.test(target.name.trim()))) {
+    return result('allow', 'Configure the current form without submitting it', true);
+  }
   if (browsingControl.test(target.name) && !(serious.test(target.context) && (target.form || target.type === 'submit'))) return result('allow', 'Operate the website’s browsing controls');
   if (target.type === 'submit' || target.form && ['click', 'double_click', 'press'].includes(action.kind) || action.kind === 'press' && action.value === 'Enter') return result('approve', 'Review this form submission before information is sent.', true);
   if (['click', 'double_click'].includes(action.kind)) return result('allow', 'Continue the requested website interaction', true);

@@ -11,6 +11,19 @@ export const snapshot: Snapshot = { id: 's1', url: 'https://www.amazon.in/dp/dem
 ], viewport:{width:1200,height:800},theme:{color:'#000',font:'Arial'},frames:0,capturedAt:0 };
 export const action = (patch: Partial<Action> = {}): Action => ({kind:'click',ref:'cart',url:null,value:null,x:null,y:null,summary:'Add the adapter to cart for ₹799',risk:'read',...patch});
 describe('deterministic action policy', () => {
+  it('edits form structure and selects options without treating them as submissions', () => {
+    const base = {...snapshot.elements[1],ref:'form-control',type:'button',form:true,context:'Name Filters Aggregation'};
+    const check = (patch = {}) => checkAction(action({ref:base.ref,risk:'change'}),{...snapshot,elements:[{...base,...patch}]},snapshot.url,'Prepare a filtered usage configuration.');
+    for (const name of ['Add condition group','Remove condition','Add filter','Add row']) expect(check({name}).outcome).toBe('allow');
+    for (const role of ['combobox','option','radio','checkbox','switch','tab']) expect(check({name:'Count',role}).outcome).toBe('allow');
+    for (const patch of [
+      {name:'Add condition group',type:'submit'}, {name:'Continue'},
+      {name:'Add condition group',submission:{scope:'composer',label:'Message',fields:[]}},
+      {name:'Delete record'}, {name:'Send message',role:'option'},
+      {name:'Start campaign'}, {name:'Accept terms'},
+      {name:'Admin access',role:'checkbox'},
+    ]) expect(check(patch).outcome).toBe('approve');
+  });
   it('opens an ellipsis import menu without authorizing a file submission or publication', () => {
     const target = {...snapshot.elements[0],ref:'import',tag:'div',role:'menuitem',type:'',name:'Upload a recording…'};
     const check = (patch = {}) => checkAction(action({ref:'import'}), {...snapshot,elements:[{...target,...patch}]},snapshot.url);
