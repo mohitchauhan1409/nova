@@ -29,4 +29,48 @@ describe('explicit ordinary record revisions',()=>{
   const page={...snapshot,elements:[{...snapshot.elements[0],submission:{scope:'message',label:'Message',fields:[]}}]};
   expect(checkAction(action,page,page.url,'Update the product.').outcome).toBe('approve');
  });
+ describe('renaming in an ordinary properties editor',()=>{
+  const base={role:'',type:'',context:'Display Name Metadata Add field Update',disabled:false,sensitive:false};
+  const heading={...base,ref:'heading',tag:'h2',name:'Edit Properties'};
+  const field={...base,ref:'display',tag:'input',type:'text',name:'Display Name',form:true};
+  const save={...base,ref:'save',tag:'button',type:'submit',name:'Update',form:true};
+  const page:Snapshot={...snapshot,text:'Edit Properties Display Name Metadata Add field Update',elements:[
+   heading,field,{...field,ref:'key',name:'Key'},{...field,ref:'value',name:'Value'},save,
+  ]};
+  const intent='Rename Support to Customer Care, please.';
+  it.each(['Display Name','Name','Title'])('saves a concrete rename with an observed %s field',name=>{
+   const editor={...page,elements:[heading,{...field,name},save]};
+   expect(checkAction(action,editor,editor.url,intent).outcome).toBe('allow');
+  });
+  it('handles rename and update wording equivalently in a properties form',()=>{
+   expect(checkAction(action,page,page.url,'Update the display name to Customer Care.').outcome).toBe('allow');
+   for(const request of [intent,'Please rename Support to Customer Care.','Can you rename Support to Customer Care?',
+    'Could you please rename Support to Customer Care?','Actually, rename Support to Customer Care.']){
+    expect(checkAction(action,page,page.url,request).outcome).toBe('allow');
+   }
+  });
+  it.each([
+   'Do not rename Support to Customer Care.','How would I rename Support to Customer Care?',
+   'Would it make sense to rename Support to Customer Care?','Rename Support to Customer Care only after I approve.',
+   'Rename Support to Customer Care.\nWait for me.','Rename Support to Customer Care.\nCancel the change.',
+   'Rename Support to Customer Care.\nDo not rename it.','Rename Support.','Rename Support to','Organize this inbox for order questions.',
+  ])('retains review for incomplete, hypothetical, or revoked rename intent: %s',request=>{
+   expect(checkAction(action,page,page.url,request).outcome).toBe('approve');
+  });
+  it('requires an observed name field and an ordinary named editor',()=>{
+   for(const elements of [[heading,{...field,name:'Description'},save],[field,save],
+    [heading,{...field,covered:true},save],[{...heading,name:'Edit Account'},field,save]]){
+    expect(checkAction(action,{...page,elements},page.url,intent).outcome).toBe('approve');
+   }
+  });
+  it('preserves sensitive, dispatch, visibility, and composer boundaries',()=>{
+   expect(checkAction({...action,risk:'sensitive'},page,page.url,intent).outcome).toBe('approve');
+   for(const context of ['Public access','Send email to recipient','Agree to the contract']){
+    expect(checkAction(action,{...page,elements:[heading,field,{...save,context}]},page.url,intent).outcome).toBe('approve');
+   }
+   expect(checkAction(action,{...page,elements:[heading,field,{...field,ref:'billing',name:'Payment method'},save]},page.url,intent).outcome).toBe('approve');
+   expect(checkAction(action,{...page,elements:[heading,field,{...field,ref:'public',name:'Public',state:['checked:true']},save]},page.url,intent).outcome).toBe('approve');
+   expect(checkAction(action,{...page,elements:[heading,field,{...save,submission:{scope:'message',label:'Message',fields:[]}}]},page.url,intent).outcome).toBe('approve');
+  });
+ });
 });

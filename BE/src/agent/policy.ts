@@ -78,10 +78,14 @@ function requestedRecordEdit(action: Action, snapshot: Snapshot, intent: string)
   if (sensitiveSettings.test(target.context.replace(/\bbilling\b/gi, ''))) return false;
   if (/\b(delete|erase|destroy|publish|send|recipient|accept terms|agree to|confirm payment|place order)\b/i.test(target.context)) return false;
   if (snapshot.elements.some(e => !e.covered && /\b(public|everyone|anyone with the link)\b/i.test(e.name) && e.state?.some(s => /^(checked|selected):true$/.test(s)))) return false;
-  const request = intent.split('\n').reverse().find(line => /\b(save|update|create|add|apply|make|prepare|set|give|enable|disable|turn|change|edit|stop|cancel|wait)\b/i.test(line));
+  const request = intent.split('\n').reverse().find(line => /\b(save|update|create|add|apply|make|prepare|set|give|enable|disable|turn|change|edit|rename|stop|cancel|wait)\b/i.test(line));
   if (!request || /\b(how|what if|explain|after|until|confirmation|approve|approval|wait|stop|cancel)\b|\b(ask|check with) me\b/i.test(request)) return false;
   const affirmative = request.replace(/\b(don['’]?t|do not|never|without)\b[^,;.!?]*/gi, '');
-  if (!/\b(save|update|create|add|apply|make|prepare|set|give|enable|disable|turn|change|edit)\b/i.test(affirmative)) return false;
+  // A concrete rename can name the record instead of repeating the generic
+  // editor heading. Require an observed name field and a direct new-name request.
+  const rename = /^(?:actually[, ]+)?(?:(?:can|could|would) you(?: please)?\s+|please\s+)?rename\s+.+?\s+to\s+\S/i.test(affirmative.trim()) &&
+    fields.some(e => /^(?:display )?(?:name|title)$/i.test(e.name.trim()));
+  if (!rename && !/\b(save|update|create|add|apply|make|prepare|set|give|enable|disable|turn|change|edit)\b/i.test(affirmative)) return false;
   const words = (text:string) => text.toLowerCase().replace(/roll over/g,'rollover').match(/[a-z]{4,}/g) || [];
   const requestWords = new Set(words(affirmative));
   const editorWords = words(heading.name.replace(/^(edit|update|create|new)\s+/i,''));
@@ -92,7 +96,7 @@ function requestedRecordEdit(action: Action, snapshot: Snapshot, intent: string)
     e.context === target.context && ['p','label','legend'].includes(e.tag)).map(e => e.name).join(' '));
   // An explicit save in this already identified ordinary editor need not repeat
   // its noun (for example, 'Keep everything else, save and reopen').
-  return /\b(save|update|apply)\b/i.test(affirmative) || [...editorWords,...fieldWords,...formWords].some(w => requestWords.has(w));
+  return rename || /\b(save|update|apply)\b/i.test(affirmative) || [...editorWords,...fieldWords,...formWords].some(w => requestWords.has(w));
 }
 export function checkAction(action: Action, snapshot: Snapshot, _scope: string, intent = ''): PolicyDecision {
   const target = snapshot.elements.find(e => e.ref === action.ref);
