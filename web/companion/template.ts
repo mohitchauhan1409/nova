@@ -1,7 +1,7 @@
 // Construct our fixed, bundled UI without HTML sinks or Trusted Types policies.
 // This is deliberately a tiny template language, not a parser for website HTML.
 export function appendTemplate(root:ShadowRoot, template:string){
-  const allowed=new Set('div span strong small button header section form textarea p h2 br svg g ellipse circle path rect i b'.split(' '));
+  const allowed=new Set('div span strong small button header section form textarea p h2 br svg g defs radialGradient linearGradient stop ellipse circle path rect i b'.split(' '));
   const stack:(ShadowRoot|Element)[]=[root];
   for(const token of template.match(/<[^>]+>|[^<]+/g)||[]){
     if(token.startsWith('</')){stack.pop();continue;}
