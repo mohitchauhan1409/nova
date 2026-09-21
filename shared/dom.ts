@@ -33,7 +33,15 @@ export function installNovaDOM() {
   const bounds=(el:Element)=>{const r=el.getBoundingClientRect();return [r.x,r.y,r.width,r.height];};
   const label = (el: Element) => {
     const labelled = el.getAttribute('aria-labelledby')?.split(' ').map(id => (el.getRootNode() as Document|ShadowRoot).getElementById(id)?.textContent || '').join(' ');
-    return compact(el.getAttribute('aria-label') || labelled || (el as HTMLInputElement).labels?.[0]?.textContent || el.getAttribute('placeholder') || (el instanceof HTMLInputElement && /submit|button/.test(el.type) ? el.value : '') || (el as HTMLElement).innerText || el.getAttribute('title') || el.getAttribute('alt') || el.getAttribute('name') || (el.matches('input,textarea') ? el.id : ''));
+    let nearbyLabel='';
+    if(el.matches('[role="checkbox"],[role="switch"],input[type="checkbox"]')){
+      for(let parent=el.parentElement,depth=0;parent&&depth<3&&!parent.matches('form,body,html');parent=parent.parentElement,depth++){
+        const toggles=parent.querySelectorAll('[role="checkbox"],[role="switch"],input[type="checkbox"]');
+        const labels=[...parent.querySelectorAll('label')].filter(node=>visible(node)&&(!node.htmlFor||node.htmlFor===el.id));
+        if(toggles.length===1&&labels.length===1){nearbyLabel=compact(labels[0].textContent,120);break;}
+      }
+    }
+    return compact(el.getAttribute('aria-label') || labelled || (el as HTMLInputElement).labels?.[0]?.textContent || nearbyLabel || el.getAttribute('placeholder') || (el instanceof HTMLInputElement && /submit|button/.test(el.type) ? el.value : '') || (el as HTMLElement).innerText || el.getAttribute('title') || el.getAttribute('alt') || el.getAttribute('name') || (el.matches('input,textarea') ? el.id : ''));
   };
   const roots = (): (Document | ShadowRoot)[] => {
     const result: (Document | ShadowRoot)[] = [document];

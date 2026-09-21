@@ -171,6 +171,12 @@ export class AgentRunner {
           const fresh = await this.observe();
           if (signal.aborted) return;
           const current = fresh.elements.find(e => e.ref === action.ref);
+          const dismiss=prior&&/^(cancel|close|dismiss|back)$/i.test(prior.name.trim());
+          const editorFields=(page:Snapshot)=>page.elements.filter(e=>e.form&&!e.covered&&(['input','textarea','select'].includes(e.tag)||['checkbox','switch','combobox','radio'].includes(e.role))).map(e=>`${e.ref}:${e.name}:${e.type}`).sort().join('|');
+          if (dismiss&&editorFields(fresh)!==editorFields(snapshot)){
+            this.trace('info','The editor gained or changed fields while planning. Reconsidering the dismissal; no input was sent.');
+            observed=fresh;continue;
+          }
           if (fresh.url !== snapshot.url || !prior || !current || current.covered ||
               ['name','tag','role','type','href'].some(key => prior[key as keyof typeof prior] !== current[key as keyof typeof current]) ||
               prior.edit?.revision !== current.edit?.revision) {
