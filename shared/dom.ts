@@ -48,6 +48,25 @@ export function installNovaDOM() {
     for (let i = 0; i < result.length && i < 40; i++) for (const el of result[i].querySelectorAll('*')) if (el.shadowRoot && !isNova(el)) result.push(el.shadowRoot);
     return result;
   };
+  const fieldContext = (el: Element) => {
+    const context=compact((el.closest('article,[role="listitem"],li,form') as HTMLElement|null)?.innerText,280);
+    // Generic key/value editors often use unlabelled div rows. Their keys are
+    // structural identifiers, but their values must remain private. Never infer
+    // a row from an ancestor containing multiple pairs or from hidden fields.
+    if(!el.matches('input,select,textarea,button,[role="combobox"]')||sensitive(el))return context;
+    for(let parent=el.parentElement,depth=0;parent&&depth<5&&!parent.matches('form,body,html');parent=parent.parentElement,depth++){
+      const inputs=[...parent.querySelectorAll('input')].filter(e=>visible(e)&&!e.matches('[type="hidden"]'));
+      const keys=inputs.filter(e=>/^key(?: \((?:optional|required)\))?$/i.test(label(e)));
+      const values=inputs.filter(e=>/^value(?: \((?:optional|required)\))?$/i.test(label(e)));
+      if(keys.length>1||values.length>1)break;
+      if(keys.length===1&&values.length===1){
+        const key=keys[0];
+        if(!sensitive(key)&&!sensitive(values[0])&&['text','search'].includes(key.type)&&/^[a-z][a-z0-9_]{0,79}$/i.test(key.value))return compact(`Field key: ${key.value}. ${context}`,280);
+        break;
+      }
+    }
+    return context;
+  };
   const describe = (el: Element): ElementRef => {
     let ref = ids.get(el); if (!ref) { ref = `${prefix}-${++sequence}`; ids.set(el, ref); } refs.set(ref, el);
     const type = (el as HTMLElement).isContentEditable?'contenteditable':el.getAttribute('type') || '';
@@ -87,7 +106,7 @@ export function installNovaDOM() {
     const covered=!!hit&&hit!==el&&!el.contains(hit);
     return { ref, covered, tag: el.tagName.toLowerCase(), role: el.getAttribute('role') || '', name: label(el), type, href, state, ...(el instanceof HTMLCanvasElement||visualTargets.get(el)?.visual?{visual:true}:{}),
       ...(edit?{edit}:{}),...(submission?{submission}:{}),
-      context: compact((el.closest('article,[role="listitem"],li,form') as HTMLElement|null)?.innerText, 280),
+      context: fieldContext(el),
       form: !!((el as HTMLInputElement).form || el.closest('form')),
       disabled: el.matches(':disabled,[aria-disabled="true"]'), sensitive: sensitive(el),
       ...(el instanceof HTMLSelectElement ? { options: [...el.options].map(o => compact(o.text, 80)).slice(0, 30) } : {}) };
@@ -174,8 +193,9 @@ export function installNovaDOM() {
       // field value. A unique semantic identity survives framework remounts/reloads.
       for(const draft of preparedInputs.slice(-8)){
         if(draft.url!==location.href||typeof draft.value!=='string'||draft.value.length>8000)continue;
-        let matches=elements.filter(e=>e.ref===draft.ref);
-        if(!matches.length&&draft.target){const t=draft.target;matches=elements.filter(e=>e.name===t.name&&e.tag===t.tag&&e.type===t.type&&e.context===t.context);}
+        const sameTarget=(e:ElementRef)=>{const t=draft.target;return !t||e.name===t.name&&e.tag===t.tag&&e.type===t.type&&e.context===t.context;};
+        let matches=elements.filter(e=>e.ref===draft.ref&&(!(e.context.startsWith('Field key:')||draft.target?.context.startsWith('Field key:'))||sameTarget(e)));
+        if(!matches.length&&draft.target)matches=elements.filter(sameTarget);
         if(matches.length!==1||matches[0].sensitive)continue;
         const item=matches[0],el=refs.get(item.ref);if(!el||sensitive(el)||!el.matches('input,textarea,[contenteditable]'))continue;
         const actual=fieldValue(el);if(actual===undefined)continue;
