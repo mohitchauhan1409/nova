@@ -179,6 +179,7 @@ export class AgentRunner {
           }
           if (fresh.url !== snapshot.url || !prior || !current || current.covered ||
               ['name','tag','role','type','href'].some(key => prior[key as keyof typeof prior] !== current[key as keyof typeof current]) ||
+              (prior.edit && prior.context !== current.context) ||
               prior.edit?.revision !== current.edit?.revision) {
             this.trace('info','The page changed while planning. Refreshing the next step; no input was sent.');
             observed=fresh;continue;

@@ -44,5 +44,14 @@ describe('observed outcome verification',()=>{
     const snap={...before,elements:[{...before.elements[0],ref:'delay',tag:'input',name:'Wait',type:'number',state:['value:30']}]};
     expect(plannerContext(session,site,snap).stateEvidence).toContainEqual({source:'state',ref:'delay',value:'value:30'});
   });
+  it('does not present a prepared value as current proof after its row identity changes',()=>{
+    const field={...before.elements[0],tag:'input',name:'Value',type:'text',context:'Field key: purpose. Edit properties',state:[],edit:{revision:'same-text',empty:false}};
+    const draft={ref:field.ref,url:before.url,value:'Known purpose',kind:'fill' as const,revision:field.edit.revision,target:{name:field.name,tag:field.tag,type:field.type,context:field.context}};
+    const session={messages:[],traces:[],preparedInputs:[draft]} as unknown as Session;const site={name:'Page',instructions:'',flows:[]} as unknown as SiteProfile;
+    expect(plannerContext(session,site,{...before,elements:[field]}).preparedInputs).toHaveLength(1);
+    expect(plannerContext(session,site,{...before,elements:[{...field,context:'Field key: owner. Edit properties'}]}).preparedInputs).toEqual([]);
+    // A fresh equality observation remains sufficient if incidental form text changed.
+    expect(plannerContext(session,site,{...before,elements:[{...field,context:'Changed counter',state:[`draft:matches:${draft.ref}`]}]}).preparedInputs).toHaveLength(1);
+  });
   it('packs observations without dropping control information or duplicating contexts',()=>{const session={messages:[],traces:[]} as unknown as Session;const site={name:'Page',instructions:'',flows:[]} as unknown as SiteProfile;const snap={...before,elements:[...before.elements,{...before.elements[0],ref:'v2'}]};const packed=plannerContext(session,site,snap).observation;expect(packed.contexts).toEqual(['']);const e=Object.fromEntries(packed.elementColumns.map((key,i)=>[key,packed.elements[0][i]]));expect(e.ref).toBe('v');expect(e.state).toEqual(['paused:false']);expect(packed.elements).toHaveLength(2);});
 });
