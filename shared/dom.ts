@@ -19,6 +19,9 @@ export function installNovaDOM() {
   const editState=(el:Element)=>{const value=fieldValue(el);if(value===undefined||sensitive(el))return;let old=edits.get(el);if(!old||old.value!==value){old={value,revision:`${prefix}:edit:${++editSequence}`};edits.set(el,old);}return {revision:old.revision,empty:value.length===0};};
   const visualTargets = new Map<Element,{x:number;y:number;rect:number[];visual:boolean}>();
   const controls='a[href],button,input:not([type="hidden"]),textarea,select,[role="button"],[role="link"],[role="textbox"],[role="searchbox"],[role="combobox"],[role="tab"],[role="checkbox"],[role="switch"],[role="radio"],[role="slider"],[role="spinbutton"],[role="option"],[role="menuitem"],[role="menuitemcheckbox"],[role="menuitemradio"],[role="treeitem"],[role="list"],[role="listbox"],[role="feed"],[role="grid"],[contenteditable]:not([contenteditable="false"]),[draggable="true"],video,audio,canvas,summary,[tabindex],[onclick],[data-action]';
+  const groupingControls='[role="list"],[role="listbox"],[role="feed"],[role="grid"]';
+  const genericControls=new Set([...groupingControls.split(','),'[tabindex]','[onclick]','[data-action]']);
+  const directControls=controls.split(',').filter(selector=>!genericControls.has(selector)).join(',');
   let zoom = 1; let clipboard = '';
   const originalZoom = document.documentElement.style.zoom;
   const compact = (s: string | null | undefined, limit = 220) => (s || '').replace(/\s+/g, ' ').trim().slice(0, limit);
@@ -121,7 +124,13 @@ export function installNovaDOM() {
       // Walk the composed DOM to recover a button around an icon or shadow child.
       for(let el:Element|null=hit;el;){
         if(sensitive(el)||isNova(el))throw new Error('This point belongs to a private field or Nova.');
-        if(el.matches(controls)){target=el;break;}
+        if(el.matches(directControls)){target=el;break;}
+        const otherControls=()=>[...el!.querySelectorAll(controls)].some(child=>!child.contains(hit)&&!hit.contains(child)&&visible(child));
+        // A focusable/grid wrapper may own the whole page's toolbar. Do not
+        // replace a row hit with unrelated Delete/Create controls in that label.
+        if(el.matches(groupingControls))break;
+        if(el.matches('[tabindex],[onclick],[data-action]')){if(!otherControls())target=el;break;}
+        if(el.matches('tr,[role="row"],[role="listitem"],li')&&!otherControls())target=el;
         el=el.parentElement||(el.getRootNode() instanceof ShadowRoot?(el.getRootNode() as ShadowRoot).host:null);
       }
       if(target.matches('html,body')||!visible(target))throw new Error('No usable website control was found at this point.');
