@@ -1,2 +1,148 @@
-/* Customer branches add scoped website theme overrides here.
-   Keep the shared panel layout and behavior in panel.css / PanelApp.tsx. */
+/* AgentMail console palette observed on 2026-09-21. Exact source sampling is
+   pending; the live console is dark neutral with near-white primary controls.
+   No layout, action, approval or recording behavior is changed here. */
+.np-app[data-site="console.agentmail.to"] {
+  --am-bg: #000;
+  --am-surface: #080808;
+  --am-raised: #141414;
+  --am-hover: #202020;
+  --am-border: #303030;
+  --am-text: #f5f5f5;
+  --am-muted: #a3a3a3;
+  --am-on-accent: #111;
+  --site-accent: #f5f5f5 !important;
+  --site-ink: #f5f5f5 !important;
+  --site-soft: #222 !important;
+  color-scheme: dark;
+  color: var(--am-text);
+  background: var(--am-bg);
+}
+.np-app[data-site="console.agentmail.to"][data-color-scheme="light"] {
+  --am-bg: #fff;
+  --am-surface: #fafafa;
+  --am-raised: #f5f5f5;
+  --am-hover: #ededed;
+  --am-border: #d9d9d9;
+  --am-text: #171717;
+  --am-muted: #666;
+  --am-on-accent: #fff;
+  --site-accent: #171717 !important;
+  --site-ink: #171717 !important;
+  --site-soft: #ededed !important;
+  color-scheme: light;
+}
+.np-app[data-site="console.agentmail.to"] ::selection { background: #7776; }
+.np-app[data-site="console.agentmail.to"] ::-webkit-scrollbar-thumb { background: #666; }
+.np-app[data-site="console.agentmail.to"] :is(button, a, input, textarea):focus-visible {
+  outline-color: var(--site-accent);
+}
+.np-app[data-site="console.agentmail.to"] :is(.np-header, .np-tabs, .np-context, .np-voice-bottom) {
+  background: var(--am-surface);
+  border-color: var(--am-border);
+}
+.np-app[data-site="console.agentmail.to"] :is(.np-brand, .np-brand strong, .np-context strong, .np-welcome h1, .np-welcome h1 span, .np-message-author strong, .np-message-body, .np-message-body strong, .np-message-body h1, .np-message-body h2, .np-message-body h3, .np-suggestions strong, .np-question-card h3, .np-question-fields legend, .np-question-options strong, .np-question-receipt dd, .np-action-heading, .np-action-timeline p) {
+  color: var(--am-text);
+}
+.np-app[data-site="console.agentmail.to"] :is(.np-brand small, .np-brand .np-beta, .np-icon-button, .np-context div span, .np-tabs>button, .np-tabs>span, .np-eyebrow, .np-welcome>p, .np-suggestions small, .np-suggestion-icon, .np-suggestions>button>svg, .np-thread-start, .np-copy, .np-thinking, .np-clarification, .np-page-context, .np-composer-foot, .np-composer-foot>button, .np-working, .np-activity-log p, .np-question-kicker, .np-question-card header>p, .np-question-progress, .np-question-fields legend>span, .np-question-fields legend>small, .np-question-fields fieldset>p, .np-question-options small, .np-custom-choice, .np-question-help, .np-question-card footer>p, .np-question-receipt summary, .np-question-receipt summary>small, .np-question-receipt dt, .np-action-heading>span:not(.np-action-status), .np-action-timeline small, .np-action-timeline .np-step-detail, .np-earlier-steps, .np-new-chat) {
+  color: var(--am-muted);
+}
+.np-app[data-site="console.agentmail.to"] :is(.np-brand-mark, .np-site-symbol, .np-welcome-art .np-welcome-mark) {
+  color: var(--am-text);
+  background: var(--am-raised);
+  border-color: var(--am-border);
+  --mark-hole: var(--am-raised);
+}
+.np-app[data-site="console.agentmail.to"] :is(.np-orbit, .np-question-fields fieldset, .np-question-receipt dl, .np-suggestions>button+button, .np-message-body td, .np-message-body th, .np-message-body hr) {
+  border-color: var(--am-border);
+}
+.np-app[data-site="console.agentmail.to"] .np-art-spark { background: var(--am-bg); color: var(--am-text); }
+.np-app[data-site="console.agentmail.to"] :is(.np-tabs button[aria-selected=true], .np-icon-button:hover, .np-new-chat:hover) {
+  color: var(--am-text);
+  background: var(--am-hover);
+}
+.np-app[data-site="console.agentmail.to"] :is(.np-connection-dot.online, .np-tabs i, .np-thinking>i, .np-activity-log span, .np-action-status, .np-thread-start span) {
+  background: var(--am-muted);
+  box-shadow: none;
+}
+.np-app[data-site="console.agentmail.to"] :is(.np-suggestions, .np-suggestions>button, .np-question-card, .np-question-options>button, .np-composer, .np-step-icon) {
+  background: var(--am-surface);
+  border-color: var(--am-border);
+  color: var(--am-text);
+}
+.np-app[data-site="console.agentmail.to"] :is(.np-suggestions>button:hover, .np-question-options>button:hover) {
+  background: var(--am-hover);
+  border-color: var(--am-muted);
+}
+.np-app[data-site="console.agentmail.to"] :is(.np-message.user, .np-message-body pre, .np-message-body code, .np-message-body th, .np-question-card>header, .np-question-card>footer, .np-question-receipt, .np-action-timeline, .np-activity-log) {
+  background: var(--am-raised);
+  border-color: var(--am-border);
+  color: var(--am-text);
+}
+.np-app[data-site="console.agentmail.to"] .np-message-author {
+  color: var(--am-text);
+  --mark-hole: var(--am-bg);
+}
+.np-app[data-site="console.agentmail.to"] .np-author-ai { color: var(--am-muted); border-color: var(--am-border); }
+.np-app[data-site="console.agentmail.to"] :is(a, .np-message-body a, .np-message-body a:hover) {
+  color: var(--am-text);
+  text-decoration-color: var(--am-muted);
+}
+.np-app[data-site="console.agentmail.to"] .np-message-body li::marker { color: var(--am-muted); }
+.np-app[data-site="console.agentmail.to"] .np-message-body blockquote { color: var(--am-muted); border-color: var(--am-border); }
+.np-app[data-site="console.agentmail.to"] .np-composer-area { background: var(--am-bg); }
+.np-app[data-site="console.agentmail.to"] .np-composer:focus-within {
+  border-color: var(--am-muted);
+  box-shadow: 0 0 0 2px var(--am-hover);
+}
+.np-app[data-site="console.agentmail.to"] :is(.np-composer textarea, .np-question-card input, .np-question-card textarea, .np-connect input) {
+  color: var(--am-text);
+  background: var(--am-surface);
+  border-color: var(--am-border);
+  caret-color: var(--am-text);
+}
+.np-app[data-site="console.agentmail.to"] :is(.np-composer textarea, .np-question-card input, .np-question-card textarea)::placeholder { color: var(--am-muted); }
+.np-app[data-site="console.agentmail.to"] :is(.np-question-card input:focus, .np-question-card textarea:focus) {
+  outline-color: var(--am-muted);
+  border-color: var(--am-text);
+}
+.np-app[data-site="console.agentmail.to"] :is(.np-send, .np-send:hover:not(:disabled), .np-question-continue, .np-button-dark, .np-approval-buttons .np-button-dark, .np-browser-control button) {
+  color: var(--am-on-accent);
+  background: var(--site-accent);
+  border-color: var(--site-accent);
+}
+.np-app[data-site="console.agentmail.to"] .np-send:disabled { background: var(--am-hover); color: var(--am-muted); }
+.np-app[data-site="console.agentmail.to"] :is(.np-working>button, .np-jump) {
+  color: var(--am-text);
+  background: var(--am-raised);
+  border-color: var(--am-border);
+  box-shadow: none;
+}
+.np-app[data-site="console.agentmail.to"] .np-question-progress>div { background: var(--am-border); }
+.np-app[data-site="console.agentmail.to"] .np-question-options>button.selected { background: var(--am-hover); border-color: var(--am-text); }
+.np-app[data-site="console.agentmail.to"] .np-choice-dot { border-color: var(--am-muted); color: var(--am-on-accent); }
+.np-app[data-site="console.agentmail.to"] .selected .np-choice-dot { background: var(--site-accent); border-color: var(--site-accent); }
+.np-app[data-site="console.agentmail.to"] .np-action-timeline li:not(:last-child):before { background: var(--am-border); }
+.np-app[data-site="console.agentmail.to"] :is(.np-action-timeline li[data-status=verified] .np-step-icon, .np-action-timeline li[data-status=running] .np-step-icon, .np-action-timeline li[data-status=checking] .np-step-icon) {
+  background: var(--am-hover);
+  color: var(--am-text);
+  border-color: var(--am-border);
+}
+.np-app[data-site="console.agentmail.to"] .np-action-status.active { background: var(--am-text); box-shadow: 0 0 0 3px var(--am-hover); }
+.np-app[data-site="console.agentmail.to"] :is(.np-approval, .np-browser-control) {
+  background: var(--am-raised);
+  border-color: var(--am-border);
+  color: var(--am-text);
+}
+.np-app[data-site="console.agentmail.to"] :is(.np-approval-label, .np-approval h3, .np-approval p, .np-approval small, .np-approval-buttons button, .np-browser-control strong, .np-browser-control p, .np-connect h1, .np-connect p, .np-connect label) { color: var(--am-text); }
+.np-app[data-site="console.agentmail.to"] .np-approval-buttons button { border-color: var(--am-border); }
+.np-app[data-site="console.agentmail.to"] :is(.np-error, .np-action-timeline li[data-status=failed] .np-step-icon) {
+  background: var(--am-raised);
+  border-color: #925c58;
+  color: #dfaaa5;
+}
+.np-app[data-site="console.agentmail.to"][data-color-scheme="light"] :is(.np-error, .np-action-timeline li[data-status=failed] .np-step-icon) { color: #9c3f37; }
+.np-app[data-site="console.agentmail.to"] :is(.np-voice-topline, .np-voice-topline time, .np-voice-heading h1, .np-voice-heading p, .np-live-caption, .np-voice-back, .np-voice-bottom>p) { color: var(--am-muted); }
+.np-app[data-site="console.agentmail.to"] .np-voice-art { filter: grayscale(1); }
+.np-app[data-site="console.agentmail.to"] :is(.np-waveform i, .np-voice-topline i) { background: var(--am-muted); }
+.np-app[data-site="console.agentmail.to"] .np-voice-toggle { background: var(--am-text); color: var(--am-bg); border-color: var(--am-border); box-shadow: none; }
+.np-app[data-site="console.agentmail.to"] .np-voice-toggle.recording { background: var(--am-hover); color: var(--am-text); }
