@@ -93,6 +93,35 @@ describe('browser agent execution boundaries',()=>{
     await f.runner.command('Inspect the editor');expect(f.driver.execute).not.toHaveBeenCalled();
     expect(f.session.traces.some(t=>t.text.includes('Reconsidering the dismissal'))).toBe(true);
   });
+  it('waits through incidental row focus until a delayed editor is observed',async()=>{
+    const f=fixture();const row={...base.elements[0],tag:'div',role:'row',name:'Draft update',state:['selected:false']};
+    const page={...base,text:'Drafts',elements:[row]};let clicked=false,reads=0,plans=0;
+    const editor={...row,ref:'body',tag:'textarea',role:'textbox',name:'Message',form:false,edit:{revision:'a',empty:false}};
+    f.driver.execute=vi.fn(async()=>{clicked=true;return {ok:true};});
+    f.driver.snapshot=async()=>!clicked?page:++reads<3?{...page,elements:[{...row,state:['selected:false','focused:true','scrollY:100']}]}:{...page,text:'Drafts Edit draft',elements:[row,editor]};
+    f.planner.decide=async(_session,_site,snapshot)=>{
+      if(++plans===1)return {...act('click'),risk:'read',summary:'Open the draft'};
+      expect(snapshot.elements.some(e=>e.ref==='body')).toBe(true);
+      return {...act('done'),summary:'The draft editor is open.',completion:{status:'completed',evidence:[{source:'text',ref:null,value:'Edit draft'}]}};
+    };
+    await f.runner.command('Open the existing draft');expect(f.driver.execute).toHaveBeenCalledTimes(1);expect(plans).toBe(2);expect(f.session.status).toBe('ready');
+  });
+  it.each(['click','double_click'] as const)('replans a stale %s when a delayed editor appears beside its unchanged row',async(kind)=>{
+    const f=fixture();const row={...base.elements[0],tag:'div',role:'row',name:'Draft update'};
+    const page={...base,text:'Drafts',elements:[row]};f.setState(page);let plans=0;
+    f.driver.execute=vi.fn(async()=>{f.setState({...page,text:'Drafts Updated just now'});return {ok:true};});
+    f.planner.decide=async()=>{
+      if(++plans===1)return {...act('click'),risk:'read',summary:'Open the draft'};
+      if(plans===2){
+        await new Promise(resolve=>setTimeout(resolve,780));
+        f.setState({...page,text:'Drafts Edit draft',elements:[row,{...row,ref:'body',tag:'textarea',role:'textbox',name:'Message',form:false,edit:{revision:'a',empty:false}}]});
+        return {...act(kind),ref:'add',risk:'read',summary:'Open the draft again'};
+      }
+      return {...act('done'),summary:'The existing editor is open.',completion:{status:'completed',evidence:[{source:'text',ref:null,value:'Edit draft'}]}};
+    };
+    await f.runner.command('Open the existing draft');expect(f.driver.execute).toHaveBeenCalledTimes(1);expect(plans).toBe(3);expect(f.session.status).toBe('ready');
+    expect(f.session.traces.some(t=>t.text.includes('An editor appeared while planning'))).toBe(true);
+  });
   it('replans when a saved editor disappears during planning, without a failed click receipt',async()=>{
     const f=fixture();
     f.setState({...base,elements:[{...base.elements[0],name:'Cancel',type:'button'}]});
