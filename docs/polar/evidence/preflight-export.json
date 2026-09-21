@@ -1,0 +1,100 @@
+{
+  "kind": "Latest build affected-check preflight, not final media",
+  "sourceFirstFrameEpochMs": 1789993421185,
+  "raw": {
+    "source_sha256": "7bf35a1675c3bdaccdcf96233aa634a78e00586802f77d4d3a20b3b8ecabaae5",
+    "frames": 1110,
+    "seconds": 37.0,
+    "peak_amplitude": 0.0,
+    "clicks": [],
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2744,
+      "height": 1714,
+      "reason": "Remove only right-side black ScreenCaptureKit canvas padding; retain native browser pixels."
+    },
+    "video_stream_hash": "SHA256=a39ff9ac6fcb4f6fda477d8f53fac4a296b9ccf0d7390f947710f1c9b4c81e53"
+  },
+  "sound": {
+    "video_stream_identical": true,
+    "video_stream_hash": "0,v,SHA256=a39ff9ac6fcb4f6fda477d8f53fac4a296b9ccf0d7390f947710f1c9b4c81e53",
+    "sound_mode": "clicks-only",
+    "effect": "Nova established mechanical tap; 48 kHz stereo; seed 2071",
+    "audio_peak_dbfs": -13.43,
+    "click_events": 5,
+    "operator_clicks": 3,
+    "nova_clicks": 2,
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 2744,
+          "height": 1714,
+          "nb_frames": "1110"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 2,
+          "nb_frames": "1736"
+        }
+      ],
+      "format": {
+        "duration": "37.000000"
+      }
+    },
+    "output_sha256": "a3fc07d3b8866bd8982df1da6ea2ad15f97eb26aa99f02a935577f261e9253d4"
+  },
+  "decoded": {
+    "decoded": true,
+    "fps": 30,
+    "events": [
+      {
+        "time": 4.401,
+        "actor": "operator",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9998080160100266
+      },
+      {
+        "time": 9.042,
+        "actor": "operator",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9996835693332627
+      },
+      {
+        "time": 21.56,
+        "actor": "operator",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9998727727129636
+      },
+      {
+        "time": 28.291,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9996515076286875
+      },
+      {
+        "time": 32.794000000000004,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997260866638238
+      }
+    ],
+    "quiet_peak": 0.0,
+    "decoded_peak": 0.20963674783706665,
+    "max_onset_error_ms": 0.0,
+    "minimum_tap_correlation": 0.9996515076286875
+  },
+  "visualChecks": [
+    "Clean one-tab Home opening",
+    "Progressive typing, no system/operator pointer",
+    "Single neutral Nova cursor anchored at Products",
+    "Complete debugger row masked through close icon",
+    "Only black canvas padding cropped; native content pixels retained"
+  ]
+}

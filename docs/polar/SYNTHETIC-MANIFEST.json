@@ -1,9 +1,103 @@
 {
   "scenario": "Vector AI workflow workspace",
   "origin": "Synthetic scenario prepared for private Nova validation",
-  "websiteObjectsCreated": [],
+  "websiteObjectsCreated": [
+    {
+      "type": "meter",
+      "id": "5cb7e72b-2882-4e53-b1a9-9897c66b1c24",
+      "name": "Workflow Executions",
+      "purpose": "Operator-prepared baseline, not a Nova-performed outcome",
+      "configuration": {
+        "event": "vector.workflow.completed",
+        "metadata.status": "success",
+        "logic": "AND",
+        "aggregation": "Count",
+        "unit": "Scalar"
+      },
+      "verification": "Saved detail and reopened Edit Meter showed exact values on 2026-09-21",
+      "cleanupBoundary": "Retain baseline. No events, customers, transactions or product attachments created."
+    },
+    {
+      "type": "benefit",
+      "id": "b1c281c1-cfc4-4429-931e-f46d70584cf8",
+      "name": "Workflow Starter Credits",
+      "purpose": "Operator-prepared baseline, not a Nova-performed outcome",
+      "configuration": {
+        "type": "Meter Credits",
+        "visibility": "Hidden",
+        "meterId": "5cb7e72b-2882-4e53-b1a9-9897c66b1c24",
+        "units": 1000,
+        "rollover": true
+      },
+      "verification": "Saved details and reopened Update Benefit confirmed values; no products or grants on 2026-09-21",
+      "cleanupBoundary": "Retain baseline. Unattached and ungranted."
+    },
+    {
+      "type": "meter",
+      "id": "168307f5-e3b0-4356-904f-ad4a02104ce8",
+      "name": "Compute Units",
+      "purpose": "Nova-created rehearsal resource",
+      "configuration": {
+        "event": "vector.workflow.completed",
+        "metadata.status": "success",
+        "logic": "AND",
+        "aggregation": "Sum",
+        "property": "compute_units",
+        "unit": "Scalar",
+        "metadata.environment": "staging"
+      },
+      "verification": "Nova saved and reopened; independent Computer AX confirmed every field on 2026-09-21",
+      "cleanupBoundary": "Owned rehearsal configuration only. No events, customers or transactions."
+    },
+    {
+      "type": "benefit",
+      "id": "80a26fd6-8c98-4c3c-93a5-f64aef0aa7bb",
+      "name": "Compute Allowance",
+      "purpose": "Nova-created connected rehearsal resource",
+      "configuration": {
+        "type": "Meter Credits",
+        "visibility": "Hidden",
+        "meterId": "168307f5-e3b0-4356-904f-ad4a02104ce8",
+        "units": 6000,
+        "rollover": false
+      },
+      "verification": "Nova created at 5,000, revised to 7,500, then remembered the short correction to 6,000; independently reopened fields confirmed the same benefit ID, meter, hidden visibility and rollover off.",
+      "cleanupBoundary": "Owned rehearsal configuration only. Unattached and ungranted."
+    },
+    {
+      "type": "meter",
+      "id": "15aa8097-19b5-4980-ba05-5802ae04c387",
+      "name": "Workflow Units",
+      "purpose": "Created by Nova in the final recording after grouped clarification",
+      "configuration": {
+        "event": "vector.workflow.completed",
+        "metadata.status": "success",
+        "logic": "AND",
+        "aggregation": "Sum",
+        "property": "compute_units",
+        "unit": "Scalar"
+      },
+      "verification": "Saved and reopened by Nova; independently observed all fields in Chrome AX during the final take.",
+      "cleanupBoundary": "Retain final configuration. No events or transactions."
+    },
+    {
+      "type": "benefit",
+      "id": "1ccfa5da-8376-40d9-98eb-b9323c65bcdd",
+      "name": "Vector Team Credits",
+      "purpose": "Created by Nova in the final recording",
+      "configuration": {
+        "type": "Meter Credits",
+        "visibility": "Hidden",
+        "meterId": "15aa8097-19b5-4980-ba05-5802ae04c387",
+        "units": 7500,
+        "rollover": false
+      },
+      "verification": "Created at 5,000 and revised by Nova to 7,500 on the same ID during the final recording. Independent navigation after recording confirmed 7,500 units, the exact Workflow Units meter link, Hidden, no rollover, no product attachments and no grants. The fully loaded Update Benefit drawer was independently reopened after recording and showed 7500, Workflow Units, Hidden and unchecked rollover.",
+      "cleanupBoundary": "Retain final configuration. Unattached and ungranted."
+    }
+  ],
   "filesUploaded": [],
   "realRecipients": [],
   "transactions": [],
-  "note": "No product records or activity have been created by this task. Add exact IDs and cleanup boundaries only after verifying a supported safe creation flow."
+  "note": "Synthetic configuration only. No usage or business activity has been fabricated."
 }

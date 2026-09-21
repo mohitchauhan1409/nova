@@ -1,7 +1,7 @@
 # Polar research and current coverage
 
-Status: preliminary research and local implementation. Live workflow selection is
-blocked by the Computer connection; no Polar creation flow is marked verified.
+Status: signed-in form research and live rehearsals in progress.
+The Computer connection was restored. Final recording readiness is not established.
 
 Target: the existing signed-in Vector workspace at
 https://polar.sh/dashboard/vectoros. Polar is the startup; Vector is the account.
@@ -31,9 +31,9 @@ candidate than a tour of navigation. Source:
 
 | Candidate | Business value and reasoning | Visible result to verify | Current limit |
 | --- | --- | --- | --- |
-| Usage meter | Translate event semantics into filters and an aggregation | Exact filter logic, numeric property and display unit reopened | Editor not inspected live |
-| Product and benefits | Connect pricing to the resources that define customer value | Saved price, interval, trial and exact relationships | Save/publication boundary not inspected |
-| Credits benefit | Connect an allowance to a meter | Saved units and exact referenced meter | Editor and creation boundary not inspected |
+| Usage meter | Translate event semantics into filters and an aggregation | Exact filter logic, numeric property and display unit reopened | Count saved/reopened by operator; Sum Nova rehearsal in progress |
+| Product and benefits | Connect pricing to the resources that define customer value | Saved price, interval, trial and exact relationships | Observed Public/Private purchasable save, no draft button; excluded from demo |
+| Credits benefit | Connect an allowance to a meter | Saved units and exact referenced meter | Hidden unattached baseline saved/reopened; no products or grants |
 | Targeted offer | Scope a launch incentive without changing other plans | Exact product restriction, amount, duration and cap | Editor not inspected live |
 | Home/account summary | Explain actual configuration versus business activity | Read current period and genuine values | Home inspected; Nova execution pending |
 
@@ -53,14 +53,62 @@ Sources: [Products](https://polar.sh/docs/features/products),
 Discounts have scope and duration decisions that must be checked independently of
 their names. Source: [Discounts](https://polar.sh/docs/features/discounts).
 
-## Required next research
+## Observed forms and selected journeys
 
-Restore Computer access, then inspect the actual creation forms, dependencies,
-validation and save boundaries. Do not decide a final script from documentation
-alone. Exercise two safe connected flows end to end and reopen their results.
-Prefer unattached resources and reversible configurations; do not turn on
-payments, ingest events, create transactions or publish to an audience.
+Products expands Catalogue, Checkout Links, Discounts, Benefits and Meters.
+The product editor offers one-time or recurring pricing, multiple currencies,
+base/seat/unit/metered prices, benefits, metadata and customer-portal visibility.
+Public is the default; Private still permits purchase by direct checkout link.
+No draft save was observed, so the demonstration avoids creating a purchasable
+product. No onboarding, checkout, finance or customer-access action was submitted.
 
-Before recording, populate a small coherent baseline using only verified safe
-flows, then run each selected critical flow twice through Nova. The candidate
-script is deliberately not a claim that those flows work today.
+Meter creation combines Name/event, Timestamp or Metadata filters. Conditions
+inside one group are ORed; separate groups are ANDed. A custom event can be
+typed and selected even without ingested events. Count needs no property; Sum
+reveals the numeric property field. Unit defaults to Scalar. A saved meter opens
+its own detail page and can be reopened through Edit Meter.
+
+Benefits are reusable configurations. Create Benefit offers Feature Flag,
+Custom, File Downloads, License Keys, Meter Credits and external-access types.
+Meter Credits requires a saved meter and number of units. Hidden is the default;
+rollover is optional. The saved detail explicitly distinguishes no attached
+products and no benefit grants. Update retains identity and closes the drawer.
+A newly opened drawer can first display basic fields and hydrate meter controls
+later; wait and inspect before treating expected controls as unavailable.
+
+Selected: a short rollover revision as the opening, a filtered Sum meter, a
+connected hidden credit allowance, a targeted allowance revision, and brief
+saved-state/Home questions. These combine meaningful form reasoning, missing
+data, a real dependency and conversational memory without enabling billing.
+
+The baseline contains Workflow Executions (Count of successful
+vector.workflow.completed) and Workflow Starter Credits (1,000 units linked to
+that meter, Hidden, no rollover). Exact IDs and mutations are in the synthetic
+manifest. Zero revenue, usage and customer grants remain honest.
+
+Grouped questions and partial-answer retention through Help me choose were
+exercised through Nova. Initial runs exposed excessive form-control approvals
+and staged drawer loading; preserve those failures in validation. Complete two
+successful critical-flow rehearsals and the capture preflight before recording.
+
+### Benefits split view recovery
+
+The Benefits route can automatically select the first saved resource and navigate
+to its detail URL. This is still the Benefits split view: the left list and its
+round plus button remain available beside the detail. Do not repeatedly follow
+Benefits expecting an empty overview. The plus button next to the Benefits
+heading opens Create Benefit. Search text can remain while navigation restores
+the list, so a stale visible result is not evidence that it matches the query.
+Use loaded exact record names; if the plus icon has no useful accessible name,
+Nova can screenshot and inspect the visible button, then use its grounded ref.
+
+### Longer meter editor verification
+
+Three AND groups make the editor scroll. Repeated downward scrolling at its
+lower bound added no information during recovery. The relevant controls were
+already observed. After one scroll produces no change, use one screenshot of
+the open editor (and a targeted scroll-to only if a requested section is outside
+the view). Do not repeat equivalent scrolling. Visual verification confirmed the
+exact saved property values without rewriting them. The recording uses the
+shorter, business-relevant event/status configuration; the third environment
+group is rehearsal variation only.

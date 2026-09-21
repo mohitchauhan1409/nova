@@ -31,6 +31,12 @@ try {
   await page.getByText('Let’s shape your team plan').waitFor();
   await page.getByRole('radio',{name:/Monthly/}).click();
   await page.screenshot({path:`${dir}/questions.png`,animations:'disabled'});
+  await page.evaluate(s=>(window as any).novaTestSend({...s,lastSnapshot:{theme:{color:'#17171f',font:'Inter',scheme:'dark'}}}),q);
+  await page.waitForFunction(()=>document.querySelector('.np-app')?.getAttribute('data-color-scheme')==='dark');
+  assert.equal(await page.locator('.np-app').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(23, 23, 27)');
+  assert.equal(await page.locator('.np-question-card h3').evaluate(e=>getComputedStyle(e).color),'rgb(237, 237, 240)');
+  await page.screenshot({path:`${dir}/questions-dark.png`,animations:'disabled'});
+  await page.evaluate(s=>(window as any).novaTestSend(s),q);
   for(const width of [320,400,480]) {
     await page.setViewportSize({width,height:850});
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Panel must not overflow horizontally');

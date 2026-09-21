@@ -1,0 +1,15 @@
+{
+  "source_sha256": "51d3d3c9df1522a9b5f976b1d6494d70fee1c100a51daae92cef27bc016cf85e",
+  "frames": 16285,
+  "seconds": 542.8333333333334,
+  "peak_amplitude": 0.0,
+  "clicks": [],
+  "crop": {
+    "x": 0,
+    "y": 0,
+    "width": 2744,
+    "height": 1714,
+    "reason": "Remove only black ScreenCaptureKit padding to the right of column 2743; retain native browser pixels."
+  },
+  "video_stream_hash": "SHA256=3e21f4c3bb8998ca5933dfba872cc0d330827ae1829e2787de5f0f47521cfa0c"
+}

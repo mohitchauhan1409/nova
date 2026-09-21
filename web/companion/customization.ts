@@ -16,5 +16,11 @@ export function launcherStylesFor(url: string): string {
     .cursor svg{fill:#17171f;stroke:#17171f}
     .cursor b{background:#17171f;color:#fff}
     .ring{border-color:#17171f}
+    :host([data-color-scheme=dark]) .launch{background:#ededf0;color:#17171f;border-color:#ededf0}
+    :host([data-color-scheme=dark]) .launch:hover{background:#d6d6dd;border-color:#d6d6dd}
+    :host([data-color-scheme=dark]) .launch-affordance{background:#d6d6dd;border-color:#aaaab5}
+    :host([data-color-scheme=dark]) .panel-icon{color:#17171f}
+    :host([data-color-scheme=dark]) .hint,:host([data-color-scheme=dark]) .notice{background:#1d1d22;color:#ededf0;border-color:#34343c}
+    :host([data-color-scheme=dark]) .ring{box-shadow:0 0 1px 1px #ffffffaa}
   `;
 }

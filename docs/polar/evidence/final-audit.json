@@ -1,0 +1,99 @@
+{
+  "checkedOn": "2026-09-21",
+  "files": [
+    {
+      "path": "artifacts/polar/media/nova-polar-clicks.mp4",
+      "bytes": 28026626,
+      "sha256": "201f758acb54450cd5b555a52b027ca8f857c301c71af2b2cfbe3c0c76c85653",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 2744,
+          "height": 1714,
+          "r_frame_rate": "30/1",
+          "nb_frames": "16285"
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_frames": "25447"
+        }
+      ],
+      "format": {
+        "duration": "542.833333"
+      }
+    },
+    {
+      "path": "artifacts/polar/media/nova-polar-original.mov",
+      "bytes": 108027659,
+      "sha256": "51d3d3c9df1522a9b5f976b1d6494d70fee1c100a51daae92cef27bc016cf85e",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 3024,
+          "height": 1714,
+          "r_frame_rate": "30/1",
+          "nb_frames": "19672"
+        }
+      ],
+      "format": {
+        "duration": "655.733333"
+      }
+    },
+    {
+      "path": "artifacts/polar/media/nova-polar-silent.mp4",
+      "bytes": 27299236,
+      "sha256": "d033952fbea00a7555e27c43247cac0a27be5a4aa7de42452c39c1af85a35f3a",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 2744,
+          "height": 1714,
+          "r_frame_rate": "30/1",
+          "nb_frames": "16285"
+        }
+      ],
+      "format": {
+        "duration": "542.833333"
+      }
+    }
+  ],
+  "visualChecks": {
+    "opening": "Home, one Polar tab, Nova closed, launcher visible, no pre-existing debugger row",
+    "allClickFramesReviewed": 62,
+    "pointer": "Nova cursor is visible at action targets; system and operator cursor absent in native capture",
+    "typing": "Nine progressively typed intervals, all at source speed",
+    "mask": "Only complete debugger row, including its animated entrance and close icon; no other covers",
+    "crop": "Right black capture padding only",
+    "ending": "Home and final response readable for eight seconds"
+  },
+  "editChecks": {
+    "novaExecutionSpeed": 1,
+    "typingSpeed": 1,
+    "compressedOperatorIdleSeconds": 99.9,
+    "unusedTailTrimmedSeconds": 13,
+    "clicksOutsideCompressedSegments": true,
+    "encodedVideoUnchangedWhenAddingAudio": true
+  },
+  "knownLimitations": [
+    "A tiny inactive timeline status dot retains the shared muted lavender color; the action cursor and principal panel controls use the Polar neutral theme.",
+    "Benefit creation includes a visible autonomous recovery from notification and sort controls before locating the add button.",
+    "Configuration only: no products, grants, usage ingestion or billing were activated."
+  ]
+}

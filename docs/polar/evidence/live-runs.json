@@ -1,0 +1,406 @@
+{
+  "source": "Nova local action receipts, independently checked against reopened Chrome AX",
+  "runs": [
+    {
+      "source": "meter-a-final",
+      "prompt": "Create a meter called Compute Units. Match vector.workflow.completed AND metadata status equals success. Sum compute_units and use Scalar. Save and reopen it to verify. Keep Workflow Executions unchanged.",
+      "result": "Compute Units is saved and reopened with the requested AND filters, Sum of compute_units, and Scalar unit. Workflow Executions remains unchanged.",
+      "startedAt": 1789991163947,
+      "completedAt": 1789991265239,
+      "completionSeconds": 101.292,
+      "firstActionSeconds": 4.329,
+      "steps": [
+        {
+          "at": 1789991168276,
+          "title": "I\u2019m opening Products to locate the meter configuration.",
+          "status": "verified",
+          "detail": "Navigation observed: https://polar.sh/dashboard/vectoros/products"
+        },
+        {
+          "at": 1789991172307,
+          "title": "I\u2019m opening Meters to inspect existing names before creating Compute Units.",
+          "status": "verified",
+          "detail": "Navigation observed: https://polar.sh/dashboard/vectoros/products/meters"
+        },
+        {
+          "at": 1789991176820,
+          "title": "I\u2019m checking whether a Compute Units meter already exists before creating it.",
+          "status": "verified",
+          "detail": "The target matches the requested value."
+        },
+        {
+          "at": 1789991180836,
+          "title": "I\u2019m opening the new meter editor to configure Compute Units without changing Workflow Executions.",
+          "status": "verified",
+          "detail": "Navigation observed: https://polar.sh/dashboard/vectoros/products/meters/create"
+        },
+        {
+          "at": 1789991187085,
+          "title": "I\u2019m naming the new meter Compute Units.",
+          "status": "verified",
+          "detail": "The target matches the requested value."
+        },
+        {
+          "at": 1789991190615,
+          "title": "I\u2019m opening the event-name selector to set vector.workflow.completed.",
+          "status": "verified",
+          "detail": "Control state changed: Select event name expanded:true"
+        },
+        {
+          "at": 1789991194947,
+          "title": "I\u2019m entering the custom event name vector.workflow.completed.",
+          "status": "verified",
+          "detail": "The target matches the requested value."
+        },
+        {
+          "at": 1789991198899,
+          "title": "I\u2019m confirming vector.workflow.completed as the event-name filter.",
+          "status": "verified",
+          "detail": "Control state changed: vector.workflow.completed selected:true"
+        },
+        {
+          "at": 1789991204791,
+          "title": "I\u2019m closing the event selector so I can add the required metadata condition group.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        },
+        {
+          "at": 1789991209749,
+          "title": "I\u2019m adding a separate AND condition group for metadata status equals success.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        },
+        {
+          "at": 1789991214388,
+          "title": "I\u2019m setting the metadata key to status in the separate AND condition group.",
+          "status": "verified",
+          "detail": "The target matches the requested value."
+        },
+        {
+          "at": 1789991218015,
+          "title": "I\u2019m completing the metadata filter with the value success.",
+          "status": "verified",
+          "detail": "The target matches the requested value."
+        },
+        {
+          "at": 1789991222215,
+          "title": "I\u2019m changing the aggregation from Count to Sum so compute_units can be totaled.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        },
+        {
+          "at": 1789991226512,
+          "title": "I\u2019m selecting Sum so the meter totals compute_units.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        },
+        {
+          "at": 1789991230992,
+          "title": "I\u2019m setting the Sum property to compute_units before saving the meter.",
+          "status": "verified",
+          "detail": "The target matches the requested value."
+        },
+        {
+          "at": 1789991235021,
+          "title": "I\u2019m saving the unattached Compute Units meter with the configured filters, Sum aggregation, and Scalar unit.",
+          "status": "verified",
+          "detail": "Visible controls changed. Check that they match the requested outcome."
+        },
+        {
+          "at": 1789991247223,
+          "title": "I\u2019m reopening Compute Units to verify its saved filter, aggregation, property, and unit.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        }
+      ]
+    },
+    {
+      "source": "benefit-a-final",
+      "prompt": "Create a hidden Meter Credits benefit called Compute Allowance with 5,000 units from Compute Units. Keep rollover off and leave it unattached. Save and reopen it to check.",
+      "result": "Created and reopened the hidden Compute Allowance benefit: 5,000 Compute Units, rollover off, and unattached.",
+      "startedAt": 1789991565643,
+      "completedAt": 1789991659687,
+      "completionSeconds": 94.044,
+      "firstActionSeconds": 3.588,
+      "steps": [
+        {
+          "at": 1789991569231,
+          "title": "I\u2019m opening Products to find the Benefits area and check existing resources.",
+          "status": "verified",
+          "detail": "Navigation observed: https://polar.sh/dashboard/vectoros/products"
+        },
+        {
+          "at": 1789991573849,
+          "title": "I\u2019m opening Benefits to check for an existing Compute Allowance before creating it.",
+          "status": "verified",
+          "detail": "Navigation observed: https://polar.sh/dashboard/vectoros/products/benefits"
+        },
+        {
+          "at": 1789991581856,
+          "title": "I\u2019m checking for an existing Compute Allowance before creating a duplicate.",
+          "status": "verified",
+          "detail": "Navigation observed: https://polar.sh/dashboard/vectoros/products/benefits/b1c281c1-cfc4-4429-931e-f46d70584cf8?query=Compute+Allowance"
+        },
+        {
+          "at": 1789991586595,
+          "title": "I\u2019m returning to the Benefits list to verify whether Compute Allowance already exists.",
+          "status": "verified",
+          "detail": "Navigation observed: https://polar.sh/dashboard/vectoros/products/benefits"
+        },
+        {
+          "at": 1789991599610,
+          "title": "I\u2019m returning to the Benefits list to create the requested hidden credit benefit.",
+          "status": "verified",
+          "detail": "Navigation observed: https://polar.sh/dashboard/vectoros/products/benefits"
+        },
+        {
+          "at": 1789991609943,
+          "title": "I\u2019m opening the benefit creator to configure Compute Allowance.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        },
+        {
+          "at": 1789991613727,
+          "title": "I\u2019m naming the hidden benefit Compute Allowance.",
+          "status": "verified",
+          "detail": "The target matches the requested value."
+        },
+        {
+          "at": 1789991617526,
+          "title": "I\u2019m selecting Meter Credits so I can configure the meter and allowance.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        },
+        {
+          "at": 1789991621661,
+          "title": "I\u2019m choosing Meter Credits to configure the Compute Units allowance.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        },
+        {
+          "at": 1789991630895,
+          "title": "I\u2019m opening the meter selector to choose Compute Units.",
+          "status": "verified",
+          "detail": "Control state changed: Select a meter expanded:true"
+        },
+        {
+          "at": 1789991635421,
+          "title": "I\u2019m selecting the Compute Units meter for this allowance.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        },
+        {
+          "at": 1789991639722,
+          "title": "I\u2019m setting the Compute Allowance to 5,000 credited units.",
+          "status": "verified",
+          "detail": "The target matches the requested value."
+        },
+        {
+          "at": 1789991643292,
+          "title": "I\u2019m saving the hidden Compute Allowance benefit with 5,000 Compute Units and rollover off.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        },
+        {
+          "at": 1789991653479,
+          "title": "I\u2019m reopening Compute Allowance to verify its saved settings.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        }
+      ]
+    },
+    {
+      "source": "stop-check",
+      "prompt": "Change Compute Allowance to 7,500 units. Keep the Compute Units meter, hidden visibility and rollover off. Save and reopen it to check.",
+      "result": "Compute Allowance is saved and reopened with 7,500 units, the Compute Units meter, hidden visibility, and rollover off.",
+      "startedAt": 1789991842174,
+      "completedAt": 1789991862404,
+      "completionSeconds": 20.23,
+      "firstActionSeconds": 4.964,
+      "steps": [
+        {
+          "at": 1789991847138,
+          "title": "I\u2019m changing Compute Allowance to 7,500 credited units while preserving the current meter, hidden visibility, and rollover setting.",
+          "status": "verified",
+          "detail": "The target matches the requested value."
+        },
+        {
+          "at": 1789991850767,
+          "title": "I\u2019m saving the 7,500-unit update with Compute Units, hidden visibility, and rollover off.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        },
+        {
+          "at": 1789991857496,
+          "title": "I\u2019m reopening Compute Allowance to verify the saved fields and correct the credited units if needed.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        }
+      ]
+    },
+    {
+      "source": "stop-check",
+      "prompt": "Actually make it 6,000 units and keep everything else. Save and check it again.",
+      "result": "Compute Allowance is saved and reopened with 6,000 units, the Compute Units meter, hidden visibility, and rollover off.",
+      "startedAt": 1789991871162,
+      "completedAt": 1789991891707,
+      "completionSeconds": 20.545,
+      "firstActionSeconds": 5.383,
+      "steps": [
+        {
+          "at": 1789991876545,
+          "title": "I\u2019m changing Compute Allowance to 6,000 credited units while preserving the other settings.",
+          "status": "verified",
+          "detail": "The target matches the requested value."
+        },
+        {
+          "at": 1789991881654,
+          "title": "I\u2019m saving the 6,000-unit update while keeping the meter, visibility, and rollover settings unchanged.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        },
+        {
+          "at": 1789991887012,
+          "title": "I\u2019m reopening Compute Allowance to check the saved unit value and preserved settings.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        }
+      ]
+    },
+    {
+      "source": "starter-reset-v4",
+      "prompt": "I can't find where to turn on rollover for our starter credits. Can you do it?",
+      "result": "Rollover is enabled for Workflow Starter Credits.",
+      "startedAt": 1789993443752,
+      "completedAt": 1789993495727,
+      "completionSeconds": 51.975,
+      "firstActionSeconds": 6.547,
+      "steps": [
+        {
+          "at": 1789993450299,
+          "title": "I\u2019m opening Products to find the starter credits benefit and inspect its rollover setting.",
+          "status": "verified",
+          "detail": "Navigation observed: https://polar.sh/dashboard/vectoros/products"
+        },
+        {
+          "at": 1789993454861,
+          "title": "I\u2019m opening Benefits to locate the exact starter credits benefit and review its rollover setting.",
+          "status": "verified",
+          "detail": "Navigation observed: https://polar.sh/dashboard/vectoros/products/benefits"
+        },
+        {
+          "at": 1789993463289,
+          "title": "I\u2019m opening Workflow Starter Credits to check its current rollover setting before editing it.",
+          "status": "verified",
+          "detail": "Navigation observed: https://polar.sh/dashboard/vectoros/products/benefits/b1c281c1-cfc4-4429-931e-f46d70584cf8"
+        },
+        {
+          "at": 1789993469101,
+          "title": "I\u2019m editing Workflow Starter Credits to turn on rollover while preserving its existing settings.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        },
+        {
+          "at": 1789993478405,
+          "title": "I\u2019m turning on rollover for Workflow Starter Credits while leaving its meter, units, and visibility unchanged.",
+          "status": "verified",
+          "detail": "The target matches the requested value."
+        },
+        {
+          "at": 1789993483605,
+          "title": "I\u2019m saving rollover for Workflow Starter Credits with its existing meter, units, and hidden visibility preserved.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        }
+      ]
+    },
+    {
+      "source": "starter-reset-v4",
+      "prompt": "Turn rollover back off for these starter credits, save it and show me Home.",
+      "result": "Rollover is off for Workflow Starter Credits, and Home is open.",
+      "startedAt": 1789993514566,
+      "completedAt": 1789993547298,
+      "completionSeconds": 32.732,
+      "firstActionSeconds": 3.972,
+      "steps": [
+        {
+          "at": 1789993518538,
+          "title": "I\u2019m turning off rollover for Workflow Starter Credits.",
+          "status": "verified",
+          "detail": "The target matches the requested value."
+        },
+        {
+          "at": 1789993525761,
+          "title": "I\u2019m saving rollover as off for Workflow Starter Credits.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        },
+        {
+          "at": 1789993535276,
+          "title": "Rollover is verified off. I\u2019m opening Home now.",
+          "status": "verified",
+          "detail": "Navigation observed: https://polar.sh/dashboard/vectoros"
+        }
+      ]
+    },
+    {
+      "source": "meter-v4-final",
+      "prompt": "Change the Compute Units environment filter from development to staging. Keep its other filters, Sum of compute_units and Scalar. Save and reopen it to check.",
+      "result": "Compute Units is saved and reopened. Its filters are unchanged except environment now equals staging; aggregation remains Sum of compute_units with Scalar units.",
+      "startedAt": 1789993557168,
+      "completedAt": 1789993654262,
+      "completionSeconds": 97.094,
+      "firstActionSeconds": 4.382,
+      "steps": [
+        {
+          "at": 1789993561550,
+          "title": "I\u2019m opening Products to find and update the Compute Units meter.",
+          "status": "verified",
+          "detail": "Navigation observed: https://polar.sh/dashboard/vectoros/products"
+        },
+        {
+          "at": 1789993565839,
+          "title": "I\u2019m opening Meters to find the Compute Units configuration.",
+          "status": "verified",
+          "detail": "Navigation observed: https://polar.sh/dashboard/vectoros/products/meters"
+        },
+        {
+          "at": 1789993573892,
+          "title": "I\u2019m opening Compute Units for editing while preserving its aggregation and other filters.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        },
+        {
+          "at": 1789993587885,
+          "title": "I\u2019m scrolling within the meter editor to locate the environment filter and preserve the aggregation settings.",
+          "status": "verified",
+          "detail": "Control state changed: Edit Meter Meters are aggregations of events. You can create a meter to track events that match a filter. Name Will be shown on customer's invoices and usage. Filters Specify how events are filtered before they are aggre scrollX:0, scrollY:369, scrollMaxX:0, scrollMaxY:465"
+        },
+        {
+          "at": 1789993611409,
+          "title": "I\u2019m zooming out to expose the environment filter controls without changing the meter.",
+          "status": "verified",
+          "detail": "Browser zoom is 80%."
+        },
+        {
+          "at": 1789993621440,
+          "title": "I\u2019m changing only the environment filter value from development to staging.",
+          "status": "verified",
+          "detail": "The target matches the requested value."
+        },
+        {
+          "at": 1789993626091,
+          "title": "I\u2019m saving the staging filter while preserving the other meter settings.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        },
+        {
+          "at": 1789993635995,
+          "title": "I\u2019m reopening Compute Units to verify the saved filters, aggregation, property and unit.",
+          "status": "verified",
+          "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+        }
+      ]
+    }
+  ]
+}

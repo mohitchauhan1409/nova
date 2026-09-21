@@ -1,0 +1,13 @@
+{
+  "reference_sha256": "c656ad78874030216801528e0d6e38481bea73cd0b0c6e73c7e98c4154dc5347",
+  "reference_branch": "bolna-nova",
+  "clicks": 66,
+  "renderer_functions_ast_identical": true,
+  "seed": 2071,
+  "sample_rate": 48000,
+  "gain": 1.6,
+  "peak_cap": 0.3,
+  "decoded_minimum_correlation": 0.9994650195514574,
+  "decoded_quiet_peak": 0.0,
+  "note": "Verified unchanged deterministic tap and treatment against approved decoded reference. New Polar cue timings require their own verification."
+}

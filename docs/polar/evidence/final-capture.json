@@ -1,0 +1,64 @@
+{
+  "firstFrameEpochMs": 1789993717877,
+  "windowId": 30211,
+  "width": 3024,
+  "height": 1714,
+  "fps": 30,
+  "systemCursor": false,
+  "novaActionCursor": true,
+  "opening": {
+    "url": "https://polar.sh/dashboard/vectoros",
+    "targetTabs": 1,
+    "novaPanel": "closed",
+    "debuggerStrip": false
+  },
+  "typing": [
+    {
+      "label": "Opening",
+      "start": 1789993729876,
+      "end": 1789993739761
+    },
+    {
+      "label": "Meter request",
+      "start": 1789993805262,
+      "end": 1789993812552
+    },
+    {
+      "label": "Usage answers",
+      "start": 1789993851008,
+      "end": 1789993859929
+    },
+    {
+      "label": "Connected benefit request",
+      "start": 1789994010472,
+      "end": 1789994016497
+    },
+    {
+      "label": "Benefit name answer",
+      "start": 1789994077146,
+      "end": 1789994083149
+    },
+    {
+      "label": "Allowance revision",
+      "start": 1789994213040,
+      "end": 1789994218915
+    },
+    {
+      "label": "Saved results question",
+      "start": 1789994261894,
+      "end": 1789994264010
+    },
+    {
+      "label": "Billing status question",
+      "start": 1789994304625,
+      "end": 1789994308988
+    },
+    {
+      "label": "Home request",
+      "start": 1789994334695,
+      "end": 1789994336312
+    }
+  ],
+  "rawFrames": 19672,
+  "rawSeconds": 655.7333333333333
+}

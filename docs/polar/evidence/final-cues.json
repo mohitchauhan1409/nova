@@ -1,0 +1,439 @@
+{
+  "duration": 542.8333333333334,
+  "events": [
+    {
+      "time": 4.6610000000000005,
+      "actor": "operator",
+      "sourceEpochMs": 1789993722538,
+      "sourceFrame": 139.83,
+      "evidence": "Actual left click receipt on Open Nova side panel; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 7.998,
+      "actor": "operator",
+      "sourceEpochMs": 1789993729875,
+      "sourceFrame": 359.94,
+      "evidence": "Actual left click receipt on Message Nova; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 19.64,
+      "actor": "operator",
+      "sourceEpochMs": 1789993745417,
+      "sourceFrame": 826.2,
+      "evidence": "Actual left click receipt on Send message; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 23.808,
+      "actor": "nova",
+      "sourceEpochMs": 1789993749585,
+      "sourceFrame": 951.24,
+      "evidence": "Actual left click receipt on 1486l8a-6; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 27.789,
+      "actor": "nova",
+      "sourceEpochMs": 1789993753566,
+      "sourceFrame": 1070.67,
+      "evidence": "Actual left click receipt on 1486l8a-77; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 35.897000000000006,
+      "actor": "nova",
+      "sourceEpochMs": 1789993761674,
+      "sourceFrame": 1313.91,
+      "evidence": "Actual left click receipt on 1486l8a-93; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 40.381,
+      "actor": "nova",
+      "sourceEpochMs": 1789993766158,
+      "sourceFrame": 1448.43,
+      "evidence": "Actual left click receipt on 1486l8a-113; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 45.705000000000005,
+      "actor": "nova",
+      "sourceEpochMs": 1789993771482,
+      "sourceFrame": 1608.15,
+      "evidence": "Actual left click receipt on 1486l8a-151; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 49.97200000000001,
+      "actor": "nova",
+      "sourceEpochMs": 1789993775749,
+      "sourceFrame": 1736.16,
+      "evidence": "Actual left click receipt on 1486l8a-139; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 69.287,
+      "actor": "operator",
+      "sourceEpochMs": 1789993805264,
+      "sourceFrame": 2621.61,
+      "evidence": "Actual left click receipt on Message Nova; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 78.3,
+      "actor": "operator",
+      "sourceEpochMs": 1789993817677,
+      "sourceFrame": 2994.0,
+      "evidence": "Actual left click receipt on Send message; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 104.055,
+      "actor": "operator",
+      "sourceEpochMs": 1789993851532,
+      "sourceFrame": 4009.65,
+      "evidence": "Actual left click receipt on Event name; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 107.464,
+      "actor": "operator",
+      "sourceEpochMs": 1789993854941,
+      "sourceFrame": 4111.92,
+      "evidence": "Actual left click receipt on Success condition; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 109.763,
+      "actor": "operator",
+      "sourceEpochMs": 1789993857240,
+      "sourceFrame": 4180.89,
+      "evidence": "Actual left click receipt on Numeric property, if summing; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 111.679,
+      "actor": "operator",
+      "sourceEpochMs": 1789993859156,
+      "sourceFrame": 4238.37,
+      "evidence": "Actual left click receipt on Display unit; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 114.128,
+      "actor": "operator",
+      "sourceEpochMs": 1789993863705,
+      "sourceFrame": 4374.84,
+      "evidence": "Actual left click receipt on button; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 139.517,
+      "actor": "operator",
+      "sourceEpochMs": 1789993889094,
+      "sourceFrame": 5136.51,
+      "evidence": "Actual left click receipt on button; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 142.05499999999998,
+      "actor": "operator",
+      "sourceEpochMs": 1789993903132,
+      "sourceFrame": 5557.65,
+      "evidence": "Actual left click receipt on button; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 146.00300000000001,
+      "actor": "nova",
+      "sourceEpochMs": 1789993907080,
+      "sourceFrame": 5676.09,
+      "evidence": "Actual left click receipt on 1486l8a-78; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 154.844,
+      "actor": "nova",
+      "sourceEpochMs": 1789993915921,
+      "sourceFrame": 5941.32,
+      "evidence": "Actual left click receipt on 1486l8a-161; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 159.536,
+      "actor": "nova",
+      "sourceEpochMs": 1789993920613,
+      "sourceFrame": 6082.08,
+      "evidence": "Actual left click receipt on 1486l8a-190; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 164.194,
+      "actor": "nova",
+      "sourceEpochMs": 1789993925271,
+      "sourceFrame": 6221.82,
+      "evidence": "Actual left click receipt on 1486l8a-194; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 168.853,
+      "actor": "nova",
+      "sourceEpochMs": 1789993929930,
+      "sourceFrame": 6361.59,
+      "evidence": "Actual left click receipt on 1486l8a-203; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 173.078,
+      "actor": "nova",
+      "sourceEpochMs": 1789993934155,
+      "sourceFrame": 6488.34,
+      "evidence": "Actual left click receipt on 1486l8a-207; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 181.978,
+      "actor": "nova",
+      "sourceEpochMs": 1789993943055,
+      "sourceFrame": 6755.34,
+      "evidence": "Actual left click receipt on 1486l8a-195; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 187.111,
+      "actor": "nova",
+      "sourceEpochMs": 1789993948188,
+      "sourceFrame": 6909.33,
+      "evidence": "Actual left click receipt on 1486l8a-213; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 192.30200000000002,
+      "actor": "nova",
+      "sourceEpochMs": 1789993953379,
+      "sourceFrame": 7065.06,
+      "evidence": "Actual left click receipt on 1486l8a-208; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 196.28699999999998,
+      "actor": "nova",
+      "sourceEpochMs": 1789993957364,
+      "sourceFrame": 7184.61,
+      "evidence": "Actual left click receipt on 1486l8a-196; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 201.35399999999998,
+      "actor": "nova",
+      "sourceEpochMs": 1789993962431,
+      "sourceFrame": 7336.62,
+      "evidence": "Actual left click receipt on 1486l8a-219; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 206.728,
+      "actor": "nova",
+      "sourceEpochMs": 1789993967805,
+      "sourceFrame": 7497.84,
+      "evidence": "Actual left click receipt on 1486l8a-224; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 214.54500000000002,
+      "actor": "nova",
+      "sourceEpochMs": 1789993975622,
+      "sourceFrame": 7732.35,
+      "evidence": "Actual left click receipt on 1486l8a-189; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 227.578,
+      "actor": "nova",
+      "sourceEpochMs": 1789993988655,
+      "sourceFrame": 8123.34,
+      "evidence": "Actual left click receipt on 1486l8a-233; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 249.395,
+      "actor": "operator",
+      "sourceEpochMs": 1789994010472,
+      "sourceFrame": 8777.85,
+      "evidence": "Actual left click receipt on Message Nova; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 257.19899999999996,
+      "actor": "operator",
+      "sourceEpochMs": 1789994019576,
+      "sourceFrame": 9050.97,
+      "evidence": "Actual left click receipt on Send message; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 264.419,
+      "actor": "nova",
+      "sourceEpochMs": 1789994026796,
+      "sourceFrame": 9267.57,
+      "evidence": "Actual left click receipt on 1486l8a-277; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 270.278,
+      "actor": "nova",
+      "sourceEpochMs": 1789994032655,
+      "sourceFrame": 9443.34,
+      "evidence": "Actual left click receipt on 1486l8a-77; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 305.076,
+      "actor": "operator",
+      "sourceEpochMs": 1789994071753,
+      "sourceFrame": 10616.28,
+      "evidence": "Actual left click receipt on button; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 307.77000000000004,
+      "actor": "operator",
+      "sourceEpochMs": 1789994077147,
+      "sourceFrame": 10778.1,
+      "evidence": "Actual left click receipt on Which benefit should hold the 5,000 Workflow Units? \u2014 your answer; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 314.072,
+      "actor": "operator",
+      "sourceEpochMs": 1789994083449,
+      "sourceFrame": 10967.16,
+      "evidence": "Actual left click receipt on button; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 316.55100000000004,
+      "actor": "operator",
+      "sourceEpochMs": 1789994088028,
+      "sourceFrame": 11104.53,
+      "evidence": "Actual left click receipt on button; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 332.637,
+      "actor": "nova",
+      "sourceEpochMs": 1789994104114,
+      "sourceFrame": 11587.11,
+      "evidence": "Actual left click receipt on 1486l8a-27; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 354.061,
+      "actor": "nova",
+      "sourceEpochMs": 1789994125538,
+      "sourceFrame": 12229.83,
+      "evidence": "Actual left click receipt on 1486l8a-287; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 372.253,
+      "actor": "nova",
+      "sourceEpochMs": 1789994143730,
+      "sourceFrame": 12775.59,
+      "evidence": "Actual left click receipt on 1486l8a-288; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 378.536,
+      "actor": "nova",
+      "sourceEpochMs": 1789994150013,
+      "sourceFrame": 12964.08,
+      "evidence": "Actual left click receipt on 1486l8a-315; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 383.562,
+      "actor": "nova",
+      "sourceEpochMs": 1789994155039,
+      "sourceFrame": 13114.86,
+      "evidence": "Actual left click receipt on 1486l8a-319; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 387.21200000000005,
+      "actor": "nova",
+      "sourceEpochMs": 1789994158689,
+      "sourceFrame": 13224.36,
+      "evidence": "Actual left click receipt on 1486l8a-341; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 399.094,
+      "actor": "nova",
+      "sourceEpochMs": 1789994170571,
+      "sourceFrame": 13580.82,
+      "evidence": "Actual left click receipt on 1486l8a-351; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 403.97,
+      "actor": "nova",
+      "sourceEpochMs": 1789994175447,
+      "sourceFrame": 13727.1,
+      "evidence": "Actual left click receipt on 1486l8a-362; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 415.27900000000005,
+      "actor": "nova",
+      "sourceEpochMs": 1789994186756,
+      "sourceFrame": 14066.37,
+      "evidence": "Actual left click receipt on 1486l8a-352; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 420.286,
+      "actor": "nova",
+      "sourceEpochMs": 1789994191763,
+      "sourceFrame": 14216.58,
+      "evidence": "Actual left click receipt on 1486l8a-324; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 428.313,
+      "actor": "nova",
+      "sourceEpochMs": 1789994199790,
+      "sourceFrame": 14457.39,
+      "evidence": "Actual left click receipt on 1486l8a-367; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 441.562,
+      "actor": "operator",
+      "sourceEpochMs": 1789994213039,
+      "sourceFrame": 14854.86,
+      "evidence": "Actual left click receipt on Message Nova; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 449.255,
+      "actor": "operator",
+      "sourceEpochMs": 1789994222532,
+      "sourceFrame": 15139.65,
+      "evidence": "Actual left click receipt on Send message; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 453.711,
+      "actor": "nova",
+      "sourceEpochMs": 1789994226988,
+      "sourceFrame": 15273.33,
+      "evidence": "Actual left click receipt on 1486l8a-394; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 459.103,
+      "actor": "nova",
+      "sourceEpochMs": 1789994232380,
+      "sourceFrame": 15435.09,
+      "evidence": "Actual left click receipt on 1486l8a-397; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 480.817,
+      "actor": "operator",
+      "sourceEpochMs": 1789994261894,
+      "sourceFrame": 16320.51,
+      "evidence": "Actual left click receipt on Message Nova; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 484.77299999999997,
+      "actor": "operator",
+      "sourceEpochMs": 1789994275250,
+      "sourceFrame": 16721.19,
+      "evidence": "Actual left click receipt on Send message; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 499.84799999999996,
+      "actor": "operator",
+      "sourceEpochMs": 1789994304625,
+      "sourceFrame": 17602.44,
+      "evidence": "Actual left click receipt on Message Nova; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 506.0199999999999,
+      "actor": "operator",
+      "sourceEpochMs": 1789994312697,
+      "sourceFrame": 17844.6,
+      "evidence": "Actual left click receipt on Send message; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 520.519,
+      "actor": "operator",
+      "sourceEpochMs": 1789994334696,
+      "sourceFrame": 18504.57,
+      "evidence": "Actual left click receipt on Message Nova; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 523.902,
+      "actor": "operator",
+      "sourceEpochMs": 1789994341679,
+      "sourceFrame": 18714.06,
+      "evidence": "Actual left click receipt on Send message; actor recorded by Nova companion/panel dispatch."
+    },
+    {
+      "time": 529.119,
+      "actor": "nova",
+      "sourceEpochMs": 1789994346896,
+      "sourceFrame": 18870.57,
+      "evidence": "Actual left click receipt on 1486l8a-5; actor recorded by Nova companion/panel dispatch."
+    }
+  ]
+}

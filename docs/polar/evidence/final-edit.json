@@ -1,0 +1,328 @@
+{
+  "fps": 30,
+  "width": 3024,
+  "height": 1714,
+  "crop": {
+    "x": 0,
+    "y": 0,
+    "width": 2744,
+    "height": 1714,
+    "reason": "Remove only black ScreenCaptureKit padding to the right of column 2743; retain native browser pixels."
+  },
+  "segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 90,
+      "output_frames": 90,
+      "kind": "establishing",
+      "reason": "Three-second clean one-tab Home establishing view."
+    },
+    {
+      "start_frame": 90,
+      "end_frame": 192,
+      "output_frames": 102,
+      "kind": "operator-typing",
+      "reason": "Actual launcher opening at normal speed."
+    },
+    {
+      "start_frame": 192,
+      "end_frame": 342,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 342,
+      "end_frame": 672,
+      "output_frames": 330,
+      "kind": "operator-typing",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 672,
+      "end_frame": 810,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 810,
+      "end_frame": 2277,
+      "output_frames": 1467,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 2277,
+      "end_frame": 2604,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 2604,
+      "end_frame": 2856,
+      "output_frames": 252,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 2856,
+      "end_frame": 2979,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 2979,
+      "end_frame": 3729,
+      "output_frames": 750,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 3729,
+      "end_frame": 3993,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 3993,
+      "end_frame": 4275,
+      "output_frames": 282,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 4275,
+      "end_frame": 4359,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 4359,
+      "end_frame": 5175,
+      "output_frames": 816,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 5175,
+      "end_frame": 5541,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 5541,
+      "end_frame": 8976,
+      "output_frames": 3435,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 8976,
+      "end_frame": 9036,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 9036,
+      "end_frame": 10449,
+      "output_frames": 1413,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 10449,
+      "end_frame": 10599,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 10599,
+      "end_frame": 10659,
+      "output_frames": 60,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 10659,
+      "end_frame": 10761,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 10761,
+      "end_frame": 11004,
+      "output_frames": 243,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 11004,
+      "end_frame": 11088,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 11088,
+      "end_frame": 15048,
+      "output_frames": 3960,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 15048,
+      "end_frame": 15123,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 15123,
+      "end_frame": 16047,
+      "output_frames": 924,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 16047,
+      "end_frame": 16302,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 16302,
+      "end_frame": 16401,
+      "output_frames": 99,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 16401,
+      "end_frame": 16704,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 16704,
+      "end_frame": 17136,
+      "output_frames": 432,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 17136,
+      "end_frame": 17586,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 17586,
+      "end_frame": 17751,
+      "output_frames": 165,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 17751,
+      "end_frame": 17829,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 17829,
+      "end_frame": 18243,
+      "output_frames": 414,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 18243,
+      "end_frame": 18489,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 18489,
+      "end_frame": 18570,
+      "output_frames": 81,
+      "kind": "agent",
+      "reason": "Uninterrupted source motion, progressive typing, reading and Nova execution at normal speed."
+    },
+    {
+      "start_frame": 18570,
+      "end_frame": 18699,
+      "output_frames": 21,
+      "kind": "operator-idle",
+      "reason": "Stationary operator pause after reading/typing; preserve guards around each actual click and all active Nova work."
+    },
+    {
+      "start_frame": 18699,
+      "end_frame": 19282,
+      "output_frames": 583,
+      "kind": "agent",
+      "reason": "Final request, actual Home navigation, response and eight-second closing read at normal speed."
+    }
+  ],
+  "masks": [
+    {
+      "x": 12,
+      "y": 158,
+      "width": 2016,
+      "height": 10,
+      "color": "#f7f6fd",
+      "start_frame": 948,
+      "end_frame": 949
+    },
+    {
+      "x": 12,
+      "y": 158,
+      "width": 2016,
+      "height": 44,
+      "color": "#f7f6fd",
+      "start_frame": 949,
+      "end_frame": 950
+    },
+    {
+      "x": 12,
+      "y": 158,
+      "width": 2016,
+      "height": 74,
+      "color": "#f7f6fd",
+      "start_frame": 950,
+      "end_frame": 951
+    },
+    {
+      "x": 12,
+      "y": 158,
+      "width": 2016,
+      "height": 104,
+      "color": "#f7f6fd",
+      "start_frame": 951,
+      "end_frame": 952
+    },
+    {
+      "x": 12,
+      "y": 158,
+      "width": 2016,
+      "height": 108,
+      "color": "#f7f6fd",
+      "start_frame": 952,
+      "end_frame": 19282
+    }
+  ],
+  "clicks": []
+}
