@@ -10,5 +10,9 @@ export function launcherStylesFor(url: string): string {
     .launch-affordance{background:#3d3747;border-color:#60556f}
     .panel-icon{color:#d4c5ff}
     .hint,.notice{background:#303132;color:#f3f3f5;border-color:#555059}
+    .cursor{filter:drop-shadow(0 2px 5px #cfc2fa55)}
+    .cursor svg{fill:#cfc2fa;stroke:#cfc2fa}
+    .cursor b{background:#cfc2fa;color:#29262f}
+    .ring{border-color:#cfc2fa}
   `;
 }

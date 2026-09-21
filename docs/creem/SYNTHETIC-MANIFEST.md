@@ -24,3 +24,7 @@ $49 Vector Pro (prod_2LE9DdoNX6kUzCeLvUKy5g), created through the real vendor
 sandbox checkout. Home independently shows 1 customer, 1 sale, $49 revenue and
 $49 MRR. These are sandbox results, not actual customers or historical revenue.
 Product descriptions describe the scenario; no external entitlement service was configured.
+
+Additional saved rehearsal plan: Vector Scale, prod_4b1hfvhzwYli4AO7iBOhaW, USD249/month, free21-day trial,40 seats/100,000-credit scenario description. Created by Nova in the stopped first take; revision persisted after the approval wording regression was repaired. No Scale discount was created.
+
+Vector Growth was created and revised by Nova in the user-stopped cursor take: prod_1QrFSzJCKNxWz7TodnmFJY, USD199/month,21-day free trial,30-seat/75,000-credit description. The GROWTH20 offer prompt was interrupted before submission; no Growth offer was created.

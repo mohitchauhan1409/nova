@@ -6,16 +6,21 @@ Scenario: Vector-Os is preparing subscription plans for an AI workspace in Creem
 
 1. Fresh launch from Nova dashboard, normal Creem Home, Nova closed, no debugging bar. Open the floating Ask Nova button.
 2. User: “I’m a little lost setting up our next team plan. Can you help me?”
-3. Grouped answers: product **Vector Scale**; description **An AI workspace for growing teams. Includes 40 seats, unlimited projects, 100,000 monthly AI credits, and priority support.**; price **249**; currency **USD**. Leave interval and trial unanswered and choose **Help me choose**.
+3. Grouped answers: product **Vector Teams**; description **An AI workspace for growing teams. Includes 15 seats, unlimited projects, 35,000 monthly AI credits, and priority support.**; price **99**; currency **USD**. Leave interval and trial unanswered and choose **Help me choose**.
 4. Nova must retain those four answers, explain monthly/yearly and trial choices, and ask only remaining decisions. Choose **Monthly** and **14-day free trial**, then Continue.
-5. Pass: exactly one saved Vector Scale, USD249/month, free14-day trial, supplied description, recovery emails and automatic affiliate enrollment off. Reopen exact record.
+5. Pass: exactly one saved Vector Teams, USD99/month, free14-day trial, supplied description, recovery emails and automatic affiliate enrollment off. Reopen exact record.
 6. User: “Actually, give teams 21 days to try it. Keep everything else the same.” Pass: edit the same product ID to21 days, retain price and description.
-7. User: “Now create a launch offer for that plan only: 20% off once, code SCALE20, name Scale Launch, 50 uses, no expiry.” Pass: saved discount, exact product link,20% once,0/50, no expiry; no duplicate or external dispatch.
-8. User: “What will the first paid invoice be before tax?” Expected: $199.20 after the21-day free trial, then regular249/month; note tax separately. This is arithmetic from the configured offer, not a live invoice.
-9. User: “Does that change Starter or Pro?” Expected: no, discount targets only Scale; ordinary plans unchanged.
+7. User: “Now create a launch offer for that plan only: 20% off once, code TEAMSTART20, name Teams Welcome, 50 uses, no expiry.” Pass: saved discount, exact product link,20% once,0/50, no expiry; no duplicate or external dispatch.
+8. User: “What will the first paid invoice be before tax?” Expected: $79.20 after the21-day free trial, then regular99/month; note tax separately. This is arithmetic from the configured offer, not a live invoice.
+9. User: “Does that change Starter or Pro?” Expected: no, discount targets only Teams; ordinary plans unchanged.
 10. User: “Show me Home and summarize the current activity.” Expected: read actual current period and sandbox totals, distinguish Test mode. End after the complete answer with a short readable hold.
 
 Type progressively at roughly8 characters/second (one character per CUA input call plus90ms pacing), with no additional typing acceleration. Chat and grouped cards only. Let Nova perform all website work. Keep normal execution speed. Only prolonged operator idle gaps may be compressed.
+
+Latest user direction supersedes the original cursor-free brief: show only Nova’s
+lavender action cursor (arrow, label and ring); hide the system/operator pointer.
+Build with both NOVA_RECORDING_MODE=true and NOVA_RECORDING_SHOW_ACTION_CURSOR=true.
+Close every other browser tab before the final capture begins.
 
 ## Rehearsals
 
