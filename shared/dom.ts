@@ -1,4 +1,5 @@
 import type { Action, Snapshot, ElementRef, ActionResult, PreparedInput } from './types';
+import { readPageColorScheme } from './page-theme';
 
 export type PreparedTarget = { x: number; y: number; editable: boolean; focused?: boolean; valueLength?: number; checked?: boolean; paused?: boolean; tag: string; type: string };
 export type DomBridge = { snapshot(preparedInputs?:PreparedInput[]): Snapshot; execute(action: Action): Promise<ActionResult & { text?: string }>; inspect(x:number,y:number): ActionResult; prepare(ref: string, append?: boolean, semanticMedia?: boolean, focus?: boolean): PreparedTarget; point(x:number,y:number): {x:number;y:number}; verify(action: Action, expectedLength?: number): ActionResult; };
@@ -216,13 +217,8 @@ export function installNovaDOM() {
       const text = [...chunks,...distant].join('\n').slice(0, 18000);
       const blocked = /verify you are human|enter the characters you see|unusual traffic|robot check|complete the captcha|not a robot/i.test(text) ? 'Human verification is required. Complete it in the browser, then continue.' : undefined;
       const accent = document.querySelector('button[type="submit"],button');
-      const rootStyle = getComputedStyle(document.documentElement);
       const bodyStyle = getComputedStyle(document.body);
-      const declaredScheme = bodyStyle.colorScheme === 'normal' ? rootStyle.colorScheme : bodyStyle.colorScheme;
-      const surface = [bodyStyle.backgroundColor,rootStyle.backgroundColor].find(c => c !== 'transparent' && c !== 'rgba(0, 0, 0, 0)');
-      const rgb = surface?.match(/[\d.]+/g)?.slice(0,3).map(Number);
-      const scheme: 'light' | 'dark' = declaredScheme === 'dark' || declaredScheme !== 'light' &&
-        (rgb?.length === 3 ? rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722 < 128 : matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+      const scheme = readPageColorScheme();
       return { id: `${prefix}:${Date.now()}`, url: location.href, title: document.title, text, elements,
         viewport: { width: innerWidth, height: innerHeight, scrollX, scrollY, zoom }, theme: { color: accent ? getComputedStyle(accent).backgroundColor : '#6554d9', font: bodyStyle.fontFamily, scheme },
         frames: document.querySelectorAll('iframe:not([data-nova-root])').length, blocked, capturedAt: Date.now(),
