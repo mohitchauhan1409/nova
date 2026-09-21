@@ -1,0 +1,83 @@
+{
+  "status": "local render and numerical checks pass; independent targeted visual review finishing; remote recovery is coordinator-owned and not yet claimed",
+  "session_id": "0cd61961-28fb-4947-9139-4ae96d103475",
+  "backend_commit": "f78542b53572fb953828c3d704b1583e6157d214",
+  "extension_commit": "d2d6325c657f3b5f45f326db56565300e26826bd",
+  "extension_zip_sha256": "38be34e27e224b1f52c9e547ac1d3ec14b57d477d2f807e47968303720fc3616",
+  "media": [
+    {
+      "name": "nova-agentmail-original.mov",
+      "bytes": 111445281,
+      "frames": 11602,
+      "seconds": 386.733333,
+      "sha256": "20640dd4f09cc5fc55d7119d91393b68bd523efdc7c0e3e355972e3c1e59a9d7"
+    },
+    {
+      "name": "nova-agentmail-silent.mp4",
+      "bytes": 25570518,
+      "frames": 10857,
+      "seconds": 361.9,
+      "sha256": "7217fa8662295ee9a1dd861bab5df4e75c373a53449e9ba28adea72f7b883748"
+    },
+    {
+      "name": "nova-agentmail-clicks.mp4",
+      "bytes": 26044418,
+      "frames": 10857,
+      "seconds": 361.9,
+      "sha256": "a6222458dde1eb22e7014ae41069cd0a1de0ce633e3edad0c65bf990e086fb22"
+    }
+  ],
+  "native_canvas": [
+    3024,
+    1776
+  ],
+  "fps": 30,
+  "raw_unchanged": true,
+  "typing_and_nova_execution_speed": 1,
+  "clicks": {
+    "total": 37,
+    "nova": 25,
+    "operator": 12,
+    "basis": "deduplicated full-session actual recordingClicks, including launch before first message",
+    "nearest_source_frame_max_error_ms": 16.333333333333332
+  },
+  "video_streams_identical": true,
+  "video_stream_sha256": "b628e691f5ef95cac9ee1cc2ee65dd064244f3618da33a212e969f3095d5936c",
+  "audio": {
+    "decoded": true,
+    "fps": 30,
+    "quiet_peak": 0.0,
+    "decoded_peak": 0.21708300709724426,
+    "max_onset_error_ms": 0.041666666666666664,
+    "minimum_tap_correlation": 0.9996186445559679
+  },
+  "visual_coverage": {
+    "source": "all 37 native receipt frames, 5-second source contacts, native idle panels and debugger-entry animation",
+    "encoded": "62 selected decoded output frames extracted; per-cue source comparison completed; root independently inspected purpose action and final October 5 single-editor frame",
+    "claim": "bounded inspection; no exhaustive every-pixel pointer claim",
+    "outside_mask_max_mean_absolute_error_255": 0.23241278676197974,
+    "outside_mask_max_p99_error_255": 4.0
+  },
+  "saved_result": {
+    "metadata": {
+      "display_name": "Cedar & Finch Care",
+      "team": "Customer Care",
+      "purpose": "Furniture order support",
+      "response_target": "1 business day",
+      "types": "String",
+      "same_inbox_address": true
+    },
+    "draft": {
+      "recipient": "orders@customer.example",
+      "subject": "Your oak desk order update",
+      "order": "CF-1048",
+      "dispatch": "October5,2026",
+      "draft_count": 2,
+      "reference_preserved": "Care handoff \u2014 order CF-1042",
+      "single_editor": true,
+      "sent": false,
+      "scheduled": false
+    },
+    "last_review_request": "Already-open exact draft correctly recognized; no fictional action or tap."
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "decoded": true,
+  "fps": 30,
+  "events": [
+    {
+      "time": 3.1,
+      "actor": "operator",
+      "onset_error_ms": 0.0,
+      "correlation": 0.999923945256992
+    },
+    {
+      "time": 8.133333333333333,
+      "actor": "operator",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9997746414413876
+    },
+    {
+      "time": 21.066666666666666,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9998653309729101
+    },
+    {
+      "time": 29.233333333333334,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9999346884209218
+    },
+    {
+      "time": 32.96666666666667,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9999720124956981
+    },
+    {
+      "time": 37.46666666666667,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9996186445559679
+    },
+    {
+      "time": 42.0,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9996799739482788
+    },
+    {
+      "time": 46.666666666666664,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9997613208054726
+    },
+    {
+      "time": 50.13333333333333,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9997563746279672
+    },
+    {
+      "time": 54.7,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9998029685630695
+    },
+    {
+      "time": 65.53333333333333,
+      "actor": "operator",
+      "onset_error_ms": 0.020833333333333332,
+      "correlation": 0.9997806884525063
+    },
+    {
+      "time": 94.13333333333334,
+      "actor": "operator",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9998636130416331
+    },
+    {
+      "time": 111.2,
+      "actor": "operator",
+      "onset_error_ms": 0.0,
+      "correlation": 0.999855068168115
+    },
+    {
+      "time": 114.83333333333333,
+      "actor": "operator",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9997378194804272
+    },
+    {
+      "time": 118.06666666666666,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9998107789923759
+    },
+    {
+      "time": 122.23333333333333,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9997635457670679
+    },
+    {
+      "time": 126.43333333333334,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9998563167720571
+    },
+    {
+      "time": 129.9,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9996951576764593
+    },
+    {
+      "time": 133.7,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9997621393393661
+    },
+    {
+      "time": 138.5,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9999470044447282
+    },
+    {
+      "time": 142.13333333333333,
+      "actor": "nova",
+      "onset_error_ms": 0.020833333333333332,
+      "correlation": 0.999852386543701
+    },
+    {
+      "time": 154.96666666666667,
+      "actor": "operator",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9996468258754933
+    },
+    {
+      "time": 167.86666666666667,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9996953941765955
+    },
+    {
+      "time": 177.06666666666666,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.999693617895752
+    },
+    {
+      "time": 181.1,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9998074311556183
+    },
+    {
+      "time": 189.0,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9998949202777543
+    },
+    {
+      "time": 208.23333333333332,
+      "actor": "operator",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9997469887665542
+    },
+    {
+      "time": 247.23333333333332,
+      "actor": "operator",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9997125063983056
+    },
+    {
+      "time": 252.26666666666668,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.999779451908085
+    },
+    {
+      "time": 255.7,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9997914887900288
+    },
+    {
+      "time": 262.93333333333334,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9997573941163778
+    },
+    {
+      "time": 275.5,
+      "actor": "operator",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9997425011192784
+    },
+    {
+      "time": 295.53333333333336,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9997082348139283
+    },
+    {
+      "time": 298.26666666666665,
+      "actor": "nova",
+      "onset_error_ms": 0.041666666666666664,
+      "correlation": 0.9999507519058833
+    },
+    {
+      "time": 307.46666666666664,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9999004642539822
+    },
+    {
+      "time": 321.26666666666665,
+      "actor": "operator",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9998871342320887
+    },
+    {
+      "time": 342.73333333333335,
+      "actor": "operator",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9998641559685709
+    }
+  ],
+  "quiet_peak": 0.0,
+  "decoded_peak": 0.21708300709724426,
+  "max_onset_error_ms": 0.041666666666666664,
+  "minimum_tap_correlation": 0.9996186445559679
+}

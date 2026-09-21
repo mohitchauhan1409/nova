@@ -1,0 +1,479 @@
+{
+  "session_id": "0cd61961-28fb-4947-9139-4ae96d103475",
+  "first_frame_epoch_ms": 1790016420563,
+  "basis": "Actual server event timings; independent saved outcome checked by coordinator. Do not confuse these with edited video time.",
+  "tasks": [
+    {
+      "task_id": "54b5a41c-f5ad-4ab2-bdaf-2877174cec7d",
+      "request": "Rename Cedar & Finch Support to Cedar & Finch Care, please.",
+      "user_at_ms": 1790016437932,
+      "user_at_utc": "2026-09-21T18:47:17.932+00:00",
+      "latency_ms": {
+        "first_meaningful_progress": 3557,
+        "first_assistant_reply": 41250,
+        "first_question_card": null,
+        "first_action_start": 3572,
+        "first_action_dispatch_finished": 3716,
+        "first_nova_click": 3697,
+        "final_assistant_reply": 41250,
+        "completion_report": 41250
+      },
+      "step_status_counts": {
+        "verified": 8
+      },
+      "terminal_observation": {
+        "status": "ready",
+        "awaiting_answer": false,
+        "observed_at_ms": 1790016499555
+      },
+      "completion_report_inferred": true,
+      "first_progress_may_be_upper_bound": false,
+      "last_assistant_reply": {
+        "id": "8138d157-b0fe-403f-bce9-0b79f9332229",
+        "role": "assistant",
+        "text": "Renamed the inbox to Cedar & Finch Care.",
+        "at": 1790016479182
+      }
+    },
+    {
+      "task_id": "3ecf9c55-dc4a-4901-9d18-fc724fe629cc",
+      "request": "Use Furniture order support as the purpose, and help me choose a response target.",
+      "user_at_ms": 1790016502214,
+      "user_at_utc": "2026-09-21T18:48:22.214+00:00",
+      "latency_ms": {
+        "first_meaningful_progress": 4980,
+        "first_assistant_reply": 4981,
+        "first_question_card": 4981,
+        "first_action_start": null,
+        "first_action_dispatch_finished": null,
+        "first_nova_click": null,
+        "final_assistant_reply": null,
+        "completion_report": null
+      },
+      "step_status_counts": {},
+      "terminal_observation": {
+        "status": "ready",
+        "awaiting_answer": true,
+        "observed_at_ms": 1790016509568
+      },
+      "completion_report_inferred": false,
+      "first_progress_may_be_upper_bound": false,
+      "last_assistant_reply": null
+    },
+    {
+      "task_id": "caf1b1e9-5c57-451d-a32b-671060cf9fd0",
+      "request": "Help me choose: explain the remaining questions in plain language. Keep my original task and the details I already provided.",
+      "user_at_ms": 1790016518783,
+      "user_at_utc": "2026-09-21T18:48:38.783+00:00",
+      "latency_ms": {
+        "first_meaningful_progress": 5455,
+        "first_assistant_reply": 5456,
+        "first_question_card": 5456,
+        "first_action_start": null,
+        "first_action_dispatch_finished": null,
+        "first_nova_click": null,
+        "final_assistant_reply": null,
+        "completion_report": null
+      },
+      "step_status_counts": {},
+      "terminal_observation": {
+        "status": "ready",
+        "awaiting_answer": true,
+        "observed_at_ms": 1790016529587
+      },
+      "completion_report_inferred": false,
+      "first_progress_may_be_upper_bound": false,
+      "last_assistant_reply": null
+    },
+    {
+      "task_id": "d41e973c-8e14-4a25-90fa-3d2c92f18cdb",
+      "request": "Details for Choose a response target:\nHow quickly should the team aim to respond?: 1 business day",
+      "user_at_ms": 1790016539505,
+      "user_at_utc": "2026-09-21T18:48:59.505+00:00",
+      "latency_ms": {
+        "first_meaningful_progress": 3091,
+        "first_assistant_reply": 32243,
+        "first_question_card": null,
+        "first_action_start": 3104,
+        "first_action_dispatch_finished": 3248,
+        "first_nova_click": 3219,
+        "final_assistant_reply": 32243,
+        "completion_report": 32243
+      },
+      "step_status_counts": {
+        "verified": 7
+      },
+      "terminal_observation": {
+        "status": "ready",
+        "awaiting_answer": false,
+        "observed_at_ms": 1790016579639
+      },
+      "completion_report_inferred": true,
+      "first_progress_may_be_upper_bound": false,
+      "last_assistant_reply": {
+        "id": "97b52146-07c5-4fe8-b9ac-69352a3be27f",
+        "role": "assistant",
+        "text": "Saved and verified the inbox metadata: purpose is Furniture order support and response target is 1 business day.",
+        "at": 1790016571748
+      }
+    },
+    {
+      "task_id": "b2ab4b74-aa91-4396-9a6f-d95b789746b6",
+      "request": "Complete our oak-desk draft with the revised dispatch details.",
+      "user_at_ms": 1790016589099,
+      "user_at_utc": "2026-09-21T18:49:49.099+00:00",
+      "latency_ms": {
+        "first_meaningful_progress": 3319,
+        "first_assistant_reply": 34672,
+        "first_question_card": 34672,
+        "first_action_start": 3329,
+        "first_action_dispatch_finished": 3468,
+        "first_nova_click": 3441,
+        "final_assistant_reply": null,
+        "completion_report": null
+      },
+      "step_status_counts": {
+        "verified": 4
+      },
+      "terminal_observation": {
+        "status": "ready",
+        "awaiting_answer": true,
+        "observed_at_ms": 1790016669741
+      },
+      "completion_report_inferred": false,
+      "first_progress_may_be_upper_bound": false,
+      "last_assistant_reply": null
+    },
+    {
+      "task_id": "48989521-ebe6-4dc8-b291-d43c4c5fb20a",
+      "request": "Details for Revised dispatch details:\nWhat are the revised dispatch details?: Order CF-1048: oak desk; revised dispatch October 2, 2026; tracking will be shared once dispatched. Warm and concise, signed Cedar & Finch Care. Preserve recipient and subject. Keep unscheduled and unsent.",
+      "user_at_ms": 1790016671895,
+      "user_at_utc": "2026-09-21T18:51:11.895+00:00",
+      "latency_ms": {
+        "first_meaningful_progress": 4894,
+        "first_assistant_reply": 19895,
+        "first_question_card": null,
+        "first_action_start": 4913,
+        "first_action_dispatch_finished": 5050,
+        "first_nova_click": 5028,
+        "final_assistant_reply": 19895,
+        "completion_report": 19895
+      },
+      "step_status_counts": {
+        "verified": 3
+      },
+      "terminal_observation": {
+        "status": "ready",
+        "awaiting_answer": false,
+        "observed_at_ms": 1790016719808
+      },
+      "completion_report_inferred": true,
+      "first_progress_may_be_upper_bound": false,
+      "last_assistant_reply": {
+        "id": "9d36d626-a73e-4220-badb-ef2251d36fdc",
+        "role": "assistant",
+        "text": "Updated and verified the saved oak-desk draft; it remains unsent and unscheduled.",
+        "at": 1790016691790
+      }
+    },
+    {
+      "task_id": "9d6df55f-b39b-4815-a5b1-169a823324b2",
+      "request": "Change dispatch to October 5, 2026. Save and reopen the draft to verify, keeping everything else unchanged.",
+      "user_at_ms": 1790016720362,
+      "user_at_utc": "2026-09-21T18:52:00.362+00:00",
+      "latency_ms": {
+        "first_meaningful_progress": 4106,
+        "first_assistant_reply": 20483,
+        "first_question_card": null,
+        "first_action_start": 4124,
+        "first_action_dispatch_finished": 4258,
+        "first_nova_click": 4236,
+        "final_assistant_reply": 20483,
+        "completion_report": 20483
+      },
+      "step_status_counts": {
+        "verified": 3
+      },
+      "terminal_observation": {
+        "status": "ready",
+        "awaiting_answer": false,
+        "observed_at_ms": 1790016759863
+      },
+      "completion_report_inferred": true,
+      "first_progress_may_be_upper_bound": false,
+      "last_assistant_reply": {
+        "id": "f0154edd-a554-415b-8ca0-28062af7c7ca",
+        "role": "assistant",
+        "text": "Saved and reopened the draft. Dispatch is October 5, 2026; the order, tracking note, sign-off, recipient, and subject remain unchanged, and the draft is unsent and unscheduled.",
+        "at": 1790016740845
+      }
+    },
+    {
+      "task_id": "1d13bff8-2672-46cb-88e6-45da610438a0",
+      "request": "What did you set up, and what is still unsent?",
+      "user_at_ms": 1790016762266,
+      "user_at_utc": "2026-09-21T18:52:42.266+00:00",
+      "latency_ms": {
+        "first_meaningful_progress": 4377,
+        "first_assistant_reply": 4378,
+        "first_question_card": null,
+        "first_action_start": null,
+        "first_action_dispatch_finished": null,
+        "first_nova_click": null,
+        "final_assistant_reply": 4378,
+        "completion_report": 4378
+      },
+      "step_status_counts": {},
+      "terminal_observation": {
+        "status": "ready",
+        "awaiting_answer": false,
+        "observed_at_ms": 1790016779894
+      },
+      "completion_report_inferred": true,
+      "first_progress_may_be_upper_bound": false,
+      "last_assistant_reply": {
+        "id": "8ce6c150-0c66-4292-bf92-5d6ac274b59f",
+        "role": "assistant",
+        "text": "Set up the Cedar & Finch Care inbox with purpose “Furniture order support” and response target “1 business day.” The “Your oak desk order update” draft for CF-1048 remains unsent and unscheduled, with dispatch revised to October 5, 2026.",
+        "at": 1790016766644
+      }
+    },
+    {
+      "task_id": "115dc421-5254-402e-977c-2fea7f7878fd",
+      "request": "Open the order-update draft so I can review it.",
+      "user_at_ms": 1790016788279,
+      "user_at_utc": "2026-09-21T18:53:08.279+00:00",
+      "latency_ms": {
+        "first_meaningful_progress": 4338,
+        "first_assistant_reply": 4339,
+        "first_question_card": null,
+        "first_action_start": null,
+        "first_action_dispatch_finished": null,
+        "first_nova_click": null,
+        "final_assistant_reply": 4339,
+        "completion_report": 4339
+      },
+      "step_status_counts": {},
+      "terminal_observation": {
+        "status": "ready",
+        "awaiting_answer": false,
+        "observed_at_ms": 1790016819956
+      },
+      "completion_report_inferred": true,
+      "first_progress_may_be_upper_bound": false,
+      "last_assistant_reply": {
+        "id": "a59fae91-a86d-4fdb-92dc-d400017eb90a",
+        "role": "assistant",
+        "text": "The “Your oak desk order update” draft is open for review.",
+        "at": 1790016792618
+      }
+    }
+  ],
+  "script_and_card_answers": [
+    {
+      "role": "user",
+      "text": "Rename Cedar & Finch Support to Cedar & Finch Care, please.",
+      "source_seconds": 17.369
+    },
+    {
+      "role": "assistant",
+      "text": "Renamed the inbox to Cedar & Finch Care.",
+      "source_seconds": 58.619
+    },
+    {
+      "role": "user",
+      "text": "Use Furniture order support as the purpose, and help me choose a response target.",
+      "source_seconds": 81.651
+    },
+    {
+      "role": "assistant",
+      "text": "Choose a response target\nFor furniture order support, 1 business day is a balanced default. This is descriptive metadata only and won’t enforce routing or timing.\nResponse target Choices: 4 business hours; 1 business day; 2 business days.",
+      "source_seconds": 86.632,
+      "clarification": {
+        "id": "d97cd2be-7501-4c12-950c-17ad267fdf88",
+        "title": "Choose a response target",
+        "description": "For furniture order support, 1 business day is a balanced default. This is descriptive metadata only and won’t enforce routing or timing.",
+        "questions": [
+          {
+            "id": "response_target",
+            "label": "Response target",
+            "description": "How quickly should the team aim to respond?",
+            "type": "single_choice",
+            "required": true,
+            "placeholder": "Choose a target",
+            "options": [
+              {
+                "label": "4 business hours",
+                "description": "Best for urgent, actively managed support."
+              },
+              {
+                "label": "1 business day",
+                "description": "Balanced choice for typical order questions."
+              },
+              {
+                "label": "2 business days",
+                "description": "Suitable for lower-volume, non-urgent requests."
+              }
+            ]
+          }
+        ],
+        "status": "superseded"
+      }
+    },
+    {
+      "role": "user",
+      "text": "Help me choose: explain the remaining questions in plain language. Keep my original task and the details I already provided.",
+      "source_seconds": 98.22
+    },
+    {
+      "role": "assistant",
+      "text": "Choose a response target\nThis is a descriptive goal for replying to furniture order questions; it won’t automatically enforce a deadline. “Business hours/days” usually exclude weekends and holidays.\nHow quickly should the team aim to respond? Choices: 4 business hours; 1 business day; 2 business days.",
+      "source_seconds": 103.676,
+      "clarification": {
+        "id": "18c29cdd-41f9-4983-9514-0e2c96dce358",
+        "title": "Choose a response target",
+        "description": "This is a descriptive goal for replying to furniture order questions; it won’t automatically enforce a deadline. “Business hours/days” usually exclude weekends and holidays.",
+        "questions": [
+          {
+            "id": "response_target",
+            "label": "How quickly should the team aim to respond?",
+            "description": "4 business hours is best for urgent, well-staffed support; 1 business day is a balanced standard; 2 business days fits lower-volume or less urgent support.",
+            "type": "single_choice",
+            "required": true,
+            "placeholder": "Choose a response target",
+            "options": [
+              {
+                "label": "4 business hours",
+                "description": "Fastest service level; requires dependable same-day coverage."
+              },
+              {
+                "label": "1 business day",
+                "description": "Balanced default for typical furniture order support."
+              },
+              {
+                "label": "2 business days",
+                "description": "More flexible target for lower urgency or limited staffing."
+              }
+            ]
+          }
+        ],
+        "status": "answered",
+        "answers": [
+          {
+            "questionId": "response_target",
+            "values": [
+              "1 business day"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "role": "user",
+      "text": "Details for Choose a response target:\nHow quickly should the team aim to respond?: 1 business day",
+      "source_seconds": 118.942
+    },
+    {
+      "role": "assistant",
+      "text": "Saved and verified the inbox metadata: purpose is Furniture order support and response target is 1 business day.",
+      "source_seconds": 151.185
+    },
+    {
+      "role": "user",
+      "text": "Complete our oak-desk draft with the revised dispatch details.",
+      "source_seconds": 168.536
+    },
+    {
+      "role": "assistant",
+      "text": "Revised dispatch details\nThe existing order CF-1048 draft is open. Please provide the facts that should replace its current dispatch update.\nWhat are the revised dispatch details?",
+      "source_seconds": 203.208,
+      "clarification": {
+        "id": "a33cf719-9b1d-4541-a5ec-36be13c9776d",
+        "title": "Revised dispatch details",
+        "description": "The existing order CF-1048 draft is open. Please provide the facts that should replace its current dispatch update.",
+        "questions": [
+          {
+            "id": "dispatch_details",
+            "label": "What are the revised dispatch details?",
+            "description": "Include the confirmed dispatch date or window and any carrier or status wording that should appear. Please distinguish dispatch from expected arrival.",
+            "type": "long_text",
+            "required": true,
+            "placeholder": "Example: Dispatch is now expected on 18 June; carrier details will follow once collected.",
+            "options": []
+          }
+        ],
+        "status": "answered",
+        "answers": [
+          {
+            "questionId": "dispatch_details",
+            "values": [
+              "Order CF-1048: oak desk; revised dispatch October 2, 2026; tracking will be shared once dispatched. Warm and concise, signed Cedar & Finch Care. Preserve recipient and subject. Keep unscheduled and unsent."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "role": "user",
+      "text": "Details for Revised dispatch details:\nWhat are the revised dispatch details?: Order CF-1048: oak desk; revised dispatch October 2, 2026; tracking will be shared once dispatched. Warm and concise, signed Cedar & Finch Care. Preserve recipient and subject. Keep unscheduled and unsent.",
+      "source_seconds": 251.332
+    },
+    {
+      "role": "assistant",
+      "text": "Updated and verified the saved oak-desk draft; it remains unsent and unscheduled.",
+      "source_seconds": 271.227
+    },
+    {
+      "role": "user",
+      "text": "Change dispatch to October 5, 2026. Save and reopen the draft to verify, keeping everything else unchanged.",
+      "source_seconds": 299.799
+    },
+    {
+      "role": "assistant",
+      "text": "Saved and reopened the draft. Dispatch is October 5, 2026; the order, tracking note, sign-off, recipient, and subject remain unchanged, and the draft is unsent and unscheduled.",
+      "source_seconds": 320.282
+    },
+    {
+      "role": "user",
+      "text": "What did you set up, and what is still unsent?",
+      "source_seconds": 341.703
+    },
+    {
+      "role": "assistant",
+      "text": "Set up the Cedar & Finch Care inbox with purpose “Furniture order support” and response target “1 business day.” The “Your oak desk order update” draft for CF-1048 remains unsent and unscheduled, with dispatch revised to October 5, 2026.",
+      "source_seconds": 346.081
+    },
+    {
+      "role": "user",
+      "text": "Open the order-update draft so I can review it.",
+      "source_seconds": 367.716
+    },
+    {
+      "role": "assistant",
+      "text": "The “Your oak desk order update” draft is open for review.",
+      "source_seconds": 372.055
+    }
+  ],
+  "independently_verified_by_coordinator": {
+    "metadata": {
+      "display_name": "Cedar & Finch Care",
+      "team": "Customer Care",
+      "purpose": "Furniture order support",
+      "response_target": "1 business day",
+      "types": "String",
+      "same_inbox_address": true
+    },
+    "draft": {
+      "recipient": "orders@customer.example",
+      "subject": "Your oak desk order update",
+      "order": "CF-1048",
+      "dispatch": "October5,2026",
+      "draft_count": 2,
+      "reference_preserved": "Care handoff — order CF-1042",
+      "single_editor": true,
+      "sent": false,
+      "scheduled": false
+    },
+    "last_review_request": "Already-open exact draft correctly recognized; no fictional action or tap."
+  }
+}

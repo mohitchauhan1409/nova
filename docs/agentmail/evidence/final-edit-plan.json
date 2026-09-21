@@ -1,0 +1,113 @@
+{
+  "fps": 30,
+  "width": 3024,
+  "height": 1776,
+  "segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 1911,
+      "output_frames": 1911,
+      "kind": "agent",
+      "reason": "Retain every native source frame: Nova execution, operator typing, card reading, focus and transitions all at1x."
+    },
+    {
+      "start_frame": 1911,
+      "end_frame": 2064,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Settled rename result after more than5s reading; prolonged operator wait before next composer focus."
+    },
+    {
+      "start_frame": 2064,
+      "end_frame": 8334,
+      "output_frames": 6270,
+      "kind": "agent",
+      "reason": "Retain every native source frame: Nova execution, operator typing, card reading, focus and transitions all at1x."
+    },
+    {
+      "start_frame": 8334,
+      "end_frame": 8496,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Settled saved/reopened October2 draft after6.5s reading; operator wait before date-correction typing."
+    },
+    {
+      "start_frame": 8496,
+      "end_frame": 9840,
+      "output_frames": 1344,
+      "kind": "agent",
+      "reason": "Retain every native source frame: Nova execution, operator typing, card reading, focus and transitions all at1x."
+    },
+    {
+      "start_frame": 9840,
+      "end_frame": 10023,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Settled verified October5 correction after7.7s reading; operator wait before summary question."
+    },
+    {
+      "start_frame": 10023,
+      "end_frame": 10638,
+      "output_frames": 615,
+      "kind": "agent",
+      "reason": "Retain every native source frame: Nova execution, operator typing, card reading, focus and transitions all at1x."
+    },
+    {
+      "start_frame": 10638,
+      "end_frame": 10803,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Settled setup/unsent summary after8.5s reading; operator wait before review request."
+    },
+    {
+      "start_frame": 10803,
+      "end_frame": 11400,
+      "output_frames": 597,
+      "kind": "agent",
+      "reason": "Retain final typing, Nova answer and approximately8s of visible completed-review result at1x; trim only subsequent static tail."
+    }
+  ],
+  "masks": [
+    {
+      "x": 10,
+      "y": 174,
+      "width": 2228,
+      "height": 34,
+      "color": "#f9f8ff",
+      "start_frame": 630,
+      "end_frame": 631,
+      "reason": "Measured actual debugger row only, includingCancel/X; follow its native entry animation, leave1pixel boundaryshadow and all product content visible."
+    },
+    {
+      "x": 10,
+      "y": 174,
+      "width": 2228,
+      "height": 74,
+      "color": "#f9f8ff",
+      "start_frame": 631,
+      "end_frame": 632,
+      "reason": "Measured actual debugger row only, includingCancel/X; follow its native entry animation, leave1pixel boundaryshadow and all product content visible."
+    },
+    {
+      "x": 10,
+      "y": 174,
+      "width": 2228,
+      "height": 98,
+      "color": "#f9f8ff",
+      "start_frame": 632,
+      "end_frame": 633,
+      "reason": "Measured actual debugger row only, includingCancel/X; follow its native entry animation, leave1pixel boundaryshadow and all product content visible."
+    },
+    {
+      "x": 10,
+      "y": 174,
+      "width": 2228,
+      "height": 112,
+      "color": "#f9f8ff",
+      "start_frame": 633,
+      "end_frame": 11400,
+      "reason": "Measured actual debugger row only, includingCancel/X; follow its native entry animation, leave1pixel boundaryshadow and all product content visible."
+    }
+  ],
+  "clicks": []
+}

@@ -1,0 +1,378 @@
+{
+  "duration": 361.9,
+  "fps": 30,
+  "source_first_frame_epoch_ms": 1790016420563,
+  "source_sha256": "20640dd4f09cc5fc55d7119d91393b68bd523efdc7c0e3e355972e3c1e59a9d7",
+  "events": [
+    {
+      "time": 3.1,
+      "actor": "operator",
+      "strength": 1,
+      "source_frame": 93,
+      "output_frame": 93.0,
+      "receipt_epoch_ms": 1790016423666,
+      "target": "Open Nova side panel",
+      "evidence": "Merged successful operator left-click receipt at epoch1790016423666; native sourceframe93 inspected (3.100000s), target: Open Nova launcher. Trusted operator receipt matches visible launcher/focus/cardselection/Continue response; system/tool pointer remains hidden. Keyboard submissions have no added tap."
+    },
+    {
+      "time": 8.133333333333333,
+      "actor": "operator",
+      "strength": 1,
+      "source_frame": 244,
+      "output_frame": 244.0,
+      "receipt_epoch_ms": 1790016428685,
+      "target": "Message Nova",
+      "evidence": "Merged successful operator left-click receipt at epoch1790016428685; native sourceframe244 inspected (8.133333s), target: Focus initial chat composer. Trusted operator receipt matches visible launcher/focus/cardselection/Continue response; system/tool pointer remains hidden. Keyboard submissions have no added tap."
+    },
+    {
+      "time": 21.066666666666666,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 632,
+      "output_frame": 632.0,
+      "receipt_epoch_ms": 1790016441629,
+      "target": "5a2vg29-4",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016441629; native sourceframe632 inspected (21.066667s), target: I’m opening Inboxes to find the Cedar & Finch Support inbox.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 29.233333333333334,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 877,
+      "output_frame": 877.0,
+      "receipt_epoch_ms": 1790016449792,
+      "target": "5a2vg29-86",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016449792; native sourceframe877 inspected (29.233333s), target: I’m opening the Cedar & Finch Support inbox actions to edit its properties.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 32.96666666666667,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 989,
+      "output_frame": 989.0,
+      "receipt_epoch_ms": 1790016453526,
+      "target": "5a2vg29-90",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016453526; native sourceframe989 inspected (32.966667s), target: I’m opening Edit Properties to change the inbox display name.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 37.46666666666667,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 1124,
+      "output_frame": 1124.0,
+      "receipt_epoch_ms": 1790016458041,
+      "target": "5a2vg29-94",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016458041; native sourceframe1124 inspected (37.466667s), target: I’m changing the display name to Cedar & Finch Care while preserving the existing metadata.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 42.0,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 1260,
+      "output_frame": 1260.0,
+      "receipt_epoch_ms": 1790016462566,
+      "target": "5a2vg29-96",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016462566; native sourceframe1260 inspected (42.000000s), target: I’m saving the Cedar & Finch Care display name.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 46.666666666666664,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 1400,
+      "output_frame": 1400.0,
+      "receipt_epoch_ms": 1790016467224,
+      "target": "5a2vg29-86",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016467224; native sourceframe1400 inspected (46.666667s), target: I’m reopening the renamed inbox’s properties to verify the saved display name.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 50.13333333333333,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 1504,
+      "output_frame": 1504.0,
+      "receipt_epoch_ms": 1790016470685,
+      "target": "5a2vg29-115",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016470685; native sourceframe1504 inspected (50.133333s), target: I’m opening Edit Properties to verify the saved display name.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 54.7,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 1641,
+      "output_frame": 1641.0,
+      "receipt_epoch_ms": 1790016475266,
+      "target": "5a2vg29-133",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016475266; native sourceframe1641 inspected (54.700000s), target: I’m closing the properties editor so I can verify the renamed inbox in the list.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 65.53333333333333,
+      "actor": "operator",
+      "strength": 1,
+      "source_frame": 2089,
+      "output_frame": 1966.0,
+      "receipt_epoch_ms": 1790016490180,
+      "target": "Message Nova",
+      "evidence": "Merged successful operator left-click receipt at epoch1790016490180; native sourceframe2089 inspected (69.633333s), target: Focus purpose/target request composer. Trusted operator receipt matches visible launcher/focus/cardselection/Continue response; system/tool pointer remains hidden. Keyboard submissions have no added tap."
+    },
+    {
+      "time": 94.13333333333334,
+      "actor": "operator",
+      "strength": 1,
+      "source_frame": 2947,
+      "output_frame": 2824.0,
+      "receipt_epoch_ms": 1790016518782,
+      "target": "button",
+      "evidence": "Merged successful operator left-click receipt at epoch1790016518782; native sourceframe2947 inspected (98.233333s), target: Help me choose control. Trusted operator receipt matches visible launcher/focus/cardselection/Continue response; system/tool pointer remains hidden. Keyboard submissions have no added tap."
+    },
+    {
+      "time": 111.2,
+      "actor": "operator",
+      "strength": 1,
+      "source_frame": 3459,
+      "output_frame": 3336.0,
+      "receipt_epoch_ms": 1790016535851,
+      "target": "button",
+      "evidence": "Merged successful operator left-click receipt at epoch1790016535851; native sourceframe3459 inspected (115.300000s), target: Select1businessday response target. Trusted operator receipt matches visible launcher/focus/cardselection/Continue response; system/tool pointer remains hidden. Keyboard submissions have no added tap."
+    },
+    {
+      "time": 114.83333333333333,
+      "actor": "operator",
+      "strength": 1,
+      "source_frame": 3568,
+      "output_frame": 3445.0,
+      "receipt_epoch_ms": 1790016539501,
+      "target": "button",
+      "evidence": "Merged successful operator left-click receipt at epoch1790016539501; native sourceframe3568 inspected (118.933333s), target: Continue response-target card. Trusted operator receipt matches visible launcher/focus/cardselection/Continue response; system/tool pointer remains hidden. Keyboard submissions have no added tap."
+    },
+    {
+      "time": 118.06666666666666,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 3665,
+      "output_frame": 3542.0,
+      "receipt_epoch_ms": 1790016542724,
+      "target": "5a2vg29-86",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016542724; native sourceframe3665 inspected (122.166667s), target: I’m opening the inbox properties to add the agreed purpose and response target.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 122.23333333333333,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 3790,
+      "output_frame": 3667.0,
+      "receipt_epoch_ms": 1790016546909,
+      "target": "5a2vg29-141",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016546909; native sourceframe3790 inspected (126.333333s), target: I’m opening Edit Properties to add the purpose and 1-business-day response target.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 126.43333333333334,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 3916,
+      "output_frame": 3793.0,
+      "receipt_epoch_ms": 1790016551090,
+      "target": "5a2vg29-152",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016551090; native sourceframe3916 inspected (130.533333s), target: I’m setting the response target to 1 business day.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 129.9,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 4020,
+      "output_frame": 3897.0,
+      "receipt_epoch_ms": 1790016554574,
+      "target": "5a2vg29-156",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016554574; native sourceframe4020 inspected (134.000000s), target: I’m setting the inbox purpose to Furniture order support.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 133.7,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 4134,
+      "output_frame": 4011.0,
+      "receipt_epoch_ms": 1790016558356,
+      "target": "5a2vg29-160",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016558356; native sourceframe4134 inspected (137.800000s), target: I’m saving the purpose and 1-business-day response target.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 138.5,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 4278,
+      "output_frame": 4155.0,
+      "receipt_epoch_ms": 1790016563149,
+      "target": "5a2vg29-86",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016563149; native sourceframe4278 inspected (142.600000s), target: I’m reopening the inbox properties to verify the saved metadata.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 142.13333333333333,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 4387,
+      "output_frame": 4264.0,
+      "receipt_epoch_ms": 1790016566810,
+      "target": "5a2vg29-168",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016566810; native sourceframe4387 inspected (146.233333s), target: I’m opening Edit Properties to verify the saved purpose and response target.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 154.96666666666667,
+      "actor": "operator",
+      "strength": 1,
+      "source_frame": 4772,
+      "output_frame": 4649.0,
+      "receipt_epoch_ms": 1790016579632,
+      "target": "Message Nova",
+      "evidence": "Merged successful operator left-click receipt at epoch1790016579632; native sourceframe4772 inspected (159.066667s), target: Focus draft-completion request composer. Trusted operator receipt matches visible launcher/focus/cardselection/Continue response; system/tool pointer remains hidden. Keyboard submissions have no added tap."
+    },
+    {
+      "time": 167.86666666666667,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 5159,
+      "output_frame": 5036.0,
+      "receipt_epoch_ms": 1790016592540,
+      "target": "5a2vg29-185",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016592540; native sourceframe5159 inspected (171.966667s), target: I’m closing the inbox editor so I can inspect the existing oak-desk draft and identify what dispatch detail needs revision.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 177.06666666666666,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 5435,
+      "output_frame": 5312.0,
+      "receipt_epoch_ms": 1790016601741,
+      "target": "5a2vg29-85",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016601741; native sourceframe5435 inspected (181.166667s), target: I’m opening Cedar & Finch Care to inspect the existing oak-desk draft before revising it.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 181.1,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 5556,
+      "output_frame": 5433.0,
+      "receipt_epoch_ms": 1790016605763,
+      "target": "5a2vg29-198",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016605763; native sourceframe5556 inspected (185.200000s), target: I’m opening Drafts to find the existing oak-desk message and review its current dispatch details.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 189.0,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 5793,
+      "output_frame": 5670.0,
+      "receipt_epoch_ms": 1790016613666,
+      "target": "5a2vg29-226",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016613666; native sourceframe5793 inspected (193.100000s), target: I’m opening the oak-desk draft once to review its current dispatch details before making the requested revision.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 208.23333333333332,
+      "actor": "operator",
+      "strength": 1,
+      "source_frame": 6370,
+      "output_frame": 6247.0,
+      "receipt_epoch_ms": 1790016632907,
+      "target": "What are the revised dispatch details?",
+      "evidence": "Merged successful operator left-click receipt at epoch1790016632907; native sourceframe6370 inspected (212.333333s), target: Focus dispatch-details answer textarea. Trusted operator receipt matches visible launcher/focus/cardselection/Continue response; system/tool pointer remains hidden. Keyboard submissions have no added tap."
+    },
+    {
+      "time": 247.23333333333332,
+      "actor": "operator",
+      "strength": 1,
+      "source_frame": 7540,
+      "output_frame": 7417.0,
+      "receipt_epoch_ms": 1790016671891,
+      "target": "button",
+      "evidence": "Merged successful operator left-click receipt at epoch1790016671891; native sourceframe7540 inspected (251.333333s), target: Continue draft-facts card. Trusted operator receipt matches visible launcher/focus/cardselection/Continue response; system/tool pointer remains hidden. Keyboard submissions have no added tap."
+    },
+    {
+      "time": 252.26666666666668,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 7691,
+      "output_frame": 7568.0,
+      "receipt_epoch_ms": 1790016676923,
+      "target": "5a2vg29-239",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016676923; native sourceframe7691 inspected (256.366667s), target: I’m replacing only the draft body with the revised dispatch date, tracking note, and requested signature.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 255.7,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 7794,
+      "output_frame": 7671.0,
+      "receipt_epoch_ms": 1790016680374,
+      "target": "5a2vg29-234",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016680374; native sourceframe7794 inspected (259.800000s), target: I’m closing the editor to autosave the revised draft without sending or scheduling it.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 262.93333333333334,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 8011,
+      "output_frame": 7888.0,
+      "receipt_epoch_ms": 1790016687597,
+      "target": "5a2vg29-226",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016687597; native sourceframe8011 inspected (267.033333s), target: I’m reopening the saved oak-desk draft once to verify the recipient, subject, and revised dispatch details.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 275.5,
+      "actor": "operator",
+      "strength": 1,
+      "source_frame": 8520,
+      "output_frame": 8265.0,
+      "receipt_epoch_ms": 1790016704559,
+      "target": "Message Nova",
+      "evidence": "Merged successful operator left-click receipt at epoch1790016704559; native sourceframe8520 inspected (284.000000s), target: Focus date-correction request composer. Trusted operator receipt matches visible launcher/focus/cardselection/Continue response; system/tool pointer remains hidden. Keyboard submissions have no added tap."
+    },
+    {
+      "time": 295.53333333333336,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 9121,
+      "output_frame": 8866.0,
+      "receipt_epoch_ms": 1790016724598,
+      "target": "5a2vg29-253",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016724598; native sourceframe9121 inspected (304.033333s), target: I’m changing only the dispatch date in the existing oak-desk draft.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 298.26666666666665,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 9203,
+      "output_frame": 8948.0,
+      "receipt_epoch_ms": 1790016727314,
+      "target": "5a2vg29-248",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016727314; native sourceframe9203 inspected (306.766667s), target: I’m closing the editor to save the revised draft before reopening it for verification.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 307.46666666666664,
+      "actor": "nova",
+      "strength": 1,
+      "source_frame": 9479,
+      "output_frame": 9224.0,
+      "receipt_epoch_ms": 1790016736533,
+      "target": "5a2vg29-226",
+      "evidence": "Merged successful nova left-click receipt at epoch1790016736533; native sourceframe9479 inspected (315.966667s), target: I’m reopening the saved oak-desk draft to verify the revised date and unchanged details.. Single white Nova arrow/actionlabel and matching ring or focus cursor visible at the actual target; resulting UI/action record corroborates click."
+    },
+    {
+      "time": 321.26666666666665,
+      "actor": "operator",
+      "strength": 1,
+      "source_frame": 10046,
+      "output_frame": 9638.0,
+      "receipt_epoch_ms": 1790016755442,
+      "target": "Message Nova",
+      "evidence": "Merged successful operator left-click receipt at epoch1790016755442; native sourceframe10046 inspected (334.866667s), target: Focus setup/unsent summary question composer. Trusted operator receipt matches visible launcher/focus/cardselection/Continue response; system/tool pointer remains hidden. Keyboard submissions have no added tap."
+    },
+    {
+      "time": 342.73333333333335,
+      "actor": "operator",
+      "strength": 1,
+      "source_frame": 10825,
+      "output_frame": 10282.0,
+      "receipt_epoch_ms": 1790016781392,
+      "target": "Message Nova",
+      "evidence": "Merged successful operator left-click receipt at epoch1790016781392; native sourceframe10825 inspected (360.833333s), target: Focus final review request composer. Trusted operator receipt matches visible launcher/focus/cardselection/Continue response; system/tool pointer remains hidden. Keyboard submissions have no added tap."
+    }
+  ]
+}
