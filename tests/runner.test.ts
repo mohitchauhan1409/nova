@@ -15,6 +15,18 @@ function fixture() {
   return {runner,session,execute,driver,planner,setState:(s:Snapshot)=>{state=s;}};
 }
 describe('browser agent execution boundaries',()=>{
+  it('verifies exact projected completion evidence using the current task and fresh page',async()=>{
+    const f=fixture();const rawName='recipient@customer.example Delivery notice — Dispatch October 5, 2026.';
+    const projectedName='[email hidden] Delivery notice — Dispatch October 5, 2026.';
+    f.setState({...base,text:'Drafts',elements:[{...base.elements[0],name:rawName,role:'row'}]});
+    f.session.messages.push({id:'previous',role:'user',text:'Show the recipient email.',at:0});
+    const read=vi.spyOn(f.driver,'snapshot');
+    f.planner.decide=vi.fn().mockResolvedValue({...act('done'),summary:'Dispatch is October 5, 2026.',completion:{status:'completed',evidence:[{source:'text',ref:null,value:projectedName}]}});
+    await f.runner.command('Change dispatch to October 5, 2026 and keep everything else.');
+    expect(read).toHaveBeenCalledTimes(2);expect(f.planner.decide).toHaveBeenCalledTimes(1);expect(f.execute).not.toHaveBeenCalled();
+    expect(f.session.status).toBe('ready');expect(f.session.messages.at(-1)?.text).toBe('Dispatch is October 5, 2026.');
+    expect(JSON.stringify(f.session.traces)).not.toContain('recipient@customer.example');
+  });
   it('replans a stale empty answer when two rows load while the planner is thinking',async()=>{
     const f=fixture();const shell={...base,url:'https://shop.example.com/drafts',text:'Drafts',elements:[]};
     const loaded={...shell,text:'Drafts\nDesk update\nCare handoff',elements:['Desk update','Care handoff'].map((name,i)=>({...base.elements[0],ref:`draft-${i}`,name}))};
