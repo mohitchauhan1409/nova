@@ -25,6 +25,10 @@ try {
     });
     assert.equal(values.display==='none',recording&&!show);
     assert.equal(values.pointerEvents,'none');
+    if(!(recording&&!show)){
+      assert.equal(values.ring,values.fill,'The click ring must share the themed action arrow color');
+      assert.equal(values.label,values.fill,'The action label must share the themed action arrow color');
+    }
     if(expectedColor && !(recording&&!show))for(const key of ['fill','label','ring'] as const)assert.equal(values[key],expectedColor);
     await mkdir('artifacts/core/recording-cursor',{recursive:true});
     await page.screenshot({path:`artifacts/core/recording-cursor/${name}.png`});
