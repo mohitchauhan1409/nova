@@ -8,7 +8,7 @@ const root = process.cwd(); const out = path.join(root, 'web/dist-extension');
 await rm(out, { recursive: true, force: true }); await mkdir(out, { recursive: true });
 await cp(path.join(root, 'web/dist'), out, { recursive: true });
 await cp(path.join(root, 'web/extension/manifest.json'), path.join(out, 'manifest.json'));
-await build({ entryPoints: { background: 'web/extension/background.ts', content: 'web/extension/content.ts', dashboard: 'web/extension/dashboard.ts', launch: 'web/extension/launch.ts', microphone: 'web/extension/microphone.ts' }, define: { __NOVA_RECORDING_MODE__: String(process.env.NOVA_RECORDING_MODE === 'true') }, outdir: out, bundle: true, target: 'chrome120', format: 'iife', minify: false });
+await build({ entryPoints: { background: 'web/extension/background.ts', content: 'web/extension/content.ts', dashboard: 'web/extension/dashboard.ts', launch: 'web/extension/launch.ts', microphone: 'web/extension/microphone.ts' }, define: { __NOVA_RECORDING_MODE__: String(process.env.NOVA_RECORDING_MODE === 'true'), __NOVA_RECORDING_SHOW_ACTION_CURSOR__: String(process.env.NOVA_RECORDING_SHOW_ACTION_CURSOR === 'true') }, outdir: out, bundle: true, target: 'chrome120', format: 'iife', minify: false });
 for (const file of ['launch.html', 'launch.css', 'microphone.html', 'microphone.css', 'INSTALL.md']) await cp(path.join(root, 'web/extension', file), path.join(out, file));
 // Extension pages use local system fonts; no third-party connections or remote code.
 for (const file of await readdir(path.join(out, 'assets'))) if (file.endsWith('.css')) { const target = path.join(out, 'assets', file); await writeFile(target, (await readFile(target, 'utf8')).replace(/@import\s+(?:url\([^;]+\)|["'][^"']+["']);?/g, '')); }

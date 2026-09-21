@@ -172,3 +172,11 @@ AAC track and checks each tap against the unchanged established renderer: onset
 within one output frame, waveform correlation above 0.98, no clipping, and silence
 outside tap windows (with one-frame allowance for AAC transform leakage). This
 complements source-frame inspection; it does not invent or validate UI events.
+
+
+To retain only Nova's action cursor while collecting click receipts, build with
+`NOVA_RECORDING_MODE=true NOVA_RECORDING_SHOW_ACTION_CURSOR=true npm run build`.
+Keep `--hide-cursor` on the desktop recorder to exclude the physical/operator
+pointer. This preserves the website-rendered Nova arrow, label and click ring;
+it does not suppress browser security indicators or alter website content.
+Without the new flag, existing cursor-free recording builds retain their behavior.
