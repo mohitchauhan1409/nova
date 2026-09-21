@@ -166,3 +166,9 @@ an ambiguous tool event still needs independent operator/frame evidence.
 The recorder's first-frame epoch links clicks to source frames. Preserve that
 log, the session's click evidence, the EDL and decoded export checks. A callback
 receipt alone is not proof that a business outcome happened.
+
+`verify-click-export.py VIDEO CUES.json REPORT.json --fps 30` decodes the final
+AAC track and checks each tap against the unchanged established renderer: onset
+within one output frame, waveform correlation above 0.98, no clipping, and silence
+outside tap windows (with one-frame allowance for AAC transform leakage). This
+complements source-frame inspection; it does not invent or validate UI events.
