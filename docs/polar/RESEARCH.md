@@ -1,7 +1,7 @@
 # Polar research and current coverage
 
-Status: signed-in form research and live rehearsals in progress.
-The Computer connection was restored. Final recording readiness is not established.
+Status: signed-in research, live rehearsals and the final recording are complete.
+See VALIDATION.md for measured coverage and practical limits.
 
 Target: the existing signed-in Vector workspace at
 https://polar.sh/dashboard/vectoros. Polar is the startup; Vector is the account.
@@ -19,8 +19,9 @@ The dashboard uses white cards, a pale neutral sidebar and black primary pills.
 The captured light surface's dominant pixels are #ffffff and approximately
 #f5f4f7 (the capture is H.264, so exact source CSS cannot be inferred from pixels).
 Nova uses #17171f for primary controls and a consistent pointer/label/ring. Its
-launcher character is grayscale. Light-mode rendering has isolated verification;
-actual dark-mode behavior and live cursor behavior remain unverified.
+launcher character is grayscale. Light/dark rendering has isolated fixture
+verification. The final light-mode capture verifies the live cursor at action
+targets. Dark-mode behavior on the actual signed-in site was not recorded.
 
 ## Product sources and candidate jobs
 
@@ -31,11 +32,11 @@ candidate than a tour of navigation. Source:
 
 | Candidate | Business value and reasoning | Visible result to verify | Current limit |
 | --- | --- | --- | --- |
-| Usage meter | Translate event semantics into filters and an aggregation | Exact filter logic, numeric property and display unit reopened | Count saved/reopened by operator; Sum Nova rehearsal in progress |
+| Usage meter | Translate event semantics into filters and an aggregation | Exact filter logic, numeric property and display unit reopened | Count baseline saved by operator; Sum creation and revision live-verified through Nova |
 | Product and benefits | Connect pricing to the resources that define customer value | Saved price, interval, trial and exact relationships | Observed Public/Private purchasable save, no draft button; excluded from demo |
-| Credits benefit | Connect an allowance to a meter | Saved units and exact referenced meter | Hidden unattached baseline saved/reopened; no products or grants |
+| Credits benefit | Connect an allowance to a meter | Saved units and exact referenced meter | Creation, linked meter and targeted revisions live-verified; no products or grants |
 | Targeted offer | Scope a launch incentive without changing other plans | Exact product restriction, amount, duration and cap | Editor not inspected live |
-| Home/account summary | Explain actual configuration versus business activity | Read current period and genuine values | Home inspected; Nova execution pending |
+| Home/account summary | Explain actual configuration versus business activity | Read current period and genuine values | Home inspected and opened by Nova in the final take |
 
 Meter documentation describes selecting qualifying events and aggregating them.
 Display units do not themselves change raw billing arithmetic. This makes unit
@@ -84,12 +85,14 @@ data, a real dependency and conversational memory without enabling billing.
 The baseline contains Workflow Executions (Count of successful
 vector.workflow.completed) and Workflow Starter Credits (1,000 units linked to
 that meter, Hidden, no rollover). Exact IDs and mutations are in the synthetic
-manifest. Zero revenue, usage and customer grants remain honest.
+manifest. The final take enables starter rollover; the manifest records its
+current saved state. Zero revenue, usage and customer grants remain honest.
 
 Grouped questions and partial-answer retention through Help me choose were
 exercised through Nova. Initial runs exposed excessive form-control approvals
-and staged drawer loading; preserve those failures in validation. Complete two
-successful critical-flow rehearsals and the capture preflight before recording.
+and staged drawer loading; those failures are preserved in validation. Multiple
+successful critical-flow rehearsals and the capture preflight preceded the final
+recording. The final trace contains no approval events.
 
 ### Benefits split view recovery
 

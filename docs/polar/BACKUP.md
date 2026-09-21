@@ -1,29 +1,44 @@
-# Verified code checkpoint — no media backup yet
+# Verified private code and media backup
 
-Private repository: [mohitchauhan1409/nova](https://github.com/mohitchauhan1409/nova).
+Repository: [mohitchauhan1409/nova](https://github.com/mohitchauhan1409/nova).
 Branch: [polar-nova](https://github.com/mohitchauhan1409/nova/tree/polar-nova).
 
-Remote refs were queried after the successful push:
+Verified on 2026-09-21 after the completed Git and Git LFS push:
 
-- Main: `2ddbe3cd8a68707985506745101728a0f6ca188c`.
-- Polar implementation checkpoint: `0f4ccdf6b6863bad6f0099cda114c126fb62db25`.
-- This verification document is committed afterward on the same branch.
+- Remote main: `b68a7be87338d8587528a8fa0f47d3eba2fd6b1a`.
+- Remote Polar media payload: `6baec09b1b8499147ae7279c20fe8a45e5e87de8`.
+- This attestation is committed afterward on the same branch. The media payload commit identifies the exact recovered source, edits, code and recording evidence.
 
-An independent shallow clone into `/private/tmp/nova-polar-checkpoint-recovery`
-retrieved the Polar commit from GitHub, with no Git alternates. Its HEAD matches
-the remote checkpoint and contains the profile, theme, fixture script, research,
-candidate script and validation evidence. Main is an ancestor and its remote
-tree contains no Polar, Creem, Bolna or artifacts paths. No reusable core change
-was needed at this checkpoint; all changes are confined to the startup branch.
+A fresh HTTPS clone into `/private/tmp/nova-polar-final-recovery-20260921`
+downloaded all three objects from GitHub into its own `.git/lfs` cache. No Git
+alternates or LFS reference directories were used. Recovered bytes, sizes and
+SHA-256 hashes match the final local media and committed LFS pointers.
+
+| Media | Bytes | SHA-256 |
+| --- | ---: | --- |
+| nova-polar-clicks.mp4 | 28026626 | `201f758acb54450cd5b555a52b027ca8f857c301c71af2b2cfbe3c0c76c85653` |
+| nova-polar-original.mov | 108027659 | `51d3d3c9df1522a9b5f976b1d6494d70fee1c100a51daae92cef27bc016cf85e` |
+| nova-polar-silent.mp4 | 27299236 | `d033952fbea00a7555e27c43247cac0a27be5a4aa7de42452c39c1af85a35f3a` |
+
+The remote Polar tree contains exactly these three retained videos. Main is an
+ancestor of the Polar payload and contains no startup-specific assets or videos.
+Reusable action, observation, scroll and policy fixes are on main; Polar theme,
+guides, research, script, evidence and media remain on polar-nova. Repository
+privacy was rechecked. Machine-readable proof: [remote-recovery.json](evidence/remote-recovery.json).
+
+## Recover the deliverables
 
 ```sh
 GIT_LFS_SKIP_SMUDGE=1 git clone --branch polar-nova https://github.com/mohitchauhan1409/nova.git nova-polar-recovered
 cd nova-polar-recovered
-git log -3 --oneline
+git lfs install --local
+git lfs fetch --include='artifacts/polar/media/*' --exclude='' origin polar-nova
+git lfs checkout
+shasum -a 256 artifacts/polar/media/*
+git log -1 --format=%H -- docs/polar/BACKUP.md
 ```
 
-There are no final Polar videos, final click cues or media hashes. Do not describe
-this code backup as the requested completed demonstration or a recoverable media
-backup. Complete live validation and all three media deliverables, then replace
-this checkpoint with verified final refs, SHA-256 values and independent LFS
-recovery evidence.
+For the immutable recording payload, check out the Polar payload commit above
+before `git lfs checkout`. The final documentation commit follows it without
+changing media. Source and export geometry, decoded audio checks, edit timing and
+practical limitations are in [VALIDATION.md](VALIDATION.md).

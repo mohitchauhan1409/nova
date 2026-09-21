@@ -1,0 +1,226 @@
+{
+  "scope": "Task-owned temporary captures, screenshots, failed takes and scratch audio only. Useful text evidence, final media and unrelated files preserved.",
+  "removed": [
+    {
+      "path": "artifacts/polar/diagnostics/editor-check.png",
+      "bytes": 640853
+    },
+    {
+      "path": "artifacts/polar/diagnostics/editor-check.mov",
+      "bytes": 151946
+    },
+    {
+      "path": "artifacts/polar/preflight/second-click.png",
+      "bytes": 269070
+    },
+    {
+      "path": "artifacts/polar/preflight/first-click.png",
+      "bytes": 617977
+    },
+    {
+      "path": "artifacts/polar/preflight/opening-action.mov",
+      "bytes": 14090578
+    },
+    {
+      "path": "artifacts/polar/preflight-v2/typing.png",
+      "bytes": 636340
+    },
+    {
+      "path": "artifacts/polar/preflight-v2/action.png",
+      "bytes": 528510
+    },
+    {
+      "path": "artifacts/polar/preflight-v2/export-check.png",
+      "bytes": 516927
+    },
+    {
+      "path": "artifacts/polar/preflight-v2/source.mov",
+      "bytes": 26079964
+    },
+    {
+      "path": "artifacts/polar/preflight-v2/debug-timing.png",
+      "bytes": 578828
+    },
+    {
+      "path": "artifacts/polar/preflight-v2/clicks.mp4",
+      "bytes": 1845080
+    },
+    {
+      "path": "artifacts/polar/preflight-v2/empty-audio.mp4",
+      "bytes": 1827606
+    },
+    {
+      "path": "artifacts/polar/preflight-v2/silent.mp4",
+      "bytes": 1794044
+    },
+    {
+      "path": "artifacts/polar/preflight-v3/source.mov",
+      "bytes": 30877358
+    },
+    {
+      "path": "artifacts/polar/preflight-v4/cursor.png",
+      "bytes": 517776
+    },
+    {
+      "path": "artifacts/polar/preflight-v4/typing.png",
+      "bytes": 632812
+    },
+    {
+      "path": "artifacts/polar/preflight-v4/action.png",
+      "bytes": 510782
+    },
+    {
+      "path": "artifacts/polar/preflight-v4/export-check.png",
+      "bytes": 504566
+    },
+    {
+      "path": "artifacts/polar/preflight-v4/source.mov",
+      "bytes": 14075941
+    },
+    {
+      "path": "artifacts/polar/preflight-v4/clicks.mp4",
+      "bytes": 1827149
+    },
+    {
+      "path": "artifacts/polar/preflight-v4/empty-audio.mp4",
+      "bytes": 1809493
+    },
+    {
+      "path": "artifacts/polar/preflight-v4/silent.mp4",
+      "bytes": 1774443
+    },
+    {
+      "path": "artifacts/polar/qa/onset-007.png",
+      "bytes": 30665
+    },
+    {
+      "path": "artifacts/polar/qa/debug-onset.png",
+      "bytes": 186265
+    },
+    {
+      "path": "artifacts/polar/qa/onset-947.png",
+      "bytes": 578683
+    },
+    {
+      "path": "artifacts/polar/qa/onset-006.png",
+      "bytes": 31286
+    },
+    {
+      "path": "artifacts/polar/qa/onset-004.png",
+      "bytes": 45240
+    },
+    {
+      "path": "artifacts/polar/qa/onset-005.png",
+      "bytes": 32054
+    },
+    {
+      "path": "artifacts/polar/qa/onset-001.png",
+      "bytes": 28088
+    },
+    {
+      "path": "artifacts/polar/qa/onset-002.png",
+      "bytes": 28030
+    },
+    {
+      "path": "artifacts/polar/qa/typing.png",
+      "bytes": 782481
+    },
+    {
+      "path": "artifacts/polar/qa/onset-003.png",
+      "bytes": 39977
+    },
+    {
+      "path": "artifacts/polar/qa/onset-exact.png",
+      "bytes": 241506
+    },
+    {
+      "path": "artifacts/polar/qa/export-onset-002.png",
+      "bytes": 27625
+    },
+    {
+      "path": "artifacts/polar/qa/export-onset-003.png",
+      "bytes": 26991
+    },
+    {
+      "path": "artifacts/polar/qa/first-action.png",
+      "bytes": 514193
+    },
+    {
+      "path": "artifacts/polar/qa/export-onset-001.png",
+      "bytes": 27432
+    },
+    {
+      "path": "artifacts/polar/qa/export-onset-004.png",
+      "bytes": 19976
+    },
+    {
+      "path": "artifacts/polar/qa/export-onset-005.png",
+      "bytes": 5662
+    },
+    {
+      "path": "artifacts/polar/qa/export-onset-007.png",
+      "bytes": 2532
+    },
+    {
+      "path": "artifacts/polar/qa/export-onset-006.png",
+      "bytes": 3039
+    },
+    {
+      "path": "artifacts/polar/qa/opening.png",
+      "bytes": 489295
+    },
+    {
+      "path": "artifacts/polar/qa/empty-audio.mp4",
+      "bytes": 27805701
+    },
+    {
+      "path": "artifacts/polar/qa/export-onset-008.png",
+      "bytes": 2528
+    },
+    {
+      "path": "artifacts/polar/qa/export-onset-009.png",
+      "bytes": 2512
+    },
+    {
+      "path": "artifacts/polar/qa/cues-4.jpg",
+      "bytes": 492493
+    },
+    {
+      "path": "artifacts/polar/qa/cues-1.jpg",
+      "bytes": 506334
+    },
+    {
+      "path": "artifacts/polar/qa/cues-3.jpg",
+      "bytes": 548136
+    },
+    {
+      "path": "artifacts/polar/qa/cues-2.jpg",
+      "bytes": 538853
+    },
+    {
+      "path": "artifacts/polar/qa/export-onset.png",
+      "bytes": 124188
+    },
+    {
+      "path": "artifacts/polar/theme/questions-dark.png",
+      "bytes": 41433
+    },
+    {
+      "path": "artifacts/polar/theme/working.png",
+      "bytes": 31217
+    },
+    {
+      "path": "artifacts/polar/theme/questions.png",
+      "bytes": 41242
+    },
+    {
+      "path": "artifacts/polar/theme/welcome.png",
+      "bytes": 37882
+    }
+  ],
+  "retainedMedia": [
+    "nova-polar-clicks.mp4",
+    "nova-polar-original.mov",
+    "nova-polar-silent.mp4"
+  ]
+}

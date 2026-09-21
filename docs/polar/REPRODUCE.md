@@ -2,7 +2,10 @@
 
 Use `polar-nova` with the existing ignored provider credentials. The dedicated
 profile store is `BE/data/sites.polar.json`; do not replace owner-edited profiles.
-Keep the same configured models. No provider changes were made.
+Keep the same configured models. No provider changes were made. After a fresh
+clone, run `npm ci` and restore the ignored local credentials through the existing
+project setup. Credentials and runtime profile stores are intentionally absent
+from the backup.
 
 ```sh
 npm test

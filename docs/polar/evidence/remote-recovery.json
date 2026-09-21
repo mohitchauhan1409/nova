@@ -1,0 +1,37 @@
+{
+  "verifiedAt": "2026-09-21T12:59:19.176732+00:00",
+  "repository": "https://github.com/mohitchauhan1409/nova",
+  "private": true,
+  "mainCommit": "b68a7be87338d8587528a8fa0f47d3eba2fd6b1a",
+  "polarMediaPayloadCommit": "6baec09b1b8499147ae7279c20fe8a45e5e87de8",
+  "remoteRefs": {
+    "refs/heads/main": "b68a7be87338d8587528a8fa0f47d3eba2fd6b1a",
+    "refs/heads/polar-nova": "6baec09b1b8499147ae7279c20fe8a45e5e87de8"
+  },
+  "recoveryClone": "/private/tmp/nova-polar-final-recovery-20260921",
+  "independentLfsStorage": "/private/tmp/nova-polar-final-recovery-20260921/.git/lfs",
+  "gitAlternates": false,
+  "lfsReferenceDirectories": [],
+  "mainIncludedInPolar": true,
+  "mainContainsStartupAssets": false,
+  "media": [
+    {
+      "path": "artifacts/polar/media/nova-polar-clicks.mp4",
+      "bytes": 28026626,
+      "sha256": "201f758acb54450cd5b555a52b027ca8f857c301c71af2b2cfbe3c0c76c85653",
+      "recovered": true
+    },
+    {
+      "path": "artifacts/polar/media/nova-polar-original.mov",
+      "bytes": 108027659,
+      "sha256": "51d3d3c9df1522a9b5f976b1d6494d70fee1c100a51daae92cef27bc016cf85e",
+      "recovered": true
+    },
+    {
+      "path": "artifacts/polar/media/nova-polar-silent.mp4",
+      "bytes": 27299236,
+      "sha256": "d033952fbea00a7555e27c43247cac0a27be5a4aa7de42452c39c1af85a35f3a",
+      "recovered": true
+    }
+  ]
+}
