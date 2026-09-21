@@ -15,6 +15,24 @@ function fixture() {
   return {runner,session,execute,driver,planner,setState:(s:Snapshot)=>{state=s;}};
 }
 describe('browser agent execution boundaries',()=>{
+  it('replans when a saved editor disappears during planning, without a failed click receipt',async()=>{
+    const f=fixture();
+    f.setState({...base,elements:[{...base.elements[0],name:'Cancel',type:'button'}]});
+    let plans=0;
+    f.planner.decide=async()=>{
+      if(++plans===1){
+        await new Promise(resolve=>setTimeout(resolve,780));
+        f.setState({...base,text:'Settings saved',elements:[]});
+        return {...act('click'),risk:'read',summary:'Close the editor'};
+      }
+      return {...act('done'),summary:'The saved view is open.',completion:{status:'answer',evidence:[{source:'text',ref:null,value:'Settings saved'}]}};
+    };
+    await f.runner.command('Show the saved result');
+    expect(f.execute).not.toHaveBeenCalled();
+    expect(f.session.actionSteps||[]).toEqual([]);
+    expect(f.session.traces.some(t=>t.text.includes('page changed while planning'))).toBe(true);
+    expect(f.session.status).toBe('ready');
+  });
   it('replans an alternating unchanged tab cycle before dispatching another repeat',async()=>{
     const f=fixture();let selected='Summary',revision=0;
     f.driver.snapshot=async()=>({...base,text:selected==='Summary'?'Saved summary':'Processing is pending',elements:['Summary','Details'].map(name=>({...base.elements[0],ref:`${name}-${revision}`,name,role:'tab',state:[`selected:${name===selected}`]}))});
