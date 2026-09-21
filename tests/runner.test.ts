@@ -15,6 +15,20 @@ function fixture() {
   return {runner,session,execute,driver,planner,setState:(s:Snapshot)=>{state=s;}};
 }
 describe('browser agent execution boundaries',()=>{
+  it.each([false,true])('recovers a no-op scroll visually only when privacy permits (private: %s)',async(privatePage)=>{
+    const f=fixture();f.setState({...base,text:privatePage?'Contact private@example.test':base.text});
+    f.driver.execute=vi.fn(async()=>({ok:true}));
+    const capture=vi.spyOn(f.driver,'screenshot').mockResolvedValue('current-frame');
+    let plans=0;
+    f.planner.decide=async(_session,_site,snapshot,_signal,image)=>{
+      if(++plans===1)return {...act('scroll'),risk:'read',value:'down'};
+      expect(image).toBe(privatePage?undefined:'current-frame');
+      return {...act('done'),summary:'I inspected the available view.',completion:{status:'blocked',evidence:[]}};
+    };
+    await f.runner.command('Inspect the current editor');
+    expect(f.driver.execute).toHaveBeenCalledTimes(1);
+    expect(capture).toHaveBeenCalledTimes(privatePage?0:1);
+  });
   it('replans when a saved editor disappears during planning, without a failed click receipt',async()=>{
     const f=fixture();
     f.setState({...base,elements:[{...base.elements[0],name:'Cancel',type:'button'}]});

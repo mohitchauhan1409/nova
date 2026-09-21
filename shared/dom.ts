@@ -63,7 +63,7 @@ export function installNovaDOM() {
       && /^[a-z][a-z0-9_]{0,79}$/i.test(el.value))state.push(`value:${el.value}`);
     if (el instanceof HTMLSelectElement) state.push(`selected:${compact(el.selectedOptions[0]?.text, 100)}`);
     if (el instanceof HTMLMediaElement) state.push(`paused:${el.paused}`,`muted:${el.muted}`);
-    if (el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth) state.push(`scrollX:${Math.round(el.scrollLeft)}`,`scrollY:${Math.round(el.scrollTop)}`);
+    if (el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth) state.push(`scrollX:${Math.round(el.scrollLeft)}`,`scrollY:${Math.round(el.scrollTop)}`,`scrollMaxX:${Math.max(0,el.scrollWidth-el.clientWidth)}`,`scrollMaxY:${Math.max(0,el.scrollHeight-el.clientHeight)}`);
     const edit=editState(el);
     let submission:ElementRef['submission'];
     if(el.matches('textarea,[contenteditable]:not([contenteditable="false"])')||/^(send|submit|post)\b/i.test(label(el))){
@@ -317,11 +317,27 @@ export function installNovaDOM() {
           break;
         }
         case 'scroll': {
-          const container=el instanceof HTMLElement?el:window;const width=el?.clientWidth||innerWidth;const height=el?.clientHeight||innerHeight;
           const direction=action.value||'down';
           if(!['up','down','left','right','top','bottom'].includes(direction))throw new Error('Choose a scroll direction.');
-          if(direction==='top'||direction==='bottom')container.scrollTo({top:direction==='top'?0:el?.scrollHeight||document.documentElement.scrollHeight,behavior:'smooth'});
-          else container.scrollBy({top:['up','down'].includes(direction)?height*.75*(direction==='up'?-1:1):0,left:['left','right'].includes(direction)?width*.75*(direction==='left'?-1:1):0,behavior:'smooth'});
+          const horizontal=['left','right'].includes(direction);
+          const scrollable=(node:Element):boolean=>node instanceof HTMLElement &&
+            /(auto|scroll)/.test(horizontal?getComputedStyle(node).overflowX:getComputedStyle(node).overflowY) &&
+            (horizontal?node.scrollWidth>node.clientWidth:node.scrollHeight>node.clientHeight);
+          let scroller:HTMLElement|undefined;
+          if(el instanceof HTMLElement){
+            // A dialog wrapper and its actual scrolling child can share a label.
+            // Resolve the observed target to a real scroll area, never a no-op wrapper.
+            for(let node:HTMLElement|null=el;node&&!node.matches('body,html');node=node.parentElement){if(scrollable(node)){scroller=node;break;}}
+            if(!scroller){
+              const children=[...el.querySelectorAll('*')].filter(node=>visible(node)&&scrollable(node));
+              const outer=children.filter(node=>!children.some(other=>other!==node&&other.contains(node)));
+              if(outer.length===1)scroller=outer[0] as HTMLElement;
+              else if(outer.length>1)throw new Error('This region has multiple scroll areas. Choose the specific observed scroll container.');
+            }
+          }
+          const container=scroller||window;const width=scroller?.clientWidth||innerWidth;const height=scroller?.clientHeight||innerHeight;
+          if(direction==='top'||direction==='bottom')container.scrollTo({top:direction==='top'?0:scroller?.scrollHeight||document.documentElement.scrollHeight,behavior:'smooth'});
+          else container.scrollBy({top:['up','down'].includes(direction)?height*.75*(direction==='up'?-1:1):0,left:horizontal?width*.75*(direction==='left'?-1:1):0,behavior:'smooth'});
           await new Promise(resolve=>setTimeout(resolve,220));break;
         }
         case 'scroll_to': if(!(el instanceof HTMLElement))throw new Error('A current target is required.');el.scrollIntoView({block:'center',inline:'nearest',behavior:'smooth'});await new Promise(resolve=>setTimeout(resolve,220));break;
