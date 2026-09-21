@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "url": "https://polar.sh/dashboard/vectoros",
+  "reports": [
+    {
+      "name": "normal",
+      "recording": false,
+      "show": false,
+      "display": "block",
+      "opacity": "1",
+      "fill": "rgb(23, 23, 31)",
+      "label": "rgb(23, 23, 31)",
+      "ring": "rgb(23, 23, 31)",
+      "pointerEvents": "none"
+    },
+    {
+      "name": "hidden",
+      "recording": true,
+      "show": false,
+      "display": "none",
+      "opacity": "1",
+      "fill": "rgb(23, 23, 31)",
+      "label": "rgb(23, 23, 31)",
+      "ring": "rgb(23, 23, 31)",
+      "pointerEvents": "none"
+    },
+    {
+      "name": "visible",
+      "recording": true,
+      "show": true,
+      "display": "block",
+      "opacity": "1",
+      "fill": "rgb(23, 23, 31)",
+      "label": "rgb(23, 23, 31)",
+      "ring": "rgb(23, 23, 31)",
+      "pointerEvents": "none"
+    }
+  ]
+}

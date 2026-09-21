@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "Polar white background",
+    "Chat default",
+    "Grouped question card",
+    "Action timeline",
+    "320/400/480 px without overflow",
+    "Non-Polar theme unchanged"
+  ],
+  "evidence": "Isolated rendering only; not real dashboard execution"
+}

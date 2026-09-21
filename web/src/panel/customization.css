@@ -1,2 +1,57 @@
-/* Customer branches add scoped website theme overrides here.
-   Keep the shared panel layout and behavior in panel.css / PanelApp.tsx. */
+/* Polar light dashboard, sampled from the signed-in Vector Home capture.
+   The shared layout and behavior stay in panel.css and PanelApp.tsx. */
+.np-app[data-site="polar.sh"] {
+  --site-accent: #17171f !important;
+  --site-ink: #17171f !important;
+  --site-soft: #f0eff3 !important;
+  --polar-bg: #fff;
+  --polar-panel: #fafafa;
+  --polar-raised: #f5f4f7;
+  --polar-border: #e7e7eb;
+  --polar-text: #17171f;
+  --polar-muted: #72727e;
+  color-scheme: light;
+  background: var(--polar-bg);
+  color: var(--polar-text);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.np-app[data-site="polar.sh"] :is(.np-header,.np-tabs,.np-voice-bottom) { background: var(--polar-bg); border-color: var(--polar-border); }
+.np-app[data-site="polar.sh"] :is(.np-brand,.np-welcome h1,.np-message-author strong,.np-message-body,.np-message-body strong,.np-message-body h1,.np-message-body h2,.np-message-body h3,.np-suggestions strong,.np-question-card h3,.np-question-fields legend,.np-question-options strong,.np-question-receipt dd,.np-action-heading,.np-action-timeline p,.np-connect h1) { color: var(--polar-text); }
+.np-app[data-site="polar.sh"] :is(.np-brand small,.np-icon-button,.np-new-chat,.np-tabs>button,.np-welcome>p,.np-suggestions small,.np-thread-start,.np-copy,.np-composer-foot,.np-composer-foot>button,.np-page-context,.np-question-kicker,.np-question-progress,.np-question-card header>p,.np-question-fields fieldset>p,.np-question-fields legend>span,.np-question-fields legend>small,.np-question-options small,.np-custom-choice,.np-question-help,.np-question-card footer>p,.np-question-receipt summary,.np-question-receipt summary>small,.np-question-receipt dt,.np-action-heading>span:not(.np-action-status),.np-action-timeline small,.np-action-timeline .np-step-detail,.np-earlier-steps,.np-voice-topline,.np-voice-topline time,.np-voice-heading p,.np-voice-bottom>p,.np-live-caption,.np-connect p,.np-connect label) { color: var(--polar-muted); }
+.np-app[data-site="polar.sh"] :is(.np-brand-mark,.np-welcome-mark) { background: var(--polar-raised); color: var(--polar-text); border-color: var(--polar-border); --mark-hole: var(--polar-raised); }
+.np-app[data-site="polar.sh"] .np-message-author { color: var(--polar-text); --mark-hole: var(--polar-bg); }
+.np-app[data-site="polar.sh"] :is(.np-author-ai,.np-question-receipt,.np-action-timeline,.np-suggestions,.np-question-card) { border-color: var(--polar-border); background: var(--polar-panel); color: var(--polar-text); }
+.np-app[data-site="polar.sh"] :is(.np-icon-button:hover,.np-new-chat:hover,.np-suggestions>button:hover,.np-question-options>button:hover) { background: var(--polar-raised); color: var(--polar-text); }
+.np-app[data-site="polar.sh"] .np-tabs>button[aria-selected=true] { background: var(--polar-raised); color: var(--polar-text); }
+.np-app[data-site="polar.sh"] .np-suggestions>button { background: var(--polar-bg); }
+.np-app[data-site="polar.sh"] .np-suggestions>button+button { border-color: var(--polar-border); }
+.np-app[data-site="polar.sh"] :is(.np-suggestion-icon,.np-suggestions>button>svg,.np-thinking,.np-clarification,.np-working,.np-voice-back,.np-voice-heading h1) { color: var(--polar-text); }
+.np-app[data-site="polar.sh"] .np-message.user { background: var(--polar-raised); color: var(--polar-text); border-color: var(--polar-border); }
+.np-app[data-site="polar.sh"] :is(.np-message-body a,.np-connect a) { color: var(--polar-text); text-decoration-color: #a0a0aa; }
+.np-app[data-site="polar.sh"] :is(.np-message-body code,.np-message-body pre,.np-message-body th) { background: var(--polar-raised); color: var(--polar-text); border-color: var(--polar-border); }
+.np-app[data-site="polar.sh"] :is(.np-message-body td,.np-message-body th,.np-message-body hr,.np-question-fields fieldset,.np-question-receipt dl) { border-color: var(--polar-border); }
+.np-app[data-site="polar.sh"] .np-message-body blockquote { color: var(--polar-muted); border-color: #babac4; }
+.np-app[data-site="polar.sh"] .np-composer-area { background: linear-gradient(#ffffff00,var(--polar-bg) 10px); }
+.np-app[data-site="polar.sh"] .np-composer { background: var(--polar-bg); border-color: #dcdce3; box-shadow: 0 2px 5px #17171f08; }
+.np-app[data-site="polar.sh"] .np-composer:focus-within { border-color: var(--site-accent); box-shadow: 0 0 0 2px #17171f0b; }
+.np-app[data-site="polar.sh"] .np-composer textarea { color: var(--polar-text); }
+.np-app[data-site="polar.sh"] :is(input,textarea)::placeholder { color: #898994; }
+.np-app[data-site="polar.sh"] :is(.np-send,.np-send:hover:not(:disabled),.np-question-continue,.np-button-dark,.np-approval-buttons .np-button-dark,.np-browser-control button) { color: #fff; background: var(--site-accent); border-color: var(--site-accent); box-shadow: none; }
+.np-app[data-site="polar.sh"] .np-send:disabled { background: #e4e4e9; color: #92929e; }
+.np-app[data-site="polar.sh"] :is(.np-question-card>header,.np-question-card>footer) { background: var(--polar-raised); border-color: var(--polar-border); }
+.np-app[data-site="polar.sh"] :is(.np-question-card input,.np-question-card textarea,.np-question-options>button,.np-connect input) { background: var(--polar-bg); border-color: #dcdce3; color: var(--polar-text); }
+.np-app[data-site="polar.sh"] .np-question-options>button.selected { background: var(--polar-raised); border-color: var(--site-accent); }
+.np-app[data-site="polar.sh"] .np-choice-dot { border-color: #b5b5c0; }
+.np-app[data-site="polar.sh"] .selected .np-choice-dot { background: var(--site-accent); color: #fff; border-color: var(--site-accent); }
+.np-app[data-site="polar.sh"] .np-question-progress>div { background: #e0dfe5; }
+.np-app[data-site="polar.sh"] :is(.np-question-card input:focus,.np-question-card textarea:focus) { outline-color: #17171f40; border-color: var(--site-accent); }
+.np-app[data-site="polar.sh"] .np-step-icon { background: var(--polar-bg); border-color: var(--polar-border); color: var(--polar-muted); }
+.np-app[data-site="polar.sh"] .np-action-timeline li[data-status=verified] .np-step-icon { background: var(--polar-raised); border-color: #cfcfd7; color: var(--polar-text); }
+.np-app[data-site="polar.sh"] .np-action-timeline li:not(:last-child):before { background: var(--polar-border); }
+.np-app[data-site="polar.sh"] .np-thread-start span { background: var(--polar-border); }
+.np-app[data-site="polar.sh"] .np-jump { background: var(--polar-bg); color: var(--polar-text); border-color: var(--polar-border); box-shadow: 0 4px 14px #17171f10; }
+.np-app[data-site="polar.sh"] :is(.np-activity-log,.np-browser-control) { background: var(--polar-raised); border-color: var(--polar-border); color: var(--polar-text); }
+.np-app[data-site="polar.sh"] :is(.np-activity-log p,.np-browser-control p) { color: var(--polar-muted); }
+.np-app[data-site="polar.sh"] .np-browser-control strong { color: var(--polar-text); }
+.np-app[data-site="polar.sh"] ::selection { background: #dcdce5; color: #17171f; }
+.np-app[data-site="polar.sh"] ::-webkit-scrollbar-thumb { background: #cfcfd7; }
