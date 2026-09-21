@@ -45,6 +45,26 @@ describe('deterministic action policy', () => {
       {name:'Admin access',role:'checkbox'},
     ]) expect(check(patch).outcome).toBe('approve');
   });
+  it('distinguishes passive billing help in a requested record editor from account billing controls', () => {
+    const context='Description Units If the billing cycle is recurring, units are credited per period';
+    const heading={...snapshot.elements[1],ref:'heading',tag:'h2',name:'Update Allowance',type:'',context:'',form:false};
+    const field={...snapshot.elements[0],ref:'units',name:'Number of credited units',type:'number',role:'',context,form:true};
+    const save={...snapshot.elements[1],ref:'save',name:'Update',type:'submit',context,form:true};
+    const page={...snapshot,elements:[heading,field,save]};
+    const intent='Make that 7,500 units and keep everything else. Save and reopen it.';
+    const fill=action({kind:'fill',ref:'units',value:'7500',risk:'change'});
+    const update=action({ref:'save',risk:'change'});
+    for (const a of [fill,update]) {
+      expect(checkAction(a,page,page.url,intent).outcome).toBe('allow');
+      for (const patch of [{name:'Billing units'},{name:'Payment method'},{name:'Administrator'},{sensitive:true}]) {
+        expect(checkAction(a,{...page,elements:[heading,{...field,...patch},save]},page.url,intent).outcome).not.toBe('allow');
+      }
+      for (const name of ['Update Billing','Update Subscription','Update Account']) expect(checkAction(a,{...page,elements:[{...heading,name},field,save]},page.url,intent).outcome).toBe('approve');
+      expect(checkAction(a,page,page.url,'Do not change these units').outcome).toBe('approve');
+      expect(checkAction(a,{...page,elements:[heading,{...field,context:'Billing permissions'}, {...save,context:'Billing permissions'}]},page.url,intent).outcome).toBe('approve');
+      expect(checkAction({...a,risk:'sensitive'},page,page.url,intent).outcome).toBe('approve');
+    }
+  });
   it('opens an ellipsis import menu without authorizing a file submission or publication', () => {
     const target = {...snapshot.elements[0],ref:'import',tag:'div',role:'menuitem',type:'',name:'Upload a recording…'};
     const check = (patch = {}) => checkAction(action({ref:'import'}), {...snapshot,elements:[{...target,...patch}]},snapshot.url);

@@ -55,10 +55,12 @@ function requestedTerminologyEdit(action: Action, snapshot: Snapshot, intent: st
   const affirmative = relevant.replace(/\b(don['’]?t|do not|never|without|stop|cancel)\b[^,;.!?]*/gi, '');
   return /\b(add|save|create|update)\b/i.test(affirmative) && topic.test(affirmative);
 }
-function requestedRecordSave(action: Action, snapshot: Snapshot, intent: string): boolean {
+function requestedRecordEdit(action: Action, snapshot: Snapshot, intent: string): boolean {
   const target = snapshot.elements.find(e => e.ref === action.ref);
-  if (!target || action.risk !== 'change' || !['click','double_click'].includes(action.kind) ||
-      !/^(save(?: changes)?|update|create|add|apply)$/i.test(target.name.trim()) || target.submission) return false;
+  if (!target || action.risk !== 'change' || target.submission) return false;
+  const save = ['click','double_click'].includes(action.kind) && /^(save(?: changes)?|update|create|add|apply)$/i.test(target.name.trim());
+  const prepare = ['fill','type','clear','paste'].includes(action.kind) && target.form;
+  if (!save && !prepare) return false;
   const fields = snapshot.elements.filter(e => e.form && !e.covered &&
     (['input','textarea','select'].includes(e.tag) || ['textbox','checkbox','switch','combobox'].includes(e.role)));
   if (!fields.length || fields.some(e => e.sensitive || sensitiveSettings.test(e.name))) return false;
@@ -66,7 +68,11 @@ function requestedRecordSave(action: Action, snapshot: Snapshot, intent: string)
   // Generic Continue/Add forms and transaction/account editors retain review.
   const heading = snapshot.elements.find(e => !e.covered && /^(h[1-4])$/.test(e.tag) &&
     /^(edit|update|create|new)\s+\S/i.test(e.name));
-  if (!heading || /\b(account|subscription|payment|order|purchase|booking|transfer|permission|credential|key|contract|agreement)\b/i.test(heading.name)) return false;
+  if (!heading || /\b(account|billing|subscription|payment|order|purchase|booking|transfer|permission|credential|key|contract|agreement)\b/i.test(heading.name)) return false;
+  // Passive record help can mention billing without being an account setting.
+  // Only this explicitly requested, named editor may discount that broad word;
+  // actual billing fields/headings and every other sensitive term stay protected.
+  if (sensitiveSettings.test(target.context.replace(/\bbilling\b/gi, ''))) return false;
   if (/\b(delete|erase|destroy|publish|send|recipient|accept terms|agree to|confirm payment|place order)\b/i.test(target.context)) return false;
   if (snapshot.elements.some(e => !e.covered && /\b(public|everyone|anyone with the link)\b/i.test(e.name) && e.state?.some(s => /^(checked|selected):true$/.test(s)))) return false;
   const request = intent.split('\n').reverse().find(line => /\b(save|update|create|add|apply|make|prepare|set|give|enable|disable|turn|change|edit|stop|cancel|wait)\b/i.test(line));
@@ -123,7 +129,7 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
   if (['fill', 'type', 'clear', 'paste', 'search'].includes(action.kind)) {
     if (!['input', 'textarea'].includes(target.tag) && !['textbox', 'searchbox'].includes(target.role) && target.type !== 'contenteditable') return result('block', 'Text entry needs an observed editable field.');
     if (action.kind === 'search') return /search|query|find|\bq\b/i.test(`${target.name} ${target.type}`) && ['input', 'textarea'].includes(target.tag) ? result('allow', 'Enter and submit a search query') : result('block', 'Search combines typing with Enter and requires an input labelled search, query or find. For an ordinary filter field, use fill instead; it replaces the value without submitting. Do not repeat search on this target.');
-    if (sensitiveSettings.test(`${target.name} ${target.context}`)) return result('approve', 'Review this change to sensitive account settings.', true);
+    if (sensitiveSettings.test(`${target.name} ${target.context}`) && !requestedRecordEdit(action, snapshot, intent)) return result('approve', 'Review this change to sensitive account settings.', true);
     return result('allow', 'Prepare the requested text without submitting it', true);
   }
   if (action.kind === 'press' && (['Escape', 'Tab', 'Shift+Tab', 'Home', 'End', 'PageUp', 'PageDown', 'Backspace', 'Delete', 'ControlOrMeta+A', 'ControlOrMeta+Z', 'ControlOrMeta+Y'].includes(action.value || '') || /^Arrow/.test(action.value || ''))) {
@@ -140,7 +146,7 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
       !serious.test(target.context) && !sensitiveSettings.test(context)) {
     return result('allow', 'Open the import preparation dialog');
   }
-  if (serious.test(target.name) || action.risk === 'sensitive' || sensitiveSettings.test(context) || /\b(subscribe|subscription|upgrade)\b/i.test(target.name) && /\b(pay|paid|billing|charge|per month|monthly|annual|trial)\b|[$₹€£]/i.test(target.context)) return result('approve', 'Review this purchase, communication, deletion, agreement, or sensitive account change.', true);
+  if (serious.test(target.name) || action.risk === 'sensitive' || sensitiveSettings.test(context) && !requestedRecordEdit(action, snapshot, intent) || /\b(subscribe|subscription|upgrade)\b/i.test(target.name) && /\b(pay|paid|billing|charge|per month|monthly|annual|trial)\b|[$₹€£]/i.test(target.context)) return result('approve', 'Review this purchase, communication, deletion, agreement, or sensitive account change.', true);
   // Inline title editors commit on Enter; they are not message composers.
   // Keep this after the consequential-action and sensitive-settings gates.
   if(action.kind==='press'&&action.value==='Enter'&&/^(rename|edit (?:name|title))\b/i.test(target.name.trim())&&(['input','textarea'].includes(target.tag)||target.role==='textbox')&&!target.submission)return result('allow','Save the requested inline name or title',true);
@@ -156,7 +162,7 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
   if (cartControl.test(target.name)) return intentAllows(intent, 'cart') ? result('allow', 'Make the cart change you requested', true) : result('approve', 'Changing this cart was not clear from your request.', true);
   if (['select', 'check'].includes(action.kind)) return result('allow', 'Choose the requested filter, option, or variant', true);
   if (requestedTerminologyEdit(action, snapshot, intent)) return result('allow', 'Save the terminology correction explicitly requested in this observed form', true);
-  if (requestedRecordSave(action, snapshot, intent)) return result('allow', 'Save the ordinary configuration explicitly requested in this named editor', true);
+  if (requestedRecordEdit(action, snapshot, intent)) return result('allow', 'Save the ordinary configuration explicitly requested in this named editor', true);
   // Saving an explicitly requested ordinary record edit is not a new social
   // preference. Consequential controls, sensitive context and message composers
   // have already been gated above; a later negation or review request still wins.
