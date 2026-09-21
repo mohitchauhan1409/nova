@@ -86,9 +86,13 @@ function requestedRecordEdit(action: Action, snapshot: Snapshot, intent: string)
   const requestWords = new Set(words(affirmative));
   const editorWords = words(heading.name.replace(/^(edit|update|create|new)\s+/i,''));
   const fieldWords = words(fields.map(e => e.name).join(' ')).filter(w => !['name','description','title','text','value','select','number'].includes(w));
+  // Some custom controls have no accessible name; their visible explanatory
+  // text remains useful grounding within this same, ordinary record form.
+  const formWords = words(snapshot.elements.filter(e => e.form && !e.covered &&
+    e.context === target.context && ['p','label','legend'].includes(e.tag)).map(e => e.name).join(' '));
   // An explicit save in this already identified ordinary editor need not repeat
   // its noun (for example, 'Keep everything else, save and reopen').
-  return /\b(save|update|apply)\b/i.test(affirmative) || [...editorWords,...fieldWords].some(w => requestWords.has(w));
+  return /\b(save|update|apply)\b/i.test(affirmative) || [...editorWords,...fieldWords,...formWords].some(w => requestWords.has(w));
 }
 export function checkAction(action: Action, snapshot: Snapshot, _scope: string, intent = ''): PolicyDecision {
   const target = snapshot.elements.find(e => e.ref === action.ref);

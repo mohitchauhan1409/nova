@@ -36,6 +36,19 @@ describe('deterministic action policy', () => {
     expect(check('Update this allowance',{elements:[{...heading,name:'Update Subscription'},field,target]}).outcome).toBe('approve');
     expect(checkAction({...save,risk:'sensitive'},page,page.url,'Update this allowance').outcome).toBe('approve');
   });
+  it('grounds an unnamed toggle in visible copy from its own ordinary editor', () => {
+    const context='Description Visibility Meter Number of credited units';
+    const base={...snapshot.elements[1],context,form:true};
+    const heading={...base,ref:'heading',tag:'h2',type:'',name:'Update Allowance',form:false};
+    const toggle={...base,ref:'toggle',type:'button',role:'checkbox',name:''};
+    const copy={...base,ref:'copy',tag:'p',type:'',name:'Rollover unused credits to the next billing cycle'};
+    const save={...base,ref:'save',type:'submit',name:'Update'};
+    const intent="I can't find where to turn on rollover for our starter credits. Can you do it?";
+    const check=(patch={})=>checkAction(action({ref:'save',risk:'change'}),{...snapshot,elements:[heading,toggle,{...copy,...patch},save]},snapshot.url,intent);
+    expect(check().outcome).toBe('allow');
+    for(const patch of [{covered:true},{form:false},{context:'Another form'}]) expect(check(patch).outcome).toBe('approve');
+    expect(checkAction(action({ref:'save',risk:'change'}),{...snapshot,elements:[{...heading,name:'Update Billing'},toggle,copy,save]},snapshot.url,intent).outcome).toBe('approve');
+  });
   it('edits form structure and selects options without treating them as submissions', () => {
     const base = {...snapshot.elements[1],ref:'form-control',type:'button',form:true,context:'Name Filters Aggregation'};
     const check = (patch = {}) => checkAction(action({ref:base.ref,risk:'change'}),{...snapshot,elements:[{...base,...patch}]},snapshot.url,'Prepare a filtered usage configuration.');
