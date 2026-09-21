@@ -65,10 +65,14 @@ Artifacts go in a unique directory under `artifacts/isolated-browser-proof`.
 
 Compile with `swiftc scripts/video/record-window.swift -o /tmp/nova-record-window`.
 Run `list` to identify the intended Chrome window, then
-`record WINDOW_ID OUTPUT.mov [SECONDS] [--masks PLAN.json]`.
+`record WINDOW_ID OUTPUT.mov [SECONDS] [--hide-cursor] [--masks PLAN.json]`.
 Without seconds, Return ends the capture. Existing outputs are never overwritten.
-Only the selected Chrome window is captured, with its cursor, at native resolution,
-30 fps and no audio. Keep the Mac unlocked and the target visible while operating it.
+Only the selected Chrome window is captured at native resolution, 30 fps and no
+audio. The system pointer is included by default; `--hide-cursor` excludes it
+without hiding Nova's website-rendered action cursor. Computer/tool overlays
+rendered inside the page need their own supported suppression controls. Verify
+both pointer types in a short decoded capture. Keep the Mac unlocked and the
+target visible while operating it.
 This desktop method can freeze when the window is occluded. Use the isolated
 browser above for work that must not depend on the user's desktop focus.
 
@@ -88,10 +92,11 @@ Coordinates are native pixels measured from the top-left of the captured window.
 These example coordinates are not suitable for an actual recording without inspection.
 The declared canvas must match exactly. A changed capture size fails closed: the
 recorder does not write new unmasked frames and reports the failure on stop.
-Inspect a short preflight at full resolution and check every planned page layout.
-Mask account details only; preserve controls and outcome evidence. Customer-specific
-plans, observations and media belong on the customer branch. Describe capture-time
-redaction in the delivery notes; preserve the resulting source recording unchanged.
+Use capture-time masks only when the task explicitly requires them. For private
+recordings that retain ordinary account and product information, omit `--masks`
+and preserve the untouched source. Inspect a short preflight at full resolution
+and check every planned page layout. Customer-specific plans, observations and
+media belong on the customer branch. Document any requested capture-time redaction.
 
 Keep browser security indicators enabled. Any editorial mask for a debugger banner
 belongs in the edited copies, with source coordinates and timing recorded in the EDL.
@@ -99,7 +104,14 @@ Verify the source frame count, duration, resolution and frame rate with `ffprobe
 
 # Frame-based editing and click effects
 
-`python3 scripts/video/edit-recording.py SOURCE PLAN.json SILENT.mp4 CLICKS.mp4`
+`python3 scripts/video/edit-recording.py SOURCE PLAN.json SILENT.mp4 SCRATCH.mp4`
+
+This utility renders the inspected frame EDL and verifies segment/frame counts.
+Its legacy audio renderer differs from the established mechanical tap. For the
+approved sound treatment, keep `clicks` empty in `PLAN.json`, direct its required
+secondary output to task scratch, then use the **Established tap sound** sequence
+below. The secondary output has silent audio when there are no cues; it is not a
+final deliverable. Keep the real source-click evidence in a separate cue map.
 
 An optional `crop: {x, y, width, height, reason}` removes documented empty
 recorder padding after masks are applied. Coordinates remain in native source
@@ -108,9 +120,8 @@ must be even for yuv420p output. Verify that the removed region contains no
 browser content throughout the source before using it. Omit `crop` to preserve
 the full canvas. Run `python3 scripts/video/test-edit-recording.py` to check
 geometry validation and a decoded padded-source export.
-renders an inspected EDL, then muxes original synthesized click effects while
-copying the silent video's encoded stream. It verifies frame counts and video
-stream hashes and writes a text validation report beside the silent edit.
+The editor verifies frame counts and video stream hashes and writes a text
+validation report beside the silent edit.
 Existing deliverables are not overwritten. Temporary segments/audio are removed.
 
 Plan fields: `fps`, `width`, `height`, `segments`, optional `masks` and `clicks`.
@@ -122,17 +133,20 @@ agent work and reading retain every source frame at the source frame rate.
 The first/last segment define the retained source range; document any boundary trim.
 
 Masks use the same rectangle/color fields as the recorder and optionally a
-source `start_frame`/`end_frame`. Clicks contain `source_frame`, `evidence`
-(the observed click), and optional `strength` (0.5–1.2). Cues are mapped through
-the EDL; do not infer clicks from every action or invent interaction sounds.
-Effects are deterministic, original, and contain no keyboard noise or ambience.
-The source-to-edited cue map, peak level and video-stream hash are in the report.
+source `start_frame`/`end_frame`. For each real click, retain the `source_frame`,
+actor, evidence, and optional strength (0.5–1.2) in the separate cue map. In a
+segment `[a, b)` producing `n` frames, the mapped output frame is
+`preceding_output_frames + (source_frame - a) * n / (b - a)`. Divide by output
+fps for the established renderer's `time`. Recompute after every EDL change.
+Do not infer clicks from other actions or state changes. Preserve the complete
+source-to-edited map alongside the final audio report.
 
-Validation performed with a moving 120-frame synthetic source: 30 normal frames,
+Historical editor validation used a moving 120-frame synthetic source: 30 normal frames,
 60 compressed idle frames producing 30, then 30 typing frames producing 25.
 Both exports contained 85 frames at 30 fps; a source-frame-45 click mapped to
 1.25 seconds, peak 0.06449, and encoded video hashes matched after AAC muxing.
 This checks the utility, not the correctness of any real recording's EDL.
+Its measured legacy-effect peak is not a reference for the established tap.
 
 A mask file can be atomically replaced during recording as the page layout changes. The recorder validates and applies it before the next captured frame and logs the update epoch. Invalid or missing plans fail closed. Keep every applied plan and its event time with the take notes.
 
@@ -150,17 +164,49 @@ python3 scripts/video/add-click-sounds.py --source silent.mp4 --cues cues.json \
   --output clicks.mp4 --report sound-verification.json
 ```
 
-The renderer verifies stream identity, duration and sound confined to the cues;
-visual synchronization still requires inspection of the specific recording.
+The unchanged renderer uses 48 kHz stereo, seed 2071, gain 1.6, the established
+actor-dependent panning, and a 0.30 peak cap. Do not replace its click function or
+use the editor's legacy effect when the established tap is requested. Verify the
+approved reference and its retained sound report before reuse; keep customer
+reference paths and hashes in the owning task's evidence, not shared code.
 
-### Cursor-free capture build and click evidence
+Use this complete sequence once the EDL and source-to-edited cue map are final:
 
-`NOVA_RECORDING_MODE=true npm run build` opts the built extension into recording
-mode. Reload that extension and launch a fresh website session. Normal builds
-keep the usual visible action cursor. Recording builds hide the action cursor,
-its label and rings through scoped launcher CSS, without changing website content
-or input timing. For the system pointer, pass `--hide-cursor` to the desktop
-window recorder. Do not use capture-time masks for ordinary account details.
+```sh
+# PLAN.json has an empty clicks array; SCRATCH.mp4 is temporary, not a deliverable.
+python3 scripts/video/edit-recording.py SOURCE.mov PLAN.json SILENT.mp4 SCRATCH.mp4
+python3 scripts/video/add-click-sounds.py --source SILENT.mp4 --cues FINAL_CUES.json \
+  --output CLICKS.mp4 --report sound-verification.json
+python3 scripts/video/verify-click-export.py CLICKS.mp4 FINAL_CUES.json decoded-audio.json --fps 30
+```
+
+Use the actual source/output frame rate for `--fps`. The audio renderer copies
+the silent video's encoded stream and verifies its identity, duration, and
+pre-encode silence outside cue windows. The decoded verifier checks final AAC
+onset within one output frame, waveform correlation above 0.98, no clipping,
+and silence outside tap windows with one-frame allowance for AAC leakage.
+Neither validates that a UI click happened: inspect each cue against source and
+decoded export frames, especially immediately after compressed sections. Remove
+task scratch only after the silent and final click exports pass verification.
+
+### Visible Nova cursor and click evidence
+
+For a recording that shows Nova's real actions while excluding the system pointer:
+
+```sh
+NOVA_RECORDING_MODE=true NOVA_RECORDING_SHOW_ACTION_CURSOR=true npm run build
+/tmp/nova-record-window record WINDOW_ID SOURCE.mov --hide-cursor
+```
+
+Only the owner of the live browser session should reload the resulting extension,
+pair its backend, and launch a fresh website session. These are build-time flags;
+changing an environment variable after building does not update the installed
+extension. Normal builds retain the usual cursor and collect no click receipts.
+For legacy cursor-free recordings, `NOVA_RECORDING_MODE=true` alone hides Nova's
+arrow, label, and rings. Do not use that combination when Nova's cursor must stay
+visible. Neither build mode suppresses browser security indicators or product
+content. Themed arrow, label, and ring share the site's `--site-ink` color; verify
+custom CSS, contrast, anchoring, and reinjection in the actual target website.
 
 Recording builds collect trusted panel/launcher clicks and successful browser
 mouse press/release pairs, including input-focus clicks, in the local session's
@@ -171,20 +217,15 @@ receipts support editing; correlate each with the visible result in decoded
 output and map through the final EDL before adding taps. Keyboard activation or
 an ambiguous tool event still needs independent operator/frame evidence.
 
-The recorder's first-frame epoch links clicks to source frames. Preserve that
-log, the session's click evidence, the EDL and decoded export checks. A callback
-receipt alone is not proof that a business outcome happened.
+The recorder's first-frame epoch anchors clicks to source frames. Preserve that
+log, the session's click evidence, the EDL and decoded export checks. Dispatch
+latency means the epoch mapping still needs frame inspection. Receipt collection
+requires the active authenticated session and does not cover every operator
+control or browser-chrome interaction; retain dispatch/frame evidence for gaps.
+A callback receipt alone is not proof that a business outcome happened.
 
-`verify-click-export.py VIDEO CUES.json REPORT.json --fps 30` decodes the final
-AAC track and checks each tap against the unchanged established renderer: onset
-within one output frame, waveform correlation above 0.98, no clipping, and silence
-outside tap windows (with one-frame allowance for AAC transform leakage). This
-complements source-frame inspection; it does not invent or validate UI events.
-
-
-To retain only Nova's action cursor while collecting click receipts, build with
-`NOVA_RECORDING_MODE=true NOVA_RECORDING_SHOW_ACTION_CURSOR=true npm run build`.
-Keep `--hide-cursor` on the desktop recorder to exclude the physical/operator
-pointer. This preserves the website-rendered Nova arrow, label and click ring;
-it does not suppress browser security indicators or alter website content.
-Without the new flag, existing cursor-free recording builds retain their behavior.
+Before the full take, inspect a short capture through the complete export path
+with real operator typing/clicks and Nova clicking, scrolling, and navigating.
+Verify that only Nova's cursor is visible, its arrow/label/ring remain the same
+accent, and the target window is captured continuously. Repeat affected checks
+after changes to the build, theme, pointer controls, focus, or recording setup.
