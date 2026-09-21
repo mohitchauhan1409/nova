@@ -1,14 +1,16 @@
 # Airweave eligibility and candidate demonstration
 
-Research date: 2026-09-21. Status: public research complete; initial signed-in evidence received from coordinator; deeper workflow checks pending. No Nova implementation, dashboard mutation, connection, or browser operation was performed by this worker.
+Public research date: 2026-09-21. Latest signed-in recheck reported by coordinator: 2026-09-22 (Asia/Kolkata). Status: eligibility passed under the embedded dashboard-operator interpretation; execution blocked on authorized source access. One collection now exists but has no connected source. No Nova implementation, dashboard mutation, connection, or browser operation was performed by this worker.
 
 ## Decision
 
-**Provisional CONTINUE, subject to the coordinator's signed-in check before building.** Airweave has real agentic capabilities, but the reviewed official material does not establish an embedded assistant that accepts general user goals and executes configuration across its own dashboard. Its documented agentic search retrieves information from a collection. Official setup skills let an external coding agent configure Airweave using developer interfaces. These are relevant adjacent capabilities, so the demo must not claim Airweave has no agents or no natural-language search.
+**CONTINUE on eligibility; BLOCKED on source access before implementation or demonstration.** The coordinator's signed-in inspection found no equivalent embedded dashboard operator. Airweave has real agentic capabilities, but the reviewed official material does not establish an embedded assistant that accepts general user goals and executes configuration across its own dashboard. Its documented agentic search retrieves information from a collection. Official setup skills let an external coding agent configure Airweave using developer interfaces. These are relevant adjacent capabilities, so the demo must not claim Airweave has no agents or no natural-language search.
 
 Confidence: high that the documented search agent is narrower than a dashboard operator; moderate that no equivalent dashboard operator exists in the currently accessible product. Public documentation and source cannot exclude an unannounced, plan-specific, feature-flagged, or newly deployed assistant. If the signed-in product exposes an agent that actually creates/configures collections, connects permitted sources, manages sync and retrieval from user goals, apply the user's skip rule and stop Airweave customization.
 
-Coordinator's initial signed-in evidence received 2026-09-21: the dashboard contains no collections; Create collection lists third-party sources from Airtable through Zoom; navigation includes API keys, Auth Providers, Webhooks and Connect playground; no assistant is visible. The Chrome profile was verified. This supports continuing eligibility research, but it does not establish safe source access or two executable flows. The operator subsequently reported loss of the Computer UI/screenshot connection and is diagnosing it; this worker has not independently reproduced that condition.
+Historical signed-in evidence received 2026-09-21: the dashboard then showed no collections; Create collection listed third-party sources from Airtable through Zoom; navigation included API keys, Auth Providers, Webhooks and Connect playground; no assistant was visible. The Chrome profile was verified. The empty-dashboard observation is superseded by the fresh collection check below.
+
+Current signed-in evidence received 2026-09-22: the **Vector** organization contains one collection, [Harborline Support](https://app.airweave.ai/collections/harborline-support-m7igf5), with status **Needs Source**. Its detail page says **“No sources connected”** and **“Connect your first data source to start syncing and searching your data”**. The query field and **Send query** are disabled; **Connect a source** is available. This verifies the collection's existence, not its creator, creation path, source authorization, ingestion, or successful retrieval. The recheck did not establish who created it.
 
 ## Primary evidence
 
@@ -56,7 +58,7 @@ Use no real contacts, credentials, customer data, outbound destinations or activ
 
 Status: **proposed, not live-tested**.
 
-Prerequisites: a confirmed permitted synthetic source, actual UI support for exact source selection, ingestion allowance, and an operator-established baseline. The collection name must be unique or explicitly reusable to avoid duplicates. The creation modal may require a source from the first step, according to the current public frontend; do not promise empty collection creation without checking the deployment.
+Prerequisites: a confirmed permitted synthetic source, actual UI support for exact source selection, ingestion allowance, and an operator-established baseline. The existing Harborline Support collection is the candidate for reuse after its scope is confirmed; do not create a duplicate merely because the earlier dashboard was empty. Its current empty-source state is verified, but the path by which it was created and its creator are not established by the recheck.
 
 Suggested opening after a baseline synthetic collection exists: **“Rename Harborline Support to Harborline Support Operations so it's easier to find.”** This is a 14-word useful saved action without missing inputs. Confirm rename support and target uniqueness before adopting it. A rename is only the opener, not one of the substantial workflows.
 
@@ -88,7 +90,7 @@ The local Nova checkout is the clean main-based branch specified by the coordina
 
 ## Feasibility addendum: source access (2026-09-21)
 
-**Eligibility passed via the coordinator's signed-in inspection, under the embedded dashboard-operator interpretation. Execution remains dependent on an authorized synthetic source.** The live wizard is ordinary forms: Create collection → name → Next → source → GitHub → source name → Create → PAT, repository, optional branch and sync-PR setting. The wizard was closed without saving; the dashboard still has no collections.
+**Eligibility passed via the coordinator's signed-in inspection, under the embedded dashboard-operator interpretation. Execution remains dependent on an authorized synthetic source.** The live wizard is ordinary forms: Create collection → name → Next → source → GitHub → source name → Create → PAT, repository, optional branch and sync-PR setting. At that 2026-09-21 inspection, the wizard was closed without saving and the dashboard still showed no collections. The 2026-09-22 recheck supersedes that historical collection count: Harborline Support now exists with no connected source.
 
 The public connector catalog/source declarations were inspected at the same `1ebe1af2dbfb90f3334410721e69997e4f02b320` revision. No supported anonymous text, local-file upload, public-URL crawler or zero-credential synthetic source was found. Ordinary connectors declare direct credential, OAuth or auth-provider methods. CTTI's public research data still requires a database username/password. The superficially promising Stub, File Stub, Snapshot and Enron sources are marked internal; the source registry excludes them unless server configuration enables internal sources. They are not legitimate cloud-UI alternatives, and Enron is not the required synthetic business corpus.
 
@@ -107,17 +109,17 @@ Auth Providers are credential brokers, not a credential-free ingestion source. [
 
 ## Confirmed external blocker and resume condition
 
-Coordinator update, 21 September 2026: **Airweave remains eligible, but implementation and the demonstration are blocked on authorized source access.** This is not a skip for an equivalent embedded agent and not a finished video.
+Coordinator update, 22 September 2026: **Airweave remains eligible, but implementation and the demonstration are blocked on authorized source access.** The existence of an empty collection does not remove this prerequisite. This is not a skip for an equivalent embedded agent and not a finished video.
 
 | Account/UI evidence reported by coordinator | Concrete implication |
 | --- | --- |
-| The signed-in dashboard has no collections. | There is no prepared searchable knowledge baseline to reuse. |
-| The GitHub source wizard requires a Personal Access Token and `owner/repo`; optional fields include branch and a PR-sync toggle. | Collection setup cannot complete this path using synthetic files alone. No source credential has been supplied or located through an authorized source connection. |
-| No connected Auth Providers are available in the account. | The earlier conditional existing-provider route is unavailable in the observed account. |
-| Composio setup requests a Composio API key. | Configuring Composio would introduce another credential prerequisite; it does not bypass GitHub/source authentication. No provider key was supplied or inspected. |
-| The GitHub wizard was closed without saving, and the dashboard still showed no collections. | No ingestion or persisted collection was claimed; the failed prerequisite did not become a staged fake success. |
+| Fresh 2026-09-22 check: Vector contains one collection, Harborline Support, at `/collections/harborline-support-m7igf5`, with status **Needs Source**. | An existing collection can be considered for scoped reuse. Its creator was not established, and its existence is not evidence of ingestion or a searchable knowledge baseline. |
+| The collection detail shows **No sources connected**, asks to connect a first data source, disables the query field and **Send query**, and offers **Connect a source**. | Search and retrieval cannot currently execute. The exact missing dependency is a permitted source connection, not creation of a collection. |
+| Prior 2026-09-21 inspection: the GitHub source wizard requires a Personal Access Token and `owner/repo`; optional fields include branch and a PR-sync toggle. | Source setup cannot complete this path using synthetic files alone. No source credential has been supplied or located through an authorized source connection. |
+| Prior 2026-09-21 inspection: no connected Auth Providers were available in the account. | The conditional existing-provider route was unavailable in that inspection. Provider availability was not reverified by the 2026-09-22 collection check. |
+| Prior 2026-09-21 inspection: Composio setup requests a Composio API key. | Configuring Composio introduces another credential prerequisite; it does not bypass GitHub/source authentication. No provider key was supplied or inspected. |
 
-The minimum resume requirement is an owner-authorized read-only source connection to a **dedicated synthetic-only corpus**. For the exercised GitHub path this means a credential with Contents read access limited to the designated repository, its exact `owner/repo`, and the chosen branch; keep PR sync off. The corpus must contain only the prepared Harborline documents, not Nova code, another customer's branch or unrelated private files. A genuinely existing, scoped provider connection would also satisfy the authentication prerequisite after its selected account and source scope are verified, but none was present during this check.
+The minimum resume requirement is an owner-authorized read-only source connection to a **dedicated synthetic-only corpus**. For the exercised GitHub path this means a credential with Contents read access limited to the designated repository, its exact `owner/repo`, and the chosen branch; keep PR sync off. The corpus must contain only the prepared Harborline documents, not Nova code, another customer's branch or unrelated private files. A genuinely existing, scoped provider connection would also satisfy the authentication prerequisite after its selected account and source scope are verified, but none was present during the 2026-09-21 provider inspection.
 
 No credential value should be sent in conversation or committed. The owner can establish the connection through the product's intended secure flow, or explicitly authorize the needed credential/access provisioning. The current brief permits synthetic uploads and reversible dashboard work but excludes credential/access changes; that is the source of this unresolved authorization boundary. Public source-code evidence above offers no supported anonymous-upload alternative. Do not mine another application, browser session or Git CLI for tokens.
 
