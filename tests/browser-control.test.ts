@@ -3,6 +3,7 @@ import {BrowserControl} from '../web/extension/browser-control';
 import type {Action} from '../shared/types';
 const click:Action={kind:'click',ref:'validate',value:null,url:null,x:null,y:null,risk:'read',summary:'Validate'};
 function setup(onClick?:ConstructorParameters<typeof BrowserControl>[2]){
+  vi.stubGlobal('navigator',{platform:'MacIntel'});
   const sendMessage=vi.fn();const sendCommand=vi.fn().mockResolvedValue({});
   vi.stubGlobal('chrome',{permissions:{contains:vi.fn().mockResolvedValue(true)},tabs:{get:vi.fn().mockResolvedValue({active:true,url:'https://example.test/'}),sendMessage},debugger:{attach:vi.fn().mockResolvedValue(undefined),sendCommand,onDetach:{addListener:vi.fn()}}});
   return {control:new BrowserControl(()=>1,()=>{},onClick),sendMessage,sendCommand};
