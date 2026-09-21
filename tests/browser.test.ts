@@ -3,6 +3,7 @@ import { chromium, type Browser, type Page } from 'playwright';
 import { buildSync } from 'esbuild';
 import { readFileSync } from 'node:fs';
 import type { Action } from '../shared/types';
+import { checkAction } from '../BE/src/agent/policy';
 const script = buildSync({entryPoints:['shared/dom.ts'],bundle:true,write:false,format:'iife'}).outputFiles[0].text;
 const action=(patch:Partial<Action>):Action=>({kind:'click',ref:null,value:null,url:null,x:null,y:null,risk:'read',summary:'test',...patch});
 let browser:Browser;let page:Page;
@@ -148,11 +149,35 @@ describe('real DOM actuation in an isolated fixture browser',()=>{
     await page.locator('#custom').evaluate(el=>(el as HTMLElement).style.marginLeft='50px');
     await expect(page.evaluate(ref=>window.__novaDOM!.prepare(ref),target.ref)).rejects.toThrow('moved');
   });
+  it.each(['tabindex="0"','role="grid" tabindex="0"','data-action="records"'])('keeps a visual row hit separate from a broad %s toolbar container',async(attributes)=>{
+    await page.setContent(`<div ${attributes}><button>Delete records</button><button>Create record</button><table><tbody><tr id="row"><td><span id="alias">Customer returns coverage</span></td><td>2</td></tr></tbody></table></div>`);
+    await page.evaluate(()=>{delete window.__novaDOM;document.getElementById('row')!.onclick=()=>{document.body.dataset.opened='yes';};});await page.evaluate(script);
+    const box=(await page.locator('#alias').boundingBox())!;const point={x:box.x+5,y:box.y+5};
+    await page.evaluate(p=>window.__novaDOM!.inspect(p.x,p.y),point);
+    const snapshot=await page.evaluate(()=>window.__novaDOM!.snapshot());const target=snapshot.elements[0];
+    expect(target).toMatchObject({tag:'tr',name:'Customer returns coverage 2'});
+    expect(target.name).not.toContain('Delete');expect(await page.evaluate(()=>document.body.dataset.opened)).toBeUndefined();
+    expect(checkAction(action({ref:target.ref}),snapshot,snapshot.url,'Open the existing record').outcome).toBe('allow');
+    const prepared=await page.evaluate(ref=>window.__novaDOM!.prepare(ref),target.ref);expect(prepared).toMatchObject(point);
+    await page.mouse.click(prepared.x,prepared.y);expect(await page.evaluate(()=>document.body.dataset.opened)).toBe('yes');
+    const remove=snapshot.elements.find(e=>e.name==='Delete records')!;
+    expect(checkAction(action({ref:remove.ref}),snapshot,snapshot.url,'Open the existing record').outcome).toBe('approve');
+    const region=(await page.locator('body > div').boundingBox())!;await page.evaluate(r=>window.__novaDOM!.inspect(r.x+r.width-2,r.y+r.height-2),region);
+    const broad=await page.evaluate(()=>window.__novaDOM!.snapshot());expect(broad.elements[0].name).toContain('Delete records');
+    expect(checkAction(action({ref:broad.elements[0].ref}),broad,broad.url,'Open the existing record').outcome).toBe('approve');
+  });
+  it('preserves an exact leaf hit when an unmarked row has no semantic role',async()=>{
+    await page.setContent('<div tabindex="0"><button>Delete records</button><div id="row" style="cursor:pointer"><span id="alias">Customer returns coverage</span><span>2</span></div></div>');
+    await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);
+    const box=(await page.locator('#alias').boundingBox())!;await page.evaluate(p=>window.__novaDOM!.inspect(p.x+5,p.y+5),box);
+    expect((await page.evaluate(()=>window.__novaDOM!.snapshot())).elements[0]).toMatchObject({tag:'span',name:'Customer returns coverage'});
+  });
   it('resolves an icon to its actual button and blocks private fields and unobserved frames',async()=>{
     await page.setContent('<button aria-label="Delete record" style="width:120px;height:60px"><svg width="20" height="20"><rect width="20" height="20"/></svg></button><input type="password"><iframe src="about:blank"></iframe>');
     await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);
     const icon=await page.locator('rect').boundingBox();await page.evaluate(p=>window.__novaDOM!.inspect(p.x+5,p.y+5),icon!);
-    expect((await page.evaluate(()=>window.__novaDOM!.snapshot())).elements[0]).toMatchObject({tag:'button',name:'Delete record'});
+    const snapshot=await page.evaluate(()=>window.__novaDOM!.snapshot());expect(snapshot.elements[0]).toMatchObject({tag:'button',name:'Delete record'});
+    expect(checkAction(action({ref:snapshot.elements[0].ref}),snapshot,snapshot.url,'Open the existing record').outcome).toBe('approve');
     for(const selector of ['input','iframe']){const r=await page.locator(selector).boundingBox();await expect(page.evaluate(p=>window.__novaDOM!.inspect(p.x+10,p.y+10),r!)).rejects.toThrow('protected');}
   });
 });

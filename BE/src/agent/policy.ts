@@ -175,6 +175,17 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
     return result('allow', 'Open the import preparation dialog');
   }
   if (serious.test(target.name) || action.risk === 'sensitive' || sensitiveSettings.test(context) && !requestedRecordEdit(action, snapshot, intent) || /\b(subscribe|subscription|upgrade)\b/i.test(target.name) && /\b(pay|paid|billing|charge|per month|monthly|annual|trial)\b|[$₹€£]/i.test(target.context)) return result('approve', 'Review this purchase, communication, deletion, agreement, or sensitive account change.', true);
+  // Explicit tag-entry instructions describe a local chip commit, separate
+  // from submitting a form. Require the value Nova prepared and requested tags.
+  const tagRequest=intent.split('\n').reverse().find(line=>/\b(tag(?:s|ged|ging)?|wait|stop|cancel)\b/i.test(line))||'';
+  const requestedTag=/\b(add|apply|assign|set|update|edit|change|use|fix)\b.{0,100}\btags?\b|(?:^|[.!?;,]|\band\b)\s*(?:please\s+)?tag\b/i.test(tagRequest.replace(/\b(don['’]?t|do not|never|without|stop|cancel)\b[^,;.!?]*/gi,''))&&
+    !/\b(how|what if|wait|stop|cancel|after|until|approval|approve|confirmation)\b|\b(ask|check with) me\b/i.test(tagRequest);
+  if(action.kind==='press'&&action.value==='Enter'&&action.risk==='change'&&
+      target.tag==='input'&&target.type==='text'&&target.form===false&&!target.submission&&
+      target.edit?.empty===false&&target.state?.some(state=>/^draft:matches:\S+$/.test(state))&&
+      /^(?:type|enter|add) (?:a |new )?tags?(?: and|,)? press enter(?:\.{3}|…|[.!])?$/i.test(target.name.trim())&&
+      requestedTag&&!serious.test(target.context)&&!sensitiveSettings.test(context)&&!/\b(api key|access token|client secret|private key|credentials?)\b/i.test(context))
+    return result('allow','Commit the requested tag in its observed tag-entry control',true);
   // Inline title editors commit on Enter; they are not message composers.
   // Keep this after the consequential-action and sensitive-settings gates.
   if(action.kind==='press'&&action.value==='Enter'&&/^(rename|edit (?:name|title))\b/i.test(target.name.trim())&&(['input','textarea'].includes(target.tag)||target.role==='textbox')&&!target.submission)return result('allow','Save the requested inline name or title',true);
