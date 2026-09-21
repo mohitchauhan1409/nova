@@ -1,0 +1,257 @@
+{
+  "duration": 528,
+  "events": [
+    {
+      "time": 8.1,
+      "actor": "operator",
+      "strength": 1,
+      "evidence": "Actual operator left receipt at epoch 1790021138876, target Open Nova side panel; nearest native source frame 543, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 14.4,
+      "actor": "operator",
+      "strength": 1,
+      "evidence": "Actual operator left receipt at epoch 1790021145183, target Message Nova; nearest native source frame 732, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 41.0,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021171777, target c8ogn0j-20; nearest native source frame 1530, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 44.7,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021175469, target c8ogn0j-117; nearest native source frame 1641, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 47.666666666666664,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021178453, target c8ogn0j-119; nearest native source frame 1730, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 52.766666666666666,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021183529, target c8ogn0j-6; nearest native source frame 1883, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 70.96666666666667,
+      "actor": "operator",
+      "strength": 1,
+      "evidence": "Actual operator left receipt at epoch 1790021207736, target Message Nova; nearest native source frame 2609, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 117.26666666666667,
+      "actor": "operator",
+      "strength": 1,
+      "evidence": "Actual operator left receipt at epoch 1790021261035, target button; nearest native source frame 4208, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 134.06666666666666,
+      "actor": "operator",
+      "strength": 1,
+      "evidence": "Actual operator left receipt at epoch 1790021277857, target button; nearest native source frame 4712, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 138.7,
+      "actor": "operator",
+      "strength": 1,
+      "evidence": "Actual operator left receipt at epoch 1790021282490, target button; nearest native source frame 4851, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 144.86666666666667,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021288632, target b4m2hhj-38; nearest native source frame 5036, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 148.83333333333334,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021292598, target b4m2hhj-27; nearest native source frame 5155, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 152.63333333333333,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021296415, target b4m2hhj-56; nearest native source frame 5269, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 156.1,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021299865, target b4m2hhj-57; nearest native source frame 5373, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 161.63333333333333,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021305402, target b4m2hhj-10; nearest native source frame 5539, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 178.86666666666667,
+      "actor": "operator",
+      "strength": 1,
+      "evidence": "Actual operator left receipt at epoch 1790021331650, target Message Nova; nearest native source frame 6326, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 238.9,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021391685, target yzqmacl-31; nearest native source frame 8127, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 243.26666666666668,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021396044, target yzqmacl-123; nearest native source frame 8258, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 247.9,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021400669, target yzqmacl-125; nearest native source frame 8397, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 251.16666666666666,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021403935, target yzqmacl-122; nearest native source frame 8495, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 254.43333333333334,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021407202, target yzqmacl-122; nearest native source frame 8593, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 256.96666666666664,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021409736, target yzqmacl-129; nearest native source frame 8669, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 265.6,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021418361, target yzqmacl-175; nearest native source frame 8928, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 269.7,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021422460, target yzqmacl-277; nearest native source frame 9051, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 273.7,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021426460, target yzqmacl-279; nearest native source frame 9171, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 276.4,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021429185, target yzqmacl-276; nearest native source frame 9252, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 279.4,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021432185, target yzqmacl-276; nearest native source frame 9342, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 282.3333333333333,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021435110, target yzqmacl-283; nearest native source frame 9430, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 303.9,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021456681, target rgv3l1v-33; nearest native source frame 10077, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 313.7,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021466489, target rgv3l1v-33; nearest native source frame 10371, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 335.73333333333335,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021488506, target rgv3l1v-33; nearest native source frame 11032, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 341.03333333333336,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021493806, target rgv3l1v-200; nearest native source frame 11191, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 359.3666666666667,
+      "actor": "operator",
+      "strength": 1,
+      "evidence": "Actual operator left receipt at epoch 1790021512147, target Message Nova; nearest native source frame 11741, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 407.93333333333334,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021560697, target 2zpd26o-38; nearest native source frame 13198, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 415.7,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021568472, target 2zpd26o-38; nearest native source frame 13431, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 419.7,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021572489, target 2zpd26o-27; nearest native source frame 13551, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 423.3,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021576080, target 2zpd26o-56; nearest native source frame 13659, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 426.3666666666667,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021579148, target 2zpd26o-57; nearest native source frame 13751, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 431.9,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021584661, target 2zpd26o-9; nearest native source frame 13917, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 447.1,
+      "actor": "operator",
+      "strength": 1,
+      "evidence": "Actual operator left receipt at epoch 1790021599863, target Message Nova; nearest native source frame 14373, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 499.1,
+      "actor": "operator",
+      "strength": 1,
+      "evidence": "Actual operator left receipt at epoch 1790021651879, target Message Nova; nearest native source frame 15933, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    },
+    {
+      "time": 515.7333333333333,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Actual nova left receipt at epoch 1790021668518, target 6187gh0-29; nearest native source frame 16432, visually inspected; session 9ee04cc6-2009-4443-ac45-a43b7e721165."
+    }
+  ]
+}

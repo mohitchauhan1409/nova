@@ -1,0 +1,94 @@
+{
+  "status": "passed: local render, independent numerical/bounded visual acceptance, and independent remote recovery",
+  "at_utc": "2026-09-21T20:25:53.039627+00:00",
+  "session_id": "9ee04cc6-2009-4443-ac45-a43b7e721165",
+  "backend_sha": "94debcde941dcb30de7e3b89aebf26f963b109d9",
+  "extension_source_sha": "b7e31723147e0b79d5e181796e7e2edaa82702b9",
+  "extension_zip_sha256": "28e1152748e9f193067e8f2abf8296b4551d73bd0e142e5438a3edd567249e96",
+  "media": [
+    {
+      "name": "nova-confident-ai-original.mov",
+      "bytes": 165225828,
+      "frames": 16922,
+      "seconds": 564.066667,
+      "sha256": "6904d10a2580d33f035064144dbaa29b446bf12945ed834ea5bebdabecf14f0c"
+    },
+    {
+      "name": "nova-confident-ai-silent.mp4",
+      "bytes": 54468446,
+      "frames": 15840,
+      "seconds": 528,
+      "sha256": "06eb41d8e76be6ff2219dc753355e1b3a37ec2a2ed0bf1aa07c92344baaabaa6"
+    },
+    {
+      "name": "nova-confident-ai-clicks.mp4",
+      "bytes": 55125561,
+      "frames": 15840,
+      "seconds": 528,
+      "sha256": "d68e4373b4f2a5697b7e556eb4b248efa280fbfe3032921e3b5cf6c6813344f1"
+    }
+  ],
+  "raw_unchanged": true,
+  "native_size": [
+    3024,
+    1776
+  ],
+  "fps": 30,
+  "typing_and_nova_execution_speed": 1,
+  "case_task_seconds_preserved": 128.001,
+  "honest_recovery_preserved": "Repeated column-selector checks, tag visibility limitation and Leave the columns as they are operator redirect remain at1x.",
+  "clicks": {
+    "total": 42,
+    "nova": 32,
+    "operator": 10,
+    "source_export_count": 132,
+    "nearest_source_frame_max_error_ms": 16.0,
+    "all_actual_receipts_including_premessage_launcher": true,
+    "all_visual_receipt_frames_reviewed": true
+  },
+  "video_streams_identical": true,
+  "video_stream_sha256": "a06f4cc0bc3b4a4950ae740661ad9000e98bcdea8b7806c9eedcef57d120d7fb",
+  "audio": {
+    "decoded": true,
+    "fps": 30,
+    "quiet_peak": 0.0,
+    "decoded_peak": 0.21638606488704681,
+    "max_onset_error_ms": 0.020833333333333332,
+    "minimum_tap_correlation": 0.9994548481410378
+  },
+  "visual_coverage": {
+    "source": "5-second contacts, all42 native receipt frames, measured debugger-entry animation and native pause panels",
+    "encoded": "66 selected native frames extracted; all42 cue frames reviewed and source-compared; mask animation and final saved Preview inspected",
+    "outside_mask_max_mean_error_255": 0.25362331858646703,
+    "outside_mask_max_p99_error_255": 4.0,
+    "pointer_claim": "No additional system/tool pointer observed in reviewed samples; bounded coverage, not every-pixel exhaustive certification."
+  },
+  "independent_review": {
+    "status": "passed",
+    "report": "independent-final-acceptance.md",
+    "source": "private/confident-ai/independent-final-qa/acceptance.md"
+  },
+  "business_result": {
+    "verification_source": "Coordinator independently reopened saved UI after capture; recorded Nova had disclosed tag visibility limitation.",
+    "dataset": "Northstar Returns Readiness",
+    "golden_count": 8,
+    "tags": [
+      "window-boundary",
+      "damage-review"
+    ],
+    "actual_output": "left empty",
+    "prompt": "Northstar Returns Adviser",
+    "commit": "5fb11cb",
+    "changes": [
+      "grouped follow-up",
+      "damage report order reference and description",
+      "100-word customer-facing answer limit"
+    ],
+    "ending": "saved prompt in Preview"
+  },
+  "remote_backup": {
+    "status": "passed",
+    "report": "remote-backup-verification.json",
+    "recovery_commit": "98ed06a79d180de3cacb3b25ceca99e9ab8e6109"
+  }
+}

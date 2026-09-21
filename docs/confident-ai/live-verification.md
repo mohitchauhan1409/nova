@@ -1,8 +1,10 @@
 # Confident live verification ledger
 
-Updated 22 September 2026 (Asia/Kolkata); event times below are UTC on 21 September. This ledger records saved outcomes and retained failures. The final raw take has been captured; all saved business outcomes passed independent postcapture checks. Media QA and remote backup remain pending in this document. No evaluation results or complete delivery readiness are certified.
+Updated 22 September 2026 (Asia/Kolkata); event times below are UTC on 21 September. This ledger records saved outcomes and retained failures. The final raw take has been captured; all saved business outcomes passed independent postcapture checks. Local media QA and independent acceptance passed; see [local media QA](evidence/final-qa-report.md) and [independent acceptance](evidence/independent-final-acceptance.md). Independent recovery from the private remote passed at `98ed06a`: all three complete file hashes/sizes match local originals and remote LFS pointers; see [remote backup verification](evidence/remote-backup-verification.json). No evaluation results are claimed.
 
-## Final raw take — recorded, media QA pending
+Media results: raw **564.066667 seconds / 16,922 frames**; each edit **528 seconds / 15,840 frames**, native 3024×1776 at 30 fps. The silent edit has no audio; the tap edit uses **42 receipt-backed cues** (32 Nova, 10 operator). Both encoded video streams match. The full 128.001-second case task, menu loop and visible redirect remain at 1×; bounded visual checks and exhaustive cue/audio checks are documented in the linked acceptance.
+
+## Final take — local and independent media QA passed
 
 Session `9ee04cc6-2009-4443-ac45-a43b7e721165`; capture start epoch `1790021120776`; coordinator-reported raw frame count 16,922. Loaded backend remained `94debcde941dcb30de7e3b89aebf26f963b109d9` and extension `b7e3172`; source/docs checkout was `49368c4`. No runtime activation is implied by later docs commits.
 
@@ -56,9 +58,9 @@ Current backend: `94debcde941dcb30de7e3b89aebf26f963b109d9`; extension: `b7e3172
 - `20260921T185736.785485Z-80880`: first prompt refinement and earlier blocked attempts.
 - `20260921T194008.142481Z-86606`: visual dataset opening still failed after the target patch.
 - `20260921T194209.425029Z-86911`: backend `0bd15f1`, same extension; explicit dataset Save and two-golden creation.
-- `20260921T195133.832491Z-88438`: current backend; second saved prompt and pending existing-answer edit.
+- `20260921T195133.832491Z-88438`: recorded backend; second saved prompt and failed existing-answer edit attempts.
 
-These folders hold `summary.json` and bounded session snapshots. Raw sessions, credentials and tokens are not included in the repository. The private synthetic-object manifest now records all six exact IDs/Inputs and the completed independent checks. Source guide commits made after backend activation were not loaded by this docs update; the recorded live runtime remains the stated backend/extension pair.
+These folders hold `summary.json` and bounded session snapshots. Raw sessions, credentials and tokens are not included in the repository. The tracked synthetic-object manifest records all eight exact saved IDs/Inputs and the completed independent checks. Source guide commits made after backend activation were not loaded by this docs update; the recorded live runtime remains the stated backend/extension pair.
 
 ## Saved outcomes
 
@@ -117,4 +119,6 @@ Original prompt request through final saved-revision reply took 106.196 seconds,
 
 ## Final structured creation path — capture outcome
 
-Existing-row editing is excluded. The second creation rehearsal has saved the 31-day standard jacket and personalized six-day damage cases, with six total independently verified. The final creates exactly-30-day standard-jacket and exactly-7-day standard-mug boundary cases, for eight total, with no deletion or duplicate. A prompt revision from 120 to 100 words replaces the planned row-edit correction. The final request must use “delivered exactly seven days ago and arrived damaged” and an explicit separate tag sentence: the tag guard rejected a bare “after” in the prior request as if it were conditional authorization. No further policy change was made. The two final creations and prompt revisions are now observed in the captured session above; independent tag reopens and all business acceptance checks passed; media QA and backup remain pending.
+Existing-row editing is excluded. The second creation rehearsal has saved the 31-day standard jacket and personalized six-day damage cases, with six total independently verified. The final created exactly-30-day standard-jacket and exactly-7-day standard-mug boundary cases, for eight total, with no deletion or duplicate. A prompt revision from 120 to 100 words replaces the planned row-edit correction. The final request must use “delivered exactly seven days ago and arrived damaged” and an explicit separate tag sentence: the tag guard rejected a bare “after” in the prior request as if it were conditional authorization. No further policy change was made. The two final creations and prompt revisions are now observed in the captured session above; independent tag reopens, all business acceptance checks, local media QA and independent acceptance passed; independent private-remote recovery passed at `98ed06a`, with all three full file hashes/sizes matching local originals and remote pointers; see [remote backup verification](evidence/remote-backup-verification.json).
+
+Authorized post-backup cleanup is complete: 323 generated scratch media and 3 independently verified recovery duplicates were removed, totaling 525,996,575 bytes. The three primary media hashes still match, and report/runtime/build records remain intact; see [cleanup manifest](evidence/cleanup-manifest.json). Earlier visual sample filenames are historical inspection inputs; their measurements and reproducible scripts remain preserved after their generated images were cleaned.

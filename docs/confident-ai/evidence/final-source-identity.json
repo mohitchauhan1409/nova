@@ -1,0 +1,17 @@
+{
+  "sha256": "6904d10a2580d33f035064144dbaa29b446bf12945ed834ea5bebdabecf14f0c",
+  "bytes": 165225828,
+  "frames": 16922,
+  "fps": 30,
+  "native_size": [
+    3024,
+    1776
+  ],
+  "first_frame_epoch_ms": 1790021120776,
+  "session_id": "9ee04cc6-2009-4443-ac45-a43b7e721165",
+  "backend_sha": "94debcde941dcb30de7e3b89aebf26f963b109d9",
+  "extension_source_sha": "b7e31723147e0b79d5e181796e7e2edaa82702b9",
+  "extension_zip_sha256": "28e1152748e9f193067e8f2abf8296b4551d73bd0e142e5438a3edd567249e96",
+  "capture_system_cursor": false,
+  "nova_cursor": true
+}

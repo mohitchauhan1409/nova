@@ -1,0 +1,2330 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-09-21T20:29:11.379262+00:00",
+  "authorization": "Root explicit authorization after remote full-hash PASS at 98ed06a79d180de3cacb3b25ceca99e9ab8e6109; exactly 323 listed scratch media and 3 verified dedicated recovery duplicate blobs.",
+  "backup_proof": "remote-backup-verification.json",
+  "backup_commit": "98ed06a79d180de3cacb3b25ceca99e9ab8e6109",
+  "validated_before_delete": true,
+  "deleted": [
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/banner-frames.rgb",
+      "size_bytes": 72187200,
+      "mtime_ns": 1790021824698716670,
+      "inode": 88036367,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/debugger-entry-contact.png",
+      "size_bytes": 541274,
+      "mtime_ns": 1790021834743022894,
+      "inode": 88036400,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/encoded-debugger-entry.png",
+      "size_bytes": 306389,
+      "mtime_ns": 1790022240039485383,
+      "inode": 88037258,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-001.png",
+      "size_bytes": 600994,
+      "mtime_ns": 1790022205792168857,
+      "inode": 88037130,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-002.png",
+      "size_bytes": 636830,
+      "mtime_ns": 1790022205927404113,
+      "inode": 88037131,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-003.png",
+      "size_bytes": 570957,
+      "mtime_ns": 1790022206175463943,
+      "inode": 88037132,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-004.png",
+      "size_bytes": 573635,
+      "mtime_ns": 1790022207311493554,
+      "inode": 88037134,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-005.png",
+      "size_bytes": 571576,
+      "mtime_ns": 1790022207312042140,
+      "inode": 88037135,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-006.png",
+      "size_bytes": 572879,
+      "mtime_ns": 1790022207313703480,
+      "inode": 88037136,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-007.png",
+      "size_bytes": 611677,
+      "mtime_ns": 1790022207314678485,
+      "inode": 88037137,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-008.png",
+      "size_bytes": 717172,
+      "mtime_ns": 1790022207508059285,
+      "inode": 88037138,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-009.png",
+      "size_bytes": 728907,
+      "mtime_ns": 1790022207631654239,
+      "inode": 88037139,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-010.png",
+      "size_bytes": 729128,
+      "mtime_ns": 1790022207824721829,
+      "inode": 88037140,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-011.png",
+      "size_bytes": 702984,
+      "mtime_ns": 1790022208411067215,
+      "inode": 88037141,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-012.png",
+      "size_bytes": 701524,
+      "mtime_ns": 1790022208412971099,
+      "inode": 88037142,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-013.png",
+      "size_bytes": 695510,
+      "mtime_ns": 1790022208456610872,
+      "inode": 88037143,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-014.png",
+      "size_bytes": 695737,
+      "mtime_ns": 1790022208457183041,
+      "inode": 88037144,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-015.png",
+      "size_bytes": 726899,
+      "mtime_ns": 1790022208532136617,
+      "inode": 88037145,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-016.png",
+      "size_bytes": 736449,
+      "mtime_ns": 1790022210307709471,
+      "inode": 88037147,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-017.png",
+      "size_bytes": 766157,
+      "mtime_ns": 1790022210310506358,
+      "inode": 88037148,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-018.png",
+      "size_bytes": 510701,
+      "mtime_ns": 1790022210366389393,
+      "inode": 88037149,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-019.png",
+      "size_bytes": 520809,
+      "mtime_ns": 1790022210367812857,
+      "inode": 88037150,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-020.png",
+      "size_bytes": 521727,
+      "mtime_ns": 1790022210474110445,
+      "inode": 88037151,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-021.png",
+      "size_bytes": 522111,
+      "mtime_ns": 1790022211137496957,
+      "inode": 88037152,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-022.png",
+      "size_bytes": 523364,
+      "mtime_ns": 1790022211310258876,
+      "inode": 88037153,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-023.png",
+      "size_bytes": 794125,
+      "mtime_ns": 1790022211579493964,
+      "inode": 88037154,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-024.png",
+      "size_bytes": 805927,
+      "mtime_ns": 1790022211731430709,
+      "inode": 88037155,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-025.png",
+      "size_bytes": 809778,
+      "mtime_ns": 1790022211886395800,
+      "inode": 88037156,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-026.png",
+      "size_bytes": 805516,
+      "mtime_ns": 1790022212033949484,
+      "inode": 88037157,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-027.png",
+      "size_bytes": 795243,
+      "mtime_ns": 1790022212265151199,
+      "inode": 88037159,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-028.png",
+      "size_bytes": 779675,
+      "mtime_ns": 1790022212822530667,
+      "inode": 88037160,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-029.png",
+      "size_bytes": 783078,
+      "mtime_ns": 1790022212824731426,
+      "inode": 88037161,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-030.png",
+      "size_bytes": 909550,
+      "mtime_ns": 1790022212873376179,
+      "inode": 88037162,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-031.png",
+      "size_bytes": 845265,
+      "mtime_ns": 1790022212877067362,
+      "inode": 88037163,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-032.png",
+      "size_bytes": 978270,
+      "mtime_ns": 1790022212957098711,
+      "inode": 88037164,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-033.png",
+      "size_bytes": 896703,
+      "mtime_ns": 1790022215419849431,
+      "inode": 88037165,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-034.png",
+      "size_bytes": 885223,
+      "mtime_ns": 1790022215603845439,
+      "inode": 88037166,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-035.png",
+      "size_bytes": 812023,
+      "mtime_ns": 1790022215785504230,
+      "inode": 88037167,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-036.png",
+      "size_bytes": 824674,
+      "mtime_ns": 1790022215923691623,
+      "inode": 88037168,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-037.png",
+      "size_bytes": 825935,
+      "mtime_ns": 1790022216050049423,
+      "inode": 88037169,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-038.png",
+      "size_bytes": 823815,
+      "mtime_ns": 1790022216148398518,
+      "inode": 88037170,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-039.png",
+      "size_bytes": 826613,
+      "mtime_ns": 1790022216470979964,
+      "inode": 88037171,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-040.png",
+      "size_bytes": 808364,
+      "mtime_ns": 1790022216640760119,
+      "inode": 88037172,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-041.png",
+      "size_bytes": 653951,
+      "mtime_ns": 1790022216794602081,
+      "inode": 88037173,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-042.png",
+      "size_bytes": 672851,
+      "mtime_ns": 1790022216912144051,
+      "inode": 88037174,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-043.png",
+      "size_bytes": 728660,
+      "mtime_ns": 1790022217028835225,
+      "inode": 88037175,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-044.png",
+      "size_bytes": 751421,
+      "mtime_ns": 1790022217140448961,
+      "inode": 88037178,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-045.png",
+      "size_bytes": 743702,
+      "mtime_ns": 1790022218109056761,
+      "inode": 88037179,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-046.png",
+      "size_bytes": 775955,
+      "mtime_ns": 1790022218497059491,
+      "inode": 88037180,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-047.png",
+      "size_bytes": 681462,
+      "mtime_ns": 1790022219372568594,
+      "inode": 88037181,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-048.png",
+      "size_bytes": 769699,
+      "mtime_ns": 1790022219590115332,
+      "inode": 88037183,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-049.png",
+      "size_bytes": 754584,
+      "mtime_ns": 1790022220305383821,
+      "inode": 88037186,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-050.png",
+      "size_bytes": 757748,
+      "mtime_ns": 1790022222328617961,
+      "inode": 88037188,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-051.png",
+      "size_bytes": 755777,
+      "mtime_ns": 1790022222635022794,
+      "inode": 88037189,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-052.png",
+      "size_bytes": 765362,
+      "mtime_ns": 1790022222785714783,
+      "inode": 88037190,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-053.png",
+      "size_bytes": 766958,
+      "mtime_ns": 1790022222937559236,
+      "inode": 88037191,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-054.png",
+      "size_bytes": 768129,
+      "mtime_ns": 1790022223071631403,
+      "inode": 88037192,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-055.png",
+      "size_bytes": 803885,
+      "mtime_ns": 1790022223292199405,
+      "inode": 88037193,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-056.png",
+      "size_bytes": 751103,
+      "mtime_ns": 1790022223890677718,
+      "inode": 88037194,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-057.png",
+      "size_bytes": 853883,
+      "mtime_ns": 1790022226239196190,
+      "inode": 88037196,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-058.png",
+      "size_bytes": 900036,
+      "mtime_ns": 1790022226978647742,
+      "inode": 88037202,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-059.png",
+      "size_bytes": 888725,
+      "mtime_ns": 1790022227456572531,
+      "inode": 88037203,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-060.png",
+      "size_bytes": 1021648,
+      "mtime_ns": 1790022227456979574,
+      "inode": 88037204,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-061.png",
+      "size_bytes": 934028,
+      "mtime_ns": 1790022227457159242,
+      "inode": 88037205,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-062.png",
+      "size_bytes": 978769,
+      "mtime_ns": 1790022227457409868,
+      "inode": 88037206,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-063.png",
+      "size_bytes": 844796,
+      "mtime_ns": 1790022227457570285,
+      "inode": 88037207,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-064.png",
+      "size_bytes": 769786,
+      "mtime_ns": 1790022227457755994,
+      "inode": 88037208,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-065.png",
+      "size_bytes": 906111,
+      "mtime_ns": 1790022227457908329,
+      "inode": 88037209,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-066.png",
+      "size_bytes": 695897,
+      "mtime_ns": 1790022227530903938,
+      "inode": 88037210,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-cue-contact-1.png",
+      "size_bytes": 1211752,
+      "mtime_ns": 1790022237875182546,
+      "inode": 88037252,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-cue-contact-2.png",
+      "size_bytes": 1611436,
+      "mtime_ns": 1790022238400048914,
+      "inode": 88037253,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-cue-contact-3.png",
+      "size_bytes": 1182009,
+      "mtime_ns": 1790022238917131915,
+      "inode": 88037254,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-cue-contact-4.png",
+      "size_bytes": 1276392,
+      "mtime_ns": 1790022239428312182,
+      "inode": 88037255,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/export-cue-contact-5.png",
+      "size_bytes": 1156764,
+      "mtime_ns": 1790022239785184276,
+      "inode": 88037257,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/idle-01.png",
+      "size_bytes": 72892,
+      "mtime_ns": 1790021908437040858,
+      "inode": 88036485,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/idle-02.png",
+      "size_bytes": 73063,
+      "mtime_ns": 1790021908514932780,
+      "inode": 88036486,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/idle-03.png",
+      "size_bytes": 72952,
+      "mtime_ns": 1790021908602081450,
+      "inode": 88036487,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/idle-04.png",
+      "size_bytes": 180700,
+      "mtime_ns": 1790021908673962472,
+      "inode": 88036488,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/idle-05.png",
+      "size_bytes": 181176,
+      "mtime_ns": 1790021908777436172,
+      "inode": 88036489,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/idle-06.png",
+      "size_bytes": 181150,
+      "mtime_ns": 1790021908884204470,
+      "inode": 88036490,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/idle-07.png",
+      "size_bytes": 193505,
+      "mtime_ns": 1790021908984593366,
+      "inode": 88036491,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/idle-08.png",
+      "size_bytes": 193488,
+      "mtime_ns": 1790021909092122334,
+      "inode": 88036492,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/idle-09.png",
+      "size_bytes": 193511,
+      "mtime_ns": 1790021909204162780,
+      "inode": 88036493,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/idle-10.png",
+      "size_bytes": 194230,
+      "mtime_ns": 1790021909322171252,
+      "inode": 88036494,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/idle-11.png",
+      "size_bytes": 194261,
+      "mtime_ns": 1790021909416053744,
+      "inode": 88036495,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/idle-12.png",
+      "size_bytes": 194201,
+      "mtime_ns": 1790021909556478063,
+      "inode": 88036497,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/idle-boundaries.png",
+      "size_bytes": 860730,
+      "mtime_ns": 1790021909778987698,
+      "inode": 88036498,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-001.jpg",
+      "size_bytes": 35336,
+      "mtime_ns": 1790021770842822189,
+      "inode": 88036038,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-002.jpg",
+      "size_bytes": 35817,
+      "mtime_ns": 1790021771050693469,
+      "inode": 88036039,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-003.jpg",
+      "size_bytes": 35812,
+      "mtime_ns": 1790021771244207228,
+      "inode": 88036040,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-004.jpg",
+      "size_bytes": 35827,
+      "mtime_ns": 1790021771457981909,
+      "inode": 88036041,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-005.jpg",
+      "size_bytes": 43249,
+      "mtime_ns": 1790021771673457847,
+      "inode": 88036042,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-006.jpg",
+      "size_bytes": 43448,
+      "mtime_ns": 1790021771878954367,
+      "inode": 88036044,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-007.jpg",
+      "size_bytes": 43826,
+      "mtime_ns": 1790021772096742731,
+      "inode": 88036047,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-008.jpg",
+      "size_bytes": 40474,
+      "mtime_ns": 1790021772304934305,
+      "inode": 88036049,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-009.jpg",
+      "size_bytes": 25552,
+      "mtime_ns": 1790021772764149970,
+      "inode": 88036052,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-010.jpg",
+      "size_bytes": 50513,
+      "mtime_ns": 1790021773009862706,
+      "inode": 88036071,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-011.jpg",
+      "size_bytes": 50533,
+      "mtime_ns": 1790021773228607450,
+      "inode": 88036072,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-012.jpg",
+      "size_bytes": 51195,
+      "mtime_ns": 1790021773465813983,
+      "inode": 88036074,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-013.jpg",
+      "size_bytes": 52670,
+      "mtime_ns": 1790021773693006930,
+      "inode": 88036075,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-014.jpg",
+      "size_bytes": 39498,
+      "mtime_ns": 1790021773887502194,
+      "inode": 88036076,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-015.jpg",
+      "size_bytes": 39509,
+      "mtime_ns": 1790021774091756958,
+      "inode": 88036077,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-016.jpg",
+      "size_bytes": 38606,
+      "mtime_ns": 1790021774292421915,
+      "inode": 88036079,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-017.jpg",
+      "size_bytes": 38611,
+      "mtime_ns": 1790021774474805750,
+      "inode": 88036080,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-018.jpg",
+      "size_bytes": 38612,
+      "mtime_ns": 1790021774675476748,
+      "inode": 88036081,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-019.jpg",
+      "size_bytes": 38974,
+      "mtime_ns": 1790021774878999759,
+      "inode": 88036082,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-020.jpg",
+      "size_bytes": 39478,
+      "mtime_ns": 1790021775076711245,
+      "inode": 88036083,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-021.jpg",
+      "size_bytes": 40148,
+      "mtime_ns": 1790021775278336706,
+      "inode": 88036084,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-022.jpg",
+      "size_bytes": 38873,
+      "mtime_ns": 1790021775753298940,
+      "inode": 88036085,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-023.jpg",
+      "size_bytes": 52279,
+      "mtime_ns": 1790021775990869849,
+      "inode": 88036087,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-024.jpg",
+      "size_bytes": 52254,
+      "mtime_ns": 1790021776225989581,
+      "inode": 88036088,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-025.jpg",
+      "size_bytes": 53095,
+      "mtime_ns": 1790021776439497885,
+      "inode": 88036089,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-026.jpg",
+      "size_bytes": 53115,
+      "mtime_ns": 1790021776676745084,
+      "inode": 88036090,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-027.jpg",
+      "size_bytes": 53077,
+      "mtime_ns": 1790021776911342189,
+      "inode": 88036092,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-028.jpg",
+      "size_bytes": 53093,
+      "mtime_ns": 1790021777215976473,
+      "inode": 88036099,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-029.jpg",
+      "size_bytes": 52321,
+      "mtime_ns": 1790021777615194211,
+      "inode": 88036101,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-030.jpg",
+      "size_bytes": 52598,
+      "mtime_ns": 1790021777881867289,
+      "inode": 88036103,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-031.jpg",
+      "size_bytes": 54194,
+      "mtime_ns": 1790021778219393925,
+      "inode": 88036115,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-032.jpg",
+      "size_bytes": 54212,
+      "mtime_ns": 1790021778488530847,
+      "inode": 88036130,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-033.jpg",
+      "size_bytes": 52163,
+      "mtime_ns": 1790021778726368965,
+      "inode": 88036132,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-034.jpg",
+      "size_bytes": 52681,
+      "mtime_ns": 1790021778985917803,
+      "inode": 88036133,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-035.jpg",
+      "size_bytes": 53387,
+      "mtime_ns": 1790021779276653402,
+      "inode": 88036140,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-036.jpg",
+      "size_bytes": 50463,
+      "mtime_ns": 1790021779511021256,
+      "inode": 88036143,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-037.jpg",
+      "size_bytes": 52528,
+      "mtime_ns": 1790021779787704710,
+      "inode": 88036145,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-038.jpg",
+      "size_bytes": 36762,
+      "mtime_ns": 1790021780047990385,
+      "inode": 88036147,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-039.jpg",
+      "size_bytes": 51575,
+      "mtime_ns": 1790021780314831130,
+      "inode": 88036148,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-040.jpg",
+      "size_bytes": 51523,
+      "mtime_ns": 1790021780615249396,
+      "inode": 88036150,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-041.jpg",
+      "size_bytes": 51566,
+      "mtime_ns": 1790021780881479805,
+      "inode": 88036151,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-042.jpg",
+      "size_bytes": 51574,
+      "mtime_ns": 1790021781166375753,
+      "inode": 88036152,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-043.jpg",
+      "size_bytes": 51548,
+      "mtime_ns": 1790021781445044842,
+      "inode": 88036153,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-044.jpg",
+      "size_bytes": 51999,
+      "mtime_ns": 1790021781770837802,
+      "inode": 88036154,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-045.jpg",
+      "size_bytes": 52512,
+      "mtime_ns": 1790021782095929925,
+      "inode": 88036156,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-046.jpg",
+      "size_bytes": 53140,
+      "mtime_ns": 1790021782335706136,
+      "inode": 88036157,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-047.jpg",
+      "size_bytes": 53433,
+      "mtime_ns": 1790021782560546822,
+      "inode": 88036159,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-048.jpg",
+      "size_bytes": 53845,
+      "mtime_ns": 1790021782802659210,
+      "inode": 88036161,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-049.jpg",
+      "size_bytes": 54609,
+      "mtime_ns": 1790021783031752082,
+      "inode": 88036162,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-050.jpg",
+      "size_bytes": 54884,
+      "mtime_ns": 1790021783276871732,
+      "inode": 88036164,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-051.jpg",
+      "size_bytes": 54593,
+      "mtime_ns": 1790021783524375227,
+      "inode": 88036166,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-052.jpg",
+      "size_bytes": 55186,
+      "mtime_ns": 1790021783762886807,
+      "inode": 88036169,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-053.jpg",
+      "size_bytes": 54296,
+      "mtime_ns": 1790021784213457310,
+      "inode": 88036173,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-054.jpg",
+      "size_bytes": 56563,
+      "mtime_ns": 1790021784466057410,
+      "inode": 88036175,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-055.jpg",
+      "size_bytes": 53102,
+      "mtime_ns": 1790021784683855524,
+      "inode": 88036177,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-056.jpg",
+      "size_bytes": 42384,
+      "mtime_ns": 1790021784911869058,
+      "inode": 88036182,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-057.jpg",
+      "size_bytes": 46817,
+      "mtime_ns": 1790021785133976983,
+      "inode": 88036185,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-058.jpg",
+      "size_bytes": 46372,
+      "mtime_ns": 1790021785372350104,
+      "inode": 88036187,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-059.jpg",
+      "size_bytes": 35814,
+      "mtime_ns": 1790021785602815191,
+      "inode": 88036188,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-060.jpg",
+      "size_bytes": 52194,
+      "mtime_ns": 1790021785823532027,
+      "inode": 88036189,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-061.jpg",
+      "size_bytes": 41122,
+      "mtime_ns": 1790021786037462667,
+      "inode": 88036190,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-062.jpg",
+      "size_bytes": 42015,
+      "mtime_ns": 1790021786268066671,
+      "inode": 88036191,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-063.jpg",
+      "size_bytes": 46375,
+      "mtime_ns": 1790021786486266954,
+      "inode": 88036193,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-064.jpg",
+      "size_bytes": 46253,
+      "mtime_ns": 1790021786714705823,
+      "inode": 88036194,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-065.jpg",
+      "size_bytes": 51528,
+      "mtime_ns": 1790021786953184570,
+      "inode": 88036196,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-066.jpg",
+      "size_bytes": 51849,
+      "mtime_ns": 1790021787403350947,
+      "inode": 88036198,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-067.jpg",
+      "size_bytes": 51931,
+      "mtime_ns": 1790021787639203889,
+      "inode": 88036200,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-068.jpg",
+      "size_bytes": 51764,
+      "mtime_ns": 1790021787857879299,
+      "inode": 88036201,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-069.jpg",
+      "size_bytes": 54236,
+      "mtime_ns": 1790021788095856335,
+      "inode": 88036203,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-070.jpg",
+      "size_bytes": 52463,
+      "mtime_ns": 1790021788341513238,
+      "inode": 88036208,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-071.jpg",
+      "size_bytes": 54817,
+      "mtime_ns": 1790021788569230521,
+      "inode": 88036209,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-072.jpg",
+      "size_bytes": 54810,
+      "mtime_ns": 1790021788805132964,
+      "inode": 88036210,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-073.jpg",
+      "size_bytes": 54807,
+      "mtime_ns": 1790021789044348172,
+      "inode": 88036212,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-074.jpg",
+      "size_bytes": 52886,
+      "mtime_ns": 1790021789264900341,
+      "inode": 88036213,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-075.jpg",
+      "size_bytes": 54939,
+      "mtime_ns": 1790021789518689612,
+      "inode": 88036218,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-076.jpg",
+      "size_bytes": 52850,
+      "mtime_ns": 1790021789745485558,
+      "inode": 88036219,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-077.jpg",
+      "size_bytes": 52826,
+      "mtime_ns": 1790021789980224122,
+      "inode": 88036220,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-078.jpg",
+      "size_bytes": 52826,
+      "mtime_ns": 1790021790219880665,
+      "inode": 88036221,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-079.jpg",
+      "size_bytes": 53140,
+      "mtime_ns": 1790021790432238298,
+      "inode": 88036222,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-080.jpg",
+      "size_bytes": 53207,
+      "mtime_ns": 1790021790655081392,
+      "inode": 88036223,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-081.jpg",
+      "size_bytes": 53781,
+      "mtime_ns": 1790021790880206456,
+      "inode": 88036224,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-082.jpg",
+      "size_bytes": 54446,
+      "mtime_ns": 1790021791094449472,
+      "inode": 88036225,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-083.jpg",
+      "size_bytes": 54981,
+      "mtime_ns": 1790021791330122039,
+      "inode": 88036226,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-084.jpg",
+      "size_bytes": 54614,
+      "mtime_ns": 1790021791543299633,
+      "inode": 88036228,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-085.jpg",
+      "size_bytes": 53255,
+      "mtime_ns": 1790021792018712578,
+      "inode": 88036230,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-086.jpg",
+      "size_bytes": 72616,
+      "mtime_ns": 1790021792279787506,
+      "inode": 88036234,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-087.jpg",
+      "size_bytes": 54865,
+      "mtime_ns": 1790021792502132266,
+      "inode": 88036236,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-088.jpg",
+      "size_bytes": 54840,
+      "mtime_ns": 1790021792747902961,
+      "inode": 88036238,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-089.jpg",
+      "size_bytes": 56650,
+      "mtime_ns": 1790021792984235823,
+      "inode": 88036239,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-090.jpg",
+      "size_bytes": 55355,
+      "mtime_ns": 1790021793205573370,
+      "inode": 88036240,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-091.jpg",
+      "size_bytes": 57899,
+      "mtime_ns": 1790021793479293520,
+      "inode": 88036242,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-092.jpg",
+      "size_bytes": 51670,
+      "mtime_ns": 1790021793747889565,
+      "inode": 88036243,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-093.jpg",
+      "size_bytes": 57860,
+      "mtime_ns": 1790021793981895042,
+      "inode": 88036244,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-094.jpg",
+      "size_bytes": 53971,
+      "mtime_ns": 1790021794218248154,
+      "inode": 88036246,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-095.jpg",
+      "size_bytes": 54789,
+      "mtime_ns": 1790021794442786423,
+      "inode": 88036249,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-096.jpg",
+      "size_bytes": 54027,
+      "mtime_ns": 1790021794703199639,
+      "inode": 88036252,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-097.jpg",
+      "size_bytes": 53842,
+      "mtime_ns": 1790021794934737814,
+      "inode": 88036254,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-098.jpg",
+      "size_bytes": 54259,
+      "mtime_ns": 1790021795151100381,
+      "inode": 88036255,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-099.jpg",
+      "size_bytes": 53904,
+      "mtime_ns": 1790021795611000757,
+      "inode": 88036256,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-100.jpg",
+      "size_bytes": 44047,
+      "mtime_ns": 1790021795850887802,
+      "inode": 88036257,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-101.jpg",
+      "size_bytes": 51460,
+      "mtime_ns": 1790021796288575916,
+      "inode": 88036258,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-102.jpg",
+      "size_bytes": 55283,
+      "mtime_ns": 1790021796539056338,
+      "inode": 88036260,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-103.jpg",
+      "size_bytes": 56614,
+      "mtime_ns": 1790021797011723855,
+      "inode": 88036261,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-104.jpg",
+      "size_bytes": 51735,
+      "mtime_ns": 1790021797235085910,
+      "inode": 88036264,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-105.jpg",
+      "size_bytes": 51443,
+      "mtime_ns": 1790021797472131067,
+      "inode": 88036266,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-106.jpg",
+      "size_bytes": 53842,
+      "mtime_ns": 1790021797694343160,
+      "inode": 88036267,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-107.jpg",
+      "size_bytes": 53834,
+      "mtime_ns": 1790021797930707564,
+      "inode": 88036268,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-108.jpg",
+      "size_bytes": 53852,
+      "mtime_ns": 1790021798170548191,
+      "inode": 88036269,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-109.jpg",
+      "size_bytes": 54041,
+      "mtime_ns": 1790021798621700864,
+      "inode": 88036272,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-110.jpg",
+      "size_bytes": 58146,
+      "mtime_ns": 1790021798847740556,
+      "inode": 88036273,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-111.jpg",
+      "size_bytes": 49452,
+      "mtime_ns": 1790021799047931636,
+      "inode": 88036274,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-112.jpg",
+      "size_bytes": 47376,
+      "mtime_ns": 1790021799258400886,
+      "inode": 88036275,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-113.jpg",
+      "size_bytes": 47402,
+      "mtime_ns": 1790021799417932122,
+      "inode": 88036276,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-contact-1.png",
+      "size_bytes": 1393243,
+      "mtime_ns": 1790021824849158492,
+      "inode": 88036247,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-contact-2.png",
+      "size_bytes": 1932623,
+      "mtime_ns": 1790021824956665335,
+      "inode": 88036248,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-contact-3.png",
+      "size_bytes": 2024427,
+      "mtime_ns": 1790021825063383924,
+      "inode": 88036250,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-contact-4.png",
+      "size_bytes": 1726445,
+      "mtime_ns": 1790021825167774087,
+      "inode": 88036251,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-contact-5.png",
+      "size_bytes": 2426250,
+      "mtime_ns": 1790021825282708421,
+      "inode": 88036253,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/overview-contact-6.png",
+      "size_bytes": 1613099,
+      "mtime_ns": 1790021825369729966,
+      "inode": 88036370,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-contact-1.png",
+      "size_bytes": 1078632,
+      "mtime_ns": 1790021825854134950,
+      "inode": 88036371,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-contact-2.png",
+      "size_bytes": 1429325,
+      "mtime_ns": 1790021826344730128,
+      "inode": 88036372,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-contact-3.png",
+      "size_bytes": 1085945,
+      "mtime_ns": 1790021826836141850,
+      "inode": 88036373,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-contact-4.png",
+      "size_bytes": 1177846,
+      "mtime_ns": 1790021827324643435,
+      "inode": 88036375,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-contact-5.png",
+      "size_bytes": 1043999,
+      "mtime_ns": 1790021827666095130,
+      "inode": 88036376,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-001.png",
+      "size_bytes": 621684,
+      "mtime_ns": 1790021769739817388,
+      "inode": 88036033,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-002.png",
+      "size_bytes": 539104,
+      "mtime_ns": 1790021769933163938,
+      "inode": 88036034,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-003.png",
+      "size_bytes": 539301,
+      "mtime_ns": 1790021770117235906,
+      "inode": 88036035,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-004.png",
+      "size_bytes": 539636,
+      "mtime_ns": 1790021770239681022,
+      "inode": 88036036,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-005.png",
+      "size_bytes": 536353,
+      "mtime_ns": 1790021770490176446,
+      "inode": 88036037,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-006.png",
+      "size_bytes": 582658,
+      "mtime_ns": 1790021771844499300,
+      "inode": 88036043,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-007.png",
+      "size_bytes": 677907,
+      "mtime_ns": 1790021772010371980,
+      "inode": 88036045,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-008.png",
+      "size_bytes": 703564,
+      "mtime_ns": 1790021772154336941,
+      "inode": 88036048,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-009.png",
+      "size_bytes": 721681,
+      "mtime_ns": 1790021772392036267,
+      "inode": 88036050,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-010.png",
+      "size_bytes": 745001,
+      "mtime_ns": 1790021773377280514,
+      "inode": 88036073,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-011.png",
+      "size_bytes": 510656,
+      "mtime_ns": 1790021775958599125,
+      "inode": 88036086,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-012.png",
+      "size_bytes": 764816,
+      "mtime_ns": 1790021776725589422,
+      "inode": 88036091,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-013.png",
+      "size_bytes": 763987,
+      "mtime_ns": 1790021776950859569,
+      "inode": 88036093,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-014.png",
+      "size_bytes": 759611,
+      "mtime_ns": 1790021777412684830,
+      "inode": 88036100,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-015.png",
+      "size_bytes": 912638,
+      "mtime_ns": 1790021777731255633,
+      "inode": 88036102,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-016.png",
+      "size_bytes": 784550,
+      "mtime_ns": 1790021777937853158,
+      "inode": 88036104,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-017.png",
+      "size_bytes": 845874,
+      "mtime_ns": 1790021778203603440,
+      "inode": 88036109,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-018.png",
+      "size_bytes": 858217,
+      "mtime_ns": 1790021778521770075,
+      "inode": 88036131,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-019.png",
+      "size_bytes": 835712,
+      "mtime_ns": 1790021779754372774,
+      "inode": 88036144,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-020.png",
+      "size_bytes": 797388,
+      "mtime_ns": 1790021783231223200,
+      "inode": 88036163,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-021.png",
+      "size_bytes": 750407,
+      "mtime_ns": 1790021783427086095,
+      "inode": 88036165,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-022.png",
+      "size_bytes": 640413,
+      "mtime_ns": 1790021783635479419,
+      "inode": 88036168,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-023.png",
+      "size_bytes": 650390,
+      "mtime_ns": 1790021783789131504,
+      "inode": 88036170,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-024.png",
+      "size_bytes": 711497,
+      "mtime_ns": 1790021783932044585,
+      "inode": 88036171,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-025.png",
+      "size_bytes": 727752,
+      "mtime_ns": 1790021784059379972,
+      "inode": 88036172,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-026.png",
+      "size_bytes": 726812,
+      "mtime_ns": 1790021784443108435,
+      "inode": 88036174,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-027.png",
+      "size_bytes": 733995,
+      "mtime_ns": 1790021784631008002,
+      "inode": 88036176,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-028.png",
+      "size_bytes": 646735,
+      "mtime_ns": 1790021784813145628,
+      "inode": 88036178,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-029.png",
+      "size_bytes": 732625,
+      "mtime_ns": 1790021784945123703,
+      "inode": 88036183,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-030.png",
+      "size_bytes": 725551,
+      "mtime_ns": 1790021785069989205,
+      "inode": 88036184,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-031.png",
+      "size_bytes": 729380,
+      "mtime_ns": 1790021785213239995,
+      "inode": 88036186,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-032.png",
+      "size_bytes": 728411,
+      "mtime_ns": 1790021786414746518,
+      "inode": 88036192,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-033.png",
+      "size_bytes": 742919,
+      "mtime_ns": 1790021786860861668,
+      "inode": 88036195,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-034.png",
+      "size_bytes": 739682,
+      "mtime_ns": 1790021787872243779,
+      "inode": 88036202,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-035.png",
+      "size_bytes": 737716,
+      "mtime_ns": 1790021788126584761,
+      "inode": 88036204,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-036.png",
+      "size_bytes": 774779,
+      "mtime_ns": 1790021788949295550,
+      "inode": 88036211,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-037.png",
+      "size_bytes": 733841,
+      "mtime_ns": 1790021791476955554,
+      "inode": 88036227,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-038.png",
+      "size_bytes": 818109,
+      "mtime_ns": 1790021791835038153,
+      "inode": 88036229,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-039.png",
+      "size_bytes": 861958,
+      "mtime_ns": 1790021792031351133,
+      "inode": 88036231,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-040.png",
+      "size_bytes": 849829,
+      "mtime_ns": 1790021792226410899,
+      "inode": 88036233,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-041.png",
+      "size_bytes": 897279,
+      "mtime_ns": 1790021792385517300,
+      "inode": 88036235,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-042.png",
+      "size_bytes": 893635,
+      "mtime_ns": 1790021792666447231,
+      "inode": 88036237,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-043.png",
+      "size_bytes": 882113,
+      "mtime_ns": 1790021793372166637,
+      "inode": 88036241,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-044.png",
+      "size_bytes": 826208,
+      "mtime_ns": 1790021796454942140,
+      "inode": 88036259,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-045.png",
+      "size_bytes": 751891,
+      "mtime_ns": 1790021797470922354,
+      "inode": 88036265,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-046.png",
+      "size_bytes": 840944,
+      "mtime_ns": 1790021798178122849,
+      "inode": 88036270,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/final-edit-qa/receipt-native-047.png",
+      "size_bytes": 682770,
+      "mtime_ns": 1790021798254954767,
+      "inode": 88036271,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-final-1224.png",
+      "size_bytes": 57297,
+      "mtime_ns": 1790022195569863487,
+      "inode": 88037099,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-final-1225.png",
+      "size_bytes": 57247,
+      "mtime_ns": 1790022195584496509,
+      "inode": 88037100,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-final-1226.png",
+      "size_bytes": 57271,
+      "mtime_ns": 1790022195598322986,
+      "inode": 88037101,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-final-1227.png",
+      "size_bytes": 54688,
+      "mtime_ns": 1790022195611916254,
+      "inode": 88037102,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-final-1228.png",
+      "size_bytes": 54726,
+      "mtime_ns": 1790022195625325937,
+      "inode": 88037103,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-final-1229.png",
+      "size_bytes": 23454,
+      "mtime_ns": 1790022195637538240,
+      "inode": 88037104,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-final-1230.png",
+      "size_bytes": 21133,
+      "mtime_ns": 1790022195649399167,
+      "inode": 88037105,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-final-1231.png",
+      "size_bytes": 17527,
+      "mtime_ns": 1790022195661003551,
+      "inode": 88037106,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-final-1232.png",
+      "size_bytes": 17518,
+      "mtime_ns": 1790022195672292017,
+      "inode": 88037107,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-final-1233.png",
+      "size_bytes": 17503,
+      "mtime_ns": 1790022195683651983,
+      "inode": 88037108,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-final-1234.png",
+      "size_bytes": 17415,
+      "mtime_ns": 1790022195695121491,
+      "inode": 88037109,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-final-1235.png",
+      "size_bytes": 17415,
+      "mtime_ns": 1790022195706158164,
+      "inode": 88037110,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-raw-1524.png",
+      "size_bytes": 51209,
+      "mtime_ns": 1790021904918645251,
+      "inode": 88036470,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-raw-1525.png",
+      "size_bytes": 51183,
+      "mtime_ns": 1790021904922051641,
+      "inode": 88036471,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-raw-1526.png",
+      "size_bytes": 51199,
+      "mtime_ns": 1790021904925392697,
+      "inode": 88036472,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-raw-1527.png",
+      "size_bytes": 60495,
+      "mtime_ns": 1790021904928740128,
+      "inode": 88036473,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-raw-1528.png",
+      "size_bytes": 60383,
+      "mtime_ns": 1790021904932081393,
+      "inode": 88036474,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-raw-1529.png",
+      "size_bytes": 45104,
+      "mtime_ns": 1790021904935257782,
+      "inode": 88036475,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-raw-1530.png",
+      "size_bytes": 45513,
+      "mtime_ns": 1790021904938521588,
+      "inode": 88036476,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-raw-1531.png",
+      "size_bytes": 27776,
+      "mtime_ns": 1790021904941412934,
+      "inode": 88036477,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-raw-1532.png",
+      "size_bytes": 27850,
+      "mtime_ns": 1790021904944255113,
+      "inode": 88036478,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-raw-1533.png",
+      "size_bytes": 27740,
+      "mtime_ns": 1790021904947103959,
+      "inode": 88036479,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-raw-1534.png",
+      "size_bytes": 27763,
+      "mtime_ns": 1790021904949887929,
+      "inode": 88036480,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/debugger-entry-raw-1535.png",
+      "size_bytes": 27771,
+      "mtime_ns": 1790021904952660733,
+      "inode": 88036481,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/final-debugger-entry-contact.png",
+      "size_bytes": 245483,
+      "mtime_ns": 1790022219668979508,
+      "inode": 88037185,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/final-f00000-source-f00000.png",
+      "size_bytes": 644193,
+      "mtime_ns": 1790022195828999824,
+      "inode": 88037111,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/final-f00270-source-f00570.png",
+      "size_bytes": 685306,
+      "mtime_ns": 1790022196145182992,
+      "inode": 88037113,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/final-f00433-source-f00733.png",
+      "size_bytes": 639548,
+      "mtime_ns": 1790022196288112948,
+      "inode": 88037114,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/final-f01233-source-f01533.png",
+      "size_bytes": 730785,
+      "mtime_ns": 1790022196532401136,
+      "inode": 88037115,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/final-f01585-source-f01885.png",
+      "size_bytes": 540945,
+      "mtime_ns": 1790022196987635492,
+      "inode": 88037116,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/final-f08640-source-f09600.png",
+      "size_bytes": 790538,
+      "mtime_ns": 1790022197474346528,
+      "inode": 88037117,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/final-f10233-source-f11193.png",
+      "size_bytes": 809030,
+      "mtime_ns": 1790022197644873561,
+      "inode": 88037118,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/final-f11550-source-f12510.png",
+      "size_bytes": 805753,
+      "mtime_ns": 1790022197942474565,
+      "inode": 88037119,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/final-f13200-source-f14160.png",
+      "size_bytes": 920214,
+      "mtime_ns": 1790022198534401516,
+      "inode": 88037120,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/final-f15839-source-f16799.png",
+      "size_bytes": 734029,
+      "mtime_ns": 1790022198702070163,
+      "inode": 88037122,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/raw-0000.00.png",
+      "size_bytes": 621684,
+      "mtime_ns": 1790021862987085095,
+      "inode": 88036434,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/raw-0019.00.png",
+      "size_bytes": 584757,
+      "mtime_ns": 1790021863104643899,
+      "inode": 88036435,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/raw-0024.43.png",
+      "size_bytes": 582648,
+      "mtime_ns": 1790021863308270744,
+      "inode": 88036436,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/raw-0051.10.png",
+      "size_bytes": 670433,
+      "mtime_ns": 1790021863529271414,
+      "inode": 88036437,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/raw-0062.83.png",
+      "size_bytes": 512633,
+      "mtime_ns": 1790021863656291717,
+      "inode": 88036438,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/raw-0320.00.png",
+      "size_bytes": 715597,
+      "mtime_ns": 1790021863825287453,
+      "inode": 88036439,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/raw-0373.10.png",
+      "size_bytes": 738635,
+      "mtime_ns": 1790021863992308555,
+      "inode": 88036440,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/raw-0417.00.png",
+      "size_bytes": 728844,
+      "mtime_ns": 1790021864163560884,
+      "inode": 88036441,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/raw-0472.00.png",
+      "size_bytes": 826028,
+      "mtime_ns": 1790021864337368724,
+      "inode": 88036442,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/independent-final-qa/raw-0563.00.png",
+      "size_bytes": 683822,
+      "mtime_ns": 1790021864471150557,
+      "inode": 88036443,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight1-qa/key-01.png",
+      "size_bytes": 622631,
+      "mtime_ns": 1790017215608821468,
+      "inode": 88017241,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight1-qa/key-02.png",
+      "size_bytes": 583260,
+      "mtime_ns": 1790017216500930811,
+      "inode": 88017242,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight1-qa/key-03.png",
+      "size_bytes": 590867,
+      "mtime_ns": 1790017217059699505,
+      "inode": 88017247,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight1-qa/key-04.png",
+      "size_bytes": 452604,
+      "mtime_ns": 1790017217353282550,
+      "inode": 88017248,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight1-qa/key-05.png",
+      "size_bytes": 520008,
+      "mtime_ns": 1790017217645372423,
+      "inode": 88017249,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight1-qa/key-06.png",
+      "size_bytes": 524262,
+      "mtime_ns": 1790017219086899634,
+      "inode": 88017271,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight1-qa/key-07.png",
+      "size_bytes": 543237,
+      "mtime_ns": 1790017220968386597,
+      "inode": 88017274,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight1-qa/operator-01.png",
+      "size_bytes": 549051,
+      "mtime_ns": 1790017308769865692,
+      "inode": 88017528,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight1-qa/operator-02.png",
+      "size_bytes": 575611,
+      "mtime_ns": 1790017313870057861,
+      "inode": 88017533,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight1-qa/typing-12-to-24s.png",
+      "size_bytes": 175531,
+      "mtime_ns": 1790017287254969895,
+      "inode": 88017435,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight1.mov",
+      "size_bytes": 12642291,
+      "mtime_ns": 1790017145889167216,
+      "inode": 88016707,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight2-qa/frame-0000.png",
+      "size_bytes": 622523,
+      "mtime_ns": 1790021077284055608,
+      "inode": 88032158,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight2-qa/frame-0184.png",
+      "size_bytes": 539494,
+      "mtime_ns": 1790021077422306508,
+      "inode": 88032159,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight2-qa/frame-0210.png",
+      "size_bytes": 588830,
+      "mtime_ns": 1790021077625884654,
+      "inode": 88032160,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight2-qa/frame-0320.png",
+      "size_bytes": 575696,
+      "mtime_ns": 1790021077817346746,
+      "inode": 88032162,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight2-qa/frame-0935.png",
+      "size_bytes": 697294,
+      "mtime_ns": 1790021077997844207,
+      "inode": 88032163,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight2-qa/frame-1052.png",
+      "size_bytes": 706840,
+      "mtime_ns": 1790021078171860306,
+      "inode": 88032164,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight2-qa/frame-1147.png",
+      "size_bytes": 715416,
+      "mtime_ns": 1790021078312703384,
+      "inode": 88032165,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight2-qa/frame-2220.png",
+      "size_bytes": 700076,
+      "mtime_ns": 1790021078537064912,
+      "inode": 88032184,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/preflight2.mov",
+      "size_bytes": 24044708,
+      "mtime_ns": 1790021025421153782,
+      "inode": 88031447,
+      "kind": "generated_scratch_media"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/remote-lfs-recovery/objects/69/04/6904d10a2580d33f035064144dbaa29b446bf12945ed834ea5bebdabecf14f0c",
+      "size_bytes": 165225828,
+      "mtime_ns": 1790022483257723807,
+      "inode": 88037335,
+      "kind": "verified_independent_recovery_duplicate",
+      "sha256": "6904d10a2580d33f035064144dbaa29b446bf12945ed834ea5bebdabecf14f0c"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/remote-lfs-recovery/objects/06/eb/06eb41d8e76be6ff2219dc753355e1b3a37ec2a2ed0bf1aa07c92344baaabaa6",
+      "size_bytes": 54468446,
+      "mtime_ns": 1790022422281829198,
+      "inode": 88037337,
+      "kind": "verified_independent_recovery_duplicate",
+      "sha256": "06eb41d8e76be6ff2219dc753355e1b3a37ec2a2ed0bf1aa07c92344baaabaa6"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/remote-lfs-recovery/objects/d6/8e/d68e4373b4f2a5697b7e556eb4b248efa280fbfe3032921e3b5cf6c6813344f1",
+      "size_bytes": 55125561,
+      "mtime_ns": 1790022422179618410,
+      "inode": 88037336,
+      "kind": "verified_independent_recovery_duplicate",
+      "sha256": "d68e4373b4f2a5697b7e556eb4b248efa280fbfe3032921e3b5cf6c6813344f1"
+    }
+  ],
+  "preserved_primary_media": [
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/worktrees/confident-ai/artifacts/confident-ai/media/nova-confident-ai-original.mov",
+      "size_bytes": 165225828,
+      "mtime_ns": 1790021684886405422,
+      "inode": 88032252,
+      "sha256": "6904d10a2580d33f035064144dbaa29b446bf12945ed834ea5bebdabecf14f0c"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/worktrees/confident-ai/artifacts/confident-ai/media/nova-confident-ai-silent.mp4",
+      "size_bytes": 54468446,
+      "mtime_ns": 1790022167168480783,
+      "inode": 88037027,
+      "sha256": "06eb41d8e76be6ff2219dc753355e1b3a37ec2a2ed0bf1aa07c92344baaabaa6"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/worktrees/confident-ai/artifacts/confident-ai/media/nova-confident-ai-clicks.mp4",
+      "size_bytes": 55125561,
+      "mtime_ns": 1790022173873003423,
+      "inode": 88037042,
+      "sha256": "d68e4373b4f2a5697b7e556eb4b248efa280fbfe3032921e3b5cf6c6813344f1"
+    }
+  ],
+  "status": "completed",
+  "scope_note": "Only exact authorized generated scratch files and three full duplicate LFS blobs. No directory removal or shared Git LFS pruning. Every report/JSON/script/log, runtime/config/build and primary recording retained.",
+  "completed_at_utc": "2026-09-21T20:29:11.530645+00:00",
+  "scratch_files_removed": 323,
+  "scratch_bytes_removed": 251176740,
+  "recovery_duplicate_files_removed": 3,
+  "recovery_duplicate_bytes_removed": 274819835,
+  "total_files_removed": 326,
+  "total_bytes_removed": 525996575,
+  "protected_private_nonmedia_files_unchanged": 561,
+  "protected_runtime_build_config_files_unchanged": 37,
+  "primary_media_full_sha256_rechecked_after_cleanup": true
+}

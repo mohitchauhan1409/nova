@@ -1,0 +1,16 @@
+{
+  "sha256": {
+    "add-click-sounds.py": "976c0ab6cc9dc61b5a245388f1d53c531a1d214f5a2e045de83378c61ca5495c",
+    "verify-click-export.py": "3b047eee0c62dc0b670fd7c6e35839a3f5a6a4f6a0d0c13ca06ef77cb9b19777",
+    "edit-recording.py": "7188252da1786f760061de5e9f121a7f7ff9b31535179d93629883924b01e99d"
+  },
+  "same_approved_renderer_as_agentmail": true,
+  "sample_rate": 48000,
+  "channels": 2,
+  "seed": 2071,
+  "gain": 1.6,
+  "peak_cap": 0.3,
+  "legacy_editor_clicks_used": false,
+  "ffmpeg_threads": 2,
+  "filter_threads": 1
+}

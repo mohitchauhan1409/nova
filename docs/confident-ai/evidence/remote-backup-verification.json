@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-09-21T20:28:16.162879+00:00",
+  "private_repository": true,
+  "branch": "confident-ai-nova",
+  "commit": "98ed06a79d180de3cacb3b25ceca99e9ab8e6109",
+  "remote_ref": "98ed06a79d180de3cacb3b25ceca99e9ab8e6109",
+  "method": "git-lfs fetch from remote into a new independent lfs.storage; full SHA-256 of all three recovered objects and local originals compared with remote commit pointers and final QA hashes",
+  "cache_path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/remote-lfs-recovery",
+  "objects": [
+    {
+      "path": "artifacts/confident-ai/media/nova-confident-ai-original.mov",
+      "sha256": "6904d10a2580d33f035064144dbaa29b446bf12945ed834ea5bebdabecf14f0c",
+      "recovered_bytes": 165225828,
+      "remote_pointer_matches": true,
+      "local_and_fresh_recovered_full_sha256_match": true
+    },
+    {
+      "path": "artifacts/confident-ai/media/nova-confident-ai-silent.mp4",
+      "sha256": "06eb41d8e76be6ff2219dc753355e1b3a37ec2a2ed0bf1aa07c92344baaabaa6",
+      "recovered_bytes": 54468446,
+      "remote_pointer_matches": true,
+      "local_and_fresh_recovered_full_sha256_match": true
+    },
+    {
+      "path": "artifacts/confident-ai/media/nova-confident-ai-clicks.mp4",
+      "sha256": "d68e4373b4f2a5697b7e556eb4b248efa280fbfe3032921e3b5cf6c6813344f1",
+      "recovered_bytes": 55125561,
+      "remote_pointer_matches": true,
+      "local_and_fresh_recovered_full_sha256_match": true
+    }
+  ],
+  "recovery_command": "git -c lfs.storage=/absolute/new-independent-cache lfs fetch origin confident-ai-nova -I 'artifacts/confident-ai/media/*' -X ''"
+}

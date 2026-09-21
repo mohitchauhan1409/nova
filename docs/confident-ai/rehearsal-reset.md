@@ -1,6 +1,6 @@
 # Confident rehearsal and final baseline checklist
 
-Historical pre-capture checklist, updated 22 September 2026. The final take has now added both boundary cases, for eight observed records. Do not execute the six-case creation plan again; inspect current exact inputs and reuse existing records. Independent final-tag verification passed; media QA is recorded separately.
+Historical pre-capture checklist, updated 22 September 2026. The final take has now added both boundary cases, for eight observed records. Do not execute the six-case creation plan again; inspect current exact inputs and reuse existing records. Independent final-tag verification and local/independent media QA passed; the linked delivery evidence preserves exact checks and remaining coordinator release signoff.
 
 The coordinator alone owns browser, runtime and recorder. All preparation occurs outside the final take. Saved evidence and retained failures are in [live-verification.md](live-verification.md).
 
@@ -33,4 +33,4 @@ If an interrupted create may already have saved, inspect its exact Input/ID befo
 
 Record actual task IDs, prompt commits, runtime hashes, first-progress/action/final-reply timestamps, independent reopen results and recoveries. A final reply is not persistence proof. Keep raw sessions private.
 
-Do not use paid versioning, branching, trial/upgrade, provider setup or evaluation to fulfill the take. Stop for unresolved save failure, duplicate record, wrong project, exposed secret, extra target tab, missing/duplicated Nova cursor or visible operator/system pointer. Never secretly repair an on-camera Nova result with operator input or edit retained failures into apparent success. Recording, audiovisual QA and backup remain pending until verified.
+Do not use paid versioning, branching, trial/upgrade, provider setup or evaluation to fulfill the take. Stop for unresolved save failure, duplicate record, wrong project, exposed secret, extra target tab, missing/duplicated Nova cursor or visible operator/system pointer. Never secretly repair an on-camera Nova result with operator input or edit retained failures into apparent success. The final recording and local/independent audiovisual QA passed; independent private-remote recovery passed at `98ed06a`, with all three full file hashes/sizes matching local originals and remote pointers; see [remote backup verification](evidence/remote-backup-verification.json).

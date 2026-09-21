@@ -1,8 +1,10 @@
 # Northstar returns demonstration — captured sequence
 
-Final raw take captured 22 September 2026 (Asia/Kolkata). The recording began at epoch `1790021120776` and the coordinator reported 16,922 frames. This document records the actual eight user events, including the Help me choose control and card answer. The coordinator independently verified all saved business outcomes after capture. Media editing/QA and remote backup are tracked separately and remain pending here.
+Final raw take captured 22 September 2026 (Asia/Kolkata). The recording began at epoch `1790021120776` and the coordinator reported 16,922 frames. This document records the actual eight user events, including the Help me choose control and card answer. The coordinator independently verified all saved business outcomes after capture. Media editing, [local media QA](evidence/final-qa-report.md) and [independent acceptance](evidence/independent-final-acceptance.md) passed. Independent recovery from the private remote passed at `98ed06a`: all three complete file hashes/sizes match local originals and remote LFS pointers; see [remote backup verification](evidence/remote-backup-verification.json).
 
 Loaded runtime: backend `94debcde941dcb30de7e3b89aebf26f963b109d9`, extension `b7e3172` (archive hash prefix `28e115`). Source/documentation checkout at capture was `49368c4`; it is not the already loaded backend identity. Scope: Vector / My first project, existing Northstar Returns Adviser and the existing Northstar dataset.
+
+The unchanged raw is **564.066667 seconds**; both edits are **528 seconds (8:48)** at native 3024×1776/30 fps. The tap export contains **42 receipt-backed cues** (32 Nova, 10 operator). All Nova execution and typing remain at 1×, including the complete 128.001-second case task and its repeated column-menu work. Only four settled operator waits were shortened.
 
 ## Exact captured requests
 

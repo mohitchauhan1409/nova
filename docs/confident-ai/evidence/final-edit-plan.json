@@ -1,0 +1,113 @@
+{
+  "fps": 30,
+  "width": 3024,
+  "height": 1776,
+  "segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 150,
+      "output_frames": 150,
+      "kind": "agent",
+      "reason": "Clean normal Home establishment at 1x."
+    },
+    {
+      "start_frame": 150,
+      "end_frame": 480,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Settled clean Home after 5 seconds of establishment, before launcher at18.1s."
+    },
+    {
+      "start_frame": 480,
+      "end_frame": 2340,
+      "output_frames": 1860,
+      "kind": "agent",
+      "reason": "Preserve launcher, typing, rename navigation/actions and readable result at1x."
+    },
+    {
+      "start_frame": 2340,
+      "end_frame": 2550,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Settled rename reply after6.851s reading; stop before next composer focus."
+    },
+    {
+      "start_frame": 2550,
+      "end_frame": 3900,
+      "output_frames": 1350,
+      "kind": "agent",
+      "reason": "Preserve typing, prompt inspection and first question card reading at1x."
+    },
+    {
+      "start_frame": 3900,
+      "end_frame": 4140,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Settled first question card after11.864s reading; stop before Help me choose."
+    },
+    {
+      "start_frame": 4140,
+      "end_frame": 5970,
+      "output_frames": 1830,
+      "kind": "agent",
+      "reason": "Preserve Help me choose, card reading/answer, all prompt commits and result reading at1x."
+    },
+    {
+      "start_frame": 5970,
+      "end_frame": 6270,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Settled prompt commit result after9.885s reading; stop before composer focus."
+    },
+    {
+      "start_frame": 6270,
+      "end_frame": 16800,
+      "output_frames": 10530,
+      "kind": "agent",
+      "reason": "Preserve every typing/action frame, complete128.001s case task and column loop, honest tag limitation, visible user redirect, prompt revision, summary and Preview; keep8.506s final pause."
+    }
+  ],
+  "masks": [
+    {
+      "x": 10,
+      "y": 174,
+      "width": 2228,
+      "height": 16,
+      "color": "#f9f8ff",
+      "start_frame": 1527,
+      "end_frame": 1529,
+      "reason": "Actual measured debugger-row entry including text, Cancel and X; leave boundary shadow and product below visible."
+    },
+    {
+      "x": 10,
+      "y": 174,
+      "width": 2228,
+      "height": 56,
+      "color": "#f9f8ff",
+      "start_frame": 1529,
+      "end_frame": 1530,
+      "reason": "Actual measured debugger-row entry including text, Cancel and X; leave boundary shadow and product below visible."
+    },
+    {
+      "x": 10,
+      "y": 174,
+      "width": 2228,
+      "height": 88,
+      "color": "#f9f8ff",
+      "start_frame": 1530,
+      "end_frame": 1531,
+      "reason": "Actual measured debugger-row entry including text, Cancel and X; leave boundary shadow and product below visible."
+    },
+    {
+      "x": 10,
+      "y": 174,
+      "width": 2228,
+      "height": 112,
+      "color": "#f9f8ff",
+      "start_frame": 1531,
+      "end_frame": 16800,
+      "reason": "Actual measured debugger-row entry including text, Cancel and X; leave boundary shadow and product below visible."
+    }
+  ],
+  "clicks": []
+}
