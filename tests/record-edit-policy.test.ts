@@ -4,6 +4,16 @@ import type { Action, Snapshot } from '../shared/types';
 const action:Action={kind:'click',ref:'save',value:null,url:null,x:null,y:null,risk:'change',summary:'Save the edited record'};
 const snapshot:Snapshot={id:'edit',url:'https://workspace.example/editor',title:'Editor',text:'Edit product',elements:[{ref:'save',name:'Save changes',tag:'button',role:'button',type:'button',context:'Product summary',disabled:false,sensitive:false}],viewport:{width:1000,height:800},theme:{color:'#000',font:'system-ui'},frames:0,capturedAt:0};
 describe('explicit ordinary record revisions',()=>{
+ const trialEditor:Snapshot={...snapshot,elements:[...snapshot.elements,{ref:'trial',name:'Trial length in days',tag:'input',role:'spinbutton',type:'number',context:'Product pricing',disabled:false,sensitive:false}]};
+ it.each(['Actually, give teams 21 days to try it. Keep everything else the same.','Extend the trial to 28 days.'])('understands an explicit trial duration: %s',intent=>{
+  expect(checkAction(action,trialEditor,trialEditor.url,intent).outcome).toBe('allow');
+ });
+ it.each(['Do not give teams 21 days to try it.','Would it make sense to give teams 21 days to try it?','Give teams 21 days to try it only after I approve.','Give teams 21 days to try it.\nWait for me.'])('keeps trial review for %s',intent=>{
+  expect(checkAction(action,trialEditor,trialEditor.url,intent).outcome).toBe('approve');
+ });
+ it('requires an observed trial editor for pronoun-based duration changes',()=>{
+  expect(checkAction(action,snapshot,snapshot.url,'Give teams 21 days to try it.').outcome).toBe('approve');
+ });
  it('saves an update request without requiring the literal word save',()=>{
   expect(checkAction(action,snapshot,snapshot.url,'Actually, give teams 21 days to try it. Update the same product and keep everything else as it is.').outcome).toBe('allow');
  });
