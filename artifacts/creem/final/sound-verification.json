@@ -1,6 +1,6 @@
 {
   "video_stream_identical": true,
-  "video_stream_hash": "0,v,SHA256=679efaafa2f655a149b8c831872402bf5084bb6fb1158f479de242f7b7e90385",
+  "video_stream_hash": "0,v,SHA256=a2b938007e84bdaba2819ba079969a9a08d9b1728c73525e7509c8228db8855f",
   "sound_mode": "clicks-only",
   "effect": "Nova established mechanical tap; 48 kHz stereo; seed 2071",
   "audio_peak_dbfs": -13.09,
@@ -30,5 +30,5 @@
       "duration": "287.000000"
     }
   },
-  "output_sha256": "c3a3ff0d3f951ea1fa53466942dca5bcaccfb3d8d2e96c8e16df3d48dbee4d8d"
+  "output_sha256": "a94883514c9af5166575e8c7e54f6c4f9c8a4b9aa121d81218e4a90ec12c3884"
 }

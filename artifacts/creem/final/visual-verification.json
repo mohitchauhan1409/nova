@@ -359,5 +359,27 @@
       "actor": "nova",
       "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
     }
-  ]
+  ],
+  "maximum_receipt_frame_quantization_ms": 16.66666666665151,
+  "maximum_quantization_plus_decoded_onset_error_ms": 16.770833333318176,
+  "within_one_output_frame": true,
+  "debugger_animation_checked": {
+    "source_frames": [
+      948,
+      949,
+      950,
+      951,
+      952,
+      953
+    ],
+    "edited_frames": [
+      645,
+      646,
+      647,
+      648,
+      649,
+      650
+    ],
+    "result": "Exact indexed decoded frames confirm the partial row is covered from949; the banner first-colored-pixel positions agree with the source. No debugger text or close icon remains."
+  }
 }

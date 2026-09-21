@@ -68,7 +68,7 @@ Capture has one Creem tab, Home initially visible with Nova closed and no
 debugger row. Only Nova's lavender action cursor is visible. Raw3024×1714;
 edited2748×1714 at30fps removes only276 columns of empty recorder padding,
 verified across all9139 source frames. Browser pixels are not rescaled.
-The only mask is the complete browser debugger row, source frames951 onward.
+The only mask is the complete browser debugger row, source frames949 onward, with per-frame heights during its opening animation.
 Main2ddbe3c adds optional padding crop support; three regression checks passed,
 including a decoded synthetic padded-source export. All other theme/build
 checks above remain applicable; only the video editor changed afterward.
@@ -86,3 +86,9 @@ click, the opening, progressive typing, saved outcomes and final Home summary.
 The only retained media are the original raw, silent edit and click-only edit.
 Failed takes, preflight videos, scratch audio containers and temporary theme
 screenshots were removed after verification; useful text evidence remains.
+
+A final boundary audit found the debugger text already visible in the partial
+row at source frames949–950, before the full-height detector triggered. The EDL
+now masks36px at949–950,92px at951, then104px from952, all starting at y158.
+The Test mode banner stays visible during the animation. The corrected exports
+were decoded and reverified before final delivery.

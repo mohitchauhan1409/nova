@@ -23,8 +23,8 @@
   },
   {
     "path": "artifacts/creem/final/nova-creem-silent.mp4",
-    "sha256": "91ec5bab49f379633e1ebe2168366b5699b88ca72e47b024601bd59a061ae9f5",
-    "size": 16426167,
+    "sha256": "d112ff124bcb0018b952645c58b7e06dda596f572426c59d5a86130e828c7a5f",
+    "size": 16422889,
     "probe": {
       "programs": [],
       "stream_groups": [],
@@ -45,8 +45,8 @@
   },
   {
     "path": "artifacts/creem/final/nova-creem.mp4",
-    "sha256": "c3a3ff0d3f951ea1fa53466942dca5bcaccfb3d8d2e96c8e16df3d48dbee4d8d",
-    "size": 16853757,
+    "sha256": "a94883514c9af5166575e8c7e54f6c4f9c8a4b9aa121d81218e4a90ec12c3884",
+    "size": 16850479,
     "probe": {
       "programs": [],
       "stream_groups": [],

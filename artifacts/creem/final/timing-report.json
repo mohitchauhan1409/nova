@@ -77,7 +77,30 @@
   "operator_clicks": 22,
   "nova_clicks": 28,
   "debugger_source_frames": [
-    951,
+    949,
     9139
+  ],
+  "debugger_animation_source_masks": [
+    {
+      "frames": [
+        949,
+        951
+      ],
+      "height": 36
+    },
+    {
+      "frames": [
+        951,
+        952
+      ],
+      "height": 92
+    },
+    {
+      "frames": [
+        952,
+        9139
+      ],
+      "height": 104
+    }
   ]
 }

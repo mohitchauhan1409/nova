@@ -212,9 +212,27 @@
       "x": 14,
       "y": 158,
       "width": 2014,
-      "height": 106,
+      "height": 36,
+      "color": "#f9f8ff",
+      "start_frame": 949,
+      "end_frame": 951
+    },
+    {
+      "x": 14,
+      "y": 158,
+      "width": 2014,
+      "height": 92,
       "color": "#f9f8ff",
       "start_frame": 951,
+      "end_frame": 952
+    },
+    {
+      "x": 14,
+      "y": 158,
+      "width": 2014,
+      "height": 104,
+      "color": "#f9f8ff",
+      "start_frame": 952,
       "end_frame": 9139
     }
   ],

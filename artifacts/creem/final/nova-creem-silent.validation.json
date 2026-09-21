@@ -11,5 +11,5 @@
     "height": 1714,
     "reason": "Remove only right-hand empty capture padding, verified throughout the source; native browser pixels are not rescaled."
   },
-  "video_stream_hash": "SHA256=679efaafa2f655a149b8c831872402bf5084bb6fb1158f479de242f7b7e90385"
+  "video_stream_hash": "SHA256=a2b938007e84bdaba2819ba079969a9a08d9b1728c73525e7509c8228db8855f"
 }
