@@ -1,6 +1,7 @@
 import type { RecordingClick } from './recording';
 import { z } from 'zod';
 import type { SiteExperience } from './site-experience';
+import type { PageColorScheme } from './page-theme';
 
 export const actionSchema = z.object({
   kind: z.enum(['navigate', 'search', 'click', 'double_click', 'right_click', 'hover', 'drag', 'fill', 'type', 'clear', 'press', 'select', 'check', 'scroll', 'scroll_to', 'zoom', 'media', 'copy', 'paste', 'select_text', 'back', 'forward', 'reload', 'wait', 'screenshot', 'inspect', 'point', 'done', 'ask']),
@@ -34,7 +35,7 @@ export type Trace = { id: string; at: number; kind: 'observe' | 'think' | 'act' 
 export type Approval = { id: string; action: Action; target: string; url: string; reason: string; expiresAt: number; snapshotId: string };
 export type PreparedInput = {ref:string;url:string;revision?:string;value:string;kind:Action['kind'];target?:{name:string;tag:string;type:string;context:string}};
 export type ActionStep = { id:string; taskId:string; at:number; title:string; kind:Action['kind']; status:'running'|'checking'|'verified'|'unverified'|'failed'|'stopped'; detail?:string };
-export type Session = { recordingClicks?:RecordingClick[]; actionSteps?:ActionStep[]; id: string; tabId?: number; siteId: string; experience?: SiteExperience; mode: 'browser' | 'extension'; status: 'ready' | 'running' | 'approval' | 'stopped' | 'error' | 'disconnected'; url: string; title: string; messages: Message[]; traces: Trace[]; approval?: Approval; clarification?:Clarification; awaitingAnswer?: boolean; preparedInputs?: PreparedInput[]; steps: number; model: string; usage?: {calls:number;inputTokens:number;cachedInputTokens:number;outputTokens:number}; progress?:{url:string;reloads:number;actions:{kind:Action['kind'];target:string;summary:string;result:string}[];settings:{ref:string;name:string;state:string[];afterReload:number}[]}; lastSnapshot?: Snapshot; startedAt: number };
+export type Session = { recordingClicks?:RecordingClick[]; actionSteps?:ActionStep[]; id: string; tabId?: number; siteId: string; experience?: SiteExperience; pageColorScheme?: PageColorScheme; mode: 'browser' | 'extension'; status: 'ready' | 'running' | 'approval' | 'stopped' | 'error' | 'disconnected'; url: string; title: string; messages: Message[]; traces: Trace[]; approval?: Approval; clarification?:Clarification; awaitingAnswer?: boolean; preparedInputs?: PreparedInput[]; steps: number; model: string; usage?: {calls:number;inputTokens:number;cachedInputTokens:number;outputTokens:number}; progress?:{url:string;reloads:number;actions:{kind:Action['kind'];target:string;summary:string;result:string}[];settings:{ref:string;name:string;state:string[];afterReload:number}[]}; lastSnapshot?: Snapshot; startedAt: number };
 export type ServerEvent = { type: 'session'; session: Session } | { type: 'sessions'; sessions: Session[] } | { type: 'error'; message: string } | { type: 'ready'; role: string } | { type: 'driver'; id: string; method: string; payload?: unknown } | { type: 'voice'; event: string; text?: string; audio?: string; sampleRate?: number; message?: string; utteranceId?: string };
 export const clientMessageSchema = z.discriminatedUnion('type', [
   z.object({ type: z.literal('auth'), token: z.string().max(512), role: z.enum(['ui', 'extension']) }),

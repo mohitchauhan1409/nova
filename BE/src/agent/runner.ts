@@ -6,7 +6,7 @@ import { checkAction, fingerprint } from './policy';
 import { safeError } from '../config';
 import { sameSite } from '../browser/security';
 import { quickAction } from './quick-actions';
-import { actionEffect, completionProblem, type Effect } from './verification';
+import { actionEffect, completionProblem, completionSnapshotChanged, type Effect } from './verification';
 import { siteExperience } from '../../../shared/site-experience';
 import { companionOutput, conversationReply, latestTask, pagePrivacy } from './conversation';
 import {observeProgress,recordProgress,beforeProgressAction,repeatedTabInspection} from './progress';
@@ -132,7 +132,7 @@ export class AgentRunner {
     const written=new Set<string>();let preventedWrites=0;
     const tabVisits=new Map<string,number>();let preventedTabCycles=0;
     let failures = 0; let lastAction = ''; let repeated = 0; let screenshot: string | undefined; let observed: Snapshot | undefined;
-    let effect: Effect | undefined; let attempted = false; let completionFailures = 0;
+    let effect: Effect | undefined; let attempted = false; let completionFailures = 0; let completionRefreshes=0;
     let pendingEffect: {action:Action;before:Snapshot;result:unknown;mayCommit:boolean}|undefined;
     const deadline = Date.now() + 8 * 60 * 1000;
     try {
@@ -150,12 +150,25 @@ export class AgentRunner {
         if (['point','inspect'].includes(action.kind) && (!screenshot || action.x === null || action.y === null || action.x < 0 || action.y < 0 || action.x >= snapshot.viewport.width || action.y >= snapshot.viewport.height)) { this.trace('error', 'A visual target requires a current screenshot and in-bounds coordinates.'); screenshot = undefined; if (++failures >= 3) { this.session.status = 'stopped'; this.say('I could not locate this control reliably. Please handle this step in the browser.'); return; } continue; }
         screenshot = undefined;
         if (signal.aborted) return;
-        this.trace('think', action.summary, Math.round(performance.now() - started));
+        const planningMs=Math.round(performance.now()-started);
         if (action.kind==='done') {
+          if(action.completion?.status!=='blocked'){
+            const fresh=await this.observe();
+            if(signal.aborted)return;
+            if(completionSnapshotChanged(snapshot,fresh,action)){
+              this.trace('info','The page changed while preparing the answer. Checking the current result before reporting it.');
+              if(completionRefreshes++===0){observed=fresh;continue;}
+              this.say('The page is still changing, so I could not verify the current result. Please try again when it settles.');this.session.status='stopped';return;
+            }
+            snapshot=fresh;
+          }
+          this.trace('think',action.summary,planningMs);
           const problem=completionProblem(action,snapshot,effect,attempted,this.session.progress);
           if(problem){this.trace('error',`Completion rejected: ${problem}`);if(++completionFailures<2)continue;this.say('I could not verify that the requested result happened. Please check the page before retrying; I have not marked this task complete.');this.session.status='stopped';return;}
           this.session.awaitingAnswer=false;this.say(action.summary);this.session.status=action.completion?.status==='blocked'?'stopped':'ready';return;
         }
+        completionRefreshes=0;
+        this.trace('think',action.summary,planningMs);
         if (action.kind==='ask') {
           try{
             const card=makeClarification(action,text=>companionOutput(text,this.session));

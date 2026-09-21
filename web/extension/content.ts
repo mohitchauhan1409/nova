@@ -1,21 +1,27 @@
 import { installNovaDOM } from '../../shared/dom';
 import { mountLauncher } from '../companion/launcher';
 import type { Action } from '../../shared/types';
+import { observePageColorScheme, readPageColorScheme } from '../../shared/page-theme';
 declare global { interface Window { __novaContentInstalled?: boolean; } }
 installNovaDOM();
 if (!window.__novaContentInstalled) {
   window.__novaContentInstalled = true;
   let port:chrome.runtime.Port|undefined;
   let active=false;
+  let stopThemeObserver:(()=>void)|undefined;
   const mount=()=>{
     active=true;
     const companion=mountLauncher(async()=>{const result=await chrome.runtime.sendMessage({type:'nova-sidepanel'});if(result?.error)throw new Error(result.error);});
-    if(!port){const connection=chrome.runtime.connect({name:'nova-page'});port=connection;connection.onMessage.addListener(event=>{if(active&&port===connection)companion.receive(event);});connection.onDisconnect.addListener(()=>{if(port!==connection)return;port=undefined;if(active)companion.receive({type:'error',message:'Nova disconnected. Click the extension icon to reconnect.'});});connection.postMessage({type:'nova-page-connect'});}
+    if(!port){const connection=chrome.runtime.connect({name:'nova-page'});port=connection;connection.onMessage.addListener(event=>{if(active&&port===connection)companion.receive(event);});connection.onDisconnect.addListener(()=>{if(port!==connection)return;port=undefined;if(active)companion.receive({type:'error',message:'Nova disconnected. Click the extension icon to reconnect.'});});connection.postMessage({type:'nova-page-connect',scheme:readPageColorScheme()});}
+    if(!stopThemeObserver)stopThemeObserver=observePageColorScheme(scheme=>{
+      companion.receive({type:'page-theme',scheme});
+      try{port?.postMessage({type:'nova-page-theme',scheme});}catch{}
+    });
     return companion;
   };
   chrome.runtime.onMessage.addListener((message,sender,respond)=>{
     if(sender.id!==chrome.runtime.id)return;
-    if(message.type==='nova-unmount'){active=false;window.__novaCompanion?.destroy();const old=port;port=undefined;old?.disconnect();respond({ok:true});return;}
+    if(message.type==='nova-unmount'){active=false;stopThemeObserver?.();stopThemeObserver=undefined;window.__novaCompanion?.destroy();const old=port;port=undefined;old?.disconnect();respond({ok:true});return;}
     if(message.type==='nova-mount'){mount();respond({ok:true});return;}
     if(message.type==='nova-open'){mount().open();respond({ok:true});return;}
     if(message.type==='nova-dom'){
