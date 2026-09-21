@@ -82,9 +82,10 @@ function requestedRecordEdit(action: Action, snapshot: Snapshot, intent: string)
   if (!request || /\b(how|what if|explain|after|until|confirmation|approve|approval|wait|stop|cancel)\b|\b(ask|check with) me\b/i.test(request)) return false;
   const affirmative = request.replace(/\b(don['’]?t|do not|never|without)\b[^,;.!?]*/gi, '');
   // A concrete rename can name the record instead of repeating the generic
-  // editor heading. Require an observed name field and a direct new-name request.
+  // editor heading. Require an observed name field and a direct new-name request;
+  // conventional optional/required suffixes do not change that field's meaning.
   const rename = /^(?:actually[, ]+)?(?:(?:can|could|would) you(?: please)?\s+|please\s+)?rename\s+.+?\s+to\s+\S/i.test(affirmative.trim()) &&
-    fields.some(e => /^(?:display )?(?:name|title)$/i.test(e.name.trim()));
+    fields.some(e => /^(?:display )?(?:name|title)(?:\s+\((?:optional|required)\))?$/i.test(e.name.trim()));
   if (!rename && !/\b(save|update|create|add|apply|make|prepare|set|give|enable|disable|turn|change|edit)\b/i.test(affirmative)) return false;
   const words = (text:string) => text.toLowerCase().replace(/roll over/g,'rollover').match(/[a-z]{4,}/g) || [];
   const requestWords = new Set(words(affirmative));

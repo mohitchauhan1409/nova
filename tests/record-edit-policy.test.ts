@@ -38,7 +38,7 @@ describe('explicit ordinary record revisions',()=>{
    heading,field,{...field,ref:'key',name:'Key'},{...field,ref:'value',name:'Value'},save,
   ]};
   const intent='Rename Support to Customer Care, please.';
-  it.each(['Display Name','Name','Title'])('saves a concrete rename with an observed %s field',name=>{
+  it.each(['Display Name','Name','Title','Display Name (optional)','Name (required)','Title (Optional)'])('saves a concrete rename with an observed %s field',name=>{
    const editor={...page,elements:[heading,{...field,name},save]};
    expect(checkAction(action,editor,editor.url,intent).outcome).toBe('allow');
   });
@@ -62,6 +62,9 @@ describe('explicit ordinary record revisions',()=>{
     [heading,{...field,covered:true},save],[{...heading,name:'Edit Account'},field,save]]){
     expect(checkAction(action,{...page,elements},page.url,intent).outcome).toBe('approve');
    }
+  });
+  it.each(['API key Name (optional)','Public Name (optional)','Display Name (optional) for recipient','Name (permission)'])('does not treat broader label %s as plain rename metadata',name=>{
+   expect(checkAction(action,{...page,elements:[heading,{...field,name},save]},page.url,intent).outcome).toBe('approve');
   });
   it('preserves sensitive, dispatch, visibility, and composer boundaries',()=>{
    expect(checkAction({...action,risk:'sensitive'},page,page.url,intent).outcome).toBe('approve');
