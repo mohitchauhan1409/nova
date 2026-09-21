@@ -4,6 +4,26 @@ import type { Action, Snapshot } from '../shared/types';
 const action:Action={kind:'click',ref:'save',value:null,url:null,x:null,y:null,risk:'change',summary:'Save the edited record'};
 const snapshot:Snapshot={id:'edit',url:'https://workspace.example/editor',title:'Editor',text:'Edit product',elements:[{ref:'save',name:'Save changes',tag:'button',role:'button',type:'button',context:'Product summary',disabled:false,sensitive:false}],viewport:{width:1000,height:800},theme:{color:'#000',font:'system-ui'},frames:0,capturedAt:0};
 describe('explicit ordinary record revisions',()=>{
+ describe('tag-entry Enter',()=>{
+  const tag={...snapshot.elements[0],ref:'tags',tag:'input',role:'',name:'Type a tag and press Enter...',type:'text',context:'',form:false,edit:{revision:'prepared',empty:false},state:['draft:matches:tags']};
+  const enter:Action={...action,kind:'press',ref:'tags',value:'Enter',summary:'Commit the requested tag'};
+  const page={...snapshot,elements:[tag,{...snapshot.elements[0],name:'Save'}]};
+  const intent='Add two policy cases and tag them by what they check. Leave execution outputs empty.';
+  it.each(['Type a tag and press Enter...','Enter a tag and press Enter','Add a tag, press Enter'])('commits an explicitly requested prepared tag: %s',name=>{
+   expect(checkAction(enter,{...page,elements:[{...tag,name},page.elements[1]]},page.url,intent).outcome).toBe('allow');
+  });
+  it.each(['Do not tag this record.','Do not add tags.','Read tags.','How would I tag this record?','Tag only after my approval.','Tag this record after I approve.','Tag this record.\nWait for me.','Tag this record.\nCancel the change.','Open this record.'])('retains review without current authorization: %s',request=>{
+   expect(checkAction(enter,page,page.url,request).outcome).toBe('approve');
+  });
+  it('keeps form submission, unverified input, and consequential contexts gated',()=>{
+   for(const patch of [{form:true},{submission:{scope:'form',label:'Submit record',fields:[]}},{type:'email'},{edit:{revision:'empty',empty:true}},{state:[]},{state:['draft:different']},{name:'Type a tag and press Enter to send'},{context:'Send message to recipients'},{context:'Billing settings'},{context:'API key'}]){
+    expect(checkAction(enter,{...page,elements:[{...tag,...patch},page.elements[1]]},page.url,intent).outcome).not.toBe('allow');
+   }
+   expect(checkAction({...enter,risk:'sensitive'},page,page.url,intent).outcome).toBe('approve');
+   expect(checkAction(enter,{...page,elements:[{...tag,sensitive:true}]},page.url,intent).outcome).toBe('block');
+   for(const name of ['Send','Pay','Delete record'])expect(checkAction(enter,{...page,elements:[{...tag,tag:'button',name,type:'submit'}]},page.url,intent).outcome).toBe('approve');
+  });
+ });
  const trialEditor:Snapshot={...snapshot,elements:[...snapshot.elements,{ref:'trial',name:'Trial length in days',tag:'input',role:'spinbutton',type:'number',context:'Product pricing',disabled:false,sensitive:false}]};
  it.each(['Actually, give teams 21 days to try it. Keep everything else the same.','Extend the trial to 28 days.'])('understands an explicit trial duration: %s',intent=>{
   expect(checkAction(action,trialEditor,trialEditor.url,intent).outcome).toBe('allow');
