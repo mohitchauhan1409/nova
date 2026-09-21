@@ -19,6 +19,40 @@ try {
   await site.waitForURL('**/demo/shop');
   const launcher=site.getByRole('button',{name:'Open Nova side panel',exact:true});
   await launcher.waitFor();
+  const gaze=launcher.locator('.nova-gaze');
+  const eyes=launcher.locator('.nova-eyes');
+  assert.equal(await gaze.evaluate(el=>el.getAnimations()[0]?.playState),'running','Eyes glance around while idle');
+  assert.equal(await eyes.evaluate(el=>el.getAnimations()[0]?.playState),'running','Eyes blink automatically');
+  assert.ok(await eyes.evaluate(el=>{
+    const blink=el.getAnimations()[0];
+    blink.pause(); blink.currentTime=2112;
+    const closed=new DOMMatrix(getComputedStyle(el).transform).d<.1;
+    blink.currentTime=0; blink.play();
+    return closed;
+  }),'Blink visibly closes the eyes');
+  await site.mouse.move(10,10);
+  await site.waitForFunction(()=>{
+    const gaze=document.querySelector('[data-nova-root=launcher]')?.shadowRoot?.querySelector('.nova-gaze');
+    return gaze&&new DOMMatrix(getComputedStyle(gaze).transform).e < -1;
+  });
+  const viewport=site.viewportSize()!;
+  await site.mouse.move(viewport.width-2,viewport.height-2);
+  await site.waitForFunction(()=>{
+    const gaze=document.querySelector('[data-nova-root=launcher]')?.shadowRoot?.querySelector('.nova-gaze');
+    return gaze&&new DOMMatrix(getComputedStyle(gaze).transform).e > 1;
+  });
+  await site.waitForFunction(()=>!document.querySelector('[data-nova-root=launcher]')?.shadowRoot?.querySelector('.launch')?.hasAttribute('data-gaze'));
+  assert.equal(await gaze.evaluate(el=>el.getAnimations().find(a=>a instanceof CSSAnimation)?.playState),'running','Idle motion resumes after pointer stops');
+  await site.emulateMedia({reducedMotion:'reduce'});
+  await site.mouse.move(10,10);
+  await site.waitForFunction(()=>{
+    const root=document.querySelector('[data-nova-root=launcher]')?.shadowRoot;
+    return root&&!root.querySelector('.launch')?.hasAttribute('data-gaze')&&['.nova-eyes','.nova-gaze'].every(selector=>{
+      const el=root.querySelector(selector)!;
+      return el.getAnimations().length===0&&getComputedStyle(el).transform==='none';
+    });
+  });
+  await site.emulateMedia({reducedMotion:'no-preference'});
   const tab=await worker.evaluate(async url=>(await chrome.tabs.query({url}))[0],site.url());
   await launcher.click();
   const cdp=await context.newCDPSession(site);
@@ -41,7 +75,7 @@ try {
   await launcher.click();
   await launcher.waitFor({state:'hidden'});
   await mkdir('artifacts/core/experience-refresh',{recursive:true});
-  const checks=['launcher visible while closed','hidden while panel open','hidden after website reload','returns after closing','hides on reopening','Live talk label','redundant site-title block removed'];
+  const checks=['eyes glance while idle','eyes blink','eyes follow pointer left and right','idle motion resumes','reduced motion stays still','launcher visible while closed','hidden while panel open','hidden after website reload','returns after closing','hides on reopening','Live talk label','redundant site-title block removed'];
   await writeFile('artifacts/core/experience-refresh/launcher-checks.json',JSON.stringify({ok:true,checks},null,2));
   console.log(checks.join('\n'));
 }finally{await context.close();}
