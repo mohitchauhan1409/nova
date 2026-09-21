@@ -11,6 +11,22 @@ export const snapshot: Snapshot = { id: 's1', url: 'https://www.amazon.in/dp/dem
 ], viewport:{width:1200,height:800},theme:{color:'#000',font:'Arial'},frames:0,capturedAt:0 };
 export const action = (patch: Partial<Action> = {}): Action => ({kind:'click',ref:'cart',url:null,value:null,x:null,y:null,summary:'Add the adapter to cart for ₹799',risk:'read',...patch});
 describe('deterministic action policy', () => {
+  describe('ordinary editable focus',()=>{
+    const editor={ref:'editor',tag:'div',role:'',name:'Returns policy: preserve proof of purchase. Do not send refunds or delete records.',type:'contenteditable',context:'',form:false,disabled:false,sensitive:false,edit:{revision:'v1',empty:false},submission:{scope:'editor-region',label:'',fields:[{ref:'editor',revision:'v1'}]}};
+    const page={...snapshot,elements:[editor]};
+    it.each([{tag:'div',type:'contenteditable',role:''},{tag:'textarea',type:'',role:''},{tag:'input',type:'text',role:'textbox'}])('allows one focus click on the observed editor: %o',shape=>{
+      expect(checkAction(action({ref:'editor'}),{...page,elements:[{...editor,...shape}]},page.url,'Revise the returns policy').outcome).toBe('allow');
+    });
+    it('does not bypass actual commitments, private fields or uncertain editable metadata',()=>{
+      for(const patch of [{tag:'button',type:'submit',name:'Send refunds'},{role:'button',name:'Delete record'},{tag:'input',type:'submit',name:'Confirm purchase'},{tag:'input',type:'button',name:'Send'},{tag:'input',type:'password',name:'Password'},{name:'Payment method'},{name:'API key',sensitive:true},{context:'Credit card number'},{edit:undefined},{submission:{scope:'composer',label:'Send',fields:[{ref:'other',revision:'v1'}]}}]){
+        expect(checkAction(action({ref:'editor'}),{...page,elements:[{...editor,...patch}]},page.url,'Revise the returns policy').outcome).not.toBe('allow');
+      }
+      expect(checkAction(action({ref:'editor',risk:'sensitive'}),page,page.url).outcome).toBe('approve');
+      expect(checkAction(action({ref:'editor',kind:'press',value:'Enter'}),page,page.url).outcome).toBe('approve');
+      expect(checkAction(action({ref:'editor',kind:'double_click'}),page,page.url).outcome).toBe('approve');
+      for(const patch of [{disabled:true},{sensitive:true}])expect(checkAction(action({ref:'editor'}),{...page,elements:[{...editor,...patch}]},page.url).outcome).toBe('block');
+    });
+  });
   it('dismisses a form without confusing surrounding purchase copy with the Cancel button', () => {
     const target = {...snapshot.elements[1],name:'Cancel',type:'button',form:true,context:'Confirm purchase and payment'};
     expect(checkAction(action(),{...snapshot,elements:[target]},snapshot.url).outcome).toBe('allow');
