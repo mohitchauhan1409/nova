@@ -1,0 +1,35 @@
+{
+  "verified_at_utc": "2026-09-21T03:54:44.512922+00:00",
+  "repository": {
+    "isPrivate": true,
+    "nameWithOwner": "mohitchauhan1409/nova",
+    "url": "https://github.com/mohitchauhan1409/nova"
+  },
+  "main_commit": "2ddbe3cd8a68707985506745101728a0f6ca188c",
+  "startup_media_commit": "98bb1b74dfe469292a0e8d18dd15b4986fd24d2e",
+  "startup_contains_main": true,
+  "main_has_no_startup_asset_paths": true,
+  "independent_cache": "/tmp/nova-creem-remote-check.uS5ZqZ/.git/lfs",
+  "git_alternates_used": false,
+  "remote_tree_contains_exactly_three_videos": true,
+  "media": [
+    {
+      "path": "artifacts/creem/final/nova-creem-raw.mov",
+      "sha256": "45a0e36852719eb202920f86c0b90af9bac76e166bce98ac7df6ea4084c0db1c",
+      "bytes": 55534676,
+      "independent_download_verified": true
+    },
+    {
+      "path": "artifacts/creem/final/nova-creem-silent.mp4",
+      "sha256": "d112ff124bcb0018b952645c58b7e06dda596f572426c59d5a86130e828c7a5f",
+      "bytes": 16422889,
+      "independent_download_verified": true
+    },
+    {
+      "path": "artifacts/creem/final/nova-creem.mp4",
+      "sha256": "a94883514c9af5166575e8c7e54f6c4f9c8a4b9aa121d81218e4a90ec12c3884",
+      "bytes": 16850479,
+      "independent_download_verified": true
+    }
+  ]
+}
