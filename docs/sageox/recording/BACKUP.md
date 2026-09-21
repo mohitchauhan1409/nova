@@ -1,7 +1,11 @@
 # Verified private backup
 
 Repository: https://github.com/mohitchauhan1409/nova (verified private).
-The current media commit on sageox-nova is 3cf6c5a5de0ae22ca824d3cef2a7de2c2ccc4eff.
+The current media bytes were published on sageox-nova in commit
+3cf6c5a5de0ae22ca824d3cef2a7de2c2ccc4eff. The click-only video has since been
+renamed from `nova-sageox-clicks.mp4` to `nova-sageox.mp4`; its bytes and SHA-256
+are unchanged. The original recovery receipt retains the filename at that commit,
+while `checksums.sha256` uses the current filename.
 Reusable tap rendering and integer-frame cover fixes are on main at
 6b37b43500b00a7ec28bdc0252372d6752c63332. A later documentation-only commit records
 this recovery verification and does not change the media.
@@ -10,6 +14,12 @@ A fresh independent HTTPS clone downloaded all three current LFS objects from th
 remote. Local LFS filters were installed before pulling and checking them out.
 All three recovered SHA-256 checksums match: 146,815,600 bytes total.
 See remote-recovery.json and checksums.sha256.
+
+Current media paths under `artifacts/sageox/media/`:
+
+- `nova-sageox-original.mov` — untouched original recording.
+- `nova-sageox-silent.mp4` — final silent edit.
+- `nova-sageox.mp4` — final edit with operator and Nova tap sounds.
 
 ```sh
 git clone --branch sageox-nova --single-branch https://github.com/mohitchauhan1409/nova.git
