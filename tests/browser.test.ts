@@ -9,6 +9,13 @@ let browser:Browser;let page:Page;
 beforeAll(async()=>{browser=await chromium.launch({headless:true});page=await browser.newPage();});
 afterAll(async()=>{await browser?.close();});
 describe('real DOM actuation in an isolated fixture browser',()=>{
+  it('labels one custom toggle from its unassociated field label without borrowing neighboring fields',async()=>{
+    await page.setContent('<div><label>Rollover unused credits</label><div><button role="checkbox" aria-checked="false"></button><p>Rollover unused credits to the next billing cycle</p></div></div><div><label>Ambiguous section</label><button role="checkbox">One</button><button role="checkbox">Two</button></div><div><label>Fallback</label><button role="switch" aria-label="Explicit label"></button></div>');
+    await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);
+    const snap=await page.evaluate(()=>window.__novaDOM!.snapshot());
+    expect(snap.elements.find(e=>e.name==='Rollover unused credits')?.role).toBe('checkbox');
+    for(const name of ['One','Two','Explicit label'])expect(snap.elements.some(e=>e.name===name)).toBe(true);
+  });
   it('scrolls the unique nested area when the observed dialog wrapper cannot scroll',async()=>{
     await page.setContent('<div role="dialog" tabindex="-1" aria-label="Editor"><div id="scroll" style="height:140px;overflow:auto"><div style="height:900px"><input aria-label="Name"><p>Editor fields</p></div></div></div>');
     await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);

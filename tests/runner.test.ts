@@ -29,6 +29,16 @@ describe('browser agent execution boundaries',()=>{
     expect(f.driver.execute).toHaveBeenCalledTimes(1);
     expect(capture).toHaveBeenCalledTimes(privatePage?0:1);
   });
+  it('reconsiders dismissing an editor when its delayed fields arrive during planning',async()=>{
+    const f=fixture();const cancel={...base.elements[0],name:'Cancel',type:'button',form:true};
+    f.setState({...base,elements:[cancel]});let plans=0;
+    f.planner.decide=async()=>{
+      if(++plans===1){await new Promise(resolve=>setTimeout(resolve,780));f.setState({...base,elements:[cancel,{...cancel,ref:'units',tag:'input',name:'Units',type:'number'}]});return {...act('click'),risk:'read',summary:'Close incomplete form'};}
+      return {...act('done'),summary:'The editor fields are loaded.',completion:{status:'blocked',evidence:[]}};
+    };
+    await f.runner.command('Inspect the editor');expect(f.driver.execute).not.toHaveBeenCalled();
+    expect(f.session.traces.some(t=>t.text.includes('Reconsidering the dismissal'))).toBe(true);
+  });
   it('replans when a saved editor disappears during planning, without a failed click receipt',async()=>{
     const f=fixture();
     f.setState({...base,elements:[{...base.elements[0],name:'Cancel',type:'button'}]});
