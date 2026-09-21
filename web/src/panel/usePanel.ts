@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { ServerEvent, Session } from '../../../shared/types';
+import type { PageColorScheme, PageThemeEvent } from '../../../shared/page-theme';
 import { VoiceClient } from '../voice';
 import { microphoneError, microphonePermission } from '../microphone';
 
 type Connection = 'connecting' | 'ready' | 'offline' | 'unpaired' | 'inactive';
-type PanelEvent = ServerEvent | { type: 'panel-state'; state: Connection; message?: string } | { type: 'control-changed' };
+type PanelEvent = ServerEvent | PageThemeEvent | { type: 'panel-state'; state: Connection; message?: string } | { type: 'control-changed' };
 export function usePanel() {
   const [session, setSession] = useState<Session>();
+  const [pageColorScheme, setPageColorScheme] = useState<PageColorScheme>();
   const [connection, setConnection] = useState<Connection>('connecting');
   const [error, setError] = useState('');
   const [voiceState, setVoiceState] = useState('off');
@@ -38,16 +40,17 @@ export function usePanel() {
     const channel = chrome.runtime.connect({ name: 'nova-panel' }); port.current = channel;
     channel.onMessage.addListener((message: PanelEvent) => {
       if (port.current !== channel || !mounted.current) return;
+      if (message.type === 'page-theme') setPageColorScheme(message.scheme);
       if (message.type === 'control-changed') refreshControl();
       if (message.type === 'ready') { setConnection('ready'); setError(''); }
-      if (message.type === 'panel-state') { setConnection(message.state); if (message.message) setError(message.message); if (message.state !== 'ready') { void stopVoice(); setSession(undefined); sessionRef.current = undefined; } }
+      if (message.type === 'panel-state') { setConnection(message.state); if (message.state === 'inactive') setPageColorScheme(undefined); if (message.message) setError(message.message); if (message.state !== 'ready') { void stopVoice(); setSession(undefined); sessionRef.current = undefined; } }
       if (message.type === 'session') {
         const changedSession = sessionRef.current?.id !== message.session.id;
         if (sessionRef.current && sessionRef.current.id !== message.session.id) void stopVoice();
         sessionRef.current = message.session; setSession(message.session); setConnection('ready');
         if (changedSession) refreshControl();
       }
-      if (message.type === 'sessions' && !message.sessions.some(s => s.id === sessionRef.current?.id)) { setSession(undefined); sessionRef.current = undefined; setConnection('inactive'); void stopVoice(); }
+      if (message.type === 'sessions' && !message.sessions.some(s => s.id === sessionRef.current?.id)) { setPageColorScheme(undefined); setSession(undefined); sessionRef.current = undefined; setConnection('inactive'); void stopVoice(); }
       if (message.type === 'error') setError(message.message);
       if (message.type === 'voice') {
         voice.current?.handle(message);
@@ -115,5 +118,5 @@ export function usePanel() {
       setError('');refreshControl();
     })().catch(reason=>setError(reason.message));
   };
-  return { session, connection, error, setError, voiceState, partial, level, microphoneSetup, browserControl, enableBrowserControl, connect, send, command, startVoice, stopVoice, interrupt, newChat, close };
+  return { session, pageColorScheme, connection, error, setError, voiceState, partial, level, microphoneSetup, browserControl, enableBrowserControl, connect, send, command, startVoice, stopVoice, interrupt, newChat, close };
 }
