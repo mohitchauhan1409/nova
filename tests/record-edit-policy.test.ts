@@ -76,4 +76,45 @@ describe('explicit ordinary record revisions',()=>{
    expect(checkAction(action,{...page,elements:[heading,field,{...save,submission:{scope:'message',label:'Message',fields:[]}}]},page.url,intent).outcome).toBe('approve');
   });
  });
+ describe('assignments to structural keys in ordinary editors',()=>{
+  const context='Display Name Metadata Add field Cancel Update';
+  const base={role:'',type:'',context,disabled:false,sensitive:false};
+  const heading={...base,ref:'heading',tag:'h2',name:'Edit Properties'};
+  const save={...base,ref:'save',tag:'button',type:'submit',name:'Update',form:true};
+  const row=(key:string)=>['key','value'].map(name=>({...base,ref:`${key}-${name}`,tag:'input',type:'text',name,form:true,context:`Field key: ${key}. ${context}`}));
+  const page:Snapshot={...snapshot,text:'Edit Properties',elements:[heading,...row('team'),...row('purpose'),...row('response_target'),save]};
+  const intent='In Cedar & Finch Care, set purpose to Furniture order support and response_target to 1 business day. Keep team unchanged.';
+  it.each([intent,'Set response_target to 2 business days.','Change the purpose to General questions.'])('saves an explicit assignment to an observed key: %s',request=>{
+   expect(checkAction(action,page,page.url,request).outcome).toBe('allow');
+  });
+  it.each(['Set purpose_suffix to General questions.','Set response to tomorrow.','Set colour to blue. Keep purpose unchanged.',
+   'Do not set purpose to General questions.','How would I set purpose to General questions?',
+   'Would it make sense to set purpose to General questions?','Set purpose to General questions only after I approve.',
+   'Set purpose to General questions.\nWait for me.'])('retains review for ungrounded or nonaffirmative assignments: %s',request=>{
+   expect(checkAction(action,page,page.url,request).outcome).toBe('approve');
+  });
+  it('requires a visible pair in the same ordinary form',()=>{
+   for(const fields of [[],row('purpose').map(e=>({...e,covered:true})),row('purpose').map(e=>({...e,form:false})),
+    row('purpose').map(e=>({...e,context:'Field key: purpose. Another form'})),row('purpose').filter(e=>e.name==='value')]){
+    expect(checkAction(action,{...page,elements:[heading,...fields,save]},page.url,intent).outcome).toBe('approve');
+   }
+   for(const elements of [[...row('purpose'),save],[{...heading,name:'Edit Account'},...row('purpose'),save]]){
+    expect(checkAction(action,{...page,elements},page.url,intent).outcome).toBe('approve');
+   }
+  });
+  it.each(['api_key','access_token','client_secret','private_key','password','public_access','permissions','payment_method','send_email'])('retains review for protected structural key %s',key=>{
+   const editor={...page,elements:[heading,...row(key),save]};
+   expect(checkAction(action,editor,editor.url,`Set ${key} to new_value.`).outcome).toBe('approve');
+  });
+  it('preserves sensitive and consequential boundaries with grounded keys',()=>{
+   expect(checkAction({...action,risk:'sensitive'},page,page.url,intent).outcome).toBe('approve');
+   for(const patch of [{sensitive:true},{name:'Payment method'},{name:'Public',state:['checked:true']}]){
+    expect(checkAction(action,{...page,elements:[...page.elements,{...row('other')[0],...patch}]},page.url,intent).outcome).toBe('approve');
+   }
+   for(const patch of [{name:'Send'},{name:'Publish'},{name:'Delete'},{context:'Public access'},{context:'Agree to the contract'},
+    {submission:{scope:'composer',label:'Message',fields:[]}}]){
+    expect(checkAction(action,{...page,elements:[heading,...row('purpose'),{...save,...patch}]},page.url,intent).outcome).toBe('approve');
+   }
+  });
+ });
 });
