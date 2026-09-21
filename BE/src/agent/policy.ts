@@ -64,6 +64,18 @@ function requestedRecordEdit(action: Action, snapshot: Snapshot, intent: string)
   const fields = snapshot.elements.filter(e => e.form && !e.covered &&
     (['input','textarea','select'].includes(e.tag) || ['textbox','checkbox','switch','combobox'].includes(e.role)));
   if (!fields.length || fields.some(e => e.sensitive || sensitiveSettings.test(e.name))) return false;
+  // Key/value row identities come from the DOM observer. Require the visible
+  // pair and its own form context; arbitrary nearby text cannot ground a save.
+  const structuralKeys=fields.flatMap(e=>{
+    if(!target.form||!/^value(?: \((?:optional|required)\))?$/i.test(e.name))return [];
+    const match=e.context.match(/^Field key: ([a-z][a-z0-9_]{0,79})\. (.+)$/i);
+    if(!match||!target.context.startsWith(match[2])||!fields.some(k=>k.context===e.context&&/^key(?: \((?:optional|required)\))?$/i.test(k.name)))return [];
+    return [match[1]];
+  });
+  if(structuralKeys.some(key=>{
+    const name=key.replace(/_/g,' ');
+    return sensitiveSettings.test(name)||serious.test(name)||/\b(secrets?|tokens?|credentials?|api key|private key|access|authentication|security)\b/i.test(name);
+  }))return false;
   // A named record editor supplies context for a plain Save/Update button.
   // Generic Continue/Add forms and transaction/account editors retain review.
   const heading = snapshot.elements.find(e => !e.covered && /^(h[1-4])$/.test(e.tag) &&
@@ -95,9 +107,11 @@ function requestedRecordEdit(action: Action, snapshot: Snapshot, intent: string)
   // text remains useful grounding within this same, ordinary record form.
   const formWords = words(snapshot.elements.filter(e => e.form && !e.covered &&
     e.context === target.context && ['p','label','legend'].includes(e.tag)).map(e => e.name).join(' '));
+  const structuralAssignment=!/\b(would it|should (?:i|we)|could (?:i|we)|might|whether)\b/i.test(affirmative)&&
+    structuralKeys.some(key=>new RegExp(`\\b(?:set|change|edit)\\s+(?:the\\s+)?${key}\\s*(?:=|\\bto\\b)\\s*\\S`,'i').test(affirmative));
   // An explicit save in this already identified ordinary editor need not repeat
   // its noun (for example, 'Keep everything else, save and reopen').
-  return rename || /\b(save|update|apply)\b/i.test(affirmative) || [...editorWords,...fieldWords,...formWords].some(w => requestWords.has(w));
+  return rename || structuralAssignment || /\b(save|update|apply)\b/i.test(affirmative) || [...editorWords,...fieldWords,...formWords].some(w => requestWords.has(w));
 }
 export function checkAction(action: Action, snapshot: Snapshot, _scope: string, intent = ''): PolicyDecision {
   const target = snapshot.elements.find(e => e.ref === action.ref);

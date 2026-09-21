@@ -1,9 +1,10 @@
 import type { ServerEvent, Session } from '../../shared/types';
+import type { PageThemeEvent } from '../../shared/page-theme';
 import { VoiceClient } from '../src/voice';
 import { appendTemplate } from './template';
 
 export type CompanionOptions = { send(message: unknown): void; color?: string; workletUrl?: string };
-export type CompanionEvent = ServerEvent | { type: 'panel-visibility'; visible: boolean };
+export type CompanionEvent = ServerEvent | PageThemeEvent | { type: 'panel-visibility'; visible: boolean };
 export type Companion = { receive(event: CompanionEvent): void; open(): void; action(x: number, y: number, label: string, kind?: string): Promise<void>; clearCursor(): void; destroy(): void };
 declare global { interface Window { __novaCompanion?: Companion; __novaRelay?: (message: string) => void } }
 

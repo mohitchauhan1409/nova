@@ -2,6 +2,7 @@ import { recordingMode, type RecordingClick } from '../../shared/recording';
 import type { Action, Session, ServerEvent } from '../../shared/types';
 import { BrowserControl } from './browser-control';
 import { isNovaDashboard, websitePermission, type TabLaunch } from '../../shared/browser-launch';
+import { isPageColorScheme, type PageColorScheme } from '../../shared/page-theme';
 const pendingMounts = new Set<number>();
 const tabSpeeds = new Map<number, 'intelligent' | 'fast'>();
 const mountGeneration = new Map<number, number>();
@@ -32,7 +33,15 @@ function panelTab(sender?: chrome.runtime.MessageSender) {
   try { const url = new URL(sender?.url || ''); if (url.protocol !== 'chrome-extension:' || url.hostname !== chrome.runtime.id || url.pathname !== '/panel.html') return; const id = Number(url.searchParams.get('tabId')); if (Number.isInteger(id) && id > 0) return id; } catch {}
 }
 let socket: WebSocket | undefined; let authenticated = false; let currentSession: Session | undefined; let currentTab: number | undefined; let heartbeat: ReturnType<typeof setInterval> | undefined;
+let currentPagePort: chrome.runtime.Port | undefined;
+let currentPageScheme: PageColorScheme | undefined;
 const broadcast = (event: unknown) => { for (const port of ports) { if (portTabs.get(port)!==currentTab) continue; try { port.postMessage(event); } catch { ports.delete(port); portTabs.delete(port); } } };
+function updatePageScheme(scheme: unknown) {
+  if (!isPageColorScheme(scheme) || scheme === currentPageScheme) return;
+  currentPageScheme = scheme;
+  if (currentSession) currentSession = { ...currentSession, pageColorScheme: scheme };
+  broadcast({ type: 'page-theme', scheme });
+}
 function stopPanelVoice() {
   const hadOwner = !!voiceOwner;
   try { voiceOwner?.postMessage({ type: 'voice', event: 'off' }); } catch {}
@@ -49,6 +58,7 @@ function detachCurrent(stop = true) {
   stopPanelVoice();
   broadcast({ type: 'sessions', sessions: [] });
   currentTab=undefined;currentSession=undefined;
+  currentPagePort=undefined;currentPageScheme=undefined;
   if (tabId !== undefined) {
     void control.detach(tabId);
     pendingMounts.delete(tabId);tabSpeeds.delete(tabId);
@@ -102,7 +112,7 @@ function connect(token: string, port: chrome.runtime.Port) {
   ws.onopen=()=>ws.send(JSON.stringify({type:'auth',token,role:'extension'}));
   ws.onmessage=event=>{const message=JSON.parse(event.data) as ServerEvent;
     if(message.type==='ready'){authenticated=true; heartbeat=setInterval(()=>relay({type:'ping'}),20000);if(currentTab)void chrome.tabs.get(currentTab).then(tab=>relay(attachMessage(tab)));broadcast({...message,attached:!!currentTab});return;}
-    if(message.type==='session'){if(message.session.tabId!==currentTab)return;currentSession=message.session;}
+    if(message.type==='session'){if(message.session.tabId!==currentTab)return;currentSession={...message.session,pageColorScheme:currentPageScheme};message.session=currentSession;}
     if(message.type==='sessions'&&currentSession&&!message.sessions.some(s=>s.id===currentSession?.id))detachCurrent(false);
     // Stop is reflected locally before sending it. A late server acknowledgement
     // must not shut down a new voice conversation that has since started.
@@ -115,6 +125,7 @@ function connect(token: string, port: chrome.runtime.Port) {
 }
 chrome.runtime.onConnect.addListener(port => {
   if (!['nova-panel','nova-page'].includes(port.name) || port.sender?.id !== chrome.runtime.id) return;
+  if (port.name === 'nova-page' && port.sender.frameId !== 0) return;
   const tabId = port.name === 'nova-page' ? port.sender.tab?.id : panelTab(port.sender);
   if (!tabId) return;
   ports.add(port); portTabs.set(port, tabId);
@@ -126,6 +137,8 @@ chrome.runtime.onConnect.addListener(port => {
     }
     if (message.type === 'nova-panel-connect' && port.name === 'nova-panel') {
       if (tabId !== currentTab) { port.postMessage({type:'panel-state',state:'inactive'}); return; }
+      // Available before backend pairing or any agent task/snapshot.
+      if (currentPageScheme) port.postMessage({type:'page-theme',scheme:currentPageScheme});
       void (async () => {
         if (typeof message.token === 'string' && message.token.length >= 32 && message.token.length <= 512) await chrome.storage.local.set({novaToken:message.token});
         const data = await chrome.storage.local.get('novaToken');
@@ -137,7 +150,11 @@ chrome.runtime.onConnect.addListener(port => {
     if (message.type === 'nova-page-connect' && port.name === 'nova-page' && port.sender?.tab) {
       port.postMessage({type:'panel-visibility',visible:panelVisible(tabId)});
       const tab = port.sender.tab;
-      if (currentTab !== tabId) { detachCurrent(); currentTab=tabId; if(authenticated){relay(attachMessage(tab));return;} }
+      const changedTab = currentTab !== tabId;
+      if (changedTab) { detachCurrent(); currentTab=tabId; }
+      currentPagePort=port;
+      updatePageScheme(message.scheme);
+      if (changedTab && authenticated) { relay(attachMessage(tab)); return; }
       void chrome.storage.local.get('novaToken').then(data => {
         if (typeof data.novaToken !== 'string') { broadcast({type:'panel-state',state:'unpaired'}); return; }
         if (authenticated && currentSession) { port.postMessage({type:'session',session:currentSession}); return; }
@@ -146,6 +163,7 @@ chrome.runtime.onConnect.addListener(port => {
       return;
     }
     if (portTabs.get(port) !== currentTab) return;
+    if (message.type === 'nova-page-theme' && port === currentPagePort) { updatePageScheme(message.scheme); return; }
     if (message.type === 'nova-new-chat' && port.name === 'nova-panel') {
       if(currentSession)relay({type:'stop',sessionId:currentSession.id});
       stopPanelVoice(); currentSession=undefined;

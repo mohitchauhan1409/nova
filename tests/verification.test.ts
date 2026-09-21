@@ -1,11 +1,24 @@
 import {describe,it,expect} from 'vitest';
-import {actionEffect,completionProblem} from '../BE/src/agent/verification';
+import {actionEffect,completionProblem,completionSnapshotChanged} from '../BE/src/agent/verification';
 import {plannerContext} from '../BE/src/providers/openai';
 import {quickAction,isStopCommand} from '../BE/src/agent/quick-actions';
 import type {Action,Snapshot,Session,SiteProfile} from '../shared/types';
 const before:Snapshot={id:'a',url:'https://example.com/',title:'Page',text:'Player',elements:[{ref:'v',tag:'video',role:'',name:'Player',type:'',context:'',disabled:false,sensitive:false,state:['paused:false']}],viewport:{width:1200,height:800,scrollY:0},theme:{color:'#000',font:'Arial'},frames:0,capturedAt:0};
 const action:Action={kind:'click',ref:'v',url:null,value:null,x:null,y:null,summary:'Pause',risk:'read'};
 describe('observed outcome verification',()=>{
+  it('distinguishes newly attached draft proof from a real editable value change at completion',()=>{
+    const field={...before.elements[0],tag:'input',name:'Description',type:'text',state:[],edit:{revision:'value-1',empty:false}};
+    const page={...before,elements:[field]};
+    const proof={...page,elements:[{...field,state:['draft:matches:known-ref']}]};
+    expect(completionSnapshotChanged(page,proof,action)).toBe(false);
+    expect(completionSnapshotChanged(page,{...proof,elements:[{...field,edit:{revision:'value-2',empty:false}}]},action)).toBe(true);
+  });
+  it('does not ignore an observed timer when the answer cites its value',()=>{
+    const timer={...before.elements[0],ref:'timer',tag:'p',role:'timer',name:'00:00:01'};
+    const page={...before,text:timer.name,elements:[timer]};
+    const done={...action,kind:'done' as const,completion:{status:'answer' as const,evidence:[{source:'text' as const,ref:'timer',value:timer.name}]}};
+    expect(completionSnapshotChanged(page,{...page,text:'00:00:02',elements:[{...timer,name:'00:00:02'}]},done)).toBe(true);
+  });
   it('waits when a non-form import only dismisses auxiliary controls with its draft intact', () => {
     const submit={...action,risk:'sensitive' as const};
     const button={...before.elements[0],tag:'button',name:'Import',type:'button',state:[]};
@@ -43,6 +56,15 @@ describe('observed outcome verification',()=>{
     const session={messages:[],traces:[]} as unknown as Session;const site={name:'Page',instructions:'',flows:[]} as unknown as SiteProfile;
     const snap={...before,elements:[{...before.elements[0],ref:'delay',tag:'input',name:'Wait',type:'number',state:['value:30']}]};
     expect(plannerContext(session,site,snap).stateEvidence).toContainEqual({source:'state',ref:'delay',value:'value:30'});
+  });
+  it('does not present a prepared value as current proof after its row identity changes',()=>{
+    const field={...before.elements[0],tag:'input',name:'Value',type:'text',context:'Field key: purpose. Edit properties',state:[],edit:{revision:'same-text',empty:false}};
+    const draft={ref:field.ref,url:before.url,value:'Known purpose',kind:'fill' as const,revision:field.edit.revision,target:{name:field.name,tag:field.tag,type:field.type,context:field.context}};
+    const session={messages:[],traces:[],preparedInputs:[draft]} as unknown as Session;const site={name:'Page',instructions:'',flows:[]} as unknown as SiteProfile;
+    expect(plannerContext(session,site,{...before,elements:[field]}).preparedInputs).toHaveLength(1);
+    expect(plannerContext(session,site,{...before,elements:[{...field,context:'Field key: owner. Edit properties'}]}).preparedInputs).toEqual([]);
+    // A fresh equality observation remains sufficient if incidental form text changed.
+    expect(plannerContext(session,site,{...before,elements:[{...field,context:'Changed counter',state:[`draft:matches:${draft.ref}`]}]}).preparedInputs).toHaveLength(1);
   });
   it('packs observations without dropping control information or duplicating contexts',()=>{const session={messages:[],traces:[]} as unknown as Session;const site={name:'Page',instructions:'',flows:[]} as unknown as SiteProfile;const snap={...before,elements:[...before.elements,{...before.elements[0],ref:'v2'}]};const packed=plannerContext(session,site,snap).observation;expect(packed.contexts).toEqual(['']);const e=Object.fromEntries(packed.elementColumns.map((key,i)=>[key,packed.elements[0][i]]));expect(e.ref).toBe('v');expect(e.state).toEqual(['paused:false']);expect(packed.elements).toHaveLength(2);});
 });

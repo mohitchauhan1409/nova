@@ -61,6 +61,49 @@ describe('real DOM actuation in an isolated fixture browser',()=>{
     snap=await page.evaluate(d=>window.__novaDOM!.snapshot([d]),draft);expect(snap.elements.flatMap(e=>e.state||[]).some(s=>s.startsWith('draft:'))).toBe(false);
     snap=await page.evaluate(d=>window.__novaDOM!.snapshot([{...d,url:'https://other.example'}]),draft);expect(snap.elements.flatMap(e=>e.state||[]).some(s=>s.startsWith('draft:'))).toBe(false);
   });
+  it('identifies repeated key/value rows across reorder and remount without exposing values',async()=>{
+    const row=(key:string,value:string)=>`<div class="row"><div><input placeholder="key" value="${key}"></div><select aria-label="Value type"><option>String</option></select><div><input placeholder="value" value="${value}"></div><button>Remove</button></div>`;
+    const render=(rows:string[])=>`<form><h2>Edit properties</h2>${rows.join('')}<button>Update</button></form>`;
+    await page.setContent(render([row('owner','Private owner'),row('purpose','Existing purpose'),row('response_target','Existing target')]));
+    await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);
+    const initial=await page.evaluate(()=>window.__novaDOM!.snapshot());
+    const purpose=initial.elements.find(e=>e.name==='value'&&e.context.startsWith('Field key: purpose.'))!;
+    expect(purpose).toBeDefined();
+    expect(new Set(initial.elements.filter(e=>e.name==='value').map(e=>e.context)).size).toBe(3);
+    await page.evaluate(a=>window.__novaDOM!.execute(a),action({kind:'fill',ref:purpose.ref,value:'Requested purpose'}));
+    const draft={ref:purpose.ref,url:page.url(),value:'Requested purpose',kind:'fill' as const,target:{name:purpose.name,tag:purpose.tag,type:purpose.type,context:purpose.context}};
+    await page.setContent(render([row('response_target','Existing target'),row('owner','Private owner'),row('purpose','Requested purpose')]));
+    let snap=await page.evaluate(d=>window.__novaDOM!.snapshot([d]),draft);
+    const remounted=snap.elements.find(e=>e.name==='value'&&e.context.startsWith('Field key: purpose.'))!;
+    expect(remounted.ref).not.toBe(purpose.ref);expect(remounted.state).toContain(`draft:matches:${purpose.ref}`);
+    expect(snap.elements.filter(e=>e.state?.some(s=>s.startsWith('draft:')))).toHaveLength(1);
+    for(const value of ['Private owner','Existing purpose','Existing target','Requested purpose'])expect(JSON.stringify(snap)).not.toContain(value);
+    // A framework may reuse the same input for another key with unchanged text.
+    const reusedDraft={...draft,ref:remounted.ref};
+    await page.locator('.row').last().locator('input').first().fill('different_key');
+    snap=await page.evaluate(d=>window.__novaDOM!.snapshot([d]),reusedDraft);
+    expect(snap.elements.flatMap(e=>e.state||[]).some(s=>s.startsWith('draft:'))).toBe(false);
+    await page.setContent(render([row('purpose','Requested purpose'),row('purpose','Different private purpose')]));
+    snap=await page.evaluate(d=>window.__novaDOM!.snapshot([d]),draft);
+    expect(snap.elements.flatMap(e=>e.state||[]).some(s=>s.startsWith('draft:'))).toBe(false);
+  });
+  it('does not infer key/value identities from ambiguous, hidden, sensitive or arbitrary fields',async()=>{
+    await page.setContent('<form><div><input placeholder="key" value="one"><input placeholder="key" value="two"><input placeholder="value" value="private ambiguous"></div><div><input placeholder="key" type="hidden" value="hidden_key"><input placeholder="value" value="private hidden"></div><div><input placeholder="key" autocomplete="current-password" value="secret_identifier"><input placeholder="value" value="private secret"></div><div><input placeholder="key" value="private@example.test"><input placeholder="value" value="private email"></div><input aria-label="Customer name" value="private customer"></form>');
+    await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);
+    const snap=await page.evaluate(()=>window.__novaDOM!.snapshot());
+    expect(snap.elements.some(e=>e.context.startsWith('Field key:'))).toBe(false);
+    for(const value of ['hidden_key','secret_identifier','private@example.test','private ambiguous','private hidden','private secret','private email','private customer'])expect(JSON.stringify(snap)).not.toContain(value);
+    const secret=snap.elements.find(e=>e.sensitive)!;expect(secret).toBeDefined();
+    await expect(page.evaluate(ref=>window.__novaDOM!.prepare(ref),secret.ref)).rejects.toThrow('sensitive');
+  });
+  it('still compares a known draft when an ordinary form character counter changes',async()=>{
+    await page.setContent('<form><input aria-label="Description"><p id="count">0 characters</p></form>');
+    await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);
+    const field=(await page.evaluate(()=>window.__novaDOM!.snapshot())).elements.find(e=>e.name==='Description')!;
+    const draft={ref:field.ref,url:page.url(),value:'Known draft',kind:'fill' as const,target:{name:field.name,tag:field.tag,type:field.type,context:field.context}};
+    await page.getByLabel('Description').fill(draft.value);await page.locator('#count').evaluate(el=>el.textContent='11 characters');
+    expect((await page.evaluate(d=>window.__novaDOM!.snapshot([d]),draft)).elements.find(e=>e.ref===field.ref)?.state).toContain(`draft:matches:${field.ref}`);
+  });
   it('tracks draft revisions without exposing text and scopes send to its composer',async()=>{
     await page.setContent('<p id="banner">Offer A</p><section aria-label="Shopping assistant"><textarea aria-label="Ask assistant"></textarea><button>Send</button></section>');await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);
     await page.locator('textarea').fill('Private draft text');let snap=await page.evaluate(()=>window.__novaDOM!.snapshot());const editor=snap.elements.find(e=>e.tag==='textarea')!;const send=snap.elements.find(e=>e.name==='Send')!;
