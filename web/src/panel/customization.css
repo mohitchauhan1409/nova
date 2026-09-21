@@ -1,2 +1,63 @@
-/* Customer branches add scoped website theme overrides here.
-   Keep the shared panel layout and behavior in panel.css / PanelApp.tsx. */
+/* Creem 2.0: charcoal surfaces and lavender controls, scoped to the signed-in site. */
+.np-app[data-site="creem.io"] {
+  --site-accent: #cfc2fa !important;
+  --site-ink: #cfc2fa !important;
+  --site-soft: #38333f !important;
+  --creem-bg: #222324;
+  --creem-panel: #272829;
+  --creem-raised: #303132;
+  --creem-border: #3c3d3f;
+  --creem-text: #f3f3f5;
+  --creem-muted: #a6a6ab;
+  color-scheme: dark;
+  background: var(--creem-bg);
+  color: var(--creem-text);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.np-app[data-site="creem.io"] :is(.np-header,.np-tabs,.np-voice-bottom) { background: var(--creem-panel); border-color: var(--creem-border); }
+.np-app[data-site="creem.io"] :is(.np-brand,.np-welcome h1,.np-message-author strong,.np-message-body,.np-message-body strong,.np-message-body h1,.np-message-body h2,.np-message-body h3,.np-suggestions strong,.np-question-card h3,.np-question-fields legend,.np-question-options strong,.np-question-receipt dd,.np-action-heading,.np-action-timeline p,.np-connect h1) { color: var(--creem-text); }
+.np-app[data-site="creem.io"] :is(.np-icon-button,.np-new-chat,.np-tabs>button,.np-welcome>p,.np-suggestions small,.np-thread-start,.np-copy,.np-composer-foot,.np-composer-foot>button,.np-page-context,.np-question-kicker,.np-question-progress,.np-question-card header>p,.np-question-fields fieldset>p,.np-question-fields legend>span,.np-question-fields legend>small,.np-question-options small,.np-custom-choice,.np-question-help,.np-question-card footer>p,.np-question-receipt summary,.np-question-receipt summary>small,.np-question-receipt dt,.np-action-heading>span:not(.np-action-status),.np-action-timeline small,.np-action-timeline .np-step-detail,.np-earlier-steps,.np-voice-topline,.np-voice-topline time,.np-voice-heading p,.np-voice-bottom>p,.np-live-caption,.np-connect p,.np-connect label) { color: var(--creem-muted); }
+.np-app[data-site="creem.io"] :is(.np-brand-mark,.np-welcome-mark) { background: var(--site-soft); color: var(--site-ink); border-color: #56505f; --mark-hole: var(--site-soft); }
+.np-app[data-site="creem.io"] .np-message-author { color: var(--site-ink); --mark-hole: var(--creem-bg); }
+.np-app[data-site="creem.io"] :is(.np-author-ai,.np-question-receipt,.np-action-timeline,.np-suggestions,.np-question-card) { border-color: var(--creem-border); background: var(--creem-panel); color: var(--creem-text); }
+.np-app[data-site="creem.io"] :is(.np-icon-button:hover,.np-new-chat:hover,.np-suggestions>button:hover,.np-question-options>button:hover) { background: #38393b; color: var(--creem-text); }
+.np-app[data-site="creem.io"] .np-tabs>button[aria-selected=true] { background: var(--site-soft); color: var(--site-ink); }
+.np-app[data-site="creem.io"] .np-suggestions>button { background: var(--creem-panel); }
+.np-app[data-site="creem.io"] .np-suggestions>button+button { border-color: var(--creem-border); }
+.np-app[data-site="creem.io"] :is(.np-suggestion-icon,.np-suggestions>button>svg,.np-thinking,.np-clarification,.np-working,.np-voice-back,.np-voice-heading h1) { color: var(--site-ink); }
+.np-app[data-site="creem.io"] .np-message.user { background: #36313f; color: #eee8fa; border-color: #50475d; }
+.np-app[data-site="creem.io"] :is(.np-message-body a,.np-connect a) { color: #d4c5ff; text-decoration-color: #776b91; }
+.np-app[data-site="creem.io"] :is(.np-message-body code,.np-message-body pre,.np-message-body th) { background: var(--creem-raised); color: #dfd3fb; border-color: var(--creem-border); }
+.np-app[data-site="creem.io"] :is(.np-message-body td,.np-message-body th,.np-message-body hr,.np-question-fields fieldset,.np-question-receipt dl) { border-color: var(--creem-border); }
+.np-app[data-site="creem.io"] .np-message-body blockquote { color: #c2b4d6; border-color: #85759b; }
+.np-app[data-site="creem.io"] .np-composer-area { background: linear-gradient(#22232400,var(--creem-bg) 10px); }
+.np-app[data-site="creem.io"] .np-composer { background: #303132; border-color: #48494c; box-shadow: 0 2px 5px #0002; }
+.np-app[data-site="creem.io"] .np-composer:focus-within { border-color: var(--site-accent); box-shadow: 0 0 0 2px #cfc2fa18; }
+.np-app[data-site="creem.io"] .np-composer textarea { color: var(--creem-text); }
+.np-app[data-site="creem.io"] :is(input,textarea)::placeholder { color: #9c9ca3; }
+.np-app[data-site="creem.io"] :is(.np-send,.np-send:hover:not(:disabled),.np-question-continue,.np-button-dark,.np-approval-buttons .np-button-dark,.np-browser-control button) { color: #27232e; background: var(--site-accent); border-color: #aa9cce; box-shadow: inset 0 -2px 0 #0002,0 1px 2px #0003; }
+.np-app[data-site="creem.io"] .np-send:disabled { background: #444148; color: #97909f; box-shadow: none; }
+.np-app[data-site="creem.io"] :is(.np-question-card>header,.np-question-card>footer) { background: var(--creem-raised); border-color: var(--creem-border); }
+.np-app[data-site="creem.io"] :is(.np-question-card input,.np-question-card textarea,.np-question-options>button,.np-connect input) { background: #303132; border-color: #4b4c4e; color: var(--creem-text); }
+.np-app[data-site="creem.io"] .np-question-options>button.selected { background: #40384e; border-color: var(--site-accent); }
+.np-app[data-site="creem.io"] .np-choice-dot { border-color: #81748f; }
+.np-app[data-site="creem.io"] .selected .np-choice-dot { background: var(--site-accent); color: #27232e; border-color: var(--site-accent); }
+.np-app[data-site="creem.io"] .np-question-progress>div { background: #4b4653; }
+.np-app[data-site="creem.io"] :is(.np-question-card input:focus,.np-question-card textarea:focus) { outline-color: #cfc2fa77; border-color: var(--site-accent); }
+.np-app[data-site="creem.io"] .np-step-icon { background: var(--creem-raised); border-color: #555057; color: #b0a5bd; }
+.np-app[data-site="creem.io"] .np-action-timeline li[data-status=verified] .np-step-icon { background: #2b3c32; border-color: #44684d; color: #8ac79a; }
+.np-app[data-site="creem.io"] .np-action-timeline li[data-status=failed] .np-step-icon { background: #49392c; color: #e9b687; }
+.np-app[data-site="creem.io"] .np-action-timeline li:not(:last-child):before { background: var(--creem-border); }
+.np-app[data-site="creem.io"] .np-thread-start span { background: #4b4c4e; }
+.np-app[data-site="creem.io"] .np-jump { background: #353238; color: var(--site-ink); border-color: #5c5267; box-shadow: 0 4px 14px #0003; }
+.np-app[data-site="creem.io"] :is(.np-activity-log,.np-browser-control) { background: #302d36; border-color: #51475e; color: var(--site-ink); }
+.np-app[data-site="creem.io"] :is(.np-activity-log p,.np-browser-control p) { color: #c1b7cd; }
+.np-app[data-site="creem.io"] .np-browser-control strong { color: #eee7f8; }
+.np-app[data-site="creem.io"] .np-working>button { background: #453339; color: #edb9c6; }
+.np-app[data-site="creem.io"] .np-error { background: #402b2c; border-color: #754647; color: #f2b3ab; }
+.np-app[data-site="creem.io"] .np-approval { background: #393329; border-color: #706044; }
+.np-app[data-site="creem.io"] :is(.np-approval-label,.np-approval h3,.np-approval p,.np-approval small) { color: #e4cfaa; }
+.np-app[data-site="creem.io"] .np-approval-buttons button { color: #e4cfaa; border-color: #7a6a50; }
+.np-app[data-site="creem.io"] .np-voice-ring { border-color: #504958; }
+.np-app[data-site="creem.io"] ::selection { background: #665579; color: #fff; }
+.np-app[data-site="creem.io"] ::-webkit-scrollbar-thumb { background: #555159; }
