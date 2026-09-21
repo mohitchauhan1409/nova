@@ -135,9 +135,13 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
   // have already been gated above; a later negation or review request still wins.
   if (action.risk === 'change' && ['click', 'double_click'].includes(action.kind) &&
       /^(save changes|save (?:product|project|workflow|document|record|item))$/i.test(target.name.trim()) && !target.submission && !serious.test(target.context)) {
-    const request = intent.split('\n').reverse().find(line => /\b(save|update|change|edit|stop|cancel|wait)\b/i.test(line));
+    const trialRevision = /\b(give|set|extend|shorten)\b.{0,60}\b\d{1,3}\s*days?\b.{0,30}\b(try|trial)\b|\b(set|extend|shorten|change)\b.{0,50}\btrial\b.{0,30}\b\d{1,3}\s*days?\b/i;
+    const hasTrialField = snapshot.elements.some(e => !e.sensitive && /\btrial\b/i.test(e.name) && ['input', 'textarea'].includes(e.tag));
+    const request = intent.split('\n').reverse().find(line => /\b(save|update|change|edit|stop|cancel|wait)\b/i.test(line) || hasTrialField && trialRevision.test(line));
     if (request && !/\b(how|what if|explain|after|until|confirmation|approve|approval|wait|stop|cancel)\b|\b(ask|check with) me\b/i.test(request)) {
       const affirmative = request.replace(/\b(don['’]?t|do not|never|without)\b[^,;.!?]*/gi, '');
+      if (hasTrialField && /^(?:actually[, ]+)?(?:give|set|extend|shorten|change)\b/i.test(affirmative.trim()) && trialRevision.test(affirmative))
+        return result('allow', 'Save the explicitly requested trial duration in the observed record editor', true);
       if (/\b(save|update|change|edit)\b/i.test(affirmative) && /\b(product|project|workflow|document|record|item|details|title|name|description|trial)\b/i.test(affirmative))
         return result('allow', 'Save the ordinary record edit explicitly requested', true);
     }
