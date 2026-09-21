@@ -124,3 +124,7 @@ The minimum resume requirement is an owner-authorized read-only source connectio
 No credential value should be sent in conversation or committed. The owner can establish the connection through the product's intended secure flow, or explicitly authorize the needed credential/access provisioning. The current brief permits synthetic uploads and reversible dashboard work but excludes credential/access changes; that is the source of this unresolved authorization boundary. Public source-code evidence above offers no supported anonymous-upload alternative. Do not mine another application, browser session or Git CLI for tokens.
 
 Resume only when the source is connected with known synthetic scope. Then verify actual ingestion/retrieval, select two substantial supported workflows, build the startup hooks and complete the normal rehearsal/recording gates. Until then, finish independent batch work and report Airweave's media as missing with this specific prerequisite.
+
+## Final batch prerequisite recheck
+
+At 2026-09-21 20:19 UTC (22 September locally), the coordinator reopened the existing Harborline Support collection through Chrome in the authorized profile. Vector still showed one collection; its detail still displayed **Needs Source** and **No sources connected**, with the query field and **Send query** disabled. No source, credential, provider, or account setting was changed. The source-access blocker and resume requirement above remain current. No Airweave video or working retrieval build is claimed.
