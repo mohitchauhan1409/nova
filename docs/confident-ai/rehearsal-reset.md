@@ -1,6 +1,8 @@
 # Confident rehearsal and final baseline checklist
 
-Updated 22 September 2026. The coordinator alone owns browser, runtime and recorder. All preparation occurs outside the final take. Saved evidence and retained failures are in [live-verification.md](live-verification.md).
+Historical pre-capture checklist, updated 22 September 2026. The final take has now added both boundary cases, for eight observed records. Do not execute the six-case creation plan again; inspect current exact inputs and reuse existing records. Independent final-tag verification passed; media QA is recorded separately.
+
+The coordinator alone owns browser, runtime and recorder. All preparation occurs outside the final take. Saved evidence and retained failures are in [live-verification.md](live-verification.md).
 
 ## Preserve existing records
 

@@ -1,0 +1,76 @@
+{
+  "origin": "Synthetic task-created assets; authored expected answers, not execution/evaluation results",
+  "project_id": "cmubhm6yf0002o30tjtp072vo",
+  "objects": [
+    {
+      "type": "text_prompt",
+      "id": "cmubijzhk0005pb0tn3tnafcn",
+      "alias": "Northstar Returns Adviser",
+      "captured_final_commit": "5fb11cb",
+      "captured_grouped_commit": "5562c12",
+      "independent_reload": "passed; single customer_message, grouped relevant details, damage order-reference/description, policy boundaries and under-100-word limit"
+    },
+    {
+      "type": "single_turn_dataset",
+      "id": "cmubimef70007qs0tgjd1c7sq",
+      "alias": "Northstar Returns Readiness",
+      "goldens": [
+        {
+          "id": "cmubimf6c000gqv0tjhxrck3o",
+          "input": "My unused jacket arrived 18 days ago and I have the receipt. Can I return it?",
+          "expected": "Confirm the unused standard jacket is within the 30-day window with proof of purchase. Explain eligibility and the next return step without claiming a refund or label has already been issued.",
+          "actual_output": null
+        },
+        {
+          "id": "cmubiocqd0008ki0tvl8gti6s",
+          "input": "I ordered a personalized flask 10 days ago and changed my mind. Can I return it?",
+          "expected": "Explain that personalized items are excluded from change-of-mind returns. Be empathetic and do not invent an exception or refund. Offer review only if the item is damaged or incorrect.",
+          "tag": "policy-boundary",
+          "actual_output": null
+        },
+        {
+          "id": "cmubnlza9000ple0tt1g6y0b6",
+          "input": "My mug was delivered five days ago and arrived damaged. What should I do?",
+          "tag": "damage-review"
+        },
+        {
+          "id": "cmubnmgmw001aki0t2qstgfia",
+          "input": "I have an unused jacket, but I don’t know when it was delivered. Can I return it?",
+          "tag": "missing-information"
+        },
+        {
+          "id": "cmubo3f8x001dki0t52jmmpnm",
+          "input": "My unused standard jacket was delivered 31 days ago and I have the receipt. Can I return it?",
+          "tag": "window-boundary",
+          "actual_output": null
+        },
+        {
+          "id": "cmubo5jww000xmh0tboexaj5b",
+          "input": "My personalized flask arrived damaged six days after delivery. What should I do?",
+          "tag": "damage-review",
+          "actual_output": null
+        },
+        {
+          "id": "cmuboj3st000slo0tslkn8ehq",
+          "input": "My unused standard jacket was delivered exactly 30 days ago and I have the receipt. Can I return it?",
+          "expected": "Your unused standard jacket was delivered exactly 30 days ago, so it is within the 30-day return window. With your receipt, it is eligible under the standard policy. Follow the store’s return steps; I can’t claim a refund or completed action.",
+          "tag": "window-boundary",
+          "actual_output": null,
+          "independent_postcapture_reopen": "passed; no edits"
+        },
+        {
+          "id": "cmubojnd9000tlo0tsp634ae1",
+          "input": "My mug was delivered exactly seven days ago and arrived damaged. What should I do?",
+          "expected": "I’m sorry your mug arrived damaged. Because it was reported exactly seven days after delivery, it needs review. Please provide your order reference and describe the damage so the team can assess it. I can’t promise a refund or other outcome before the review is completed.",
+          "tag": "damage-review",
+          "actual_output": null,
+          "independent_postcapture_reopen": "passed; no edits"
+        }
+      ],
+      "saved_count": 8,
+      "baseline_count_before_final": 6,
+      "independent_postcapture_reopen": "passed; alias, unique IDs, original six preserved and new tags/outputs checked"
+    }
+  ],
+  "privacy": "Allowlisted synthetic identities/content only; excludes account contacts, raw snapshots, keys and tokens."
+}

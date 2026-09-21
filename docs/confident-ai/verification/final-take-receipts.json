@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "description": "Small synthetic-task receipt extract; no raw page text, account contacts, credentials or tokens. Independent outcome checks are distinguished from agent receipts.",
+  "session_id": "9ee04cc6-2009-4443-ac45-a43b7e721165",
+  "recording": {
+    "capture_started_at_ms": 1790021120776,
+    "raw_frame_count_reported_by_coordinator": 16922,
+    "source_checkout_at_capture": "49368c4",
+    "loaded_backend": "94debcde941dcb30de7e3b89aebf26f963b109d9",
+    "loaded_extension": "b7e3172",
+    "extension_archive_sha256_prefix": "28e115",
+    "media_qa": "separate editor-owned evidence; not certified here"
+  },
+  "source_receipts": [
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/evidence/20260921T200451.800496Z-90911/summary.json",
+      "sha256": "3697bfe4da1cd42e522e8fc2f01ac6b2e51d627a8dcf87244a82735bc6716666"
+    },
+    {
+      "path": "/Users/macbook/Desktop/Nova-batch-20260921/private/confident-ai/evidence/20260921T201445.005724Z-94008/sessions-0001.json",
+      "sha256": "50618c0f9ae02a2119bc70d4421c30ff58e73ab36a73033d13877b04412bcb38"
+    }
+  ],
+  "user_events": [
+    {
+      "id": "6ef04dc2-bdcb-4a97-b9fc-c77ac8e1d6f3",
+      "at_ms": 1790021154985,
+      "text": "Rename our returns dataset to Northstar Returns Readiness and save it."
+    },
+    {
+      "id": "baa2cd9c-4654-4d74-93f9-a131e1bff283",
+      "at_ms": 1790021220897,
+      "text": "Now improve our returns prompt for unclear requests. Help me choose how it should ask follow-ups."
+    },
+    {
+      "id": "c739f412-4a5f-4dca-af83-2d8ddf937a8e",
+      "at_ms": 1790021261037,
+      "text": "Help me choose: explain the remaining questions in plain language. Keep my original task and the details I already provided."
+    },
+    {
+      "id": "4f4254d8-b8c0-449e-89ca-1421029a4d3a",
+      "at_ms": 1790021282493,
+      "text": "Details for Choose a follow-up style:\nHow should the adviser handle unclear return requests?: Group all needed details"
+    },
+    {
+      "id": "61ee030d-68b2-49b9-b452-d0210c700050",
+      "at_ms": 1790021377865,
+      "text": "Add and save two boundary cases: an unused standard jacket delivered exactly 30 days ago with a receipt, and a mug delivered exactly seven days ago and arrived damaged. Tag them window-boundary and damage-review. For damage, ask for the order reference and damage description. Leave Actual Output empty and reuse matching cases."
+    },
+    {
+      "id": "7a785134-be01-4c50-8644-931acff5b4b1",
+      "at_ms": 1790021536799,
+      "text": "Leave the columns as they are. Now keep grouped follow-ups, add order reference and damage description for damage reports, and shorten the prompt limit to 100 words. Commit it."
+    },
+    {
+      "id": "5bcaca3b-581a-499f-80c0-ec2ee7b20060",
+      "at_ms": 1790021608907,
+      "text": "Which policy cases are covered now, and have any evaluations run?"
+    },
+    {
+      "id": "c4250174-bbfa-459b-a40a-27b17835d94d",
+      "at_ms": 1790021656621,
+      "text": "Show the saved prompt in Preview."
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "6ef04dc2-bdcb-4a97-b9fc-c77ac8e1d6f3",
+      "request": "Rename our returns dataset to Northstar Returns Readiness and save it.",
+      "user_at_utc": "2026-09-21T20:05:54.985+00:00",
+      "user_at_ms": 1790021154985,
+      "events": {
+        "first_meaningful_progress_at_ms": 1790021159349,
+        "first_assistant_reply_at_ms": 1790021191925,
+        "first_question_card_at_ms": null,
+        "first_action_start_at_ms": 1790021159349,
+        "first_action_dispatch_finished_at_ms": 1790021159446,
+        "first_nova_click_at_ms": 1790021171777,
+        "final_assistant_reply_at_ms": 1790021191925,
+        "completion_report_at_ms": 1790021191925
+      },
+      "latency_ms": {
+        "first_meaningful_progress": 4364,
+        "first_assistant_reply": 36940,
+        "first_question_card": null,
+        "first_action_start": 4364,
+        "first_action_dispatch_finished": 4461,
+        "first_nova_click": 16792,
+        "final_assistant_reply": 36940,
+        "completion_report": 36940
+      },
+      "step_status_counts": {
+        "verified": 5
+      },
+      "first_progress_may_be_upper_bound": false
+    },
+    {
+      "task_id": "baa2cd9c-4654-4d74-93f9-a131e1bff283",
+      "request": "Now improve our returns prompt for unclear requests. Help me choose how it should ask follow-ups.",
+      "user_at_utc": "2026-09-21T20:07:00.897+00:00",
+      "user_at_ms": 1790021220897,
+      "events": {
+        "first_meaningful_progress_at_ms": 1790021226260,
+        "first_assistant_reply_at_ms": 1790021238912,
+        "first_question_card_at_ms": 1790021238912,
+        "first_action_start_at_ms": 1790021226261,
+        "first_action_dispatch_finished_at_ms": 1790021226360,
+        "first_nova_click_at_ms": null,
+        "final_assistant_reply_at_ms": null,
+        "completion_report_at_ms": null
+      },
+      "latency_ms": {
+        "first_meaningful_progress": 5363,
+        "first_assistant_reply": 18015,
+        "first_question_card": 18015,
+        "first_action_start": 5364,
+        "first_action_dispatch_finished": 5463,
+        "first_nova_click": null,
+        "final_assistant_reply": null,
+        "completion_report": null
+      },
+      "step_status_counts": {
+        "verified": 1
+      },
+      "first_progress_may_be_upper_bound": false
+    },
+    {
+      "task_id": "c739f412-4a5f-4dca-af83-2d8ddf937a8e",
+      "request": "Help me choose: explain the remaining questions in plain language. Keep my original task and the details I already provided.",
+      "user_at_utc": "2026-09-21T20:07:41.037+00:00",
+      "user_at_ms": 1790021261037,
+      "events": {
+        "first_meaningful_progress_at_ms": 1790021268225,
+        "first_assistant_reply_at_ms": 1790021268226,
+        "first_question_card_at_ms": 1790021268226,
+        "first_action_start_at_ms": null,
+        "first_action_dispatch_finished_at_ms": null,
+        "first_nova_click_at_ms": null,
+        "final_assistant_reply_at_ms": null,
+        "completion_report_at_ms": null
+      },
+      "latency_ms": {
+        "first_meaningful_progress": 7188,
+        "first_assistant_reply": 7189,
+        "first_question_card": 7189,
+        "first_action_start": null,
+        "first_action_dispatch_finished": null,
+        "first_nova_click": null,
+        "final_assistant_reply": null,
+        "completion_report": null
+      },
+      "step_status_counts": {},
+      "first_progress_may_be_upper_bound": false
+    },
+    {
+      "task_id": "4f4254d8-b8c0-449e-89ca-1421029a4d3a",
+      "request": "Details for Choose a follow-up style:\nHow should the adviser handle unclear return requests?: Group all needed details",
+      "user_at_utc": "2026-09-21T20:08:02.493+00:00",
+      "user_at_ms": 1790021282493,
+      "events": {
+        "first_meaningful_progress_at_ms": 1790021288495,
+        "first_assistant_reply_at_ms": 1790021309891,
+        "first_question_card_at_ms": null,
+        "first_action_start_at_ms": 1790021288511,
+        "first_action_dispatch_finished_at_ms": 1790021288672,
+        "first_nova_click_at_ms": 1790021288632,
+        "final_assistant_reply_at_ms": 1790021309891,
+        "completion_report_at_ms": 1790021309891
+      },
+      "latency_ms": {
+        "first_meaningful_progress": 6002,
+        "first_assistant_reply": 27398,
+        "first_question_card": null,
+        "first_action_start": 6018,
+        "first_action_dispatch_finished": 6179,
+        "first_nova_click": 6139,
+        "final_assistant_reply": 27398,
+        "completion_report": 27398
+      },
+      "step_status_counts": {
+        "verified": 5
+      },
+      "first_progress_may_be_upper_bound": false
+    },
+    {
+      "task_id": "61ee030d-68b2-49b9-b452-d0210c700050",
+      "request": "Add and save two boundary cases: an unused standard jacket delivered exactly 30 days ago with a receipt, and a mug delivered exactly seven days ago and arrived damaged. Tag them window-boundary and damage-review. For damage, ask for the order reference and damage description. Leave Actual Output empty and reuse matching cases.",
+      "user_at_utc": "2026-09-21T20:09:37.865+00:00",
+      "user_at_ms": 1790021377865,
+      "events": {
+        "first_meaningful_progress_at_ms": 1790021381971,
+        "first_assistant_reply_at_ms": 1790021505866,
+        "first_question_card_at_ms": null,
+        "first_action_start_at_ms": 1790021381972,
+        "first_action_dispatch_finished_at_ms": 1790021382102,
+        "first_nova_click_at_ms": 1790021391685,
+        "final_assistant_reply_at_ms": 1790021505866,
+        "completion_report_at_ms": 1790021505866
+      },
+      "latency_ms": {
+        "first_meaningful_progress": 4106,
+        "first_assistant_reply": 128001,
+        "first_question_card": null,
+        "first_action_start": 4107,
+        "first_action_dispatch_finished": 4237,
+        "first_nova_click": 13820,
+        "final_assistant_reply": 128001,
+        "completion_report": 128001
+      },
+      "step_status_counts": {
+        "verified": 20
+      },
+      "first_progress_may_be_upper_bound": false
+    },
+    {
+      "task_id": "7a785134-be01-4c50-8644-931acff5b4b1",
+      "request": "Leave the columns as they are. Now keep grouped follow-ups, add order reference and damage description for damage reports, and shorten the prompt limit to 100 words. Commit it.",
+      "user_at_utc": "2026-09-21T20:12:16.799+00:00",
+      "user_at_ms": 1790021536799,
+      "events": {
+        "first_meaningful_progress_at_ms": 1790021541970,
+        "first_assistant_reply_at_ms": 1790021591906,
+        "first_question_card_at_ms": null,
+        "first_action_start_at_ms": 1790021541973,
+        "first_action_dispatch_finished_at_ms": 1790021542145,
+        "first_nova_click_at_ms": 1790021560697,
+        "final_assistant_reply_at_ms": 1790021591906,
+        "completion_report_at_ms": 1790021591906
+      },
+      "latency_ms": {
+        "first_meaningful_progress": 5171,
+        "first_assistant_reply": 55107,
+        "first_question_card": null,
+        "first_action_start": 5174,
+        "first_action_dispatch_finished": 5346,
+        "first_nova_click": 23898,
+        "final_assistant_reply": 55107,
+        "completion_report": 55107
+      },
+      "step_status_counts": {
+        "verified": 7
+      },
+      "first_progress_may_be_upper_bound": false
+    },
+    {
+      "task_id": "5bcaca3b-581a-499f-80c0-ec2ee7b20060",
+      "request": "Which policy cases are covered now, and have any evaluations run?",
+      "user_at_utc": "2026-09-21T20:13:28.907+00:00",
+      "user_at_ms": 1790021608907,
+      "events": {
+        "first_meaningful_progress_at_ms": 1790021611917,
+        "first_assistant_reply_at_ms": 1790021642167,
+        "first_question_card_at_ms": null,
+        "first_action_start_at_ms": 1790021611918,
+        "first_action_dispatch_finished_at_ms": 1790021611947,
+        "first_nova_click_at_ms": null,
+        "final_assistant_reply_at_ms": 1790021642167,
+        "completion_report_at_ms": 1790021642167
+      },
+      "latency_ms": {
+        "first_meaningful_progress": 3010,
+        "first_assistant_reply": 33260,
+        "first_question_card": null,
+        "first_action_start": 3011,
+        "first_action_dispatch_finished": 3040,
+        "first_nova_click": null,
+        "final_assistant_reply": 33260,
+        "completion_report": 33260
+      },
+      "step_status_counts": {
+        "verified": 3
+      },
+      "first_progress_may_be_upper_bound": false
+    },
+    {
+      "task_id": "c4250174-bbfa-459b-a40a-27b17835d94d",
+      "request": "Show the saved prompt in Preview.",
+      "user_at_utc": "2026-09-21T20:14:16.621+00:00",
+      "user_at_ms": 1790021656621,
+      "events": {
+        "first_meaningful_progress_at_ms": 1790021660400,
+        "first_assistant_reply_at_ms": 1790021672270,
+        "first_question_card_at_ms": null,
+        "first_action_start_at_ms": 1790021660402,
+        "first_action_dispatch_finished_at_ms": 1790021660418,
+        "first_nova_click_at_ms": 1790021668518,
+        "final_assistant_reply_at_ms": 1790021672270,
+        "completion_report_at_ms": 1790021672270
+      },
+      "latency_ms": {
+        "first_meaningful_progress": 3779,
+        "first_assistant_reply": 15649,
+        "first_question_card": null,
+        "first_action_start": 3781,
+        "first_action_dispatch_finished": 3797,
+        "first_nova_click": 11897,
+        "final_assistant_reply": 15649,
+        "completion_report": 15649
+      },
+      "step_status_counts": {
+        "verified": 2
+      },
+      "first_progress_may_be_upper_bound": false
+    }
+  ],
+  "action_step_totals": {
+    "verified": 43,
+    "failed": 0,
+    "unverified": 0,
+    "limit": "Counts recorded action steps, excluding rejected planning/visual requests; does not prove every desired outcome."
+  },
+  "new_prompt_commits": [
+    {
+      "id": "5562c12",
+      "message": "Group policy-relevant follow-up questions",
+      "observed_in": "sessions-0044.json",
+      "status": "agent commit-history observation"
+    },
+    {
+      "id": "5fb11cb",
+      "message": "Add damage details and shorten response limit",
+      "observed_in": "sessions-0101.json",
+      "status": "coordinator independently reloaded full final prompt; grouped missing details, under 100 words, damage order reference/description, policy and single variable confirmed"
+    }
+  ],
+  "new_goldens": [
+    {
+      "id": "cmuboj3st000slo0tslkn8ehq",
+      "input": "My unused standard jacket was delivered exactly 30 days ago and I have the receipt. Can I return it?",
+      "expected_output": "Your unused standard jacket was delivered exactly 30 days ago, so it is within the 30-day return window. With your receipt, it is eligible under the standard policy. Follow the store’s return steps; I can’t claim a refund or completed action.",
+      "requested_tag": "window-boundary",
+      "independent_tag_reopen": "passed; coordinator reopened actual Edit Golden after capture without edits",
+      "actual_output": "blank independently reopened; other execution fields None or zero defaults"
+    },
+    {
+      "id": "cmubojnd9000tlo0tsp634ae1",
+      "input": "My mug was delivered exactly seven days ago and arrived damaged. What should I do?",
+      "expected_output": "I’m sorry your mug arrived damaged. Because it was reported exactly seven days after delivery, it needs review. Please provide your order reference and describe the damage so the team can assess it. I can’t promise a refund or other outcome before the review is completed.",
+      "requested_tag": "damage-review",
+      "independent_tag_reopen": "passed; coordinator reopened actual Edit Golden after capture without edits",
+      "actual_output": "blank independently reopened; other execution fields None or zero defaults"
+    }
+  ],
+  "observed_golden_count": 8,
+  "baseline_golden_count": 6,
+  "limitations": {
+    "case_column_menu_steps": 6,
+    "case_column_menu_result": "Tag values remained unexposed in table; agent acknowledged this; user redirected Leave the columns as they are.",
+    "rejected_visual_requests": [
+      {
+        "at_ms": 1790021551549,
+        "text": "A visual target requires a current screenshot and in-bounds coordinates."
+      },
+      {
+        "at_ms": 1790021555202,
+        "text": "A visual target requires a current screenshot and in-bounds coordinates."
+      }
+    ],
+    "independent_final_tag_reopens": "passed through coordinator postcapture checks; Nova itself could not expose tags in table",
+    "evaluation": "No evaluation executed in captured workflow; blank Actual Output and no versions alone do not establish a product-wide evaluation-history audit."
+  },
+  "independent_postcapture_checks": {
+    "source": "Coordinator ordinary browser inspection after raw capture; no edits",
+    "status": "passed",
+    "prompt": "Reloaded 5fb11cb; full grouped follow-ups, under-100-word limit, missing damage order reference/description, all policy boundaries and one customer_message variable",
+    "history": [
+      "5562c12",
+      "5fb11cb"
+    ],
+    "dataset": "Fresh navigation confirmed Northstar Returns Readiness, eight unique IDs, original six unchanged",
+    "new_goldens": "Both reopened through observed pencil/Edit Golden; exact Input/Expected Output and requested tags verified; Actual Output blank; other execution fields None or zero defaults; Save disabled, no postcapture edits"
+  }
+}

@@ -1,6 +1,53 @@
 # Confident live verification ledger
 
-Updated 22 September 2026 (Asia/Kolkata); event times below are UTC on 21 September. This ledger records saved outcomes and retained failures. A final recording, complete readiness, evaluation results and remote media backup are not certified.
+Updated 22 September 2026 (Asia/Kolkata); event times below are UTC on 21 September. This ledger records saved outcomes and retained failures. The final raw take has been captured; all saved business outcomes passed independent postcapture checks. Media QA and remote backup remain pending in this document. No evaluation results or complete delivery readiness are certified.
+
+## Final raw take — recorded, media QA pending
+
+Session `9ee04cc6-2009-4443-ac45-a43b7e721165`; capture start epoch `1790021120776`; coordinator-reported raw frame count 16,922. Loaded backend remained `94debcde941dcb30de7e3b89aebf26f963b109d9` and extension `b7e3172`; source/docs checkout was `49368c4`. No runtime activation is implied by later docs commits.
+
+Primary collector: `20260921T200451.800496Z-90911`; final one-shot export: `20260921T201445.005724Z-94008`. The collector retains early trace events that the final export cannot reconstruct. The eight exact user events, full task IDs, timings and selected saved identities are in [verification/final-take-receipts.json](verification/final-take-receipts.json); [demo-script.md](demo-script.md) records the actual sequence.
+
+| Captured task | Verified action steps | Observed result |
+| --- | ---: | --- |
+| Alias rename `6ef04dc2…` | 5/5 | Saved Northstar Returns Readiness on the same six-case dataset. |
+| Prompt clarification `baa2cd9c…` | 1/1 | Opened existing prompt and asked a follow-up-style question. |
+| Help me choose `c739f412…` | No website action | Explained choices while retaining task context; user chose Group all needed details. |
+| Grouped commit `4f4254d8…` | 5/5 | Saved `5562c12`, **Group policy-relevant follow-up questions**. |
+| Boundary pair `61ee030d…` | 20/20 | Saved two new records; table reload showed eight cases and empty Actual Output. Six steps were repeated column-selector work; tags remained unexposed in table. |
+| Prompt revision `7a785134…` | 7/7 | Saved `5fb11cb`, **Add damage details and shorten response limit**; two rejected visual-point requests preceded recovery. |
+| Coverage `5bcaca3b…` | 3/3 | Inspected eight cases and reported coverage; no evaluation was performed. |
+| Preview `c4250174…` | 2/2 | Opened saved final prompt in Preview. |
+
+Total: **43 verified action steps**, no failed/unverified recorded action steps. This excludes two rejected visual requests and does not erase repeated column-menu work or the visible user redirect **“Leave the columns as they are.”** No approval interruption was present in the final take. Earlier failed/recovered rehearsals below remain retained.
+
+The coordinator independently reloaded final prompt `5fb11cb`: under-100-word limit, grouped relevant missing details, order reference/description for damage, 30-day standard-item rule with proof, personalized change-of-mind exclusion, 7-day damage review without refund promise, and a single `{customer_message}`. The coordinator then navigated afresh to the dataset and verified the Readiness alias, eight unique IDs and unchanged baseline six. Both exact new records were reopened through Edit Golden: requested tags, full Inputs/Expected Outputs and blank Actual Output passed. Other execution fields showed None or zero defaults. Save was disabled; no postcapture edits were performed. Commit History independently showed both `5562c12` and `5fb11cb`.
+
+| New final golden | Exact saved input | Requested tag / evidence |
+| --- | --- | --- |
+| `cmuboj3st000slo0tslkn8ehq` | My unused standard jacket was delivered exactly 30 days ago and I have the receipt. Can I return it? | `window-boundary`; entered chip and saved; coordinator independently reopened and verified after capture. |
+| `cmubojnd9000tlo0tsp634ae1` | My mug was delivered exactly seven days ago and arrived damaged. What should I do? | `damage-review`; entered chip and saved; coordinator independently reopened and verified after capture. |
+
+Both Expected Outputs are preserved in the scrubbed extract. The first applies the inclusive 30-day eligibility rule without claiming a refund; the second requests order reference and damage description for 7-day review without guaranteeing a refund. The six prior IDs remain present.
+
+### Final-take timing
+
+Seconds from each user event. First progress is a meaningful status event; final reply is a reporting timestamp, not independent saved proof. Help and answer timing is separated from agent execution.
+
+| User event (UTC) | First progress | First action | First card / final reply |
+| --- | ---: | ---: | ---: |
+| Alias, 20:05:54.985 | 4.364 | 4.364 | 36.940 |
+| Prompt question, 20:07:00.897 | 5.363 | 5.364 | Card 18.015 |
+| Help, 20:07:41.037 | 7.188 | — | Card 7.189 |
+| Grouped answer, 20:08:02.493 | 6.002 | 6.018 | 27.398 |
+| New cases, 20:09:37.865 | 4.106 | 4.107 | 128.001 |
+| Final revision, 20:12:16.799 | 5.171 | 5.174 | 55.107 |
+| Coverage, 20:13:28.907 | 3.010 | 3.011 | 33.260 |
+| Preview, 20:14:16.621 | 3.779 | 3.781 | 15.649 |
+
+The capture's first request began 34.209 seconds after the reported recording start; the final reply occurred 551.494 seconds after start. These are server-epoch alignments, not frame-accurate media synchronization. Leave final audiovisual timing/QA to the recording evidence.
+
+No evaluation action occurred in the captured session. Empty outputs and no dataset versions support the stated prepared-asset scope, but alone cannot prove a product-wide history has no past evaluations. The Help card description was visibly truncated after “without promising”; choices and task continuity still worked. A single-question card does not establish multi-question partial-answer behavior.
 
 ## Runtime and evidence
 
@@ -26,7 +73,7 @@ These folders hold `summary.json` and bounded session snapshots. Raw sessions, c
 
 The existing prompt is `cmubijzhk0005pb0tn3tnafcn`; dataset is `cmubimef70007qs0tgjd1c7sq`, in Vector / My first project (`cmubhm6yf0002o30tjtp072vo`). The final recording will refine these same objects, not create replacements.
 
-## Six saved goldens
+## Six rehearsal baseline goldens
 
 | ID | Exact input | Verified tag / treatment |
 | --- | --- | --- |
@@ -68,6 +115,6 @@ Original prompt request through final saved-revision reply took 106.196 seconds,
 - The approved pencil target `m9u71dx-115` was an empty-name generic `div`, `visual: true`, with no role, editable metadata or context. It was clicked once; fresh observations over approximately 8.8 seconds still showed 62 controls and no modal. Snapshots do not retain its selector, rectangle, original hit ancestry or inspect coordinates, so the precise miss cannot be reconstructed. The body-cell target `m9u71dx-114` was also an ordinary `div` without edit/gridcell metadata; its name included “proof of purchase.” No broad policy exemption or shared targeting change was made.
 - Prompt refinement recoveries, the second dataset edit outcome, final reset, fresh-session opener, final capture, cursor/audio checks and backup must retain their true status. No paid version, trial, model connection or evaluation is required or claimed.
 
-## Final structured creation path — pending capture
+## Final structured creation path — capture outcome
 
-Existing-row editing is excluded. The second creation rehearsal has saved the 31-day standard jacket and personalized six-day damage cases, with six total independently verified. The final creates exactly-30-day standard-jacket and exactly-7-day standard-mug boundary cases, for eight total, with no deletion or duplicate. A prompt revision from 120 to 100 words replaces the planned row-edit correction. The final request must use “delivered exactly seven days ago and arrived damaged” and an explicit separate tag sentence: the tag guard rejected a bare “after” in the prior request as if it were conditional authorization. No further policy change was made. Final creations, prompt revisions, recording, QA and backup remain pending.
+Existing-row editing is excluded. The second creation rehearsal has saved the 31-day standard jacket and personalized six-day damage cases, with six total independently verified. The final creates exactly-30-day standard-jacket and exactly-7-day standard-mug boundary cases, for eight total, with no deletion or duplicate. A prompt revision from 120 to 100 words replaces the planned row-edit correction. The final request must use “delivered exactly seven days ago and arrived damaged” and an explicit separate tag sentence: the tag guard rejected a bare “after” in the prior request as if it were conditional authorization. No further policy change was made. The two final creations and prompt revisions are now observed in the captured session above; independent tag reopens and all business acceptance checks passed; media QA and backup remain pending.

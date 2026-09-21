@@ -2,6 +2,10 @@
 
 A local, website-aware AI companion with real browser actions, English voice conversation, editable site guides, and confirmation before consequential actions.
 
+## Confident AI demonstration
+
+This startup branch contains the Confident AI appearance and trusted site guide. The captured Northstar workflow saved prompt commits `5562c12` and `5fb11cb` and expanded the existing dataset from six to eight synthetic cases. Read the [actual captured requests](docs/confident-ai/demo-script.md), [live verification and limitations](docs/confident-ai/live-verification.md), and [activation details](docs/confident-ai/setup-and-validation.md). The take used backend `94debcde…` with extension `b7e3172`; later source/docs commits do not change that loaded identity. Independent postcapture business checks passed, including exact new tags and blank execution outputs. Media QA and delivery evidence remain separate; no evaluation results are claimed.
+
 ## Repository branches
 
 - **`main`** is the reusable Nova product: the dashboard, website-adaptive interface, browser engine, chat, question cards, complete action timeline, verification, privacy controls, and optional Live talk.

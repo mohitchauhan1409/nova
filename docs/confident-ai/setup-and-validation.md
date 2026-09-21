@@ -26,7 +26,7 @@ An empty-looking index is not evidence that this prompt was deleted. Use the sav
 
 Saved site profiles preserve their instructions when source guides change. At a stopped-task checkpoint, append only the new index-omission rule to the matching saved profile through the local site-update endpoint, preserving its other instructions and fields. Editing the JSON on disk while the backend is running does not update its in-memory guide; use the endpoint or edit only with the backend stopped and restart it. Do not replace owner-edited instructions wholesale.
 
-## Coverage state
+## Rehearsal coverage state before capture
 
 Current coordinator runtime: backend `94debcde941dcb30de7e3b89aebf26f963b109d9`, extension `b7e3172` (ZIP hash prefix `28e115`). The backend includes the ordinary editable-focus policy fix; no extension rebuild was required for that change. Earlier saved dataset outcomes were observed on backend `0bd15f1` with the same extension. Source guide commits `4bf9f22`/`8dd383a` were made after the backend was loaded and were not activated by this docs update. The dated task ledger and measured timings are in [live-verification.md](live-verification.md).
 
@@ -48,6 +48,14 @@ Known limitations remain: the prompt index can omit the saved prompt; visual ope
 | Nova critical workflows | Partial rehearsals and failures retained in ledger | No full final-readiness claim; saved outcomes include recovery; profile flow flags remain `verified: false` |
 | Recording/exports/remote backup | No final media certified in this ledger | Pending |
 
+## Captured runtime and postcapture status
+
+The final raw take used loaded backend `94debcde941dcb30de7e3b89aebf26f963b109d9` and extension `b7e3172` (archive hash prefix `28e115`) throughout. Source/docs checkout was `49368c4`; later guide/docs commits are not evidence of a backend restart or extension rebuild. Runtime state stayed in this worktree's ignored `BE/data`, with authorized credentials in its ignored `.env`; never copy them into docs or media.
+
+Session `9ee04cc6-2009-4443-ac45-a43b7e721165` completed the saved alias, grouped commit `5562c12`, two new goldens (eight total), final prompt commit `5fb11cb` and Preview. Receipts record 43/43 verified action steps. Repeated column-menu work, the visible redirect to leave columns unchanged and two rejected visual-point requests are preserved in [live-verification.md](live-verification.md). Independent reload/history confirmed final prompt `5fb11cb` and grouped commit `5562c12`. Fresh dataset navigation and both new Edit Golden reopens confirmed the Readiness alias, eight unique IDs, unchanged baseline six, exact new inputs/answers, requested tags and blank Actual Output. Disabled Save and unchanged fields confirmed no postcapture edits. All business acceptance checks passed; final media QA remains pending. Flow flags have not been changed by documentation.
+
+To reproduce later, end the active session and reconcile saved objects first. The two final cases now exist, so a new take must reuse them or select genuinely distinct authorized cases; do not rerun creation blindly. Do not activate a different extension/backend or sync source guide changes while recording. The documented general startup sequence remains valid, but it is not a command to alter the frozen captured runtime.
+
 ## Local validation
 
 Executed on 21 September 2026 against base `b68a7be` plus startup changes:
@@ -61,4 +69,4 @@ Dependencies were temporarily linked from the original workspace for local valid
 
 ## Remaining gates
 
-Verify the alias-only reset and useful saved opener before cards; capture the grouped prompt clarification, two distinct boundary-case creations (eight total) and prompt-limit revision to 100 words; confirm exact one-tab fresh launch, native capture and actual cursor visibility; apply the approved Bolna tap source with cue evidence; complete audiovisual QA, all three media files and independently verified private Git/LFS backup. Record the recording build SHA separately from later documentation commits. Saved outcomes with recovery must not be labeled clean rehearsals.
+Independent business checks are complete and recorded in [verification/final-take-receipts.json](verification/final-take-receipts.json) and the allowlisted [synthetic object manifest](verification/synthetic-objects.json). Nova itself could not verify saved tags in the grid; the coordinator supplied that separate proof. Complete media edits, actual Nova-cursor visibility checks, approved Bolna tap/cue verification, audiovisual QA and independently verified private Git/LFS backup. Keep loaded runtime identity distinct from later documentation commits. Earlier saved outcomes with recovery must not be labeled clean rehearsals, and the final's verified-step count must not hide its planning errors or user steering.
