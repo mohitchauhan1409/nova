@@ -6,6 +6,44 @@ import type {Action,Snapshot,Session,SiteProfile} from '../shared/types';
 const before:Snapshot={id:'a',url:'https://example.com/',title:'Page',text:'Player',elements:[{ref:'v',tag:'video',role:'',name:'Player',type:'',context:'',disabled:false,sensitive:false,state:['paused:false']}],viewport:{width:1200,height:800,scrollY:0},theme:{color:'#000',font:'Arial'},frames:0,capturedAt:0};
 const action:Action={kind:'click',ref:'v',url:null,value:null,x:null,y:null,summary:'Pause',risk:'read'};
 describe('observed outcome verification',()=>{
+  describe('completion evidence from the authorized privacy projection',()=>{
+    const request='Change dispatch to October 5, 2026 and keep everything else.';
+    const rawName='recipient@customer.example Delivery notice — Dispatch October 5, 2026. Tracking follows dispatch.';
+    const projectedName='[email hidden] Delivery notice — Dispatch October 5, 2026. Tracking follows dispatch.';
+    const page:Snapshot={...before,url:'https://workspace.example/drafts/recipient@customer.example',text:'Drafts',elements:[{...before.elements[0],ref:'draft',tag:'div',role:'row',name:rawName,state:[]}]};
+    const effect={action:'click' as const,verified:true,detail:'The editor closed.'};
+    const check=(source:'text'|'url',value:string,snapshot=page,currentRequest=request)=>completionProblem({...action,kind:'done',completion:{status:'completed',evidence:[{source,ref:'draft',value}]}},snapshot,effect,true,undefined,currentRequest);
+    it('accepts exact projected row and URL evidence while retaining exact raw matches',()=>{
+      expect(check('text',projectedName)).toBeUndefined();
+      expect(check('url','https://workspace.example/drafts/[email hidden]')).toBeUndefined();
+      expect(check('text',rawName)).toBeUndefined();expect(check('url',page.url)).toBeUndefined();
+      expect(check('text',projectedName,{...page,text:rawName,elements:[]})).toBeUndefined();
+    });
+    it('uses the current task projection rather than treating placeholders as wildcards',()=>{
+      expect(check('text',projectedName,page,'Show the recipient email.')).toContain('no matching evidence');
+      expect(check('text',projectedName.replace('[email hidden]','invented@customer.example'))).toContain('no matching evidence');
+      expect(check('url','https://workspace.example/drafts/[email hidden]/unobserved')).toContain('no matching evidence');
+    });
+    it('rejects wrong dates, absent outcomes and placeholder-only citations',()=>{
+      for(const value of [projectedName.replace('October 5','October 6'),'[email hidden] Refund approved','[email hidden]','[phone hidden] [account name] [redacted]','Email: [email hidden]']){
+        expect(check('text',value)).toBeDefined();
+      }
+      expect(check('text',projectedName,{...page,elements:[]})).toContain('no matching evidence');
+      for(const name of ['recipient@customer.example','Email: recipient@customer.example']){
+        const identityOnly={...page,text:name,elements:[{...page.elements[0],name}]};
+        expect(check('text',name.replace('recipient@customer.example','[email hidden]'),identityOnly)).toContain('no matching evidence');
+      }
+    });
+    it('keeps sensitive controls excluded and does not mutate or expose private observations',()=>{
+      const saved=JSON.stringify(page);
+      const problem=check('text',projectedName,{...page,elements:page.elements.map(e=>({...e,sensitive:true}))});
+      expect(problem).toContain('no matching evidence');expect(problem).not.toContain('recipient@customer.example');
+      expect(JSON.stringify(page)).toBe(saved);
+      const session={messages:[{role:'user',text:request}],traces:[]} as unknown as Session;
+      const site={name:'Workspace',instructions:'',flows:[]} as unknown as SiteProfile;
+      expect(JSON.stringify(plannerContext(session,site,page))).not.toContain('recipient@customer.example');
+    });
+  });
   it('distinguishes newly attached draft proof from a real editable value change at completion',()=>{
     const field={...before.elements[0],tag:'input',name:'Description',type:'text',state:[],edit:{revision:'value-1',empty:false}};
     const page={...before,elements:[field]};
