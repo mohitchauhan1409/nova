@@ -58,7 +58,7 @@ function requestedTerminologyEdit(action: Action, snapshot: Snapshot, intent: st
 function requestedRecordEdit(action: Action, snapshot: Snapshot, intent: string): boolean {
   const target = snapshot.elements.find(e => e.ref === action.ref);
   if (!target || action.risk !== 'change' || target.submission) return false;
-  const save = ['click','double_click'].includes(action.kind) && /^(save(?: changes)?|update|create|add|apply)$/i.test(target.name.trim());
+  const save = ['click','double_click'].includes(action.kind) && /^(save(?: changes)?|update|create|add|apply)(?:\s+.+)?$/i.test(target.name.trim());
   const prepare = ['fill','type','clear','paste'].includes(action.kind) && target.form;
   if (!save && !prepare) return false;
   const fields = snapshot.elements.filter(e => e.form && !e.covered &&
@@ -69,6 +69,9 @@ function requestedRecordEdit(action: Action, snapshot: Snapshot, intent: string)
   const heading = snapshot.elements.find(e => !e.covered && /^(h[1-4])$/.test(e.tag) &&
     /^(edit|update|create|new)\s+\S/i.test(e.name));
   if (!heading || /\b(account|billing|subscription|payment|order|purchase|booking|transfer|permission|credential|key|contract|agreement)\b/i.test(heading.name)) return false;
+  const buttonSubject = save ? target.name.trim().replace(/^(save(?: changes)?|update|create|add|apply)\s*/i, '').toLowerCase() : '';
+  const editorSubject = heading.name.trim().replace(/^(edit|update|create|new)\s+/i, '').toLowerCase();
+  if (buttonSubject && buttonSubject !== editorSubject) return false;
   // Passive record help can mention billing without being an account setting.
   // Only this explicitly requested, named editor may discount that broad word;
   // actual billing fields/headings and every other sensitive term stay protected.
