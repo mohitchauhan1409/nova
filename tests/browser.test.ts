@@ -9,6 +9,19 @@ let browser:Browser;let page:Page;
 beforeAll(async()=>{browser=await chromium.launch({headless:true});page=await browser.newPage();});
 afterAll(async()=>{await browser?.close();});
 describe('real DOM actuation in an isolated fixture browser',()=>{
+  it('scrolls the unique nested area when the observed dialog wrapper cannot scroll',async()=>{
+    await page.setContent('<div role="dialog" tabindex="-1" aria-label="Editor"><div id="scroll" style="height:140px;overflow:auto"><div style="height:900px"><input aria-label="Name"><p>Editor fields</p></div></div></div>');
+    await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);
+    let snap=await page.evaluate(()=>window.__novaDOM!.snapshot());
+    const wrapper=snap.elements.find(e=>e.role==='dialog')!;
+    await page.evaluate(a=>window.__novaDOM!.execute(a),action({kind:'scroll',ref:wrapper.ref,value:'down'}));
+    expect(await page.locator('#scroll').evaluate(el=>el.scrollTop)).toBeGreaterThan(50);
+    const input=(await page.evaluate(()=>window.__novaDOM!.snapshot())).elements.find(e=>e.name==='Name')!;
+    await page.evaluate(a=>window.__novaDOM!.execute(a),action({kind:'scroll',ref:input.ref,value:'top'}));
+    expect(await page.locator('#scroll').evaluate(el=>el.scrollTop)).toBe(0);
+    snap=await page.evaluate(()=>window.__novaDOM!.snapshot());
+    expect(snap.elements.some(e=>e.state?.includes('scrollMaxY:760'))).toBe(true);
+  });
   it('observes the active page appearance for scoped companion themes',async()=>{
     await page.setContent('<style>html{color-scheme:dark}body{background:#17171f}</style><button>Continue</button>');
     await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);

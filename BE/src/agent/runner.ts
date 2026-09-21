@@ -251,6 +251,16 @@ export class AgentRunner {
             // Observe delayed UI updates without replaying a click or waiting for analytics/network-idle.
             for(const delay of policy.mayCommit?[150,300,600,1000,1500,2000,3000]:[120,240,480,700]){if(effect.verified||signal.aborted)break;await new Promise(resolve=>setTimeout(resolve,delay));if(signal.aborted)return;after=await this.observe();effect=actionEffect(action,snapshot,after,result,policy.mayCommit);}
             if(effect.verified)pendingEffect=undefined;
+            if(!effect.verified&&action.kind==='scroll'){
+              const capture=checkAction({...action,kind:'screenshot',ref:null},after,this.scope,this.intent());
+              const privateText=[after.text,...after.elements.flatMap(e=>[e.name,e.context])].join('\n');
+              if(capture.outcome==='allow'&&pagePrivacy(after,latestTask(this.session))(privateText)===privateText){
+                try {
+                  screenshot=await this.driver.screenshot();
+                  this.trace('info','The scroll did not move the view. Inspect this current screenshot before another scroll; verify visible fields or choose the actual scroll container.');
+                } catch(error) {this.trace('info',`Visual recovery unavailable: ${safeError(error)}. Use another semantic control; do not repeat the unchanged scroll.`);}
+              }else this.trace('info','The scroll did not move the view. Do not repeat it; use another semantic control. Visual recovery is unavailable on this page.');
+            }
             this.stepResult(actionStep,effect.verified?'verified':'unverified',effect.detail);
             this.trace('verify',`${effect.verified?'Verified change':'Unverified action'} ${action.kind}: ${effect.detail}`);
             if((result as ActionResult)?.verification?.status==='verified'&&action.ref&&['fill','type','paste','clear'].includes(action.kind)){
