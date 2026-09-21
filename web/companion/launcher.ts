@@ -83,7 +83,7 @@ export function mountLauncher(openPanel: () => Promise<void>): Companion {
         root.querySelector<HTMLElement>('.hint')!.hidden = event.visible;
         if (event.visible) notice.hidden = true;
       }
-      if (event.type === 'session') { button.dataset.state = event.session.status; button.setAttribute('aria-label', 'Open Nova side panel'); const experience=event.session.experience;if(experience){const palette=sitePalette(experience.accent);host.style.setProperty('--site-ink',palette.ink);host.style.setProperty('--site-soft',palette.soft);root.querySelector('.hint')!.textContent=`Get things done on ${experience.name}`;button.title=`Open Nova`;} }
+      if (event.type === 'session') { host.dataset.colorScheme=event.session.lastSnapshot?.theme.scheme||'light';button.dataset.state = event.session.status; button.setAttribute('aria-label', 'Open Nova side panel'); const experience=event.session.experience;if(experience){const palette=sitePalette(experience.accent);host.style.setProperty('--site-ink',palette.ink);host.style.setProperty('--site-soft',palette.soft);root.querySelector('.hint')!.textContent=`Get things done on ${experience.name}`;button.title=`Open Nova`;} }
       if (event.type === 'error') button.dataset.state = 'disconnected';
     },
     async action(x, y, label, kind) {

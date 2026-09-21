@@ -9,6 +9,14 @@ let browser:Browser;let page:Page;
 beforeAll(async()=>{browser=await chromium.launch({headless:true});page=await browser.newPage();});
 afterAll(async()=>{await browser?.close();});
 describe('real DOM actuation in an isolated fixture browser',()=>{
+  it('observes the active page appearance for scoped companion themes',async()=>{
+    await page.setContent('<style>html{color-scheme:dark}body{background:#17171f}</style><button>Continue</button>');
+    await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);
+    expect((await page.evaluate(()=>window.__novaDOM!.snapshot())).theme.scheme).toBe('dark');
+    await page.locator('html').evaluate(el=>(el as HTMLElement).style.colorScheme='light');
+    await page.locator('body').evaluate(el=>(el as HTMLElement).style.background='#ffffff');
+    expect((await page.evaluate(()=>window.__novaDOM!.snapshot())).theme.scheme).toBe('light');
+  });
   it('observes operational numeric settings without exposing arbitrary private fields',async()=>{
     await page.setContent('<input type="number" aria-label="Wait" value="30"><input type="range" aria-label="Volume" value="70"><input type="number" aria-label="Account balance" value="987654"><input type="number" aria-label="OTP code" value="123456"><input type="text" aria-label="Wait note" value="private note"><input type="number" aria-label="Patient quantity" value="888">');
     await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);

@@ -188,8 +188,15 @@ export function installNovaDOM() {
       const text = [...chunks,...distant].join('\n').slice(0, 18000);
       const blocked = /verify you are human|enter the characters you see|unusual traffic|robot check|complete the captcha|not a robot/i.test(text) ? 'Human verification is required. Complete it in the browser, then continue.' : undefined;
       const accent = document.querySelector('button[type="submit"],button');
+      const rootStyle = getComputedStyle(document.documentElement);
+      const bodyStyle = getComputedStyle(document.body);
+      const declaredScheme = bodyStyle.colorScheme === 'normal' ? rootStyle.colorScheme : bodyStyle.colorScheme;
+      const surface = [bodyStyle.backgroundColor,rootStyle.backgroundColor].find(c => c !== 'transparent' && c !== 'rgba(0, 0, 0, 0)');
+      const rgb = surface?.match(/[\d.]+/g)?.slice(0,3).map(Number);
+      const scheme: 'light' | 'dark' = declaredScheme === 'dark' || declaredScheme !== 'light' &&
+        (rgb?.length === 3 ? rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722 < 128 : matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
       return { id: `${prefix}:${Date.now()}`, url: location.href, title: document.title, text, elements,
-        viewport: { width: innerWidth, height: innerHeight, scrollX, scrollY, zoom }, theme: { color: accent ? getComputedStyle(accent).backgroundColor : '#6554d9', font: getComputedStyle(document.body).fontFamily },
+        viewport: { width: innerWidth, height: innerHeight, scrollX, scrollY, zoom }, theme: { color: accent ? getComputedStyle(accent).backgroundColor : '#6554d9', font: bodyStyle.fontFamily, scheme },
         frames: document.querySelectorAll('iframe:not([data-nova-root])').length, blocked, capturedAt: Date.now(),
         observation:{totalControls:candidates.size,omittedControls:Math.max(0,candidates.size-180),viewportFirst:true,sensitiveFieldsPresent:[...candidates].some(sensitive)},
         capabilities:['click','double_click','right_click','hover','drag','fill','type','clear','check','press','select','scroll','scroll_to','zoom','media','select_text','copy','paste','search','inspect','point'] };
