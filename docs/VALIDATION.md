@@ -35,3 +35,18 @@ Other smoke scripts may require a visible display, a running backend, or paid pr
 Nova requires observed evidence before reporting completion. It can still encounter unsupported controls, changed pages, sign-in, human verification, permission denial, or unobservable effects. It should report those limits without inventing success. A click receipt is not proof that a multi-step business outcome completed.
 
 This is a local engineering preview with a loopback backend and an unpacked Chromium extension. It has not completed a production security audit, a browser-store review, exhaustive live-site coverage, or a large-sample performance benchmark. Mobile support remains a separate phase. See [capabilities](CAPABILITIES.md) for the action support matrix.
+
+## Recording and ordinary edit follow-ups (2026-09-21)
+
+- Added explicit capture-build mode with hidden action pointer/label/rings and
+  actual click receipts. Normal builds do not collect these events.
+- Native click tests cover input-focus clicks, hover, rejected targets and failed
+  releases. A decoded real recording is still required to establish cue alignment.
+- Desktop recorder supports `--hide-cursor` through ScreenCaptureKit; it does not
+  hide browser security UI or product content.
+- Explicit ordinary record revisions can save without repeating a preference
+  approval. Sensitive context, message composers, negations, hypothetical requests,
+  later cancellation and review requests retain their existing boundaries.
+- Following a changed view, the shared runner allows a bounded 650 ms transition
+  before reobserving, addressing client-side pages whose initial controls change
+  before navigation completes. No action is replayed during that interval.

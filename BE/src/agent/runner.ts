@@ -226,7 +226,10 @@ export class AgentRunner {
           if(action.kind!=='wait'){
             pendingEffect={action,before:snapshot,result,mayCommit:policy.mayCommit};effect=actionEffect(action,snapshot,after,result,policy.mayCommit);
             if(effect.verified&&/^(Visible (page content|controls) changed|Navigation observed:)/.test(effect.detail)){
-              await new Promise(resolve=>setTimeout(resolve,200));if(signal.aborted)return;
+              // Client-side routes may first change focus/controls, then replace the
+              // view after their data arrives. Reobserve that transition before
+              // planning another click against the outgoing page.
+              await new Promise(resolve=>setTimeout(resolve,650));if(signal.aborted)return;
               after=await this.observe();effect=actionEffect(action,snapshot,after,result,policy.mayCommit);
             }
             // Observe delayed UI updates without replaying a click or waiting for analytics/network-idle.

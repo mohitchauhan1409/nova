@@ -2,13 +2,28 @@ import {afterEach,describe,expect,it,vi} from 'vitest';
 import {BrowserControl} from '../web/extension/browser-control';
 import type {Action} from '../shared/types';
 const click:Action={kind:'click',ref:'validate',value:null,url:null,x:null,y:null,risk:'read',summary:'Validate'};
-function setup(){
+function setup(onClick?:ConstructorParameters<typeof BrowserControl>[2]){
   const sendMessage=vi.fn();const sendCommand=vi.fn().mockResolvedValue({});
   vi.stubGlobal('chrome',{permissions:{contains:vi.fn().mockResolvedValue(true)},tabs:{get:vi.fn().mockResolvedValue({active:true,url:'https://example.test/'}),sendMessage},debugger:{attach:vi.fn().mockResolvedValue(undefined),sendCommand,onDetach:{addListener:vi.fn()}}});
-  return {control:new BrowserControl(()=>1,()=>{}),sendMessage,sendCommand};
+  return {control:new BrowserControl(()=>1,()=>{},onClick),sendMessage,sendCommand};
 }
 afterEach(()=>vi.unstubAllGlobals());
 describe('pointer dispatch receipts',()=>{
+  it('records only completed native clicks, including actual input-focus clicks',async()=>{
+    const record=vi.fn();const f=setup(record);f.sendMessage.mockResolvedValue({x:20,y:30,editable:true,ok:true});
+    await f.control.execute(1,click);
+    expect(record).toHaveBeenCalledWith(expect.objectContaining({actor:'nova',button:'left',target:'validate',at:expect.any(Number)}));
+    record.mockClear();await f.control.execute(1,{...click,kind:'fill',value:'New value'});
+    expect(record).toHaveBeenCalledTimes(1);
+    record.mockClear();await f.control.execute(1,{...click,kind:'hover'});
+    expect(record).not.toHaveBeenCalled();
+  });
+  it('does not invent click evidence for rejected targets or failed release',async()=>{
+    const record=vi.fn();const f=setup(record);f.sendMessage.mockResolvedValue({error:'Covered target'});
+    await f.control.execute(1,click);expect(record).not.toHaveBeenCalled();
+    f.sendMessage.mockResolvedValue({x:20,y:30});f.sendCommand.mockResolvedValueOnce({}).mockResolvedValueOnce({}).mockRejectedValueOnce(new Error('release failed'));
+    await expect(f.control.execute(1,click)).rejects.toThrow();expect(record).not.toHaveBeenCalled();
+  });
   it('sends global Escape without trying to focus a missing element',async()=>{
     const f=setup();await f.control.execute(1,{...click,kind:'press',ref:null,value:'Escape'});
     expect(f.sendMessage).not.toHaveBeenCalled();expect(f.sendCommand.mock.calls.map(c=>c[2])).toEqual([expect.objectContaining({type:'rawKeyDown',key:'Escape'}),expect.objectContaining({type:'keyUp',key:'Escape'})]);

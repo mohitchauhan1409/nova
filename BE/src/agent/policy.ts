@@ -130,6 +130,18 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
   if (cartControl.test(target.name)) return intentAllows(intent, 'cart') ? result('allow', 'Make the cart change you requested', true) : result('approve', 'Changing this cart was not clear from your request.', true);
   if (['select', 'check'].includes(action.kind)) return result('allow', 'Choose the requested filter, option, or variant', true);
   if (requestedTerminologyEdit(action, snapshot, intent)) return result('allow', 'Save the terminology correction explicitly requested in this observed form', true);
+  // Saving an explicitly requested ordinary record edit is not a new social
+  // preference. Consequential controls, sensitive context and message composers
+  // have already been gated above; a later negation or review request still wins.
+  if (action.risk === 'change' && ['click', 'double_click'].includes(action.kind) &&
+      /^(save changes|save (?:product|project|workflow|document|record|item))$/i.test(target.name.trim()) && !target.submission && !serious.test(target.context)) {
+    const request = intent.split('\n').reverse().find(line => /\b(save|update|change|edit|stop|cancel|wait)\b/i.test(line));
+    if (request && !/\b(how|what if|explain|after|until|confirmation|approve|approval|wait|stop|cancel)\b|\b(ask|check with) me\b/i.test(request)) {
+      const affirmative = request.replace(/\b(don['’]?t|do not|never|without)\b[^,;.!?]*/gi, '');
+      if (/\b(save|update|change|edit)\b/i.test(affirmative) && /\b(product|project|workflow|document|record|item|details|title|name|description|trial)\b/i.test(affirmative))
+        return result('allow', 'Save the ordinary record edit explicitly requested', true);
+    }
+  }
   if (preferenceControl.test(target.name.replace(/\b(?:I['’]d|(?:I|we|you)\s+would)\s+like\s+to\b/gi, ''))) return intentAllows(intent, 'preference') ? result('allow', 'Make the preference change you requested', true) : result('approve', 'This saved preference was not clear from your request.', true);
   if (browsingControl.test(target.name) && !(serious.test(target.context) && (target.form || target.type === 'submit'))) return result('allow', 'Operate the website’s browsing controls');
   if (target.type === 'submit' || target.form && ['click', 'double_click', 'press'].includes(action.kind) || action.kind === 'press' && action.value === 'Enter') return result('approve', 'Review this form submission before information is sent.', true);

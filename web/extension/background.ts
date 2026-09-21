@@ -1,3 +1,4 @@
+import { recordingMode, type RecordingClick } from '../../shared/recording';
 import type { Action, Session, ServerEvent } from '../../shared/types';
 import { BrowserControl } from './browser-control';
 import { isNovaDashboard, websitePermission, type TabLaunch } from '../../shared/browser-launch';
@@ -39,7 +40,8 @@ function stopPanelVoice() {
   if (authenticated && hadOwner) relay({ type: 'voice-stop' });
 }
 const relay = (message: unknown) => { if (socket?.readyState === WebSocket.OPEN) socket.send(JSON.stringify(message)); else broadcast({type:'error',message:'Nova backend is disconnected. Reconnect using your pairing token.'}); };
-const control = new BrowserControl(() => currentTab, () => { if(currentSession)relay({type:'stop',sessionId:currentSession.id});broadcast({type:'control-changed'});broadcast({type:'error',message:'Browser control disconnected. Resume it in Nova before continuing.'}); });
+const recordClick = (event:RecordingClick) => { if(recordingMode && currentSession && authenticated) relay({type:'recording-click',sessionId:currentSession.id,event}); };
+const control = new BrowserControl(() => currentTab, () => { if(currentSession)relay({type:'stop',sessionId:currentSession.id});broadcast({type:'control-changed'});broadcast({type:'error',message:'Browser control disconnected. Resume it in Nova before continuing.'}); }, recordClick);
 chrome.permissions.onRemoved.addListener(permissions => { if(permissions.origins?.length&&currentTab!==undefined){detachCurrent();return;}void control.status().then(status => { if(!status.granted){if(currentSession)relay({type:'stop',sessionId:currentSession.id});void control.detach(currentTab);}broadcast({type:'control-changed'}); }); });
 function detachCurrent(stop = true) {
   const tabId = currentTab;
@@ -245,6 +247,12 @@ chrome.runtime.onMessage.addListener((message,sender,respond)=>{
       await chrome.storage.session.remove(`novaLaunch:${message.id}`);
       return {ok:true};
     })().then(respond).catch(error=>respond({error:error.message}));return true;
+  }
+  if (message.type === 'nova-recording-click' && recordingMode && currentTab !== undefined &&
+      (panelTab(sender) === currentTab || (sender.tab?.id === currentTab && sender.frameId === 0))) {
+    if (Number.isFinite(message.at) && Math.abs(Date.now()-message.at)<10000 && typeof message.target==='string')
+      recordClick({at:message.at,actor:'operator',button:'left',target:message.target.slice(0,120)});
+    respond({ok:true});return;
   }
   if (message.type==='nova-sidepanel' && sender.tab?.id===currentTab && sender.frameId===0) {
     // Call directly in the content-script click's message handler. Awaiting

@@ -1,3 +1,4 @@
+import type { RecordingClick } from '../../shared/recording';
 import type { Action, ActionResult } from '../../shared/types';
 import type { PreparedTarget } from '../../shared/dom';
 
@@ -10,7 +11,7 @@ export class BrowserControl {
   private attached?: number;
   private attaching?: Promise<void>;
   private suspended = new Set<number>();
-  constructor(private current: () => number | undefined, private onInterrupted: () => void) {
+  constructor(private current: () => number | undefined, private onInterrupted: () => void, private onClick?: (event:RecordingClick)=>void) {
     chrome.debugger?.onDetach.addListener(source => {
       if (source.tabId !== this.attached) return;
       this.attached = undefined;
@@ -81,9 +82,11 @@ export class BrowserControl {
     const mouse = (type: string, point = prepared, extra: object = {}) => send('Input.dispatchMouseEvent',{type,x:point.x,y:point.y,...extra});
     const click = async (button='left', count=1) => {
       await mouse('mouseMoved');
+      const at = Date.now();
       await mouse('mousePressed',prepared,{button,clickCount:count});
       // Always release a pressed input, including when clicking causes navigation.
       await this.command({tabId},'Input.dispatchMouseEvent',{type:'mouseReleased',x:prepared.x,y:prepared.y,button,clickCount:count});
+      this.onClick?.({at,actor:'nova',button:button==='right'?'right':'left',target:action.ref || action.kind});
     };
     const press = async (value: string) => {
       const keys: Record<string,[string,string,number]> = {Enter:['Enter','Enter',13],Escape:['Escape','Escape',27],Tab:['Tab','Tab',9],ArrowDown:['ArrowDown','ArrowDown',40],ArrowUp:['ArrowUp','ArrowUp',38],ArrowLeft:['ArrowLeft','ArrowLeft',37],ArrowRight:['ArrowRight','ArrowRight',39],Home:['Home','Home',36],End:['End','End',35],PageUp:['PageUp','PageUp',33],PageDown:['PageDown','PageDown',34],Backspace:['Backspace','Backspace',8],Delete:['Delete','Delete',46],' ':[' ','Space',32]};
