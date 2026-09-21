@@ -57,6 +57,17 @@ describe('browser agent execution boundaries',()=>{
     expect(f.session.traces.some(t=>t.text.includes('page changed while planning'))).toBe(true);
     expect(f.session.status).toBe('ready');
   });
+  it('replans when an unchanged value input is reused for a different structural key',async()=>{
+    const f=fixture();const field={...base.elements[0],ref:'value',tag:'input',name:'Value',type:'text',context:'Field key: purpose. Edit properties',edit:{revision:'same-value',empty:false}};
+    f.setState({...base,elements:[field]});let plans=0;
+    f.planner.decide=async()=>{
+      if(++plans===1){await new Promise(resolve=>setTimeout(resolve,780));f.setState({...base,elements:[{...field,context:'Field key: owner. Edit properties'}]});return {...act('fill'),ref:'value',value:'Updated purpose',summary:'Update purpose'};}
+      return {...act('done'),summary:'The field changed while planning.',completion:{status:'blocked',evidence:[]}};
+    };
+    await f.runner.command('Change purpose to Updated purpose');
+    expect(f.execute).not.toHaveBeenCalled();expect(f.session.actionSteps||[]).toEqual([]);
+    expect(f.session.traces.some(t=>t.text.includes('page changed while planning'))).toBe(true);
+  });
   it('replans an alternating unchanged tab cycle before dispatching another repeat',async()=>{
     const f=fixture();let selected='Summary',revision=0;
     f.driver.snapshot=async()=>({...base,text:selected==='Summary'?'Saved summary':'Processing is pending',elements:['Summary','Details'].map(name=>({...base.elements[0],ref:`${name}-${revision}`,name,role:'tab',state:[`selected:${name===selected}`]}))});

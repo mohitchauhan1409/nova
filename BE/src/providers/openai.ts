@@ -36,7 +36,7 @@ export function plannerContext(session: Session, site: SiteProfile, raw: Snapsho
       flows:relevantFlows(session,site,snapshot).map(f=>({...f,name:clean(f.name),trigger:clean(f.trigger),steps:f.steps.map(clean)}))},
     taskProgress:session.progress?{reloads:session.progress.reloads,actions:session.progress.actions.map(a=>({...a,target:clean(a.target),summary:clean(a.summary),result:clean(a.result)})),observedSettings:session.progress.settings.map(s=>({...s,name:clean(s.name),state:s.state.map(clean)}))}:undefined,
     preparedInputs:(session.preparedInputs||[])
-      .filter(d=>d.url===raw.url&&raw.elements.some(e=>e.state?.includes(`draft:matches:${d.ref}`)||e.ref===d.ref&&(!e.edit||e.edit.revision===d.revision)))
+      .filter(d=>d.url===raw.url&&raw.elements.some(e=>e.state?.includes(`draft:matches:${d.ref}`)||e.ref===d.ref&&(!e.edit||e.edit.revision===d.revision)&&(!d.target||e.name===d.target.name&&e.tag===d.target.tag&&e.type===d.target.type&&e.context===d.target.context)))
       .map(d=>({...d,url:clean(d.url),value:clean(d.value)})),
     stateEvidence:snapshot.elements.filter(e=>!e.sensitive)
       .flatMap(e=>(e.state||[]).filter(s=>/^(expanded|pressed|checked|selected|value|valuenow|draft):/.test(s))
