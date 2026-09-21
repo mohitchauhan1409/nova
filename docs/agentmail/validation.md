@@ -1,6 +1,6 @@
 # AgentMail validation record
 
-Date: 2026-09-21. Preparation worker owns only its worktree. The coordinator exclusively owns the signed-in Chrome session, active extension/backend and recorder.
+Date: 2026-09-21. This file records the initial preparation checks. Subsequent signed-in outcomes, failed attempts, fixes and measured timing are in [live-verification.md](live-verification.md); its live status supersedes the pending labels below. Preparation worker owns only its worktree. The coordinator exclusively owns the signed-in Chrome session, active extension/backend and recorder.
 
 ## Observed product evidence
 

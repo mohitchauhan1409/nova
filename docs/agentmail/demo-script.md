@@ -1,12 +1,12 @@
 # AgentMail demonstration script
 
-Prepared 2026-09-21. UI paths were inspected by the coordinator. This script has not yet passed the required two live Nova rehearsals per critical flow.
+Updated 2026-09-21 after live rehearsals. Draft preparation and date revisions have two passes each; metadata failures and later fixes remain explicitly recorded in [live-verification.md](live-verification.md). Final capture readiness is pending.
 
 ## Story and opening
 
-Cedar & Finch is a synthetic furniture studio preparing its customer-care inbox for order questions. Existing saved baseline: `easyservice502@agentmail.to`, display name **Cedar & Finch Support**, metadata `team` (String) = `Customer Care`; one unsent handoff reference draft for order CF-1042. Preserve that reference draft.
+Cedar & Finch is a synthetic furniture studio preparing its customer-care inbox for order questions. Existing saved baseline: `easyservice502@agentmail.to`, display name **Cedar & Finch Support**, String metadata `team=Customer Care`, `purpose=General customer questions`, `response_target=2 business days`; two unsent drafts. Preserve the handoff reference for CF-1042. Reuse the existing CF-1048 draft, subject **Your oak desk order update**, To **orders@customer.example**, whose unfinished body is `Order CF-1048 — oak desk. Dispatch update awaiting review. Cedar & Finch Care.` Confirm this manually reset baseline immediately before the take.
 
-Start a fresh Nova-launched AgentMail tab on normal Overview, Nova closed. Use the user-authorized Chrome profile with exactly one target tab in the recording window. Open Nova with the launcher. Keep the native side panel, visible Nova action cursor and hidden physical/operator pointers. Current brand direction is neutral black and near-white, pending exact theme sampling.
+Start a fresh Nova-launched AgentMail tab on normal Overview, Nova closed. Use the user-authorized Chrome profile with exactly one target tab in the recording window. Open Nova with the launcher. Keep the native side panel, visible Nova action cursor and hidden physical/operator pointers. Observed source samples are black product background and #f5f5f5 primary controls. The passive initial-scheme fix and fresh-opening capture remain pending; do not use a mid-task preflight as opening acceptance.
 
 First request, with a useful saved edit before any question card:
 
@@ -34,7 +34,7 @@ If offered help choosing the response target, use the card's help control and as
 
 Suggested recommendation: 1 business day as a descriptive service target, with no claim that AgentMail enforces it. Select or enter that value. Nova must retain any already supplied team/purpose answers.
 
-Expected saved outcome: the same inbox address with display name Cedar & Finch Care; String metadata `team=Customer Care`, `purpose=Furniture order support`, `response_target=1 business day`. Existing `team` is reused rather than duplicated. Save using Update and reopen Edit Properties to verify all three fields and their types. Metadata is descriptive; do not call this routing, an automatic responder or an enforced SLA.
+Expected saved outcome: the same inbox address with display name Cedar & Finch Care; String metadata `team=Customer Care`, `purpose=Furniture order support`, `response_target=1 business day`. Existing `team`, `purpose` and `response_target` rows are reused rather than duplicated. Save using Update and reopen Edit Properties to verify all three fields and their types. Metadata is descriptive; do not call this routing, an automatic responder or an enforced SLA.
 
 Fully specified rehearsal variation:
 
@@ -46,20 +46,20 @@ Second-rehearsal targeted variation:
 
 Verify saved values, then restore only the task-owned metadata fields to the pre-take baseline using authorized browser work outside the recording. Keep the recorded metadata task unfinished.
 
-## Flow 2: prepare and revise an order-update draft
+## Flow 2: complete and revise the existing order-update draft
 
 Connected request:
 
-> Prepare an order-update draft in that inbox for our review.
+> Complete our oak-desk draft with the revised dispatch details.
 
-Grouped card answers (merge fields when the actual card groups them):
+Nova first locates the existing CF-1048 draft. The known recipient and subject should be preserved; ask only for genuinely missing dispatch facts or tone. Supply these details if the actual card asks:
 
 | Detail | Answer |
 | --- | --- |
-| Recipient | orders@customer.example |
+| Recipient, only if genuinely unresolved | orders@customer.example; preserve the existing To |
 | Order facts | Order CF-1048: oak desk; revised dispatch date October 2, 2026; tracking shared once dispatched. |
 | Tone | Warm and concise |
-| Subject | Your oak desk order update |
+| Subject, only if genuinely unresolved | Your oak desk order update; preserve the existing Subject |
 | Delivery state, only if asked | Save unscheduled for review; do not send. |
 
 Expected body, allowing harmless natural wording variation:
@@ -72,7 +72,7 @@ Expected body, allowing harmless natural wording variation:
 >
 > Cedar & Finch Care
 
-Nova checks for a matching task-owned draft, selects the same inbox, uses Compose only for a new draft, fills To/Subject/body and Close to autosave. It then opens Drafts -> the saved subject row -> Edit Draft and verifies recipient, subject, body and unscheduled draft state. Never Send or Schedule. The reference CF-1042 handoff remains untouched.
+Nova selects the same inbox, opens Drafts -> Your oak desk order update -> Edit Draft, completes only that existing body and uses Close to autosave. It reopens the same draft and verifies recipient, subject, body and unscheduled draft state. Compose/new-draft creation is not part of this final variation. Never Send or Schedule. Keep exactly two drafts; the CF-1042 handoff remains untouched.
 
 Revision:
 
@@ -82,7 +82,7 @@ Expected: edit the same CF-1048 draft, preserve recipient and subject, Close, re
 
 Fully specified rehearsal variation:
 
-> Save an unscheduled draft in Cedar & Finch Care to orders@customer.example, subject Your oak desk order update. Say oak desk order CF-1048 dispatches October 2, 2026, and tracking follows dispatch. Use a warm, concise tone and sign Cedar & Finch Care. Do not send it.
+> Complete the existing Your oak desk order update draft for CF-1048: dispatch October 2, 2026, tracking after dispatch. Keep it warm and concise, preserve the recipient and subject, sign Cedar & Finch Care, and leave it unsent.
 
 ## Closing sequence
 
