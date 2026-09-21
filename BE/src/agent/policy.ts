@@ -125,6 +125,15 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
   if (action.kind === 'inspect') return result('allow', 'Inspect a screenshot point without sending input');
   if (target?.disabled) return result('block', 'The target is disabled. Observe the page again.');
   if (target?.sensitive) return result('block', 'Enter passwords, payment details, and verification codes directly in the browser.');
+  // An editable surface's accessible name may be its current document text.
+  // Focusing it does not execute purchases, messages or deletions it discusses.
+  if(action.kind==='click'&&action.risk!=='sensitive'&&target?.edit&&!target.href&&!target.visual&&!target.covered&&
+      !['button','a'].includes(target.tag)&&['','textbox','searchbox'].includes(target.role)&&
+      (target.tag==='textarea'||target.type==='contenteditable'||target.tag==='input'&&['','text','search'].includes(target.type))&&
+      (!target.submission||target.submission.fields.some(field=>field.ref===target.ref&&field.revision===target.edit!.revision))&&
+      !sensitiveSettings.test(`${target.name} ${target.context}`)&&
+      !/\b(api key|access token|client secret|private key|credentials?|credit card|card number|cvv|cvc|security code|one.time code|otp)\b/i.test(`${target.name} ${target.context}`))
+    return result('allow','Focus the observed text editor without submitting it');
   if (target && ['click','double_click','press','check','select'].includes(action.kind) && (action.kind!=='press'||action.value==='Enter') && (dispatchControl.test(target.name)||accountCommit.test(target.name))) return result('approve','Review the exact recipients, live operation, timing and any charges or access changes before committing.',true);
   if (action.kind === 'navigate' || target?.href && ['click', 'double_click'].includes(action.kind)) {
     const url = action.kind === 'navigate' ? action.url || '' : target!.href!;
