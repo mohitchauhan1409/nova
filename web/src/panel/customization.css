@@ -1,2 +1,115 @@
-/* Customer branches add scoped website theme overrides here.
-   Keep the shared panel layout and behavior in panel.css / PanelApp.tsx. */
+/* Confident AI's neutral surfaces and high-contrast controls. Every rule is
+   scoped to the active hostname; the shared layout and behavior stay intact. */
+.np-app[data-site="app.confident-ai.com"] {
+  --confident-bg: #141414;
+  --confident-surface: #1d1d1d;
+  --confident-raised: #242424;
+  --confident-border: #383838;
+  --confident-text: #f8f8f8;
+  --confident-muted: #b5b5b5;
+  --confident-button: #f8f8f8;
+  --confident-button-text: #141414;
+  --site-accent: #f8f8f8 !important;
+  --site-ink: var(--confident-text) !important;
+  --site-soft: var(--confident-raised) !important;
+  color-scheme: dark;
+  background: var(--confident-bg);
+  color: var(--confident-text);
+}
+.np-app[data-site="app.confident-ai.com"][data-color-scheme="light"] {
+  --confident-bg: #ffffff;
+  --confident-surface: #fafafa;
+  --confident-raised: #f1f1f1;
+  --confident-border: #d6d6d6;
+  --confident-text: #171717;
+  --confident-muted: #606060;
+  --confident-button: #171717;
+  --confident-button-text: #ffffff;
+  color-scheme: light;
+}
+.np-app[data-site="app.confident-ai.com"] :is(.np-header,.np-tabs,.np-composer-area,.np-voice-bottom) {
+  background: var(--confident-bg);
+  border-color: var(--confident-border);
+}
+.np-app[data-site="app.confident-ai.com"] :is(.np-brand,.np-welcome h1,.np-message-body,.np-message-body strong,.np-message-author strong,.np-message-body h1,.np-message-body h2,.np-message-body h3,.np-question-card h3,.np-question-fields legend,.np-question-options strong,.np-question-receipt dd,.np-action-timeline p,.np-action-heading,.np-suggestions strong,.np-voice-heading h1,.np-connect h1) {
+  color: var(--confident-text);
+}
+.np-app[data-site="app.confident-ai.com"] :is(.np-icon-button,.np-new-chat,.np-tabs>button,.np-welcome>p,.np-suggestions small,.np-suggestion-icon,.np-thread-start,.np-copy,.np-thinking,.np-clarification,.np-composer-foot,.np-page-context,.np-question-kicker,.np-question-card header>p,.np-question-progress,.np-question-fields fieldset>p,.np-question-fields legend>span,.np-question-fields legend>small,.np-question-options small,.np-custom-choice,.np-question-help,.np-question-card footer>p,.np-question-receipt summary,.np-question-receipt summary>small,.np-question-receipt dt,.np-action-heading>span:not(.np-action-status),.np-action-timeline small,.np-action-timeline .np-step-detail,.np-earlier-steps,.np-voice-heading p,.np-voice-topline,.np-live-caption,.np-voice-back,.np-voice-bottom>p,.np-connect p,.np-connect label) {
+  color: var(--confident-muted);
+}
+.np-app[data-site="app.confident-ai.com"] :is(.np-brand-mark,.np-welcome-mark,.np-site-symbol) {
+  background: var(--confident-raised);
+  border-color: var(--confident-border);
+  color: var(--confident-text);
+  --mark-hole: var(--confident-raised);
+}
+.np-app[data-site="app.confident-ai.com"] .np-message-author {
+  color: var(--confident-text);
+  --mark-hole: var(--confident-bg);
+}
+.np-app[data-site="app.confident-ai.com"] :is(.np-tabs button[aria-selected=true],.np-icon-button:hover,.np-new-chat:hover,.np-suggestions>button:hover) {
+  background: var(--confident-raised);
+  color: var(--confident-text);
+}
+.np-app[data-site="app.confident-ai.com"] :is(.np-suggestions,.np-suggestions>button,.np-question-card,.np-question-options>button,.np-step-icon,.np-composer,.np-question-card input,.np-question-card textarea,.np-connect input) {
+  background: var(--confident-surface);
+  color: var(--confident-text);
+  border-color: var(--confident-border);
+}
+.np-app[data-site="app.confident-ai.com"] :is(.np-suggestions>button+button,.np-question-fields fieldset,.np-question-receipt dl,.np-message-body td,.np-message-body th,.np-message-body hr) {
+  border-color: var(--confident-border);
+}
+.np-app[data-site="app.confident-ai.com"] :is(.np-message.user,.np-question-card>header,.np-question-card>footer,.np-question-receipt,.np-action-timeline,.np-message-body pre,.np-message-body code,.np-message-body th,.np-activity-log,.np-working,.np-jump) {
+  background: var(--confident-raised);
+  border-color: var(--confident-border);
+  color: var(--confident-text);
+}
+.np-app[data-site="app.confident-ai.com"] :is(.np-thread-start span,.np-action-timeline li:not(:last-child):before,.np-question-progress>div) {
+  background: var(--confident-border);
+}
+.np-app[data-site="app.confident-ai.com"] :is(.np-message-body a,.np-message-body a:hover,.np-connect a,.np-custom-choice:hover,.np-copy:hover) {
+  color: var(--confident-text);
+  text-decoration-color: var(--confident-muted);
+}
+.np-app[data-site="app.confident-ai.com"] .np-message-body blockquote {
+  color: var(--confident-muted);
+  border-color: var(--confident-border);
+}
+.np-app[data-site="app.confident-ai.com"] .np-message-body li::marker,
+.np-app[data-site="app.confident-ai.com"] .np-suggestions>button>svg { color: var(--confident-muted); }
+.np-app[data-site="app.confident-ai.com"] .np-composer textarea { color: var(--confident-text); }
+.np-app[data-site="app.confident-ai.com"] input::placeholder,
+.np-app[data-site="app.confident-ai.com"] textarea::placeholder { color: var(--confident-muted); }
+.np-app[data-site="app.confident-ai.com"] :is(.np-composer:focus-within,.np-question-card input:focus,.np-question-card textarea:focus,.np-connect input:focus) {
+  border-color: var(--confident-muted);
+  outline-color: var(--confident-muted);
+  box-shadow: 0 0 0 2px var(--confident-raised);
+}
+.np-app[data-site="app.confident-ai.com"] :is(button:focus-visible,a:focus-visible) { outline-color: var(--confident-text); }
+.np-app[data-site="app.confident-ai.com"] :is(.np-send,.np-send:hover:not(:disabled),.np-button-dark,.np-question-continue,.np-browser-control button,.np-voice-toggle) {
+  background: var(--confident-button);
+  border-color: var(--confident-button);
+  color: var(--confident-button-text);
+}
+.np-app[data-site="app.confident-ai.com"] .np-question-options>button:hover { border-color: var(--confident-muted); background: var(--confident-raised); }
+.np-app[data-site="app.confident-ai.com"] .np-question-options>button.selected { border-color: var(--confident-text); background: var(--confident-raised); }
+.np-app[data-site="app.confident-ai.com"] .np-choice-dot { border-color: var(--confident-muted); }
+.np-app[data-site="app.confident-ai.com"] .selected .np-choice-dot { background: var(--confident-button); border-color: var(--confident-button); color: var(--confident-button-text); }
+.np-app[data-site="app.confident-ai.com"] .np-author-ai { border-color: var(--confident-border); color: var(--confident-muted); }
+.np-app[data-site="app.confident-ai.com"] .np-action-status { background: var(--confident-muted); }
+.np-app[data-site="app.confident-ai.com"] .np-action-status.active { background: var(--confident-text); box-shadow: 0 0 0 3px var(--confident-raised); }
+.np-app[data-site="app.confident-ai.com"] .np-action-timeline li[data-status="verified"] .np-step-icon { background: var(--confident-raised); border-color: var(--confident-border); color: var(--confident-text); }
+.np-app[data-site="app.confident-ai.com"] .np-action-timeline li[data-status="failed"] .np-step-icon { background: var(--confident-raised); color: #e7ad80; }
+.np-app[data-site="app.confident-ai.com"] :is(.np-approval,.np-browser-control) { background: var(--confident-surface); border-color: var(--confident-border); color: var(--confident-text); }
+.np-app[data-site="app.confident-ai.com"] :is(.np-approval-label,.np-approval h3,.np-browser-control strong) { color: var(--confident-text); }
+.np-app[data-site="app.confident-ai.com"] :is(.np-approval p,.np-approval small,.np-browser-control p) { color: var(--confident-muted); }
+.np-app[data-site="app.confident-ai.com"] .np-approval-buttons button:not(.np-button-dark) { border-color: var(--confident-border); background: var(--confident-raised); color: var(--confident-text); }
+.np-app[data-site="app.confident-ai.com"] .np-error { background: #34211e; border-color: #69423b; color: #f1c0b6; }
+.np-app[data-site="app.confident-ai.com"] .np-question-error { color: #e6a398; }
+.np-app[data-site="app.confident-ai.com"] .np-question-card [aria-invalid="true"] { border-color: #cf9286; }
+.np-app[data-site="app.confident-ai.com"] .np-voice-orb { color: var(--confident-text); background: var(--confident-raised); --mark-hole: var(--confident-raised); box-shadow: 0 10px 35px #00000030; }
+.np-app[data-site="app.confident-ai.com"] .np-voice-ring { border-color: var(--confident-border); }
+.np-app[data-site="app.confident-ai.com"] :is(.np-voice-speck,.np-waveform i) { background: var(--confident-muted); }
+.np-app[data-site="app.confident-ai.com"] .np-voice-toggle.recording { background: var(--confident-raised); border-color: var(--confident-border); color: var(--confident-text); }
+.np-app[data-site="app.confident-ai.com"] ::selection { background: var(--confident-text); color: var(--confident-bg); }
+.np-app[data-site="app.confident-ai.com"] ::-webkit-scrollbar-thumb { background: var(--confident-border); }
