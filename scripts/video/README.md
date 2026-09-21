@@ -100,6 +100,14 @@ Verify the source frame count, duration, resolution and frame rate with `ffprobe
 # Frame-based editing and click effects
 
 `python3 scripts/video/edit-recording.py SOURCE PLAN.json SILENT.mp4 CLICKS.mp4`
+
+An optional `crop: {x, y, width, height, reason}` removes documented empty
+recorder padding after masks are applied. Coordinates remain in native source
+pixels; no scaling occurs, and frame timing is unchanged. All crop coordinates
+must be even for yuv420p output. Verify that the removed region contains no
+browser content throughout the source before using it. Omit `crop` to preserve
+the full canvas. Run `python3 scripts/video/test-edit-recording.py` to check
+geometry validation and a decoded padded-source export.
 renders an inspected EDL, then muxes original synthesized click effects while
 copying the silent video's encoded stream. It verifies frame counts and video
 stream hashes and writes a text validation report beside the silent edit.

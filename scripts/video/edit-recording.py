@@ -43,6 +43,12 @@ def validate(plan, info):
         elif kind != 'operator-idle':
             assert n == b-a, 'Agent execution, reading and establishing views remain at real speed'
     assert plan['segments'], 'Empty EDL'
+    if crop := plan.get('crop'):
+        x, y, w, h = (crop[k] for k in ('x', 'y', 'width', 'height'))
+        assert all(type(v) is int for v in (x, y, w, h)), 'Crop must use integer native pixels'
+        assert 0 <= x < x+w <= plan['width'] and 0 <= y < y+h <= plan['height'], 'Crop must fit the source canvas'
+        assert all(v % 2 == 0 for v in (x, y, w, h)), 'Crop must align with yuv420p pixels'
+        assert crop.get('reason'), 'Document why the cropped pixels are outside the intended window'
     for mask in plan.get('masks', []):
         x, y, w, h = (mask[k] for k in ('x', 'y', 'width', 'height'))
         assert 0 <= x < x+w <= plan['width'] and 0 <= y < y+h <= plan['height']
@@ -91,6 +97,10 @@ def render(source, plan, silent, clicks):
                 if end <= start:
                     continue
                 filters.append(f"drawbox=x={mask['x']}:y={mask['y']}:w={mask['width']}:h={mask['height']}:color=0x{mask['color'][1:]}:t=fill:enable='gte(n,{start})*lt(n,{end})'")
+            if crop := plan.get('crop'):
+                # Masks and receipts stay in source coordinates. Cropping empty
+                # recorder padding never scales the retained browser pixels.
+                filters.append(f"crop={crop['width']}:{crop['height']}:{crop['x']}:{crop['y']}")
             part = root / f'{index:04d}.mp4'
             run('ffmpeg', '-v', 'error', '-ss', f'{a/fps:.9f}', '-i', source, '-an', '-vf', ','.join(filters),
                 '-frames:v', n, '-c:v', 'libx264', '-preset', 'fast', '-crf', '18', '-pix_fmt', 'yuv420p',
@@ -132,8 +142,11 @@ def render(source, plan, silent, clicks):
         run('ffmpeg', '-v', 'error', '-i', silent, '-i', audio, '-map', '0:v:0', '-map', '1:a:0',
             '-c:v', 'copy', '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart', clicks)
         assert video_hash(silent) == video_hash(clicks), 'Video stream changed during audio mux'
-        report = {'source_sha256': hashlib.file_digest(source.open('rb'), 'sha256').hexdigest(),
+        with source.open('rb') as source_file:
+            source_sha256 = hashlib.file_digest(source_file, 'sha256').hexdigest()
+        report = {'source_sha256': source_sha256,
             'frames': frames, 'seconds': frames/fps, 'peak_amplitude': peak, 'clicks': cues,
+            'crop': plan.get('crop'),
             'video_stream_hash': video_hash(clicks)}
         silent.with_suffix('.validation.json').write_text(json.dumps(report, indent=2)+'\n')
         print(json.dumps(report, indent=2))
