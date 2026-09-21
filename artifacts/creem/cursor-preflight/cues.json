@@ -1,0 +1,41 @@
+{
+  "duration": 35,
+  "events": [
+    {
+      "time": 4.004,
+      "actor": "operator",
+      "strength": 1,
+      "evidence": "Successful operator click receipt 1789961546704 on Open Nova side panel; real capture"
+    },
+    {
+      "time": 8.088,
+      "actor": "operator",
+      "strength": 1,
+      "evidence": "Successful operator click receipt 1789961550788 on Message Nova; real capture"
+    },
+    {
+      "time": 14.294,
+      "actor": "operator",
+      "strength": 1,
+      "evidence": "Successful operator click receipt 1789961556994 on Send message; real capture"
+    },
+    {
+      "time": 17.725,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Successful nova click receipt 1789961560425 on goqgdjf-8; real capture"
+    },
+    {
+      "time": 23.104,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Successful nova click receipt 1789961565804 on goqgdjf-56; real capture"
+    },
+    {
+      "time": 26.244,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Successful nova click receipt 1789961568944 on goqgdjf-64; real capture"
+    }
+  ]
+}

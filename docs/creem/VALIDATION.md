@@ -26,3 +26,63 @@ Measured real rehearsal1: initial user message→first action4.049s;→grouped c
   catalog control behind the product drawer. Nova did not loop; the actual saved
   product and trial were independently verified. Guide now checks requested fields
   and drawer controls, without unrelated attachment checks for this subscription.
+
+- Revised cursor preflight exported35s/1050frames with3 operator and3 Nova taps. Decoded onset error at most0.020833ms,minimum tap correlation0.999659,non-click silence peak0. The decoded final frame shows lavender Nova pointer/ring/label, no physical pointer, only the Creem tab, and the complete debugging row concealed. The unedited source is3024×1714 at30fps.
+
+## Retained final take
+
+The continuous final session saved and reopened Vector Teams at USD99/month,
+14-day free trial, then revised the same ID to21 days. It created and reopened
+Teams Welcome / TEAMSTART20:20% once, exact Teams product link,0/50,no expiry.
+The three closing requests calculated79.20 before tax, confirmed Starter/Pro
+remain outside the offer, and opened Home to report the actual sandbox figures.
+No operator website action or private website API completed Nova's work.
+
+Two attempts to dismiss an already disappearing creation confirmation were
+rejected as unavailable before dispatch. Nova then opened the saved discount
+and verified it. Both failed steps remain visible at normal speed, with no tap
+added for either rejected attempt. This is a recovered transient obstruction,
+not a claim of flawless or exhaustive coverage.
+
+Real measured final timings, from message and click receipts:
+
+| Interval | Seconds |
+| --- | ---: |
+| Opening request to first dispatched action |3.559|
+| Opening request to first grouped card |12.226|
+| Help me choose to remaining-questions card |7.404|
+| Final card submission to saved/reopened product response |36.102|
+| Trial revision to saved/reopened confirmation |21.158|
+| Connected offer to saved/reopened confirmation |53.257|
+| Invoice arithmetic response |3.682|
+| Other-plan scope response |2.564|
+| Home request to loaded activity summary |13.874|
+
+The configured gpt-5.6-sol model was retained:41 calls,336488 input tokens
+(155759 cached),4673 output tokens. Screen time is not reported as latency.
+Raw duration304.633s/9139 frames. Edited duration287s/8610 frames:13.5 seconds
+of documented operator idle compressed and4.133s of unused tail trimmed.
+All Nova execution, recovery and operator typing remain1× speed.
+
+Capture has one Creem tab, Home initially visible with Nova closed and no
+debugger row. Only Nova's lavender action cursor is visible. Raw3024×1714;
+edited2748×1714 at30fps removes only276 columns of empty recorder padding,
+verified across all9139 source frames. Browser pixels are not rescaled.
+The only mask is the complete browser debugger row, source frames951 onward.
+Main2ddbe3c adds optional padding crop support; three regression checks passed,
+including a decoded synthetic padded-source export. All other theme/build
+checks above remain applicable; only the video editor changed afterward.
+
+Limitations: these are sandbox catalog/offer workflows. Product description
+entitlements are scenario text; no delivery backend was configured.79.20 is
+conditional on redeeming TEAMSTART20, not a real issued invoice. Live payments,
+external recipients, usage ingestion and production onboarding were excluded.
+
+Decoded final audio verification passed for all50 actual clicks (22 operator,
+28 Nova): maximum onset error0.104167ms, minimum tap correlation0.999608,
+non-click silence peak0, decoded peak0.220796 (no clipping). Video stream hash
+matches the silent export exactly. Inspected the decoded frame at every mapped
+click, the opening, progressive typing, saved outcomes and final Home summary.
+The only retained media are the original raw, silent edit and click-only edit.
+Failed takes, preflight videos, scratch audio containers and temporary theme
+screenshots were removed after verification; useful text evidence remains.

@@ -1,0 +1,229 @@
+{
+  "fps": 30,
+  "width": 3024,
+  "height": 1714,
+  "segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 103,
+      "output_frames": 103,
+      "kind": "establishing",
+      "reason": "Fresh Nova-launched Home; single tab and launcher; no debugger row."
+    },
+    {
+      "start_frame": 103,
+      "end_frame": 218,
+      "output_frames": 115,
+      "kind": "reading",
+      "reason": "Panel opening and input focus; normal speed."
+    },
+    {
+      "start_frame": 218,
+      "end_frame": 480,
+      "output_frames": 262,
+      "kind": "operator-typing",
+      "reason": "Progressive opening prompt; natural capture speed retained."
+    },
+    {
+      "start_frame": 480,
+      "end_frame": 828,
+      "output_frames": 45,
+      "kind": "operator-idle",
+      "reason": "Completed opening prompt remains unchanged before Send; compressed only this idle."
+    },
+    {
+      "start_frame": 828,
+      "end_frame": 1222,
+      "output_frames": 394,
+      "kind": "agent",
+      "reason": "Send, reasoning, catalog duplicate check and grouped card at real speed."
+    },
+    {
+      "start_frame": 1222,
+      "end_frame": 1350,
+      "output_frames": 128,
+      "kind": "reading",
+      "reason": "Read grouped questions."
+    },
+    {
+      "start_frame": 1350,
+      "end_frame": 1860,
+      "output_frames": 510,
+      "kind": "operator-typing",
+      "reason": "Partial name, description, price and USD answers at real speed."
+    },
+    {
+      "start_frame": 1860,
+      "end_frame": 1946,
+      "output_frames": 86,
+      "kind": "reading",
+      "reason": "Partial-answer pause and Help me choose."
+    },
+    {
+      "start_frame": 1946,
+      "end_frame": 2178,
+      "output_frames": 232,
+      "kind": "agent",
+      "reason": "Nova retains answers and presents guidance at real speed."
+    },
+    {
+      "start_frame": 2178,
+      "end_frame": 2385,
+      "output_frames": 207,
+      "kind": "reading",
+      "reason": "Read remaining billing/trial explanation."
+    },
+    {
+      "start_frame": 2385,
+      "end_frame": 2573,
+      "output_frames": 188,
+      "kind": "operator-typing",
+      "reason": "Monthly selection and custom 14-day trial at real speed."
+    },
+    {
+      "start_frame": 2573,
+      "end_frame": 3668,
+      "output_frames": 1095,
+      "kind": "agent",
+      "reason": "Complete product creation, save and reopened verification at real speed."
+    },
+    {
+      "start_frame": 3668,
+      "end_frame": 3830,
+      "output_frames": 162,
+      "kind": "reading",
+      "reason": "Read persisted product and Nova confirmation."
+    },
+    {
+      "start_frame": 3830,
+      "end_frame": 4077,
+      "output_frames": 247,
+      "kind": "operator-typing",
+      "reason": "Natural trial revision; every character retained."
+    },
+    {
+      "start_frame": 4077,
+      "end_frame": 4720,
+      "output_frames": 643,
+      "kind": "agent",
+      "reason": "Same-product revision and reopened verification at real speed."
+    },
+    {
+      "start_frame": 4720,
+      "end_frame": 4818,
+      "output_frames": 98,
+      "kind": "reading",
+      "reason": "Read updated 21-day trial."
+    },
+    {
+      "start_frame": 4818,
+      "end_frame": 4950,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Unchanged completed revision before next prompt; only idle compressed."
+    },
+    {
+      "start_frame": 4950,
+      "end_frame": 5376,
+      "output_frames": 426,
+      "kind": "operator-typing",
+      "reason": "Complete connected-offer request at real speed."
+    },
+    {
+      "start_frame": 5376,
+      "end_frame": 6984,
+      "output_frames": 1608,
+      "kind": "agent",
+      "reason": "Create restricted discount, retain two rejected stale confirmation attempts and successful recovery; real speed."
+    },
+    {
+      "start_frame": 6984,
+      "end_frame": 7217,
+      "output_frames": 233,
+      "kind": "reading",
+      "reason": "Read exact product relationship, code, once-only rate, limit and expiry."
+    },
+    {
+      "start_frame": 7217,
+      "end_frame": 7382,
+      "output_frames": 165,
+      "kind": "operator-typing",
+      "reason": "Invoice question at real speed."
+    },
+    {
+      "start_frame": 7382,
+      "end_frame": 7502,
+      "output_frames": 120,
+      "kind": "agent",
+      "reason": "Invoice arithmetic answer at real speed."
+    },
+    {
+      "start_frame": 7502,
+      "end_frame": 7733,
+      "output_frames": 231,
+      "kind": "reading",
+      "reason": "Read invoice arithmetic."
+    },
+    {
+      "start_frame": 7733,
+      "end_frame": 7847,
+      "output_frames": 114,
+      "kind": "operator-typing",
+      "reason": "Ask whether other plans change."
+    },
+    {
+      "start_frame": 7847,
+      "end_frame": 7933,
+      "output_frames": 86,
+      "kind": "agent",
+      "reason": "Scope answer at real speed."
+    },
+    {
+      "start_frame": 7933,
+      "end_frame": 8081,
+      "output_frames": 148,
+      "kind": "reading",
+      "reason": "Read scope confirmation."
+    },
+    {
+      "start_frame": 8081,
+      "end_frame": 8248,
+      "output_frames": 167,
+      "kind": "operator-typing",
+      "reason": "Ask for current Home summary."
+    },
+    {
+      "start_frame": 8248,
+      "end_frame": 8676,
+      "output_frames": 428,
+      "kind": "agent",
+      "reason": "Close drawer, navigate Home and summarize loaded figures at real speed."
+    },
+    {
+      "start_frame": 8676,
+      "end_frame": 9015,
+      "output_frames": 339,
+      "kind": "reading",
+      "reason": "Final verified dashboard and summary reading hold; unused tail trimmed."
+    }
+  ],
+  "masks": [
+    {
+      "x": 14,
+      "y": 158,
+      "width": 2014,
+      "height": 106,
+      "color": "#f9f8ff",
+      "start_frame": 951,
+      "end_frame": 9139
+    }
+  ],
+  "crop": {
+    "x": 0,
+    "y": 0,
+    "width": 2748,
+    "height": 1714,
+    "reason": "Remove only right-hand empty capture padding, verified throughout the source; native browser pixels are not rescaled."
+  },
+  "clicks": []
+}

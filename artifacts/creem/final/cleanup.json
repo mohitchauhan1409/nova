@@ -1,0 +1,27 @@
+{
+  "retained_media": [
+    "artifacts/creem/final/nova-creem-raw.mov",
+    "artifacts/creem/final/nova-creem-silent.mp4",
+    "artifacts/creem/final/nova-creem.mp4"
+  ],
+  "removed_superseded_task_media": [
+    "artifacts/creem/cursor-preflight/clicks.mp4",
+    "artifacts/creem/cursor-preflight/scratch.mp4",
+    "artifacts/creem/cursor-preflight/silent.mp4",
+    "artifacts/creem/cursor-preflight/raw.mov",
+    "artifacts/creem/theme/working.png",
+    "artifacts/creem/theme/questions.png",
+    "artifacts/creem/theme/welcome.png",
+    "artifacts/creem/final/audio-scratch.mp4",
+    "artifacts/creem/repair/attempt-two-user-stopped.mov",
+    "artifacts/creem/repair/attempt-one.mov",
+    "artifacts/creem/preflight/setup.mov",
+    "artifacts/creem/preflight/clicks.mp4",
+    "artifacts/creem/preflight/scratch.mp4",
+    "artifacts/creem/preflight/typing.mov",
+    "artifacts/creem/preflight/silent.mp4",
+    "artifacts/core/recording-cursor/visible.png",
+    "artifacts/core/recording-cursor/hidden.png",
+    "artifacts/core/recording-cursor/normal.png"
+  ]
+}

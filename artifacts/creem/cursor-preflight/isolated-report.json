@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "url": "https://www.creem.io/dashboard/home",
+  "reports": [
+    {
+      "name": "normal",
+      "recording": false,
+      "show": false,
+      "display": "block",
+      "opacity": "1",
+      "fill": "rgb(207, 194, 250)",
+      "label": "rgb(207, 194, 250)",
+      "ring": "rgb(207, 194, 250)",
+      "pointerEvents": "none"
+    },
+    {
+      "name": "hidden",
+      "recording": true,
+      "show": false,
+      "display": "none",
+      "opacity": "1",
+      "fill": "rgb(207, 194, 250)",
+      "label": "rgb(207, 194, 250)",
+      "ring": "rgb(207, 194, 250)",
+      "pointerEvents": "none"
+    },
+    {
+      "name": "visible",
+      "recording": true,
+      "show": true,
+      "display": "block",
+      "opacity": "1",
+      "fill": "rgb(207, 194, 250)",
+      "label": "rgb(207, 194, 250)",
+      "ring": "rgb(207, 194, 250)",
+      "pointerEvents": "none"
+    }
+  ]
+}

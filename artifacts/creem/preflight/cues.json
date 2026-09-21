@@ -1,0 +1,41 @@
+{
+  "duration": 30,
+  "events": [
+    {
+      "time": 3.971,
+      "actor": "operator",
+      "strength": 1,
+      "evidence": "Successful operator click receipt 1789960341283 on Message Nova"
+    },
+    {
+      "time": 15.319,
+      "actor": "operator",
+      "strength": 1,
+      "evidence": "Successful operator click receipt 1789960352631 on Send message"
+    },
+    {
+      "time": 18.011,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Successful nova click receipt 1789960355323 on mzxndx5-256"
+    },
+    {
+      "time": 21.934,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Successful nova click receipt 1789960359246 on mzxndx5-10"
+    },
+    {
+      "time": 25.475,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Successful nova click receipt 1789960362787 on mzxndx5-269"
+    },
+    {
+      "time": 28.956,
+      "actor": "nova",
+      "strength": 1,
+      "evidence": "Successful nova click receipt 1789960366268 on mzxndx5-277"
+    }
+  ]
+}

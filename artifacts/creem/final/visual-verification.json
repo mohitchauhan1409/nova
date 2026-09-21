@@ -1,0 +1,363 @@
+{
+  "review": "Decoded edited frames inspected at all 50 mapped click locations, plus opening, typing progression, both saved product states, offer relationship and ending. Video stream is identical between silent and click-only exports.",
+  "single_tab": true,
+  "fresh_home_closed_nova": true,
+  "physical_cursor_capture": false,
+  "nova_cursor": "#cfc2fa pointer, label surface and ring",
+  "mask_only_debugger_row": true,
+  "recovered_failures_retained": 2,
+  "no_taps_for_rejected_actions": true,
+  "no_rescaling": true,
+  "cue_frames": [
+    {
+      "receipt_index": 0,
+      "click_frame": 103,
+      "inspected_response_frame": 106,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 1,
+      "click_frame": 218,
+      "inspected_response_frame": 221,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 2,
+      "click_frame": 542,
+      "inspected_response_frame": 545,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 3,
+      "click_frame": 649,
+      "inspected_response_frame": 652,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 4,
+      "click_frame": 1050,
+      "inspected_response_frame": 1053,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 5,
+      "click_frame": 1099,
+      "inspected_response_frame": 1102,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 6,
+      "click_frame": 1528,
+      "inspected_response_frame": 1531,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 7,
+      "click_frame": 1542,
+      "inspected_response_frame": 1545,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 8,
+      "click_frame": 1643,
+      "inspected_response_frame": 1646,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 9,
+      "click_frame": 2082,
+      "inspected_response_frame": 2085,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 10,
+      "click_frame": 2090,
+      "inspected_response_frame": 2093,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 11,
+      "click_frame": 2205,
+      "inspected_response_frame": 2208,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 12,
+      "click_frame": 2270,
+      "inspected_response_frame": 2273,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 13,
+      "click_frame": 2399,
+      "inspected_response_frame": 2402,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 14,
+      "click_frame": 2515,
+      "inspected_response_frame": 2518,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 15,
+      "click_frame": 2615,
+      "inspected_response_frame": 2618,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 16,
+      "click_frame": 2743,
+      "inspected_response_frame": 2746,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 17,
+      "click_frame": 2816,
+      "inspected_response_frame": 2819,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 18,
+      "click_frame": 2903,
+      "inspected_response_frame": 2906,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 19,
+      "click_frame": 2978,
+      "inspected_response_frame": 2981,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 20,
+      "click_frame": 3063,
+      "inspected_response_frame": 3066,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 21,
+      "click_frame": 3237,
+      "inspected_response_frame": 3240,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 22,
+      "click_frame": 3527,
+      "inspected_response_frame": 3530,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 23,
+      "click_frame": 3773,
+      "inspected_response_frame": 3776,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 24,
+      "click_frame": 3855,
+      "inspected_response_frame": 3858,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 25,
+      "click_frame": 4055,
+      "inspected_response_frame": 4058,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 26,
+      "click_frame": 4141,
+      "inspected_response_frame": 4144,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 27,
+      "click_frame": 4288,
+      "inspected_response_frame": 4291,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 28,
+      "click_frame": 4563,
+      "inspected_response_frame": 4566,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 29,
+      "click_frame": 4970,
+      "inspected_response_frame": 4973,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 30,
+      "click_frame": 5074,
+      "inspected_response_frame": 5077,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 31,
+      "click_frame": 5186,
+      "inspected_response_frame": 5189,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 32,
+      "click_frame": 5320,
+      "inspected_response_frame": 5323,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 33,
+      "click_frame": 5413,
+      "inspected_response_frame": 5416,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 34,
+      "click_frame": 5498,
+      "inspected_response_frame": 5501,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 35,
+      "click_frame": 5570,
+      "inspected_response_frame": 5573,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 36,
+      "click_frame": 5665,
+      "inspected_response_frame": 5668,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 37,
+      "click_frame": 5753,
+      "inspected_response_frame": 5756,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 38,
+      "click_frame": 5860,
+      "inspected_response_frame": 5863,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 39,
+      "click_frame": 6051,
+      "inspected_response_frame": 6054,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 40,
+      "click_frame": 6146,
+      "inspected_response_frame": 6149,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 41,
+      "click_frame": 6441,
+      "inspected_response_frame": 6444,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 42,
+      "click_frame": 6812,
+      "inspected_response_frame": 6815,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 43,
+      "click_frame": 6977,
+      "inspected_response_frame": 6980,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 44,
+      "click_frame": 7328,
+      "inspected_response_frame": 7331,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 45,
+      "click_frame": 7442,
+      "inspected_response_frame": 7445,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 46,
+      "click_frame": 7676,
+      "inspected_response_frame": 7679,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 47,
+      "click_frame": 7843,
+      "inspected_response_frame": 7846,
+      "actor": "operator",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 48,
+      "click_frame": 7924,
+      "inspected_response_frame": 7927,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    },
+    {
+      "receipt_index": 49,
+      "click_frame": 8030,
+      "inspected_response_frame": 8033,
+      "actor": "nova",
+      "result": "Visible target focus, click ring, submission, selection, or corresponding response agrees with receipt."
+    }
+  ]
+}

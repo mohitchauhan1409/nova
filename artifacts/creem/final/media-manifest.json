@@ -1,0 +1,74 @@
+[
+  {
+    "path": "artifacts/creem/final/nova-creem-raw.mov",
+    "sha256": "45a0e36852719eb202920f86c0b90af9bac76e166bce98ac7df6ea4084c0db1c",
+    "size": 55534676,
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 3024,
+          "height": 1714,
+          "r_frame_rate": "30/1",
+          "nb_frames": "9139"
+        }
+      ],
+      "format": {
+        "duration": "304.633333"
+      }
+    }
+  },
+  {
+    "path": "artifacts/creem/final/nova-creem-silent.mp4",
+    "sha256": "91ec5bab49f379633e1ebe2168366b5699b88ca72e47b024601bd59a061ae9f5",
+    "size": 16426167,
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 2748,
+          "height": 1714,
+          "r_frame_rate": "30/1",
+          "nb_frames": "8610"
+        }
+      ],
+      "format": {
+        "duration": "286.998667"
+      }
+    }
+  },
+  {
+    "path": "artifacts/creem/final/nova-creem.mp4",
+    "sha256": "c3a3ff0d3f951ea1fa53466942dca5bcaccfb3d8d2e96c8e16df3d48dbee4d8d",
+    "size": 16853757,
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 2748,
+          "height": 1714,
+          "r_frame_rate": "30/1",
+          "nb_frames": "8610"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "nb_frames": "13455"
+        }
+      ],
+      "format": {
+        "duration": "287.000000"
+      }
+    }
+  }
+]

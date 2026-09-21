@@ -1,0 +1,83 @@
+{
+  "source": "final-session.json message timestamps and successful click receipts; independent of video edits",
+  "model": "gpt-5.6-sol",
+  "usage": {
+    "calls": 41,
+    "inputTokens": 336488,
+    "cachedInputTokens": 155759,
+    "outputTokens": 4673
+  },
+  "first_action_seconds": 3.559,
+  "turns": [
+    {
+      "prompt": "I\u2019m a little lost setting up our next team plan. Can you help me?",
+      "sent_epoch_ms": 1789961873168,
+      "response_epoch_ms": 1789961885394,
+      "elapsed_seconds": 12.226
+    },
+    {
+      "prompt": "Help me choose: explain the remaining questions in plain language. Keep my original task and the details I already provided.\nMy answers so far:\nPlan name: Vector Teams\nDescription: An AI workspace for growing teams. Includes 15 seats, unlimited projects, 35,000 monthly AI credits, and priority support.\nPrice: 99\nCurrency: USD",
+      "sent_epoch_ms": 1789961909857,
+      "response_epoch_ms": 1789961917261,
+      "elapsed_seconds": 7.404
+    },
+    {
+      "prompt": "Details for Choose billing and trial terms:\nBilling period: Monthly\nTrial: 14-day free trial",
+      "sent_epoch_ms": 1789961930772,
+      "response_epoch_ms": 1789961966874,
+      "elapsed_seconds": 36.102
+    },
+    {
+      "prompt": "Actually, give teams 21 days to try it. Keep everything else the same.",
+      "sent_epoch_ms": 1789961980885,
+      "response_epoch_ms": 1789962002043,
+      "elapsed_seconds": 21.158
+    },
+    {
+      "prompt": "Now create a launch offer for that plan only: 20% off once, code TEAMSTART20, name Teams Welcome, 50 uses, no expiry.",
+      "sent_epoch_ms": 1789962024185,
+      "response_epoch_ms": 1789962077442,
+      "elapsed_seconds": 53.257
+    },
+    {
+      "prompt": "What will the first paid invoice be before tax?",
+      "sent_epoch_ms": 1789962091062,
+      "response_epoch_ms": 1789962094744,
+      "elapsed_seconds": 3.682
+    },
+    {
+      "prompt": "Does that change Starter or Pro?",
+      "sent_epoch_ms": 1789962106564,
+      "response_epoch_ms": 1789962109128,
+      "elapsed_seconds": 2.564
+    },
+    {
+      "prompt": "Show me Home and summarize the current activity.",
+      "sent_epoch_ms": 1789962119946,
+      "response_epoch_ms": 1789962133820,
+      "elapsed_seconds": 13.874
+    }
+  ],
+  "raw_seconds": 304.6333333333333,
+  "edited_seconds": 287,
+  "operator_idle_seconds_removed": 13.5,
+  "unused_tail_seconds_removed": 4.133333333333326,
+  "nova_execution_speed": 1,
+  "typing_speed_multiplier": 1,
+  "source_dimensions": [
+    3024,
+    1714
+  ],
+  "edited_dimensions": [
+    2748,
+    1714
+  ],
+  "crop_note": "No scaling; only 276 columns of verified empty recorder padding removed.",
+  "clicks": 50,
+  "operator_clicks": 22,
+  "nova_clicks": 28,
+  "debugger_source_frames": [
+    951,
+    9139
+  ]
+}

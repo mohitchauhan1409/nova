@@ -11,7 +11,7 @@ Scenario: Vector-Os is preparing subscription plans for an AI workspace in Creem
 5. Pass: exactly one saved Vector Teams, USD99/month, free14-day trial, supplied description, recovery emails and automatic affiliate enrollment off. Reopen exact record.
 6. User: “Actually, give teams 21 days to try it. Keep everything else the same.” Pass: edit the same product ID to21 days, retain price and description.
 7. User: “Now create a launch offer for that plan only: 20% off once, code TEAMSTART20, name Teams Welcome, 50 uses, no expiry.” Pass: saved discount, exact product link,20% once,0/50, no expiry; no duplicate or external dispatch.
-8. User: “What will the first paid invoice be before tax?” Expected: $79.20 after the21-day free trial, then regular99/month; note tax separately. This is arithmetic from the configured offer, not a live invoice.
+8. User: “What will the first paid invoice be before tax?” Actual response: “The first paid invoice will be $79.20 before tax, after the one-time 20% discount on $99.” This is arithmetic for a customer using TEAMSTART20, not a live invoice. The saved trial is21 days and the recurring price remains99/month; Nova did not restate those two facts in this short answer.
 9. User: “Does that change Starter or Pro?” Expected: no, discount targets only Teams; ordinary plans unchanged.
 10. User: “Show me Home and summarize the current activity.” Expected: read actual current period and sandbox totals, distinguish Test mode. End after the complete answer with a short readable hold.
 

@@ -1,0 +1,18 @@
+{
+  "windowId": 25309,
+  "firstFrameEpochMs": 1789961845001,
+  "width": 3024,
+  "height": 1714,
+  "fps": 30,
+  "systemCursorCaptured": false,
+  "novaActionCursorVisible": true,
+  "novaAccent": "#cfc2fa",
+  "initialTabs": [
+    "https://www.creem.io/dashboard/home"
+  ],
+  "initialPanel": "closed",
+  "initialDebuggerBar": false,
+  "frames": 9139,
+  "seconds": 304.6333333333333,
+  "recordingComplete": true
+}

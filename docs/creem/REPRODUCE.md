@@ -53,6 +53,20 @@ final cue file includes actual operator/Nova receipts, frame mapping and evidenc
 No sound is assigned to typing, scrolling or thinking. Review decoded frames as
 well as automated audio checks. The raw recording remains untouched.
 
+The final EDL removes only empty right-hand capture padding:2748×1714 exported
+from a3024×1714 canvas, with no scaling of browser pixels. Padding was checked
+across every source frame. This optional generic editor feature is on main.
+To reproduce into fresh output filenames, run:
+
+```sh
+python3 scripts/video/edit-recording.py artifacts/creem/final/nova-creem-raw.mov artifacts/creem/final/edit-plan.json silent-rebuild.mp4 scratch-rebuild.mp4
+python3 scripts/video/add-click-sounds.py --source silent-rebuild.mp4 --cues artifacts/creem/final/click-cues.json --output clicks-rebuild.mp4 --report sound-rebuild.json
+python3 scripts/video/verify-click-export.py clicks-rebuild.mp4 artifacts/creem/final/click-cues.json decoded-rebuild.json --fps 30
+```
+
+The audio utilities require NumPy. Remove the temporary scratch container after
+verifying the recreated outputs. These commands refuse to overwrite media.
+
 Only raw, final silent and final click-only media are retained. Git LFS handles
 those exact paths on the startup branch. BACKUP.md records verified remote refs,
 media hashes and independent-cache recovery; ordinary local commits alone are

@@ -28,3 +28,11 @@ Product descriptions describe the scenario; no external entitlement service was 
 Additional saved rehearsal plan: Vector Scale, prod_4b1hfvhzwYli4AO7iBOhaW, USD249/month, free21-day trial,40 seats/100,000-credit scenario description. Created by Nova in the stopped first take; revision persisted after the approval wording regression was repaired. No Scale discount was created.
 
 Vector Growth was created and revised by Nova in the user-stopped cursor take: prod_1QrFSzJCKNxWz7TodnmFJY, USD199/month,21-day free trial,30-seat/75,000-credit description. The GROWTH20 offer prompt was interrupted before submission; no Growth offer was created.
+
+Final retained take: **Vector Teams**, `prod_54yU7BiQaQgK2pCtxmhCPu`, USD99/month,
+15 seats / 35,000-credit description, free trial revised from14 to21 days on the
+same record. **Teams Welcome / TEAMSTART20**, `dis_7PTQyj8uvbYIh9T6UqBoWo`,
+20% once, this exact product only,50 redemptions maximum,0 used,no expiry.
+Both were created and reopened by Nova in the continuous final take. No checkout
+was executed for Teams. The79.20 invoice answer is arithmetic conditional on
+using the code, not an issued invoice or an automatic discount on every purchase.

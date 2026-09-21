@@ -1,0 +1,25 @@
+{
+  "fps": 30,
+  "width": 3024,
+  "height": 1714,
+  "segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 1050,
+      "output_frames": 1050,
+      "kind": "agent",
+      "reason": "New cursor-setting preflight, progressive input and real Nova catalog actions, all at normal speed."
+    }
+  ],
+  "masks": [
+    {
+      "x": 14,
+      "y": 158,
+      "width": 2014,
+      "height": 106,
+      "color": "#f9f8ff",
+      "start_frame": 531,
+      "end_frame": 1050
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "video_stream_identical": true,
+  "video_stream_hash": "0,v,SHA256=589119e604a0736b992787c805750b3fb7fb17aec80a0d14e912e4e813ffd7f5",
+  "sound_mode": "clicks-only",
+  "effect": "Nova established mechanical tap; 48 kHz stereo; seed 2071",
+  "audio_peak_dbfs": -13.43,
+  "click_events": 6,
+  "operator_clicks": 2,
+  "nova_clicks": 4,
+  "metadata": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 3024,
+        "height": 1716,
+        "nb_frames": "900"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "channels": 2,
+        "nb_frames": "1408"
+      }
+    ],
+    "format": {
+      "duration": "30.000000"
+    }
+  },
+  "output_sha256": "d76905448436b1a833b71932697d1f9672f2adecdd9981e8f6061c395a57987c"
+}

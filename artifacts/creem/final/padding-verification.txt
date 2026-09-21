@@ -1,0 +1,5 @@
+Source: nova-creem-raw.mov
+All 9139 frames decoded. Region removed: x=2748,y=0,width=276,height=1714.
+FFmpeg blackdetect pic_th=1:pix_th=0.05 found one continuous black interval across every source frame:
+[Parsed_blackdetect_1] black_start:0 black_end:304.6 black_duration:304.6
+Retained native pixels are not scaled.

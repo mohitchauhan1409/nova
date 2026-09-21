@@ -1,0 +1,46 @@
+{
+  "decoded": true,
+  "fps": 30,
+  "events": [
+    {
+      "time": 3.971,
+      "actor": "operator",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9997285546671081
+    },
+    {
+      "time": 15.319,
+      "actor": "operator",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9997494149946186
+    },
+    {
+      "time": 18.011,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9998958647559444
+    },
+    {
+      "time": 21.934,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.9998039556112255
+    },
+    {
+      "time": 25.475,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.999721225814968
+    },
+    {
+      "time": 28.956,
+      "actor": "nova",
+      "onset_error_ms": 0.0,
+      "correlation": 0.999979828641439
+    }
+  ],
+  "quiet_peak": 0.0,
+  "decoded_peak": 0.21171028912067413,
+  "max_onset_error_ms": 0.0,
+  "minimum_tap_correlation": 0.999721225814968
+}

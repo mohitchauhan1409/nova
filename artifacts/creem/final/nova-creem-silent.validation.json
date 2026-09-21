@@ -1,0 +1,15 @@
+{
+  "source_sha256": "45a0e36852719eb202920f86c0b90af9bac76e166bce98ac7df6ea4084c0db1c",
+  "frames": 8610,
+  "seconds": 287.0,
+  "peak_amplitude": 0.0,
+  "clicks": [],
+  "crop": {
+    "x": 0,
+    "y": 0,
+    "width": 2748,
+    "height": 1714,
+    "reason": "Remove only right-hand empty capture padding, verified throughout the source; native browser pixels are not rescaled."
+  },
+  "video_stream_hash": "SHA256=679efaafa2f655a149b8c831872402bf5084bb6fb1158f479de242f7b7e90385"
+}

@@ -1,0 +1,9 @@
+{
+  "approved_media_sha256": "c656ad78874030216801528e0d6e38481bea73cd0b0c6e73c7e98c4154dc5347",
+  "approved_clicks": 66,
+  "reconstructed_peak_dbfs": -13.53,
+  "first_decoded_tap_correlation": 0.9998150122750272,
+  "current_renderer_sha256": "976c0ab6cc9dc61b5a245388f1d53c531a1d214f5a2e045de83378c61ca5495c",
+  "functions": "AST-identical band_noise and click_sound",
+  "treatment": "48000 Hz stereo, seed2071, gain1.6, peak cap0.30, actor pan \u00b10.1 and jitter\u00b10.1"
+}
