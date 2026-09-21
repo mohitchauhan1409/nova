@@ -190,6 +190,13 @@ export class AgentRunner {
             this.trace('info','The editor gained or changed fields while planning. Reconsidering the dismissal; no input was sent.');
             observed=fresh;continue;
           }
+          // An async editor can appear beside an unchanged, still-clickable row.
+          // Reconsider the intent as well as the target before opening it again.
+          const editorAppeared=fresh.elements.some(e=>!e.covered&&(e.edit||['input','textarea','select'].includes(e.tag)||['dialog','alertdialog','textbox','combobox'].includes(e.role))&&!snapshot.elements.some(old=>old.ref===e.ref&&!old.covered));
+          if(['click','double_click'].includes(action.kind)&&editorAppeared){
+            this.trace('info','An editor appeared while planning. Inspecting its current controls before another click; no input was sent.');
+            observed=fresh;continue;
+          }
           if (fresh.url !== snapshot.url || !prior || !current || current.covered ||
               ['name','tag','role','type','href'].some(key => prior[key as keyof typeof prior] !== current[key as keyof typeof current]) ||
               (prior.edit && prior.context !== current.context) ||

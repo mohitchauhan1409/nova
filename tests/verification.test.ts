@@ -76,6 +76,15 @@ describe('observed outcome verification',()=>{
     const anchor = {...page,elements:page.elements.map(e=>({...e,href:'https://example.com/#details'}))};
     expect(actionEffect(action,anchor,{...anchor,url:'https://example.com/#details'}).verified).toBe(true);
   });
+  it('ignores click focus and scrolling until a row produces a meaningful result',()=>{
+    const row={...before.elements[0],tag:'div',role:'row',name:'Draft update',state:['selected:false','scrollY:0']};
+    const page={...before,elements:[row,{...row,ref:'other',name:'Other draft'}]};
+    const focused={...page,viewport:{...page.viewport,scrollY:100},elements:page.elements.map(e=>({...e,state:['selected:false','focused:true','scrollY:100']}))};
+    expect(actionEffect(action,page,focused,{ok:true}).verified).toBe(false);
+    expect(actionEffect(action,page,{...focused,elements:[{...focused.elements[0],state:['selected:true']}]},{ok:true}).verified).toBe(true);
+    const field={...row,tag:'input',role:'textbox',type:'text',edit:{revision:'a',empty:true}};
+    expect(actionEffect(action,{...page,elements:[field]},{...page,elements:[{...field,state:[...field.state,'focused:true']}]},{ok:true}).verified).toBe(true);
+  });
   it('accepts an actually observed accessible panel label and equivalent ARIA state spelling',()=>{
     const snap={...before,elements:[{...before.elements[0],ref:'panel',name:'Close assistant panel',state:['expanded:true']}]};
     const effect={action:'click' as const,verified:true,detail:'Expanded'};
