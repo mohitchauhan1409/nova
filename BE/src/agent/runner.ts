@@ -138,7 +138,7 @@ export class AgentRunner {
     try {
       for (let step = 0; step < 48 && Date.now() < deadline; step++) {
         if (signal.aborted) return;
-        const snapshot = observed || await this.observe(); observed = undefined;
+        let snapshot = observed || await this.observe(); observed = undefined;
         if(pendingEffect){effect=actionEffect(pendingEffect.action,pendingEffect.before,snapshot,pendingEffect.result,pendingEffect.mayCommit);if(effect.verified)pendingEffect=undefined;}
         if (signal.aborted) return;
         if (snapshot.blocked) { this.say(snapshot.blocked); this.session.status = 'stopped'; return; }
@@ -162,6 +162,22 @@ export class AgentRunner {
             this.session.clarification=card;this.session.awaitingAnswer=true;this.session.status='ready';
             this.say(questionText(card),false,{...card,status:'pending'});return;
           }catch(error){this.trace('error',`Invalid question card: ${safeError(error)}`);if(++failures>=3){this.say('I could not prepare a suitable question form. Please describe the details in chat.');this.session.status='ready';return;}continue;}
+        }
+        // A page may finish saving while the model is planning. Revalidate its
+        // proposed target before recording or dispatching an action against an
+        // outgoing dialog. Browser input still performs its own final hit test.
+        if (action.ref && !['copy','select_text','hover','scroll','scroll_to'].includes(action.kind) && performance.now()-started > 750) {
+          const prior = snapshot.elements.find(e => e.ref === action.ref);
+          const fresh = await this.observe();
+          if (signal.aborted) return;
+          const current = fresh.elements.find(e => e.ref === action.ref);
+          if (fresh.url !== snapshot.url || !prior || !current || current.covered ||
+              ['name','tag','role','type','href'].some(key => prior[key as keyof typeof prior] !== current[key as keyof typeof current]) ||
+              prior.edit?.revision !== current.edit?.revision) {
+            this.trace('info','The page changed while planning. Refreshing the next step; no input was sent.');
+            observed=fresh;continue;
+          }
+          snapshot=fresh;
         }
         const signature = JSON.stringify({ kind: action.kind, ref: action.ref, value: action.value, url: action.url });
         repeated = signature === lastAction ? repeated + 1 : 0; lastAction = signature;
