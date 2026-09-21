@@ -25,6 +25,8 @@ describe('deterministic action policy', () => {
     const check=(intent:string, changes:Partial<Snapshot>={})=>checkAction(save,{...page,...changes},page.url,intent);
     expect(check('Make our starter credits roll over.').outcome).toBe('allow');
     expect(check('Update this allowance.').outcome).toBe('allow');
+    expect(check('Change environment to staging. Keep everything else, save and reopen to check.').outcome).toBe('allow');
+    expect(check('Change environment to staging. Do not save it.').outcome).toBe('approve');
     expect(check('Update this allowance.',{elements:[heading,field,{...target,name:'Update Allowance'}]}).outcome).toBe('allow');
     expect(check('Update this allowance.',{elements:[heading,field,{...target,name:'Update Subscription'}]}).outcome).toBe('approve');
     for(const intent of ['Read our allowance','Do not update this allowance','How do I update this allowance?','Update this allowance after my confirmation','Update this allowance\nWait for my approval']) expect(check(intent).outcome).toBe('approve');
