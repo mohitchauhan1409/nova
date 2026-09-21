@@ -57,9 +57,14 @@ export function actionEffect(action: Action, before: Snapshot, after: Snapshot, 
     return {action:action.kind,verified:false,detail:'The form is still submitting. Wait for the saved result without submitting again.'};
   }
   if(['scroll','scroll_to','zoom'].includes(action.kind)&&JSON.stringify(before.viewport)!==JSON.stringify(after.viewport)) return {action:action.kind,verified:true,detail:'The browser viewport changed.'};
-  if(targetBefore && targetAfter && JSON.stringify(targetBefore.state)!==JSON.stringify(targetAfter.state)) return {action:action.kind,verified:true,detail:`Control state changed: ${targetAfter.name} ${targetAfter.state?.join(', ') || ''}`};
+  // Pointer focus/scroll alone does not prove a row opened. Focusing an
+  // editable field remains a useful result before a following typing action.
+  const clicking=['click','double_click'].includes(action.kind);
+  const focusTarget=targetBefore&&(targetBefore.edit||['textarea','select'].includes(targetBefore.tag)||targetBefore.tag==='input'&&!/^(button|submit|reset|checkbox|radio|hidden|file)$/i.test(targetBefore.type)||['textbox','searchbox','combobox'].includes(targetBefore.role));
+  const resultState=(states?:string[],includeFocus=false)=>clicking?(states||[]).filter(s=>!/^scroll(?:Max)?[XY]:/.test(s)&&(includeFocus||!/^focused:/.test(s))):states;
+  if(targetBefore && targetAfter && JSON.stringify(resultState(targetBefore.state,!!focusTarget))!==JSON.stringify(resultState(targetAfter.state,!!focusTarget))) return {action:action.kind,verified:true,detail:`Control state changed: ${targetAfter.name} ${targetAfter.state?.join(', ') || ''}`};
   if(normalize(before.text)!==normalize(after.text)) return {action:action.kind,verified:true,detail:'Visible page content changed. Completion still requires evidence of the requested outcome.'};
-  if(JSON.stringify(before.elements.map(e=>[e.ref,e.name,e.disabled,e.state]))!==JSON.stringify(after.elements.map(e=>[e.ref,e.name,e.disabled,e.state]))) return {action:action.kind,verified:true,detail:'Visible controls changed. Check that they match the requested outcome.'};
+  if(JSON.stringify(before.elements.map(e=>[e.ref,e.name,e.disabled,resultState(e.state)]))!==JSON.stringify(after.elements.map(e=>[e.ref,e.name,e.disabled,resultState(e.state)]))) return {action:action.kind,verified:true,detail:'Visible controls changed. Check that they match the requested outcome.'};
   return {action:action.kind,verified:false,detail:'Input was sent, but no resulting page or control change was observed.'};
 }
 
