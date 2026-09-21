@@ -15,6 +15,48 @@ function fixture() {
   return {runner,session,execute,driver,planner,setState:(s:Snapshot)=>{state=s;}};
 }
 describe('browser agent execution boundaries',()=>{
+  it('replans a stale empty answer when two rows load while the planner is thinking',async()=>{
+    const f=fixture();const shell={...base,url:'https://shop.example.com/drafts',text:'Drafts',elements:[]};
+    const loaded={...shell,text:'Drafts\nDesk update\nCare handoff',elements:['Desk update','Care handoff'].map((name,i)=>({...base.elements[0],ref:`draft-${i}`,name}))};
+    f.setState(shell);let plans=0;
+    f.planner.decide=async(_session,_site,snapshot)=>{
+      if(++plans===1){
+        await new Promise(resolve=>setTimeout(resolve,15));f.setState(loaded);
+        return {...act('done'),summary:'Nothing remains unsent; the list is empty.',completion:{status:'answer',evidence:[{source:'url',ref:null,value:shell.url}]}};
+      }
+      expect(snapshot.elements).toHaveLength(2);
+      return {...act('done'),summary:'Desk update and Care handoff remain unsent.',completion:{status:'answer',evidence:[{source:'text',ref:null,value:'Desk update'}]}};
+    };
+    await f.runner.command('What remains unsent?');
+    expect(plans).toBe(2);expect(f.execute).not.toHaveBeenCalled();
+    expect(f.session.messages.filter(m=>m.role==='assistant').map(m=>m.text)).toEqual(['Desk update and Care handoff remain unsent.']);
+    expect(f.session.traces.some(t=>t.text.includes('page changed while preparing the answer'))).toBe(true);
+  });
+  it('finishes a static answer with one fresh read and no extra model call or wait action',async()=>{
+    const f=fixture();const read=vi.spyOn(f.driver,'snapshot');
+    f.planner.decide=vi.fn().mockResolvedValue({...act('done'),summary:'The adapter costs ₹799.',completion:{status:'answer',evidence:[{source:'text',ref:null,value:'Adapter ₹799'}]}});
+    await f.runner.command('What does the adapter cost?');
+    expect(read).toHaveBeenCalledTimes(2);expect(f.planner.decide).toHaveBeenCalledTimes(1);expect(f.execute).not.toHaveBeenCalled();
+    expect(f.session.status).toBe('ready');expect(f.session.messages.at(-1)?.text).toBe('The adapter costs ₹799.');
+  });
+  it('ignores an unrelated observed timer and incidental snapshot changes at completion',async()=>{
+    const f=fixture();let reads=0;
+    f.driver.snapshot=vi.fn(async()=>({...base,id:`read-${++reads}`,capturedAt:reads,text:`Adapter ₹799\n00:00:0${reads}`,viewport:{...base.viewport,scrollY:reads},elements:[
+      {...base.elements[0],ref:`remounted-${reads}`,name:'Adapter ₹799',state:[`scrollY:${reads}`]},
+      {...base.elements[0],ref:'clock',tag:'p',role:'timer',name:`00:00:0${reads}`},
+    ]}));
+    f.planner.decide=vi.fn().mockResolvedValue({...act('done'),summary:'The adapter costs ₹799.',completion:{status:'answer',evidence:[{source:'text',ref:null,value:'Adapter ₹799'}]}});
+    await f.runner.command('What does the adapter cost?');
+    expect(reads).toBe(2);expect(f.planner.decide).toHaveBeenCalledTimes(1);expect(f.session.status).toBe('ready');
+  });
+  it('bounds completion replanning if meaningful page data keeps changing',async()=>{
+    const f=fixture();let reads=0;
+    f.driver.snapshot=async()=>({...base,text:`Records: ${++reads}`});
+    f.planner.decide=vi.fn(async(_session,_site,snapshot)=>({...act('done'),summary:snapshot.text,completion:{status:'answer' as const,evidence:[{source:'text' as const,ref:null,value:snapshot.text}]}}));
+    await f.runner.command('How many records are present?');
+    expect(f.planner.decide).toHaveBeenCalledTimes(2);expect(reads).toBe(3);expect(f.execute).not.toHaveBeenCalled();
+    expect(f.session.status).toBe('stopped');expect(f.session.messages.at(-1)?.text).toContain('still changing');
+  });
   it.each([false,true])('recovers a no-op scroll visually only when privacy permits (private: %s)',async(privatePage)=>{
     const f=fixture();f.setState({...base,text:privatePage?'Contact private@example.test':base.text});
     f.driver.execute=vi.fn(async()=>({ok:true}));

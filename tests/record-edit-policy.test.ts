@@ -83,7 +83,7 @@ describe('explicit ordinary record revisions',()=>{
   const save={...base,ref:'save',tag:'button',type:'submit',name:'Update',form:true};
   const row=(key:string)=>['key','value'].map(name=>({...base,ref:`${key}-${name}`,tag:'input',type:'text',name,form:true,context:`Field key: ${key}. ${context}`}));
   const page:Snapshot={...snapshot,text:'Edit Properties',elements:[heading,...row('team'),...row('purpose'),...row('response_target'),save]};
-  const intent='In Cedar & Finch Care, set purpose to Furniture order support and response_target to 1 business day. Keep team unchanged.';
+  const intent='In Customer Care, set purpose to Customer questions and response_target to 1 business day. Keep team unchanged.';
   it.each([intent,'Set response_target to 2 business days.','Change the purpose to General questions.'])('saves an explicit assignment to an observed key: %s',request=>{
    expect(checkAction(action,page,page.url,request).outcome).toBe('allow');
   });
