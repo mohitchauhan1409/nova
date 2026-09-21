@@ -4,12 +4,14 @@ import { launcherMark } from './launcher-mark';
 import type { Companion } from './companion';
 import { sitePalette } from '../../shared/site-experience';
 import { launcherStylesFor } from './customization';
+import { readPageColorScheme } from '../../shared/page-theme';
 
 // Only the launch control and action cursor live inside the website. The
 // conversation is rendered by Chrome/Edge beside the page in its native panel.
 export function mountLauncher(openPanel: () => Promise<void>): Companion {
   if (window.__novaCompanion) return window.__novaCompanion;
   const host = document.createElement('div'); host.dataset.novaRoot = 'launcher';
+  host.dataset.colorScheme = readPageColorScheme();
   host.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:2147483646;';
   const root = host.attachShadow({ mode: 'open' });
   const sheet = new CSSStyleSheet();
@@ -77,13 +79,14 @@ export function mountLauncher(openPanel: () => Promise<void>): Companion {
   const companion: Companion = {
     open,
     receive(event) {
+      if (event.type === 'page-theme') host.dataset.colorScheme = event.scheme;
       if (event.type === 'panel-visibility') {
         button.hidden = event.visible;
         resetGaze();
         root.querySelector<HTMLElement>('.hint')!.hidden = event.visible;
         if (event.visible) notice.hidden = true;
       }
-      if (event.type === 'session') { host.dataset.colorScheme=event.session.lastSnapshot?.theme.scheme||'light';button.dataset.state = event.session.status; button.setAttribute('aria-label', 'Open Nova side panel'); const experience=event.session.experience;if(experience){const palette=sitePalette(experience.accent);host.style.setProperty('--site-ink',palette.ink);host.style.setProperty('--site-soft',palette.soft);root.querySelector('.hint')!.textContent=`Get things done on ${experience.name}`;button.title=`Open Nova`;} }
+      if (event.type === 'session') { host.dataset.colorScheme=readPageColorScheme();button.dataset.state = event.session.status; button.setAttribute('aria-label', 'Open Nova side panel'); const experience=event.session.experience;if(experience){const palette=sitePalette(experience.accent);host.style.setProperty('--site-ink',palette.ink);host.style.setProperty('--site-soft',palette.soft);root.querySelector('.hint')!.textContent=`Get things done on ${experience.name}`;button.title=`Open Nova`;} }
       if (event.type === 'error') button.dataset.state = 'disconnected';
     },
     async action(x, y, label, kind) {

@@ -2,6 +2,21 @@ import type { Action, ActionResult, Snapshot, Session } from '../../../shared/ty
 
 export type Effect = { verified: boolean; detail: string; action: Action['kind'] };
 const normalize = (text: string) => text.replace(/\s+/g,' ').trim();
+export function completionSnapshotChanged(before:Snapshot,after:Snapshot,action:Action):boolean {
+  const semantic=(snapshot:Snapshot)=>{
+    // Explicit timers are incidental unless the answer actually cites one.
+    // Ignore capture IDs, focus, scrolling, ref churn and newly attached draft
+    // proof; actual editable-value revisions and loaded record data still count.
+    const timers=snapshot.elements.filter(e=>e.role==='timer'&&e.name&&!action.completion?.evidence.some(p=>p.ref===e.ref||p.source==='text'&&p.value.includes(e.name)));
+    const text=(value:string)=>normalize(timers.reduce((value,e)=>value.replaceAll(e.name,''),value));
+    const elements=snapshot.elements.filter(e=>!timers.includes(e)).map(e=>JSON.stringify([
+      e.tag,e.role,text(e.name),e.type,e.href,text(e.context),e.disabled,e.sensitive,
+      e.state?.filter(s=>!/^(scroll(?:Max)?[XY]|focused|draft):/.test(s)).sort()||[],e.edit,
+    ])).sort();
+    return JSON.stringify([snapshot.url,text(snapshot.title),snapshot.blocked,text(snapshot.text),elements,snapshot.observation?.omittedControls]);
+  };
+  return semantic(before)!==semantic(after);
+}
 export function actionEffect(action: Action, before: Snapshot, after: Snapshot, result?: unknown, mayCommit = false): Effect {
   const receipt = result as ActionResult | undefined;
   if(receipt?.ok === false) return {action:action.kind,verified:false,detail:receipt.detail || 'The browser rejected this action.'};
