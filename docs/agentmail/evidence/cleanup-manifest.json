@@ -1,0 +1,1233 @@
+{
+  "status": "complete",
+  "at_utc": "2026-09-21T19:45:42.003920+00:00",
+  "authorization": "Coordinator authorized AgentMail generated private media/scratch cleanup after all workers finished and independent remote recovery passed.",
+  "remote_media_recovery_commit": "7d8a0c4eed8ddc20a9acdc04e7744d80f6abfa89",
+  "remote_report_copied_and_byte_verified_before_deleting_cache": true,
+  "deleted_files": 304,
+  "deleted_bytes": 482698236,
+  "preserved": [
+    "all text/JSON evidence",
+    "original runtime backup",
+    "three primary final media",
+    "other startup directories"
+  ],
+  "entries": [
+    {
+      "path": "typing-check-qa/contact.png",
+      "bytes": 1082345
+    },
+    {
+      "path": "typing-check-qa/text-change-frames.png",
+      "bytes": 64930
+    },
+    {
+      "path": "typing-check-qa/typing-contact.png",
+      "bytes": 92331
+    },
+    {
+      "path": "preflight1-qa/menu-contact.png",
+      "bytes": 198500
+    },
+    {
+      "path": "preflight1-qa/source-1fps-contact.png",
+      "bytes": 2002882
+    },
+    {
+      "path": "preflight1-qa/export-header.png",
+      "bytes": 3538
+    },
+    {
+      "path": "preflight1-qa/frame-25.png",
+      "bytes": 920605
+    },
+    {
+      "path": "preflight1-qa/frame-0.png",
+      "bytes": 705303
+    },
+    {
+      "path": "preflight1-qa/menu-17.png",
+      "bytes": 31793
+    },
+    {
+      "path": "preflight1-qa/menu-03.png",
+      "bytes": 7133
+    },
+    {
+      "path": "preflight1-qa/menu-02.png",
+      "bytes": 7138
+    },
+    {
+      "path": "preflight1-qa/menu-16.png",
+      "bytes": 31696
+    },
+    {
+      "path": "preflight1-qa/edit-18.png",
+      "bytes": 13481
+    },
+    {
+      "path": "preflight1-qa/menu-14.png",
+      "bytes": 33538
+    },
+    {
+      "path": "preflight1-qa/edit-contact.png",
+      "bytes": 159827
+    },
+    {
+      "path": "preflight1-qa/menu-15.png",
+      "bytes": 32613
+    },
+    {
+      "path": "preflight1-qa/menu-01.png",
+      "bytes": 7138
+    },
+    {
+      "path": "preflight1-qa/edit-09.png",
+      "bytes": 24021
+    },
+    {
+      "path": "preflight1-qa/menu-05.png",
+      "bytes": 17355
+    },
+    {
+      "path": "preflight1-qa/menu-11.png",
+      "bytes": 35210
+    },
+    {
+      "path": "preflight1-qa/menu-10.png",
+      "bytes": 35709
+    },
+    {
+      "path": "preflight1-qa/menu-04.png",
+      "bytes": 12961
+    },
+    {
+      "path": "preflight1-qa/edit-08.png",
+      "bytes": 32858
+    },
+    {
+      "path": "preflight1-qa/menu-12.png",
+      "bytes": 34879
+    },
+    {
+      "path": "preflight1-qa/menu-06.png",
+      "bytes": 17411
+    },
+    {
+      "path": "preflight1-qa/menu-07.png",
+      "bytes": 14945
+    },
+    {
+      "path": "preflight1-qa/menu-13.png",
+      "bytes": 34042
+    },
+    {
+      "path": "preflight1-qa/edit-06.png",
+      "bytes": 37832
+    },
+    {
+      "path": "preflight1-qa/edit-12.png",
+      "bytes": 16165
+    },
+    {
+      "path": "preflight1-qa/edit-13.png",
+      "bytes": 16187
+    },
+    {
+      "path": "preflight1-qa/edit-07.png",
+      "bytes": 39557
+    },
+    {
+      "path": "preflight1-qa/edit-11.png",
+      "bytes": 16737
+    },
+    {
+      "path": "preflight1-qa/edit-05.png",
+      "bytes": 36660
+    },
+    {
+      "path": "preflight1-qa/menu-09.png",
+      "bytes": 30562
+    },
+    {
+      "path": "preflight1-qa/menu-08.png",
+      "bytes": 14799
+    },
+    {
+      "path": "preflight1-qa/edit-04.png",
+      "bytes": 34996
+    },
+    {
+      "path": "preflight1-qa/edit-10.png",
+      "bytes": 16610
+    },
+    {
+      "path": "preflight1-qa/edit-14.png",
+      "bytes": 14315
+    },
+    {
+      "path": "preflight1-qa/menu-18.png",
+      "bytes": 31834
+    },
+    {
+      "path": "preflight1-qa/edit-01.png",
+      "bytes": 29983
+    },
+    {
+      "path": "preflight1-qa/edit-15.png",
+      "bytes": 13565
+    },
+    {
+      "path": "preflight1-qa/preflight-silent.mp4",
+      "bytes": 1160848
+    },
+    {
+      "path": "preflight1-qa/edit-03.png",
+      "bytes": 29957
+    },
+    {
+      "path": "preflight1-qa/edit-17.png",
+      "bytes": 13482
+    },
+    {
+      "path": "preflight1-qa/edit-16.png",
+      "bytes": 13472
+    },
+    {
+      "path": "preflight1-qa/edit-02.png",
+      "bytes": 29991
+    },
+    {
+      "path": "preflight1-qa/debugger-row-native.png",
+      "bytes": 30410
+    },
+    {
+      "path": "preflight1-qa/export-click1.png",
+      "bytes": 896301
+    },
+    {
+      "path": "preflight1-qa/export-click2.png",
+      "bytes": 931122
+    },
+    {
+      "path": "preflight1-qa/export-arrow1.png",
+      "bytes": 14186
+    },
+    {
+      "path": "preflight1-qa/preflight-clicks.mp4",
+      "bytes": 1179344
+    },
+    {
+      "path": "preflight1-qa/export-arrow2.png",
+      "bytes": 47083
+    },
+    {
+      "path": "preflight2-qa/type-41.png",
+      "bytes": 39305
+    },
+    {
+      "path": "preflight2-qa/frame-close.png",
+      "bytes": 659280
+    },
+    {
+      "path": "preflight2-qa/typing-boundaries.png",
+      "bytes": 133419
+    },
+    {
+      "path": "preflight2-qa/type-40.png",
+      "bytes": 39202
+    },
+    {
+      "path": "preflight2-qa/type-42.png",
+      "bytes": 39192
+    },
+    {
+      "path": "preflight2-qa/type-43.png",
+      "bytes": 39324
+    },
+    {
+      "path": "preflight2-qa/type-47.png",
+      "bytes": 25567
+    },
+    {
+      "path": "preflight2-qa/type-46.png",
+      "bytes": 26183
+    },
+    {
+      "path": "preflight2-qa/type-44.png",
+      "bytes": 39201
+    },
+    {
+      "path": "preflight2-qa/type-45.png",
+      "bytes": 39326
+    },
+    {
+      "path": "preflight2-qa/frame-0.png",
+      "bytes": 862113
+    },
+    {
+      "path": "preflight2-qa/source-contact.png",
+      "bytes": 1318244
+    },
+    {
+      "path": "preflight2-qa/action-08.png",
+      "bytes": 84088
+    },
+    {
+      "path": "preflight2-qa/type-22.png",
+      "bytes": 30760
+    },
+    {
+      "path": "preflight2-qa/type-36.png",
+      "bytes": 39195
+    },
+    {
+      "path": "preflight2-qa/type-37.png",
+      "bytes": 39292
+    },
+    {
+      "path": "preflight2-qa/type-23.png",
+      "bytes": 30731
+    },
+    {
+      "path": "preflight2-qa/action-09.png",
+      "bytes": 84075
+    },
+    {
+      "path": "preflight2-qa/type-09.png",
+      "bytes": 27215
+    },
+    {
+      "path": "preflight2-qa/type-35.png",
+      "bytes": 39312
+    },
+    {
+      "path": "preflight2-qa/type-21.png",
+      "bytes": 30720
+    },
+    {
+      "path": "preflight2-qa/type-20.png",
+      "bytes": 30790
+    },
+    {
+      "path": "preflight2-qa/type-34.png",
+      "bytes": 39190
+    },
+    {
+      "path": "preflight2-qa/type-08.png",
+      "bytes": 28640
+    },
+    {
+      "path": "preflight2-qa/type-30.png",
+      "bytes": 39979
+    },
+    {
+      "path": "preflight2-qa/type-24.png",
+      "bytes": 30768
+    },
+    {
+      "path": "preflight2-qa/type-18.png",
+      "bytes": 31087
+    },
+    {
+      "path": "preflight2-qa/type-19.png",
+      "bytes": 31083
+    },
+    {
+      "path": "preflight2-qa/type-25.png",
+      "bytes": 30721
+    },
+    {
+      "path": "preflight2-qa/type-31.png",
+      "bytes": 39518
+    },
+    {
+      "path": "preflight2-qa/type-27.png",
+      "bytes": 30718
+    },
+    {
+      "path": "preflight2-qa/type-33.png",
+      "bytes": 39294
+    },
+    {
+      "path": "preflight2-qa/type-32.png",
+      "bytes": 39186
+    },
+    {
+      "path": "preflight2-qa/type-26.png",
+      "bytes": 30784
+    },
+    {
+      "path": "preflight2-qa/action-01.png",
+      "bytes": 70130
+    },
+    {
+      "path": "preflight2-qa/frame-reopen.png",
+      "bytes": 571203
+    },
+    {
+      "path": "preflight2-qa/type-03.png",
+      "bytes": 33815
+    },
+    {
+      "path": "preflight2-qa/type-17.png",
+      "bytes": 26110
+    },
+    {
+      "path": "preflight2-qa/type-16.png",
+      "bytes": 26047
+    },
+    {
+      "path": "preflight2-qa/type-02.png",
+      "bytes": 34936
+    },
+    {
+      "path": "preflight2-qa/action-14.png",
+      "bytes": 84202
+    },
+    {
+      "path": "preflight2-qa/action-02.png",
+      "bytes": 80665
+    },
+    {
+      "path": "preflight2-qa/type-28.png",
+      "bytes": 30754
+    },
+    {
+      "path": "preflight2-qa/type-14.png",
+      "bytes": 26011
+    },
+    {
+      "path": "preflight2-qa/type-01.png",
+      "bytes": 34824
+    },
+    {
+      "path": "preflight2-qa/type-15.png",
+      "bytes": 26099
+    },
+    {
+      "path": "preflight2-qa/type-29.png",
+      "bytes": 40060
+    },
+    {
+      "path": "preflight2-qa/action-03.png",
+      "bytes": 82377
+    },
+    {
+      "path": "preflight2-qa/action-13.png",
+      "bytes": 84142
+    },
+    {
+      "path": "preflight2-qa/action-07.png",
+      "bytes": 84084
+    },
+    {
+      "path": "preflight2-qa/type-11.png",
+      "bytes": 26187
+    },
+    {
+      "path": "preflight2-qa/type-05.png",
+      "bytes": 29542
+    },
+    {
+      "path": "preflight2-qa/type-39.png",
+      "bytes": 39252
+    },
+    {
+      "path": "preflight2-qa/type-38.png",
+      "bytes": 39168
+    },
+    {
+      "path": "preflight2-qa/type-04.png",
+      "bytes": 34043
+    },
+    {
+      "path": "preflight2-qa/type-10.png",
+      "bytes": 27330
+    },
+    {
+      "path": "preflight2-qa/action-06.png",
+      "bytes": 84086
+    },
+    {
+      "path": "preflight2-qa/action-12.png",
+      "bytes": 84129
+    },
+    {
+      "path": "preflight2-qa/action-04.png",
+      "bytes": 83544
+    },
+    {
+      "path": "preflight2-qa/action-10.png",
+      "bytes": 84160
+    },
+    {
+      "path": "preflight2-qa/type-06.png",
+      "bytes": 29479
+    },
+    {
+      "path": "preflight2-qa/type-12.png",
+      "bytes": 26038
+    },
+    {
+      "path": "preflight2-qa/type-13.png",
+      "bytes": 26114
+    },
+    {
+      "path": "preflight2-qa/type-07.png",
+      "bytes": 29286
+    },
+    {
+      "path": "preflight2-qa/action-11.png",
+      "bytes": 84105
+    },
+    {
+      "path": "preflight2-qa/action-05.png",
+      "bytes": 84201
+    },
+    {
+      "path": "preflight2-qa/debugger-row-native.png",
+      "bytes": 33169
+    },
+    {
+      "path": "preflight2-qa/type-48.png",
+      "bytes": 25568
+    },
+    {
+      "path": "preflight2-qa/typing-contact.png",
+      "bytes": 720716
+    },
+    {
+      "path": "preflight3-qa/frame-0.png",
+      "bytes": 521493
+    },
+    {
+      "path": "preflight3-qa/source-contact.png",
+      "bytes": 712709
+    },
+    {
+      "path": "preflight3-qa/frame-click.png",
+      "bytes": 600182
+    },
+    {
+      "path": "preflight3-qa/export-banner-animation.png",
+      "bytes": 49700
+    },
+    {
+      "path": "preflight3-qa/preflight-silent.mp4",
+      "bytes": 1260524
+    },
+    {
+      "path": "preflight3-qa/banner-animation.png",
+      "bytes": 131492
+    },
+    {
+      "path": "preflight3-qa/export-click.png",
+      "bytes": 619817
+    },
+    {
+      "path": "preflight3-qa/preflight-clicks.mp4",
+      "bytes": 1276796
+    },
+    {
+      "path": "preflight3-qa/export-before-banner.png",
+      "bytes": 591026
+    },
+    {
+      "path": "preflight4-qa/typing-5-to-16s.png",
+      "bytes": 202731
+    },
+    {
+      "path": "preflight4-qa/update-click-34.5-to-36.7s.png",
+      "bytes": 104321
+    },
+    {
+      "path": "preflight4-qa/key-01.png",
+      "bytes": 521656
+    },
+    {
+      "path": "preflight4-qa/key-02.png",
+      "bytes": 565958
+    },
+    {
+      "path": "preflight4-qa/key-03.png",
+      "bytes": 564839
+    },
+    {
+      "path": "preflight4-qa/key-06.png",
+      "bytes": 1166274
+    },
+    {
+      "path": "preflight4-qa/inboxes-click-18-to-20s.png",
+      "bytes": 173434
+    },
+    {
+      "path": "preflight4-qa/action-04.png",
+      "bytes": 900150
+    },
+    {
+      "path": "preflight4-qa/click-01.png",
+      "bytes": 450437
+    },
+    {
+      "path": "preflight4-qa/click-02.png",
+      "bytes": 934463
+    },
+    {
+      "path": "preflight4-qa/overview-4sec.png",
+      "bytes": 741266
+    },
+    {
+      "path": "independent-final-qa/mask-entry-independent.png",
+      "bytes": 397167
+    },
+    {
+      "path": "independent-final-qa/source-cursor.png",
+      "bytes": 904407
+    },
+    {
+      "path": "independent-final-qa/opening.png",
+      "bytes": 660642
+    },
+    {
+      "path": "independent-final-qa/ending.png",
+      "bytes": 631154
+    },
+    {
+      "path": "independent-final-qa/final-cursor.png",
+      "bytes": 887267
+    },
+    {
+      "path": "final-edit-qa/contact-03.png",
+      "bytes": 690438
+    },
+    {
+      "path": "final-edit-qa/export-055.png",
+      "bytes": 680781
+    },
+    {
+      "path": "final-edit-qa/export-041.png",
+      "bytes": 700946
+    },
+    {
+      "path": "final-edit-qa/export-040.png",
+      "bytes": 664122
+    },
+    {
+      "path": "final-edit-qa/export-054.png",
+      "bytes": 679201
+    },
+    {
+      "path": "final-edit-qa/contact-02.png",
+      "bytes": 1111583
+    },
+    {
+      "path": "final-edit-qa/export-042.png",
+      "bytes": 645720
+    },
+    {
+      "path": "final-edit-qa/export-056.png",
+      "bytes": 658538
+    },
+    {
+      "path": "final-edit-qa/export-057.png",
+      "bytes": 671545
+    },
+    {
+      "path": "final-edit-qa/export-043.png",
+      "bytes": 657174
+    },
+    {
+      "path": "final-edit-qa/actual-source-debugger-entry.png",
+      "bytes": 106136
+    },
+    {
+      "path": "final-edit-qa/encoded-debugger-entry.png",
+      "bytes": 51669
+    },
+    {
+      "path": "final-edit-qa/contact-01.png",
+      "bytes": 1192555
+    },
+    {
+      "path": "final-edit-qa/export-047.png",
+      "bytes": 668085
+    },
+    {
+      "path": "final-edit-qa/export-053.png",
+      "bytes": 679281
+    },
+    {
+      "path": "final-edit-qa/export-052.png",
+      "bytes": 678126
+    },
+    {
+      "path": "final-edit-qa/export-046.png",
+      "bytes": 667012
+    },
+    {
+      "path": "final-edit-qa/contact-04.png",
+      "bytes": 663961
+    },
+    {
+      "path": "final-edit-qa/export-050.png",
+      "bytes": 598582
+    },
+    {
+      "path": "final-edit-qa/export-044.png",
+      "bytes": 666684
+    },
+    {
+      "path": "final-edit-qa/export-045.png",
+      "bytes": 667531
+    },
+    {
+      "path": "final-edit-qa/export-051.png",
+      "bytes": 664504
+    },
+    {
+      "path": "final-edit-qa/receipt-07.png",
+      "bytes": 949005
+    },
+    {
+      "path": "final-edit-qa/receipt-13.png",
+      "bytes": 1224738
+    },
+    {
+      "path": "final-edit-qa/idle-panel-07.png",
+      "bytes": 186917
+    },
+    {
+      "path": "final-edit-qa/export-036.png",
+      "bytes": 610264
+    },
+    {
+      "path": "final-edit-qa/export-022.png",
+      "bytes": 1139298
+    },
+    {
+      "path": "final-edit-qa/idle-panel-13.png",
+      "bytes": 205281
+    },
+    {
+      "path": "final-edit-qa/export-023.png",
+      "bytes": 1123184
+    },
+    {
+      "path": "final-edit-qa/idle-panel-12.png",
+      "bytes": 186617
+    },
+    {
+      "path": "final-edit-qa/idle-panel-06.png",
+      "bytes": 165781
+    },
+    {
+      "path": "final-edit-qa/export-037.png",
+      "bytes": 659242
+    },
+    {
+      "path": "final-edit-qa/receipt-12.png",
+      "bytes": 1146526
+    },
+    {
+      "path": "final-edit-qa/receipt-06.png",
+      "bytes": 910357
+    },
+    {
+      "path": "final-edit-qa/receipt-10.png",
+      "bytes": 953304
+    },
+    {
+      "path": "final-edit-qa/receipt-04.png",
+      "bytes": 1201371
+    },
+    {
+      "path": "final-edit-qa/banner-frames.rgb",
+      "bytes": 29030400
+    },
+    {
+      "path": "final-edit-qa/idle-panel-10.png",
+      "bytes": 186586
+    },
+    {
+      "path": "final-edit-qa/export-021.png",
+      "bytes": 1143584
+    },
+    {
+      "path": "final-edit-qa/export-035.png",
+      "bytes": 1222052
+    },
+    {
+      "path": "final-edit-qa/idle-panel-04.png",
+      "bytes": 170834
+    },
+    {
+      "path": "final-edit-qa/export-009.png",
+      "bytes": 575875
+    },
+    {
+      "path": "final-edit-qa/export-008.png",
+      "bytes": 586916
+    },
+    {
+      "path": "final-edit-qa/export-034.png",
+      "bytes": 883310
+    },
+    {
+      "path": "final-edit-qa/idle-panel-05.png",
+      "bytes": 170858
+    },
+    {
+      "path": "final-edit-qa/idle-panel-11.png",
+      "bytes": 186577
+    },
+    {
+      "path": "final-edit-qa/export-020.png",
+      "bytes": 1119239
+    },
+    {
+      "path": "final-edit-qa/receipt-05.png",
+      "bytes": 1223268
+    },
+    {
+      "path": "final-edit-qa/receipt-11.png",
+      "bytes": 1169187
+    },
+    {
+      "path": "final-edit-qa/receipt-15.png",
+      "bytes": 1194188
+    },
+    {
+      "path": "final-edit-qa/receipt-01.png",
+      "bytes": 506641
+    },
+    {
+      "path": "final-edit-qa/receipt-29.png",
+      "bytes": 645000
+    },
+    {
+      "path": "final-edit-qa/export-018.png",
+      "bytes": 1171708
+    },
+    {
+      "path": "final-edit-qa/export-024.png",
+      "bytes": 1202182
+    },
+    {
+      "path": "final-edit-qa/idle-panel-15.png",
+      "bytes": 196213
+    },
+    {
+      "path": "final-edit-qa/idle-panel-01.png",
+      "bytes": 171000
+    },
+    {
+      "path": "final-edit-qa/export-030.png",
+      "bytes": 924314
+    },
+    {
+      "path": "final-edit-qa/export-031.png",
+      "bytes": 1204747
+    },
+    {
+      "path": "final-edit-qa/export-025.png",
+      "bytes": 1155297
+    },
+    {
+      "path": "final-edit-qa/idle-panel-14.png",
+      "bytes": 196219
+    },
+    {
+      "path": "final-edit-qa/export-019.png",
+      "bytes": 1102488
+    },
+    {
+      "path": "final-edit-qa/idle-panel-28.png",
+      "bytes": 171578
+    },
+    {
+      "path": "final-edit-qa/receipt-28.png",
+      "bytes": 627710
+    },
+    {
+      "path": "final-edit-qa/receipt-14.png",
+      "bytes": 1170828
+    },
+    {
+      "path": "final-edit-qa/receipt-02.png",
+      "bytes": 557327
+    },
+    {
+      "path": "final-edit-qa/receipt-16.png",
+      "bytes": 1212838
+    },
+    {
+      "path": "final-edit-qa/export-033.png",
+      "bytes": 887549
+    },
+    {
+      "path": "final-edit-qa/idle-panel-02.png",
+      "bytes": 170870
+    },
+    {
+      "path": "final-edit-qa/idle-panel-16.png",
+      "bytes": 196262
+    },
+    {
+      "path": "final-edit-qa/export-027.png",
+      "bytes": 1206249
+    },
+    {
+      "path": "final-edit-qa/idle-panel-17.png",
+      "bytes": 196216
+    },
+    {
+      "path": "final-edit-qa/export-026.png",
+      "bytes": 1176239
+    },
+    {
+      "path": "final-edit-qa/export-032.png",
+      "bytes": 1227765
+    },
+    {
+      "path": "final-edit-qa/idle-panel-03.png",
+      "bytes": 170861
+    },
+    {
+      "path": "final-edit-qa/receipt-17.png",
+      "bytes": 925039
+    },
+    {
+      "path": "final-edit-qa/receipt-03.png",
+      "bytes": 578444
+    },
+    {
+      "path": "final-edit-qa/receipt-26.png",
+      "bytes": 644308
+    },
+    {
+      "path": "final-edit-qa/receipt-32.png",
+      "bytes": 639980
+    },
+    {
+      "path": "final-edit-qa/idle-panel-26.png",
+      "bytes": 171540
+    },
+    {
+      "path": "final-edit-qa/export-017.png",
+      "bytes": 941748
+    },
+    {
+      "path": "final-edit-qa/export-003.png",
+      "bytes": 660642
+    },
+    {
+      "path": "final-edit-qa/export-002.png",
+      "bytes": 560275
+    },
+    {
+      "path": "final-edit-qa/idle-panel-27.png",
+      "bytes": 171553
+    },
+    {
+      "path": "final-edit-qa/export-016.png",
+      "bytes": 1212108
+    },
+    {
+      "path": "final-edit-qa/receipt-33.png",
+      "bytes": 653860
+    },
+    {
+      "path": "final-edit-qa/receipt-27.png",
+      "bytes": 600609
+    },
+    {
+      "path": "final-edit-qa/receipt-contact-4.png",
+      "bytes": 895717
+    },
+    {
+      "path": "final-edit-qa/receipt-19.png",
+      "bytes": 937596
+    },
+    {
+      "path": "final-edit-qa/receipt-31.png",
+      "bytes": 630807
+    },
+    {
+      "path": "final-edit-qa/receipt-25.png",
+      "bytes": 584751
+    },
+    {
+      "path": "final-edit-qa/export-014.png",
+      "bytes": 946857
+    },
+    {
+      "path": "final-edit-qa/idle-panel-25.png",
+      "bytes": 171532
+    },
+    {
+      "path": "final-edit-qa/export-028.png",
+      "bytes": 904415
+    },
+    {
+      "path": "final-edit-qa/idle-panel-19.png",
+      "bytes": 200142
+    },
+    {
+      "path": "final-edit-qa/export-029.png",
+      "bytes": 903868
+    },
+    {
+      "path": "final-edit-qa/idle-panel-18.png",
+      "bytes": 191521
+    },
+    {
+      "path": "final-edit-qa/export-015.png",
+      "bytes": 1184701
+    },
+    {
+      "path": "final-edit-qa/idle-panel-24.png",
+      "bytes": 184964
+    },
+    {
+      "path": "final-edit-qa/export-001.png",
+      "bytes": 505166
+    },
+    {
+      "path": "final-edit-qa/receipt-24.png",
+      "bytes": 1228784
+    },
+    {
+      "path": "final-edit-qa/receipt-30.png",
+      "bytes": 670525
+    },
+    {
+      "path": "final-edit-qa/receipt-18.png",
+      "bytes": 914603
+    },
+    {
+      "path": "final-edit-qa/receipt-contact-3.png",
+      "bytes": 1392300
+    },
+    {
+      "path": "final-edit-qa/receipt-34.png",
+      "bytes": 641507
+    },
+    {
+      "path": "final-edit-qa/receipt-20.png",
+      "bytes": 1223418
+    },
+    {
+      "path": "final-edit-qa/receipt-08.png",
+      "bytes": 1202269
+    },
+    {
+      "path": "final-edit-qa/export-039.png",
+      "bytes": 637599
+    },
+    {
+      "path": "final-edit-qa/idle-panel-08.png",
+      "bytes": 186716
+    },
+    {
+      "path": "final-edit-qa/export-005.png",
+      "bytes": 541457
+    },
+    {
+      "path": "final-edit-qa/idle-panel-20.png",
+      "bytes": 189886
+    },
+    {
+      "path": "final-edit-qa/export-011.png",
+      "bytes": 1184678
+    },
+    {
+      "path": "final-edit-qa/idle-panel-21.png",
+      "bytes": 189853
+    },
+    {
+      "path": "final-edit-qa/export-010.png",
+      "bytes": 450610
+    },
+    {
+      "path": "final-edit-qa/export-004.png",
+      "bytes": 650666
+    },
+    {
+      "path": "final-edit-qa/export-038.png",
+      "bytes": 607029
+    },
+    {
+      "path": "final-edit-qa/idle-panel-09.png",
+      "bytes": 186564
+    },
+    {
+      "path": "final-edit-qa/receipt-09.png",
+      "bytes": 1244749
+    },
+    {
+      "path": "final-edit-qa/receipt-21.png",
+      "bytes": 1240067
+    },
+    {
+      "path": "final-edit-qa/receipt-35.png",
+      "bytes": 586235
+    },
+    {
+      "path": "final-edit-qa/receipt-contact-2.png",
+      "bytes": 1508482
+    },
+    {
+      "path": "final-edit-qa/receipt-23.png",
+      "bytes": 907761
+    },
+    {
+      "path": "final-edit-qa/receipt-37.png",
+      "bytes": 639731
+    },
+    {
+      "path": "final-edit-qa/export-012.png",
+      "bytes": 1220623
+    },
+    {
+      "path": "final-edit-qa/idle-panel-23.png",
+      "bytes": 189868
+    },
+    {
+      "path": "final-edit-qa/export-006.png",
+      "bytes": 583242
+    },
+    {
+      "path": "final-edit-qa/export-007.png",
+      "bytes": 580008
+    },
+    {
+      "path": "final-edit-qa/export-013.png",
+      "bytes": 892630
+    },
+    {
+      "path": "final-edit-qa/idle-panel-22.png",
+      "bytes": 189884
+    },
+    {
+      "path": "final-edit-qa/receipt-36.png",
+      "bytes": 653453
+    },
+    {
+      "path": "final-edit-qa/receipt-22.png",
+      "bytes": 900697
+    },
+    {
+      "path": "final-edit-qa/receipt-contact-1.png",
+      "bytes": 1632969
+    },
+    {
+      "path": "final-edit-qa/idle-contact-4.png",
+      "bytes": 164413
+    },
+    {
+      "path": "final-edit-qa/export-060.png",
+      "bytes": 664600
+    },
+    {
+      "path": "final-edit-qa/export-048.png",
+      "bytes": 666811
+    },
+    {
+      "path": "final-edit-qa/export-049.png",
+      "bytes": 666874
+    },
+    {
+      "path": "final-edit-qa/export-061.png",
+      "bytes": 631094
+    },
+    {
+      "path": "final-edit-qa/idle-contact-5.png",
+      "bytes": 99060
+    },
+    {
+      "path": "final-edit-qa/export-cue-contact-4.png",
+      "bytes": 962827
+    },
+    {
+      "path": "final-edit-qa/export-062.png",
+      "bytes": 631154
+    },
+    {
+      "path": "final-edit-qa/export-cue-contact-3.png",
+      "bytes": 1403379
+    },
+    {
+      "path": "final-edit-qa/idle-contact-2.png",
+      "bytes": 121169
+    },
+    {
+      "path": "final-edit-qa/idle-contact-3.png",
+      "bytes": 173371
+    },
+    {
+      "path": "final-edit-qa/export-cue-contact-2.png",
+      "bytes": 1559873
+    },
+    {
+      "path": "final-edit-qa/idle-contact-1.png",
+      "bytes": 117212
+    },
+    {
+      "path": "final-edit-qa/export-059.png",
+      "bytes": 672580
+    },
+    {
+      "path": "final-edit-qa/export-058.png",
+      "bytes": 672649
+    },
+    {
+      "path": "final-edit-qa/export-cue-contact-1.png",
+      "bytes": 1624285
+    },
+    {
+      "path": "preflight1-contact.png",
+      "bytes": 614665
+    },
+    {
+      "path": "preflight1.mov",
+      "bytes": 14217101
+    },
+    {
+      "path": "preflight2.mov",
+      "bytes": 7192350
+    },
+    {
+      "path": "preflight3.mov",
+      "bytes": 16960428
+    },
+    {
+      "path": "preflight4.mov",
+      "bytes": 17827666
+    },
+    {
+      "path": "geometry1.mov",
+      "bytes": 962608
+    },
+    {
+      "path": "typing-check.mov",
+      "bytes": 9713021
+    },
+    {
+      "path": "take1-duplicate-editor.mov",
+      "bytes": 85857626
+    },
+    {
+      "path": "remote-lfs-recovery/objects/a6/22/a6222458dde1eb22e7014ae41069cd0a1de0ce633e3edad0c65bf990e086fb22",
+      "bytes": 26044418
+    },
+    {
+      "path": "remote-lfs-recovery/objects/20/64/20640dd4f09cc5fc55d7119d91393b68bd523efdc7c0e3e355972e3c1e59a9d7",
+      "bytes": 111445281
+    },
+    {
+      "path": "remote-lfs-recovery/objects/72/17/7217fa8662295ee9a1dd861bab5df4e75c373a53449e9ba28adea72f7b883748",
+      "bytes": 25570518
+    }
+  ]
+}

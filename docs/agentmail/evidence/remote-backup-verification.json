@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-09-21T19:43:48.441399+00:00",
+  "private_repository": true,
+  "branch": "agentmail-nova",
+  "commit": "7d8a0c4eed8ddc20a9acdc04e7744d80f6abfa89",
+  "remote_ref": "7d8a0c4eed8ddc20a9acdc04e7744d80f6abfa89",
+  "method": "Remote git-lfs fetch into fresh independent lfs.storage, then full SHA-256 of each recovered media object",
+  "objects": [
+    {
+      "path": "artifacts/agentmail/media/nova-agentmail-clicks.mp4",
+      "sha256": "a6222458dde1eb22e7014ae41069cd0a1de0ce633e3edad0c65bf990e086fb22",
+      "recovered_bytes": 26044418
+    },
+    {
+      "path": "artifacts/agentmail/media/nova-agentmail-original.mov",
+      "sha256": "20640dd4f09cc5fc55d7119d91393b68bd523efdc7c0e3e355972e3c1e59a9d7",
+      "recovered_bytes": 111445281
+    },
+    {
+      "path": "artifacts/agentmail/media/nova-agentmail-silent.mp4",
+      "sha256": "7217fa8662295ee9a1dd861bab5df4e75c373a53449e9ba28adea72f7b883748",
+      "recovered_bytes": 25570518
+    }
+  ]
+}

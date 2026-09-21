@@ -1,5 +1,5 @@
 {
-  "status": "local render and numerical checks pass; independent targeted visual review finishing; remote recovery is coordinator-owned and not yet claimed",
+  "status": "passed: local render, independent numerical and bounded visual review, and fresh-cache remote media recovery",
   "session_id": "0cd61961-28fb-4947-9139-4ae96d103475",
   "backend_commit": "f78542b53572fb953828c3d704b1583e6157d214",
   "extension_commit": "d2d6325c657f3b5f45f326db56565300e26826bd",
@@ -79,5 +79,12 @@
       "scheduled": false
     },
     "last_review_request": "Already-open exact draft correctly recognized; no fictional action or tap."
+  },
+  "independent_review": "independent-final-acceptance.md",
+  "remote_backup": {
+    "status": "passed",
+    "report": "remote-backup-verification.json",
+    "media_recovered_at_commit": "7d8a0c4eed8ddc20a9acdc04e7744d80f6abfa89",
+    "documentation_followup": "A docs-only follow-up preserves these identical media LFS OIDs."
   }
 }
