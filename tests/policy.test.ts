@@ -11,6 +11,27 @@ export const snapshot: Snapshot = { id: 's1', url: 'https://www.amazon.in/dp/dem
 ], viewport:{width:1200,height:800},theme:{color:'#000',font:'Arial'},frames:0,capturedAt:0 };
 export const action = (patch: Partial<Action> = {}): Action => ({kind:'click',ref:'cart',url:null,value:null,x:null,y:null,summary:'Add the adapter to cart for ₹799',risk:'read',...patch});
 describe('deterministic action policy', () => {
+  it('dismisses a form without confusing surrounding purchase copy with the Cancel button', () => {
+    const target = {...snapshot.elements[1],name:'Cancel',type:'button',form:true,context:'Confirm purchase and payment'};
+    expect(checkAction(action(),{...snapshot,elements:[target]},snapshot.url).outcome).toBe('allow');
+    for (const name of ['Cancel subscription','Cancel order','Cancel campaign']) expect(checkAction(action(),{...snapshot,elements:[{...target,name}]},snapshot.url).outcome).toBe('approve');
+  });
+  it('saves a requested ordinary configuration in a named editor while preserving commitment boundaries', () => {
+    const target = {...snapshot.elements[1],ref:'save',name:'Update',type:'submit',form:true,context:'Description Rollover unused credits Update Cancel'};
+    const heading = {...snapshot.elements[1],ref:'heading',tag:'h2',name:'Update Allowance',type:'',context:'',form:false};
+    const field = {...snapshot.elements[0],ref:'rollover',tag:'input',role:'checkbox',name:'Rollover unused credits',type:'checkbox',form:true};
+    const page={...snapshot,elements:[heading,field,target]};
+    const save=action({ref:'save',risk:'change'});
+    const check=(intent:string, changes:Partial<Snapshot>={})=>checkAction(save,{...page,...changes},page.url,intent);
+    expect(check('Make our starter credits roll over.').outcome).toBe('allow');
+    expect(check('Update this allowance.').outcome).toBe('allow');
+    for(const intent of ['Read our allowance','Do not update this allowance','How do I update this allowance?','Update this allowance after my confirmation','Update this allowance\nWait for my approval']) expect(check(intent).outcome).toBe('approve');
+    for(const patch of [{name:'Continue'},{context:'Agree to the contract'},{submission:{scope:'composer',label:'Message',fields:[]}}]) expect(check('Update this allowance',{elements:[heading,field,{...target,...patch}]}).outcome).toBe('approve');
+    for(const patch of [{name:'Payment method'},{sensitive:true},{name:'Public',state:['checked:true']}]) expect(check('Update this allowance',{elements:[heading,{...field,...patch},target]}).outcome).toBe('approve');
+    expect(check('Update this allowance',{elements:[field,target]}).outcome).toBe('approve');
+    expect(check('Update this allowance',{elements:[{...heading,name:'Update Subscription'},field,target]}).outcome).toBe('approve');
+    expect(checkAction({...save,risk:'sensitive'},page,page.url,'Update this allowance').outcome).toBe('approve');
+  });
   it('edits form structure and selects options without treating them as submissions', () => {
     const base = {...snapshot.elements[1],ref:'form-control',type:'button',form:true,context:'Name Filters Aggregation'};
     const check = (patch = {}) => checkAction(action({ref:base.ref,risk:'change'}),{...snapshot,elements:[{...base,...patch}]},snapshot.url,'Prepare a filtered usage configuration.');

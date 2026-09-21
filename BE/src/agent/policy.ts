@@ -55,6 +55,30 @@ function requestedTerminologyEdit(action: Action, snapshot: Snapshot, intent: st
   const affirmative = relevant.replace(/\b(don['’]?t|do not|never|without|stop|cancel)\b[^,;.!?]*/gi, '');
   return /\b(add|save|create|update)\b/i.test(affirmative) && topic.test(affirmative);
 }
+function requestedRecordSave(action: Action, snapshot: Snapshot, intent: string): boolean {
+  const target = snapshot.elements.find(e => e.ref === action.ref);
+  if (!target || action.risk !== 'change' || !['click','double_click'].includes(action.kind) ||
+      !/^(save(?: changes)?|update|create|add|apply)$/i.test(target.name.trim()) || target.submission) return false;
+  const fields = snapshot.elements.filter(e => e.form && !e.covered &&
+    (['input','textarea','select'].includes(e.tag) || ['textbox','checkbox','switch','combobox'].includes(e.role)));
+  if (!fields.length || fields.some(e => e.sensitive || sensitiveSettings.test(e.name))) return false;
+  // A named record editor supplies context for a plain Save/Update button.
+  // Generic Continue/Add forms and transaction/account editors retain review.
+  const heading = snapshot.elements.find(e => !e.covered && /^(h[1-4])$/.test(e.tag) &&
+    /^(edit|update|create|new)\s+\S/i.test(e.name));
+  if (!heading || /\b(account|subscription|payment|order|purchase|booking|transfer|permission|credential|key|contract|agreement)\b/i.test(heading.name)) return false;
+  if (/\b(delete|erase|destroy|publish|send|recipient|accept terms|agree to|confirm payment|place order)\b/i.test(target.context)) return false;
+  if (snapshot.elements.some(e => !e.covered && /\b(public|everyone|anyone with the link)\b/i.test(e.name) && e.state?.some(s => /^(checked|selected):true$/.test(s)))) return false;
+  const request = intent.split('\n').reverse().find(line => /\b(save|update|create|add|apply|make|prepare|set|give|enable|disable|turn|change|edit|stop|cancel|wait)\b/i.test(line));
+  if (!request || /\b(how|what if|explain|after|until|confirmation|approve|approval|wait|stop|cancel)\b|\b(ask|check with) me\b/i.test(request)) return false;
+  const affirmative = request.replace(/\b(don['’]?t|do not|never|without)\b[^,;.!?]*/gi, '');
+  if (!/\b(save|update|create|add|apply|make|prepare|set|give|enable|disable|turn|change|edit)\b/i.test(affirmative)) return false;
+  const words = (text:string) => text.toLowerCase().replace(/roll over/g,'rollover').match(/[a-z]{4,}/g) || [];
+  const requestWords = new Set(words(affirmative));
+  const editorWords = words(heading.name.replace(/^(edit|update|create|new)\s+/i,''));
+  const fieldWords = words(fields.map(e => e.name).join(' ')).filter(w => !['name','description','title','text','value','select','number'].includes(w));
+  return [...editorWords,...fieldWords].some(w => requestWords.has(w));
+}
 export function checkAction(action: Action, snapshot: Snapshot, _scope: string, intent = ''): PolicyDecision {
   const target = snapshot.elements.find(e => e.ref === action.ref);
   const name = target?.name || action.url || action.kind;
@@ -84,6 +108,8 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
   if (action.kind === 'point') return result('approve', 'The effect of this visual control could not be verified. Review the target before activating it.', true);
   if (!target || target.disabled) return result('block', 'The target is missing or disabled. Observe the page again.');
   if (target.sensitive) return result('block', 'Enter passwords, payment details, and verification codes directly in the browser.');
+  if (['click','double_click'].includes(action.kind) && target.type === 'button' &&
+      !target.submission && /^(cancel|close|dismiss|back)$/i.test(target.name.trim())) return result('allow', 'Dismiss the current form without submitting it');
   if(target.visual&&!['scroll','scroll_to','hover','copy','select_text'].includes(action.kind))return result('approve','This unlabeled or canvas control has an unclear effect. Review it before input is sent.',true);
   if(action.kind==='media')return ['video','audio'].includes(target.tag)&&(['play','pause','mute','unmute'].includes(action.value||'')||/^seek:[+-]?\d{1,5}(?:\.\d+)?$/.test(action.value||''))?result('allow','Control the observed media player'):result('block','Choose an observed media player and a supported playback action.');
   if (['scroll', 'scroll_to', 'hover', 'right_click'].includes(action.kind)) return result('allow', 'Inspect an observed page control');
@@ -130,6 +156,7 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
   if (cartControl.test(target.name)) return intentAllows(intent, 'cart') ? result('allow', 'Make the cart change you requested', true) : result('approve', 'Changing this cart was not clear from your request.', true);
   if (['select', 'check'].includes(action.kind)) return result('allow', 'Choose the requested filter, option, or variant', true);
   if (requestedTerminologyEdit(action, snapshot, intent)) return result('allow', 'Save the terminology correction explicitly requested in this observed form', true);
+  if (requestedRecordSave(action, snapshot, intent)) return result('allow', 'Save the ordinary configuration explicitly requested in this named editor', true);
   // Saving an explicitly requested ordinary record edit is not a new social
   // preference. Consequential controls, sensitive context and message composers
   // have already been gated above; a later negation or review request still wins.
