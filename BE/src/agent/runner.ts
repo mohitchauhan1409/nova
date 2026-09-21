@@ -163,7 +163,7 @@ export class AgentRunner {
             snapshot=fresh;
           }
           this.trace('think',action.summary,planningMs);
-          const problem=completionProblem(action,snapshot,effect,attempted,this.session.progress);
+          const problem=completionProblem(action,snapshot,effect,attempted,this.session.progress,latestTask(this.session));
           if(problem){this.trace('error',`Completion rejected: ${problem}`);if(++completionFailures<2)continue;this.say('I could not verify that the requested result happened. Please check the page before retrying; I have not marked this task complete.');this.session.status='stopped';return;}
           this.session.awaitingAnswer=false;this.say(action.summary);this.session.status=action.completion?.status==='blocked'?'stopped':'ready';return;
         }

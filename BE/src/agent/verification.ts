@@ -1,4 +1,5 @@
 import type { Action, ActionResult, Snapshot, Session } from '../../../shared/types';
+import { pagePrivacy } from './conversation';
 
 export type Effect = { verified: boolean; detail: string; action: Action['kind'] };
 const normalize = (text: string) => text.replace(/\s+/g,' ').trim();
@@ -62,16 +63,26 @@ export function actionEffect(action: Action, before: Snapshot, after: Snapshot, 
   return {action:action.kind,verified:false,detail:'Input was sent, but no resulting page or control change was observed.'};
 }
 
-export function completionProblem(action: Action, snapshot: Snapshot, effect?: Effect, attempted = false, progress?:Session['progress']): string | undefined {
+export function completionProblem(action: Action, snapshot: Snapshot, effect?: Effect, attempted = false, progress?:Session['progress'], request?:string): string | undefined {
   const completion = action.completion;
   if(completion?.status==='blocked')return;
   if(attempted && !effect?.verified)return 'The last action has no verified result. Inspect, wait for a real outcome, or report the blocked step; do not claim completion.';
   if(!completion) return 'Provide a completion status and observed evidence. A dispatched action is not proof of success.';
   if(completion.status==='answer' && !attempted)return;
+  const clean=request===undefined?undefined:pagePrivacy(snapshot,request);
+  // Compare the actual page's authorized projection, never redact a guessed
+  // citation into a match. Hidden identity alone is not outcome evidence.
+  const projectedMatch=(value:string,match:(project:(text:string)=>string)=>boolean)=>{
+    const outcome=value.replace(/\[(?:email hidden|phone hidden|account name|redacted)\]/gi,'').trim();
+    return !!clean&&/[\p{L}\p{N}]/u.test(outcome)&&!/^(?:email|phone|mobile|telephone|tel|account\s+name)\s*[:=]?$/i.test(outcome)&&match(clean);
+  };
   const matched = completion.evidence.some(proof=>{
     if(!proof.value.trim())return false;
-    if(proof.source==='text')return normalize(snapshot.text).includes(normalize(proof.value))||snapshot.elements.some(e=>!e.sensitive&&normalize(e.name)===normalize(proof.value));
-    if(proof.source==='url')return snapshot.url===proof.value;
+    if(proof.source==='text'){
+      const matches=(project:(text:string)=>string)=>normalize(project(snapshot.text)).includes(normalize(proof.value))||snapshot.elements.some(e=>!e.sensitive&&normalize(project(e.name))===normalize(proof.value));
+      return matches(text=>text)||projectedMatch(proof.value,matches);
+    }
+    if(proof.source==='url')return snapshot.url===proof.value||projectedMatch(proof.value,project=>project(snapshot.url)===proof.value);
     if(proof.source==='state'){const value=proof.value.replace(/^aria-/,'').replace('=',':');return !!snapshot.elements.find(e=>e.ref===proof.ref&&!e.sensitive)?.state?.includes(value)||!!(progress?.url===snapshot.url&&progress.settings.some(s=>s.ref===proof.ref&&s.afterReload===progress.reloads&&s.state.includes(value)));}
     if(proof.source==='action')return effect?.verified && effect.action===proof.value && ['fill','type','clear','paste','check','select','scroll','scroll_to','zoom','media','copy','select_text'].includes(effect.action);
     return false;
