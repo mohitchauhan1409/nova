@@ -27,8 +27,8 @@ Actual website prompt is the text after “Run this prompt:”. No configuration
 ### Pass A
 
 1. Operator: **“Turn this into JSON triage for Cedar Desk, at temperature zero.”**
-2. A genuine card can ask desired output fields; the categories are already known. If choosing fields needs help, operator asks **“Which fields are enough for basic triage?”** Nova should explain briefly while retaining the task/card. Then select an actually rendered option equivalent to **Category and short summary**, or type that concise custom answer. Do not demand a particular generated card layout or create fake choices.
-3. Acceptance configuration: real System Prompt expresses the three known categories and short summary; Temperature `0`; JSON enabled; exactly two requested scalar fields, `category` and `summary`, both `string` and required. Leave Top P, token limit and Reasoning unchanged. Inspect each row once. Do not assert `additionalProperties:false` unless the real editor exposes/verifies it.
+2. After a card answer, resume the unfinished setup immediately; do not repeat the opener’s already-verified Logs check. A genuine card can ask desired output fields; the categories are already known. If choosing fields needs help, operator asks **“Which fields are enough for basic triage?”** Nova should explain briefly while retaining the task/card. Then select an actually rendered option equivalent to **Category and short summary**, or type that concise custom answer. Do not demand a particular generated card layout or create fake choices.
+3. Acceptance configuration: use the concise System Prompt **“Classify as damage, delivery, or other. Return category and a short summary.”**; Temperature `0`; JSON enabled; exactly two requested scalar fields, `category` and `summary`, both `string` and required. Leave Top P, token limit and Reasoning unchanged. Inspect each row once. Do not assert `additionalProperties:false` unless the real editor exposes/verifies it.
 4. Operator: **“Test: Order CD-104 arrived with a cracked mug. Please replace it.”**
 5. Expected result: JSON with `category: "damage"` and a faithful short summary. Actual summary wording is not prescribed. Verify the matching request through Logs.
 
@@ -50,7 +50,7 @@ If a supplied configuration value is already correct, Nova should read it once a
 ### Pass A
 
 1. Operator: **“Add a required escalate boolean: damage or delays over seven days.”**
-2. Acceptance: `category` and `summary` remain required strings; new scalar `escalate` is a required boolean, not an array/string. System Prompt implements damage OR delay greater than seven days. No escalation card needed because policy is supplied.
+2. Acceptance: `category` and `summary` remain required strings; new scalar `escalate` is a required boolean, not an array/string. Use concise System Prompt **“Classify as damage, delivery, or other. Return category, summary, escalate. Escalate damage or delays over 7 days.”** No escalation card needed because policy is supplied.
 3. Operator: **“Test: Order CD-105 is nine days late. No damage reported.”**
 4. Expected: `category: "delivery"`, `escalate: true`, faithful short summary. Inspect exact Logs record.
 5. Operator: **“Test the boundary: CD-106 is seven days late, with no damage.”**
