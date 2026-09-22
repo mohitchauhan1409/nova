@@ -3,12 +3,11 @@
   "scenario": "Cedar Desk synthetic support triage",
   "account": "itsmohitchauhan1409",
   "url": "https://interfaze.ai/dashboard/playground",
-  "opening": "Set the temperature to zero.",
-  "larger_request": "Build a support ticket classifier for Cedar Desk.",
+  "opening": "Run this prompt: Classify a cracked mug as damage, delivery or other. Reply with one word.",
+  "larger_request": "Turn this into a JSON ticket classifier for Cedar Desk.",
   "clarification_answers": {
     "categories": "damage, delivery, other",
-    "output_fields": "category and summary, both required strings",
-    "summary_style": "One short sentence"
+    "output_fields": "Category and a short summary"
   },
   "initial_system_prompt": "Classify tickets as damage, delivery, or other. Return category and a short summary.",
   "first_ticket": "Order CD-104 arrived with a cracked mug. Please replace it.",
@@ -28,7 +27,7 @@
     ],
     "additionalProperties": false
   },
-  "revision_request": "Add a required escalate boolean. Escalate damage or delays over seven days.",
+  "revision_request": "Add an escalation check: damage or delays over seven days.",
   "revised_system_prompt": "Classify tickets as damage, delivery, or other. Return category, a short summary, and escalate. Escalate damage or delays over seven days.",
   "second_ticket": "Order CD-105 is nine days late. No damage reported.",
   "revised_schema": {
@@ -65,7 +64,9 @@
   "expectations_not_recorded_outputs": {
     "first_category": "damage",
     "second_category": "delivery",
-    "second_escalate": true
+    "second_escalate": true,
+    "boundary_category": "delivery",
+    "boundary_escalate": false
   },
   "configuration": {
     "temperature": 0,
@@ -73,5 +74,18 @@
     "max_completion_tokens": "retain observed value unless user requests otherwise",
     "reasoning": "retain observed Off"
   },
-  "persistence": "Server request logs verified by coordinator. Open actual matching request detail to verify input/output/status; keep JSON under 500 characters to avoid detail truncation. Playground chat is locally retained; configuration persistence unverified."
+  "persistence": "Server request logs verified by coordinator. Open actual matching request detail to verify input/output/status; keep JSON under 500 characters to avoid detail truncation. Playground chat is locally retained; configuration persistence unverified.",
+  "opening_website_prompt": "Classify a cracked mug as damage, delivery or other. Reply with one word.",
+  "opening_acceptance": "This is one fully specified model test, not a classifier setup request. Nova submits the exact prompt immediately, reads the actual one-word response, and verifies the matching request log. No taxonomy, output-format or escalation question and no initial confirmation card.",
+  "clarification_rule": "One grouped card may resolve the unknown category taxonomy and desired output fields. Do not separately ask summary style after short summary is specified, ask for technical schema syntax, or manufacture a card after the user supplies all choices.",
+  "revision_implementation": "Revise the actual system prompt, add required boolean escalate while retaining category and summary, and test both sides of the seven-day threshold.",
+  "boundary_ticket": "Order CD-106 is seven days late. Nothing is damaged.",
+  "boundary_request": "Check the boundary: CD-106 is seven days late, with no damage.",
+  "flow_acceptance": {
+    "flow_1": "Create the configured triage system prompt, required scalar category/summary schema and low-temperature setting in the real UI; run the damaged-order example and verify its exact request input/output/status in Logs.",
+    "flow_2": "Revise policy and schema without losing existing fields; run nine-day and exactly-seven-day delayed tickets; audit both matching Logs request details to establish true/false escalation at the boundary. Configuration revision plus an observed regression audit is distinct from setup."
+  },
+  "baseline_preservation": "Before recording, preserve the native eligibility exchange and existing task-owned run IDs as receipts. Start with the normal populated dashboard and a fresh Nova conversation. Do not preconfigure the full triage schema and imply Nova built it on camera. Baseline may contain earlier real synthetic request logs, explicitly documented as rehearsal/setup. Starting new playground chat erases prior local chat; preserve it before reset.",
+  "media_preservation": "Keep the true native raw recording unchanged; derive silent and click-only exports separately. Retain failed-take evidence until accepted capture/export QA completes, then remove only disposable task-owned scratch media under coordinator control.",
+  "opening_rehearsal_failure": "The earlier opener asking to classify CD-104 led Nova to ask for categories and escalation before acting (0 steps). It is superseded by the explicit Run this prompt opener; do not count that attempt as a successful rehearsal."
 }
