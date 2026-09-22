@@ -1,3 +1,4 @@
+import { ActionCursorLifetime } from './action-cursor';
 import { recordingMode, hideActionCursor } from '../../shared/recording';
 import { appendTemplate } from './template';
 import { launcherMark } from './launcher-mark';
@@ -35,7 +36,11 @@ export function mountLauncher(openPanel: () => Promise<void>): Companion {
   const button = root.querySelector<HTMLButtonElement>('.launch')!;
   const cursor = root.querySelector<HTMLElement>('.cursor')!;
   const notice = root.querySelector<HTMLElement>('.notice')!;
-  let timer: ReturnType<typeof setTimeout> | undefined;
+  const cursorLifetime = new ActionCursorLifetime(show=>cursor.classList.toggle('visible',show));
+  const positionCursor = (x:number,y:number) => {
+    cursor.style.transform = `translate(${Math.min(innerWidth - 30, Math.max(0, x))}px,${Math.min(innerHeight - 34, Math.max(0, y))}px)`;
+    return cursorLifetime.show();
+  };
   let noticeTimer: ReturnType<typeof setTimeout> | undefined;
   const motionListeners = new AbortController();
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -87,18 +92,18 @@ export function mountLauncher(openPanel: () => Promise<void>): Companion {
         if (event.visible) notice.hidden = true;
       }
       if (event.type === 'session') { host.dataset.colorScheme=readPageColorScheme();button.dataset.state = event.session.status; button.setAttribute('aria-label', 'Open Nova side panel'); const experience=event.session.experience;if(experience){const palette=sitePalette(experience.accent);host.style.setProperty('--site-ink',palette.ink);host.style.setProperty('--site-soft',palette.soft);root.querySelector('.hint')!.textContent=`Get things done on ${experience.name}`;button.title=`Open Nova`;} }
-      if (event.type === 'error') button.dataset.state = 'disconnected';
+      if (event.type === 'error') {button.dataset.state = 'disconnected';cursorLifetime.clear();}
     },
-    async action(x, y, label, kind) {
-      clearTimeout(timer); cursor.querySelector('b')!.textContent = label;
-      cursor.style.transform = `translate(${Math.min(innerWidth - 30, Math.max(0, x))}px,${Math.min(innerHeight - 34, Math.max(0, y))}px)`;
-      cursor.classList.add('visible');
+    positionCursor,
+    async action(x, y, label, kind, hold=false) {
+      cursor.querySelector('b')!.textContent = label;
+      const generation=positionCursor(x,y);
       if (kind?.includes('click')) { const ring = document.createElement('i'); ring.className = 'ring'; cursor.append(ring); setTimeout(() => ring.remove(), 450); }
       await new Promise(resolve => setTimeout(resolve, matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 100));
-      timer = setTimeout(() => cursor.classList.remove('visible'), 850);
+      cursorLifetime.settle(generation,hold);
     },
-    clearCursor() { cursor.classList.remove('visible'); },
-    destroy() { clearTimeout(timer); clearTimeout(noticeTimer); motionListeners.abort(); resetGaze(); host.remove(); delete window.__novaCompanion; },
+    clearCursor() { cursorLifetime.clear(); },
+    destroy() { cursorLifetime.clear(); clearTimeout(noticeTimer); motionListeners.abort(); resetGaze(); host.remove(); delete window.__novaCompanion; },
   };
   window.__novaCompanion = companion;
   return companion;

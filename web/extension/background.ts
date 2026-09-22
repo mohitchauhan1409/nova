@@ -1,4 +1,5 @@
 import { recordingMode, type RecordingClick } from '../../shared/recording';
+import { pacedInputCapability, inputActionKinds } from '../../shared/paced-input';
 import type { Action, Session, ServerEvent } from '../../shared/types';
 import { BrowserControl } from './browser-control';
 import { isNovaDashboard, websitePermission, type TabLaunch } from '../../shared/browser-launch';
@@ -77,7 +78,10 @@ async function inject(tabId: number) {
   await chrome.tabs.sendMessage(tabId, { type: 'nova-mount', tabId });
 }
 async function driver(method: string, payload: { tabId: number; data?: Action }) {
+  const token = control.captureInputToken();
+  const checkInput = () => { if(method==='execute')control.assertInputToken(token); };
   const {tabId, data} = payload; const tab = await chrome.tabs.get(tabId);
+  checkInput();
   if (tabId !== currentTab) throw new Error('This is not the attached website tab.');
   if (!tab.url || !/^https?:/.test(tab.url)) throw new Error('This tab is no longer a supported website.');
   if(method==='focus'){await chrome.tabs.update(tabId,{active:true});await chrome.windows.update(tab.windowId,{focused:true});return {ok:true};}
@@ -87,21 +91,23 @@ async function driver(method: string, payload: { tabId: number; data?: Action })
   if (method === 'execute' && data?.kind === 'forward') {await chrome.tabs.goForward(tabId);return {ok:true};}
   if (method === 'execute' && data?.kind === 'reload') {await chrome.tabs.reload(tabId);return {ok:true};}
   if(method==='execute'&&data?.kind==='zoom'){
-    const current=await chrome.tabs.getZoom(tabId);const factor=data.value==='in'?current+.2:data.value==='out'?current-.2:data.value==='reset'?1:Number(data.value)/100;
+    const current=await chrome.tabs.getZoom(tabId);checkInput();const factor=data.value==='in'?current+.2:data.value==='out'?current-.2:data.value==='reset'?1:Number(data.value)/100;
     if(!Number.isFinite(factor)||factor<.5||factor>2)throw new Error('Choose a zoom from 50% to 200%.');
     // Chrome defaults to shared host zoom. Keep Nova's adjustment in its tab,
     // so an ordinary visit or the local dashboard does not change with it.
-    await chrome.tabs.setZoomSettings(tabId,{mode:'automatic',scope:'per-tab'});
+    await chrome.tabs.setZoomSettings(tabId,{mode:'automatic',scope:'per-tab'});checkInput();
     await chrome.tabs.setZoom(tabId,factor);const actual=await chrome.tabs.getZoom(tabId);return {ok:true,verification:{status:Math.abs(actual-factor)<.01?'verified':'unverified',detail:`Browser zoom is ${Math.round(actual*100)}%.`}};
   }
   if (method === 'execute' && data?.kind === 'wait') {await new Promise(resolve=>setTimeout(resolve,600));return {ok:true};}
   if (tab.status === 'loading') await new Promise<void>(resolve=>{const listener=(id:number,info:chrome.tabs.OnUpdatedInfo)=>{if(id===tabId&&info.status==='complete'){clearTimeout(timer);chrome.tabs.onUpdated.removeListener(listener);resolve();}};const timer=setTimeout(()=>{chrome.tabs.onUpdated.removeListener(listener);resolve();},5000);chrome.tabs.onUpdated.addListener(listener);});
-  if (method === 'execute' && data && control.supports(data) && (await control.status()).granted) return control.execute(tabId,data);
+  checkInput();
+  if (method === 'execute' && data && control.supports(data)) { const status=await control.status();checkInput();if(status.granted)return control.execute(tabId,data,token); }
+  if (recordingMode && method === 'execute' && data && inputActionKinds.has(data.kind)) throw new Error('Recording text entry requires browser-control permission. No text was inserted.');
   let result;
   try { result=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method,action:data}); }
   catch(error) { if(method==='execute')throw new Error('The website connection changed during this action. Inspect the page before retrying.');if(tabId!==currentTab)throw new Error('This website session has ended.');await inject(tabId); result=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method,action:data}); }
   if(result?.error)throw new Error(result.error);
-  if(method==='snapshot'&&result){result.viewport.zoom=await chrome.tabs.getZoom(tabId);result.capabilities=[...(result.capabilities||[]),(await control.status()).granted?'trusted-browser-input':'basic-dom-input'];}
+  if(method==='snapshot'&&result){result.viewport.zoom=await chrome.tabs.getZoom(tabId);result.capabilities=[...(result.capabilities||[]),(await control.status()).granted?'trusted-browser-input':'basic-dom-input',...(recordingMode?[pacedInputCapability]:[])];}
   return result;
 }
 function connect(token: string, port: chrome.runtime.Port) {
@@ -112,7 +118,7 @@ function connect(token: string, port: chrome.runtime.Port) {
   ws.onopen=()=>ws.send(JSON.stringify({type:'auth',token,role:'extension'}));
   ws.onmessage=event=>{const message=JSON.parse(event.data) as ServerEvent;
     if(message.type==='ready'){authenticated=true; heartbeat=setInterval(()=>relay({type:'ping'}),20000);if(currentTab)void chrome.tabs.get(currentTab).then(tab=>relay(attachMessage(tab)));broadcast({...message,attached:!!currentTab});return;}
-    if(message.type==='session'){if(message.session.tabId!==currentTab)return;currentSession={...message.session,pageColorScheme:currentPageScheme};message.session=currentSession;}
+    if(message.type==='session'){if(message.session.tabId!==currentTab)return;if(message.session.status!=='running')control.cancelInput();currentSession={...message.session,pageColorScheme:currentPageScheme};message.session=currentSession;}
     if(message.type==='sessions'&&currentSession&&!message.sessions.some(s=>s.id===currentSession?.id))detachCurrent(false);
     // Stop is reflected locally before sending it. A late server acknowledgement
     // must not shut down a new voice conversation that has since started.
@@ -121,7 +127,7 @@ function connect(token: string, port: chrome.runtime.Port) {
     broadcast(message);
   };
   ws.onerror=()=>broadcast({type:'error',message:'Cannot reach Nova. Start the local backend on port 8787.'});
-  ws.onclose=()=>{if(socket!==ws)return;authenticated=false;currentSession=undefined;clearInterval(heartbeat);broadcast({type:'panel-state',state:'offline',message:'Nova backend disconnected. Reconnect to continue.'});};
+  ws.onclose=()=>{if(socket!==ws)return;authenticated=false;control.cancelInput();currentSession=undefined;clearInterval(heartbeat);broadcast({type:'panel-state',state:'offline',message:'Nova backend disconnected. Reconnect to continue.'});};
 }
 chrome.runtime.onConnect.addListener(port => {
   if (!['nova-panel','nova-page'].includes(port.name) || port.sender?.id !== chrome.runtime.id) return;
@@ -165,6 +171,7 @@ chrome.runtime.onConnect.addListener(port => {
     if (portTabs.get(port) !== currentTab) return;
     if (message.type === 'nova-page-theme' && port === currentPagePort) { updatePageScheme(message.scheme); return; }
     if (message.type === 'nova-new-chat' && port.name === 'nova-panel') {
+      control.cancelInput();
       if(currentSession)relay({type:'stop',sessionId:currentSession.id});
       stopPanelVoice(); currentSession=undefined;
       void chrome.tabs.get(tabId).then(tab => relay(attachMessage(tab)));
@@ -174,6 +181,7 @@ chrome.runtime.onConnect.addListener(port => {
     const data=message.data;
     if (!data || !['command','answer','stop','interrupt','approve','voice-start','voice-stop','audio'].includes(data.type)) return;
     if ('sessionId' in data && data.sessionId !== currentSession?.id) return;
+    if(data.type==='stop'||data.type==='interrupt')control.cancelInput();
     if(data.type==='voice-start'){stopPanelVoice();voiceOwner=port;}
     if(['audio','voice-stop'].includes(data.type) && voiceOwner!==port)return;
     if(data.type==='voice-stop')voiceOwner=undefined;

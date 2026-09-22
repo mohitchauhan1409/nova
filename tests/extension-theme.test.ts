@@ -3,7 +3,7 @@ import type { Session } from '../shared/types';
 
 function event() {
   const listeners: ((...args: any[]) => void)[] = [];
-  return { addListener: (listener: (...args: any[]) => void) => listeners.push(listener), emit: (...args: any[]) => listeners.forEach(listener => listener(...args)) };
+  return { removeListener:(listener:(...args:any[])=>void)=>{const index=listeners.indexOf(listener);if(index>=0)listeners.splice(index,1);}, addListener: (listener: (...args: any[]) => void) => listeners.push(listener), emit: (...args: any[]) => listeners.forEach(listener => listener(...args)) };
 }
 
 async function setup() {
@@ -25,6 +25,7 @@ async function setup() {
     static CONNECTING = 0; static OPEN = 1;
     readyState = 0;
     onmessage?: (event: { data: string }) => void;
+    onclose?:()=>void;
     send = vi.fn(); close = vi.fn();
     constructor() { sockets.push(this); }
     receive(message: unknown) { this.readyState = 1; this.onmessage?.({ data: JSON.stringify(message) }); }
@@ -85,5 +86,30 @@ describe('passive extension theme routing', () => {
     expect(otherPanel.postMessage).toHaveBeenCalledWith({ type: 'page-theme', scheme: 'dark' });
     expect(panel.postMessage).not.toHaveBeenCalled();
     expect(f.attach).not.toHaveBeenCalled();
+  });
+});
+
+describe('cancellation before trusted input dispatch',()=>{
+  it.each(['stop','disconnect'])('does not enter text after %s while the tab is loading',async(interruption)=>{
+    const f=await setup();const page=f.port('nova-page',1);page.onMessage.emit({type:'nova-page-connect',scheme:'dark'});
+    const panel=f.port('nova-panel',1);panel.onMessage.emit({type:'nova-panel-connect'});await Promise.resolve();
+    const socket=f.sockets[0];socket.receive({type:'ready',role:'extension'});socket.receive({type:'session',session:{...session,status:'running'}});
+    f.chromeMock.tabs.get.mockResolvedValue({id:1,url:session.url,title:'Fixture',windowId:1,active:true,status:'loading'} as any);
+    socket.receive({type:'driver',id:'delayed-input',method:'execute',payload:{tabId:1,data:{kind:'fill',ref:'field',value:'Must not type',url:null,x:null,y:null,risk:'change',summary:'Fill field'}}});
+    await vi.advanceTimersByTimeAsync(0);
+    if(interruption==='stop')panel.onMessage.emit({type:'nova-relay',data:{type:'stop',sessionId:session.id}});else socket.onclose?.();
+    f.chromeMock.tabs.onUpdated.emit(1,{status:'complete'});await vi.advanceTimersByTimeAsync(0);
+    expect(f.sendCommand).not.toHaveBeenCalled();expect(f.attach).not.toHaveBeenCalled();
+    expect(f.chromeMock.tabs.sendMessage).not.toHaveBeenCalled();
+    if(interruption==='stop')expect(socket.send.mock.calls.map(call=>JSON.parse(call[0]))).toContainEqual(expect.objectContaining({id:'delayed-input',error:expect.stringContaining('stopped')}));
+  });
+  it('rejects an old token when permission lookup finishes after Stop',async()=>{
+    const f=await setup();const page=f.port('nova-page',1);page.onMessage.emit({type:'nova-page-connect'});
+    const panel=f.port('nova-panel',1);panel.onMessage.emit({type:'nova-panel-connect'});await Promise.resolve();
+    const socket=f.sockets[0];socket.receive({type:'ready',role:'extension'});socket.receive({type:'session',session:{...session,status:'running'}});
+    let grant!:(value:boolean)=>void;f.chromeMock.permissions.contains.mockImplementation(()=>new Promise(resolve=>{grant=resolve;}));
+    socket.receive({type:'driver',id:'permission-input',method:'execute',payload:{tabId:1,data:{kind:'fill',ref:'field',value:'Must not type',url:null,x:null,y:null,risk:'change',summary:'Fill field'}}});
+    await vi.advanceTimersByTimeAsync(0);panel.onMessage.emit({type:'nova-relay',data:{type:'stop',sessionId:session.id}});grant(true);await vi.advanceTimersByTimeAsync(0);
+    expect(f.sendCommand).not.toHaveBeenCalled();expect(f.attach).not.toHaveBeenCalled();
   });
 });

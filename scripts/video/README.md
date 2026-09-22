@@ -229,3 +229,26 @@ with real operator typing/clicks and Nova clicking, scrolling, and navigating.
 Verify that only Nova's cursor is visible, its arrow/label/ring remain the same
 accent, and the target window is captured continuously. Repeat affected checks
 after changes to the build, theme, pointer controls, focus, or recording setup.
+
+### Progressive website input in recording builds
+
+`NOVA_RECORDING_MODE=true` also opts trusted extension field entry into real
+character-paced input. The browser receives one Unicode grapheme per
+`Input.insertText` call, spaced 150–190 ms apart, with a short punctuation pause.
+There is no reveal animation or postproduction typing. Normal builds retain
+whole-value entry. The recording build requires browser-control permission for
+text; it will not fall back to instant DOM replacement.
+
+Recording actions allow at most 1,000 graphemes and a bounded five-minute action
+budget. The backend learns the capability from the extension snapshot and extends
+its usual 15-second request timeout based on text length. A stopped session,
+disconnection, navigation or lost field focus halts subsequent characters. An
+ambiguous partial-entry failure stops the task instead of automatically retyping.
+Inspect the field before resuming. Keep recording prompts concise and inspect a
+real preflight clip; unit tests do not prove visual pacing in the target editor.
+
+A recording text action owns its cursor until the actual entry finishes or is
+canceled. Each input check refreshes the cursor from the focused field's current
+bounds, without generating a click. Completion and interruption clear only that
+action's cursor. Stop also invalidates requests still awaiting tab loading or
+permission checks, so a delayed request cannot restart entry after cancellation.
