@@ -1,7 +1,7 @@
 import {afterEach, describe, expect, it, vi} from 'vitest';
-import {characterPause, insertPacedText, pacedActionTimeout, pacedCharacters, maxPacedActionMs} from '../shared/paced-input';
+import {characterPause, insertPacedText, pacedActionTimeout, pacedCharacters, maxPacedActionMs, settleEditorInput} from '../shared/paced-input';
 
-afterEach(() => vi.useRealTimers());
+afterEach(() => {vi.useRealTimers();vi.unstubAllGlobals();});
 describe('recording input rhythm and bounds', () => {
   it('runs the full rhythm and punctuation pauses exactly 1.25x faster', () => {
     for (let index = 0; index < 10; index++) {
@@ -35,5 +35,22 @@ describe('recording input rhythm and bounds', () => {
     expect(pacedActionTimeout('x'.repeat(100))).toBeGreaterThan(30000);
     expect(pacedActionTimeout('.'.repeat(1000))).toBe(maxPacedActionMs);
     expect(() => pacedCharacters('x'.repeat(1001))).toThrow('limited');
+  });
+});
+
+
+describe('bounded rich-editor settling',()=>{
+  it('waits exactly two animation frames and cancels the timer',async()=>{
+    vi.useFakeTimers();const frames:FrameRequestCallback[]=[];
+    vi.stubGlobal('requestAnimationFrame',vi.fn(callback=>{frames.push(callback);return frames.length;}));vi.stubGlobal('cancelAnimationFrame',vi.fn());
+    let complete=false;const task=settleEditorInput().then(()=>{complete=true;});
+    frames[0](0);await Promise.resolve();expect(complete).toBe(false);
+    frames[1](16);await task;expect(complete).toBe(true);expect(vi.getTimerCount()).toBe(0);
+  });
+  it('caps suspended animation frames at 80 ms',async()=>{
+    vi.useFakeTimers();vi.stubGlobal('requestAnimationFrame',vi.fn(()=>7));const cancel=vi.fn();vi.stubGlobal('cancelAnimationFrame',cancel);
+    let complete=false;const task=settleEditorInput().then(()=>{complete=true;});
+    await vi.advanceTimersByTimeAsync(79);expect(complete).toBe(false);
+    await vi.advanceTimersByTimeAsync(1);await task;expect(cancel).toHaveBeenCalledWith(7);
   });
 });
