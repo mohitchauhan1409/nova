@@ -310,12 +310,16 @@ export function installNovaDOM() {
       }
       // Text nodes exclude all form values, executable content, hidden content, and Nova itself.
       const chunks: string[] = [], distant:string[]=[]; let length = 0, distantLength=0, scanned=0;
+      // Preserve real dialog boundaries and document order for result checks.
+      // Global text remains viewport-first and can interleave background rows.
+      const dialogs=elements.filter(e=>e.role==='dialog'||e.tag==='dialog').slice(0,4).flatMap(e=>{const node=refs.get(e.ref);return node?[{ref:e.ref,node,chunks:[] as string[],length:0}]:[];});
       for (const root of allRoots) {
         const walker = document.createTreeWalker(root === document ? document.body||document.documentElement : root, NodeFilter.SHOW_TEXT);
         while (walker.nextNode() && scanned++<12000) {
           const node = walker.currentNode; const parent = node.parentElement;
           if (!parent || parent.closest('script,style,noscript,input,textarea,[contenteditable], [data-nova-root]') || !visible(parent)) continue;
           const value = compact(node.textContent, 600);
+          if(value)for(const dialog of dialogs){if(dialog.node.contains(parent)&&dialog.length+value.length<18000){dialog.chunks.push(value);dialog.length+=value.length;}}
           if (value&&inViewport(parent)&&length<18000) { chunks.push(value); length += value.length; }
           else if(value&&distantLength<18000){distant.push(value);distantLength+=value.length;}
         }
@@ -326,6 +330,7 @@ export function installNovaDOM() {
       const bodyStyle = getComputedStyle(document.body);
       const scheme = readPageColorScheme();
       return { id: `${prefix}:${Date.now()}`, url: location.href, title: document.title, text, elements,
+        textRegions:dialogs.map(dialog=>({ref:dialog.ref,text:dialog.chunks.join('\n'),elementRefs:elements.filter(e=>{const node=refs.get(e.ref);return !!node&&dialog.node.contains(node);}).map(e=>e.ref)})),
         viewport: { width: innerWidth, height: innerHeight, scrollX, scrollY, zoom }, theme: { color: accent ? getComputedStyle(accent).backgroundColor : '#6554d9', font: bodyStyle.fontFamily, scheme },
         frames: document.querySelectorAll('iframe:not([data-nova-root])').length, blocked, capturedAt: Date.now(),
         observation:{totalControls:candidates.size,omittedControls:Math.max(0,candidates.size-180),viewportFirst:true,sensitiveFieldsPresent:[...candidates].some(sensitive)},
