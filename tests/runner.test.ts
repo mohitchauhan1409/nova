@@ -15,6 +15,28 @@ function fixture() {
   return {runner,session,execute,driver,planner,setState:(s:Snapshot)=>{state=s;}};
 }
 describe('browser agent execution boundaries',()=>{
+  it('polls a visibly processing result beyond three waits without resubmitting',async()=>{
+    const f=fixture();let waits=0;
+    const loading={...base,text:'Working',capabilities:['bounded-processing-wait'],elements:[{...base.elements[0],name:'Please wait...'}]};
+    f.setState(loading);
+    f.execute.mockImplementation(async action=>{expect(action.kind).toBe('wait');expect(action.value).toBe('10');if(++waits===4)f.setState({...loading,text:'damage',elements:[]});});
+    f.planner.decide=async()=>waits<4?{...act('wait'),value:'10',risk:'read',summary:'Wait for result'}:{...act('done'),summary:'The result is damage.',completion:{status:'answer',evidence:[{source:'text',ref:null,value:'damage'}]}};
+    await f.runner.command('Read the pending classification result.');
+    expect(f.execute).toHaveBeenCalledTimes(4);expect(f.session.status).toBe('ready');expect(f.session.messages.at(-1)?.text).toBe('The result is damage.');
+  });
+  it('stops bounded polling at 90 seconds while preserving the pending operation',async()=>{
+    const f=fixture();f.setState({...base,text:'Working',capabilities:['bounded-processing-wait'],elements:[{...base.elements[0],name:'Please wait...'}]});
+    f.execute.mockImplementation(async()=>{});f.planner.decide=async()=>({...act('wait'),value:'10',risk:'read',summary:'Wait for result'});
+    await f.runner.command('Read the pending result.');
+    expect(f.execute).toHaveBeenCalledTimes(9);expect(f.session.status).toBe('stopped');expect(f.session.messages.at(-1)?.text).toContain('pending');
+    expect(f.execute.mock.calls.every(([action])=>action.kind==='wait')).toBe(true);
+  });
+  it.each([true,false])('retains the repeated-wait guard without both processing evidence and capability (%s)',async capability=>{
+    const f=fixture();f.setState({...base,capabilities:capability?['bounded-processing-wait']:[],elements:capability?[]:[{...base.elements[0],name:'Please wait...'}]});
+    f.execute.mockImplementation(async()=>{});f.planner.decide=async()=>({...act('wait'),value:'10',risk:'read',summary:'Wait for result'});
+    await f.runner.command('Read the result.');expect(f.execute).toHaveBeenCalledTimes(2);expect(f.session.status).toBe('stopped');
+    if(!capability)expect(f.execute.mock.calls[0][0].value).toBe('0.6');
+  });
   it('verifies exact projected completion evidence using the current task and fresh page',async()=>{
     const f=fixture();const rawName='recipient@customer.example Delivery notice — Dispatch October 5, 2026.';
     const projectedName='[email hidden] Delivery notice — Dispatch October 5, 2026.';

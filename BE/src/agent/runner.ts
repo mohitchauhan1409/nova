@@ -1,4 +1,5 @@
 import { inputActionKinds, pacedInputCapability } from '../../../shared/paced-input';
+import {boundedWaitCapability} from '../../../shared/wait';
 import { randomUUID } from 'node:crypto';
 import type { BrowserDriver } from '../browser/driver';
 import type { Planner } from '../providers/openai';
@@ -12,6 +13,7 @@ import { siteExperience } from '../../../shared/site-experience';
 import { companionOutput, conversationReply, latestTask, pagePrivacy } from './conversation';
 import {observeProgress,recordProgress,beforeProgressAction,repeatedTabInspection} from './progress';
 import {makeClarification,questionText,validateAnswers} from './clarification';
+import {hasProcessingEvidence,ProcessingWaitBudget} from './processing-wait';
 
 export class AgentRunner {
   private controller?: AbortController;
@@ -135,6 +137,7 @@ export class AgentRunner {
     let failures = 0; let lastAction = ''; let repeated = 0; let screenshot: string | undefined; let observed: Snapshot | undefined;
     let effect: Effect | undefined; let attempted = false; let completionFailures = 0; let completionRefreshes=0;
     let pendingEffect: {action:Action;before:Snapshot;result:unknown;mayCommit:boolean}|undefined;
+    const waitBudget=new ProcessingWaitBudget();
     const deadline = Date.now() + 8 * 60 * 1000;
     try {
       for (let step = 0; step < 48 && Date.now() < deadline; step++) {
@@ -207,8 +210,15 @@ export class AgentRunner {
           }
           snapshot=fresh;
         }
+        if(action.kind==='wait'){
+          try{action.value=String(waitBudget.reserve(snapshot.capabilities?.includes(boundedWaitCapability)?action.value:null)/1000);}
+          catch(error){this.say(safeError(error));this.session.status='stopped';return;}
+        }
         const signature = JSON.stringify({ kind: action.kind, ref: action.ref, value: action.value, url: action.url });
-        repeated = signature === lastAction ? repeated + 1 : 0; lastAction = signature;
+        // Polling is not another mutation. Retain the previous non-wait
+        // signature so waiting cannot erase its repeat protection.
+        const processingWait=action.kind==='wait'&&snapshot.capabilities?.includes(boundedWaitCapability)&&hasProcessingEvidence(snapshot);
+        if(!processingWait){repeated = signature === lastAction ? repeated + 1 : 0; lastAction = signature;}
         if (repeated >= 2) { this.say('This action is not making progress. Please adjust the page or tell me how you would like to continue.'); this.session.status = 'stopped'; return; }
         const policy = checkAction(action, snapshot, this.scope, this.intent());
         if (policy.outcome === 'block') { this.trace('error', policy.reason); if (++failures >= 3 || snapshot.elements.find(e => e.ref === action.ref)?.sensitive) { this.say(policy.reason); this.session.status = 'stopped'; return; } continue; }
