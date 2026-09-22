@@ -19,11 +19,22 @@ async function fixture(unexpected=false){
     (window as any).generated=0;(window as any).trusted=[];
     editor.addEventListener('beforeinput',event=>{
       const input=event as InputEvent;
-      if(input.inputType==='deleteContentForward'){event.preventDefault();getSelection()!.getRangeAt(0).deleteContents();return;}
+      if(['deleteContentForward','deleteContentBackward'].includes(input.inputType)){
+        event.preventDefault();const range=getSelection()!.getRangeAt(0);range.deleteContents();
+        if(!editor.textContent){editor.innerHTML='<div><br></div>';range.setStart(editor.firstChild!,0);}
+        else {const walker=document.createTreeWalker(editor,NodeFilter.SHOW_TEXT);let last:Node|null=null;while(walker.nextNode())last=walker.currentNode;if(last)range.setStart(last,last.textContent!.length);}
+        range.collapse(true);getSelection()!.removeAllRanges();getSelection()!.addRange(range);return;
+      }
       if(input.inputType!=='insertText')return;
       event.preventDefault();(window as any).trusted.push(input.isTrusted);
-      const selection=getSelection()!,range=selection.getRangeAt(0);range.deleteContents();
+      const selection=getSelection()!,range=selection.getRangeAt(0);
       const data=input.data||'',closer:Record<string,string>={'{':'}','[':']','"':'"'};
+      if(!selection.isCollapsed&&closer[data]){
+        const selected=selection.toString();range.deleteContents();const node=document.createTextNode(data+selected+closer[data]);range.insertNode(node);
+        range.setStart(node,data.length);range.setEnd(node,data.length+selected.length);selection.removeAllRanges();selection.addRange(range);return;
+      }
+      range.deleteContents();
+      editor.querySelectorAll('br').forEach(br=>br.remove());
       const extra=unexpected?'!':data==='\n'?'  ':closer[data]||'';
       if(extra)(window as any).generated++;
       const node=document.createTextNode(data+extra);range.insertNode(node);
@@ -43,6 +54,7 @@ async function fixture(unexpected=false){
         if(message.method==='native-prepare')return dom.prepare(message.action.ref);
         if(message.method==='native-input-start'){dom.startInput(message.action.ref,message.action.kind==='type');return {ok:true};}
         if(message.method==='native-input-focus')return {ok:!!dom.inputPosition(message.action.ref)};
+        if(message.method==='native-input-empty')return {ok:!!dom.inputPosition(message.action.ref)&&dom.verify({...message.action,kind:'clear'}).verification?.status==='verified'};
         if(message.method==='native-input-correction')return {remove:dom.prepareInputCorrection(message.action.ref,message.prefix,message.character)};
         if(message.method==='verify')return dom.verify(message.action,message.expectedLength);
         return {ok:true};
@@ -65,6 +77,20 @@ describe('trusted rich-editor text entry',()=>{
     expect(f.sent).toEqual([...value]);expect(f.deletes()).toBeGreaterThan(3);
     expect(await page.evaluate(()=>(window as any).trusted.every(Boolean))).toBe(true);
     await f.cdp.detach();
+  });
+  it('clears a selected existing document before the first brace can wrap it',async()=>{
+    const f=await fixture();
+    await page.evaluate(ref=>window.__novaDOM!.startInput(ref),f.ref);
+    await f.cdp.send('Input.dispatchKeyEvent',{type:'rawKeyDown',key:'a',code:'KeyA',commands:['selectAll']});
+    await f.cdp.send('Input.insertText',{text:'{'});
+    expect(await page.getByRole('textbox').innerText()).toBe('{Old JSON}');
+    expect(await page.evaluate(()=>getSelection()?.toString())).toBe('Old JSON');
+    // The real controller must explicitly delete this selected document before
+    // sending another opening brace; replacement-by-insertion would wrap again.
+    const result=await f.control.execute(1,{...action,ref:f.ref,value:'{}'});
+    expect(result.verification?.status).toBe('verified');
+    expect(await page.getByRole('textbox').innerText()).toBe('{}');
+    expect(f.sent).toEqual(['{','}']);await f.cdp.detach();
   });
   it('verifies the complete append baseline, not only the inserted suffix and length',async()=>{
     const f=await fixture();

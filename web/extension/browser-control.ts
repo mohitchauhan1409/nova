@@ -136,7 +136,15 @@ export class BrowserControl {
       const focus=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'native-input-start',action,cursorId});
       checkGeneration();
       if(focus?.error || !focus?.ok)throw new Error(focus?.error || 'The original text field did not accept focus. No selection or text was sent.');
-      if (action.kind !== 'type') await press('ControlOrMeta+A');
+      if (action.kind !== 'type') {
+        // Code editors can wrap a selection when the first character is a
+        // delimiter. Clear it through trusted input before authoring any text.
+        await press('ControlOrMeta+A');
+        await press('Backspace');
+        const empty=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'native-input-empty',action,cursorId});
+        checkGeneration();
+        if(empty?.error||!empty?.ok)throw new Error(empty?.error||'The original text field did not become empty with focus intact. No replacement text or submission was sent.');
+      }
       const value = action.kind === 'clear' ? '' : action.value || '';
       if (value && this.pacedInput) {
         const deadline = Date.now() + pacedActionTimeout(value) - 5_000;
@@ -160,7 +168,7 @@ export class BrowserControl {
           if (focus?.error || !focus?.ok) throw new Error(focus?.error || 'The text field lost focus. Inspect partial input before continuing.');
           checkGeneration();
         }, deadline);
-      } else if (value) await send('Input.insertText',{text:value}); else await press('Backspace');
+      } else if (value) await send('Input.insertText',{text:value});
       if (action.kind === 'search') await press('Enter');
     } else if (action.kind === 'press') {
       // prepare focuses only the grounded target, never an arbitrary private field.
