@@ -1,0 +1,56 @@
+{
+  "started_at": "2026-09-22T06:39:46.018205+00:00",
+  "https_remote": "https://github.com/mohitchauhan1409/nova.git",
+  "branch": "firecrawl-nova",
+  "clone_path": "/Users/macbook/Desktop/Nova-batch-20260922/private/firecrawl-remote-recovery-85dced1/clone",
+  "isolated_lfs_store": "/Users/macbook/Desktop/Nova-batch-20260922/private/firecrawl-remote-recovery-85dced1/lfs-objects",
+  "clone_absent_before_start": true,
+  "lfs_store_absent_before_start": true,
+  "smudge_disabled_during_clone": true,
+  "verified_at": "2026-09-22T06:43:36.516040+00:00",
+  "recovered_media_commit": "85dced1ee86d8c997411163b8532b519fe23d493",
+  "local_head_at_media_verification": "85dced1ee86d8c997411163b8532b519fe23d493",
+  "remote_head_at_media_verification": "85dced1ee86d8c997411163b8532b519fe23d493",
+  "recovery_head_at_media_verification": "85dced1ee86d8c997411163b8532b519fe23d493",
+  "lfs_storage_config": "/Users/macbook/Desktop/Nova-batch-20260922/private/firecrawl-remote-recovery-85dced1/lfs-objects",
+  "local_reference_dirs": "",
+  "no_local_media_or_lfs_objects_copied": true,
+  "download_command": "git lfs pull --include=artifacts/firecrawl/media/nova-firecrawl-original.mov,artifacts/firecrawl/media/nova-firecrawl-silent.mp4,artifacts/firecrawl/media/nova-firecrawl-clicks.mp4 --exclude= origin",
+  "checkout_command": "git lfs install --local; git lfs checkout <the three explicit Firecrawl media paths>",
+  "checkout_result": "Checking out LFS objects: 100% (3/3), 259 MB",
+  "fsck_command": "git lfs fsck",
+  "fsck_result": "Git LFS fsck OK",
+  "recovery_worktree_clean": true,
+  "media": [
+    {
+      "path": "artifacts/firecrawl/media/nova-firecrawl-clicks.mp4",
+      "size_bytes": 52102761,
+      "sha256": "02a8dc266848d16447134e8c63709f8e32b72b38839297772041a2c5ec10df28",
+      "matches_accepted_local_file": true,
+      "isolated_object_sha256": "02a8dc266848d16447134e8c63709f8e32b72b38839297772041a2c5ec10df28",
+      "separate_working_file_inode": true
+    },
+    {
+      "path": "artifacts/firecrawl/media/nova-firecrawl-original.mov",
+      "size_bytes": 155812041,
+      "sha256": "8dfb8984e949dfe4d275edea3e00c435679c941f4dd1b6733bd965ed94b4f816",
+      "matches_accepted_local_file": true,
+      "isolated_object_sha256": "8dfb8984e949dfe4d275edea3e00c435679c941f4dd1b6733bd965ed94b4f816",
+      "separate_working_file_inode": true
+    },
+    {
+      "path": "artifacts/firecrawl/media/nova-firecrawl-silent.mp4",
+      "size_bytes": 51256302,
+      "sha256": "8cfd3e8e3936445becd1f1a6256b2dc0eb509ac6cf5b99c1920611850484179d",
+      "matches_accepted_local_file": true,
+      "isolated_object_sha256": "8cfd3e8e3936445becd1f1a6256b2dc0eb509ac6cf5b99c1920611850484179d",
+      "separate_working_file_inode": true
+    }
+  ],
+  "setup_notes": [
+    "The clone and isolated LFS store were both absent before recovery began. The HTTPS clone used GIT_LFS_SKIP_SMUDGE=1.",
+    "git lfs env created the configured store directories; a redundant directory-absence assertion after that call failed because it tested directory existence rather than population. No local media/cache was copied; the subsequent pull fetched all three objects from the remote into the new isolated store.",
+    "The initial pull downloaded objects but skipped automatic checkout because this fresh clone inherited disabled LFS filters. Installing LFS locally in the recovery clone and explicit checkout materialized all three movies; fsck and all checksums then passed."
+  ],
+  "receipt_commit_policy": "This receipt-only commit follows the verified media commit; final local, remote and recovery HEAD equality is verified after push and reported separately to avoid a self-referential commit hash."
+}

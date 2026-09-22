@@ -27,4 +27,4 @@ Backend build during recording was **9ae243425dcf1a124babc2ce0b44cf74dffcfe7b**.
 | nova-firecrawl-silent.mp4 | 8cfd3e8e3936445becd1f1a6256b2dc0eb509ac6cf5b99c1920611850484179d |
 | nova-firecrawl-clicks.mp4 | 02a8dc266848d16447134e8c63709f8e32b72b38839297772041a2c5ec10df28 |
 
-Git LFS tracks only these three primary media paths. The delivery commit and remote confirmation are reported by the coordinator after push; no successful backup is asserted solely by this document.
+Git LFS tracks only these three primary media paths. Independent HTTPS recovery has now passed for media commit `85dced1ee86d8c997411163b8532b519fe23d493`: a fresh clone with smudge disabled used a previously absent isolated LFS store, downloaded and checked out all three objects, matched every size/SHA256 against the accepted local recordings, and returned `Git LFS fsck OK`. No local media or cached LFS objects were copied. See [remote-recovery.json](remote-recovery.json) for the exact recovery paths, setup notes and checks. The receipt-only commit is pushed afterward; the coordinator confirms its final local/remote/recovery HEAD equality separately.
