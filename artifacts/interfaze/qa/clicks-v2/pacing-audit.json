@@ -1,0 +1,65 @@
+{
+  "revision": "clicks-v2",
+  "createdAtUtc": "2026-09-22T07:17:54.422833+00:00",
+  "scope": "click-only final replaced; original and silent deliverables unchanged",
+  "previousClickSeconds": 472.5,
+  "newClickSeconds": 405.5,
+  "reductionSeconds": 67.0,
+  "reductionPercent": 14.18,
+  "frames": 12165,
+  "fps": 30,
+  "editingRules": {
+    "agentSegmentsAll1x": true,
+    "maxScrollSpeed": 1.25,
+    "acceleratedClickFrameOverlaps": [],
+    "operatorTypingAccelerated": false
+  },
+  "clicks": {
+    "total": 43,
+    "operator": 10,
+    "nova": 33
+  },
+  "soundVerification": {
+    "video_stream_identical": true,
+    "video_stream_hash": "0,v,SHA256=06a6bcea119f3a8bf1e29d217ac1f598909fb863cd198151a58ed7bc330fb5e4",
+    "sound_mode": "clicks-only",
+    "effect": "Nova established mechanical tap; 48 kHz stereo; seed 2071",
+    "audio_peak_dbfs": -13.27,
+    "click_events": 43,
+    "operator_clicks": 10,
+    "nova_clicks": 33,
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 3024,
+          "height": 1776,
+          "nb_frames": "12165"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 2,
+          "nb_frames": "19009"
+        }
+      ],
+      "format": {
+        "duration": "405.500000"
+      }
+    },
+    "output_sha256": "13ba90e64aec8bba35c0a2f8e2fdf35cd34d236278f584708817e89ded35f804"
+  },
+  "decodedAudio": {
+    "decoded": true,
+    "fps": 30,
+    "quiet_peak": 0.0,
+    "decoded_peak": 0.21591304242610931,
+    "max_onset_error_ms": 0.020833333333333332,
+    "minimum_tap_correlation": 0.9996168526724718
+  },
+  "visualReview": "Twelve evenly spaced decoded frames reviewed; opening, intermediate cards/actions/results and closing remain intact. Firecrawl card-entry sequence was separately sampled before editing to protect progressive explicit URL/schema entry."
+}

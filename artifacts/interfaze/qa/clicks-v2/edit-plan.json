@@ -1,0 +1,201 @@
+{
+  "fps": 30,
+  "width": 3024,
+  "height": 1776,
+  "segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 120,
+      "output_frames": 120,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 120,
+      "end_frame": 222,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Idle completed-state hold before the next operator action; reduce 3.40s to 1.00s while retaining readable context and all following work."
+    },
+    {
+      "start_frame": 222,
+      "end_frame": 1695,
+      "output_frames": 1473,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 1695,
+      "end_frame": 1809,
+      "output_frames": 36,
+      "kind": "operator-idle",
+      "reason": "Idle completed-state hold before the next operator action; reduce 3.80s to 1.20s while retaining readable context and all following work."
+    },
+    {
+      "start_frame": 1809,
+      "end_frame": 2295,
+      "output_frames": 486,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 2295,
+      "end_frame": 2658,
+      "output_frames": 60,
+      "kind": "operator-idle",
+      "reason": "Idle completed-state hold before the next operator action; reduce 12.10s to 2.00s while retaining readable context and all following work."
+    },
+    {
+      "start_frame": 2658,
+      "end_frame": 2895,
+      "output_frames": 237,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 2895,
+      "end_frame": 3111,
+      "output_frames": 45,
+      "kind": "operator-idle",
+      "reason": "Idle completed-state hold before the next operator action; reduce 7.20s to 1.50s while retaining readable context and all following work."
+    },
+    {
+      "start_frame": 3111,
+      "end_frame": 3141,
+      "output_frames": 30,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 3141,
+      "end_frame": 3216,
+      "output_frames": 30,
+      "kind": "operator-idle",
+      "reason": "Idle completed-state hold before the next operator action; reduce 2.50s to 1.00s while retaining readable context and all following work."
+    },
+    {
+      "start_frame": 3216,
+      "end_frame": 6495,
+      "output_frames": 3279,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 6495,
+      "end_frame": 7026,
+      "output_frames": 60,
+      "kind": "operator-idle",
+      "reason": "Idle completed-state hold before the next operator action; reduce 17.70s to 2.00s while retaining readable context and all following work."
+    },
+    {
+      "start_frame": 7026,
+      "end_frame": 10254,
+      "output_frames": 3228,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 10254,
+      "end_frame": 10464,
+      "output_frames": 45,
+      "kind": "operator-idle",
+      "reason": "Idle completed-state hold before the next operator action; reduce 7.00s to 1.50s while retaining readable context and all following work."
+    },
+    {
+      "start_frame": 10464,
+      "end_frame": 12444,
+      "output_frames": 1980,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 12444,
+      "end_frame": 12762,
+      "output_frames": 45,
+      "kind": "operator-idle",
+      "reason": "Idle completed-state hold before the next operator action; reduce 10.60s to 1.50s while retaining readable context and all following work."
+    },
+    {
+      "start_frame": 12762,
+      "end_frame": 13245,
+      "output_frames": 483,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 13245,
+      "end_frame": 13668,
+      "output_frames": 45,
+      "kind": "operator-idle",
+      "reason": "Idle completed-state hold before the next operator action; reduce 14.10s to 1.50s while retaining readable context and all following work."
+    },
+    {
+      "start_frame": 13668,
+      "end_frame": 13935,
+      "output_frames": 267,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 13935,
+      "end_frame": 14010,
+      "output_frames": 60,
+      "kind": "ui-scroll",
+      "reason": "Visually slow sidebar/card scrolling only; modest 1.25x acceleration preserves every state and does not overlap Nova website execution."
+    },
+    {
+      "start_frame": 14010,
+      "end_frame": 14136,
+      "output_frames": 126,
+      "kind": "agent",
+      "reason": "Retain final Nova work and a concise readable closing hold at real time."
+    }
+  ],
+  "masks": [
+    {
+      "x": 16,
+      "y": 174,
+      "width": 2218,
+      "height": 20,
+      "color": "#f9f8ff",
+      "start_frame": 717,
+      "end_frame": 718,
+      "purpose": "debugger-strip",
+      "evidence": "Native final2 frames 716\u2013723 measured; first insertion at 717. Fill RGB 249,248,255; x16 through2234 includes close icon, excludes Nova/product. Heights include two-pixel lower border; no mask before frame717."
+    },
+    {
+      "x": 16,
+      "y": 174,
+      "width": 2218,
+      "height": 52,
+      "color": "#f9f8ff",
+      "start_frame": 718,
+      "end_frame": 719,
+      "purpose": "debugger-strip",
+      "evidence": "Native final2 frames 716\u2013723 measured; first insertion at 717. Fill RGB 249,248,255; x16 through2234 includes close icon, excludes Nova/product. Heights include two-pixel lower border; no mask before frame717."
+    },
+    {
+      "x": 16,
+      "y": 174,
+      "width": 2218,
+      "height": 84,
+      "color": "#f9f8ff",
+      "start_frame": 719,
+      "end_frame": 720,
+      "purpose": "debugger-strip",
+      "evidence": "Native final2 frames 716\u2013723 measured; first insertion at 717. Fill RGB 249,248,255; x16 through2234 includes close icon, excludes Nova/product. Heights include two-pixel lower border; no mask before frame717."
+    },
+    {
+      "x": 16,
+      "y": 174,
+      "width": 2218,
+      "height": 114,
+      "color": "#f9f8ff",
+      "start_frame": 720,
+      "end_frame": 14355,
+      "purpose": "debugger-strip",
+      "evidence": "Native final2 frames 716\u2013723 measured; first insertion at 717. Fill RGB 249,248,255; x16 through2234 includes close icon, excludes Nova/product. Heights include two-pixel lower border; no mask before frame717."
+    }
+  ],
+  "clicks": []
+}

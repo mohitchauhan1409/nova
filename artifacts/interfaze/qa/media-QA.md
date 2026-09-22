@@ -1,3 +1,7 @@
+# Click-only pacing revision — 2026-09-22
+
+The current `nova-interfaze-clicks.mp4` supersedes the initial click-only export described later in this historical QA report. It reduces the click-only runtime from 472.500s to 405.500s (14.18% shorter) by compressing completed-state operator waits and accelerating only unusually slow sidebar/card scrolling, capped at 1.25×. Every Nova/website execution segment, typing sequence, click frame, result and verification remains at 1×. The original and silent files are unchanged. All 43 cues were remapped from source frames; zero click frames overlap accelerated segments. Decoded click QA passes with zero audio outside tap windows and maximum onset error 0.020833ms. See `clicks-v2/pacing-audit.json` and `clicks-v2/edit-plan.json`. Later statements that the click file shares the initial silent duration or video stream describe the superseded first export.
+
 # Interfaze final2 media QA — local export checks passed
 
 This report concerns session `afbb051f-28e4-496d-a4e1-dc228e111c1a` only. The previous empty-opening candidate is superseded. Frozen backend is `bd98d2500625f8821aa38836272b2568cb0fb4e5`, recording frontend `1f7c8755a8cf1133534272c0083615156639d91e`, shared main `dad9db1f1ff9a172d47a2f3e095eab4a6c96daf7`.
