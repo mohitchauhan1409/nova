@@ -46,6 +46,28 @@ describe('pointer dispatch receipts',()=>{
 });
 
 describe('recording-mode trusted field entry',()=>{
+  it.each(['fill','type','clear','paste','search'] as const)('initializes %s focus once before any keyboard dispatch',async(kind)=>{
+    vi.useFakeTimers();const f=setup(undefined,true);const order:string[]=[];
+    f.sendMessage.mockImplementation(async(_tab,message)=>{order.push(message.method);return {x:20,y:30,editable:true,ok:true};});
+    f.sendCommand.mockImplementation(async(_target,method,params)=>{order.push(method==='Input.dispatchMouseEvent'?params.type:method);return {};});
+    const task=f.control.execute(1,{...click,kind,value:kind==='clear'?null:'abc'});await vi.runAllTimersAsync();await task;
+    expect(order.filter(item=>item==='native-input-start')).toHaveLength(1);
+    expect(order.indexOf('native-input-start')).toBeGreaterThan(order.indexOf('mouseReleased'));
+    expect(order.indexOf('native-input-start')).toBeLessThan(order.findIndex(item=>item==='Input.dispatchKeyEvent'||item==='Input.insertText'));
+  });
+  it('does not select page text or send characters when the original field rejects initial focus',async()=>{
+    const f=setup(undefined,true);
+    f.sendMessage.mockImplementation(async(_tab,message)=>message.method==='native-input-start'?{ok:false}:{x:20,y:30,editable:true,ok:true});
+    await expect(f.control.execute(1,{...click,kind:'fill',value:'abc'})).rejects.toThrow('did not accept focus');
+    expect(f.sendCommand.mock.calls.every(call=>call[1]==='Input.dispatchMouseEvent')).toBe(true);
+  });
+  it('does not acquire focus after Stop arrives during the input click',async()=>{
+    const f=setup(undefined,true);f.sendMessage.mockResolvedValue({x:20,y:30,editable:true,ok:true});
+    f.sendCommand.mockImplementation(async(_target,_method,params)=>{if(params.type==='mouseReleased')f.control.cancelInput();return {};});
+    await expect(f.control.execute(1,{...click,kind:'fill',value:'abc'})).rejects.toThrow('stopped');
+    expect(f.sendMessage.mock.calls.some(call=>call[1].method==='native-input-start')).toBe(false);
+    expect(f.sendCommand.mock.calls.every(call=>call[1]==='Input.dispatchMouseEvent')).toBe(true);
+  });
   it('keeps normal input unchanged and paces every actual recording character',async()=>{
     const normal=setup();normal.sendMessage.mockResolvedValue({x:20,y:30,editable:true,ok:true});
     await normal.control.execute(1,{...click,kind:'fill',value:'Two words'});
