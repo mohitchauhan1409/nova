@@ -14,6 +14,8 @@ import { companionOutput, conversationReply, latestTask, pagePrivacy } from './c
 import {observeProgress,recordProgress,beforeProgressAction,repeatedTabInspection} from './progress';
 import {makeClarification,questionText,validateAnswers} from './clarification';
 import {hasProcessingEvidence,ProcessingWaitBudget} from './processing-wait';
+import {requestsFreshInference} from './inference-submission';
+import {inferencePlaygrounds} from '../sites/action-semantics';
 
 export class AgentRunner {
   private controller?: AbortController;
@@ -138,6 +140,8 @@ export class AgentRunner {
     let effect: Effect | undefined; let attempted = false; let completionFailures = 0; let completionRefreshes=0;
     let pendingEffect: {action:Action;before:Snapshot;result:unknown;mayCommit:boolean}|undefined;
     const waitBudget=new ProcessingWaitBudget();
+    let freshInferenceRequired=false;
+    let verifiedInferenceSubmission=false;
     const deadline = Date.now() + 8 * 60 * 1000;
     try {
       for (let step = 0; step < 48 && Date.now() < deadline; step++) {
@@ -147,6 +151,7 @@ export class AgentRunner {
         if (signal.aborted) return;
         if (snapshot.blocked) { this.say(snapshot.blocked); this.session.status = 'stopped'; return; }
         if (!sameSite(this.scope, snapshot.url)) { this.say('The browser moved to another website. Attach that website or start a session there to continue.'); this.session.status = 'stopped'; return; }
+        freshInferenceRequired ||= requestsFreshInference(snapshot,this.scope,latestTask(this.session),inferencePlaygrounds);
         this.trace('think', 'Planning the next website action.');
         const started = performance.now();
         const action = await this.planner.decide(this.session, this.site, snapshot, signal, screenshot);
@@ -167,7 +172,11 @@ export class AgentRunner {
             snapshot=fresh;
           }
           this.trace('think',action.summary,planningMs);
-          const problem=completionProblem(action,snapshot,effect,attempted,this.session.progress,latestTask(this.session));
+          const freshnessProblem=action.completion?.status!=='blocked'&&freshInferenceRequired?(
+            !verifiedInferenceSubmission?'The user requested a new inference run. Submit the requested prompt once and verify its new result or log. An old identical prompt/output does not fulfill this request; no verified submission occurred in this command.':
+            hasProcessingEvidence(snapshot)?'The current inference was submitted and is still processing. Wait and inspect its new result or log; do not submit it again or use an earlier result.':undefined
+          ):undefined;
+          const problem=freshnessProblem||completionProblem(action,snapshot,effect,attempted,this.session.progress,latestTask(this.session));
           if(problem){this.trace('error',`Completion rejected: ${problem}`);if(++completionFailures<2)continue;this.say('I could not verify that the requested result happened. Please check the page before retrying; I have not marked this task complete.');this.session.status='stopped';return;}
           this.session.awaitingAnswer=false;this.say(action.summary);this.session.status=action.completion?.status==='blocked'?'stopped':'ready';return;
         }
@@ -300,6 +309,7 @@ export class AgentRunner {
               }else this.trace('info','The scroll did not move the view. Do not repeat it; use another semantic control. Visual recovery is unavailable on this page.');
             }
             this.stepResult(actionStep,effect.verified?'verified':'unverified',effect.detail);
+            if(policy.semantic==='inference-submission'&&effect.verified)verifiedInferenceSubmission=true;
             this.trace('verify',`${effect.verified?'Verified change':'Unverified action'} ${action.kind}: ${effect.detail}`);
             if((result as ActionResult)?.verification?.status==='verified'&&action.ref&&['fill','type','paste','clear'].includes(action.kind)){
               written.add(`${snapshot.url}|${action.ref}`);
