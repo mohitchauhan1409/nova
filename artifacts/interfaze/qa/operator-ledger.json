@@ -1,0 +1,172 @@
+{
+  "clicks": [
+    {
+      "at": 1790049472192,
+      "actor": "operator",
+      "button": "left",
+      "target": "Open Nova side panel",
+      "completedAt": 1790049472343
+    },
+    {
+      "at": 1790049477016,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790049477081
+    },
+    {
+      "at": 1790049550016,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790049550141
+    },
+    {
+      "at": 1790049582328,
+      "actor": "operator",
+      "button": "left",
+      "target": "Help me choose",
+      "completedAt": 1790049582932
+    },
+    {
+      "at": 1790049611438,
+      "actor": "operator",
+      "button": "left",
+      "target": "Category + summary radio",
+      "completedAt": 1790049611714
+    },
+    {
+      "at": 1790049624389,
+      "actor": "operator",
+      "button": "left",
+      "target": "Continue with Category + summary",
+      "completedAt": 1790049625162
+    },
+    {
+      "at": 1790049718296,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790049718554
+    },
+    {
+      "at": 1790049790736,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790049790844
+    },
+    {
+      "at": 1790049920786,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790049920910
+    },
+    {
+      "at": 1790049993368,
+      "actor": "operator",
+      "button": "left",
+      "target": "Confirm action: submit synthetic CD-105 model test",
+      "completedAt": 1790049993631
+    },
+    {
+      "at": 1790050054644,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790050054917
+    },
+    {
+      "at": 1790050172651,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790050172904
+    },
+    {
+      "at": 1790050207296,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790050207546
+    },
+    {
+      "at": 1790050242869,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790050243121
+    }
+  ],
+  "prompts": [
+    {
+      "text": "Run this prompt: Classify a cracked mug as damage, delivery or other. Reply with one word.",
+      "typingStartedAt": 1790049477081,
+      "submittedAt": 1790049489813
+    },
+    {
+      "text": "Turn this into JSON triage for Cedar Desk at temperature zero.",
+      "typingStartedAt": 1790049550141,
+      "submittedAt": 1790049558862
+    },
+    {
+      "text": "Test this prompt: CD-104 arrived with a cracked mug. Check Logs.",
+      "typingStartedAt": 1790049718554,
+      "submittedAt": 1790049727562
+    },
+    {
+      "text": "Add required boolean escalate: damage or delays over seven days. Test this prompt: CD-105 is nine days late, no damage. Check Logs.",
+      "typingStartedAt": 1790049790844,
+      "submittedAt": 1790049809522
+    },
+    {
+      "text": "Scroll the settings pane to the new field, then finish this test and check Logs.",
+      "typingStartedAt": 1790049920910,
+      "submittedAt": 1790049932081
+    },
+    {
+      "text": "Test this prompt: CD-106 is exactly seven days late, no damage. Check Logs.",
+      "typingStartedAt": 1790050054917,
+      "submittedAt": 1790050065433
+    },
+    {
+      "text": "Which rule escalated CD-105? Does zero temperature guarantee accuracy?",
+      "typingStartedAt": 1790050172904,
+      "submittedAt": 1790050182759
+    },
+    {
+      "text": "Show the saved output.",
+      "typingStartedAt": 1790050207546,
+      "submittedAt": 1790050210638
+    },
+    {
+      "text": "Scroll the log dialog down to Output.",
+      "typingStartedAt": 1790050243121,
+      "submittedAt": 1790050248314
+    }
+  ],
+  "scrolls": [
+    {
+      "at": 1790049574200,
+      "direction": "down",
+      "pages": 0.0125,
+      "count": 20,
+      "finishedAt": 1790049578280
+    },
+    {
+      "at": 1790049601018,
+      "direction": "down",
+      "pages": 0.0125,
+      "count": 26,
+      "finishedAt": 1790049606121
+    },
+    {
+      "at": 1790049616309,
+      "direction": "down",
+      "pages": 0.0125,
+      "count": 16,
+      "finishedAt": 1790049619386
+    }
+  ]
+}

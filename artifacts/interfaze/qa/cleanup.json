@@ -1,0 +1,9 @@
+{
+  "removed_task_only_pngs": 606,
+  "removed_png_bytes": 140498598,
+  "removed_empty_legacy_mp4": true,
+  "primary_media_count": 3,
+  "original_preserved": true,
+  "review_results_retained": "media-QA.md, media-manifest.json, decoded-frame-comparison.json, decoded-audio.json, edit-plan.json, mapping-v1, receipts and extraction scripts",
+  "inspection_images": "Removed after QA per coordinator; cited names are inspection references, regenerate from native original and frame indices."
+}

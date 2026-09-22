@@ -1,0 +1,408 @@
+{
+  "scope": "Interfaze final take media only",
+  "status": "local export and decoded QA accepted with documented visible recovery/label limitations",
+  "source_first_frame_epoch_ms": 1790049469029,
+  "raw_duration_seconds": 799,
+  "edited_duration_seconds": 734,
+  "operator_idle_reduction_seconds": 65,
+  "clicks": {
+    "unique": 50,
+    "operator": 14,
+    "nova": 36
+  },
+  "files": {
+    "nova-interfaze-original.mov": {
+      "bytes": 128796011,
+      "sha256": "9bf857a9364f16e4ec1fc7952fbaef7b8f6a503d3e9ded301c0694bc0aedc8a5",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 3024,
+            "height": 1776,
+            "r_frame_rate": "30/1",
+            "avg_frame_rate": "30/1",
+            "nb_frames": "23970"
+          }
+        ],
+        "format": {
+          "duration": "799.000000"
+        }
+      }
+    },
+    "nova-interfaze-silent.mp4": {
+      "bytes": 33104782,
+      "sha256": "75b85be238d21ed6d48675d04917c8af8755d5274babf9b9b229c661e1e9bdcc",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 3024,
+            "height": 1776,
+            "r_frame_rate": "30/1",
+            "avg_frame_rate": "30/1",
+            "nb_frames": "22020"
+          }
+        ],
+        "format": {
+          "duration": "734.000000"
+        }
+      }
+    },
+    "nova-interfaze-clicks.mp4": {
+      "bytes": 33994352,
+      "sha256": "a5b3115e9a4d29188222145aa07c3e21a7265bf8c42b32cda2f4f385f4a16983",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 3024,
+            "height": 1776,
+            "r_frame_rate": "30/1",
+            "avg_frame_rate": "30/1",
+            "nb_frames": "22020"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "channels": 2,
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0",
+            "nb_frames": "34408"
+          }
+        ],
+        "format": {
+          "duration": "734.000000"
+        }
+      }
+    }
+  },
+  "audio_verification": {
+    "decoded": true,
+    "fps": 30,
+    "events": [
+      {
+        "time": 3.3333333333333335,
+        "actor": "operator",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997576590577535
+      },
+      {
+        "time": 8.066666666666666,
+        "actor": "operator",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9996918999632844
+      },
+      {
+        "time": 25.333333333333332,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9998653309729101
+      },
+      {
+        "time": 41.733333333333334,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9998866402409117
+      },
+      {
+        "time": 72.1,
+        "actor": "operator",
+        "onset_error_ms": 0.0,
+        "correlation": 0.999760587333004
+      },
+      {
+        "time": 104.9,
+        "actor": "operator",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9999313724286237
+      },
+      {
+        "time": 133.7,
+        "actor": "operator",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997846953079096
+      },
+      {
+        "time": 147.13333333333333,
+        "actor": "operator",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9994548361052963
+      },
+      {
+        "time": 150.13333333333333,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997767368303014
+      },
+      {
+        "time": 152.9,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9999594876558663
+      },
+      {
+        "time": 167.46666666666667,
+        "actor": "nova",
+        "onset_error_ms": 0.020833333333333332,
+        "correlation": 0.9997238770764982
+      },
+      {
+        "time": 175.43333333333334,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.999864086579071
+      },
+      {
+        "time": 178.1,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997784343687273
+      },
+      {
+        "time": 182.1,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9996911221822302
+      },
+      {
+        "time": 184.36666666666667,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997697644523545
+      },
+      {
+        "time": 204.1,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9999762911712299
+      },
+      {
+        "time": 208.36666666666667,
+        "actor": "nova",
+        "onset_error_ms": 0.020833333333333332,
+        "correlation": 0.9997587226795672
+      },
+      {
+        "time": 228.53333333333333,
+        "actor": "operator",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997773295884864
+      },
+      {
+        "time": 240.23333333333332,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997674792560208
+      },
+      {
+        "time": 248.53333333333333,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9998259327439386
+      },
+      {
+        "time": 264.7,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997080181801197
+      },
+      {
+        "time": 280.1,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997067213595094
+      },
+      {
+        "time": 300.8333333333333,
+        "actor": "operator",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9999414544589751
+      },
+      {
+        "time": 325.2,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9996902338406056
+      },
+      {
+        "time": 328.4,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9996187746052713
+      },
+      {
+        "time": 331.3666666666667,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997098928926863
+      },
+      {
+        "time": 352.3333333333333,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9998649786861596
+      },
+      {
+        "time": 430.8666666666667,
+        "actor": "operator",
+        "onset_error_ms": 0.0,
+        "correlation": 0.999736256111397
+      },
+      {
+        "time": 447.8,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9998856671549383
+      },
+      {
+        "time": 455.46666666666664,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9998430823688019
+      },
+      {
+        "time": 458.4,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9998780784942444
+      },
+      {
+        "time": 491.6,
+        "actor": "operator",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997639472496785
+      },
+      {
+        "time": 491.73333333333335,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997081146276294
+      },
+      {
+        "time": 507.7,
+        "actor": "nova",
+        "onset_error_ms": 0.10416666666666667,
+        "correlation": 0.999822665412238
+      },
+      {
+        "time": 512.2666666666667,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9999004606051924
+      },
+      {
+        "time": 515.3333333333334,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997533200150593
+      },
+      {
+        "time": 519.5333333333333,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9996212894089209
+      },
+      {
+        "time": 535.3333333333334,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997528682307975
+      },
+      {
+        "time": 552.9,
+        "actor": "operator",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997084844525885
+      },
+      {
+        "time": 570.3666666666667,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997479753725226
+      },
+      {
+        "time": 574.4333333333333,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9998523982039746
+      },
+      {
+        "time": 583.6333333333333,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997803881698193
+      },
+      {
+        "time": 600.8,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997793993056325
+      },
+      {
+        "time": 616.7666666666667,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997760747989993
+      },
+      {
+        "time": 623.9666666666667,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997418605420425
+      },
+      {
+        "time": 627.2666666666667,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997024179345027
+      },
+      {
+        "time": 630.7666666666667,
+        "actor": "nova",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9999420056004531
+      },
+      {
+        "time": 657.8666666666667,
+        "actor": "operator",
+        "onset_error_ms": -0.020833333333333332,
+        "correlation": 0.999885803970139
+      },
+      {
+        "time": 686.5333333333333,
+        "actor": "operator",
+        "onset_error_ms": 0.0,
+        "correlation": 0.9997056720950044
+      },
+      {
+        "time": 709.1,
+        "actor": "operator",
+        "onset_error_ms": 0.020833333333333332,
+        "correlation": 0.9997651708730525
+      }
+    ],
+    "quiet_peak": 0.0,
+    "decoded_peak": 0.2170882225036621,
+    "max_onset_error_ms": 0.10416666666666667,
+    "minimum_tap_correlation": 0.9994548361052963
+  },
+  "frame_comparison": {
+    "compared_click_and_response_frames": 100,
+    "maximum_mean_absolute_rgb_error": 0.11775019066685734,
+    "maximum_p99_absolute_rgb_error": 2.0,
+    "mask_excluded_comparison_only": "x6..1118,y85..145 at1512x888 (source-measured debugger region plus2scaled-pixel codec-boundary allowance; output mask itself remains exact)"
+  },
+  "encoded_video_stream_identical": true,
+  "remote_recovery": "Not performed by media QA task; root coordinates backup separately."
+}

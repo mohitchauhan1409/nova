@@ -1,0 +1,67 @@
+{
+  "session_clicks": 50,
+  "operator_ledger_clicks": 14,
+  "duplicate_operator_pairs_ledger_session": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      6,
+      17
+    ],
+    [
+      7,
+      22
+    ],
+    [
+      8,
+      27
+    ],
+    [
+      9,
+      31
+    ],
+    [
+      10,
+      38
+    ],
+    [
+      11,
+      47
+    ],
+    [
+      12,
+      48
+    ],
+    [
+      13,
+      49
+    ]
+  ],
+  "unique_cues": 50,
+  "operator": 14,
+  "nova": 36,
+  "excluded_mouse_dispatches": 0,
+  "notes": "Keyboard submissions, select-value operation and scroll events are not mouse taps. Operator Confirm and subsequent Nova Send remain two separate clicks."
+}
