@@ -11,9 +11,9 @@ export function pacedCharacters(value: string): string[] {
   return result;
 }
 
-// Slightly brisk, deterministic rhythm; punctuation gets a short reading pause.
+// 1.25x the original recording rhythm; punctuation keeps its proportional pause.
 export function characterPause(character: string, index: number): number {
-  return 150 + (index % 5) * 10 + (/[.,!?;:\n]$/.test(character) ? 90 : 0);
+  return 120 + (index % 5) * 8 + (/[.,!?;:\n]$/.test(character) ? 72 : 0);
 }
 
 export function pacedActionTimeout(value: string): number {
