@@ -1,12 +1,45 @@
 {
   "origin": "Wholly synthetic local business/order fixtures for this authorized demonstration",
-  "scope": {"organizationSlug":"nova-56d7","projectSlug":"nova-YcS4","environment":"dev","projectRef":"proj_futnuhorkbwfxqmsvsgv"},
-  "business":"Harbor & Vale",
-  "taskId":"harbor-order-summary",
-  "batch":"harbor-september",
-  "orderIds":["HV-101","HV-102","HV-103","HV-104","HV-105","HV-106"],
-  "sourceLedger":"examples/trigger-dev/src/lib/order-summary.ts",
-  "remoteTaskRegistered":false,
-  "runs":[],
-  "cleanupPolicy":"Only specifically recorded owned run IDs are eligible; preserve useful baseline, never infer ownership from names. No unrelated cleanup."
+  "scope": {
+    "organizationSlug": "nova-56d7",
+    "projectSlug": "nova-YcS4",
+    "environment": "dev",
+    "projectRef": "proj_futnuhorkbwfxqmsvsgv"
+  },
+  "business": "Harbor & Vale",
+  "taskId": "harbor-order-summary",
+  "batch": "harbor-september",
+  "orderIds": [
+    "HV-101",
+    "HV-102",
+    "HV-103",
+    "HV-104",
+    "HV-105",
+    "HV-106"
+  ],
+  "sourceLedger": "examples/trigger-dev/src/lib/order-summary.ts",
+  "remoteTaskRegistered": true,
+  "runs": [],
+  "cleanupPolicy": "Only specifically recorded owned run IDs are eligible; preserve useful baseline, never infer ownership from names. No unrelated cleanup.",
+  "coordinator_manual_baseline": [
+    {
+      "id": "run_06gce57r68q6pm0hd9u7qe7s01",
+      "url": "https://cloud.trigger.dev/orgs/nova-56d7/projects/nova-YcS4/env/dev/runs/run_06gce57r68q6pm0hd9u7qe7s01",
+      "status": "Completed",
+      "orderCount": 5,
+      "units": 10,
+      "orderValueINR": 19390,
+      "source": "real UI test form, manual preparation not Nova"
+    },
+    {
+      "id": "run_06gce5bc7htr5tju4uqvju4h01",
+      "url": "https://cloud.trigger.dev/orgs/nova-56d7/projects/nova-YcS4/env/dev/runs/run_06gce5bc7htr5tju4uqvju4h01",
+      "status": "Failed",
+      "quantityOverride": -2,
+      "error": "HV-104 quantityOverride must be integer1\u2013100. Source quantity2.",
+      "source": "real Replay run, Development confirmed; intentional baseline failure"
+    }
+  ],
+  "workerVersion": "20260922.1",
+  "baselinePersistence": "Coordinator reloaded the failed run detail and independently observed its Failed status and quantityOverride validation error."
 }

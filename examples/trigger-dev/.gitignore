@@ -1,0 +1,4 @@
+.trigger/
+.env
+.env.*
+node_modules/
