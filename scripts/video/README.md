@@ -234,7 +234,8 @@ after changes to the build, theme, pointer controls, focus, or recording setup.
 
 `NOVA_RECORDING_MODE=true` also opts trusted extension field entry into real
 character-paced input. The browser receives one Unicode grapheme per
-`Input.insertText` call, spaced 150–190 ms apart, with a short punctuation pause.
+`Input.insertText` call, spaced 120–152 ms apart, with 72 ms added after punctuation.
+This is 1.25× the original recording rhythm; dispatch stays strictly character by character.
 There is no reveal animation or postproduction typing. Normal builds retain
 whole-value entry. The recording build requires browser-control permission for
 text; it will not fall back to instant DOM replacement.
