@@ -114,9 +114,10 @@ export class BrowserControl {
     const press = async (value: string) => {
       const keys: Record<string,[string,string,number]> = {Enter:['Enter','Enter',13],Escape:['Escape','Escape',27],Tab:['Tab','Tab',9],ArrowDown:['ArrowDown','ArrowDown',40],ArrowUp:['ArrowUp','ArrowUp',38],ArrowLeft:['ArrowLeft','ArrowLeft',37],ArrowRight:['ArrowRight','ArrowRight',39],Home:['Home','Home',36],End:['End','End',35],PageUp:['PageUp','PageUp',33],PageDown:['PageDown','PageDown',34],Backspace:['Backspace','Backspace',8],Delete:['Delete','Delete',46],' ':[' ','Space',32]};
       const command = ({'ControlOrMeta+A':'selectAll','ControlOrMeta+Z':'undo','ControlOrMeta+Y':'redo'} as Record<string,string>)[value];
-      const key = value === 'Shift+Tab' ? keys.Tab : command ? [value.slice(-1).toLowerCase(),`Key${value.slice(-1)}`,value.charCodeAt(value.length-1)] as [string,string,number] : keys[value];
+      const navigation=/^(ControlOrMeta|Control)\+(Home|End)$/.exec(value);
+      const key = navigation ? keys[navigation[2]] : value === 'Shift+Tab' ? keys.Tab : command ? [value.slice(-1).toLowerCase(),`Key${value.slice(-1)}`,value.charCodeAt(value.length-1)] as [string,string,number] : keys[value];
       if (!key) throw new Error('This keyboard shortcut is not supported.');
-      const params = {key:key[0],code:key[1],windowsVirtualKeyCode:key[2],modifiers:value==='Shift+Tab'?8:command?(/Mac/.test(navigator.userAgent)?4:2):0};
+      const params = {key:key[0],code:key[1],windowsVirtualKeyCode:key[2],modifiers:value==='Shift+Tab'?8:navigation?.[1]==='Control'?2:command||navigation?(/Mac/.test(navigator.userAgent)?4:2):0};
       const text=!command&&['Enter',' '].includes(value)?(value==='Enter'?'\r':' '):undefined;
       await send('Input.dispatchKeyEvent',{type:text?'keyDown':'rawKeyDown',...params,...(command?{commands:[command]}:{}),...(text?{text,unmodifiedText:text}:{})});
       await this.command({tabId},'Input.dispatchKeyEvent',{type:'keyUp',...params});
@@ -139,7 +140,21 @@ export class BrowserControl {
       const value = action.kind === 'clear' ? '' : action.value || '';
       if (value && this.pacedInput) {
         const deadline = Date.now() + pacedActionTimeout(value) - 5_000;
-        await insertPacedText(value, character => send('Input.insertText', {text:character}), async () => {
+        let prefix='';
+        await insertPacedText(value, async character => {
+          await send('Input.insertText', {text:character});prefix+=character;
+          if(prepared.editable&&prepared.tag&&!['input','textarea'].includes(prepared.tag)){
+            checkGeneration();
+            const pair=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'native-input-correction',action,cursorId,prefix,character});
+            checkGeneration();if(pair?.error)throw new Error(pair.error);
+            if(pair?.remove){
+              await press('Delete');
+              const corrected=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'verify',action:{...action,kind:'type',value:prefix},expectedLength:(action.kind==='type'?(prepared.valueLength||0):0)+prefix.length});
+              checkGeneration();
+              if(corrected?.verification?.status!=='verified')throw new Error('The editor correction could not be verified. Inspect the partial value before continuing; no submission was sent.');
+            }
+          }
+        }, async () => {
           checkGeneration();
           const focus = await chrome.tabs.sendMessage(tabId, {type:'nova-dom', method:'native-input-focus', action, cursorId});
           if (focus?.error || !focus?.ok) throw new Error(focus?.error || 'The text field lost focus. Inspect partial input before continuing.');
@@ -149,7 +164,13 @@ export class BrowserControl {
       if (action.kind === 'search') await press('Enter');
     } else if (action.kind === 'press') {
       // prepare focuses only the grounded target, never an arbitrary private field.
-      if (prepared.editable) await click();
+      if (prepared.editable) {
+        // Keep a preceding End/selection action intact in this same editor.
+        if(!prepared.focused)await click();
+        const focus=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'native-input-start',action});
+        checkGeneration();
+        if(focus?.error||!focus?.ok)throw new Error(focus?.error||'The original editor did not accept keyboard focus.');
+      }
       else if(!prepared.focused)throw new Error('This control could not receive keyboard focus. Choose its observed clickable control instead.');
       await press(action.value || 'Enter');
     } else if (action.kind === 'check') {
@@ -165,6 +186,7 @@ export class BrowserControl {
     if (['fill','clear','paste','type','check'].includes(action.kind)) {
       const verified = await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'verify',action,expectedLength:action.kind==='type'?(prepared.valueLength||0)+(action.value||'').length:undefined});
       if (verified?.error) throw new Error(verified.error);
+      if(['fill','clear','paste','type'].includes(action.kind)&&verified?.verification?.status==='unverified')throw new Error('The text field does not exactly match the requested value. Inspect the current editor before continuing; no submission was sent.');
       return verified;
     }
     return {ok:true,detail:'Trusted browser input sent. The page outcome must still be checked.'};

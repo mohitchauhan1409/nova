@@ -204,3 +204,16 @@ describe('URL boundaries', () => {
   it('rejects local URLs and embedded credentials', async()=> { await expect(assertPublicUrl('http://169.254.169.254/latest/meta-data')).rejects.toThrow(); await expect(assertPublicUrl('http://localhost:9999')).rejects.toThrow(); expect(()=>parseWebUrl('https://user:password@example.com')).toThrow(); expect(()=>parseWebUrl('file:///etc/passwd')).toThrow(); });
   it('cannot treat suffix lookalikes as the same site',()=> { expect(sameSite('https://www.amazon.in','https://www.amazon.in.evil.com')).toBe(false); expect(sameSite('https://www.amazon.in','https://amazon.in/ap/signin')).toBe(true); expect(sameSite('https://google.com','https://google.co.in')).toBe(false); });
 });
+
+
+describe('caret navigation in an observed form editor',()=>{
+  const editor={...snapshot.elements[0],ref:'editor',tag:'div',role:'textbox',type:'contenteditable',name:'JSON',form:true,edit:{revision:'v1',empty:false}};
+  const page={...snapshot,elements:[editor]};
+  it.each(['End','ControlOrMeta+End','Control+End','Home','ArrowLeft'])('keeps %s non-submitting',value=>{
+    expect(checkAction(action({kind:'press',ref:'editor',value}),page,page.url)).toMatchObject({outcome:'allow',mayCommit:false});
+  });
+  it('still guards Enter and deletion outside an editor',()=>{
+    expect(checkAction(action({kind:'press',ref:'editor',value:'Enter'}),page,page.url).outcome).toBe('approve');
+    expect(checkAction(action({kind:'press',ref:'cart',value:'Delete'}),snapshot,snapshot.url).outcome).toBe('approve');
+  });
+});
