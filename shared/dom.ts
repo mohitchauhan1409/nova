@@ -17,7 +17,10 @@ export function installNovaDOM() {
   let editSequence=0;
   const edits=new WeakMap<Element,{value:string;revision:string}>();
   const nodeId=(el:Element)=>{let id=ids.get(el);if(!id){id=`${prefix}-${++sequence}`;ids.set(el,id);}return id;};
-  const fieldValue=(el:Element)=>el instanceof HTMLInputElement&&['checkbox','radio'].includes(el.type)?`${el.checked}:${el.value}`:el instanceof HTMLInputElement||el instanceof HTMLTextAreaElement||el instanceof HTMLSelectElement?el.value:el instanceof HTMLElement&&el.isContentEditable?el.innerText:undefined;
+  // Empty rich editors often retain a structural line/br for caret placement.
+  // It contains no text characters; never strip whitespace from actual text.
+  const editableValue=(el:HTMLElement)=>el.textContent===''&&[...el.querySelectorAll('*')].every(node=>['DIV','SPAN','BR'].includes(node.tagName))?'':el.innerText;
+  const fieldValue=(el:Element)=>el instanceof HTMLInputElement&&['checkbox','radio'].includes(el.type)?`${el.checked}:${el.value}`:el instanceof HTMLInputElement||el instanceof HTMLTextAreaElement||el instanceof HTMLSelectElement?el.value:el instanceof HTMLElement&&el.isContentEditable?editableValue(el):undefined;
   const editState=(el:Element)=>{const value=fieldValue(el);if(value===undefined||sensitive(el))return;let old=edits.get(el);if(!old||old.value!==value){old={value,revision:`${prefix}:edit:${++editSequence}`};edits.set(el,old);}return {revision:old.revision,empty:value.length===0};};
   const visualTargets = new Map<Element,{x:number;y:number;rect:number[];visual:boolean}>();
   const controls='a[href],button,input:not([type="hidden"]),textarea,select,[role="button"],[role="link"],[role="textbox"],[role="searchbox"],[role="combobox"],[role="tab"],[role="checkbox"],[role="switch"],[role="radio"],[role="slider"],[role="spinbutton"],[role="option"],[role="menuitem"],[role="menuitemcheckbox"],[role="menuitemradio"],[role="treeitem"],[role="list"],[role="listbox"],[role="feed"],[role="grid"],[contenteditable]:not([contenteditable="false"]),[draggable="true"],video,audio,canvas,summary,[tabindex],[onclick],[data-action]';
@@ -165,7 +168,7 @@ export function installNovaDOM() {
         [x,y]=point;
       }
       if (el instanceof HTMLAnchorElement && el.target === '_blank') el.target = '_self';
-      return { x, y, focused:el.getRootNode() instanceof ShadowRoot ? (el.getRootNode() as ShadowRoot).activeElement===el : document.activeElement===el, valueLength:el instanceof HTMLInputElement||el instanceof HTMLTextAreaElement?el.value.length:el instanceof HTMLElement&&el.isContentEditable?el.innerText.length:undefined, editable: (el instanceof HTMLInputElement && !['file','hidden','password','submit','button','checkbox','radio','range','color'].includes(el.type)) || el instanceof HTMLTextAreaElement || (el instanceof HTMLElement&&el.isContentEditable), tag: el.tagName.toLowerCase(), type: el.getAttribute('type') || '', ...(el instanceof HTMLMediaElement?{paused:el.paused}:{}), ...(el instanceof HTMLInputElement && ['checkbox','radio'].includes(el.type) ? {checked:el.checked} : /checkbox|switch|radio/.test(el.getAttribute('role') || '') ? {checked:el.getAttribute('aria-checked') === 'true'} : {}) };
+      return { x, y, focused:el.getRootNode() instanceof ShadowRoot ? (el.getRootNode() as ShadowRoot).activeElement===el : document.activeElement===el, valueLength:el instanceof HTMLInputElement||el instanceof HTMLTextAreaElement?el.value.length:el instanceof HTMLElement&&el.isContentEditable?editableValue(el).length:undefined, editable: (el instanceof HTMLInputElement && !['file','hidden','password','submit','button','checkbox','radio','range','color'].includes(el.type)) || el instanceof HTMLTextAreaElement || (el instanceof HTMLElement&&el.isContentEditable), tag: el.tagName.toLowerCase(), type: el.getAttribute('type') || '', ...(el instanceof HTMLMediaElement?{paused:el.paused}:{}), ...(el instanceof HTMLInputElement && ['checkbox','radio'].includes(el.type) ? {checked:el.checked} : /checkbox|switch|radio/.test(el.getAttribute('role') || '') ? {checked:el.getAttribute('aria-checked') === 'true'} : {}) };
     },
     startInput(ref,append=false) {
       // Validate the original observed field before focusing it once. A trusted
@@ -217,7 +220,7 @@ export function installNovaDOM() {
       const el = refs.get(action.ref || '');
       let matches: boolean | undefined;
       if (el && !sensitive(el) && ['fill','clear','paste','type'].includes(action.kind)) {
-        const value = el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement ? el.value : (el as HTMLElement).isContentEditable ? (el as HTMLElement).innerText : undefined;
+        const value = el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement ? el.value : (el as HTMLElement).isContentEditable ? editableValue(el as HTMLElement) : undefined;
         matches = action.kind==='type'?typeof value==='string'&&expectedLength!==undefined&&value.length===expectedLength&&(inputBaselines.has(el as HTMLElement)?value===inputBaselines.get(el as HTMLElement)!+(action.value||''):value.endsWith(action.value||'')):value === (action.kind === 'clear' ? '' : action.value || '');
       }
       if (el && action.kind === 'check') matches = (el instanceof HTMLInputElement ? el.checked : el.getAttribute('aria-checked') === 'true') === (action.value !== 'false');
