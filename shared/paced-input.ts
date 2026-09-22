@@ -33,3 +33,15 @@ export async function insertPacedText(value: string, insert: (character: string)
     await insert(characters[i]);
   }
 }
+
+
+// Rich editors may render their native DOM selection in the next frame. This
+// waits for layout/selection only: no input retry and no change to textarea pace.
+export function settleEditorInput():Promise<void> {
+  return new Promise(resolve=>{
+    let frame=0;
+    const finish=()=>{clearTimeout(timer);cancelAnimationFrame(frame);resolve();};
+    const timer=setTimeout(finish,80);
+    frame=requestAnimationFrame(()=>{frame=requestAnimationFrame(finish);});
+  });
+}
