@@ -1,0 +1,14 @@
+{
+  "verifiedAtUtc": "2026-09-22T07:20:39.435046+00:00",
+  "remote": "https://github.com/mohitchauhan1409/nova.git",
+  "branch": "trigger-dev-nova",
+  "mediaCommit": "73882a322c3ecb983f09ec24d9ecf7c02f8f860b",
+  "path": "artifacts/trigger-dev/media/nova-trigger-dev-clicks.mp4",
+  "bytes": 30536337,
+  "sha256": "74fc0c3c17c5f4780a8ed7742bf4bb5c31328df79be1a120268b3704ef04ed8f",
+  "freshClone": true,
+  "lfsStorage": "/Users/macbook/Desktop/Nova-batch-20260922/private/clicks-v2/recovery/trigger-dev/empty-lfs",
+  "lfsStoreInitiallyEmpty": true,
+  "objectPresentInIsolatedStore": true,
+  "worktreeHashMatchesAccepted": true
+}
