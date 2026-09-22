@@ -79,6 +79,19 @@ describe('recording-mode trusted field entry',()=>{
     expect(paced.sendCommand.mock.calls.filter(c=>c[1]==='Input.insertText').map(c=>c[2].text)).toEqual([... 'Two words']);
     expect(paced.sendMessage.mock.calls.filter(c=>c[1].method==='native-input-focus')).toHaveLength(9);
   });
+  it('allows query-only draft updates during paced input but rejects path navigation',async()=>{
+    vi.useFakeTimers();
+    const f=setup(undefined,true);let url='https://example.test/form';
+    vi.mocked(chrome.tabs.get).mockImplementation(async()=>({active:true,url}) as chrome.tabs.Tab);
+    f.sendMessage.mockResolvedValue({x:20,y:30,editable:true,ok:true});
+    f.sendCommand.mockImplementation(async(_target,method,params)=>{if(method==='Input.insertText')url=`https://example.test/form?draft=${params.text}`;return {};});
+    const allowed=f.control.execute(1,{...click,kind:'fill',value:'ab'});await vi.runAllTimersAsync();await allowed;
+
+    url='https://example.test/form';
+    f.sendCommand.mockImplementation(async(_target,method)=>{if(method==='Input.insertText')url='https://example.test/other?draft=a';return {};});
+    const blocked=expect(f.control.execute(1,{...click,kind:'fill',value:'ab'})).rejects.toThrow('page navigated');
+    await vi.runAllTimersAsync();await blocked;
+  });
   it('cancels during a typing pause without emitting the next character',async()=>{
     vi.useFakeTimers();const f=setup(undefined,true);f.sendMessage.mockResolvedValue({x:20,y:30,editable:true,ok:true});
     f.sendCommand.mockImplementation(async(_target,method)=>{if(method==='Input.insertText')f.control.cancelInput();return {};});
