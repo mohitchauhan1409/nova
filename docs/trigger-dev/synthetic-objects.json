@@ -122,7 +122,7 @@
   "workerVersion": "20260922.1",
   "baselinePersistence": "Coordinator reloaded the failed run detail and independently observed its Failed status and quantityOverride validation error.",
   "checkpoint": {
-    "finalRecording": "raw captured; final media QA/export/backup pending",
+    "finalRecording": "original and silent/click exports accepted with disclosed limitations; see delivery.md for backup",
     "currentCaptureBuild": "c1db2d16de27cd42b0b5f3490288ea70417edccf",
     "sharedMainCheckpoint": "1b2062b",
     "cancellationVariation": "verified saved result, including visible page-changing recovery without rerun",
@@ -217,15 +217,19 @@
     "operatorPath": "/Users/macbook/Desktop/Nova-batch-20260922/private/trigger-final-operator.json",
     "sessionId": "09b9d208-c1cf-468f-8397-e64797f31e62",
     "independentFinalReloads": "passed for all three runs, coordinator CUA report",
-    "finalExportQA": "in progress with media worker",
-    "backup": "not yet complete",
+    "finalExportQA": "accepted by media worker and independent selected-frame reviewer; fresh receipt/audio/hash checks passed",
+    "backup": "pending independent remote recovery; see remote-recovery.json once recorded",
     "authenticityNotes": [
       "Redundant paid-product Replay proposal canceled; visible follow-up verified existing run without another invocation.",
       "Generic routine-task approval warning visible and retained.",
       "Final scroll moved per coordinator, but Nova completion false-negative retained; visible read-output follow-up succeeded.",
-      "Actual interactions retained at 1x, per coordinator; final media timing QA pending."
+      "All actual interactions retained at 1x; only static source 376\u2013396s shortened to 5s; no execution excised."
     ],
     "duplicateRunCheck": "Coordinator confirmed exactly three final-session run identities; no extra invocation after Cancel of redundant replay proposal",
-    "runtimeHandoff": "Trigger backend stopped only after ready session and completed persistence checks; frozen capture build unchanged"
+    "runtimeHandoff": "Trigger backend stopped only after ready session and completed persistence checks; frozen capture build unchanged",
+    "archivedSessionPath": "artifacts/trigger-dev/qa/session-immutable.json",
+    "archivedOperatorPath": "artifacts/trigger-dev/qa/operator-ledger.json",
+    "editedFrames": 17030,
+    "editedDurationSeconds": 567.6666666666666
   }
 }

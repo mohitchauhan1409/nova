@@ -1,0 +1,86 @@
+{
+  "fps": 30,
+  "width": 3024,
+  "height": 1776,
+  "segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 11280,
+      "output_frames": 11280,
+      "kind": "agent",
+      "reason": "Retain entire opening, actions, real typing, reading, small native scrolling, Help/radio feedback, loading, wrong redundant Replay proposal, cancellation and recovery at1x."
+    },
+    {
+      "start_frame": 11280,
+      "end_frame": 11880,
+      "output_frames": 150,
+      "kind": "operator-idle",
+      "reason": "Static operator wait source376\u2013396s after completed saved-run verification. Actual boundary/midpoint frames11280/11580/11880 inspected, same completed response and website. No action/prompt/scroll in interval. Preserve9.12s prior reading and7.128s following guard before next prompt. Twenty seconds becomes5seconds."
+    },
+    {
+      "start_frame": 11880,
+      "end_frame": 17480,
+      "output_frames": 5600,
+      "kind": "agent",
+      "reason": "Retain revision, typed JSON, approval, site fetch-error/reload recovery, actual scroll and false-negative, visible follow-up, saved Output and closing hold at1x."
+    }
+  ],
+  "masks": [
+    {
+      "x": 16,
+      "y": 174,
+      "width": 2218,
+      "height": 14,
+      "color": "#f9f8ff",
+      "start_frame": 763,
+      "end_frame": 764,
+      "purpose": "debugger-strip",
+      "evidence": "Measured actual final original frames744\u2013770. First insertion763; expansion heights14/46/78/110/114 include lower border and full close icon. Native26s sample RGB249,248,255. Rightedge2234 excludes Nova. No mask before actual insertion; no product data masked."
+    },
+    {
+      "x": 16,
+      "y": 174,
+      "width": 2218,
+      "height": 46,
+      "color": "#f9f8ff",
+      "start_frame": 764,
+      "end_frame": 765,
+      "purpose": "debugger-strip",
+      "evidence": "Measured actual final original frames744\u2013770. First insertion763; expansion heights14/46/78/110/114 include lower border and full close icon. Native26s sample RGB249,248,255. Rightedge2234 excludes Nova. No mask before actual insertion; no product data masked."
+    },
+    {
+      "x": 16,
+      "y": 174,
+      "width": 2218,
+      "height": 78,
+      "color": "#f9f8ff",
+      "start_frame": 765,
+      "end_frame": 766,
+      "purpose": "debugger-strip",
+      "evidence": "Measured actual final original frames744\u2013770. First insertion763; expansion heights14/46/78/110/114 include lower border and full close icon. Native26s sample RGB249,248,255. Rightedge2234 excludes Nova. No mask before actual insertion; no product data masked."
+    },
+    {
+      "x": 16,
+      "y": 174,
+      "width": 2218,
+      "height": 110,
+      "color": "#f9f8ff",
+      "start_frame": 766,
+      "end_frame": 767,
+      "purpose": "debugger-strip",
+      "evidence": "Measured actual final original frames744\u2013770. First insertion763; expansion heights14/46/78/110/114 include lower border and full close icon. Native26s sample RGB249,248,255. Rightedge2234 excludes Nova. No mask before actual insertion; no product data masked."
+    },
+    {
+      "x": 16,
+      "y": 174,
+      "width": 2218,
+      "height": 114,
+      "color": "#f9f8ff",
+      "start_frame": 767,
+      "end_frame": 17480,
+      "purpose": "debugger-strip",
+      "evidence": "Measured actual final original frames744\u2013770. First insertion763; expansion heights14/46/78/110/114 include lower border and full close icon. Native26s sample RGB249,248,255. Rightedge2234 excludes Nova. No mask before actual insertion; no product data masked."
+    }
+  ],
+  "clicks": []
+}

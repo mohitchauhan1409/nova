@@ -1,0 +1,79 @@
+{
+  "session_clicks": 34,
+  "operator_ledger_clicks": 17,
+  "duplicate_operator_pairs_ledger_session": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      4,
+      12
+    ],
+    [
+      5,
+      13
+    ],
+    [
+      6,
+      14
+    ],
+    [
+      7,
+      15
+    ],
+    [
+      8,
+      16
+    ],
+    [
+      9,
+      19
+    ],
+    [
+      10,
+      22
+    ],
+    [
+      11,
+      23
+    ],
+    [
+      12,
+      25
+    ],
+    [
+      13,
+      28
+    ],
+    [
+      14,
+      31
+    ],
+    [
+      15,
+      32
+    ],
+    [
+      16,
+      33
+    ]
+  ],
+  "unique_cues": 34,
+  "operator": 17,
+  "nova": 17,
+  "excluded_mouse_dispatches": 0,
+  "notes": "Keyboard submissions, reload and scroll are not taps. Three operator confirmations and subsequent Nova Replay clicks remain distinct. Cancel redundant proposal is retained."
+}

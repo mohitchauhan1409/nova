@@ -1,0 +1,80 @@
+[
+  {
+    "path": "artifacts/trigger-dev/media/nova-trigger-dev-clicks.mp4",
+    "bytes": 30924910,
+    "sha256": "7c03e4f79ed3d06a567cb689d0c4ee62cdeef075e2e28b59a37ab348021aaf93",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 3024,
+          "height": 1776,
+          "r_frame_rate": "30/1",
+          "avg_frame_rate": "30/1",
+          "nb_frames": "17030"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "nb_frames": "26611"
+        }
+      ],
+      "format": {
+        "duration": "567.666667"
+      }
+    }
+  },
+  {
+    "path": "artifacts/trigger-dev/media/nova-trigger-dev-original.mov",
+    "bytes": 129245723,
+    "sha256": "91291323571689815caf603339b25b43d2ad4faea40eb4115addd24d250d33f9",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 3024,
+          "height": 1776,
+          "r_frame_rate": "30/1",
+          "avg_frame_rate": "30/1",
+          "nb_frames": "17480"
+        }
+      ],
+      "format": {
+        "duration": "582.666667"
+      }
+    }
+  },
+  {
+    "path": "artifacts/trigger-dev/media/nova-trigger-dev-silent.mp4",
+    "bytes": 30247644,
+    "sha256": "089833a418dcf24dd60b88168c3c76340f44943bbeda9b9067eb9226679fdd12",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 3024,
+          "height": 1776,
+          "r_frame_rate": "30/1",
+          "avg_frame_rate": "30/1",
+          "nb_frames": "17030"
+        }
+      ],
+      "format": {
+        "duration": "567.666667"
+      }
+    }
+  }
+]

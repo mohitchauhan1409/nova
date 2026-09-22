@@ -1,0 +1,22 @@
+{
+  "source_interval_seconds": [
+    376,
+    396
+  ],
+  "source_frames_reviewed": [
+    11280,
+    11580,
+    11880
+  ],
+  "relative_to_first": [
+    {
+      "mean_absolute_rgb_difference": 0.002240335573668907,
+      "changed_pixel_fraction": 0.0
+    },
+    {
+      "mean_absolute_rgb_difference": 0.000552884233439789,
+      "changed_pixel_fraction": 0.0
+    }
+  ],
+  "interpretation": "Visually same completed verification, same native saved run; minor caret/codec differences only. No ledger input or agent action in interval."
+}

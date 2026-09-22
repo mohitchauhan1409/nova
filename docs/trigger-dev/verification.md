@@ -1,6 +1,6 @@
 # Trigger.dev live verification checkpoint — 2026-09-22
 
-Final recording is now captured; see [final-capture.md](final-capture.md) for the frozen take, actual prompts, three new run IDs and genuine recovery disclosures. Independent persistence checks passed for all three final-take runs; export QA, backup and delivery remain pending. The rehearsal/preflight evidence below remains distinct from final-take evidence. The coordinator owns all browser actions and independent reload checks. This documentation worker inspected the saved preflight session and otherwise uses the explicitly identified coordinator reports below.
+Final recording is now captured; see [final-capture.md](final-capture.md) for the frozen take, actual prompts, three new run IDs and genuine recovery disclosures. Independent persistence checks passed for all three final-take runs; media QA is accepted with disclosed limitations; see [delivery.md](delivery.md) for delivery and backup status. The rehearsal/preflight evidence below remains distinct from final-take evidence. The coordinator owns all browser actions and independent reload checks. This documentation worker inspected the saved preflight session and otherwise uses the explicitly identified coordinator reports below.
 
 ## Scope and provenance
 
@@ -38,7 +38,7 @@ Preflight raw capture: `/Users/macbook/Desktop/Nova-batch-20260922/private/trigg
 - Two recovery passes are verified. Pass 1 recovered from the failed multiline attempt; pass 2 used clean compact replacement.
 - Two critical sales-flow passes are now verified: the paid-only product review and the fully specified product/cancellation variation. The variation counts as the second pass; a duplicate paid-only run is not required. It included the visible page-changing recovery described above.
 - The radio-question clarification was already rehearsed live, per coordinator report. Do not imply that the fully specified cancellation command itself displayed a clarification card.
-- Preflight media QA is accepted. The final raw take is captured on unchanged build `c1db2d1`; independent final-run persistence checks have passed, and final media QA is still pending.
-- Final render/export, natural click audio, whole-video QA, final hashes, backup and delivery remain pending. Raw capture is complete; details and limitations are in `final-capture.md`.
+- Preflight media QA is accepted. The final raw take is captured on unchanged build `c1db2d1`; independent final-run persistence checks have passed, and final media QA is accepted with disclosed limitations.
+- Final original, silent and click exports are accepted by the media worker and independent selected-frame reviewer, with genuine recovery and cursor limitations retained. Fresh receipt/audio/hash checks passed. See `delivery.md` for exact artifacts and remote recovery status.
 
 Including cancellations is now verified in a real saved run: 6 orders, 13 units and INR 21,187 order demand, with Ceramic mug 4,193 and other product groups unchanged. Compared with the verified paid total, this adds one canceled order, three mug units and INR 1,797. It must not be called paid sales or recognized revenue.

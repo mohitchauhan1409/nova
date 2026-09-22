@@ -1,0 +1,195 @@
+{
+  "clicks": [
+    {
+      "at": 1790053241391,
+      "actor": "operator",
+      "button": "left",
+      "target": "Open Nova side panel",
+      "completedAt": 1790053242314
+    },
+    {
+      "at": 1790053250986,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790053251257
+    },
+    {
+      "at": 1790053281898,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790053282157
+    },
+    {
+      "at": 1790053325393,
+      "actor": "operator",
+      "button": "left",
+      "target": "Confirm corrected Development replay",
+      "completedAt": 1790053325662
+    },
+    {
+      "at": 1790053379770,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790053380028
+    },
+    {
+      "at": 1790053413021,
+      "actor": "operator",
+      "button": "left",
+      "target": "Help me choose sales-review options",
+      "completedAt": 1790053413302
+    },
+    {
+      "at": 1790053449717,
+      "actor": "operator",
+      "button": "left",
+      "target": "Product breakdown radio",
+      "completedAt": 1790053449997
+    },
+    {
+      "at": 1790053481380,
+      "actor": "operator",
+      "button": "left",
+      "target": "Paid orders only radio",
+      "completedAt": 1790053481677
+    },
+    {
+      "at": 1790053499505,
+      "actor": "operator",
+      "button": "left",
+      "target": "Continue with Product and Paid orders only",
+      "completedAt": 1790053499808
+    },
+    {
+      "at": 1790053536855,
+      "actor": "operator",
+      "button": "left",
+      "target": "Confirm synthetic paid-product Development run",
+      "completedAt": 1790053537116
+    },
+    {
+      "at": 1790053577222,
+      "actor": "operator",
+      "button": "left",
+      "target": "Cancel redundant replay proposal",
+      "completedAt": 1790053577450
+    },
+    {
+      "at": 1790053581384,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790053581643
+    },
+    {
+      "at": 1790053639577,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790053639834
+    },
+    {
+      "at": 1790053684036,
+      "actor": "operator",
+      "button": "left",
+      "target": "Confirm revised order-demand Development run",
+      "completedAt": 1790053684308
+    },
+    {
+      "at": 1790053723357,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790053723618
+    },
+    {
+      "at": 1790053757903,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790053758156
+    },
+    {
+      "at": 1790053793987,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova",
+      "completedAt": 1790053794246
+    }
+  ],
+  "prompts": [
+    {
+      "text": "Open the failed Harbor & Vale run and explain the error.",
+      "typingStartedAt": 1790053251257,
+      "submittedAt": 1790053259095
+    },
+    {
+      "text": "Fix it using the source quantity and verify the new result.",
+      "typingStartedAt": 1790053282157,
+      "submittedAt": 1790053290422
+    },
+    {
+      "text": "Prepare a September sales review for Harbor & Vale.",
+      "typingStartedAt": 1790053380028,
+      "submittedAt": 1790053387161
+    },
+    {
+      "text": "The new run is already created. Close this replay form and verify that saved run; do not run it again.",
+      "typingStartedAt": 1790053581643,
+      "submittedAt": 1790053595993
+    },
+    {
+      "text": "Include cancellations in a new product report. Label it order demand and compare the totals.",
+      "typingStartedAt": 1790053639834,
+      "submittedAt": 1790053652792
+    },
+    {
+      "text": "Which figure belongs in the sales review? Did this change the source orders?",
+      "typingStartedAt": 1790053723618,
+      "submittedAt": 1790053734341
+    },
+    {
+      "text": "Scroll the run details down to the output totals.",
+      "typingStartedAt": 1790053758156,
+      "submittedAt": 1790053765054
+    },
+    {
+      "text": "Read the visible product totals and confirm the demand total.",
+      "typingStartedAt": 1790053794246,
+      "submittedAt": 1790053802831
+    }
+  ],
+  "scrolls": [
+    {
+      "at": 1790053398092,
+      "direction": "down",
+      "pages": 0.0125,
+      "count": 20,
+      "finishedAt": 1790053407842
+    },
+    {
+      "at": 1790053428860,
+      "direction": "down",
+      "pages": 0.0125,
+      "count": 24,
+      "finishedAt": 1790053440262
+    },
+    {
+      "at": 1790053454112,
+      "direction": "down",
+      "pages": 0.0125,
+      "count": 12,
+      "finishedAt": 1790053459751
+    },
+    {
+      "at": 1790053488376,
+      "direction": "down",
+      "pages": 0.0125,
+      "count": 12,
+      "finishedAt": 1790053494179
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "native_size": [
+    3024,
+    1776
+  ],
+  "actual_source_frames_reviewed": [
+    744,
+    745,
+    746,
+    747,
+    748,
+    749,
+    750,
+    751,
+    752,
+    753,
+    754,
+    755,
+    756,
+    757,
+    758,
+    759,
+    760,
+    761,
+    762,
+    763,
+    764,
+    765,
+    766,
+    767,
+    768,
+    769,
+    770
+  ],
+  "first_banner_frame": 763,
+  "rectangle": {
+    "x": 16,
+    "y": 174,
+    "width": 2218,
+    "full_height": 114,
+    "right_edge_exclusive": 2234
+  },
+  "animation": [
+    {
+      "frame": 763,
+      "height": 14
+    },
+    {
+      "frame": 764,
+      "height": 46
+    },
+    {
+      "frame": 765,
+      "height": 78
+    },
+    {
+      "frame": 766,
+      "height": 110
+    },
+    {
+      "frame": 767,
+      "height": 114
+    }
+  ],
+  "native_26_second_rgb_sample": {
+    "xy": [
+      200,
+      220
+    ],
+    "rgb": [
+      249,
+      248,
+      255
+    ]
+  },
+  "boundary_native26s": {
+    "y285": [
+      249,
+      248,
+      255
+    ],
+    "y286": [
+      227,
+      227,
+      225
+    ],
+    "y287": [
+      33,
+      33,
+      30
+    ],
+    "y288": [
+      31,
+      32,
+      37
+    ]
+  },
+  "notes": [
+    "Animation masks include lower border; full close icon is within x16..2233.",
+    "No banner before763. Full row remains in sampled later frames through ending.",
+    "Decoded crop RGB differs slightly due color conversion; native full-frame sample sets actual mask fill.",
+    "Mask covers only browser debugging row and preserves all product evidence."
+  ]
+}
