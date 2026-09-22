@@ -39,6 +39,10 @@ if (!window.__novaContentInstalled) {
           respond({ok:!!point});
         }catch(error){respond({error:(error as Error).message});}return;
       }
+      if(message.method==='native-input-empty'){
+        try{respond({ok:!!window.__novaDOM!.inputPosition(message.action.ref)&&window.__novaDOM!.verify({...message.action,kind:'clear'}).verification?.status==='verified'});}
+        catch(error){respond({error:(error as Error).message});}return;
+      }
       if(message.method==='native-input-correction'){
         try{respond({remove:Number.isInteger(message.cursorId)&&inputCursor===message.cursorId&&window.__novaDOM!.prepareInputCorrection(message.action.ref,message.prefix,message.character)});}
         catch(error){respond({error:(error as Error).message});}return;
