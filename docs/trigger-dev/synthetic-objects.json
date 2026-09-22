@@ -19,7 +19,86 @@
   ],
   "sourceLedger": "examples/trigger-dev/src/lib/order-summary.ts",
   "remoteTaskRegistered": true,
-  "runs": [],
+  "runs": [
+    {
+      "id": "run_06gcesb4g3gu9g6kuov17hi401",
+      "purpose": "Nova recovery rehearsal pass 1",
+      "status": "Completed",
+      "build": "ccccd2e",
+      "orderCount": 5,
+      "units": 10,
+      "orderValueINR": 19390,
+      "groupBy": "region",
+      "includeCancelled": false,
+      "quantityOverride": 2,
+      "groupsINR": {
+        "North": 8497,
+        "South": 3499,
+        "West": 7394
+      },
+      "source": "Coordinator live report: compact JSON recovery after failed multiline attempt; Nova reopened, coordinator independently reloaded and verified. Not a clean first attempt or final recording.",
+      "url": "https://cloud.trigger.dev/orgs/nova-56d7/projects/nova-YcS4/env/dev/runs/run_06gcesb4g3gu9g6kuov17hi401"
+    },
+    {
+      "id": "run_06gcetu0404pp12smnc4ugdf01",
+      "purpose": "Nova recovery rehearsal pass 2 / preflight",
+      "status": "Completed",
+      "build": "c1db2d16de27cd42b0b5f3490288ea70417edccf",
+      "sessionId": "1f044a46-7301-4549-99d2-e62563b498b9",
+      "orderCount": 5,
+      "units": 10,
+      "orderValueINR": 19390,
+      "groupBy": "region",
+      "includeCancelled": false,
+      "quantityOverride": 2,
+      "groupsINR": {
+        "North": 8497,
+        "South": 3499,
+        "West": 7394
+      },
+      "source": "Saved trigger-preflight-sessions.json directly inspected; clean compact replacement and Nova reopened result; coordinator additionally independently reloaded and verified.",
+      "url": "https://cloud.trigger.dev/orgs/nova-56d7/projects/nova-YcS4/env/dev/runs/run_06gcetu0404pp12smnc4ugdf01"
+    },
+    {
+      "id": "run_06gcet28504v9bs4dlagi96r01",
+      "purpose": "Nova paid product review rehearsal pass 1",
+      "status": "Completed",
+      "build": null,
+      "orderValueINR": 19390,
+      "groupBy": "product",
+      "includeCancelled": false,
+      "groupsINR": {
+        "Ceramic mug": 2396,
+        "Desk lamp": 9996,
+        "Linen throw": 6998
+      },
+      "source": "Coordinator live report and independent native reload verification; exact originating build/session not supplied in this handoff.",
+      "url": "https://cloud.trigger.dev/orgs/nova-56d7/projects/nova-YcS4/env/dev/runs/run_06gcet28504v9bs4dlagi96r01"
+    },
+    {
+      "id": "run_06gceuhcrj4n4j9v43l05c0i01",
+      "url": "https://cloud.trigger.dev/orgs/nova-56d7/projects/nova-YcS4/env/dev/runs/run_06gceuhcrj4n4j9v43l05c0i01",
+      "purpose": "Nova product cancellation variation / critical sales-flow pass 2",
+      "status": "Completed",
+      "build": "c1db2d16de27cd42b0b5f3490288ea70417edccf",
+      "sharedMainCheckpoint": "1b2062b",
+      "sessionId": "1f044a46-7301-4549-99d2-e62563b498b9",
+      "orderCount": 6,
+      "units": 13,
+      "orderValueINR": 21187,
+      "groupBy": "product",
+      "includeCancelled": true,
+      "includedCancelledOrder": "HV-105",
+      "groupsINR": {
+        "Ceramic mug": 4193,
+        "Desk lamp": 9996,
+        "Linen throw": 6998
+      },
+      "differenceFromPaidINR": 1797,
+      "valueBasis": "Order demand including cancellations; not recognized sales",
+      "source": "Preserved trigger-successful-rehearsals-current.json directly inspected. Nova initially stopped because the page changed during verification; visible follow-up reopened and verified the same saved result without rerun. Coordinator independently reloaded and verified Completed, includeCancelled true and output."
+    }
+  ],
   "cleanupPolicy": "Only specifically recorded owned run IDs are eligible; preserve useful baseline, never infer ownership from names. No unrelated cleanup.",
   "coordinator_manual_baseline": [
     {
@@ -41,5 +120,112 @@
     }
   ],
   "workerVersion": "20260922.1",
-  "baselinePersistence": "Coordinator reloaded the failed run detail and independently observed its Failed status and quantityOverride validation error."
+  "baselinePersistence": "Coordinator reloaded the failed run detail and independently observed its Failed status and quantityOverride validation error.",
+  "checkpoint": {
+    "finalRecording": "raw captured; final media QA/export/backup pending",
+    "currentCaptureBuild": "c1db2d16de27cd42b0b5f3490288ea70417edccf",
+    "sharedMainCheckpoint": "1b2062b",
+    "cancellationVariation": "verified saved result, including visible page-changing recovery without rerun",
+    "paidProductCriticalPassesReported": 1,
+    "recoveryCriticalPassesReported": 2,
+    "preflight": {
+      "rawPath": "/Users/macbook/Desktop/Nova-batch-20260922/private/trigger-preflight.mov",
+      "frames": 4258,
+      "durationSeconds": 141.933,
+      "firstFrameAt": 1790052811461,
+      "qa": "accepted by media worker: character input, cursor, scrolling and approval behavior",
+      "final": false,
+      "qaPath": "/Users/macbook/Desktop/Nova-batch-20260922/private/media-checks/trigger-preflight-qa",
+      "focusedExportSeconds": 67
+    },
+    "criticalSalesFlowPassesReported": 2,
+    "salesSecondPass": "fully specified cancellation-inclusion product variation; no duplicate paid-only run needed",
+    "clarification": "Radio question rehearsed live separately, per coordinator",
+    "frozenRehearsalSessionPath": "/Users/macbook/Desktop/Nova-batch-20260922/private/trigger-successful-rehearsals-current.json"
+  },
+  "finalCaptureRuns": [
+    {
+      "id": "run_06gcevgt220c3vb87n2s8sqr01",
+      "url": "https://cloud.trigger.dev/orgs/nova-56d7/projects/nova-YcS4/env/dev/runs/run_06gcevgt220c3vb87n2s8sqr01",
+      "purpose": "source-quantity recovery",
+      "statusReportedByNova": "Completed",
+      "orderCount": 5,
+      "units": 10,
+      "orderValueINR": 19390,
+      "groupBy": "region",
+      "includeCancelled": false,
+      "groupsINR": {
+        "North": 8497,
+        "South": 3499,
+        "West": 7394
+      },
+      "build": "c1db2d16de27cd42b0b5f3490288ea70417edccf",
+      "sessionId": "09b9d208-c1cf-468f-8397-e64797f31e62",
+      "source": "Immutable final session and coordinator capture handoff; last snapshot belongs to final demand revision.",
+      "independentPostCaptureReload": "passed: coordinator CUA reopening/reload confirmed actual Completed status, saved payload and all reported output totals/groups"
+    },
+    {
+      "id": "run_06gcf0amvcjg3f93pc9bbsfn01",
+      "url": "https://cloud.trigger.dev/orgs/nova-56d7/projects/nova-YcS4/env/dev/runs/run_06gcf0amvcjg3f93pc9bbsfn01",
+      "purpose": "paid product review",
+      "statusReportedByNova": "Completed",
+      "orderCount": 5,
+      "units": 10,
+      "orderValueINR": 19390,
+      "groupBy": "product",
+      "includeCancelled": false,
+      "groupsINR": {
+        "Ceramic mug": 2396,
+        "Desk lamp": 9996,
+        "Linen throw": 6998
+      },
+      "build": "c1db2d16de27cd42b0b5f3490288ea70417edccf",
+      "sessionId": "09b9d208-c1cf-468f-8397-e64797f31e62",
+      "source": "Immutable final session and coordinator capture handoff; last snapshot belongs to final demand revision.",
+      "independentPostCaptureReload": "passed: coordinator CUA reopening/reload confirmed actual Completed status, saved payload and all reported output totals/groups"
+    },
+    {
+      "id": "run_06gcf0slngvrbr94jmh5dl4m01",
+      "url": "https://cloud.trigger.dev/orgs/nova-56d7/projects/nova-YcS4/env/dev/runs/run_06gcf0slngvrbr94jmh5dl4m01",
+      "purpose": "product order-demand revision",
+      "statusReportedByNova": "Completed",
+      "orderCount": 6,
+      "units": 13,
+      "orderValueINR": 21187,
+      "groupBy": "product",
+      "includeCancelled": true,
+      "groupsINR": {
+        "Ceramic mug": 4193,
+        "Desk lamp": 9996,
+        "Linen throw": 6998
+      },
+      "build": "c1db2d16de27cd42b0b5f3490288ea70417edccf",
+      "sessionId": "09b9d208-c1cf-468f-8397-e64797f31e62",
+      "source": "Immutable final session and coordinator capture handoff; last snapshot belongs to final demand revision.",
+      "independentPostCaptureReload": "passed: coordinator CUA reopening/reload confirmed actual Completed status, saved payload and all reported output totals/groups"
+    }
+  ],
+  "finalCapture": {
+    "rawPath": "artifacts/trigger-dev/media/nova-trigger-dev-original.mov",
+    "frames": 17480,
+    "durationSeconds": 582.6667,
+    "firstFrameAt": 1790053236706,
+    "sourceBuild": "c1db2d16de27cd42b0b5f3490288ea70417edccf",
+    "frontendBuild": "c1db2d16de27cd42b0b5f3490288ea70417edccf",
+    "sharedMainCheckpoint": "1b2062b",
+    "sessionPath": "/Users/macbook/Desktop/Nova-batch-20260922/private/trigger-final-sessions.json",
+    "operatorPath": "/Users/macbook/Desktop/Nova-batch-20260922/private/trigger-final-operator.json",
+    "sessionId": "09b9d208-c1cf-468f-8397-e64797f31e62",
+    "independentFinalReloads": "passed for all three runs, coordinator CUA report",
+    "finalExportQA": "in progress with media worker",
+    "backup": "not yet complete",
+    "authenticityNotes": [
+      "Redundant paid-product Replay proposal canceled; visible follow-up verified existing run without another invocation.",
+      "Generic routine-task approval warning visible and retained.",
+      "Final scroll moved per coordinator, but Nova completion false-negative retained; visible read-output follow-up succeeded.",
+      "Actual interactions retained at 1x, per coordinator; final media timing QA pending."
+    ],
+    "duplicateRunCheck": "Coordinator confirmed exactly three final-session run identities; no extra invocation after Cancel of redundant replay proposal",
+    "runtimeHandoff": "Trigger backend stopped only after ready session and completed persistence checks; frozen capture build unchanged"
+  }
 }
