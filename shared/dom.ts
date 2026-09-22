@@ -2,7 +2,7 @@ import type { Action, Snapshot, ElementRef, ActionResult, PreparedInput } from '
 import { readPageColorScheme } from './page-theme';
 
 export type PreparedTarget = { x: number; y: number; editable: boolean; focused?: boolean; valueLength?: number; checked?: boolean; paused?: boolean; tag: string; type: string };
-export type DomBridge = { snapshot(preparedInputs?:PreparedInput[]): Snapshot; execute(action: Action): Promise<ActionResult & { text?: string }>; inspect(x:number,y:number): ActionResult; prepare(ref: string, append?: boolean, semanticMedia?: boolean, focus?: boolean): PreparedTarget; point(x:number,y:number): {x:number;y:number}; startInput(ref:string,append?:boolean): {x:number;y:number}; inputPosition(ref:string): {x:number;y:number}|undefined; verify(action: Action, expectedLength?: number): ActionResult; };
+export type DomBridge = { snapshot(preparedInputs?:PreparedInput[]): Snapshot; execute(action: Action): Promise<ActionResult & { text?: string }>; inspect(x:number,y:number): ActionResult; prepare(ref: string, append?: boolean, semanticMedia?: boolean, focus?: boolean): PreparedTarget; point(x:number,y:number): {x:number;y:number}; startInput(ref:string,append?:boolean): {x:number;y:number}; inputPosition(ref:string): {x:number;y:number}|undefined; prepareInputCorrection(ref:string,prefix:string,character:string): boolean; verify(action: Action, expectedLength?: number): ActionResult; };
 declare global { interface Window { __novaDOM?: DomBridge } }
 
 // Runs in an isolated extension world or Nova's dedicated browser context.
@@ -13,6 +13,7 @@ export function installNovaDOM() {
   const prefix = Math.random().toString(36).slice(2, 9);
   const ids = new WeakMap<Element, string>();
   const refs = new Map<string, Element>();
+  const inputBaselines=new WeakMap<HTMLElement,string>();
   let editSequence=0;
   const edits=new WeakMap<Element,{value:string;revision:string}>();
   const nodeId=(el:Element)=>{let id=ids.get(el);if(!id){id=`${prefix}-${++sequence}`;ids.set(el,id);}return id;};
@@ -176,6 +177,7 @@ export function installNovaDOM() {
       el.focus({preventScroll:true});
       const point=this.inputPosition(ref);
       if(!point)throw new Error('The original text field did not accept focus. No selection or text was sent.');
+      inputBaselines.set(el,append?fieldValue(el)||'':'');
       if(append){if(el instanceof HTMLInputElement||el instanceof HTMLTextAreaElement)el.setSelectionRange(el.value.length,el.value.length);else {const range=document.createRange();range.selectNodeContents(el);range.collapse(false);const selection=getSelection();selection?.removeAllRanges();selection?.addRange(range);}}
       return point;
     },
@@ -188,12 +190,35 @@ export function installNovaDOM() {
       const rect=el.getBoundingClientRect();
       return {x:(Math.max(0,rect.left)+Math.min(innerWidth-1,rect.right))/2,y:(Math.max(0,rect.top)+Math.min(innerHeight-1,rect.bottom))/2};
     },
+    prepareInputCorrection(ref,prefix,character) {
+      const closer:Record<string,string>={'{':'}','[':']','(':')','"':'"',"'":"'",'`':'`'};
+      const el=refs.get(ref);
+      if(!(el instanceof HTMLElement)||!el.isContentEditable||!inputBaselines.has(el)||!this.inputPosition(ref))throw new Error('The original editor lost focus during text entry.');
+      const expected=inputBaselines.get(el)!+prefix,actual=fieldValue(el)!;
+      if(actual===expected)return false;
+      const selection=getSelection();
+      if(!selection?.isCollapsed||!selection.focusNode||!el.contains(selection.focusNode))throw new Error('The editor selection changed during text entry.');
+      // Only remove an editor-generated single matching closer or indentation
+      // after a newline. Bind the entire visible field to the exact authored
+      // prefix; never normalize whitespace (including inside quoted strings).
+      const extra=actual.startsWith(expected)?actual.slice(expected.length):'';
+      if(extra&&extra===closer[character]){
+        const tail=document.createRange();tail.selectNodeContents(el);tail.setStart(selection.focusNode,selection.focusOffset);
+        if(tail.toString()===extra){selection.removeAllRanges();selection.addRange(tail);return true;}
+      }
+      if(character==='\n'&&/^[ \t]{1,64}$/.test(extra)){
+        for(let i=0;i<extra.length;i++)selection.modify('extend','backward','character');
+        if(selection.toString()===extra)return true;
+        selection.collapseToEnd();
+      }
+      throw new Error('The editor changed the requested text unexpectedly. Inspect the partial value before continuing; no submission was sent.');
+    },
     verify(action,expectedLength) {
       const el = refs.get(action.ref || '');
       let matches: boolean | undefined;
       if (el && !sensitive(el) && ['fill','clear','paste','type'].includes(action.kind)) {
         const value = el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement ? el.value : (el as HTMLElement).isContentEditable ? (el as HTMLElement).innerText : undefined;
-        matches = action.kind==='type'?typeof value==='string'&&expectedLength!==undefined&&value.length===expectedLength&&value.endsWith(action.value||''):value === (action.kind === 'clear' ? '' : action.value || '');
+        matches = action.kind==='type'?typeof value==='string'&&expectedLength!==undefined&&value.length===expectedLength&&(inputBaselines.has(el as HTMLElement)?value===inputBaselines.get(el as HTMLElement)!+(action.value||''):value.endsWith(action.value||'')):value === (action.kind === 'clear' ? '' : action.value || '');
       }
       if (el && action.kind === 'check') matches = (el instanceof HTMLInputElement ? el.checked : el.getAttribute('aria-checked') === 'true') === (action.value !== 'false');
       if (el instanceof HTMLSelectElement && action.kind === 'select') matches = el.value === action.value || el.selectedOptions[0]?.text === action.value;

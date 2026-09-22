@@ -117,3 +117,26 @@ describe('paced action cursor ownership',()=>{
     expect(f.sendMessage.mock.calls.at(-1)?.[1]).toMatchObject({method:'native-input-end',cursorId:expect.any(Number)});
   });
 });
+
+
+describe('editor corrections and caret keys',()=>{
+  it.each(['End','Control+End','ControlOrMeta+End'])('dispatches %s without Enter or text',async value=>{
+    const f=setup();f.sendMessage.mockResolvedValue({x:20,y:30,editable:true,ok:true});
+    await f.control.execute(1,{...click,kind:'press',value});
+    const down=f.sendCommand.mock.calls.filter(c=>c[1]==='Input.dispatchKeyEvent'&&c[2].type==='rawKeyDown');
+    expect(down).toHaveLength(1);expect(down[0][2]).toMatchObject({key:'End',modifiers:value==='End'?0:2});
+    expect(f.sendCommand.mock.calls.some(c=>c[1]==='Input.insertText'||c[2].text)).toBe(false);
+  });
+  it('preserves an existing caret or selection between grounded editor keys',async()=>{
+    const f=setup();f.sendMessage.mockResolvedValue({x:20,y:30,editable:true,focused:true,ok:true});
+    await f.control.execute(1,{...click,kind:'press',value:'End'});
+    await f.control.execute(1,{...click,kind:'press',value:'Backspace'});
+    expect(f.sendCommand.mock.calls.some(c=>c[1]==='Input.dispatchMouseEvent')).toBe(false);
+    expect(f.sendCommand.mock.calls.filter(c=>c[2].type==='rawKeyDown').map(c=>c[2].key)).toEqual(['End','Backspace']);
+  });
+  it('rejects a malformed final value without retrying the fill',async()=>{
+    const f=setup();f.sendMessage.mockImplementation(async(_tab,message)=>message.method==='verify'?{ok:true,verification:{status:'unverified'}}:{x:20,y:30,editable:true,ok:true});
+    await expect(f.control.execute(1,{...click,kind:'fill',value:'{}'})).rejects.toThrow('does not exactly match');
+    expect(f.sendCommand.mock.calls.filter(c=>c[1]==='Input.insertText')).toHaveLength(1);
+  });
+});
