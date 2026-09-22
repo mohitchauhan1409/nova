@@ -4,7 +4,7 @@ import { parseWebUrl } from '../browser/security';
 import { inferencePlaygrounds } from '../sites/action-semantics';
 import { requestedInferenceSubmission } from './inference-submission';
 
-export type PolicyDecision = { outcome: 'allow' | 'approve' | 'block'; reason: string; target: string; mayCommit: boolean };
+export type PolicyDecision = { outcome: 'allow' | 'approve' | 'block'; reason: string; target: string; mayCommit: boolean; semantic?:'inference-submission' };
 export function fingerprint(snapshot: Snapshot, action: Action): string {
   const target = snapshot.elements.find(e => e.ref === action.ref);
   const destination = action.kind === 'drag' ? snapshot.elements.find(e => e.ref === action.value) : undefined;
@@ -185,7 +185,7 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
       !serious.test(target.context) && !sensitiveSettings.test(context)) {
     return result('allow', 'Open the import preparation dialog');
   }
-  if (requestedInferenceSubmission(action,snapshot,_scope,intent,inferencePlaygrounds)) return result('allow','Run the explicitly requested prompt in the observed inference playground',true);
+  if (requestedInferenceSubmission(action,snapshot,_scope,intent,inferencePlaygrounds)) return {...result('allow','Run the explicitly requested prompt in the observed inference playground',true),semantic:'inference-submission'};
   if (serious.test(target.name) || action.risk === 'sensitive' || sensitiveSettings.test(context) && !requestedRecordEdit(action, snapshot, intent) || /\b(subscribe|subscription|upgrade)\b/i.test(target.name) && /\b(pay|paid|billing|charge|per month|monthly|annual|trial)\b|[$₹€£]/i.test(target.context)) return result('approve', 'Review this purchase, communication, deletion, agreement, or sensitive account change.', true);
   // Explicit tag-entry instructions describe a local chip commit, separate
   // from submitting a form. Require the value Nova prepared and requested tags.
