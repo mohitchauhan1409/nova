@@ -39,16 +39,28 @@ if (!window.__novaContentInstalled) {
           respond({ok:!!point});
         }catch(error){respond({error:(error as Error).message});}return;
       }
-      if(message.method==='native-append'){try{respond(window.__novaDOM!.prepare(message.action.ref,true));}catch(error){respond({error:(error as Error).message});}return;}
+      if(message.method==='native-input-start'){
+        try{
+          const point=window.__novaDOM!.startInput(message.action.ref,message.action.kind==='type');
+          if(Number.isInteger(message.cursorId)&&inputCursor===message.cursorId)window.__novaCompanion?.positionCursor?.(point.x,point.y);
+          respond({ok:true});
+        }catch(error){respond({error:(error as Error).message});}return;
+      }
       if(message.method==='native-prepare'){
         void (async()=>{
           const action=message.action as Action;
-          const point=action.ref?window.__novaDOM!.prepare(action.ref,false,action.kind==='media',action.kind==='press'):action.kind==='point'&&action.x!==null&&action.y!==null?{...window.__novaDOM!.point(action.x,action.y),editable:false,tag:'',type:''}:undefined;
+          let point=action.ref?window.__novaDOM!.prepare(action.ref,false,action.kind==='media',action.kind==='press'):action.kind==='point'&&action.x!==null&&action.y!==null?{...window.__novaDOM!.point(action.x,action.y),editable:false,tag:'',type:''}:undefined;
           if(!point)throw new Error('A current observed target is required.');
           const destination=action.kind==='drag'?window.__novaDOM!.prepare(action.value||''):undefined;
           const hold=recordingMode&&inputActionKinds.has(action.kind)&&Number.isInteger(message.cursorId);
           inputCursor=hold?message.cursorId:undefined;
           await window.__novaCompanion?.action(point.x,point.y,action.summary,action.kind,hold);
+          // Attaching Chrome's debugger or opening a panel can resize the page
+          // during cursor presentation. Click the same ref's current bounds.
+          if(action.ref && (inputActionKinds.has(action.kind)||action.kind==='clear')){
+            point=window.__novaDOM!.prepare(action.ref);
+            if(hold && inputCursor===message.cursorId)window.__novaCompanion?.positionCursor?.(point.x,point.y);
+          }
           return {...point,...(destination?{destination}:{})};
         })().then(respond).catch(error=>respond({error:error.message}));return true;
       }

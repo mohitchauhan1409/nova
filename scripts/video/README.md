@@ -253,3 +253,8 @@ canceled. Each input check refreshes the cursor from the focused field's current
 bounds, without generating a click. Completion and interruption clear only that
 action's cursor. Stop also invalidates requests still awaiting tab loading or
 permission checks, so a delayed request cannot restart entry after cancellation.
+
+Before the first selection or character, field entry validates and focuses the
+original observed field once. A successful mouse dispatch alone is insufficient
+evidence of focus. The target is remeasured after cursor presentation to account
+for panel/debugger layout changes. Subsequent focus checks never refocus a field.
