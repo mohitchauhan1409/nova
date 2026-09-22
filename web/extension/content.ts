@@ -1,5 +1,5 @@
 import { recordingMode } from '../../shared/recording';
-import { inputActionKinds } from '../../shared/paced-input';
+import { inputActionKinds, settleEditorInput } from '../../shared/paced-input';
 import { installNovaDOM } from '../../shared/dom';
 import { mountLauncher } from '../companion/launcher';
 import type { Action } from '../../shared/types';
@@ -44,8 +44,11 @@ if (!window.__novaContentInstalled) {
         catch(error){respond({error:(error as Error).message});}return;
       }
       if(message.method==='native-input-correction'){
-        try{respond({remove:Number.isInteger(message.cursorId)&&inputCursor===message.cursorId&&window.__novaDOM!.prepareInputCorrection(message.action.ref,message.prefix,message.character)});}
-        catch(error){respond({error:(error as Error).message});}return;
+        void (async()=>{
+          await settleEditorInput();
+          if(!active||!Number.isInteger(message.cursorId)||inputCursor!==message.cursorId)throw new Error('Text entry stopped before editor inspection.');
+          return {remove:window.__novaDOM!.prepareInputCorrection(message.action.ref,message.prefix,message.character)};
+        })().then(respond).catch(error=>respond({error:error.message}));return true;
       }
       if(message.method==='native-input-start'){
         try{

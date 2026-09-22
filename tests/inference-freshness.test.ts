@@ -1,8 +1,9 @@
-import {describe,expect,it,vi} from 'vitest';
+import {afterEach,describe,expect,it,vi} from 'vitest';
 import type {Action,Session,Snapshot,SiteProfile} from '../shared/types';
 import type {BrowserDriver} from '../BE/src/browser/driver';
 import type {Planner} from '../BE/src/providers/openai';
-vi.mock('../BE/src/sites/action-semantics',()=>({inferencePlaygrounds:[{url:'https://inference.example.test/dashboard/playground',submitName:'Send',promptName:'Type your prompt...',requiredControls:[{tag:'button',name:'System Prompt'},{tag:'button',name:'Model parameters'}]}]}));
+vi.mock('../BE/src/sites/action-semantics',()=>({inferencePlaygrounds:[{url:'https://inference.example.test/dashboard/playground',submitName:'Send',promptName:'Type your prompt...',requiredControls:[{tag:'button',name:'System Prompt'},{tag:'button',name:'Model parameters'}],resultLog:{url:'https://inference.example.test/dashboard/logs',dialogName:'Log detail',inputLabel:'Input',outputLabel:'Output',outputEndLabel:'Get help with this request',timestamp:{format:'day-first-24h',utcOffsetMinutes:0}}}]}));
+afterEach(()=>vi.restoreAllMocks());
 import {AgentRunner} from '../BE/src/agent/runner';
 import {requestsFreshInference} from '../BE/src/agent/inference-submission';
 const url='https://inference.example.test/dashboard/playground';
@@ -68,6 +69,24 @@ describe('current-command inference completion receipts',()=>{
     await f.runner.command(request);expect(f.session.status).toBe('ready');expect(f.execute).toHaveBeenCalledTimes(1);
     await f.runner.command(request);expect(f.session.status).toBe('stopped');expect(f.execute).toHaveBeenCalledTimes(1);
     expect(f.session.traces.some(t=>t.text.includes('no verified submission occurred'))).toBe(true);
+  });
+  it.each([false,true])('binds real Send to the same final Input and actual Output (matching=%s)',async matching=>{
+    const now=Date.UTC(2026,8,22,9,40);vi.spyOn(Date,'now').mockReturnValue(now);
+    const f=fixture(),prompt='Order 104 arrived damaged.';
+    f.session.preparedInputs=[{ref:'prompt',url,revision:'r1',value:prompt,kind:'fill'}];
+    f.execute.mockImplementation(async()=>{
+      f.setState({...base,url:'https://inference.example.test/dashboard/logs',capturedAt:now+5000,
+        text:['Log detail','request-id','22/09/2026, 09:40:01','200','Input','4 messages','system','Classify','user',prompt,'assistant','damage','user',matching?prompt:'Order 106 is late.','Output','6 chars',matching?'damage':'delivery','Get help with this request'].join('\n'),
+        elements:[{...base.elements[0],ref:'dialog',tag:'div',role:'dialog',name:'Log detail',submission:undefined},{...base.elements[0],ref:'output',tag:'p',name:'Output',submission:undefined},{...base.elements[0],ref:'result',tag:'p',name:matching?'damage':'delivery',submission:undefined}]});
+      return {ok:true,verification:{status:'verified',detail:'New inference accepted.'}};
+    });
+    f.planner.decide=vi.fn().mockResolvedValueOnce(action({kind:'click',ref:'send',risk:'change',summary:'Run prompt',completion:undefined})).mockResolvedValue(action({}));
+    await f.runner.command('Test this prompt: '+prompt+' Check Logs.');
+    expect(f.execute).toHaveBeenCalledTimes(1);expect(f.session.status).toBe(matching?'ready':'stopped');
+    if(!matching){
+      expect(f.session.traces.some(t=>t.text.includes('final Input user message'))).toBe(true);
+      expect(f.session.messages.some(m=>m.role==='assistant'&&m.text==='The prompt ran successfully: damage.')).toBe(false);
+    }
   });
   it('rejects old-result completion while the newly submitted inference is still processing',async()=>{
     const f=fixture();f.execute.mockImplementation(async()=>{

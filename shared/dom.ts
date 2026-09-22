@@ -200,13 +200,16 @@ export function installNovaDOM() {
       const expected=inputBaselines.get(el)!+prefix,actual=fieldValue(el)!;
       if(actual===expected)return false;
       const selection=getSelection();
-      if(!selection?.isCollapsed||!selection.focusNode||!el.contains(selection.focusNode))throw new Error('The editor selection changed during text entry.');
+      let tailLength:number|null=null;
+      const diagnostic=(code:string)=>JSON.stringify({code,expectedLength:expected.length,actualLength:actual.length,textContentLength:el.textContent?.length??0,exactPrefix:actual.startsWith(expected),selectionCollapsed:selection?.isCollapsed??false,caretInside:!!selection?.focusNode&&el.contains(selection.focusNode),caretOffset:selection?.focusOffset??null,tailLength});
+      if(!selection?.isCollapsed||!selection.focusNode||!el.contains(selection.focusNode))throw new Error('The editor selection changed during text entry. editorInput='+diagnostic('selection-mismatch'));
       // Only remove an editor-generated single matching closer or indentation
       // after a newline. Bind the entire visible field to the exact authored
       // prefix; never normalize whitespace (including inside quoted strings).
       const extra=actual.startsWith(expected)?actual.slice(expected.length):'';
       if(extra&&extra===closer[character]){
         const tail=document.createRange();tail.selectNodeContents(el);tail.setStart(selection.focusNode,selection.focusOffset);
+        tailLength=tail.toString().length;
         if(tail.toString()===extra){selection.removeAllRanges();selection.addRange(tail);return true;}
       }
       if(character==='\n'&&/^[ \t]{1,64}$/.test(extra)){
@@ -214,7 +217,7 @@ export function installNovaDOM() {
         if(selection.toString()===extra)return true;
         selection.collapseToEnd();
       }
-      throw new Error('The editor changed the requested text unexpectedly. Inspect the partial value before continuing; no submission was sent.');
+      throw new Error('The editor changed the requested text unexpectedly. Inspect the partial value before continuing; no submission was sent. editorInput='+diagnostic('text-mismatch'));
     },
     verify(action,expectedLength) {
       const el = refs.get(action.ref || '');
