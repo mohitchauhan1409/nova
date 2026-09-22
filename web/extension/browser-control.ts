@@ -42,12 +42,20 @@ export class BrowserControl {
     if (this.attached === tabId) { this.attached = undefined; await chrome.debugger.detach({tabId}).catch(()=>{}); }
     this.suspended.delete(tabId);
   }
-  private async guard(tabId: number, expectedUrl?: string) {
+  private async guard(tabId: number, expectedUrl?: string, allowSameDocumentUrlChange = false) {
     if (this.current() !== tabId) throw new Error('This Nova session ended. No further input was sent.');
     const tab = await chrome.tabs.get(tabId);
     if (!tab.active) throw new Error('Return to the attached website tab before Nova performs this action.');
     if (!tab.url || !/^https?:/.test(tab.url)) throw new Error('Nova cannot control this browser-protected page.');
-    if (expectedUrl && tab.url !== expectedUrl) throw new Error('The page navigated during this action. Inspect it before continuing.');
+    if (expectedUrl && tab.url !== expectedUrl) {
+      const sameDocument = (() => {
+        try {
+          const expected = new URL(expectedUrl), current = new URL(tab.url!);
+          return expected.origin === current.origin && expected.pathname === current.pathname;
+        } catch { return false; }
+      })();
+      if (!allowSameDocumentUrlChange || !sameDocument) throw new Error('The page navigated during this action. Inspect it before continuing.');
+    }
     if (this.suspended.has(tabId)) throw new Error('Browser control was disconnected. Click Resume browser control in Nova to continue.');
     return tab;
   }
@@ -101,7 +109,11 @@ export class BrowserControl {
       throw new Error(prepared.error);
     }
     if (!prepared || !Number.isFinite(prepared.x) || !Number.isFinite(prepared.y)) throw new Error('The target could not be located. Observe again.');
-    const send = async (method: string, params: Record<string,unknown>) => { checkGeneration(); await this.guard(tabId, tab.url); checkGeneration(); return this.command({tabId},method,params); };
+    // Some controlled inputs mirror their draft into the current route's query
+    // string after every character. Keep the prepared field and input token, but
+    // still stop on an origin or pathname change.
+    const allowSameDocumentUrlChange = inputActionKinds.has(action.kind);
+    const send = async (method: string, params: Record<string,unknown>) => { checkGeneration(); await this.guard(tabId, tab.url, allowSameDocumentUrlChange); checkGeneration(); return this.command({tabId},method,params); };
     const mouse = (type: string, point = prepared, extra: object = {}) => send('Input.dispatchMouseEvent',{type,x:point.x,y:point.y,...extra});
     const click = async (button='left', count=1) => {
       await mouse('mouseMoved');

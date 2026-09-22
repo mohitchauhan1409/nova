@@ -68,6 +68,13 @@ describe('observed outcome verification',()=>{
     expect(actionEffect(submit,page,{...pending,elements:[{...button,state:['pressed:true']},draft]},{ok:true},true).verified).toBe(true);
     expect(actionEffect(submit,page,{...pending,url:'https://example.com/records/1',text:'Saved transcript'},{ok:true},true).verified).toBe(true);
   });
+  it('does not treat a result-view tab as resubmitting an unrelated retained draft',()=>{
+    const tab={...before.elements[0],tag:'button',name:'JSON',type:'button',context:'Result',state:['selected:false']};
+    const draft={...tab,ref:'draft',tag:'input',name:'Source URL',type:'text',edit:{revision:'v1',empty:false}};
+    const page={...before,text:'Result',elements:[tab,draft]};
+    const selected={...page,elements:[{...tab,state:['selected:true']},draft]};
+    expect(actionEffect({...action,ref:tab.ref},page,selected,{ok:true},true)).toMatchObject({verified:true,detail:expect.stringContaining('Control state changed')});
+  });
   it('does not mistake a focused link for its delayed navigation', () => {
     const page = {...before,elements:[{...before.elements[0],tag:'a',name:'Settings',href:'https://example.com/settings',state:[]}]};
     const focused = {...page,elements:page.elements.map(e=>({...e,state:['focused:true']}))};
