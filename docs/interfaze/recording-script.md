@@ -1,6 +1,6 @@
 # Interfaze final2 — actual captured sequence
 
-Raw capture is complete. This is the executed dialogue from immutable session `afbb051f-28e4-496d-a4e1-dc228e111c1a` and `private/interfaze-final2-operator.json`, not the earlier plan. Backend `bd98d25`, frontend `1f7c875`, shared main `dad9db1`. All shown tasks passed without recovery according to the coordinator; the retained session is ready after 45 steps with no failed/unverified actions and no approval traces. Independent fresh-reload checks of the three structured-result requests passed. Local decoded export QA passed; independent selected-frame review passed; backup verification remains pending.
+Raw capture is complete. This is the executed dialogue from immutable session `afbb051f-28e4-496d-a4e1-dc228e111c1a` and `private/interfaze-final2-operator.json`, not the earlier plan. Backend `bd98d25`, frontend `1f7c875`, shared main `dad9db1`. All shown tasks passed without recovery according to the coordinator; the retained session is ready after 45 steps with no failed/unverified actions and no approval traces. Independent fresh-reload checks of the three structured-result requests passed. Local decoded export QA passed; independent selected-frame review passed; backup verification passed.
 
 The single target tab opened with a real populated CD-300 synthetic baseline. Nova's conversation was fresh. Baseline content is preparation, not a task performed during this take.
 

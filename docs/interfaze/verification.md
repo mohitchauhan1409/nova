@@ -1,6 +1,6 @@
 # Interfaze final2 verification
 
-Current source and local decoded edited-media QA passed; independent selected-frame review passed; remote recovery remains pending. Actual recording is session `afbb051f-28e4-496d-a4e1-dc228e111c1a`, ready after 45 reported steps, with 40 retained action steps. Frozen source identities and exact authored prompts are in `capture-evidence.json` and `recording-script.md`.
+Current source and local decoded edited-media QA passed; independent selected-frame review passed; remote recovery passed. Actual recording is session `afbb051f-28e4-496d-a4e1-dc228e111c1a`, ready after 45 reported steps, with 40 retained action steps. Frozen source identities and exact authored prompts are in `capture-evidence.json` and `recording-script.md`.
 
 The coordinator independently reopened all three structured-result requests after fresh reload. This documentation/media reviewer did not repeat browser operations. The source frames show populated CD-300 opening, fresh Nova, actual one-word damage before cards, genuine Help/choice/Continue, required category/summary strings, temperature 1→0, required boolean escalate and actual test results.
 
@@ -20,4 +20,4 @@ No failed/unverified action or approval trace appears in the retained final2 ses
 
 ## Media and recovery
 
-See `../../artifacts/interfaze/qa/media-QA.md`, `media-manifest.json` and `remote-recovery.json` for current evidence. The immutable source is 478.5 seconds; final edit 472.5 seconds retains all Nova execution/input/scrolling at 1×, with 6 seconds saved solely from static operator idle. 43 actual clicks comprise 33 Nova + 10 operator; one operator-only first composer receipt was independently corroborated against focus/typing source frames. Local decoded QA passed; remote checksum recovery must pass before delivery is marked complete.
+See `../../artifacts/interfaze/qa/media-QA.md`, `media-manifest.json` and `remote-recovery.json` for current evidence. The immutable source is 478.5 seconds; final edit 472.5 seconds retains all Nova execution/input/scrolling at 1×, with 6 seconds saved solely from static operator idle. 43 actual clicks comprise 33 Nova + 10 operator; one operator-only first composer receipt was independently corroborated against focus/typing source frames. Local decoded QA passed; remote checksum recovery also passed and delivery is complete.

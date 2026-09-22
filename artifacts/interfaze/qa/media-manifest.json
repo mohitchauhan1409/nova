@@ -1,7 +1,7 @@
 {
   "startup": "Interfaze",
   "branch": "interfaze-nova",
-  "status": "Local decoded audiovisual QA and independent selected-frame review passed; remote recovery pending",
+  "status": "Delivered: decoded audiovisual QA, independent review and remote LFS recovery passed",
   "sessionId": "afbb051f-28e4-496d-a4e1-dc228e111c1a",
   "recordedBackendCommit": "bd98d2500625f8821aa38836272b2568cb0fb4e5",
   "recordedFrontendCommit": "1f7c8755a8cf1133534272c0083615156639d91e",
@@ -154,5 +154,11 @@
     "Baseline CD-300 conversation was prepared before capture.",
     "Approximately 30-minute target was exceeded; elapsed wall time includes other startup work, fixes and interruptions. Classified exclusive labor totals unavailable."
   ],
-  "independentReview": "independent-review.md"
+  "independentReview": "independent-review.md",
+  "remoteRecovery": "remote-recovery.json",
+  "verifiedMediaCommit": "469db7e7a70e1cb9a229d13f991dbf12ee55a05a",
+  "repositoryPrivate": true,
+  "remoteMainAtVerification": "1b2062bc116408d455f0ecced49739caa1ad8b2c",
+  "remoteMainAncestorOfDelivery": true,
+  "interfazeAssetsOnRemoteMain": false
 }

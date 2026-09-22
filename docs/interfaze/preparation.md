@@ -1,6 +1,6 @@
 # Interfaze preparation and final2 checkpoint
 
-Final2 replaces the provisional empty-opening candidate. The source has passed visual review with a real populated CD-300 baseline, one target tab, fresh Nova conversation, genuine Help/Category + summary/Continue, both configured model-test workflows and successful final Output scroll. Three exact structured-result requests passed independent coordinator reload checks. Final exports passed local decoded QA; independent selected-frame review passed; remote recovery remains pending.
+Final2 replaces the provisional empty-opening candidate. The source has passed visual review with a real populated CD-300 baseline, one target tab, fresh Nova conversation, genuine Help/Category + summary/Continue, both configured model-test workflows and successful final Output scroll. Three exact structured-result requests passed independent coordinator reload checks. Final exports passed local decoded QA; independent selected-frame review passed; remote recovery passed.
 
 ## Eligibility and product scope
 
@@ -24,6 +24,6 @@ Frozen backend `bd98d2500625f8821aa38836272b2568cb0fb4e5`; recording frontend `1
 
 Two structured-triage passes and two positive/boundary policy-revision passes were independently checked in rehearsal. Preserve their exact IDs and earlier failures in `live-discovery.json` and `historical-provisional-verification.md`; these are not final2 run IDs. `final-capture.md`, `recording-script.md` and `capture-evidence.json` describe the actual final2 take. No separate CD-304 test was performed: Nova tested “A cracked mug.” as part of configuration.
 
-The original is 14,355 frames / 478.5 seconds. Final edits retain all actions at 1× and shorten only a static nine-second operator wait to three seconds, yielding 14,175 frames / 472.5 seconds. These are media durations, not measured agent latency. Exact debugging-row masks and 43 actual tap receipts are in the assigned QA evidence. Final media and backup acceptance are separate gates.
+The original is 14,355 frames / 478.5 seconds. Final edits retain all actions at 1× and shorten only a static nine-second operator wait to three seconds, yielding 14,175 frames / 472.5 seconds. These are media durations, not measured agent latency. Exact debugging-row masks and 43 actual tap receipts are in the assigned QA evidence. Local media acceptance, independent review and remote recovery have each passed.
 
 The prior 799-second empty-opening candidate is historical and superseded. Its transcript, verification and provenance remain in historical-provisional documents and Git checkpoint `a5a0c748eebbd54ffe2a47f311045a4aa01e3eb5`; do not treat its outcomes or media hashes as final2 evidence.

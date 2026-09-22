@@ -1,6 +1,6 @@
 # Interfaze final2 capture checkpoint
 
-Final2 is captured and supersedes prior failed/provisional takes as the current capture candidate. All shown tasks passed without recovery; all three structured-result requests passed independent coordinator persistence checks after fresh reload. Local decoded media QA has passed; independent selected-frame review passed; remote backup verification remains pending.
+Final2 is captured and supersedes prior failed/provisional takes as the accepted final capture. All shown tasks passed without recovery; all three structured-result requests passed independent coordinator persistence checks after fresh reload. Local decoded media QA has passed; independent selected-frame review passed; remote backup verification passed.
 
 - Raw: `/Users/macbook/Desktop/Nova-batch-20260922/private/interfaze-final2-original.mov`.
 - Recorder: 14,355 frames, 3024×1776, 30 fps, no audio; nominal 478.5 seconds from frames/30. First frame `1790054964125`. Native probe and decoded export QA passed; see ../../artifacts/interfaze/qa/media-QA.md.

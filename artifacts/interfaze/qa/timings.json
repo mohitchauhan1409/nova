@@ -10,8 +10,9 @@
   "finalCaptureTimelineEndAt": "2026-09-22T05:37:22.625Z",
   "timelineEndNote": "Calculated first-frame anchor plus actual frame count/30; not an independent recorder-process stop timestamp.",
   "exportsReadyAt": "2026-09-22T06:36:11.977518+00:00",
-  "remoteBackupVerifiedAt": null,
+  "remoteBackupVerifiedAt": "2026-09-22T06:42:12.489117+00:00",
   "classifiedEngineeringAndInterruptionTotals": "Unavailable; no trustworthy categorized totals in batch manifest.",
   "elapsedScope": "Wall-clock span includes access recovery, work on other startups, shared repairs, rehearsals, rejected captures, and user/model interruptions. It is not exclusive Interfaze labor. The approximately 30-minute planning target was exceeded.",
-  "elapsedWallSecondsThroughExports": 14383.496421
+  "elapsedWallSecondsThroughExports": 14383.496421,
+  "elapsedWallSecondsThroughRemoteRecovery": 14744.007078
 }

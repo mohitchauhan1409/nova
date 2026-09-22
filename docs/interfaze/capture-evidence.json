@@ -1,5 +1,5 @@
 {
-  "stage": "Final2 captured; local decoded audiovisual QA and independent review passed; remote backup pending",
+  "stage": "Delivered final2: saved-result checks, decoded audiovisual QA, independent review and fresh-cache remote recovery passed",
   "sessionId": "afbb051f-28e4-496d-a4e1-dc228e111c1a",
   "sessionStatus": "ready",
   "steps": 45,
@@ -172,7 +172,12 @@
   },
   "independentPersistence": "passed for all three final2 structured-result requests per coordinator fresh-reload checks",
   "finalMediaQA": "Passed local decoded audio/video QA and independent selected-frame/hash/probe review",
-  "backup": "pending for final2; old provisional upload is not proof",
+  "backup": {
+    "status": "verified",
+    "mediaCommit": "469db7e7a70e1cb9a229d13f991dbf12ee55a05a",
+    "receipt": "artifacts/interfaze/qa/remote-recovery.json",
+    "verifiedAt": "2026-09-22T06:42:12.489117+00:00"
+  },
   "historicalCandidates": [
     {
       "stage": "provisional candidate: technical media QA passed; replacement required because empty opening fails populated-dashboard baseline; not delivered final",

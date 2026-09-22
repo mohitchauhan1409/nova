@@ -1,0 +1,12 @@
+{
+  "completedAt": "2026-09-22T06:43:28.771064+00:00",
+  "reviewImagesRemoved": 647,
+  "scope": "Only final2 generated review images, duplicate export/silent legacy scratch, isolated dependency symlink, and provisional preservation duplicate media. Immutable private final2 raw and all useful text evidence retained; historical provisional media remains at existing Git checkpoint.",
+  "primaryMediaFiles": [
+    "nova-interfaze-clicks.mp4",
+    "nova-interfaze-original.mov",
+    "nova-interfaze-silent.mp4"
+  ],
+  "independentReviewComplete": true,
+  "remoteRecoveryComplete": true
+}

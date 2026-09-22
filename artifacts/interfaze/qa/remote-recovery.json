@@ -1,0 +1,35 @@
+{
+  "status": "PASS: all three remote LFS objects recovered into an independent initially empty cache and matched exact SHA256 and size",
+  "verifiedAt": "2026-09-22T06:42:12.489117+00:00",
+  "remote": "https://github.com/mohitchauhan1409/nova.git",
+  "branch": "interfaze-nova",
+  "mediaCommit": "469db7e7a70e1cb9a229d13f991dbf12ee55a05a",
+  "remoteBranchAtVerification": "469db7e7a70e1cb9a229d13f991dbf12ee55a05a",
+  "recoveryGitDirectory": "/Users/macbook/Desktop/Nova-batch-20260922/private/interfaze-final2-remote-recovery.git",
+  "independentLfsStorage": "/Users/macbook/Desktop/Nova-batch-20260922/private/interfaze-final2-independent-lfs",
+  "sameAsLocalCache": false,
+  "recovered": [
+    {
+      "path": "artifacts/interfaze/media/nova-interfaze-original.mov",
+      "lfsOid": "81efdc5a1a641e1ac0cf48b66fce66bd1b136b1050f5832d2e443cc8fbf02fc8",
+      "recoveredSha256": "81efdc5a1a641e1ac0cf48b66fce66bd1b136b1050f5832d2e443cc8fbf02fc8",
+      "recoveredBytes": 86292948,
+      "matchesManifest": true
+    },
+    {
+      "path": "artifacts/interfaze/media/nova-interfaze-silent.mp4",
+      "lfsOid": "1e9c9c32aeb509482ce8cad0cdc5931026be274930839dfd737eac20043226be",
+      "recoveredSha256": "1e9c9c32aeb509482ce8cad0cdc5931026be274930839dfd737eac20043226be",
+      "recoveredBytes": 25539079,
+      "matchesManifest": true
+    },
+    {
+      "path": "artifacts/interfaze/media/nova-interfaze-clicks.mp4",
+      "lfsOid": "150302df107e02b71aa32e435d2c6d90965643fe60409d82be70d4079de7b031",
+      "recoveredSha256": "150302df107e02b71aa32e435d2c6d90965643fe60409d82be70d4079de7b031",
+      "recoveredBytes": 26142294,
+      "matchesManifest": true
+    }
+  ],
+  "scope": "This verifies remote media availability and byte integrity; local decoded and independent visual checks are documented separately."
+}

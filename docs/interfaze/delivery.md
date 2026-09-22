@@ -1,0 +1,13 @@
+# Interfaze demonstration delivery
+
+[Click-only final](../../artifacts/interfaze/media/nova-interfaze-clicks.mp4) · [Silent edit](../../artifacts/interfaze/media/nova-interfaze-silent.mp4) · [Untouched native original](../../artifacts/interfaze/media/nova-interfaze-original.mov)
+
+The populated Playground demonstration shows an immediate real model test, a genuine Help me choose → Category + summary choice, temperature-zero JSON configuration with two required strings, saved output verification, and a connected policy/schema revision adding required boolean escalation. Nine days late returns true; exactly seven days returns false. Nova then explains the rule and performs a real scroll to the saved Output. All three structured results were independently reopened after reload. CD-300 is prepared synthetic baseline content, not on-camera work.
+
+The original is 7:58.5; edited versions are 7:52.5. Six seconds were removed only from one static operator wait. All actual execution, model processing, input and scrolling remain at 1×. There are 43 verified taps, with no keyboard sounds or continuous audio. These durations describe media, not agent latency.
+
+Local decoded QA and independent selected-frame/hash/probe review passed. [QA report](../../artifacts/interfaze/qa/media-QA.md), [manifest](../../artifacts/interfaze/qa/media-manifest.json), [independent review](../../artifacts/interfaze/qa/independent-review.md), [exact prompts and card answers](recording-script.md), [saved results](verification.md), [setup and reproduction](reproduction.md), and [timings](../../artifacts/interfaze/qa/timings.json) retain evidence and limitations. All three remote media objects were independently recovered and checksummed; see [remote recovery](../../artifacts/interfaze/qa/remote-recovery.json). Verified media commit: `469db7e7a70e1cb9a229d13f991dbf12ee55a05a`.
+
+Capture backend: `bd98d2500625f8821aa38836272b2568cb0fb4e5`; frontend: `1f7c8755a8cf1133534272c0083615156639d91e`. Later branch commits do not change recording provenance. Customer branch: `interfaze-nova` in the private repository.
+
+The roughly 30-minute planning target was exceeded: work-begun to verified remote recovery spans 245.7 minutes of inclusive wall time. Inclusive wall-clock timing includes access recovery, shared fixes, other startup work, rehearsals, rejected captures and interruptions; exclusive Interfaze labor and classified engineering/interruption totals are unavailable. The measured capture itself is under eight minutes. Cursor labels sometimes overlap controls or clip at the viewport. Pointer checks are sampled. This demonstrates specific workflows, not exhaustive dashboard coverage, and zero temperature does not guarantee accuracy.
