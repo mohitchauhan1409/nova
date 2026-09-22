@@ -1,5 +1,7 @@
 # Interfaze scenario acceptance review
 
+Historical planning/review checklist. For the captured take, exact executed prompts, recoveries and source identity are reconciled in `recording-script.md`, `capture-evidence.json` and `verification.md`. Pending boxes below are not the latest delivery status.
+
 Review scope: scenario/profile/customization against the original brief. No UI operation, run, build or code change. Live outcome/recording acceptance remains pending.
 
 ## Concrete changes made

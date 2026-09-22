@@ -1,5 +1,5 @@
 {
-  "status": "candidate; live runs and retention unverified",
+  "status": "Historical candidate and rehearsal fixtures. Final actual capture is documented in recording-script.md and capture-evidence.json; media QA/backup not asserted.",
   "scenario": "Cedar Desk synthetic support triage",
   "account": "itsmohitchauhan1409",
   "url": "https://interfaze.ai/dashboard/playground",

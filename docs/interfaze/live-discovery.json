@@ -105,5 +105,20 @@
       },
       "independentlyReopened": true
     }
-  ]
+  ],
+  "cleanOpenerDistinct": {
+    "prompt": "Classify a shattered bowl as damage, delivery or other. Reply with one word.",
+    "requestId": "req-b8716d8c-fa4d-48b5-9550-de2a747e45d1",
+    "output": "damage",
+    "status": 200,
+    "novaSteps": 4,
+    "approvalCard": false,
+    "independentLogVerified": true
+  },
+  "freshnessFailure": {
+    "session": "78347054-75ac-46d6-bf34-df079c2b3cb5",
+    "prompt": "Classify a cracked mug as damage, delivery or other. Reply with one word.",
+    "novaSteps": 0,
+    "failure": "claimed previous identical chat result was a new run; freshness guard repair pending"
+  }
 }

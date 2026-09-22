@@ -1,5 +1,7 @@
 # Interfaze live rehearsal and recording checklist
 
+Historical planning/review checklist. For the captured take, exact executed prompts, recoveries and source identity are reconciled in `recording-script.md`, `capture-evidence.json` and `verification.md`. Pending boxes below are not the latest delivery status.
+
 Prepared against reported customer build `339f12a` / main `10b065e`. All pass boxes below are PENDING until the coordinator records live receipts. This checklist does not establish successful execution. Use only the signed-in `itsmohitchauhan1409` account, real Interfaze controls and synthetic messages.
 
 ## Shared evidence rule

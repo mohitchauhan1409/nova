@@ -1,0 +1,25 @@
+{
+  "account": "itsmohitchauhan1409",
+  "scope": "https://interfaze.ai/dashboard/playground",
+  "ownership": "Playground was initially empty. Final capture began after an authorized reset of task-only local chat; final local conversation now contains the recorded synthetic Cedar Desk tests. No unrelated chat was observed.",
+  "disposable_local_test_objects": [
+    {
+      "object": "current Playground local chat",
+      "reason": "Task-owned local content; preserve the final conversation/session, model outputs and request receipts before any later reset. Do not clear while media/evidence workers still need it.",
+      "evidencePreserved": "Historical rehearsal receipts plus private/interfaze-final-sessions.json, private/interfaze-final-operator.json, private/interfaze-final-recorder.log, capture-evidence.json and server Logs."
+    }
+  ],
+  "retain": [
+    "all server request logs",
+    "all private session/action evidence",
+    "live-discovery.json exact request IDs and outputs",
+    "final local conversation until evidence/media acceptance",
+    "artifacts/interfaze/media/nova-interfaze-original.mov unchanged",
+    "capture-evidence.json and actual recording-script.md"
+  ],
+  "configuration_baseline": {
+    "systemPrompt": "empty",
+    "structuredJSON": false,
+    "temperature": 0
+  }
+}
