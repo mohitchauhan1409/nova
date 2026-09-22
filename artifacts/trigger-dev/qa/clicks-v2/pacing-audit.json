@@ -1,0 +1,65 @@
+{
+  "revision": "clicks-v2",
+  "createdAtUtc": "2026-09-22T07:17:54.320731+00:00",
+  "scope": "click-only final replaced; original and silent deliverables unchanged",
+  "previousClickSeconds": 567.666667,
+  "newClickSeconds": 385.1333333333333,
+  "reductionSeconds": 182.53333366666664,
+  "reductionPercent": 32.16,
+  "frames": 11554,
+  "fps": 30,
+  "editingRules": {
+    "agentSegmentsAll1x": true,
+    "maxScrollSpeed": 1.5,
+    "acceleratedClickFrameOverlaps": [],
+    "operatorTypingAccelerated": false
+  },
+  "clicks": {
+    "total": 34,
+    "operator": 17,
+    "nova": 17
+  },
+  "soundVerification": {
+    "video_stream_identical": true,
+    "video_stream_hash": "0,v,SHA256=eedad012150a1aee8c2aa2e2c1bbc0c6672a0ab8d13a6a921c8dd5df5d11b9a4",
+    "sound_mode": "clicks-only",
+    "effect": "Nova established mechanical tap; 48 kHz stereo; seed 2071",
+    "audio_peak_dbfs": -13.43,
+    "click_events": 34,
+    "operator_clicks": 17,
+    "nova_clicks": 17,
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 3024,
+          "height": 1776,
+          "nb_frames": "11554"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 2,
+          "nb_frames": "18055"
+        }
+      ],
+      "format": {
+        "duration": "385.133333"
+      }
+    },
+    "output_sha256": "74fc0c3c17c5f4780a8ed7742bf4bb5c31328df79be1a120268b3704ef04ed8f"
+  },
+  "decodedAudio": {
+    "decoded": true,
+    "fps": 30,
+    "quiet_peak": 0.0,
+    "decoded_peak": 0.21195323765277863,
+    "max_onset_error_ms": 0.10416666666666667,
+    "minimum_tap_correlation": 0.9994136656335962
+  },
+  "visualReview": "Twelve evenly spaced decoded frames reviewed; opening, intermediate cards/actions/results and closing remain intact. Firecrawl card-entry sequence was separately sampled before editing to protect progressive explicit URL/schema entry."
+}

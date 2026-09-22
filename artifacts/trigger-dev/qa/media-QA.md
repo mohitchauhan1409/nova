@@ -1,3 +1,7 @@
+# Click-only pacing revision — 2026-09-22
+
+The current `nova-trigger-dev-clicks.mp4` supersedes the initial click-only export described later in this historical QA report. It reduces the click-only runtime from 567.667s to 385.133s (32.16% shorter) by compressing completed-state operator waits and accelerating only unusually slow sidebar/card scrolling, capped at 1.50×. Every Nova/website execution segment, typing sequence, click frame, result and verification remains at 1×. The original and silent files are unchanged. All 34 cues were remapped from source frames; zero click frames overlap accelerated segments. Decoded click QA passes with zero audio outside tap windows and maximum onset error 0.104167ms. See `clicks-v2/pacing-audit.json` and `clicks-v2/edit-plan.json`. Later statements that the click file shares the initial silent duration or video stream describe the superseded first export.
+
 # Trigger final media QA — accepted with disclosed limitations
 
 Frozen runtime/frontend c1db2d1, main1b2062b. Native original is preserved. Source recorder anchor1790053236706;17480frames at30fps,582.666667seconds,3024×1776. Immutable session09b9d208-c1cf-468f-8397-e64797f31e62 supplies34 trusted mouse dispatches:17operator and17Nova. Operator ledger corroborates all17 and is deduplicated, never doubled. Three operator confirmations and subsequent actual Nova Replay clicks remain separate. Keyboard submits, scrolling and reload have no invented tap sounds.

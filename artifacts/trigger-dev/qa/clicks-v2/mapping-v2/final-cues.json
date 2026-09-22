@@ -1,0 +1,209 @@
+{
+  "duration": 385.1333333333333,
+  "events": [
+    {
+      "time": 5.6,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-000; Open Nova side panel; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[0] trusted dispatch. Consolidates duplicate operator ledger[0] dispatch and completion receipt. source frame 168: Actual original frames 168 and 198 reviewed in click-sheet-01; adjacent frames 166,170,176 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Launcher opens Nova; populated single-tab Tasks page remains visible."
+    },
+    {
+      "time": 10.233333333333333,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-001; Message Nova; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[1] trusted dispatch. Consolidates duplicate operator ledger[1] dispatch and completion receipt. source frame 436: Actual original frames 436 and 466 reviewed in click-sheet-01; adjacent frames 434,438,444 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Nova composer gains focus; first read-only request begins individually typed entry."
+    },
+    {
+      "time": 21.2,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-002; wocgl82-7; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[2] trusted dispatch. Action c5aa78e2-c63f-4a06-9609-224071366eb8: I\u2019m opening Development runs to locate the failed Harbor & Vale baseline. source frame 765: Actual original frames 765 and 795 reviewed in click-sheet-01; adjacent frames 763,767,773 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Purple Nova cursor activates Runs navigation; run list opens."
+    },
+    {
+      "time": 24.133333333333333,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-003; wocgl82-202; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[3] trusted dispatch. Action d5ab788b-a601-4a9c-8245-81a7f16e42ed: I\u2019m opening the identified failed Harbor & Vale baseline to inspect its payload and error. source frame 853: Actual original frames 853 and 883 reviewed in click-sheet-02; adjacent frames 851,855,861 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Failed baseline run opens from the Runs list."
+    },
+    {
+      "time": 31.233333333333334,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-004; wocgl82-284; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[4] trusted dispatch. Action 699e36e6-71c4-4f1d-8191-4d1131b81bfd: I\u2019m selecting the root task to inspect its status, payload, and error details. source frame 1066: Actual original frames 1066 and 1096 reviewed in click-sheet-02; adjacent frames 1064,1068,1074 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Root run details open and show quantityOverride -2 error and source quantity2."
+    },
+    {
+      "time": 39.06666666666667,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-005; Message Nova; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[5] trusted dispatch. Consolidates duplicate operator ledger[2] dispatch and completion receipt. source frame 1364: Actual original frames 1364 and 1394 reviewed in click-sheet-02; adjacent frames 1362,1366,1372 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Composer gains focus and correction follow-up begins typing."
+    },
+    {
+      "time": 49.93333333333333,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-006; wocgl82-277; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[6] trusted dispatch. Action 428dd4c0-6c74-4d85-97bd-769f78c36412: I\u2019m opening Replay for the failed Development run so I can correct the invalid override. source frame 1690: Actual original frames 1690 and 1720 reviewed in click-sheet-03; adjacent frames 1688,1692,1698 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Replay dialog opens with original invalid quantityOverride -2 payload."
+    },
+    {
+      "time": 54.333333333333336,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-007; wocgl82-356; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[7] trusted dispatch. Action 42f60267-9011-4d2e-b5d5-2db3145300e5: I\u2019m replacing the invalid override with HV-104\u2019s source quantity while preserving the other run options. source frame 1822: Actual original frames 1822 and 1852 reviewed in click-sheet-03; adjacent frames 1820,1824,1830 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Payload editor gains focus; original multiline JSON is replaced incrementally with corrected quantityOverride2."
+    },
+    {
+      "time": 78.76666666666667,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-008; Confirm corrected Development replay; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[8] trusted dispatch. Consolidates duplicate operator ledger[3] dispatch and completion receipt. source frame 2669: Actual original frames 2669 and 2699 reviewed in click-sheet-03; adjacent frames 2667,2671,2677 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Operator Confirm dismisses confirmation card; approved execution resumes."
+    },
+    {
+      "time": 78.9,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-009; wocgl82-390; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[9] trusted dispatch. Action b74eefae-b9b4-4786-9809-88b87904962c: I\u2019m replaying harbor-order-summary in Development with HV-104\u2019s source quantity of 2. source frame 2673: Actual original frames 2673 and 2703 reviewed in click-sheet-04; adjacent frames 2671,2675,2681 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Nova presses real Replay run after operator confirmation; new corrected run route loads. Old failed details briefly remain during loading."
+    },
+    {
+      "time": 98.86666666666666,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-010; wocgl82-271; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[10] trusted dispatch. Action 774bbc2b-3bd8-4baa-a438-8d5ebb0af970: I\u2019m reopening the Runs list to verify the saved completed replay through normal navigation. source frame 3272: Actual original frames 3272 and 3302 reviewed in click-sheet-04; adjacent frames 3270,3274,3280 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Runs navigation opens list after corrected run completion."
+    },
+    {
+      "time": 101.63333333333334,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-011; wocgl82-514; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[11] trusted dispatch. Action 4ff74da3-4967-4b13-a8a2-9ef8e89c4f12: I\u2019m reopening the completed replay to verify its corrected payload and actual totals. source frame 3355: Actual original frames 3355 and 3385 reviewed in click-sheet-04; adjacent frames 3353,3357,3363 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Completed corrected run opens; saved quantityOverride2 payload and Output are visible."
+    },
+    {
+      "time": 123.43333333333334,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-012; Message Nova; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[12] trusted dispatch. Consolidates duplicate operator ledger[4] dispatch and completion receipt. source frame 4300: Actual original frames 4300 and 4330 reviewed in click-sheet-05; adjacent frames 4298,4302,4308 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Composer gains focus; September sales-review request begins typing."
+    },
+    {
+      "time": 147.46666666666667,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-013; Help me choose sales-review options; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[13] trusted dispatch. Consolidates duplicate operator ledger[5] dispatch and completion receipt. source frame 5298: Actual original frames 5298 and 5328 reviewed in click-sheet-05; adjacent frames 5296,5300,5306 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Help me choose submits a visible help request; first options card collapses."
+    },
+    {
+      "time": 165.86666666666667,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-014; Product breakdown radio; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[14] trusted dispatch. Consolidates duplicate operator ledger[6] dispatch and completion receipt. source frame 6399: Actual original frames 6399 and 6429 reviewed in click-sheet-05; adjacent frames 6397,6401,6407 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Product radio visibly gains checked dot and purple selected border."
+    },
+    {
+      "time": 173.86666666666667,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-015; Paid orders only radio; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[15] trusted dispatch. Consolidates duplicate operator ledger[7] dispatch and completion receipt. source frame 7349: Actual original frames 7349 and 7379 reviewed in click-sheet-06; adjacent frames 7347,7351,7357 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Paid orders only radio visibly gains checked dot and purple selected border."
+    },
+    {
+      "time": 181.76666666666668,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-016; Continue with Product and Paid orders only; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[16] trusted dispatch. Consolidates duplicate operator ledger[8] dispatch and completion receipt. source frame 7893: Actual original frames 7893 and 7923 reviewed in click-sheet-06; adjacent frames 7891,7895,7901 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Continue submits Product and Paid orders only; card becomes Answered and details message appears."
+    },
+    {
+      "time": 185.4,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-017; wocgl82-642; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[17] trusted dispatch. Action a6cd7fce-cd8b-40c0-b450-d7ab219f0cad: I\u2019m opening the replay form to prepare the paid-only September review grouped by product. source frame 8002: Actual original frames 8002 and 8032 reviewed in click-sheet-06; adjacent frames 8000,8004,8010 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Replay form opens from corrected run for product review."
+    },
+    {
+      "time": 189.73333333333332,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-018; wocgl82-732; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[18] trusted dispatch. Action 5e5200e4-8631-45d2-ab3d-cf54849448e4: I\u2019m setting the September review to product grouping with paid orders only. source frame 8132: Actual original frames 8132 and 8162 reviewed in click-sheet-07; adjacent frames 8130,8134,8140 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Payload editor focuses; product grouping and paid-only JSON enters incrementally."
+    },
+    {
+      "time": 210.76666666666668,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-019; Confirm synthetic paid-product Development run; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[19] trusted dispatch. Consolidates duplicate operator ledger[9] dispatch and completion receipt. source frame 9012: Actual original frames 9012 and 9042 reviewed in click-sheet-07; adjacent frames 9010,9014,9020 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Operator Confirm approves synthetic paid-product run; card dismisses."
+    },
+    {
+      "time": 210.93333333333334,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-020; wocgl82-766; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[20] trusted dispatch. Action 935b9ba1-5dd9-4f58-8ed4-a070d688d1d0: I\u2019m replaying harbor-order-summary in Development for the product-grouped, paid-only September sales review. source frame 9017: Actual original frames 9017 and 9047 reviewed in click-sheet-07; adjacent frames 9015,9019,9025 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Nova presses real Replay run; new paid-product run is created. Brief old region details remain while new route loads."
+    },
+    {
+      "time": 215.13333333333333,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-021; wocgl82-798; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[21] trusted dispatch. Action 0e0c8215-3628-4d54-bf2d-fe9e2d4fdde1: I\u2019m reopening the replay form because the completed run used region grouping instead of the requested product grouping. source frame 9143: Actual original frames 9143 and 9173 reviewed in click-sheet-08; adjacent frames 9141,9145,9151 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Nova mistakenly reopens Replay after inferring wrong grouping from transitional stale details. This real error and subsequent proposal remain in full."
+    },
+    {
+      "time": 224.4,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-022; Cancel redundant replay proposal; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[22] trusted dispatch. Consolidates duplicate operator ledger[10] dispatch and completion receipt. source frame 10222: Actual original frames 10222 and 10252 reviewed in click-sheet-08; adjacent frames 10220,10224,10230 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Operator Cancel dismisses redundant replay confirmation without another run."
+    },
+    {
+      "time": 226.2,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-023; Message Nova; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[23] trusted dispatch. Consolidates duplicate operator ledger[11] dispatch and completion receipt. source frame 10348: Actual original frames 10348 and 10378 reviewed in click-sheet-08; adjacent frames 10346,10350,10356 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Composer gains focus; visible instruction says new run already exists, close form and verify saved run without rerunning."
+    },
+    {
+      "time": 243.03333333333333,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-024; wocgl82-831; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[24] trusted dispatch. Action f7b2b62a-ef42-4491-85b1-2c8d3ce77a8e: I\u2019m closing the replay form without creating another run so I can verify the saved result. source frame 10853: Actual original frames 10853 and 10883 reviewed in click-sheet-09; adjacent frames 10851,10855,10861 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Nova closes Replay form; completed saved paid-product run with product payload appears."
+    },
+    {
+      "time": 252.9,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-025; Message Nova; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[25] trusted dispatch. Consolidates duplicate operator ledger[12] dispatch and completion receipt. source frame 12094: Actual original frames 12094 and 12124 reviewed in click-sheet-09; adjacent frames 12092,12096,12102 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Composer gains focus; revision request including cancellations as order demand begins typing."
+    },
+    {
+      "time": 268.6666666666667,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-026; wocgl82-798; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[26] trusted dispatch. Action 519da957-436e-4c9b-90be-e34447dbf8cb: I\u2019m opening the saved paid-only run\u2019s replay form to change only cancellation inclusion for the new order-demand report. source frame 12567: Actual original frames 12567 and 12597 reviewed in click-sheet-09; adjacent frames 12565,12569,12575 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Nova opens Replay from saved paid-product run for revised report."
+    },
+    {
+      "time": 271.93333333333334,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-027; wocgl82-935; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[27] trusted dispatch. Action d06b490d-8fb4-46a8-871c-36408e1be7bd: I\u2019m updating only cancellation inclusion while preserving the September batch and product grouping. source frame 12665: Actual original frames 12665 and 12695 reviewed in click-sheet-10; adjacent frames 12663,12667,12673 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Payload editor focuses; same batch/product JSON is replaced incrementally with includeCancelled true."
+    },
+    {
+      "time": 292.8666666666667,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-028; Confirm revised order-demand Development run; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[28] trusted dispatch. Consolidates duplicate operator ledger[13] dispatch and completion receipt. source frame 13428: Actual original frames 13428 and 13458 reviewed in click-sheet-10; adjacent frames 13426,13430,13436 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Operator Confirm approves revised order-demand run; card dismisses."
+    },
+    {
+      "time": 293.0,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-029; wocgl82-969; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[29] trusted dispatch. Action 47dc6d6c-118a-4b85-91c0-0733f5295752: I\u2019m creating the new Development order-demand run for harbor-order-summary with product grouping and cancellations included. source frame 13432: Actual original frames 13432 and 13462 reviewed in click-sheet-10; adjacent frames 13430,13434,13440 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Nova presses real Replay run; revised run route loads. Stale prior details briefly remain during transition."
+    },
+    {
+      "time": 314.5,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-030; 6v4cuto-43; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[30] trusted dispatch. Action 917106e7-48bf-4524-bacb-06873462cce6: I\u2019m opening the completed root task details to verify the saved payload, status, and order-demand output. source frame 14077: Actual original frames 14077 and 14107 reviewed in click-sheet-11; adjacent frames 14075,14079,14085 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Following retained dashboard fetch-error/reload recovery, Nova opens completed revised root; saved true payload and Output appear."
+    },
+    {
+      "time": 325.8666666666667,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-031; Message Nova; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[31] trusted dispatch. Consolidates duplicate operator ledger[14] dispatch and completion receipt. source frame 14607: Actual original frames 14607 and 14637 reviewed in click-sheet-11; adjacent frames 14605,14609,14615 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Composer gains focus; sales-review/source-orders question begins typing."
+    },
+    {
+      "time": 346.03333333333336,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-032; Message Nova; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[32] trusted dispatch. Consolidates duplicate operator ledger[15] dispatch and completion receipt. source frame 15644: Actual original frames 15644 and 15674 reviewed in click-sheet-11; adjacent frames 15642,15646,15652 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Composer gains focus; request to scroll native details to Output begins typing."
+    },
+    {
+      "time": 369.1666666666667,
+      "actor": "operator",
+      "strength": 1.0,
+      "evidence": "click-033; Message Nova; Immutable session 09b9d208-c1cf-468f-8397-e64797f31e62 recordingClicks[33] trusted dispatch. Consolidates duplicate operator ledger[16] dispatch and completion receipt. source frame 16726: Actual original frames 16726 and 16756 reviewed in click-sheet-12; adjacent frames 16724,16728,16734 extracted. All indices retained in frame-indices.json; regenerate from untouched original. Scratch images pruned after QA. response: Composer gains focus; request to read visible totals follows actual scroll and generic false-negative completion message."
+    }
+  ]
+}

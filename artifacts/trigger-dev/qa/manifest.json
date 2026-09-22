@@ -1,8 +1,8 @@
 [
   {
     "path": "artifacts/trigger-dev/media/nova-trigger-dev-clicks.mp4",
-    "bytes": 30924910,
-    "sha256": "7c03e4f79ed3d06a567cb689d0c4ee62cdeef075e2e28b59a37ab348021aaf93",
+    "bytes": 30536337,
+    "sha256": "74fc0c3c17c5f4780a8ed7742bf4bb5c31328df79be1a120268b3704ef04ed8f",
     "metadata": {
       "programs": [],
       "stream_groups": [],
@@ -13,8 +13,8 @@
           "width": 3024,
           "height": 1776,
           "r_frame_rate": "30/1",
-          "avg_frame_rate": "30/1",
-          "nb_frames": "17030"
+          "avg_frame_rate": "11554000/385133",
+          "nb_frames": "11554"
         },
         {
           "codec_name": "aac",
@@ -23,11 +23,11 @@
           "channels": 2,
           "r_frame_rate": "0/0",
           "avg_frame_rate": "0/0",
-          "nb_frames": "26611"
+          "nb_frames": "18055"
         }
       ],
       "format": {
-        "duration": "567.666667"
+        "duration": "385.133333"
       }
     }
   },
