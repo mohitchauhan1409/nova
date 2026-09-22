@@ -1,12 +1,12 @@
 {
   "video_stream_identical": true,
-  "video_stream_hash": "0,v,SHA256=c680672ed4e605c62a96a4777f64f9842dd55b921f1027e862c9c9ac8bfdf23f",
+  "video_stream_hash": "0,v,SHA256=7595d7f6822b76b759db13d3636a69adbdd76b7faf6eb68f91408d3bc00caec3",
   "sound_mode": "clicks-only",
   "effect": "Nova established mechanical tap; 48 kHz stereo; seed 2071",
-  "audio_peak_dbfs": -13.24,
-  "click_events": 50,
-  "operator_clicks": 14,
-  "nova_clicks": 36,
+  "audio_peak_dbfs": -13.27,
+  "click_events": 43,
+  "operator_clicks": 10,
+  "nova_clicks": 33,
   "metadata": {
     "programs": [],
     "stream_groups": [],
@@ -16,19 +16,19 @@
         "codec_type": "video",
         "width": 3024,
         "height": 1776,
-        "nb_frames": "22020"
+        "nb_frames": "14175"
       },
       {
         "codec_name": "aac",
         "codec_type": "audio",
         "sample_rate": "48000",
         "channels": 2,
-        "nb_frames": "34408"
+        "nb_frames": "22150"
       }
     ],
     "format": {
-      "duration": "734.000000"
+      "duration": "472.500000"
     }
   },
-  "output_sha256": "a5b3115e9a4d29188222145aa07c3e21a7265bf8c42b32cda2f4f385f4a16983"
+  "output_sha256": "150302df107e02b71aa32e435d2c6d90965643fe60409d82be70d4079de7b031"
 }

@@ -1,305 +1,263 @@
 {
-  "duration": 734.0,
+  "duration": 472.5,
   "events": [
     {
-      "time": 3.3333333333333335,
+      "time": 3.3,
       "actor": "operator",
       "strength": 1.0,
-      "evidence": "click-000; Open Nova side panel; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[0] trusted mouse dispatch. Consolidates operator ledger clicks[0], dispatch 1790049472192, completed 1790049472343.; source frame 100: qa/click-sheet-01.png click00; actual raw frames 100 and 130, with adjacent 98,102,108 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Launcher activation opens Nova and resizes the website."
+      "evidence": "click-000; Open Nova; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[0] trusted mouse dispatch.; source frame 99: Actual source frame 99 and one-second response 129 inspected in click-sheet-01.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Launcher opens fresh Nova panel beside real populated CD-300 conversation."
     },
     {
-      "time": 8.066666666666666,
+      "time": 8.433333333333334,
       "actor": "operator",
       "strength": 1.0,
-      "evidence": "click-001; Message Nova; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[1] trusted mouse dispatch. Consolidates operator ledger clicks[1], dispatch 1790049477016, completed 1790049477081.; source frame 242: qa/click-sheet-01.png click01; actual raw frames 242 and 272, with adjacent 240,244,250 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Nova composer receives caret and begins individually typed first prompt."
+      "evidence": "click-001; Message Nova; Operator ledger[1] actual mouse dispatch/completion. Absent from bounded session recordingClicks; requires independent source-frame corroboration.; source frame 253: Actual source frame 253 and one-second response 283 inspected in click-sheet-01.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Operator-only composer click gives visible caret/focus; progressive first prompt starts by next-second frame. Corroborated against operator ledger and source253/283, absent from bounded session clicks."
     },
     {
-      "time": 25.333333333333332,
+      "time": 24.0,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-002; pbspn35-8; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[2] trusted mouse dispatch. Action 943608ab-fd14-4a26-8a37-b55f8dca79c1: I\u2019m entering the exact requested classification prompt in the playground.; source frame 760: qa/click-sheet-01.png click02; actual raw frames 760 and 790, with adjacent 758,762,768 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Nova black cursor focuses native website textarea; exact prompt begins typing."
+      "evidence": "click-002; xxi13x6-16; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[1] trusted mouse dispatch.; source frame 720: Actual source frame 720 and one-second response 750 inspected in click-sheet-01.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Native prompt textarea focuses and exact classification instruction begins progressive entry."
     },
     {
-      "time": 41.733333333333334,
+      "time": 37.9,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-003; pbspn35-10; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[3] trusted mouse dispatch. Action b2e88ba8-3e0b-4b48-a324-99b578564ded: I\u2019m sending the prepared prompt for a single model run.; source frame 1252: qa/click-sheet-02.png click03; actual raw frames 1252 and 1282, with adjacent 1250,1254,1260 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Black cursor/ring targets Send; prompt becomes a chat message and native processing begins."
+      "evidence": "click-003; xxi13x6-18; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[2] trusted mouse dispatch.; source frame 1137: Actual source frame 1137 and one-second response 1167 inspected in click-sheet-02.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Nova Send activates; exact prompt enters chat and model processing starts."
     },
     {
-      "time": 72.1,
+      "time": 60.8,
       "actor": "operator",
       "strength": 1.0,
-      "evidence": "click-004; Message Nova; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[4] trusted mouse dispatch. Consolidates operator ledger clicks[2], dispatch 1790049550016, completed 1790049550141.; source frame 2433: qa/click-sheet-02.png click04; actual raw frames 2433 and 2463, with adjacent 2431,2435,2441 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Nova composer receives individually typed JSON-triage follow-up."
+      "evidence": "click-004; Message Nova; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[3] trusted mouse dispatch.; source frame 1824: Actual source frame 1824 and one-second response 1854 inspected in click-sheet-02.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Composer focuses and JSON-triage follow-up begins progressive entry after genuine damage result."
     },
     {
-      "time": 104.9,
+      "time": 89.2,
       "actor": "operator",
       "strength": 1.0,
-      "evidence": "click-005; Help me choose; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[5] trusted mouse dispatch. Consolidates operator ledger clicks[3], dispatch 1790049582328, completed 1790049582932.; source frame 3417: qa/click-sheet-02.png click05; actual raw frames 3417 and 3447, with adjacent 3415,3419,3425 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Help me choose activates; prior card collapses and help request appears in chat."
+      "evidence": "click-005; Help me choose JSON fields; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[4] trusted mouse dispatch.; source frame 2676: Actual source frame 2676 and one-second response 2706 inspected in click-sheet-02.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Help me choose collapses original card and posts the real help request."
     },
     {
-      "time": 133.7,
+      "time": 104.36666666666666,
       "actor": "operator",
       "strength": 1.0,
-      "evidence": "click-006; Category + summary radio; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[6] trusted mouse dispatch. Consolidates operator ledger clicks[4], dispatch 1790049611438, completed 1790049611714.; source frame 4281: qa/click-sheet-03.png click06; actual raw frames 4281 and 4311, with adjacent 4279,4283,4289 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Category + summary radio becomes visibly checked with a selected border."
+      "evidence": "click-006; Category + summary; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[5] trusted mouse dispatch.; source frame 3131: Actual source frame 3131 and one-second response 3161 inspected in click-sheet-03.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Category + summary radio becomes visibly selected with checked dot/border."
     },
     {
-      "time": 147.13333333333333,
+      "time": 108.26666666666667,
       "actor": "operator",
       "strength": 1.0,
-      "evidence": "click-007; Continue with Category + summary; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[7] trusted mouse dispatch. Consolidates operator ledger clicks[5], dispatch 1790049624389, completed 1790049625162.; source frame 4684: qa/click-sheet-03.png click07; actual raw frames 4684 and 4714, with adjacent 4682,4686,4692 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Continue submits selected category + summary; card becomes Answered and details message appears."
+      "evidence": "click-007; Continue selected JSON fields; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[6] trusted mouse dispatch.; source frame 3248: Actual source frame 3248 and one-second response 3278 inspected in click-sheet-03.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Continue submits actual selection; card becomes Answered with chosen details."
     },
     {
-      "time": 150.13333333333333,
+      "time": 110.73333333333333,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-008; pbspn35-12; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[8] trusted mouse dispatch. Action 35f55c76-bd1b-4e4a-9013-250dad0bb040: I\u2019m opening System Prompt to set Cedar Desk\u2019s concise triage policy.; source frame 4774: qa/click-sheet-03.png click08; actual raw frames 4774 and 4804, with adjacent 4772,4776,4782 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: System Prompt expands and reveals its textarea."
+      "evidence": "click-008; xxi13x6-20; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[7] trusted mouse dispatch.; source frame 3322: Actual source frame 3322 and one-second response 3352 inspected in click-sheet-03.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: System Prompt expands and exposes empty textarea."
     },
     {
-      "time": 152.9,
+      "time": 113.53333333333333,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-009; pbspn35-75; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[9] trusted mouse dispatch. Action 20213aee-fcf4-417a-9df0-ed892a9cb610: I\u2019m setting Cedar Desk\u2019s concise category-and-summary triage policy.; source frame 4857: qa/click-sheet-04.png click09; actual raw frames 4857 and 4887, with adjacent 4855,4859,4865 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: System prompt textarea receives focus; concise policy enters individually."
+      "evidence": "click-009; xxi13x6-73; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[8] trusted mouse dispatch.; source frame 3406: Actual source frame 3406 and one-second response 3436 inspected in click-sheet-04.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: System prompt field focuses; concise policy begins progressive entry."
     },
     {
-      "time": 167.46666666666667,
+      "time": 128.53333333333333,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-010; pbspn35-17; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[10] trusted mouse dispatch. Action ecbbd009-3e5b-4e70-9490-f53b02aefa19: I\u2019m opening Configuration to set temperature to zero.; source frame 5294: qa/click-sheet-04.png click10; actual raw frames 5294 and 5324, with adjacent 5292,5296,5302 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Configuration expands and exposes Temperature, Top P and completion-token sliders."
+      "evidence": "click-010; xxi13x6-25; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[9] trusted mouse dispatch.; source frame 3856: Actual source frame 3856 and one-second response 3886 inspected in click-sheet-04.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Configuration expands, exposing Temperature initially1 and other sliders."
     },
     {
-      "time": 175.43333333333334,
+      "time": 135.73333333333332,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-011; pbspn35-21; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[11] trusted mouse dispatch. Action 62beaf9c-dc74-48ed-88a3-fc9451174a0e: I\u2019m enabling structured JSON output so I can add category and summary fields.; source frame 5533: qa/click-sheet-04.png click11; actual raw frames 5533 and 5563, with adjacent 5531,5535,5541 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: JSON toggle becomes checked; structured schema editor appears."
+      "evidence": "click-011; xxi13x6-29; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[10] trusted mouse dispatch.; source frame 4072: Actual source frame 4072 and one-second response 4102 inspected in click-sheet-04.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: JSON becomes enabled after Nova set temperature0 through a non-click slider value action."
     },
     {
-      "time": 178.1,
+      "time": 140.6,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-012; pbspn35-89; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[12] trusted mouse dispatch. Action 27fb7690-25a4-4046-bb05-27f8bb6f71d9: I\u2019m naming the first required JSON field \u201ccategory.\u201d; source frame 5613: qa/click-sheet-05.png click12; actual raw frames 5613 and 5643, with adjacent 5611,5615,5621 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Property input focuses and category is typed."
+      "evidence": "click-012; xxi13x6-87; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[11] trusted mouse dispatch.; source frame 4218: Actual source frame 4218 and one-second response 4248 inspected in click-sheet-05.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: First property input focuses and category progressively appears."
     },
     {
-      "time": 182.1,
+      "time": 145.46666666666667,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-013; pbspn35-92; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[13] trusted mouse dispatch. Action 85f502f7-6a54-45a8-88d4-3c3abf08e397: I\u2019m making the category field required.; source frame 5733: qa/click-sheet-05.png click13; actual raw frames 5733 and 5763, with adjacent 5731,5735,5741 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Category Required asterisk becomes blue/pressed."
+      "evidence": "click-013; xxi13x6-90; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[12] trusted mouse dispatch.; source frame 4364: Actual source frame 4364 and one-second response 4394 inspected in click-sheet-05.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Category required asterisk becomes blue/pressed."
     },
     {
-      "time": 184.36666666666667,
+      "time": 148.03333333333333,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-014; pbspn35-94; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[14] trusted mouse dispatch. Action 937e807e-91d6-4e90-bce6-5df6081ac645: I\u2019m adding the second JSON field for the short summary.; source frame 5801: qa/click-sheet-05.png click14; actual raw frames 5801 and 5831, with adjacent 5799,5803,5809 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Add Property appends the second schema row."
+      "evidence": "click-014; xxi13x6-92; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[13] trusted mouse dispatch.; source frame 4441: Actual source frame 4441 and one-second response 4471 inspected in click-sheet-05.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Add Property appends second schema row."
     },
     {
-      "time": 204.1,
+      "time": 155.33333333333334,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-015; pbspn35-102; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[15] trusted mouse dispatch. Action 066faa7a-1d21-43d3-b459-1e7be32197bb: I\u2019m naming the second JSON field \u201csummary.\u201d; source frame 6393: qa/click-sheet-06.png click15; actual raw frames 6393 and 6423, with adjacent 6391,6395,6401 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Second property input focuses and summary is typed."
+      "evidence": "click-015; xxi13x6-100; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[14] trusted mouse dispatch.; source frame 4660: Actual source frame 4660 and one-second response 4690 inspected in click-sheet-06.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: After actual settings scroll, second property input focuses and summary appears progressively."
     },
     {
-      "time": 208.36666666666667,
+      "time": 159.26666666666668,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-016; pbspn35-105; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[16] trusted mouse dispatch. Action 49085d0a-9a18-45eb-ab8b-132586313da7: I\u2019m making the summary field required to complete Cedar Desk\u2019s JSON schema.; source frame 6521: qa/click-sheet-06.png click16; actual raw frames 6521 and 6551, with adjacent 6519,6523,6529 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Summary Required asterisk becomes blue/pressed."
+      "evidence": "click-016; xxi13x6-103; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[15] trusted mouse dispatch.; source frame 4778: Actual source frame 4778 and one-second response 4808 inspected in click-sheet-06.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Summary required asterisk becomes blue/pressed."
     },
     {
-      "time": 228.53333333333333,
+      "time": 164.1,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-017; xxi13x6-16; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[16] trusted mouse dispatch.; source frame 4923: Actual source frame 4923 and one-second response 4953 inspected in click-sheet-06.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Native prompt textarea focuses; A cracked mug. begins progressive entry."
+    },
+    {
+      "time": 169.4,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-018; xxi13x6-18; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[17] trusted mouse dispatch.; source frame 5082: Actual source frame 5082 and one-second response 5112 inspected in click-sheet-07.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Send posts A cracked mug. once and model processing begins."
+    },
+    {
+      "time": 185.56666666666666,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-019; xxi13x6-5; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[18] trusted mouse dispatch.; source frame 5567: Actual source frame 5567 and one-second response 5597 inspected in click-sheet-07.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Logs opens after actual damage/summary JSON appears; loading state retained."
+    },
+    {
+      "time": 201.1,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-020; xxi13x6-123; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[19] trusted mouse dispatch.; source frame 6033: Actual source frame 6033 and one-second response 6063 inspected in click-sheet-07.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Logs refresh changes/loading state; latest request remains visible."
+    },
+    {
+      "time": 208.96666666666667,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-021; xxi13x6-125; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[20] trusted mouse dispatch.; source frame 6269: Actual source frame 6269 and one-second response 6299 inspected in click-sheet-08.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Newest request opens Log detail with matching A cracked mug. prompt and status200."
+    },
+    {
+      "time": 228.83333333333334,
       "actor": "operator",
       "strength": 1.0,
-      "evidence": "click-017; Message Nova; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[17] trusted mouse dispatch. Consolidates operator ledger clicks[6], dispatch 1790049718296, completed 1790049718554.; source frame 7486: qa/click-sheet-06.png click17; actual raw frames 7486 and 7516, with adjacent 7484,7488,7494 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Nova composer receives individually typed CD-104 test request."
+      "evidence": "click-022; Message Nova; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[21] trusted mouse dispatch.; source frame 7045: Actual source frame 7045 and one-second response 7075 inspected in click-sheet-08.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Nova composer focuses; boolean-policy/nine-day request begins progressive entry."
     },
     {
-      "time": 240.23333333333332,
+      "time": 253.86666666666667,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-018; pbspn35-8; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[18] trusted mouse dispatch. Action c20aab33-9764-4a08-8f9b-dd0283b15e03: I\u2019m entering the requested Cedar Desk test prompt exactly once.; source frame 7837: qa/click-sheet-07.png click18; actual raw frames 7837 and 7867, with adjacent 7835,7839,7845 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Website textarea focuses and CD-104 prompt begins typing."
+      "evidence": "click-023; xxi13x6-2; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[22] trusted mouse dispatch.; source frame 7796: Actual source frame 7796 and one-second response 7826 inspected in click-sheet-08.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: After native Escape closes Log detail, Playground opens with retained schema and damage output."
     },
     {
-      "time": 248.53333333333333,
+      "time": 257.9,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-019; pbspn35-10; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[19] trusted mouse dispatch. Action 9dbaf2af-4822-4d16-ba5b-cdbc286384ff: I\u2019m submitting the prepared CD-104 test once so I can inspect its result and matching log.; source frame 8086: qa/click-sheet-07.png click19; actual raw frames 8086 and 8116, with adjacent 8084,8088,8094 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Send moves CD-104 prompt into chat; model processing begins."
+      "evidence": "click-024; xxi13x6-205; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[23] trusted mouse dispatch.; source frame 7917: Actual source frame 7917 and one-second response 7947 inspected in click-sheet-09.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: System Prompt expands, revealing retained policy."
     },
     {
-      "time": 264.7,
+      "time": 260.6,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-020; pbspn35-5; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[20] trusted mouse dispatch. Action dd09729f-9b32-4ef6-823b-22d755cb036f: I\u2019m opening Logs to verify the matching CD-104 request and output.; source frame 8571: qa/click-sheet-07.png click20; actual raw frames 8571 and 8601, with adjacent 8569,8573,8579 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Logs navigation opens the request list/loading state."
+      "evidence": "click-025; xxi13x6-275; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[24] trusted mouse dispatch.; source frame 7998: Actual source frame 7998 and one-second response 8028 inspected in click-sheet-09.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Policy field focuses; escalation policy is progressively replaced."
     },
     {
-      "time": 280.1,
+      "time": 281.56666666666666,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-021; pbspn35-128; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[21] trusted mouse dispatch. Action 1679e39f-81d0-46c2-a776-4e0745c2d801: I\u2019m opening the newest successful request to verify the CD-104 input and JSON output.; source frame 9033: qa/click-sheet-08.png click21; actual raw frames 9033 and 9063, with adjacent 9031,9035,9041 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Latest request row opens Log detail with CD-104 prompt, status200 and damage JSON."
+      "evidence": "click-026; xxi13x6-225; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[25] trusted mouse dispatch.; source frame 8627: Actual source frame 8627 and one-second response 8657 inspected in click-sheet-09.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Add Property appends third schema row below existing requiredstrings."
     },
     {
-      "time": 300.8333333333333,
+      "time": 288.3,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-027; xxi13x6-278; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[26] trusted mouse dispatch.; source frame 8829: Actual source frame 8829 and one-second response 8859 inspected in click-sheet-10.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: After Nova scrolls settings, third property input focuses and escalate appears progressively."
+    },
+    {
+      "time": 295.46666666666664,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-028; xxi13x6-281; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[27] trusted mouse dispatch.; source frame 9044: Actual source frame 9044 and one-second response 9074 inspected in click-sheet-10.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Required asterisk becomes blue after native non-click boolean type selection."
+    },
+    {
+      "time": 298.03333333333336,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-029; xxi13x6-201; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[28] trusted mouse dispatch.; source frame 9121: Actual source frame 9121 and one-second response 9151 inspected in click-sheet-10.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Native prompt focuses; exact CD-305 nine-day prompt begins progressive entry."
+    },
+    {
+      "time": 305.9,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-030; xxi13x6-203; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[29] trusted mouse dispatch.; source frame 9357: Actual source frame 9357 and one-second response 9387 inspected in click-sheet-11.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Send posts CD-305 once; model processing begins without approval."
+    },
+    {
+      "time": 322.06666666666666,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-031; xxi13x6-5; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[30] trusted mouse dispatch.; source frame 9842: Actual source frame 9842 and one-second response 9872 inspected in click-sheet-11.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Logs opens after actual delivery/escalate:true result; new row appears."
+    },
+    {
+      "time": 325.0,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-032; xxi13x6-301; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[31] trusted mouse dispatch.; source frame 9930: Actual source frame 9930 and one-second response 9960 inspected in click-sheet-11.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Logs refresh updates list; no repeat model submission."
+    },
+    {
+      "time": 328.73333333333335,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-033; xxi13x6-304; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[32] trusted mouse dispatch.; source frame 10042: Actual source frame 10042 and one-second response 10072 inspected in click-sheet-12.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Newest CD-305 request opens status200 Log detail."
+    },
+    {
+      "time": 343.3,
       "actor": "operator",
       "strength": 1.0,
-      "evidence": "click-022; Message Nova; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[22] trusted mouse dispatch. Consolidates operator ledger clicks[7], dispatch 1790049790736, completed 1790049790844.; source frame 9655: qa/click-sheet-08.png click22; actual raw frames 9655 and 9685, with adjacent 9653,9657,9663 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Nova composer receives individually typed escalation-policy follow-up."
+      "evidence": "click-034; Message Nova; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[33] trusted mouse dispatch.; source frame 10479: Actual source frame 10479 and one-second response 10509 inspected in click-sheet-12.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Composer focuses; exact-seven-day follow-up begins progressive entry."
     },
     {
-      "time": 325.2,
+      "time": 366.4,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-023; pbspn35-2; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[23] trusted mouse dispatch. Action 0623d484-5191-4992-b6bd-2f772e4c6ef7: I\u2019m opening the playground to add the escalation policy and required JSON field.; source frame 10386: qa/click-sheet-08.png click23; actual raw frames 10386 and 10416, with adjacent 10384,10388,10394 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Playground navigation returns to persisted policy/schema/chat."
+      "evidence": "click-035; xxi13x6-2; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[34] trusted mouse dispatch.; source frame 11172: Actual source frame 11172 and one-second response 11202 inspected in click-sheet-12.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: After native Escape, Playground opens with previous output and three requiredfields retained."
     },
     {
-      "time": 328.4,
+      "time": 370.8333333333333,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-024; pbspn35-192; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[24] trusted mouse dispatch. Action fa0df65b-0dbb-4758-bf71-e318fd6f1b28: I\u2019m opening the System Prompt to add the escalation rule.; source frame 10482: qa/click-sheet-09.png click24; actual raw frames 10482 and 10512, with adjacent 10480,10484,10490 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: System Prompt expands to expose current policy."
+      "evidence": "click-036; xxi13x6-390; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[35] trusted mouse dispatch.; source frame 11305: Actual source frame 11305 and one-second response 11335 inspected in click-sheet-13.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Native prompt focuses; CD-306 exact-seven-day prompt begins progressive entry."
     },
     {
-      "time": 331.3666666666667,
+      "time": 379.8333333333333,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-025; pbspn35-250; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[25] trusted mouse dispatch. Action b88830d5-0d13-4fb4-b107-7413152b53d2: I\u2019m updating the Cedar Desk policy with the requested escalation rule.; source frame 10571: qa/click-sheet-09.png click25; actual raw frames 10571 and 10601, with adjacent 10569,10573,10579 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Policy textarea focuses; revised escalation rule enters individually."
+      "evidence": "click-037; xxi13x6-392; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[36] trusted mouse dispatch.; source frame 11575: Actual source frame 11575 and one-second response 11605 inspected in click-sheet-13.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Send posts CD-306 once; model processing begins."
     },
     {
-      "time": 352.3333333333333,
+      "time": 395.1333333333333,
       "actor": "nova",
       "strength": 1.0,
-      "evidence": "click-026; pbspn35-212; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[26] trusted mouse dispatch. Action 269ef1ed-0f78-48a0-92b2-402b390dd6b5: I\u2019m adding the required escalate field to the JSON schema.; source frame 11200: qa/click-sheet-09.png click26; actual raw frames 11200 and 11230, with adjacent 11198,11202,11208 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Add Property appends third row below visible viewport; subsequent retry interval is retained."
+      "evidence": "click-038; xxi13x6-5; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[37] trusted mouse dispatch.; source frame 12034: Actual source frame 12034 and one-second response 12064 inspected in click-sheet-13.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Logs opens after actual delivery/escalate:false result; newest row appears."
     },
     {
-      "time": 430.8666666666667,
+      "time": 399.46666666666664,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-039; xxi13x6-499; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[38] trusted mouse dispatch.; source frame 12164: Actual source frame 12164 and one-second response 12194 inspected in click-sheet-14.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Logs refresh updates list for exact-request verification."
+    },
+    {
+      "time": 402.8666666666667,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "click-040; xxi13x6-504; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[39] trusted mouse dispatch.; source frame 12266: Actual source frame 12266 and one-second response 12296 inspected in click-sheet-14.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Newest CD-306 status200 Log detail opens; later actual scroll exposes Output."
+    },
+    {
+      "time": 420.0,
       "actor": "operator",
       "strength": 1.0,
-      "evidence": "click-027; Message Nova; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[27] trusted mouse dispatch. Consolidates operator ledger clicks[8], dispatch 1790049920786, completed 1790049920910.; source frame 13556: qa/click-sheet-10.png click27; actual raw frames 13556 and 13586, with adjacent 13554,13558,13564 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Nova composer receives visible operator instruction to scroll settings and finish the test."
+      "evidence": "click-041; Message Nova; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[40] trusted mouse dispatch.; source frame 12780: Actual source frame 12780 and one-second response 12810 inspected in click-sheet-14.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Composer focuses; rule/temperature question begins progressive entry."
     },
     {
-      "time": 447.8,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-028; pbspn35-253; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[28] trusted mouse dispatch. Action 0449ccb8-0779-4771-af90-aefd9ea830df: I\u2019m naming the new JSON field \u201cescalate.\u201d; source frame 14064: qa/click-sheet-10.png click28; actual raw frames 14064 and 14094, with adjacent 14062,14066,14072 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: After native settings scroll, third property input focuses and escalate is typed."
-    },
-    {
-      "time": 455.46666666666664,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-029; pbspn35-256; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[29] trusted mouse dispatch. Action 9058d243-b8fd-4c7d-bc87-e51d91cc6941: I\u2019m making the boolean \u201cescalate\u201d field required.; source frame 14294: qa/click-sheet-10.png click29; actual raw frames 14294 and 14324, with adjacent 14292,14296,14302 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Boolean escalate Required asterisk becomes blue/pressed."
-    },
-    {
-      "time": 458.4,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-030; pbspn35-188; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[30] trusted mouse dispatch. Action 5b0e213e-77c7-491a-a6dc-536310352c93: I\u2019m entering the CD-105 test prompt exactly as requested.; source frame 14382: qa/click-sheet-11.png click30; actual raw frames 14382 and 14412, with adjacent 14380,14384,14390 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Website textarea focuses and exact CD-105 test begins typing."
-    },
-    {
-      "time": 491.6,
+      "time": 450.1333333333333,
       "actor": "operator",
       "strength": 1.0,
-      "evidence": "click-031; Confirm action: submit synthetic CD-105 model test; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[31] trusted mouse dispatch. Consolidates operator ledger clicks[9], dispatch 1790049993368, completed 1790049993631.; source frame 15738: qa/click-sheet-11.png click31; actual raw frames 15738 and 15768, with adjacent 15736,15740,15746 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Operator confirms ordinary synthetic model Send; confirmation card dismisses and execution resumes."
-    },
-    {
-      "time": 491.73333333333335,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-032; pbspn35-190; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[32] trusted mouse dispatch. Action 63c67cde-1d1e-484e-b310-cdd7cabfd1b6: I\u2019m submitting the CD-105 test once with the revised escalation policy.; source frame 15742: qa/click-sheet-11.png click32; actual raw frames 15742 and 15772, with adjacent 15740,15744,15750 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Nova targets native Send after operator confirmation; CD-105 enters chat and processing begins. This is distinct from the operator click four source frames earlier."
-    },
-    {
-      "time": 507.7,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-033; pbspn35-5; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[33] trusted mouse dispatch. Action b52e121b-db43-44dc-8799-50b3357cc57c: I\u2019m opening Logs to verify the CD-105 request and output.; source frame 16221: qa/click-sheet-12.png click33; actual raw frames 16221 and 16251, with adjacent 16219,16223,16229 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Logs navigation opens; failed-to-fetch toast and empty list are visibly retained."
-    },
-    {
-      "time": 512.2666666666667,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-034; pbspn35-276; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[34] trusted mouse dispatch. Action 72eb9cfd-2f6c-433c-bf94-b18a27bb41d0: I\u2019m refreshing Logs once to recover the failed request list and verify CD-105.; source frame 16358: qa/click-sheet-12.png click34; actual raw frames 16358 and 16388, with adjacent 16356,16360,16366 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Logs refresh triggers loading, then failed-to-fetch state remains visible."
-    },
-    {
-      "time": 515.3333333333334,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-035; pbspn35-2; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[35] trusted mouse dispatch. Action fa400ad8-bf33-43a6-8757-6c9011a85036: I\u2019m returning to the playground to inspect the completed CD-105 response after Logs failed to load.; source frame 16450: qa/click-sheet-12.png click35; actual raw frames 16450 and 16480, with adjacent 16448,16452,16458 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Playground navigation shows completed CD-105 delivery/escalate:true JSON despite Logs failure."
-    },
-    {
-      "time": 519.5333333333333,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-036; pbspn35-5; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[36] trusted mouse dispatch. Action 389a70e2-3a5e-4ae0-aa82-bf13a681ba31: I\u2019m reopening Logs now that the CD-105 result is verified, to check its request record.; source frame 16576: qa/click-sheet-13.png click36; actual raw frames 16576 and 16606, with adjacent 16574,16578,16584 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Logs navigation reopens; populated latest list appears."
-    },
-    {
-      "time": 535.3333333333334,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-037; pbspn35-388; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[37] trusted mouse dispatch. Action f9ef9a96-6a04-494a-a3bd-03be9040b5f1: I\u2019m opening the newest request to verify the CD-105 input and JSON output.; source frame 17050: qa/click-sheet-13.png click37; actual raw frames 17050 and 17080, with adjacent 17048,17052,17058 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Latest request opens CD-105 Log detail with status200 and matching input."
-    },
-    {
-      "time": 552.9,
-      "actor": "operator",
-      "strength": 1.0,
-      "evidence": "click-038; Message Nova; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[38] trusted mouse dispatch. Consolidates operator ledger clicks[10], dispatch 1790050054644, completed 1790050054917.; source frame 17577: qa/click-sheet-13.png click38; actual raw frames 17577 and 17607, with adjacent 17575,17579,17585 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Nova composer receives individually typed exact-seven-day CD-106 request."
-    },
-    {
-      "time": 570.3666666666667,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-039; pbspn35-2; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[39] trusted mouse dispatch. Action 0863e3a2-7bdc-41f8-94db-66dea75cea1e: I\u2019m returning to the playground to run the CD-106 test once.; source frame 18101: qa/click-sheet-14.png click39; actual raw frames 18101 and 18131, with adjacent 18099,18103,18109 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Playground navigation returns to current schema and previous results."
-    },
-    {
-      "time": 574.4333333333333,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-040; pbspn35-456; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[40] trusted mouse dispatch. Action 548ef390-6186-4c7e-abe7-e9790ba75339: I\u2019m entering the exact CD-106 test prompt for a single model run.; source frame 18223: qa/click-sheet-14.png click40; actual raw frames 18223 and 18253, with adjacent 18221,18225,18231 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Website textarea focuses and exact CD-106 prompt begins typing."
-    },
-    {
-      "time": 583.6333333333333,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-041; pbspn35-458; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[41] trusted mouse dispatch. Action 59f18429-7785-4771-814d-f93b7ff23ed6: I\u2019m submitting the CD-106 test once with the existing seven-day escalation policy.; source frame 18499: qa/click-sheet-14.png click41; actual raw frames 18499 and 18529, with adjacent 18497,18501,18507 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Send moves CD-106 into chat and starts model processing."
-    },
-    {
-      "time": 600.8,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-042; pbspn35-5; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[42] trusted mouse dispatch. Action 96f2dc51-feb8-49ad-a5d8-d1aa98e17ce6: I\u2019m opening Logs to verify whether the failed CD-106 playground run created a request record.; source frame 19014: qa/click-sheet-15.png click42; actual raw frames 19014 and 19044, with adjacent 19012,19016,19022 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Logs navigation follows visible native Failed to fetch result; recovery is retained."
-    },
-    {
-      "time": 616.7666666666667,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-043; pbspn35-555; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[43] trusted mouse dispatch. Action 05bb9224-7078-449f-abeb-478a5b0444b3: I\u2019m opening the newest request to verify the exact CD-106 input and output.; source frame 19493: qa/click-sheet-15.png click43; actual raw frames 19493 and 19523, with adjacent 19491,19495,19501 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Newest currently listed row opens CD-105 detail, visibly the stale result; Nova later closes and retries navigation."
-    },
-    {
-      "time": 623.9666666666667,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-044; pbspn35-2; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[44] trusted mouse dispatch. Action f6bc53c6-e5c4-48b1-971d-398903ef6d75: I\u2019m returning to the playground to inspect the CD-106 run\u2019s visible result or error.; source frame 19709: qa/click-sheet-15.png click44; actual raw frames 19709 and 19739, with adjacent 19707,19711,19717 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Playground navigation returns to CD-106 result area after stale log detection."
-    },
-    {
-      "time": 627.2666666666667,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-045; pbspn35-5; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[45] trusted mouse dispatch. Action 41fa81c0-d8b0-4e16-86e6-fa03d360f896: I\u2019m checking Logs again now that the CD-106 run has finished in the playground.; source frame 19808: qa/click-sheet-16.png click45; actual raw frames 19808 and 19838, with adjacent 19806,19810,19816 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Logs navigation now shows new CD-106 row at top."
-    },
-    {
-      "time": 630.7666666666667,
-      "actor": "nova",
-      "strength": 1.0,
-      "evidence": "click-046; pbspn35-720; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[46] trusted mouse dispatch. Action eb1835d5-7c22-4299-84ba-ff7f6a87eca6: I\u2019m opening the newest request to verify the exact CD-106 input and output.; source frame 19913: qa/click-sheet-16.png click46; actual raw frames 19913 and 19943, with adjacent 19911,19915,19921 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Latest row opens CD-106 Log detail with status200; later real scroll exposes complete output."
-    },
-    {
-      "time": 657.8666666666667,
-      "actor": "operator",
-      "strength": 1.0,
-      "evidence": "click-047; Message Nova; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[47] trusted mouse dispatch. Consolidates operator ledger clicks[11], dispatch 1790050172651, completed 1790050172904.; source frame 21116: qa/click-sheet-16.png click47; actual raw frames 21116 and 21146, with adjacent 21114,21118,21124 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Nova composer receives individually typed rule/temperature question."
-    },
-    {
-      "time": 686.5333333333333,
-      "actor": "operator",
-      "strength": 1.0,
-      "evidence": "click-048; Message Nova; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[48] trusted mouse dispatch. Consolidates operator ledger clicks[12], dispatch 1790050207296, completed 1790050207546.; source frame 22156: qa/click-sheet-17.png click48; actual raw frames 22156 and 22186, with adjacent 22154,22158,22164 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Nova composer receives individually typed Show the saved output follow-up."
-    },
-    {
-      "time": 709.1,
-      "actor": "operator",
-      "strength": 1.0,
-      "evidence": "click-049; Message Nova; Private interfaze-final-sessions.json session 6608e1ac-cd47-42a1-9bb0-1277db1eeb3f recordingClicks[49] trusted mouse dispatch. Consolidates operator ledger clicks[13], dispatch 1790050242869, completed 1790050243121.; source frame 23223: qa/click-sheet-17.png click49; actual raw frames 23223 and 23253, with adjacent 23221,23225,23231 retained in qa/final-frames. Native recording; source frame indices in qa/final-frame-indices.json.; response: Nova composer receives individually typed request to scroll Log detail down to Output."
+      "evidence": "click-042; Message Nova; Immutable final2 session afbb051f-28e4-496d-a4e1-dc228e111c1a recordingClicks[41] trusted mouse dispatch.; source frame 13684: Actual source frame 13684 and one-second response 13714 inspected in click-sheet-15.jpg, with adjacent frames indexed in frame-indices.json. Operator-only first composer also inspected at240/250/253/270. Regenerate from immutable original after scratch cleanup.; response: Composer focuses; final request to scroll Log detail to Output begins progressive entry."
     }
   ]
 }

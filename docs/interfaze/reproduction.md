@@ -1,12 +1,11 @@
 # Reproduce the recorded Interfaze setup
 
-**Provisional capture — replacement required:** This take passed local technical media QA and was uploaded at checkpoint `a5a0c748eebbd54ffe2a47f311045a4aa01e3eb5`, but its empty Playground opening fails the required visibly populated baseline. It is not the delivered final or full acceptance. The coordinator is preparing a replacement with a real synthetic baseline conversation. References below to the final take identify this historical candidate at runtime `18a702d`; preserve its exact evidence. Independent remote recovery was underway at this documentation checkpoint.
 
 This documents the actual capture source and product setup. It is not a claim that current third-party UI labels, quota, model output or timing will remain identical.
 
 ## Source and activation
 
-Use the private `interfaze-nova` branch. The capture runtime source is `18a702d0f167014c46df07bf840223adcd55ed52`; the installed recording frontend was built from `68a0957f390289f017aa57e0903cea56ed4bbc43`. Coordinator reports subsequent changes through the capture runtime were backend/profile only, with identical frontend source. Later main merges must not be substituted as the recorded build in provenance.
+Use the private `interfaze-nova` branch. The capture runtime source is `bd98d2500625f8821aa38836272b2568cb0fb4e5`; the installed recording frontend was built from `1f7c8755a8cf1133534272c0083615156639d91e`. Coordinator reports subsequent changes through the capture runtime were backend/profile only, with identical frontend source. Later main merges must not be substituted as the recorded build in provenance.
 
 Follow `../SETUP.md` and `../../scripts/video/README.md` using an isolated checkout and the user's own local credentials. Do not copy runtime histories, pairing tokens or secret files into deliverable commits. The customer profile registers `interfaze.ai` and uses `sites.interfaze.json`; retain separate backend data and logs from other startups. Only one runtime may be paired with the shared recording extension.
 
@@ -16,7 +15,7 @@ For a recording frontend build, enable `NOVA_RECORDING_MODE=true` and `NOVA_RECO
 
 Use the authorized Chrome profile and account `itsmohitchauhan1409`, normal Playground URL `https://interfaze.ai/dashboard/playground`, and available quota. The native model is the product being tested; Nova performs its UI configuration and navigation. No external recipients, paid upgrade, API key page, human-support ticket or production data is needed.
 
-Preserve existing task-owned conversations and saved request receipts before any reset. Native New chat erases previous locally stored chat. The final take began with empty task-only local chat, empty System Prompt, JSON off and Temperature 0 already retained. Historical synthetic requests remained in server Logs. Do not delete unrelated chat/logs or present rehearsal records as created during a new take.
+Preserve existing task-owned conversations and saved request receipts before any reset. Native New chat erases previous locally stored chat. Final2 began with the real populated synthetic CD-300 prompt/reply documented in capture-evidence.json, empty System Prompt, JSON off and Temperature 1. Native configuration then changed temperature to 0 on camera. Historical synthetic requests remained in server Logs. Do not delete unrelated chat/logs or present rehearsal records as created during a new take.
 
 Use the exact executed dialogue in `recording-script.md` for faithful reproduction. The genuine choice card offers Category only / Category + summary / Category + confidence. Help me choose explains the options and preserves the original request; select Category + summary and Continue. Confidence is an uncalibrated model self-report, not a verified probability.
 
@@ -28,7 +27,7 @@ Initial policy:
 Classify as damage, delivery, or other. Return category and a short summary.
 ```
 
-Enable structured JSON; set scalar `category` and `summary` to string and required. Keep Temperature 0; preserve other settings unless the user requests a change. Nova's captured actions verified these controls. The damaged-mug test returned category damage and a matching short summary.
+Enable structured JSON; set scalar `category` and `summary` to string and required. Set Temperature 0; preserve other settings unless the user requests a change. Nova's captured actions verified these controls. The damaged-mug test returned category damage and a matching short summary.
 
 Revised policy:
 
@@ -40,10 +39,10 @@ Preserve the two strings; add required scalar boolean `escalate`, arrays off. Ni
 
 After each model submission, wait while real processing evidence remains visible using the active runtime's supported bounded wait. Never resubmit to recover a delayed response. Open Logs through observed navigation and inspect exact input, output and status in the matching request. A 200 status alone cannot establish semantic correctness. Detail may truncate output near 500 characters, so keep examples concise and do not infer omitted content.
 
-The captured run required a visible instruction to scroll to the new schema row, one routine Send confirmation, and Logs loading/stale-record recovery. Reproduce honestly rather than scripting hidden repairs or claiming every step was uninterrupted. A zero-temperature setting does not guarantee accuracy.
+Final2 completed without recovery prompts or routine approvals. Nova scrolled settings before editing new rows and refreshed Logs for each current request. Earlier recovery/approval events are preserved in historical documents, not attributed to this take. A zero-temperature setting does not guarantee accuracy.
 
 ## Retained evidence and media
 
-`capture-evidence.json` records raw frame timing, actual messages, output and source commits. Source receipts reside in the private batch paths named there. Full retained final boundary ID: `req-f112ef24-2dff-41ea-b544-8c9e487e25c5`. Other final full request IDs are unavailable in bounded final snapshots; do not substitute rehearsal IDs.
+`capture-evidence.json` records actual messages, outputs and source commits. `final-capture.md` lists all three exact structured-result IDs and independent coordinator readbacks. Use the exact script; initial configured sample is “A cracked mug.”, followed by CD-305 nine-day / CD-306 seven-day tests.
 
-The original MOV is immutable. All execution, model processing, typing and recovery remain at 1x in the accepted local edits; only permitted prolonged operator idle pauses may be shortened with a documented mapping. The [final media QA](../../artifacts/interfaze/qa/media-QA.md) and [media manifest](../../artifacts/interfaze/qa/media-manifest.json) establish local masking, precise approved click cues and decoded audiovisual QA acceptance with the documented deviations. The original is 799 seconds; both edits are 734 seconds after 65 seconds of static operator-wait compression. Upload commit `a5a0c748eebbd54ffe2a47f311045a4aa01e3eb5` is complete per coordinator; independent remote LFS recovery with checksums is still underway and required before calling the backup verified.
+The true original MOV remains unchanged. All execution/model processing/typing/scrolling stays at 1×. The final2 EDL shortens only static source 220–229 seconds to 3 seconds: 478.5 seconds original → 472.5 seconds edited. The 43 approved tap cues derive from real mouse receipts plus actual frame responses. Final QA/manifest and independent remote-recovery receipt live under `artifacts/interfaze/qa`; until those gates are recorded complete, backup is not verified.

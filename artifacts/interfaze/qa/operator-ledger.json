@@ -1,172 +1,107 @@
 {
   "clicks": [
     {
-      "at": 1790049472192,
+      "at": 1790054966729,
       "actor": "operator",
       "button": "left",
-      "target": "Open Nova side panel",
-      "completedAt": 1790049472343
+      "target": "Open Nova",
+      "completedAt": 1790054967413
     },
     {
-      "at": 1790049477016,
+      "at": 1790054971835,
       "actor": "operator",
       "button": "left",
       "target": "Message Nova",
-      "completedAt": 1790049477081
+      "completedAt": 1790054972547
     },
     {
-      "at": 1790049550016,
+      "at": 1790055024676,
       "actor": "operator",
       "button": "left",
       "target": "Message Nova",
-      "completedAt": 1790049550141
+      "completedAt": 1790055024934
     },
     {
-      "at": 1790049582328,
+      "at": 1790055053041,
       "actor": "operator",
       "button": "left",
-      "target": "Help me choose",
-      "completedAt": 1790049582932
+      "target": "Help me choose JSON fields",
+      "completedAt": 1790055053322
     },
     {
-      "at": 1790049611438,
+      "at": 1790055068174,
       "actor": "operator",
       "button": "left",
-      "target": "Category + summary radio",
-      "completedAt": 1790049611714
+      "target": "Category + summary",
+      "completedAt": 1790055068475
     },
     {
-      "at": 1790049624389,
+      "at": 1790055071619,
       "actor": "operator",
       "button": "left",
-      "target": "Continue with Category + summary",
-      "completedAt": 1790049625162
+      "target": "Continue selected JSON fields",
+      "completedAt": 1790055072372
     },
     {
-      "at": 1790049718296,
-      "actor": "operator",
-      "button": "left",
-      "target": "Message Nova",
-      "completedAt": 1790049718554
-    },
-    {
-      "at": 1790049790736,
+      "at": 1790055198667,
       "actor": "operator",
       "button": "left",
       "target": "Message Nova",
-      "completedAt": 1790049790844
+      "completedAt": 1790055198949
     },
     {
-      "at": 1790049920786,
+      "at": 1790055313180,
       "actor": "operator",
       "button": "left",
       "target": "Message Nova",
-      "completedAt": 1790049920910
+      "completedAt": 1790055313436
     },
     {
-      "at": 1790049993368,
-      "actor": "operator",
-      "button": "left",
-      "target": "Confirm action: submit synthetic CD-105 model test",
-      "completedAt": 1790049993631
-    },
-    {
-      "at": 1790050054644,
+      "at": 1790055389856,
       "actor": "operator",
       "button": "left",
       "target": "Message Nova",
-      "completedAt": 1790050054917
+      "completedAt": 1790055390111
     },
     {
-      "at": 1790050172651,
+      "at": 1790055420006,
       "actor": "operator",
       "button": "left",
       "target": "Message Nova",
-      "completedAt": 1790050172904
-    },
-    {
-      "at": 1790050207296,
-      "actor": "operator",
-      "button": "left",
-      "target": "Message Nova",
-      "completedAt": 1790050207546
-    },
-    {
-      "at": 1790050242869,
-      "actor": "operator",
-      "button": "left",
-      "target": "Message Nova",
-      "completedAt": 1790050243121
+      "completedAt": 1790055420261
     }
   ],
   "prompts": [
     {
       "text": "Run this prompt: Classify a cracked mug as damage, delivery or other. Reply with one word.",
-      "typingStartedAt": 1790049477081,
-      "submittedAt": 1790049489813
+      "typingStartedAt": 1790054972547,
+      "submittedAt": 1790054985215
     },
     {
       "text": "Turn this into JSON triage for Cedar Desk at temperature zero.",
-      "typingStartedAt": 1790049550141,
-      "submittedAt": 1790049558862
+      "typingStartedAt": 1790055024934,
+      "submittedAt": 1790055033607
     },
     {
-      "text": "Test this prompt: CD-104 arrived with a cracked mug. Check Logs.",
-      "typingStartedAt": 1790049718554,
-      "submittedAt": 1790049727562
+      "text": "Add required boolean escalate: damage or delays over seven days. Test this prompt: CD-305 is nine days late, no damage. Check Logs.",
+      "typingStartedAt": 1790055198949,
+      "submittedAt": 1790055217608
     },
     {
-      "text": "Add required boolean escalate: damage or delays over seven days. Test this prompt: CD-105 is nine days late, no damage. Check Logs.",
-      "typingStartedAt": 1790049790844,
-      "submittedAt": 1790049809522
+      "text": "Test this prompt: CD-306 is exactly seven days late, no damage. Check Logs.",
+      "typingStartedAt": 1790055313436,
+      "submittedAt": 1790055323977
     },
     {
-      "text": "Scroll the settings pane to the new field, then finish this test and check Logs.",
-      "typingStartedAt": 1790049920910,
-      "submittedAt": 1790049932081
-    },
-    {
-      "text": "Test this prompt: CD-106 is exactly seven days late, no damage. Check Logs.",
-      "typingStartedAt": 1790050054917,
-      "submittedAt": 1790050065433
-    },
-    {
-      "text": "Which rule escalated CD-105? Does zero temperature guarantee accuracy?",
-      "typingStartedAt": 1790050172904,
-      "submittedAt": 1790050182759
-    },
-    {
-      "text": "Show the saved output.",
-      "typingStartedAt": 1790050207546,
-      "submittedAt": 1790050210638
+      "text": "Which rule escalated CD-305? Does zero temperature guarantee accuracy?",
+      "typingStartedAt": 1790055390111,
+      "submittedAt": 1790055399948
     },
     {
       "text": "Scroll the log dialog down to Output.",
-      "typingStartedAt": 1790050243121,
-      "submittedAt": 1790050248314
+      "typingStartedAt": 1790055420261,
+      "submittedAt": 1790055425469
     }
   ],
-  "scrolls": [
-    {
-      "at": 1790049574200,
-      "direction": "down",
-      "pages": 0.0125,
-      "count": 20,
-      "finishedAt": 1790049578280
-    },
-    {
-      "at": 1790049601018,
-      "direction": "down",
-      "pages": 0.0125,
-      "count": 26,
-      "finishedAt": 1790049606121
-    },
-    {
-      "at": 1790049616309,
-      "direction": "down",
-      "pages": 0.0125,
-      "count": 16,
-      "finishedAt": 1790049619386
-    }
-  ]
+  "scrolls": []
 }

@@ -1,302 +1,254 @@
 {
-  "session_id": "6608e1ac-cd47-42a1-9bb0-1277db1eeb3f",
+  "session_id": "afbb051f-28e4-496d-a4e1-dc228e111c1a",
   "recordingClicks": [
     {
-      "at": 1790049472346,
+      "at": 1790054967413,
       "actor": "operator",
       "button": "left",
       "target": "Open Nova side panel"
     },
     {
-      "at": 1790049477081,
+      "at": 1790054988116,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-16"
+    },
+    {
+      "at": 1790055002010,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-18"
+    },
+    {
+      "at": 1790055024934,
       "actor": "operator",
       "button": "left",
       "target": "Message Nova"
     },
     {
-      "at": 1790049494356,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-8"
-    },
-    {
-      "at": 1790049510777,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-10"
-    },
-    {
-      "at": 1790049550141,
-      "actor": "operator",
-      "button": "left",
-      "target": "Message Nova"
-    },
-    {
-      "at": 1790049582932,
+      "at": 1790055053325,
       "actor": "operator",
       "button": "left",
       "target": "button"
     },
     {
-      "at": 1790049611715,
+      "at": 1790055068476,
       "actor": "operator",
       "button": "left",
       "target": "button"
     },
     {
-      "at": 1790049625161,
+      "at": 1790055072375,
       "actor": "operator",
       "button": "left",
       "target": "button"
     },
     {
-      "at": 1790049628165,
+      "at": 1790055074874,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-12"
+      "target": "xxi13x6-20"
     },
     {
-      "at": 1790049630932,
+      "at": 1790055077649,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-75"
+      "target": "xxi13x6-73"
     },
     {
-      "at": 1790049645489,
+      "at": 1790055092657,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-17"
+      "target": "xxi13x6-25"
     },
     {
-      "at": 1790049653466,
+      "at": 1790055099849,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-21"
+      "target": "xxi13x6-29"
     },
     {
-      "at": 1790049656131,
+      "at": 1790055104740,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-89"
+      "target": "xxi13x6-87"
     },
     {
-      "at": 1790049660116,
+      "at": 1790055109584,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-92"
+      "target": "xxi13x6-90"
     },
     {
-      "at": 1790049662398,
+      "at": 1790055112166,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-94"
+      "target": "xxi13x6-92"
     },
     {
-      "at": 1790049682140,
+      "at": 1790055119449,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-102"
+      "target": "xxi13x6-100"
     },
     {
-      "at": 1790049686383,
+      "at": 1790055123383,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-105"
+      "target": "xxi13x6-103"
     },
     {
-      "at": 1790049718557,
+      "at": 1790055128232,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-16"
+    },
+    {
+      "at": 1790055133533,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-18"
+    },
+    {
+      "at": 1790055149676,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-5"
+    },
+    {
+      "at": 1790055165234,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-123"
+    },
+    {
+      "at": 1790055173091,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-125"
+    },
+    {
+      "at": 1790055198949,
       "actor": "operator",
       "button": "left",
       "target": "Message Nova"
     },
     {
-      "at": 1790049730273,
+      "at": 1790055223990,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-8"
+      "target": "xxi13x6-2"
     },
     {
-      "at": 1790049738566,
+      "at": 1790055228014,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-10"
+      "target": "xxi13x6-205"
     },
     {
-      "at": 1790049754732,
+      "at": 1790055230723,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-5"
+      "target": "xxi13x6-275"
     },
     {
-      "at": 1790049770140,
+      "at": 1790055251707,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-128"
+      "target": "xxi13x6-225"
     },
     {
-      "at": 1790049790846,
+      "at": 1790055258414,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-278"
+    },
+    {
+      "at": 1790055265599,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-281"
+    },
+    {
+      "at": 1790055268148,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-201"
+    },
+    {
+      "at": 1790055276026,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-203"
+    },
+    {
+      "at": 1790055292199,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-5"
+    },
+    {
+      "at": 1790055295125,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-301"
+    },
+    {
+      "at": 1790055298849,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-304"
+    },
+    {
+      "at": 1790055313439,
       "actor": "operator",
       "button": "left",
       "target": "Message Nova"
     },
     {
-      "at": 1790049815223,
+      "at": 1790055336531,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-2"
+      "target": "xxi13x6-2"
     },
     {
-      "at": 1790049818439,
+      "at": 1790055340964,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-192"
+      "target": "xxi13x6-390"
     },
     {
-      "at": 1790049821405,
+      "at": 1790055349957,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-250"
+      "target": "xxi13x6-392"
     },
     {
-      "at": 1790049842364,
+      "at": 1790055365257,
       "actor": "nova",
       "button": "left",
-      "target": "pbspn35-212"
+      "target": "xxi13x6-5"
     },
     {
-      "at": 1790049920911,
+      "at": 1790055369607,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-499"
+    },
+    {
+      "at": 1790055372990,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-504"
+    },
+    {
+      "at": 1790055390114,
       "actor": "operator",
       "button": "left",
       "target": "Message Nova"
     },
     {
-      "at": 1790049937843,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-253"
-    },
-    {
-      "at": 1790049945494,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-256"
-    },
-    {
-      "at": 1790049948426,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-188"
-    },
-    {
-      "at": 1790049993630,
-      "actor": "operator",
-      "button": "left",
-      "target": "button"
-    },
-    {
-      "at": 1790049993768,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-190"
-    },
-    {
-      "at": 1790050009745,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-5"
-    },
-    {
-      "at": 1790050014293,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-276"
-    },
-    {
-      "at": 1790050017360,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-2"
-    },
-    {
-      "at": 1790050021576,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-5"
-    },
-    {
-      "at": 1790050037351,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-388"
-    },
-    {
-      "at": 1790050054919,
-      "actor": "operator",
-      "button": "left",
-      "target": "Message Nova"
-    },
-    {
-      "at": 1790050072393,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-2"
-    },
-    {
-      "at": 1790050076450,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-456"
-    },
-    {
-      "at": 1790050085660,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-458"
-    },
-    {
-      "at": 1790050102834,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-5"
-    },
-    {
-      "at": 1790050118792,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-555"
-    },
-    {
-      "at": 1790050125985,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-2"
-    },
-    {
-      "at": 1790050129293,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-5"
-    },
-    {
-      "at": 1790050132809,
-      "actor": "nova",
-      "button": "left",
-      "target": "pbspn35-720"
-    },
-    {
-      "at": 1790050172902,
-      "actor": "operator",
-      "button": "left",
-      "target": "Message Nova"
-    },
-    {
-      "at": 1790050207549,
-      "actor": "operator",
-      "button": "left",
-      "target": "Message Nova"
-    },
-    {
-      "at": 1790050243123,
+      "at": 1790055420264,
       "actor": "operator",
       "button": "left",
       "target": "Message Nova"
@@ -304,434 +256,398 @@
   ],
   "actionSteps": [
     {
-      "id": "943608ab-fd14-4a26-8a37-b55f8dca79c1",
-      "taskId": "5fa79934-046c-45e4-94c9-77815f1b66b4",
-      "at": 1790049494242,
+      "id": "b6caa14b-290d-4c8a-9826-1c5163f6d3fd",
+      "taskId": "5881bde7-f0d5-4d1d-9f3c-7d4d3234cd29",
+      "at": 1790054987984,
       "kind": "fill",
-      "title": "I\u2019m entering the exact requested classification prompt in the playground.",
+      "title": "I\u2019m entering the exact prompt in the playground.",
       "status": "verified",
       "detail": "The target matches the requested value."
     },
     {
-      "id": "b2e88ba8-3e0b-4b48-a324-99b578564ded",
-      "taskId": "5fa79934-046c-45e4-94c9-77815f1b66b4",
-      "at": 1790049510665,
+      "id": "138b0b3c-5247-48ca-8ba6-efae4b052378",
+      "taskId": "5881bde7-f0d5-4d1d-9f3c-7d4d3234cd29",
+      "at": 1790055001898,
       "kind": "click",
-      "title": "I\u2019m sending the prepared prompt for a single model run.",
+      "title": "I\u2019m submitting the exact prompt for one model run.",
       "status": "verified",
       "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
     },
     {
-      "id": "35f55c76-bd1b-4e4a-9013-250dad0bb040",
-      "taskId": "9ef46a5a-2ef7-44c2-90f3-230cd3d96804",
-      "at": 1790049628053,
+      "id": "7b6eb32b-32e7-4453-b62b-1063f901d279",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055074764,
       "kind": "click",
-      "title": "I\u2019m opening System Prompt to set Cedar Desk\u2019s concise triage policy.",
+      "title": "I\u2019m opening System Prompt to apply Cedar Desk\u2019s concise triage policy.",
       "status": "verified",
       "detail": "Control state changed: System Prompt Define model behavior expanded:true"
     },
     {
-      "id": "20213aee-fcf4-417a-9df0-ed892a9cb610",
-      "taskId": "9ef46a5a-2ef7-44c2-90f3-230cd3d96804",
-      "at": 1790049630819,
+      "id": "8a7f2676-be7d-4d92-9561-771b5253f82d",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055077537,
       "kind": "fill",
-      "title": "I\u2019m setting Cedar Desk\u2019s concise category-and-summary triage policy.",
+      "title": "I\u2019m setting Cedar Desk\u2019s concise category-and-summary policy.",
       "status": "verified",
       "detail": "The target matches the requested value."
     },
     {
-      "id": "ecbbd009-3e5b-4e70-9490-f53b02aefa19",
-      "taskId": "9ef46a5a-2ef7-44c2-90f3-230cd3d96804",
-      "at": 1790049645380,
+      "id": "7d7c21d3-08d3-4bbe-848d-cef828c68166",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055092544,
       "kind": "click",
       "title": "I\u2019m opening Configuration to set temperature to zero.",
       "status": "verified",
       "detail": "Control state changed: Configuration Model parameters expanded:true"
     },
     {
-      "id": "1638a8e6-ccd5-4522-87e3-a081fc876964",
-      "taskId": "9ef46a5a-2ef7-44c2-90f3-230cd3d96804",
-      "at": 1790049650738,
+      "id": "72eef6fe-0c80-4681-a062-5c3304c29acc",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055097199,
       "kind": "press",
-      "title": "I\u2019m setting the temperature slider to zero.",
+      "title": "I\u2019m setting Temperature to its minimum value of zero.",
       "status": "verified",
       "detail": "Control state changed:  valuenow:0"
     },
     {
-      "id": "62beaf9c-dc74-48ed-88a3-fc9451174a0e",
-      "taskId": "9ef46a5a-2ef7-44c2-90f3-230cd3d96804",
-      "at": 1790049653356,
+      "id": "2182c7ce-42a8-4079-b73e-86196afa3428",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055099737,
       "kind": "click",
-      "title": "I\u2019m enabling structured JSON output so I can add category and summary fields.",
+      "title": "I\u2019m enabling structured JSON output so I can define the category and summary fields.",
       "status": "verified",
       "detail": "Control state changed: JSON checked:true"
     },
     {
-      "id": "27fb7690-25a4-4046-bb05-27f8bb6f71d9",
-      "taskId": "9ef46a5a-2ef7-44c2-90f3-230cd3d96804",
-      "at": 1790049656014,
+      "id": "6ad7bdf7-01f2-4373-9af4-59dbc62f8922",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055104633,
       "kind": "fill",
-      "title": "I\u2019m naming the first required JSON field \u201ccategory.\u201d",
+      "title": "I\u2019m naming the first required JSON field category.",
       "status": "verified",
       "detail": "The target matches the requested value."
     },
     {
-      "id": "85f502f7-6a54-45a8-88d4-3c3abf08e397",
-      "taskId": "9ef46a5a-2ef7-44c2-90f3-230cd3d96804",
-      "at": 1790049660004,
+      "id": "086a8920-fcd9-454d-b80e-93301ce7f51c",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055109468,
       "kind": "click",
       "title": "I\u2019m making the category field required.",
       "status": "verified",
       "detail": "Control state changed: Required pressed:true"
     },
     {
-      "id": "937e807e-91d6-4e90-bce6-5df6081ac645",
-      "taskId": "9ef46a5a-2ef7-44c2-90f3-230cd3d96804",
-      "at": 1790049662286,
+      "id": "4aee131e-2f5c-4803-84cc-5530418c7e55",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055112054,
       "kind": "click",
       "title": "I\u2019m adding the second JSON field for the short summary.",
       "status": "verified",
       "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
     },
     {
-      "id": "21a4127f-9305-4ee3-b750-8e1a5ab4eb4d",
-      "taskId": "9ef46a5a-2ef7-44c2-90f3-230cd3d96804",
-      "at": 1790049679037,
-      "kind": "scroll",
-      "title": "I\u2019m scrolling the settings panel to finish the summary field.",
+      "id": "3731cea2-38d8-466c-a9a0-edbb3050f27d",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055115132,
+      "kind": "scroll_to",
+      "title": "I\u2019m scrolling the field into view before editing it.",
       "status": "verified",
-      "detail": "Control state changed: SETTINGS System Prompt Define model behavior Run Task Skip orchestration \u2014 faster, cheaper Docs Guardrail Examples Test content filtering Docs Configuration Model parameters Temperature 0.00 Top P 1.00 Max Completion Tok scrollX:0, scrollY:233, scrollMaxX:0, scrollMaxY:233"
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
     },
     {
-      "id": "066faa7a-1d21-43d3-b459-1e7be32197bb",
-      "taskId": "9ef46a5a-2ef7-44c2-90f3-230cd3d96804",
-      "at": 1790049682025,
+      "id": "c21bc1b4-4866-4447-a131-71e9aa73794c",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055119335,
       "kind": "fill",
-      "title": "I\u2019m naming the second JSON field \u201csummary.\u201d",
+      "title": "I\u2019m naming the second JSON field summary.",
       "status": "verified",
       "detail": "The target matches the requested value."
     },
     {
-      "id": "49085d0a-9a18-45eb-ab8b-132586313da7",
-      "taskId": "9ef46a5a-2ef7-44c2-90f3-230cd3d96804",
-      "at": 1790049686271,
+      "id": "f875ffd2-fce3-4bfb-af5f-dcad4a9ce71d",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055123267,
       "kind": "click",
       "title": "I\u2019m making the summary field required to complete Cedar Desk\u2019s JSON schema.",
       "status": "verified",
       "detail": "Control state changed: Required pressed:true"
     },
     {
-      "id": "c20aab33-9764-4a08-8f9b-dd0283b15e03",
-      "taskId": "3576f7d9-5d75-4856-b86a-6b734e30431b",
-      "at": 1790049730158,
+      "id": "1b5f30d3-1fe7-44f7-9526-0ac2272f243c",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055128116,
       "kind": "fill",
-      "title": "I\u2019m entering the requested Cedar Desk test prompt exactly once.",
+      "title": "I\u2019m preparing the cracked-mug example to test Cedar Desk\u2019s JSON triage.",
       "status": "verified",
       "detail": "The target matches the requested value."
     },
     {
-      "id": "9dbaf2af-4822-4d16-ba5b-cdbc286384ff",
-      "taskId": "3576f7d9-5d75-4856-b86a-6b734e30431b",
-      "at": 1790049738452,
+      "id": "9e6f6d64-da60-4167-b3eb-2dedca8b098c",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055133423,
       "kind": "click",
-      "title": "I\u2019m submitting the prepared CD-104 test once so I can inspect its result and matching log.",
+      "title": "I\u2019m running the cracked-mug example once with Cedar Desk\u2019s JSON triage configuration.",
       "status": "verified",
       "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
     },
     {
-      "id": "dd09729f-9b32-4ef6-823b-22d755cb036f",
-      "taskId": "3576f7d9-5d75-4856-b86a-6b734e30431b",
-      "at": 1790049754618,
+      "id": "340b9451-cb68-423d-a4ac-e76912dae43e",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055149558,
       "kind": "click",
-      "title": "I\u2019m opening Logs to verify the matching CD-104 request and output.",
+      "title": "I\u2019m opening Logs to independently verify the completed Cedar Desk triage request.",
       "status": "verified",
       "detail": "Navigation observed: https://interfaze.ai/dashboard/logs"
     },
     {
-      "id": "1679e39f-81d0-46c2-a776-4e0745c2d801",
-      "taskId": "3576f7d9-5d75-4856-b86a-6b734e30431b",
-      "at": 1790049770023,
+      "id": "a517d0eb-2a5c-403a-a596-e9abed84b7a0",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055165115,
       "kind": "click",
-      "title": "I\u2019m opening the newest successful request to verify the CD-104 input and JSON output.",
+      "title": "I\u2019m refreshing Logs once to identify the newly completed Cedar Desk triage request.",
+      "status": "verified",
+      "detail": "Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "9ceb9cdf-9906-4324-88f1-ba1887a76168",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055172979,
+      "kind": "click",
+      "title": "I\u2019m opening the newest request to verify its exact prompt and JSON result.",
       "status": "verified",
       "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
     },
     {
-      "id": "d08533a4-7620-460b-8a99-f83ddbb612de",
-      "taskId": "236ef7f2-0b11-4988-965d-44dfb844f80d",
-      "at": 1790049812458,
+      "id": "4ef3aa03-db8b-4f27-bb80-e6e93cd2a87b",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055220584,
       "kind": "press",
-      "title": "I\u2019m closing the prior log detail so I can update the Cedar Desk policy and schema.",
+      "title": "I\u2019m closing the old log detail so I can update Cedar Desk\u2019s policy and run the new test.",
       "status": "verified",
       "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
     },
     {
-      "id": "0623d484-5191-4992-b6bd-2f772e4c6ef7",
-      "taskId": "236ef7f2-0b11-4988-965d-44dfb844f80d",
-      "at": 1790049815113,
+      "id": "e0ff969e-33ae-4c24-ba7f-9d0309b77f73",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055223874,
       "kind": "click",
-      "title": "I\u2019m opening the playground to add the escalation policy and required JSON field.",
+      "title": "I\u2019m opening the Playground to add the escalation rule and test the late delivery.",
       "status": "verified",
       "detail": "Navigation observed: https://interfaze.ai/dashboard/playground"
     },
     {
-      "id": "fa0df65b-0dbb-4758-bf71-e318fd6f1b28",
-      "taskId": "236ef7f2-0b11-4988-965d-44dfb844f80d",
-      "at": 1790049818326,
+      "id": "6f2634b1-9955-4a73-87d1-4933b1a31e71",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055227907,
       "kind": "click",
-      "title": "I\u2019m opening the System Prompt to add the escalation rule.",
+      "title": "I\u2019m opening the System Prompt to add Cedar Desk\u2019s escalation rule.",
       "status": "verified",
       "detail": "Control state changed: System Prompt Define model behavior expanded:true"
     },
     {
-      "id": "b88830d5-0d13-4fb4-b107-7413152b53d2",
-      "taskId": "236ef7f2-0b11-4988-965d-44dfb844f80d",
-      "at": 1790049821290,
+      "id": "7e48fcf8-f10a-4f5e-96a5-d84c4c76fc5c",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055230614,
       "kind": "fill",
-      "title": "I\u2019m updating the Cedar Desk policy with the requested escalation rule.",
+      "title": "I\u2019m updating Cedar Desk\u2019s policy with the requested escalation rule.",
       "status": "verified",
       "detail": "The target matches the requested value."
     },
     {
-      "id": "269ef1ed-0f78-48a0-92b2-402b390dd6b5",
-      "taskId": "236ef7f2-0b11-4988-965d-44dfb844f80d",
-      "at": 1790049842255,
+      "id": "d130af67-cf0c-475f-b620-593526f5f2f2",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055251594,
       "kind": "click",
-      "title": "I\u2019m adding the required escalate field to the JSON schema.",
+      "title": "I\u2019m adding the required escalate field to Cedar Desk\u2019s JSON schema.",
       "status": "verified",
       "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
     },
     {
-      "id": "5a5e7f9a-1615-4f57-8f13-e252a102b643",
-      "taskId": "cf585a5d-98cb-4fb0-8677-fcd0dac31b1a",
-      "at": 1790049934801,
-      "kind": "scroll",
-      "title": "I\u2019m scrolling the settings pane to the new schema field.",
+      "id": "955f75ba-8d5e-4549-a97e-e09686245b6f",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055254977,
+      "kind": "scroll_to",
+      "title": "I\u2019m scrolling the field into view before editing it.",
       "status": "verified",
-      "detail": "Control state changed: SETTINGS System Prompt Define model behavior Run Task Skip orchestration \u2014 faster, cheaper Docs Guardrail Examples Test content filtering Docs Configuration Model parameters Reasoning Auto On Off Structured Output JSON J scrollX:0, scrollY:131, scrollMaxX:0, scrollMaxY:132"
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
     },
     {
-      "id": "0449ccb8-0779-4771-af90-aefd9ea830df",
-      "taskId": "cf585a5d-98cb-4fb0-8677-fcd0dac31b1a",
-      "at": 1790049937729,
+      "id": "946164d8-aef3-4112-a829-99753ec43b02",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055258302,
       "kind": "fill",
-      "title": "I\u2019m naming the new JSON field \u201cescalate.\u201d",
+      "title": "I\u2019m naming the new required JSON field \u201cescalate.\u201d",
       "status": "verified",
       "detail": "The target matches the requested value."
     },
     {
-      "id": "030fdddc-ec7d-42ae-abed-626ae6f26f61",
-      "taskId": "cf585a5d-98cb-4fb0-8677-fcd0dac31b1a",
-      "at": 1790049941943,
+      "id": "fcc06afa-203a-4e3e-969c-189a8ca3cd06",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055262084,
       "kind": "select",
-      "title": "I\u2019m setting the new \u201cescalate\u201d field to boolean.",
+      "title": "I\u2019m setting the new escalate field to boolean.",
       "status": "verified",
       "detail": "The target matches the requested value."
     },
     {
-      "id": "9058d243-b8fd-4c7d-bc87-e51d91cc6941",
-      "taskId": "cf585a5d-98cb-4fb0-8677-fcd0dac31b1a",
-      "at": 1790049945377,
+      "id": "c325efd2-8120-45a4-8387-ae70a26bf448",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055265485,
       "kind": "click",
-      "title": "I\u2019m making the boolean \u201cescalate\u201d field required.",
+      "title": "I\u2019m making the boolean escalate field required before running the late-delivery test.",
       "status": "verified",
       "detail": "Control state changed: Required pressed:true"
     },
     {
-      "id": "5b0e213e-77c7-491a-a6dc-536310352c93",
-      "taskId": "cf585a5d-98cb-4fb0-8677-fcd0dac31b1a",
-      "at": 1790049948317,
+      "id": "1248f3f1-6396-400f-8ca5-66a8c43ef7ef",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055268032,
       "kind": "fill",
-      "title": "I\u2019m entering the CD-105 test prompt exactly as requested.",
+      "title": "I\u2019m entering the requested late-delivery test prompt exactly once.",
       "status": "verified",
       "detail": "The target matches the requested value."
     },
     {
-      "id": "63c67cde-1d1e-484e-b310-cdd7cabfd1b6",
-      "taskId": "cf585a5d-98cb-4fb0-8677-fcd0dac31b1a",
-      "at": 1790049993655,
+      "id": "2fe8f6aa-3305-44b0-bf25-3bdec321d9f2",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055275910,
       "kind": "click",
-      "title": "I\u2019m submitting the CD-105 test once with the revised escalation policy.",
+      "title": "I\u2019m running the late-delivery test once with Cedar Desk\u2019s updated escalation policy.",
       "status": "verified",
       "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
     },
     {
-      "id": "b52e121b-db43-44dc-8799-50b3357cc57c",
-      "taskId": "cf585a5d-98cb-4fb0-8677-fcd0dac31b1a",
-      "at": 1790050009627,
+      "id": "bc870c80-ba1f-40e5-b09a-75b6de0adf1c",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055292089,
       "kind": "click",
-      "title": "I\u2019m opening Logs to verify the CD-105 request and output.",
+      "title": "I\u2019m opening Logs to verify the new late-delivery request and its returned JSON.",
       "status": "verified",
       "detail": "Navigation observed: https://interfaze.ai/dashboard/logs"
     },
     {
-      "id": "72eb9cfd-2f6c-433c-bf94-b18a27bb41d0",
-      "taskId": "cf585a5d-98cb-4fb0-8677-fcd0dac31b1a",
-      "at": 1790050014171,
+      "id": "74f67dcd-32ab-4e68-bf72-b9ce88958b04",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055295010,
       "kind": "click",
-      "title": "I\u2019m refreshing Logs once to recover the failed request list and verify CD-105.",
+      "title": "I\u2019m refreshing Logs once so I can verify the newest late-delivery request.",
+      "status": "verified",
+      "detail": "Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "b9d3eefc-552b-43c0-b580-8c8b5973d523",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055298732,
+      "kind": "click",
+      "title": "I\u2019m opening the newest successful request to verify the late-delivery input and returned JSON.",
       "status": "verified",
       "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
     },
     {
-      "id": "fa400ad8-bf33-43a6-8757-6c9011a85036",
-      "taskId": "cf585a5d-98cb-4fb0-8677-fcd0dac31b1a",
-      "at": 1790050017242,
-      "kind": "click",
-      "title": "I\u2019m returning to the playground to inspect the completed CD-105 response after Logs failed to load.",
-      "status": "verified",
-      "detail": "Navigation observed: https://interfaze.ai/dashboard/playground"
-    },
-    {
-      "id": "389a70e2-3a5e-4ae0-aa82-bf13a681ba31",
-      "taskId": "cf585a5d-98cb-4fb0-8677-fcd0dac31b1a",
-      "at": 1790050021467,
-      "kind": "click",
-      "title": "I\u2019m reopening Logs now that the CD-105 result is verified, to check its request record.",
-      "status": "verified",
-      "detail": "Navigation observed: https://interfaze.ai/dashboard/logs"
-    },
-    {
-      "id": "f9ef9a96-6a04-494a-a3bd-03be9040b5f1",
-      "taskId": "cf585a5d-98cb-4fb0-8677-fcd0dac31b1a",
-      "at": 1790050037238,
-      "kind": "click",
-      "title": "I\u2019m opening the newest request to verify the CD-105 input and JSON output.",
-      "status": "verified",
-      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
-    },
-    {
-      "id": "f0ae3bc5-574d-407c-9e21-20e6fa95f0e9",
-      "taskId": "828791c2-f97a-4280-93bf-6dca24945ba6",
-      "at": 1790050068784,
+      "id": "e10d109e-8bd6-4c3b-b3bf-d4b1481a25d7",
+      "taskId": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
+      "at": 1790055326568,
       "kind": "press",
-      "title": "I\u2019m closing the prior log detail so I can return to the playground and run CD-106 once.",
+      "title": "I\u2019m closing the prior log detail so I can return to the playground and run the new test once.",
       "status": "verified",
       "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
     },
     {
-      "id": "0863e3a2-7bdc-41f8-94db-66dea75cea1e",
-      "taskId": "828791c2-f97a-4280-93bf-6dca24945ba6",
-      "at": 1790050072277,
+      "id": "3184d567-401f-4fe6-b2be-548ece019522",
+      "taskId": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
+      "at": 1790055336417,
       "kind": "click",
-      "title": "I\u2019m returning to the playground to run the CD-106 test once.",
+      "title": "I\u2019m returning to the playground to run the exact seven-day test once.",
       "status": "verified",
       "detail": "Navigation observed: https://interfaze.ai/dashboard/playground"
     },
     {
-      "id": "548ef390-6186-4c7e-abe7-e9790ba75339",
-      "taskId": "828791c2-f97a-4280-93bf-6dca24945ba6",
-      "at": 1790050076338,
+      "id": "c0c4aa36-42e0-410e-9d4c-59e95f1dc0a4",
+      "taskId": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
+      "at": 1790055340844,
       "kind": "fill",
-      "title": "I\u2019m entering the exact CD-106 test prompt for a single model run.",
+      "title": "I\u2019m entering the exact seven-day test prompt for a single new run.",
       "status": "verified",
       "detail": "The target matches the requested value."
     },
     {
-      "id": "59f18429-7785-4771-814d-f93b7ff23ed6",
-      "taskId": "828791c2-f97a-4280-93bf-6dca24945ba6",
-      "at": 1790050085548,
+      "id": "81637494-98c8-46f6-9b5d-263c60abfcf8",
+      "taskId": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
+      "at": 1790055349846,
       "kind": "click",
-      "title": "I\u2019m submitting the CD-106 test once with the existing seven-day escalation policy.",
+      "title": "I\u2019m submitting the exact seven-day test once so I can verify its response and matching log.",
       "status": "verified",
       "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
     },
     {
-      "id": "96f2dc51-feb8-49ad-a5d8-d1aa98e17ce6",
-      "taskId": "828791c2-f97a-4280-93bf-6dca24945ba6",
-      "at": 1790050102723,
+      "id": "bf2d29e6-40c3-4b9a-b415-2c3f1928c6ec",
+      "taskId": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
+      "at": 1790055365141,
       "kind": "click",
-      "title": "I\u2019m opening Logs to verify whether the failed CD-106 playground run created a request record.",
+      "title": "I\u2019m opening Logs to verify the request for CD-306 and its returned JSON.",
       "status": "verified",
       "detail": "Navigation observed: https://interfaze.ai/dashboard/logs"
     },
     {
-      "id": "05bb9224-7078-449f-abeb-478a5b0444b3",
-      "taskId": "828791c2-f97a-4280-93bf-6dca24945ba6",
-      "at": 1790050118678,
+      "id": "1a49fe1b-0c3b-4e47-9796-bbebd85aabbd",
+      "taskId": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
+      "at": 1790055369493,
       "kind": "click",
-      "title": "I\u2019m opening the newest request to verify the exact CD-106 input and output.",
+      "title": "I\u2019m refreshing Logs once to identify and inspect the newest CD-306 request.",
+      "status": "verified",
+      "detail": "Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "f69f23ac-4c91-4ac1-bc99-1a4e5a1a908c",
+      "taskId": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
+      "at": 1790055372880,
+      "kind": "click",
+      "title": "I\u2019m opening the newest request to verify it contains CD-306 and inspect the returned JSON.",
       "status": "verified",
       "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
     },
     {
-      "id": "ddaf803a-742b-482f-b86d-ca81bc1ab309",
-      "taskId": "828791c2-f97a-4280-93bf-6dca24945ba6",
-      "at": 1790050122294,
-      "kind": "press",
-      "title": "I\u2019m closing this CD-105 log detail to inspect the request list for the CD-106 run.",
-      "status": "verified",
-      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
-    },
-    {
-      "id": "f6bc53c6-e5c4-48b1-971d-398903ef6d75",
-      "taskId": "828791c2-f97a-4280-93bf-6dca24945ba6",
-      "at": 1790050125869,
-      "kind": "click",
-      "title": "I\u2019m returning to the playground to inspect the CD-106 run\u2019s visible result or error.",
-      "status": "verified",
-      "detail": "Navigation observed: https://interfaze.ai/dashboard/playground"
-    },
-    {
-      "id": "41fa81c0-d8b0-4e16-86e6-fa03d360f896",
-      "taskId": "828791c2-f97a-4280-93bf-6dca24945ba6",
-      "at": 1790050129181,
-      "kind": "click",
-      "title": "I\u2019m checking Logs again now that the CD-106 run has finished in the playground.",
-      "status": "verified",
-      "detail": "Navigation observed: https://interfaze.ai/dashboard/logs"
-    },
-    {
-      "id": "eb1835d5-7c22-4299-84ba-ff7f6a87eca6",
-      "taskId": "828791c2-f97a-4280-93bf-6dca24945ba6",
-      "at": 1790050132689,
-      "kind": "click",
-      "title": "I\u2019m opening the newest request to verify the exact CD-106 input and output.",
-      "status": "verified",
-      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
-    },
-    {
-      "id": "9add4549-3aa9-46d5-97e6-4c56112b44eb",
-      "taskId": "8e11334d-ced2-4d09-bd46-f15e6e3a94d7",
-      "at": 1790050250995,
+      "id": "2c08909b-a9eb-41ae-905f-12543ecf4bdc",
+      "taskId": "eb69d8a3-aff5-45e3-a4cf-613da44fa55f",
+      "at": 1790055428765,
       "kind": "scroll",
-      "title": "I\u2019m scrolling the log dialog to the saved Output section.",
+      "title": "I\u2019m scrolling the log detail dialog down to the Output section.",
       "status": "verified",
-      "detail": "Control state changed: Log detail scrollX:0, scrollY:152, scrollMaxX:0, scrollMaxY:157"
+      "detail": "Control state changed: Log detail scrollX:0, scrollY:153, scrollMaxX:0, scrollMaxY:157"
     }
   ],
   "messages": [
     {
-      "id": "5fa79934-046c-45e4-94c9-77815f1b66b4",
+      "id": "5881bde7-f0d5-4d1d-9f3c-7d4d3234cd29",
       "role": "user",
       "text": "Run this prompt: Classify a cracked mug as damage, delivery or other. Reply with one word.",
-      "at": 1790049489820
+      "at": 1790054985226
     },
     {
-      "id": "622fcc4e-6c79-415a-b1b5-72f552d92f1d",
+      "id": "8ac42ae0-1501-43da-bed9-697bdcc23e65",
       "role": "assistant",
       "text": "The model returned \u201cdamage.\u201d",
-      "at": 1790049526945
+      "at": 1790055018145
     },
     {
-      "id": "66331086-06bc-4568-979c-701efb8ee529",
+      "id": "030a6754-3f83-4a08-b8f9-20e78c77fedf",
       "role": "user",
       "text": "Turn this into JSON triage for Cedar Desk at temperature zero.",
-      "at": 1790049558869
+      "at": 1790055033615
     },
     {
-      "id": "ea2e57b1-b647-4554-8fc7-99c25a0e6378",
+      "id": "dc0ad613-e59d-4bc6-8fb6-c7fe4c42385a",
       "role": "assistant",
-      "text": "Choose JSON output\nThe categories are damage, delivery, and other. Which fields should the triage return?\nJSON fields Choices: Category only; Category + summary; Category + confidence.",
-      "at": 1790049563054,
+      "text": "Choose JSON output\nTemperature will be set to zero. Which fields should each triage result include?\nOutput fields Choices: Category only; Category + summary; Category + confidence.",
+      "at": 1790055038453,
       "clarification": {
-        "id": "ccd0c4f5-5494-4ef4-8909-12e7ba569d8f",
+        "id": "a4334654-53e0-4c0d-8195-f82aac3b0944",
         "title": "Choose JSON output",
-        "description": "The categories are damage, delivery, and other. Which fields should the triage return?",
+        "description": "Temperature will be set to zero. Which fields should each triage result include?",
         "questions": [
           {
             "id": "json_fields",
-            "label": "JSON fields",
+            "label": "Output fields",
             "description": "A short summary is recommended for basic triage; confidence would be model-reported and not a calibrated probability.",
             "type": "single_choice",
             "required": true,
@@ -739,15 +655,15 @@
             "options": [
               {
                 "label": "Category only",
-                "description": "Return only the classification label."
+                "description": "Return only damage, delivery, or other."
               },
               {
                 "label": "Category + summary",
-                "description": "Return the label and a short ticket summary."
+                "description": "Return the category and a short summary (recommended)."
               },
               {
                 "label": "Category + confidence",
-                "description": "Return the label and an uncalibrated model-reported confidence."
+                "description": "Return the category and an uncalibrated model-reported confidence."
               }
             ]
           }
@@ -756,40 +672,40 @@
       }
     },
     {
-      "id": "2f5c16a8-3e82-4ee4-ab18-c1c9c9c19561",
+      "id": "57a1a45d-5c83-4be2-a3de-28489c69b41e",
       "role": "user",
       "text": "Help me choose: explain the remaining questions in plain language. Keep my original task and the details I already provided.",
-      "at": 1790049582934
+      "at": 1790055053328
     },
     {
-      "id": "78437610-6445-4859-b93b-efbbb38b6291",
+      "id": "0bce9884-3555-4416-80ab-32fe4d73da2e",
       "role": "assistant",
-      "text": "Choose JSON output\nOnly the returned JSON fields remain undecided. I recommend category + summary for basic triage; Cedar Desk, damage/delivery/other, and temperature zero are already set by your request.\nWhich fields should each triage result return? Choices: Category only; Category + summary; Category + confidence.",
-      "at": 1790049588206,
+      "text": "Choose Cedar Desk\u2019s JSON fields\nCategory only returns damage, delivery, or other. Category + summary also gives a short human-readable explanation and is recommended for basic triage. Category + confidence adds the model\u2019s self-reported confidence, which is not a calibrated or verified probability.\nWhich JSON output should each result include? Choices: Category only; Category + summary; Category + confidence.",
+      "at": 1790055058363,
       "clarification": {
-        "id": "7fbf6232-bb1e-4b17-af44-cc52e2e68e2c",
-        "title": "Choose JSON output",
-        "description": "Only the returned JSON fields remain undecided. I recommend category + summary for basic triage; Cedar Desk, damage/delivery/other, and temperature zero are already set by your request.",
+        "id": "32f798e6-974f-40b0-acdf-53ea0d54958e",
+        "title": "Choose Cedar Desk\u2019s JSON fields",
+        "description": "Category only returns damage, delivery, or other. Category + summary also gives a short human-readable explanation and is recommended for basic triage. Category + confidence adds the model\u2019s self-reported confidence, which is not a calibrated or verified probability.",
         "questions": [
           {
-            "id": "json_fields",
-            "label": "Which fields should each triage result return?",
-            "description": "Category only is simplest. Category + summary adds a short human-readable explanation. Category + confidence adds the model\u2019s self-reported confidence, which is not a calibrated or verified probability.",
+            "id": "output_fields",
+            "label": "Which JSON output should each result include?",
+            "description": "This is the only remaining choice; Cedar Desk, the existing categories, and temperature zero are already known.",
             "type": "single_choice",
             "required": true,
-            "placeholder": "Choose one JSON format",
+            "placeholder": "Choose an output format",
             "options": [
               {
                 "label": "Category only",
-                "description": "Return only damage, delivery, or other."
+                "description": "Smallest output: damage, delivery, or other."
               },
               {
                 "label": "Category + summary",
-                "description": "Recommended: return the category and a short explanation."
+                "description": "Recommended: category plus a short explanation for quick review."
               },
               {
                 "label": "Category + confidence",
-                "description": "Return the category and an uncalibrated model confidence value."
+                "description": "Category plus model-reported confidence; treat it as an estimate, not a verified probability."
               }
             ]
           }
@@ -797,7 +713,7 @@
         "status": "answered",
         "answers": [
           {
-            "questionId": "json_fields",
+            "questionId": "output_fields",
             "values": [
               "Category + summary"
             ]
@@ -806,100 +722,64 @@
       }
     },
     {
-      "id": "9ef46a5a-2ef7-44c2-90f3-230cd3d96804",
+      "id": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
       "role": "user",
-      "text": "Details for Choose JSON output:\nWhich fields should each triage result return?: Category + summary",
-      "at": 1790049625164
+      "text": "Details for Choose Cedar Desk\u2019s JSON fields:\nWhich JSON output should each result include?: Category + summary",
+      "at": 1790055072379
     },
     {
-      "id": "aa81c435-e7cb-4993-bc8f-47b5149aa0ba",
+      "id": "d2b88891-4b9b-4c8e-8a5e-cdc766b2cc1f",
       "role": "assistant",
-      "text": "Cedar Desk JSON triage is configured with temperature 0, category and summary fields, and the concise damage/delivery/other policy.",
-      "at": 1790049690155
+      "text": "Cedar Desk JSON triage is configured at temperature zero. The verified test returned category \u201cdamage\u201d with summary \u201cA cracked mug.\u201d, and the matching log shows status 200.",
+      "at": 1790055178242
     },
     {
-      "id": "3576f7d9-5d75-4856-b86a-6b734e30431b",
+      "id": "23edb492-0b89-4b89-87aa-77087477ec65",
       "role": "user",
-      "text": "Test this prompt: CD-104 arrived with a cracked mug. Check Logs.",
-      "at": 1790049727569
+      "text": "Add required boolean escalate: damage or delays over seven days. Test this prompt: CD-305 is nine days late, no damage. Check Logs.",
+      "at": 1790055217618
     },
     {
-      "id": "a6a26c23-afd1-4626-83d9-b48ac731649a",
+      "id": "cc06c8db-58c7-4f7b-9ab0-7d7095ea84b4",
       "role": "assistant",
-      "text": "CD-104 was classified as damage with a matching summary. Logs show status 200 and the expected JSON output.",
-      "at": 1790049773872
+      "text": "The escalation policy and required boolean field were added. The test returned delivery with escalate true, and Logs verified status 200.",
+      "at": 1790055303436
     },
     {
-      "id": "236ef7f2-0b11-4988-965d-44dfb844f80d",
+      "id": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
       "role": "user",
-      "text": "Add required boolean escalate: damage or delays over seven days. Test this prompt: CD-105 is nine days late, no damage. Check Logs.",
-      "at": 1790049809523
+      "text": "Test this prompt: CD-306 is exactly seven days late, no damage. Check Logs.",
+      "at": 1790055323983
     },
     {
-      "id": "cf585a5d-98cb-4fb0-8677-fcd0dac31b1a",
+      "id": "5d4fab1b-30da-4d7e-9ef2-3cbc7302373c",
+      "role": "assistant",
+      "text": "CD-306 returned category \u201cdelivery\u201d with escalate false. The matching log shows the exact prompt and status 200, consistent with escalation only for delays over seven days.",
+      "at": 1790055376558
+    },
+    {
+      "id": "e09e435d-f2af-41b1-8654-dd59cda60278",
       "role": "user",
-      "text": "Scroll the settings pane to the new field, then finish this test and check Logs.",
-      "at": 1790049932092
+      "text": "Which rule escalated CD-305? Does zero temperature guarantee accuracy?",
+      "at": 1790055399954
     },
     {
-      "id": "566a4e85-111f-49cd-98a1-93207b3d4eee",
+      "id": "7448dbfe-0b4b-41e3-a46b-b6426fc232d3",
       "role": "assistant",
-      "text": "I\u2019m submitting the CD-105 test once with the revised escalation policy.",
-      "at": 1790049959493
+      "text": "CD-305 escalated under the \u201cdelays over 7 days\u201d rule because it was nine days late; the ticket explicitly said there was no damage. Temperature zero makes outputs more deterministic, but it does not guarantee accuracy.",
+      "at": 1790055403737
     },
     {
-      "id": "93843fd5-bc84-4eb1-a2e7-681bc0ab40ee",
-      "role": "assistant",
-      "text": "CD-105 was classified as delivery with escalate set to true. Logs confirm status 200 and the expected JSON output.",
-      "at": 1790050041054
-    },
-    {
-      "id": "828791c2-f97a-4280-93bf-6dca24945ba6",
-      "role": "user",
-      "text": "Test this prompt: CD-106 is exactly seven days late, no damage. Check Logs.",
-      "at": 1790050065439
-    },
-    {
-      "id": "fe7f7c07-e767-4853-9f0a-0c2396adce70",
-      "role": "assistant",
-      "text": "CD-106 was classified as delivery with escalate set to false. Logs confirm status 200 and the expected JSON output.",
-      "at": 1790050136242
-    },
-    {
-      "id": "525100c1-b75c-4f0c-89e6-591e07b046d3",
-      "role": "user",
-      "text": "Which rule escalated CD-105? Does zero temperature guarantee accuracy?",
-      "at": 1790050182763
-    },
-    {
-      "id": "6528fda1-8011-40d6-ae99-e23cee1e6cc1",
-      "role": "assistant",
-      "text": "CD-105 escalated because it was nine days late, exceeding the \u201cover 7 days\u201d rule. Temperature 0 makes output more deterministic, but does not guarantee accuracy.",
-      "at": 1790050186571
-    },
-    {
-      "id": "13f693f9-6610-4884-abca-51231effa89f",
-      "role": "user",
-      "text": "Show the saved output.",
-      "at": 1790050210645
-    },
-    {
-      "id": "2d9d153a-3ee8-4da7-b159-190c9ccfd6b6",
-      "role": "assistant",
-      "text": "The saved output is: `{ \"summary\": \"CD-106 is exactly seven days late, no damage.\", \"category\": \"delivery\", \"escalate\": false }`",
-      "at": 1790050213277
-    },
-    {
-      "id": "8e11334d-ced2-4d09-bd46-f15e6e3a94d7",
+      "id": "eb69d8a3-aff5-45e3-a4cf-613da44fa55f",
       "role": "user",
       "text": "Scroll the log dialog down to Output.",
-      "at": 1790050248320
+      "at": 1790055425475
     },
     {
-      "id": "3beae192-4d7c-4f04-bb8c-3ac3ee8f4908",
+      "id": "18ac13f1-ea0e-4bfa-a182-c416cb10aa8d",
       "role": "assistant",
-      "text": "The log dialog is scrolled to the saved Output.",
-      "at": 1790050253857
+      "text": "The log dialog is scrolled to Output, showing CD-306 as delivery with escalate false.",
+      "at": 1790055431847
     }
   ]
 }

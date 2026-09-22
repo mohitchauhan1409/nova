@@ -1,0 +1,2433 @@
+{
+  "id": "afbb051f-28e4-496d-a4e1-dc228e111c1a",
+  "siteId": "interfaze",
+  "mode": "extension",
+  "tabId": 1436186265,
+  "status": "ready",
+  "url": "https://interfaze.ai/dashboard/logs",
+  "title": "Logs - Interfaze",
+  "messages": [
+    {
+      "id": "5881bde7-f0d5-4d1d-9f3c-7d4d3234cd29",
+      "role": "user",
+      "text": "Run this prompt: Classify a cracked mug as damage, delivery or other. Reply with one word.",
+      "at": 1790054985226
+    },
+    {
+      "id": "8ac42ae0-1501-43da-bed9-697bdcc23e65",
+      "role": "assistant",
+      "text": "The model returned \u201cdamage.\u201d",
+      "at": 1790055018145
+    },
+    {
+      "id": "030a6754-3f83-4a08-b8f9-20e78c77fedf",
+      "role": "user",
+      "text": "Turn this into JSON triage for Cedar Desk at temperature zero.",
+      "at": 1790055033615
+    },
+    {
+      "id": "dc0ad613-e59d-4bc6-8fb6-c7fe4c42385a",
+      "role": "assistant",
+      "text": "Choose JSON output\nTemperature will be set to zero. Which fields should each triage result include?\nOutput fields Choices: Category only; Category + summary; Category + confidence.",
+      "at": 1790055038453,
+      "clarification": {
+        "id": "a4334654-53e0-4c0d-8195-f82aac3b0944",
+        "title": "Choose JSON output",
+        "description": "Temperature will be set to zero. Which fields should each triage result include?",
+        "questions": [
+          {
+            "id": "json_fields",
+            "label": "Output fields",
+            "description": "A short summary is recommended for basic triage; confidence would be model-reported and not a calibrated probability.",
+            "type": "single_choice",
+            "required": true,
+            "placeholder": "Choose an output format",
+            "options": [
+              {
+                "label": "Category only",
+                "description": "Return only damage, delivery, or other."
+              },
+              {
+                "label": "Category + summary",
+                "description": "Return the category and a short summary (recommended)."
+              },
+              {
+                "label": "Category + confidence",
+                "description": "Return the category and an uncalibrated model-reported confidence."
+              }
+            ]
+          }
+        ],
+        "status": "superseded"
+      }
+    },
+    {
+      "id": "57a1a45d-5c83-4be2-a3de-28489c69b41e",
+      "role": "user",
+      "text": "Help me choose: explain the remaining questions in plain language. Keep my original task and the details I already provided.",
+      "at": 1790055053328
+    },
+    {
+      "id": "0bce9884-3555-4416-80ab-32fe4d73da2e",
+      "role": "assistant",
+      "text": "Choose Cedar Desk\u2019s JSON fields\nCategory only returns damage, delivery, or other. Category + summary also gives a short human-readable explanation and is recommended for basic triage. Category + confidence adds the model\u2019s self-reported confidence, which is not a calibrated or verified probability.\nWhich JSON output should each result include? Choices: Category only; Category + summary; Category + confidence.",
+      "at": 1790055058363,
+      "clarification": {
+        "id": "32f798e6-974f-40b0-acdf-53ea0d54958e",
+        "title": "Choose Cedar Desk\u2019s JSON fields",
+        "description": "Category only returns damage, delivery, or other. Category + summary also gives a short human-readable explanation and is recommended for basic triage. Category + confidence adds the model\u2019s self-reported confidence, which is not a calibrated or verified probability.",
+        "questions": [
+          {
+            "id": "output_fields",
+            "label": "Which JSON output should each result include?",
+            "description": "This is the only remaining choice; Cedar Desk, the existing categories, and temperature zero are already known.",
+            "type": "single_choice",
+            "required": true,
+            "placeholder": "Choose an output format",
+            "options": [
+              {
+                "label": "Category only",
+                "description": "Smallest output: damage, delivery, or other."
+              },
+              {
+                "label": "Category + summary",
+                "description": "Recommended: category plus a short explanation for quick review."
+              },
+              {
+                "label": "Category + confidence",
+                "description": "Category plus model-reported confidence; treat it as an estimate, not a verified probability."
+              }
+            ]
+          }
+        ],
+        "status": "answered",
+        "answers": [
+          {
+            "questionId": "output_fields",
+            "values": [
+              "Category + summary"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "role": "user",
+      "text": "Details for Choose Cedar Desk\u2019s JSON fields:\nWhich JSON output should each result include?: Category + summary",
+      "at": 1790055072379
+    },
+    {
+      "id": "d2b88891-4b9b-4c8e-8a5e-cdc766b2cc1f",
+      "role": "assistant",
+      "text": "Cedar Desk JSON triage is configured at temperature zero. The verified test returned category \u201cdamage\u201d with summary \u201cA cracked mug.\u201d, and the matching log shows status 200.",
+      "at": 1790055178242
+    },
+    {
+      "id": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "role": "user",
+      "text": "Add required boolean escalate: damage or delays over seven days. Test this prompt: CD-305 is nine days late, no damage. Check Logs.",
+      "at": 1790055217618
+    },
+    {
+      "id": "cc06c8db-58c7-4f7b-9ab0-7d7095ea84b4",
+      "role": "assistant",
+      "text": "The escalation policy and required boolean field were added. The test returned delivery with escalate true, and Logs verified status 200.",
+      "at": 1790055303436
+    },
+    {
+      "id": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
+      "role": "user",
+      "text": "Test this prompt: CD-306 is exactly seven days late, no damage. Check Logs.",
+      "at": 1790055323983
+    },
+    {
+      "id": "5d4fab1b-30da-4d7e-9ef2-3cbc7302373c",
+      "role": "assistant",
+      "text": "CD-306 returned category \u201cdelivery\u201d with escalate false. The matching log shows the exact prompt and status 200, consistent with escalation only for delays over seven days.",
+      "at": 1790055376558
+    },
+    {
+      "id": "e09e435d-f2af-41b1-8654-dd59cda60278",
+      "role": "user",
+      "text": "Which rule escalated CD-305? Does zero temperature guarantee accuracy?",
+      "at": 1790055399954
+    },
+    {
+      "id": "7448dbfe-0b4b-41e3-a46b-b6426fc232d3",
+      "role": "assistant",
+      "text": "CD-305 escalated under the \u201cdelays over 7 days\u201d rule because it was nine days late; the ticket explicitly said there was no damage. Temperature zero makes outputs more deterministic, but it does not guarantee accuracy.",
+      "at": 1790055403737
+    },
+    {
+      "id": "eb69d8a3-aff5-45e3-a4cf-613da44fa55f",
+      "role": "user",
+      "text": "Scroll the log dialog down to Output.",
+      "at": 1790055425475
+    },
+    {
+      "id": "18ac13f1-ea0e-4bfa-a182-c416cb10aa8d",
+      "role": "assistant",
+      "text": "The log dialog is scrolled to Output, showing CD-306 as delivery with escalate false.",
+      "at": 1790055431847
+    }
+  ],
+  "traces": [
+    {
+      "id": "7fba47cb-9327-47c7-9309-5139ec3e6d53",
+      "at": 1790055262056,
+      "kind": "think",
+      "text": "I\u2019m setting the new escalate field to boolean.",
+      "ms": 2480
+    },
+    {
+      "id": "ea71123b-a06a-4410-be08-012ec87c3c86",
+      "at": 1790055262083,
+      "kind": "observe",
+      "text": "Read 113 controls on Playground - Interfaze",
+      "ms": 26
+    },
+    {
+      "id": "f2177117-9990-4ddc-ad9b-b9e0764d4ac5",
+      "at": 1790055262206,
+      "kind": "act",
+      "text": "I\u2019m setting the new escalate field to boolean.",
+      "ms": 121
+    },
+    {
+      "id": "ad46f8f5-4629-4dad-9d69-bbae36bc28c3",
+      "at": 1790055262223,
+      "kind": "observe",
+      "text": "Read 113 controls on Playground - Interfaze",
+      "ms": 15
+    },
+    {
+      "id": "e374fe97-71b0-43ea-b585-f7f4162c5ad0",
+      "at": 1790055262225,
+      "kind": "verify",
+      "text": "Verified change select: The target matches the requested value."
+    },
+    {
+      "id": "ec30af77-c6c0-4cad-8468-4c873441f5be",
+      "at": 1790055262226,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "26f1fb19-adf9-4d88-8f52-149757a21786",
+      "at": 1790055265453,
+      "kind": "think",
+      "text": "I\u2019m making the boolean escalate field required before running the late-delivery test.",
+      "ms": 3226
+    },
+    {
+      "id": "2e249a7e-d623-4cd0-9863-3d9cae0c4ee1",
+      "at": 1790055265483,
+      "kind": "observe",
+      "text": "Read 113 controls on Playground - Interfaze",
+      "ms": 29
+    },
+    {
+      "id": "85a404b1-20b7-4596-9574-6876211f5133",
+      "at": 1790055265617,
+      "kind": "act",
+      "text": "I\u2019m making the boolean escalate field required before running the late-delivery test.",
+      "ms": 131
+    },
+    {
+      "id": "abbec7ed-70d9-4bb8-9798-4108adc729fd",
+      "at": 1790055265634,
+      "kind": "observe",
+      "text": "Read 113 controls on Playground - Interfaze",
+      "ms": 15
+    },
+    {
+      "id": "fa5d78fd-37f2-41a1-90cf-b4eff5fc5107",
+      "at": 1790055265636,
+      "kind": "verify",
+      "text": "Verified change click: Control state changed: Required pressed:true"
+    },
+    {
+      "id": "fcd29f0e-984a-4236-afb4-6b8ddb4e104e",
+      "at": 1790055265637,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "285d5316-f8eb-40fb-acb5-2a7a0e77496f",
+      "at": 1790055268003,
+      "kind": "think",
+      "text": "I\u2019m entering the requested late-delivery test prompt exactly once.",
+      "ms": 2365
+    },
+    {
+      "id": "92c43b81-3a40-4076-ac6f-6e1b886d3ef9",
+      "at": 1790055268031,
+      "kind": "observe",
+      "text": "Read 113 controls on Playground - Interfaze",
+      "ms": 27
+    },
+    {
+      "id": "6c9926cd-78f2-4a10-ad29-ad7adc8e75ed",
+      "at": 1790055273410,
+      "kind": "act",
+      "text": "I\u2019m entering the requested late-delivery test prompt exactly once.",
+      "ms": 5377
+    },
+    {
+      "id": "a06d8e88-72cf-493f-8a4d-857ac05f60bf",
+      "at": 1790055273434,
+      "kind": "observe",
+      "text": "Read 113 controls on Playground - Interfaze",
+      "ms": 22
+    },
+    {
+      "id": "82ed7b46-dfe1-4796-9148-e60d3fbdff47",
+      "at": 1790055273438,
+      "kind": "verify",
+      "text": "Verified change fill: The target matches the requested value."
+    },
+    {
+      "id": "2dbda598-a07c-47f5-9a3f-fed5a1bfb962",
+      "at": 1790055273440,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "bb795325-ed31-4c92-92b9-0fe3ee457190",
+      "at": 1790055275879,
+      "kind": "think",
+      "text": "I\u2019m running the late-delivery test once with Cedar Desk\u2019s updated escalation policy.",
+      "ms": 2438
+    },
+    {
+      "id": "ef0a734c-5e9b-4dc9-898e-92bd879625a2",
+      "at": 1790055275907,
+      "kind": "observe",
+      "text": "Read 113 controls on Playground - Interfaze",
+      "ms": 27
+    },
+    {
+      "id": "cfc5c914-ca48-4395-8942-77745b0bb79e",
+      "at": 1790055276056,
+      "kind": "act",
+      "text": "I\u2019m running the late-delivery test once with Cedar Desk\u2019s updated escalation policy.",
+      "ms": 145
+    },
+    {
+      "id": "0fcd3e5d-3ab4-4914-b12d-851442099064",
+      "at": 1790055276072,
+      "kind": "observe",
+      "text": "Read 119 controls on Playground - Interfaze",
+      "ms": 15
+    },
+    {
+      "id": "de5bccd3-19b7-447a-9900-c416e18d6527",
+      "at": 1790055276747,
+      "kind": "observe",
+      "text": "Read 119 controls on Playground - Interfaze",
+      "ms": 22
+    },
+    {
+      "id": "5885b135-2b3e-4647-9d9e-68034404b907",
+      "at": 1790055276749,
+      "kind": "verify",
+      "text": "Verified change click: Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "507685de-a1b5-4c4f-9304-4d541e77a2b5",
+      "at": 1790055276749,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "d646dd7b-fab1-4542-a183-711c0ac50efb",
+      "at": 1790055279117,
+      "kind": "think",
+      "text": "I\u2019m waiting for the single Cedar Desk test to finish before checking its result and Logs.",
+      "ms": 2367
+    },
+    {
+      "id": "d343b80d-c47a-4880-9172-1384d9e78b2f",
+      "at": 1790055289124,
+      "kind": "act",
+      "text": "I\u2019m waiting for the single Cedar Desk test to finish before checking its result and Logs.",
+      "ms": 10006
+    },
+    {
+      "id": "a1a6c37d-b797-4319-8558-9c4f691099ef",
+      "at": 1790055289157,
+      "kind": "observe",
+      "text": "Read 128 controls on Playground - Interfaze",
+      "ms": 31
+    },
+    {
+      "id": "08e7c9e1-e26f-4665-a12f-965273f6cbd2",
+      "at": 1790055289158,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "e5c7e05b-fd6c-4ac5-affa-c68532229142",
+      "at": 1790055292058,
+      "kind": "think",
+      "text": "I\u2019m opening Logs to verify the new late-delivery request and its returned JSON.",
+      "ms": 2899
+    },
+    {
+      "id": "00005da8-5429-49ec-8a6c-d13ab9fa8fe4",
+      "at": 1790055292087,
+      "kind": "observe",
+      "text": "Read 128 controls on Playground - Interfaze",
+      "ms": 28
+    },
+    {
+      "id": "e0d4c77a-2283-48a3-a48a-2fbe4aeb6dac",
+      "at": 1790055292218,
+      "kind": "act",
+      "text": "I\u2019m opening Logs to verify the new late-delivery request and its returned JSON.",
+      "ms": 127
+    },
+    {
+      "id": "895df99f-9b15-49d5-9077-59348f1d567d",
+      "at": 1790055292234,
+      "kind": "observe",
+      "text": "Read 19 controls on Playground - Interfaze",
+      "ms": 14
+    },
+    {
+      "id": "f766286e-0c59-4b98-8674-eed226041a00",
+      "at": 1790055292893,
+      "kind": "observe",
+      "text": "Read 45 controls on Logs - Interfaze",
+      "ms": 7
+    },
+    {
+      "id": "e0206db0-0e98-4fde-9e76-6073543cf6be",
+      "at": 1790055292895,
+      "kind": "verify",
+      "text": "Verified change click: Navigation observed: https://interfaze.ai/dashboard/logs"
+    },
+    {
+      "id": "c3c1bf74-4026-4a1b-aafb-3563b3210894",
+      "at": 1790055292895,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "46ff3d66-9c63-4590-bee0-25465380b64f",
+      "at": 1790055294995,
+      "kind": "think",
+      "text": "I\u2019m refreshing Logs once so I can verify the newest late-delivery request.",
+      "ms": 2099
+    },
+    {
+      "id": "855c3f8e-4218-4953-9079-7816ff3352d5",
+      "at": 1790055295009,
+      "kind": "observe",
+      "text": "Read 45 controls on Logs - Interfaze",
+      "ms": 13
+    },
+    {
+      "id": "6cef8caa-5268-491d-9aba-e38bf70f18b2",
+      "at": 1790055295135,
+      "kind": "act",
+      "text": "I\u2019m refreshing Logs once so I can verify the newest late-delivery request.",
+      "ms": 125
+    },
+    {
+      "id": "f830887a-a582-4a31-a072-9dace4182947",
+      "at": 1790055295147,
+      "kind": "observe",
+      "text": "Read 45 controls on Logs - Interfaze",
+      "ms": 10
+    },
+    {
+      "id": "6f4f7421-a773-46a3-9195-3420039dcb1d",
+      "at": 1790055295809,
+      "kind": "observe",
+      "text": "Read 45 controls on Logs - Interfaze",
+      "ms": 10
+    },
+    {
+      "id": "71850e62-9565-4c2e-9ef4-81b11c6129c2",
+      "at": 1790055295810,
+      "kind": "verify",
+      "text": "Verified change click: Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "3e4702d3-bad8-45dd-ae22-45506d74c70b",
+      "at": 1790055295811,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "7caf591a-6ab2-47fd-ba28-8645b401b821",
+      "at": 1790055298717,
+      "kind": "think",
+      "text": "I\u2019m opening the newest successful request to verify the late-delivery input and returned JSON.",
+      "ms": 2905
+    },
+    {
+      "id": "f7b16b94-f20e-4f5b-b43e-bff4afcca438",
+      "at": 1790055298731,
+      "kind": "observe",
+      "text": "Read 45 controls on Logs - Interfaze",
+      "ms": 13
+    },
+    {
+      "id": "86b6fb5c-9397-41ca-a00d-505087343c42",
+      "at": 1790055298864,
+      "kind": "act",
+      "text": "I\u2019m opening the newest successful request to verify the late-delivery input and returned JSON.",
+      "ms": 131
+    },
+    {
+      "id": "1d4dcffc-82c9-4efe-bbc7-c6a3ccffd57e",
+      "at": 1790055298881,
+      "kind": "observe",
+      "text": "Read 4 controls on Logs - Interfaze",
+      "ms": 15
+    },
+    {
+      "id": "3f85cafb-6064-4588-82b6-92c25ad4647e",
+      "at": 1790055299543,
+      "kind": "observe",
+      "text": "Read 39 controls on Logs - Interfaze",
+      "ms": 11
+    },
+    {
+      "id": "9c7d4492-1ff3-45d4-9b57-87a0cc04a540",
+      "at": 1790055299545,
+      "kind": "verify",
+      "text": "Verified change click: Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "764c689a-58ca-43ec-9a0b-a70ec89d1026",
+      "at": 1790055299546,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "e2248b5c-d0a5-49f7-ac98-48d7e05b9c5b",
+      "at": 1790055303428,
+      "kind": "observe",
+      "text": "Read 39 controls on Logs - Interfaze",
+      "ms": 11
+    },
+    {
+      "id": "f18f452e-9f49-4244-b737-ea62d8b1ca44",
+      "at": 1790055303430,
+      "kind": "think",
+      "text": "The escalation policy and required boolean field were added. The test returned delivery with escalate true, and Logs verified status 200.",
+      "ms": 3870
+    },
+    {
+      "id": "1bcd38e3-7d17-4f8e-8249-9f3c70f5471f",
+      "at": 1790055323999,
+      "kind": "observe",
+      "text": "Read 39 controls on Logs - Interfaze",
+      "ms": 12
+    },
+    {
+      "id": "24d62dea-f14d-4536-82d0-38fe0d6120a3",
+      "at": 1790055324000,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "8d642406-ccc0-42bc-a611-b461d03a177e",
+      "at": 1790055326567,
+      "kind": "think",
+      "text": "I\u2019m closing the prior log detail so I can return to the playground and run the new test once.",
+      "ms": 2567
+    },
+    {
+      "id": "463f6880-1f44-440a-bd3b-5a303c24000e",
+      "at": 1790055326594,
+      "kind": "act",
+      "text": "I\u2019m closing the prior log detail so I can return to the playground and run the new test once.",
+      "ms": 25
+    },
+    {
+      "id": "3f33f776-8d48-44de-9825-e0ad6900fcb4",
+      "at": 1790055326614,
+      "kind": "observe",
+      "text": "Read 82 controls on Logs - Interfaze",
+      "ms": 19
+    },
+    {
+      "id": "1706cb10-06e0-4ead-9113-04b02908cc89",
+      "at": 1790055327278,
+      "kind": "observe",
+      "text": "Read 45 controls on Logs - Interfaze",
+      "ms": 11
+    },
+    {
+      "id": "50973ca6-b844-4586-9438-0798f1216f04",
+      "at": 1790055327281,
+      "kind": "verify",
+      "text": "Verified change press: Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "bbd8d7d5-40b4-419c-87b4-1bd99253cf24",
+      "at": 1790055327285,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "272822e4-6eaf-4b84-afb2-3154ed65a88b",
+      "at": 1790055336399,
+      "kind": "think",
+      "text": "I\u2019m returning to the playground to run the exact seven-day test once.",
+      "ms": 9113
+    },
+    {
+      "id": "7d593b22-92d0-40c6-8d8a-02fb7a7b2a7b",
+      "at": 1790055336415,
+      "kind": "observe",
+      "text": "Read 45 controls on Logs - Interfaze",
+      "ms": 16
+    },
+    {
+      "id": "b45f4051-4e88-4c46-a32f-e3b7b18e1dae",
+      "at": 1790055336556,
+      "kind": "act",
+      "text": "I\u2019m returning to the playground to run the exact seven-day test once.",
+      "ms": 137
+    },
+    {
+      "id": "addc4854-55c5-42de-95a5-90815c6240ce",
+      "at": 1790055336572,
+      "kind": "observe",
+      "text": "Read 45 controls on Logs - Interfaze",
+      "ms": 15
+    },
+    {
+      "id": "8cec4d85-d937-4aff-8f05-aa71f863e630",
+      "at": 1790055337244,
+      "kind": "observe",
+      "text": "Read 127 controls on Playground - Interfaze",
+      "ms": 20
+    },
+    {
+      "id": "e8d3f8b2-051b-4993-8029-1f8a929d1d9f",
+      "at": 1790055337247,
+      "kind": "verify",
+      "text": "Verified change click: Navigation observed: https://interfaze.ai/dashboard/playground"
+    },
+    {
+      "id": "8d997fdd-11df-43e4-99ee-a8e1f636de07",
+      "at": 1790055337248,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "ed66e3b0-5b7d-4ceb-96c6-9a28b4d2f08b",
+      "at": 1790055340808,
+      "kind": "think",
+      "text": "I\u2019m entering the exact seven-day test prompt for a single new run.",
+      "ms": 3559
+    },
+    {
+      "id": "65036261-c14d-4129-928a-c7c0b1f00225",
+      "at": 1790055340839,
+      "kind": "observe",
+      "text": "Read 127 controls on Playground - Interfaze",
+      "ms": 29
+    },
+    {
+      "id": "b3f1a04b-a526-451a-9e8b-0035b6a7ef1e",
+      "at": 1790055347525,
+      "kind": "act",
+      "text": "I\u2019m entering the exact seven-day test prompt for a single new run.",
+      "ms": 6679
+    },
+    {
+      "id": "f97af74c-1766-490a-9fd5-5eb4e3d231a4",
+      "at": 1790055347547,
+      "kind": "observe",
+      "text": "Read 127 controls on Playground - Interfaze",
+      "ms": 20
+    },
+    {
+      "id": "7c7874ea-5ebc-4a84-a7eb-b02b2c707175",
+      "at": 1790055347550,
+      "kind": "verify",
+      "text": "Verified change fill: The target matches the requested value."
+    },
+    {
+      "id": "38ecf0fa-0ccd-411b-b624-193ceac9d441",
+      "at": 1790055347552,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "a3169a97-c1ef-46ac-a26b-82dbe12296a0",
+      "at": 1790055349812,
+      "kind": "think",
+      "text": "I\u2019m submitting the exact seven-day test once so I can verify its response and matching log.",
+      "ms": 2258
+    },
+    {
+      "id": "10d412a8-5edd-4ddb-b83e-e897a57bc91b",
+      "at": 1790055349843,
+      "kind": "observe",
+      "text": "Read 127 controls on Playground - Interfaze",
+      "ms": 31
+    },
+    {
+      "id": "1ed5d9a4-ba36-4546-8b0c-6ad1d74321df",
+      "at": 1790055349988,
+      "kind": "act",
+      "text": "I\u2019m submitting the exact seven-day test once so I can verify its response and matching log.",
+      "ms": 142
+    },
+    {
+      "id": "fca14ad6-ca1c-4a68-b7e5-7f79e98a4b77",
+      "at": 1790055350008,
+      "kind": "observe",
+      "text": "Read 133 controls on Playground - Interfaze",
+      "ms": 14
+    },
+    {
+      "id": "a1a32401-f606-435e-bff4-3eec7ef678ff",
+      "at": 1790055350685,
+      "kind": "observe",
+      "text": "Read 133 controls on Playground - Interfaze",
+      "ms": 24
+    },
+    {
+      "id": "3ece0f79-c9f9-4568-af7c-49ab19bf1c2e",
+      "at": 1790055350687,
+      "kind": "verify",
+      "text": "Verified change click: Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "724704c9-3eef-421f-8c5a-0e51fd468a96",
+      "at": 1790055350688,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "309fca61-b867-454d-a984-32d4d7a49803",
+      "at": 1790055352786,
+      "kind": "think",
+      "text": "I\u2019m waiting for the single seven-day test to finish processing.",
+      "ms": 2097
+    },
+    {
+      "id": "5d3da62f-0112-48f5-8fde-b5d26104d136",
+      "at": 1790055362796,
+      "kind": "act",
+      "text": "I\u2019m waiting for the single seven-day test to finish processing.",
+      "ms": 10008
+    },
+    {
+      "id": "4d87399e-f9fe-48c4-b3fb-85171a283484",
+      "at": 1790055362827,
+      "kind": "observe",
+      "text": "Read 142 controls on Playground - Interfaze",
+      "ms": 30
+    },
+    {
+      "id": "43b6044e-3bb5-4573-827f-99fa0967992d",
+      "at": 1790055362829,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "4f97e52d-6d9d-4a6b-b604-52f24968841a",
+      "at": 1790055365109,
+      "kind": "think",
+      "text": "I\u2019m opening Logs to verify the request for CD-306 and its returned JSON.",
+      "ms": 2280
+    },
+    {
+      "id": "f62c414a-daf5-40c0-b4da-11a46b6a6ef4",
+      "at": 1790055365139,
+      "kind": "observe",
+      "text": "Read 142 controls on Playground - Interfaze",
+      "ms": 29
+    },
+    {
+      "id": "048701a8-4f34-4a55-b7a2-5b6695c45887",
+      "at": 1790055365275,
+      "kind": "act",
+      "text": "I\u2019m opening Logs to verify the request for CD-306 and its returned JSON.",
+      "ms": 133
+    },
+    {
+      "id": "16bc9c17-fe17-4478-8a92-8f0fdc231761",
+      "at": 1790055365292,
+      "kind": "observe",
+      "text": "Read 19 controls on Playground - Interfaze",
+      "ms": 14
+    },
+    {
+      "id": "fc8ccc30-b1f8-460c-9001-6da40f4d61d1",
+      "at": 1790055365951,
+      "kind": "observe",
+      "text": "Read 51 controls on Logs - Interfaze",
+      "ms": 7
+    },
+    {
+      "id": "09a20d42-f2dd-45be-a341-1e0f9b38e69e",
+      "at": 1790055365952,
+      "kind": "verify",
+      "text": "Verified change click: Navigation observed: https://interfaze.ai/dashboard/logs"
+    },
+    {
+      "id": "9978e67f-ee38-4ef3-bfe2-e71300ba289a",
+      "at": 1790055365952,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "b648b5cd-a800-44bc-9965-0ae2643396ed",
+      "at": 1790055369475,
+      "kind": "think",
+      "text": "I\u2019m refreshing Logs once to identify and inspect the newest CD-306 request.",
+      "ms": 3522
+    },
+    {
+      "id": "efde08d9-3a5c-41cd-8058-9615f27ca6a5",
+      "at": 1790055369491,
+      "kind": "observe",
+      "text": "Read 51 controls on Logs - Interfaze",
+      "ms": 15
+    },
+    {
+      "id": "0e13c5f1-731e-43de-8e6e-9c86b5cbb818",
+      "at": 1790055369619,
+      "kind": "act",
+      "text": "I\u2019m refreshing Logs once to identify and inspect the newest CD-306 request.",
+      "ms": 124
+    },
+    {
+      "id": "f15bdb13-936c-4f89-932b-0916ecb71d9d",
+      "at": 1790055369631,
+      "kind": "observe",
+      "text": "Read 51 controls on Logs - Interfaze",
+      "ms": 10
+    },
+    {
+      "id": "cd8ab9ec-a0cd-4910-92ef-068351c01c45",
+      "at": 1790055370292,
+      "kind": "observe",
+      "text": "Read 51 controls on Logs - Interfaze",
+      "ms": 9
+    },
+    {
+      "id": "31c070a9-fdd5-47ad-84ee-7f09de0f86a4",
+      "at": 1790055370294,
+      "kind": "verify",
+      "text": "Verified change click: Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "74dd2127-3e1c-4eb6-a43e-775b4c3abaa0",
+      "at": 1790055370294,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "b50b65cf-75e1-4483-a675-bf770508dd29",
+      "at": 1790055372862,
+      "kind": "think",
+      "text": "I\u2019m opening the newest request to verify it contains CD-306 and inspect the returned JSON.",
+      "ms": 2567
+    },
+    {
+      "id": "0691a296-9cde-4719-9943-fa8d7a2f14ab",
+      "at": 1790055372878,
+      "kind": "observe",
+      "text": "Read 51 controls on Logs - Interfaze",
+      "ms": 15
+    },
+    {
+      "id": "0abdb19f-1ba8-4c16-aca1-428b45e87c34",
+      "at": 1790055373007,
+      "kind": "act",
+      "text": "I\u2019m opening the newest request to verify it contains CD-306 and inspect the returned JSON.",
+      "ms": 127
+    },
+    {
+      "id": "19cb1efa-8d8b-45f6-bbf4-84a0319ad6ce",
+      "at": 1790055373021,
+      "kind": "observe",
+      "text": "Read 3 controls on Logs - Interfaze",
+      "ms": 11
+    },
+    {
+      "id": "15c6d319-ee3b-47dd-9c5c-ccb3ce8d293a",
+      "at": 1790055373683,
+      "kind": "observe",
+      "text": "Read 43 controls on Logs - Interfaze",
+      "ms": 11
+    },
+    {
+      "id": "a85aa5d3-e0ae-4171-b148-b40268ebbfd0",
+      "at": 1790055373685,
+      "kind": "verify",
+      "text": "Verified change click: Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "63533450-2526-4c4a-96e0-8e7a4a5f6f82",
+      "at": 1790055373686,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "0f34da84-a119-4e25-a4a4-254d6592f4b6",
+      "at": 1790055376554,
+      "kind": "observe",
+      "text": "Read 43 controls on Logs - Interfaze",
+      "ms": 16
+    },
+    {
+      "id": "324bfbc4-dd4c-41c8-98e0-32b554411be6",
+      "at": 1790055376557,
+      "kind": "think",
+      "text": "CD-306 returned category \u201cdelivery\u201d with escalate false. The matching log shows the exact prompt and status 200, consistent with escalation only for delays over seven days.",
+      "ms": 2851
+    },
+    {
+      "id": "59c66851-e35c-4089-aeca-69c62fc93319",
+      "at": 1790055399970,
+      "kind": "observe",
+      "text": "Read 43 controls on Logs - Interfaze",
+      "ms": 11
+    },
+    {
+      "id": "39bdaf60-3409-4578-affb-a8e4ed737c91",
+      "at": 1790055399970,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "ce842cd4-f3c0-49f2-a352-474659721ef0",
+      "at": 1790055403728,
+      "kind": "observe",
+      "text": "Read 43 controls on Logs - Interfaze",
+      "ms": 13
+    },
+    {
+      "id": "1cc88687-558d-4b00-bd50-944df6cc256e",
+      "at": 1790055403729,
+      "kind": "think",
+      "text": "CD-305 escalated under the \u201cdelays over 7 days\u201d rule because it was nine days late; the ticket explicitly said there was no damage. Temperature zero makes outputs more deterministic, but it does not guarantee accuracy.",
+      "ms": 3744
+    },
+    {
+      "id": "7d4576e8-ab55-45bc-944e-719b9c29e3e7",
+      "at": 1790055425490,
+      "kind": "observe",
+      "text": "Read 43 controls on Logs - Interfaze",
+      "ms": 14
+    },
+    {
+      "id": "f5cc56f9-93aa-4bf6-96f0-20d1d3fff294",
+      "at": 1790055425491,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "310432c5-dd78-433c-b191-5ac4fbee613f",
+      "at": 1790055428765,
+      "kind": "think",
+      "text": "I\u2019m scrolling the log detail dialog down to the Output section.",
+      "ms": 3273
+    },
+    {
+      "id": "34148005-3767-4924-b66e-dbbe948737f2",
+      "at": 1790055429092,
+      "kind": "act",
+      "text": "I\u2019m scrolling the log detail dialog down to the Output section.",
+      "ms": 326
+    },
+    {
+      "id": "21569263-71e4-42e6-8058-8abb73b96da1",
+      "at": 1790055429104,
+      "kind": "observe",
+      "text": "Read 43 controls on Logs - Interfaze",
+      "ms": 11
+    },
+    {
+      "id": "ed51d9c2-911a-43fc-bade-a07d404fcf48",
+      "at": 1790055429106,
+      "kind": "verify",
+      "text": "Verified change scroll: Control state changed: Log detail scrollX:0, scrollY:153, scrollMaxX:0, scrollMaxY:157"
+    },
+    {
+      "id": "a72a7938-2118-40e2-9b5d-3761d224f162",
+      "at": 1790055429106,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "d3cc199f-db95-4ed5-9c85-8d3cc2a10886",
+      "at": 1790055431844,
+      "kind": "observe",
+      "text": "Read 43 controls on Logs - Interfaze",
+      "ms": 11
+    },
+    {
+      "id": "3b8aee02-30ee-48ca-b0ca-8b44ebf660ec",
+      "at": 1790055431845,
+      "kind": "think",
+      "text": "The log dialog is scrolled to Output, showing CD-306 as delivery with escalate false.",
+      "ms": 2726
+    }
+  ],
+  "steps": 45,
+  "model": "gpt-5.6-sol",
+  "startedAt": 1790054938843,
+  "experience": {
+    "name": "Interfaze",
+    "accent": "#18181b",
+    "greeting": "Turn a first test into a useful result. I can configure the playground, run examples, and check what changed.",
+    "suggestions": [
+      {
+        "title": "Build a ticket classifier",
+        "prompt": "Configure the playground to classify support tickets and test a synthetic example."
+      },
+      {
+        "title": "Revise and check a policy",
+        "prompt": "Change the support escalation policy, extend its JSON schema, and test another ticket."
+      }
+    ]
+  },
+  "recordingClicks": [
+    {
+      "at": 1790054967413,
+      "actor": "operator",
+      "button": "left",
+      "target": "Open Nova side panel"
+    },
+    {
+      "at": 1790054988116,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-16"
+    },
+    {
+      "at": 1790055002010,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-18"
+    },
+    {
+      "at": 1790055024934,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova"
+    },
+    {
+      "at": 1790055053325,
+      "actor": "operator",
+      "button": "left",
+      "target": "button"
+    },
+    {
+      "at": 1790055068476,
+      "actor": "operator",
+      "button": "left",
+      "target": "button"
+    },
+    {
+      "at": 1790055072375,
+      "actor": "operator",
+      "button": "left",
+      "target": "button"
+    },
+    {
+      "at": 1790055074874,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-20"
+    },
+    {
+      "at": 1790055077649,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-73"
+    },
+    {
+      "at": 1790055092657,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-25"
+    },
+    {
+      "at": 1790055099849,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-29"
+    },
+    {
+      "at": 1790055104740,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-87"
+    },
+    {
+      "at": 1790055109584,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-90"
+    },
+    {
+      "at": 1790055112166,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-92"
+    },
+    {
+      "at": 1790055119449,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-100"
+    },
+    {
+      "at": 1790055123383,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-103"
+    },
+    {
+      "at": 1790055128232,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-16"
+    },
+    {
+      "at": 1790055133533,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-18"
+    },
+    {
+      "at": 1790055149676,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-5"
+    },
+    {
+      "at": 1790055165234,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-123"
+    },
+    {
+      "at": 1790055173091,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-125"
+    },
+    {
+      "at": 1790055198949,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova"
+    },
+    {
+      "at": 1790055223990,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-2"
+    },
+    {
+      "at": 1790055228014,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-205"
+    },
+    {
+      "at": 1790055230723,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-275"
+    },
+    {
+      "at": 1790055251707,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-225"
+    },
+    {
+      "at": 1790055258414,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-278"
+    },
+    {
+      "at": 1790055265599,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-281"
+    },
+    {
+      "at": 1790055268148,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-201"
+    },
+    {
+      "at": 1790055276026,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-203"
+    },
+    {
+      "at": 1790055292199,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-5"
+    },
+    {
+      "at": 1790055295125,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-301"
+    },
+    {
+      "at": 1790055298849,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-304"
+    },
+    {
+      "at": 1790055313439,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova"
+    },
+    {
+      "at": 1790055336531,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-2"
+    },
+    {
+      "at": 1790055340964,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-390"
+    },
+    {
+      "at": 1790055349957,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-392"
+    },
+    {
+      "at": 1790055365257,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-5"
+    },
+    {
+      "at": 1790055369607,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-499"
+    },
+    {
+      "at": 1790055372990,
+      "actor": "nova",
+      "button": "left",
+      "target": "xxi13x6-504"
+    },
+    {
+      "at": 1790055390114,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova"
+    },
+    {
+      "at": 1790055420264,
+      "actor": "operator",
+      "button": "left",
+      "target": "Message Nova"
+    }
+  ],
+  "progress": {
+    "url": "https://interfaze.ai/dashboard/logs",
+    "reloads": 0,
+    "actions": [
+      {
+        "kind": "scroll",
+        "target": "Log detail",
+        "summary": "I\u2019m scrolling the log detail dialog down to the Output section.",
+        "result": "Control state changed: Log detail scrollX:0, scrollY:153, scrollMaxX:0, scrollMaxY:157"
+      }
+    ],
+    "settings": []
+  },
+  "lastSnapshot": {
+    "id": "xxi13x6:1790055431842",
+    "url": "https://interfaze.ai/dashboard/logs",
+    "title": "Logs - Interfaze",
+    "text": "Input tokens\n7,276\nOutput tokens\n127\nReasoning tokens\n0\nInput\n10 messages\nsystem\nClassify as damage, delivery, or other. Return category, summary, escalate. Escalate damage or delays over 7 days.\nuser\nSummarize this support ticket in one sentence: CD-300 needs a delivery update.\nassistant\nThe support ticket requests a delivery status update for item CD-300.\nuser\nClassify a cracked mug as damage, delivery or other. Reply with one word.\nassistant\ndamage\nuser\nA cracked mug.\nassistant\n{\"category\":\"damage\",\"summary\":\"A cracked mug.\"}\nuser\nCD-305 is nine days late, no damage.\nassistant\n{\"category\":\"delivery\",\"summary\":\"CD-305 is nine days late, no damage.\",\"escalate\":true}\nuser\nCD-306 is exactly seven days late, no damage.\nOutput\n111 chars\n{ \"summary\": \"CD-306 is exactly seven days late, no damage.\", \"category\": \"delivery\", \"escalate\": false }\nGet help with this request\nLog detail\nreq-fe082e31-446\u2026613ff4\n22/09/2026, 11:06:03\n200\nLogs - Interfaze",
+    "elements": [
+      {
+        "ref": "xxi13x6-536",
+        "covered": false,
+        "tag": "div",
+        "role": "dialog",
+        "name": "Log detail",
+        "type": "",
+        "state": [
+          "scrollX:0",
+          "scrollY:157",
+          "scrollMaxX:0",
+          "scrollMaxY:157"
+        ],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-538",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "Copy input",
+        "type": "button",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-539",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "Copy output",
+        "type": "button",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-542",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "Get help with this request",
+        "type": "button",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-540",
+        "covered": false,
+        "tag": "div",
+        "role": "",
+        "name": "SYSTEM Classify as damage, delivery, or other. Return category, summary, escalate. Escalate damage or delays over 7 days. USER Summarize this support ticket in one sentence: CD-300 needs a delivery update. ASSISTANT The ",
+        "type": "",
+        "state": [
+          "scrollX:0",
+          "scrollY:0",
+          "scrollMaxX:0",
+          "scrollMaxY:242"
+        ],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-519",
+        "covered": false,
+        "tag": "div",
+        "role": "",
+        "name": "Logs 1\u201325 of 26 Previous Page 1 of 2 Next Time Request ID Status Input tokens Output tokens Reasoning tokens Sep 22, 202611:06:03 AM req-fe082e31-4460-4468-a82e-90ab9c613ff4 200 7,276 127 \u2014 Sep 22, 202611:04:51 AM req-e9",
+        "type": "",
+        "state": [
+          "scrollX:0",
+          "scrollY:0",
+          "scrollMaxX:0",
+          "scrollMaxY:485"
+        ],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-541",
+        "covered": false,
+        "tag": "div",
+        "role": "",
+        "name": "Log detail req-fe082e31-446\u2026613ff4 22/09/2026, 11:06:03 200 INPUT TOKENS 7,276 OUTPUT TOKENS 127 REASONING TOKENS 0 Input 10 messages SYSTEM Classify as damage, delivery, or other. Return category, summary, escalate. Esc",
+        "type": "",
+        "state": [
+          "scrollX:0",
+          "scrollY:0",
+          "scrollMaxX:0",
+          "scrollMaxY:9"
+        ],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-537",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "Copy request id",
+        "type": "button",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-545",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "INPUT TOKENS",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-546",
+        "covered": true,
+        "tag": "p",
+        "role": "",
+        "name": "7,276",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-547",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "OUTPUT TOKENS",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-548",
+        "covered": true,
+        "tag": "p",
+        "role": "",
+        "name": "127",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-549",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "REASONING TOKENS",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-550",
+        "covered": true,
+        "tag": "p",
+        "role": "",
+        "name": "0",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-551",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "Input",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-552",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "10 messages",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-553",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "SYSTEM",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-554",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "Classify as damage, delivery, or other. Return category, summary, escalate. Escalate damage or delays over 7 days.",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-555",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "USER",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-556",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "Summarize this support ticket in one sentence: CD-300 needs a delivery update.",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-557",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "ASSISTANT",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-558",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "The support ticket requests a delivery status update for item CD-300.",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-559",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "USER",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-560",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "Classify a cracked mug as damage, delivery or other. Reply with one word.",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-561",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "ASSISTANT",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-562",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "damage",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-563",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "USER",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-564",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "A cracked mug.",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-565",
+        "covered": true,
+        "tag": "p",
+        "role": "",
+        "name": "ASSISTANT",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-566",
+        "covered": true,
+        "tag": "p",
+        "role": "",
+        "name": "{\"category\":\"damage\",\"summary\":\"A cracked mug.\"}",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-567",
+        "covered": true,
+        "tag": "p",
+        "role": "",
+        "name": "USER",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-568",
+        "covered": true,
+        "tag": "p",
+        "role": "",
+        "name": "CD-305 is nine days late, no damage.",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-569",
+        "covered": true,
+        "tag": "p",
+        "role": "",
+        "name": "ASSISTANT",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-573",
+        "covered": true,
+        "tag": "p",
+        "role": "",
+        "name": "{\"category\":\"delivery\",\"summary\":\"CD-305 is nine days late, no damage.\",\"escalate\":true}",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-574",
+        "covered": true,
+        "tag": "p",
+        "role": "",
+        "name": "USER",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-575",
+        "covered": true,
+        "tag": "p",
+        "role": "",
+        "name": "CD-306 is exactly seven days late, no damage.",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-570",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "Output",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-571",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "111 chars",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-572",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "{ \"summary\": \"CD-306 is exactly seven days late, no damage.\", \"category\": \"delivery\", \"escalate\": false }",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-535",
+        "covered": false,
+        "tag": "h2",
+        "role": "",
+        "name": "Log detail",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-543",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "req-fe082e31-446\u2026613ff4",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-544",
+        "covered": false,
+        "tag": "p",
+        "role": "",
+        "name": "22/09/2026, 11:06:03",
+        "type": "",
+        "state": [
+          "scrollX:0",
+          "scrollY:0",
+          "scrollMaxX:0",
+          "scrollMaxY:2"
+        ],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "xxi13x6-58",
+        "covered": false,
+        "tag": "p",
+        "role": "alert",
+        "name": "Logs - Interfaze",
+        "type": "",
+        "state": [
+          "scrollX:0",
+          "scrollY:0",
+          "scrollMaxX:153",
+          "scrollMaxY:23"
+        ],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      }
+    ],
+    "textRegions": [
+      {
+        "ref": "xxi13x6-536",
+        "text": "Log detail\nreq-fe082e31-446\u2026613ff4\n22/09/2026, 11:06:03\n200\nInput tokens\n7,276\nOutput tokens\n127\nReasoning tokens\n0\nInput\n10 messages\nsystem\nClassify as damage, delivery, or other. Return category, summary, escalate. Escalate damage or delays over 7 days.\nuser\nSummarize this support ticket in one sentence: CD-300 needs a delivery update.\nassistant\nThe support ticket requests a delivery status update for item CD-300.\nuser\nClassify a cracked mug as damage, delivery or other. Reply with one word.\nassistant\ndamage\nuser\nA cracked mug.\nassistant\n{\"category\":\"damage\",\"summary\":\"A cracked mug.\"}\nuser\nCD-305 is nine days late, no damage.\nassistant\n{\"category\":\"delivery\",\"summary\":\"CD-305 is nine days late, no damage.\",\"escalate\":true}\nuser\nCD-306 is exactly seven days late, no damage.\nOutput\n111 chars\n{ \"summary\": \"CD-306 is exactly seven days late, no damage.\", \"category\": \"delivery\", \"escalate\": false }\nGet help with this request",
+        "elementRefs": [
+          "xxi13x6-536",
+          "xxi13x6-538",
+          "xxi13x6-539",
+          "xxi13x6-542",
+          "xxi13x6-540",
+          "xxi13x6-537",
+          "xxi13x6-545",
+          "xxi13x6-546",
+          "xxi13x6-547",
+          "xxi13x6-548",
+          "xxi13x6-549",
+          "xxi13x6-550",
+          "xxi13x6-551",
+          "xxi13x6-552",
+          "xxi13x6-553",
+          "xxi13x6-554",
+          "xxi13x6-555",
+          "xxi13x6-556",
+          "xxi13x6-557",
+          "xxi13x6-558",
+          "xxi13x6-559",
+          "xxi13x6-560",
+          "xxi13x6-561",
+          "xxi13x6-562",
+          "xxi13x6-563",
+          "xxi13x6-564",
+          "xxi13x6-565",
+          "xxi13x6-566",
+          "xxi13x6-567",
+          "xxi13x6-568",
+          "xxi13x6-569",
+          "xxi13x6-573",
+          "xxi13x6-574",
+          "xxi13x6-575",
+          "xxi13x6-570",
+          "xxi13x6-571",
+          "xxi13x6-572",
+          "xxi13x6-535",
+          "xxi13x6-543",
+          "xxi13x6-544"
+        ]
+      }
+    ],
+    "viewport": {
+      "width": 1109,
+      "height": 737,
+      "scrollX": 0,
+      "scrollY": 0,
+      "zoom": 1
+    },
+    "theme": {
+      "color": "rgba(0, 0, 0, 0)",
+      "font": "\"Geist Mono\", monospace, -apple-system, \"system-ui\"",
+      "scheme": "light"
+    },
+    "frames": 0,
+    "capturedAt": 1790055431842,
+    "observation": {
+      "totalControls": 8,
+      "omittedControls": 0,
+      "viewportFirst": true,
+      "sensitiveFieldsPresent": false
+    },
+    "capabilities": [
+      "click",
+      "double_click",
+      "right_click",
+      "hover",
+      "drag",
+      "fill",
+      "type",
+      "clear",
+      "check",
+      "press",
+      "select",
+      "scroll",
+      "scroll_to",
+      "zoom",
+      "media",
+      "select_text",
+      "copy",
+      "paste",
+      "search",
+      "inspect",
+      "point",
+      "bounded-processing-wait",
+      "trusted-browser-input",
+      "paced-recording-input"
+    ]
+  },
+  "usage": {
+    "calls": 54,
+    "inputTokens": 606956,
+    "cachedInputTokens": 225612,
+    "outputTokens": 6017
+  },
+  "actionSteps": [
+    {
+      "id": "b6caa14b-290d-4c8a-9826-1c5163f6d3fd",
+      "taskId": "5881bde7-f0d5-4d1d-9f3c-7d4d3234cd29",
+      "at": 1790054987984,
+      "kind": "fill",
+      "title": "I\u2019m entering the exact prompt in the playground.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "138b0b3c-5247-48ca-8ba6-efae4b052378",
+      "taskId": "5881bde7-f0d5-4d1d-9f3c-7d4d3234cd29",
+      "at": 1790055001898,
+      "kind": "click",
+      "title": "I\u2019m submitting the exact prompt for one model run.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "7b6eb32b-32e7-4453-b62b-1063f901d279",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055074764,
+      "kind": "click",
+      "title": "I\u2019m opening System Prompt to apply Cedar Desk\u2019s concise triage policy.",
+      "status": "verified",
+      "detail": "Control state changed: System Prompt Define model behavior expanded:true"
+    },
+    {
+      "id": "8a7f2676-be7d-4d92-9561-771b5253f82d",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055077537,
+      "kind": "fill",
+      "title": "I\u2019m setting Cedar Desk\u2019s concise category-and-summary policy.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "7d7c21d3-08d3-4bbe-848d-cef828c68166",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055092544,
+      "kind": "click",
+      "title": "I\u2019m opening Configuration to set temperature to zero.",
+      "status": "verified",
+      "detail": "Control state changed: Configuration Model parameters expanded:true"
+    },
+    {
+      "id": "72eef6fe-0c80-4681-a062-5c3304c29acc",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055097199,
+      "kind": "press",
+      "title": "I\u2019m setting Temperature to its minimum value of zero.",
+      "status": "verified",
+      "detail": "Control state changed:  valuenow:0"
+    },
+    {
+      "id": "2182c7ce-42a8-4079-b73e-86196afa3428",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055099737,
+      "kind": "click",
+      "title": "I\u2019m enabling structured JSON output so I can define the category and summary fields.",
+      "status": "verified",
+      "detail": "Control state changed: JSON checked:true"
+    },
+    {
+      "id": "6ad7bdf7-01f2-4373-9af4-59dbc62f8922",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055104633,
+      "kind": "fill",
+      "title": "I\u2019m naming the first required JSON field category.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "086a8920-fcd9-454d-b80e-93301ce7f51c",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055109468,
+      "kind": "click",
+      "title": "I\u2019m making the category field required.",
+      "status": "verified",
+      "detail": "Control state changed: Required pressed:true"
+    },
+    {
+      "id": "4aee131e-2f5c-4803-84cc-5530418c7e55",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055112054,
+      "kind": "click",
+      "title": "I\u2019m adding the second JSON field for the short summary.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "3731cea2-38d8-466c-a9a0-edbb3050f27d",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055115132,
+      "kind": "scroll_to",
+      "title": "I\u2019m scrolling the field into view before editing it.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "c21bc1b4-4866-4447-a131-71e9aa73794c",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055119335,
+      "kind": "fill",
+      "title": "I\u2019m naming the second JSON field summary.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "f875ffd2-fce3-4bfb-af5f-dcad4a9ce71d",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055123267,
+      "kind": "click",
+      "title": "I\u2019m making the summary field required to complete Cedar Desk\u2019s JSON schema.",
+      "status": "verified",
+      "detail": "Control state changed: Required pressed:true"
+    },
+    {
+      "id": "1b5f30d3-1fe7-44f7-9526-0ac2272f243c",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055128116,
+      "kind": "fill",
+      "title": "I\u2019m preparing the cracked-mug example to test Cedar Desk\u2019s JSON triage.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "9e6f6d64-da60-4167-b3eb-2dedca8b098c",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055133423,
+      "kind": "click",
+      "title": "I\u2019m running the cracked-mug example once with Cedar Desk\u2019s JSON triage configuration.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "340b9451-cb68-423d-a4ac-e76912dae43e",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055149558,
+      "kind": "click",
+      "title": "I\u2019m opening Logs to independently verify the completed Cedar Desk triage request.",
+      "status": "verified",
+      "detail": "Navigation observed: https://interfaze.ai/dashboard/logs"
+    },
+    {
+      "id": "a517d0eb-2a5c-403a-a596-e9abed84b7a0",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055165115,
+      "kind": "click",
+      "title": "I\u2019m refreshing Logs once to identify the newly completed Cedar Desk triage request.",
+      "status": "verified",
+      "detail": "Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "9ceb9cdf-9906-4324-88f1-ba1887a76168",
+      "taskId": "9ba60147-e0d1-4991-b2b0-85a471c271ec",
+      "at": 1790055172979,
+      "kind": "click",
+      "title": "I\u2019m opening the newest request to verify its exact prompt and JSON result.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "4ef3aa03-db8b-4f27-bb80-e6e93cd2a87b",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055220584,
+      "kind": "press",
+      "title": "I\u2019m closing the old log detail so I can update Cedar Desk\u2019s policy and run the new test.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "e0ff969e-33ae-4c24-ba7f-9d0309b77f73",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055223874,
+      "kind": "click",
+      "title": "I\u2019m opening the Playground to add the escalation rule and test the late delivery.",
+      "status": "verified",
+      "detail": "Navigation observed: https://interfaze.ai/dashboard/playground"
+    },
+    {
+      "id": "6f2634b1-9955-4a73-87d1-4933b1a31e71",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055227907,
+      "kind": "click",
+      "title": "I\u2019m opening the System Prompt to add Cedar Desk\u2019s escalation rule.",
+      "status": "verified",
+      "detail": "Control state changed: System Prompt Define model behavior expanded:true"
+    },
+    {
+      "id": "7e48fcf8-f10a-4f5e-96a5-d84c4c76fc5c",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055230614,
+      "kind": "fill",
+      "title": "I\u2019m updating Cedar Desk\u2019s policy with the requested escalation rule.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "d130af67-cf0c-475f-b620-593526f5f2f2",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055251594,
+      "kind": "click",
+      "title": "I\u2019m adding the required escalate field to Cedar Desk\u2019s JSON schema.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "955f75ba-8d5e-4549-a97e-e09686245b6f",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055254977,
+      "kind": "scroll_to",
+      "title": "I\u2019m scrolling the field into view before editing it.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "946164d8-aef3-4112-a829-99753ec43b02",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055258302,
+      "kind": "fill",
+      "title": "I\u2019m naming the new required JSON field \u201cescalate.\u201d",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "fcc06afa-203a-4e3e-969c-189a8ca3cd06",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055262084,
+      "kind": "select",
+      "title": "I\u2019m setting the new escalate field to boolean.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "c325efd2-8120-45a4-8387-ae70a26bf448",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055265485,
+      "kind": "click",
+      "title": "I\u2019m making the boolean escalate field required before running the late-delivery test.",
+      "status": "verified",
+      "detail": "Control state changed: Required pressed:true"
+    },
+    {
+      "id": "1248f3f1-6396-400f-8ca5-66a8c43ef7ef",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055268032,
+      "kind": "fill",
+      "title": "I\u2019m entering the requested late-delivery test prompt exactly once.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "2fe8f6aa-3305-44b0-bf25-3bdec321d9f2",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055275910,
+      "kind": "click",
+      "title": "I\u2019m running the late-delivery test once with Cedar Desk\u2019s updated escalation policy.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "bc870c80-ba1f-40e5-b09a-75b6de0adf1c",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055292089,
+      "kind": "click",
+      "title": "I\u2019m opening Logs to verify the new late-delivery request and its returned JSON.",
+      "status": "verified",
+      "detail": "Navigation observed: https://interfaze.ai/dashboard/logs"
+    },
+    {
+      "id": "74f67dcd-32ab-4e68-bf72-b9ce88958b04",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055295010,
+      "kind": "click",
+      "title": "I\u2019m refreshing Logs once so I can verify the newest late-delivery request.",
+      "status": "verified",
+      "detail": "Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "b9d3eefc-552b-43c0-b580-8c8b5973d523",
+      "taskId": "23edb492-0b89-4b89-87aa-77087477ec65",
+      "at": 1790055298732,
+      "kind": "click",
+      "title": "I\u2019m opening the newest successful request to verify the late-delivery input and returned JSON.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "e10d109e-8bd6-4c3b-b3bf-d4b1481a25d7",
+      "taskId": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
+      "at": 1790055326568,
+      "kind": "press",
+      "title": "I\u2019m closing the prior log detail so I can return to the playground and run the new test once.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "3184d567-401f-4fe6-b2be-548ece019522",
+      "taskId": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
+      "at": 1790055336417,
+      "kind": "click",
+      "title": "I\u2019m returning to the playground to run the exact seven-day test once.",
+      "status": "verified",
+      "detail": "Navigation observed: https://interfaze.ai/dashboard/playground"
+    },
+    {
+      "id": "c0c4aa36-42e0-410e-9d4c-59e95f1dc0a4",
+      "taskId": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
+      "at": 1790055340844,
+      "kind": "fill",
+      "title": "I\u2019m entering the exact seven-day test prompt for a single new run.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "81637494-98c8-46f6-9b5d-263c60abfcf8",
+      "taskId": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
+      "at": 1790055349846,
+      "kind": "click",
+      "title": "I\u2019m submitting the exact seven-day test once so I can verify its response and matching log.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "bf2d29e6-40c3-4b9a-b415-2c3f1928c6ec",
+      "taskId": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
+      "at": 1790055365141,
+      "kind": "click",
+      "title": "I\u2019m opening Logs to verify the request for CD-306 and its returned JSON.",
+      "status": "verified",
+      "detail": "Navigation observed: https://interfaze.ai/dashboard/logs"
+    },
+    {
+      "id": "1a49fe1b-0c3b-4e47-9796-bbebd85aabbd",
+      "taskId": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
+      "at": 1790055369493,
+      "kind": "click",
+      "title": "I\u2019m refreshing Logs once to identify and inspect the newest CD-306 request.",
+      "status": "verified",
+      "detail": "Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "f69f23ac-4c91-4ac1-bc99-1a4e5a1a908c",
+      "taskId": "b92e2ae9-4e68-48c6-81f3-a72d2e25cedf",
+      "at": 1790055372880,
+      "kind": "click",
+      "title": "I\u2019m opening the newest request to verify it contains CD-306 and inspect the returned JSON.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "2c08909b-a9eb-41ae-905f-12543ecf4bdc",
+      "taskId": "eb69d8a3-aff5-45e3-a4cf-613da44fa55f",
+      "at": 1790055428765,
+      "kind": "scroll",
+      "title": "I\u2019m scrolling the log detail dialog down to the Output section.",
+      "status": "verified",
+      "detail": "Control state changed: Log detail scrollX:0, scrollY:153, scrollMaxX:0, scrollMaxY:157"
+    }
+  ],
+  "preparedInputs": [
+    {
+      "ref": "xxi13x6-73",
+      "url": "https://interfaze.ai/dashboard/playground",
+      "revision": "xxi13x6:edit:10",
+      "value": "Classify as damage, delivery, or other. Return category and a short summary.",
+      "kind": "fill",
+      "target": {
+        "name": "You are a helpful assistant...",
+        "tag": "textarea",
+        "type": "",
+        "context": ""
+      }
+    },
+    {
+      "ref": "xxi13x6-87",
+      "url": "https://interfaze.ai/dashboard/playground",
+      "revision": "xxi13x6:edit:13",
+      "value": "category",
+      "kind": "fill",
+      "target": {
+        "name": "property name",
+        "tag": "input",
+        "type": "",
+        "context": ""
+      }
+    },
+    {
+      "ref": "xxi13x6-100",
+      "url": "https://interfaze.ai/dashboard/playground",
+      "revision": "xxi13x6:edit:16",
+      "value": "summary",
+      "kind": "fill",
+      "target": {
+        "name": "property name",
+        "tag": "input",
+        "type": "",
+        "context": ""
+      }
+    },
+    {
+      "ref": "xxi13x6-16",
+      "url": "https://interfaze.ai/dashboard/playground",
+      "revision": "xxi13x6:edit:17",
+      "value": "A cracked mug.",
+      "kind": "fill",
+      "target": {
+        "name": "Type your message...",
+        "tag": "textarea",
+        "type": "",
+        "context": ""
+      }
+    },
+    {
+      "ref": "xxi13x6-275",
+      "url": "https://interfaze.ai/dashboard/playground",
+      "revision": "xxi13x6:edit:33",
+      "value": "Classify as damage, delivery, or other. Return category, summary, escalate. Escalate damage or delays over 7 days.",
+      "kind": "fill",
+      "target": {
+        "name": "You are a helpful assistant...",
+        "tag": "textarea",
+        "type": "",
+        "context": ""
+      }
+    },
+    {
+      "ref": "xxi13x6-278",
+      "url": "https://interfaze.ai/dashboard/playground",
+      "revision": "xxi13x6:edit:36",
+      "value": "escalate",
+      "kind": "fill",
+      "target": {
+        "name": "property name",
+        "tag": "input",
+        "type": "",
+        "context": ""
+      }
+    },
+    {
+      "ref": "xxi13x6-201",
+      "url": "https://interfaze.ai/dashboard/playground",
+      "revision": "xxi13x6:edit:38",
+      "value": "CD-305 is nine days late, no damage.",
+      "kind": "fill",
+      "target": {
+        "name": "Type your message...",
+        "tag": "textarea",
+        "type": "",
+        "context": ""
+      }
+    },
+    {
+      "ref": "xxi13x6-390",
+      "url": "https://interfaze.ai/dashboard/playground",
+      "revision": "xxi13x6:edit:56",
+      "value": "CD-306 is exactly seven days late, no damage.",
+      "kind": "fill",
+      "target": {
+        "name": "Type your message...",
+        "tag": "textarea",
+        "type": "",
+        "context": ""
+      }
+    }
+  ],
+  "awaitingAnswer": false
+}

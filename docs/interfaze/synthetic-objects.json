@@ -1,12 +1,12 @@
 {
   "account": "itsmohitchauhan1409",
   "scope": "https://interfaze.ai/dashboard/playground",
-  "ownership": "Playground was initially empty. Final capture began after an authorized reset of task-only local chat; final local conversation now contains the recorded synthetic Cedar Desk tests. No unrelated chat was observed.",
+  "ownership": "Task-owned synthetic Cedar Desk conversations and server requests. Final2 starts from a real populated CD-300 baseline; do not claim the earlier empty-chat candidate was populated.",
   "disposable_local_test_objects": [
     {
-      "object": "current Playground local chat",
-      "reason": "Task-owned local content; preserve the final conversation/session, model outputs and request receipts before any later reset. Do not clear while media/evidence workers still need it.",
-      "evidencePreserved": "Historical rehearsal receipts plus private/interfaze-final-sessions.json, private/interfaze-final-operator.json, private/interfaze-final-recorder.log, capture-evidence.json and server Logs."
+      "object": "current Playground task-owned local chat",
+      "reason": "Preserve populated baseline, final2 conversation, exact model outputs and request receipts until final media/evidence/backup acceptance; no unrelated cleanup.",
+      "evidencePreserved": "Immutable final2 session/operator/recorder files plus server Logs and capture-evidence.json"
     }
   ],
   "retain": [
@@ -15,11 +15,74 @@
     "live-discovery.json exact request IDs and outputs",
     "final local conversation until evidence/media acceptance",
     "artifacts/interfaze/media/nova-interfaze-original.mov unchanged",
-    "capture-evidence.json and actual recording-script.md"
+    "capture-evidence.json and actual recording-script.md",
+    "private/interfaze-final2-original.mov unchanged",
+    "private/interfaze-final2-sessions.json",
+    "private/interfaze-final2-operator.json",
+    "private/interfaze-final2-recorder.log",
+    "all failed/provisional capture evidence until authorized disposition"
   ],
   "configuration_baseline": {
-    "systemPrompt": "empty",
-    "structuredJSON": false,
-    "temperature": 0
-  }
+    "localChat": "populated CD-300 setup conversation",
+    "settingProof": "Use actual opening capture; do not infer initial settings from final revised configuration."
+  },
+  "historicalCandidateOwnership": {
+    "ownership": "Playground was initially empty. Final capture began after an authorized reset of task-only local chat; final local conversation now contains the recorded synthetic Cedar Desk tests. No unrelated chat was observed.",
+    "configuration_baseline": {
+      "systemPrompt": "empty",
+      "structuredJSON": false,
+      "temperature": 0
+    }
+  },
+  "currentCapture": {
+    "name": "final2",
+    "sessionId": "afbb051f-28e4-496d-a4e1-dc228e111c1a",
+    "backend": "bd98d25",
+    "frontend": "1f7c875",
+    "main": "dad9db1",
+    "raw": "/Users/macbook/Desktop/Nova-batch-20260922/private/interfaze-final2-original.mov",
+    "finalExportQA": "pending",
+    "independentPersistence": "passed all three structured-result requests",
+    "backup": "pending"
+  },
+  "final2Requests": [
+    {
+      "kind": "structured triage setup",
+      "requestId": "req-895b371e-8ab2-4f15-a1f2-d23759ef9608",
+      "input": "A cracked mug.",
+      "output": {
+        "category": "damage",
+        "summary": "A cracked mug."
+      },
+      "status": 200,
+      "idSource": "Coordinator exact-ID handoff; full ID not in bounded final session",
+      "independentPersistence": "passed: coordinator independently reopened after fresh reload and verified exact matching request, status 200 and output"
+    },
+    {
+      "kind": "CD-305 positive escalation",
+      "requestId": "req-e9fe089d-60ff-42a1-b769-c50dd271ee4a",
+      "input": "CD-305 is nine days late, no damage.",
+      "output": {
+        "category": "delivery",
+        "summary": "CD-305 is nine days late, no damage.",
+        "escalate": true
+      },
+      "status": 200,
+      "idSource": "Coordinator post-capture exact native request readback",
+      "independentPersistence": "passed: coordinator independently reopened after fresh reload and verified exact matching request, status 200 and output"
+    },
+    {
+      "kind": "CD-306 boundary escalation",
+      "requestId": "req-fe082e31-4460-4468-a82e-90ab9c613ff4",
+      "input": "CD-306 is exactly seven days late, no damage.",
+      "output": {
+        "category": "delivery",
+        "summary": "CD-306 is exactly seven days late, no damage.",
+        "escalate": false
+      },
+      "status": 200,
+      "idSource": "Full ID retained in immutable final2 session and coordinator native readback",
+      "independentPersistence": "passed: coordinator independently reopened after fresh reload and verified exact matching request, status 200 and output"
+    }
+  ]
 }

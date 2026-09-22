@@ -5,94 +5,24 @@
   "segments": [
     {
       "start_frame": 0,
-      "end_frame": 1920,
-      "output_frames": 1920,
+      "end_frame": 6600,
+      "output_frames": 6600,
       "kind": "agent",
-      "reason": "Retain all real actions, typing, scrolling, card feedback, reading guards, loading, failures and recovery at1x."
+      "reason": "Preserve populated opening and all Nova/operator actions, cards, native processing and Logs freshness checks at 1x."
     },
     {
-      "start_frame": 1920,
-      "end_frame": 2280,
+      "start_frame": 6600,
+      "end_frame": 6870,
       "output_frames": 90,
       "kind": "operator-idle",
-      "reason": "Prolonged static operator wait after completed response or while awaiting operator confirmation. No action/typing/scroll dispatch in interval. Boundaries and midpoint inspected in qa/idle-sheet-01.png. At least5s reading guard before/after acceleration, entire response/card and real next click retained."
+      "reason": "Static source 220\u2013229 seconds after verified result; source frames 6600/6750/6870 show unchanged Log and response. Preserve 5.883 seconds of reading before and 5.824 seconds before next click/typing. Nine seconds becomes three; no action or click inside."
     },
     {
-      "start_frame": 2280,
-      "end_frame": 6840,
-      "output_frames": 4560,
+      "start_frame": 6870,
+      "end_frame": 14355,
+      "output_frames": 7485,
       "kind": "agent",
-      "reason": "Retain all real actions, typing, scrolling, card feedback, reading guards, loading, failures and recovery at1x."
-    },
-    {
-      "start_frame": 6840,
-      "end_frame": 7320,
-      "output_frames": 120,
-      "kind": "operator-idle",
-      "reason": "Prolonged static operator wait after completed response or while awaiting operator confirmation. No action/typing/scroll dispatch in interval. Boundaries and midpoint inspected in qa/idle-sheet-02.png. At least5s reading guard before/after acceleration, entire response/card and real next click retained."
-    },
-    {
-      "start_frame": 7320,
-      "end_frame": 15060,
-      "output_frames": 7740,
-      "kind": "agent",
-      "reason": "Retain all real actions, typing, scrolling, card feedback, reading guards, loading, failures and recovery at1x."
-    },
-    {
-      "start_frame": 15060,
-      "end_frame": 15540,
-      "output_frames": 120,
-      "kind": "operator-idle",
-      "reason": "Prolonged static operator wait after completed response or while awaiting operator confirmation. No action/typing/scroll dispatch in interval. Boundaries and midpoint inspected in qa/idle-sheet-03.png. At least5s reading guard before/after acceleration, entire response/card and real next click retained."
-    },
-    {
-      "start_frame": 15540,
-      "end_frame": 20400,
-      "output_frames": 4860,
-      "kind": "agent",
-      "reason": "Retain all real actions, typing, scrolling, card feedback, reading guards, loading, failures and recovery at1x."
-    },
-    {
-      "start_frame": 20400,
-      "end_frame": 20910,
-      "output_frames": 120,
-      "kind": "operator-idle",
-      "reason": "Prolonged static operator wait after completed response or while awaiting operator confirmation. No action/typing/scroll dispatch in interval. Boundaries and midpoint inspected in qa/idle-sheet-04.png. At least5s reading guard before/after acceleration, entire response/card and real next click retained."
-    },
-    {
-      "start_frame": 20910,
-      "end_frame": 21720,
-      "output_frames": 810,
-      "kind": "agent",
-      "reason": "Retain all real actions, typing, scrolling, card feedback, reading guards, loading, failures and recovery at1x."
-    },
-    {
-      "start_frame": 21720,
-      "end_frame": 21990,
-      "output_frames": 90,
-      "kind": "operator-idle",
-      "reason": "Prolonged static operator wait after completed response or while awaiting operator confirmation. No action/typing/scroll dispatch in interval. Boundaries and midpoint inspected in qa/idle-sheet-05.png. At least5s reading guard before/after acceleration, entire response/card and real next click retained."
-    },
-    {
-      "start_frame": 21990,
-      "end_frame": 22530,
-      "output_frames": 540,
-      "kind": "agent",
-      "reason": "Retain all real actions, typing, scrolling, card feedback, reading guards, loading, failures and recovery at1x."
-    },
-    {
-      "start_frame": 22530,
-      "end_frame": 23040,
-      "output_frames": 120,
-      "kind": "operator-idle",
-      "reason": "Prolonged static operator wait after completed response or while awaiting operator confirmation. No action/typing/scroll dispatch in interval. Boundaries and midpoint inspected in qa/idle-sheet-06.png. At least5s reading guard before/after acceleration, entire response/card and real next click retained."
-    },
-    {
-      "start_frame": 23040,
-      "end_frame": 23970,
-      "output_frames": 930,
-      "kind": "agent",
-      "reason": "Retain final operator prompt, Nova actual log scroll, complete saved Output and closing hold at1x."
+      "reason": "Preserve actual policy/schema revision, tests, Logs refresh, all typing and native scroll/closing hold at 1x."
     }
   ],
   "masks": [
@@ -100,45 +30,34 @@
       "x": 16,
       "y": 174,
       "width": 2218,
-      "height": 10,
+      "height": 20,
       "color": "#f9f8ff",
-      "start_frame": 757,
-      "end_frame": 758,
+      "start_frame": 717,
+      "end_frame": 718,
       "purpose": "debugger-strip",
-      "evidence": "Measured from actual final raw frames747-764 (qa/banner-sheet.png), native-mask-sample.png confirms RGB249,248,255 and right boundary2234. Row insertion expands10/48/80/112/114px including lower border. Close icon included; no product evidence or Nova panel covered."
+      "evidence": "Native final2 frames 716\u2013723 measured; first insertion at 717. Fill RGB 249,248,255; x16 through2234 includes close icon, excludes Nova/product. Heights include two-pixel lower border; no mask before frame717."
     },
     {
       "x": 16,
       "y": 174,
       "width": 2218,
-      "height": 48,
+      "height": 52,
       "color": "#f9f8ff",
-      "start_frame": 758,
-      "end_frame": 759,
+      "start_frame": 718,
+      "end_frame": 719,
       "purpose": "debugger-strip",
-      "evidence": "Measured from actual final raw frames747-764 (qa/banner-sheet.png), native-mask-sample.png confirms RGB249,248,255 and right boundary2234. Row insertion expands10/48/80/112/114px including lower border. Close icon included; no product evidence or Nova panel covered."
+      "evidence": "Native final2 frames 716\u2013723 measured; first insertion at 717. Fill RGB 249,248,255; x16 through2234 includes close icon, excludes Nova/product. Heights include two-pixel lower border; no mask before frame717."
     },
     {
       "x": 16,
       "y": 174,
       "width": 2218,
-      "height": 80,
+      "height": 84,
       "color": "#f9f8ff",
-      "start_frame": 759,
-      "end_frame": 760,
+      "start_frame": 719,
+      "end_frame": 720,
       "purpose": "debugger-strip",
-      "evidence": "Measured from actual final raw frames747-764 (qa/banner-sheet.png), native-mask-sample.png confirms RGB249,248,255 and right boundary2234. Row insertion expands10/48/80/112/114px including lower border. Close icon included; no product evidence or Nova panel covered."
-    },
-    {
-      "x": 16,
-      "y": 174,
-      "width": 2218,
-      "height": 112,
-      "color": "#f9f8ff",
-      "start_frame": 760,
-      "end_frame": 761,
-      "purpose": "debugger-strip",
-      "evidence": "Measured from actual final raw frames747-764 (qa/banner-sheet.png), native-mask-sample.png confirms RGB249,248,255 and right boundary2234. Row insertion expands10/48/80/112/114px including lower border. Close icon included; no product evidence or Nova panel covered."
+      "evidence": "Native final2 frames 716\u2013723 measured; first insertion at 717. Fill RGB 249,248,255; x16 through2234 includes close icon, excludes Nova/product. Heights include two-pixel lower border; no mask before frame717."
     },
     {
       "x": 16,
@@ -146,10 +65,10 @@
       "width": 2218,
       "height": 114,
       "color": "#f9f8ff",
-      "start_frame": 761,
-      "end_frame": 23970,
+      "start_frame": 720,
+      "end_frame": 14355,
       "purpose": "debugger-strip",
-      "evidence": "Measured from actual final raw frames747-764 (qa/banner-sheet.png), native-mask-sample.png confirms RGB249,248,255 and right boundary2234. Row insertion expands10/48/80/112/114px including lower border. Close icon included; no product evidence or Nova panel covered."
+      "evidence": "Native final2 frames 716\u2013723 measured; first insertion at 717. Fill RGB 249,248,255; x16 through2234 includes close icon, excludes Nova/product. Heights include two-pixel lower border; no mask before frame717."
     }
   ],
   "clicks": []

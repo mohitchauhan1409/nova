@@ -1,104 +1,119 @@
 {
-  "stage": "provisional candidate: technical media QA passed; replacement required because empty opening fails populated-dashboard baseline; not delivered final",
-  "sessionId": "6608e1ac-cd47-42a1-9bb0-1277db1eeb3f",
-  "runtimeCommit": "18a702d0f167014c46df07bf840223adcd55ed52",
-  "frontendSourceCommit": "68a0957f390289f017aa57e0903cea56ed4bbc43",
-  "frontendIdentityNote": "Coordinator reports later capture-runtime changes were backend/profile only; frontend stayed identical. Latest branch commits are not automatically capture source.",
+  "stage": "Final2 captured; local decoded audiovisual QA and independent review passed; remote backup pending",
+  "sessionId": "afbb051f-28e4-496d-a4e1-dc228e111c1a",
+  "sessionStatus": "ready",
+  "steps": 45,
+  "runtimeCommit": "bd98d2500625f8821aa38836272b2568cb0fb4e5",
+  "frontendSourceCommit": "1f7c8755a8cf1133534272c0083615156639d91e",
+  "sharedMainCommit": "dad9db1f1ff9a172d47a2f3e095eab4a6c96daf7",
+  "identityNote": "These are exact coordinator-reported frozen capture source identities. Later branch merges do not change the recorded build.",
   "raw": {
-    "path": "artifacts/interfaze/media/nova-interfaze-original.mov",
-    "firstEncodedFrameEpochMs": 1790049469029,
-    "firstEncodedFrameUTC": "2026-09-22T03:57:49.029000+00:00",
-    "capturedFramesReported": 23970,
+    "path": "/Users/macbook/Desktop/Nova-batch-20260922/private/interfaze-final2-original.mov",
+    "firstEncodedFrameEpochMs": 1790054964125,
+    "capturedFramesReported": 14355,
     "nominalFps": 30,
-    "nominalDurationSeconds": 799,
+    "nominalDurationSeconds": 478.5,
     "width": 3024,
     "height": 1776,
     "audio": "none per recorder",
-    "qa": "Final local probe/decoded QA accepted in artifacts/interfaze/qa/media-QA.md and media-manifest.json; original preserved unchanged."
+    "qa": "Native original verified unchanged: 14355 frames, 478.5 seconds, 30 fps, 3024\u00d71776, no audio. All 43 source click/response pairs reviewed; 86 source/export frame comparisons passed.",
+    "primaryPath": "artifacts/interfaze/media/nova-interfaze-original.mov"
+  },
+  "evidence": {
+    "session": "/Users/macbook/Desktop/Nova-batch-20260922/private/interfaze-final2-sessions.json",
+    "operator": "/Users/macbook/Desktop/Nova-batch-20260922/private/interfaze-final2-operator.json",
+    "recorder": "/Users/macbook/Desktop/Nova-batch-20260922/private/interfaze-final2-recorder.log"
   },
   "baseline": {
     "url": "https://interfaze.ai/dashboard/playground",
-    "account": "itsmohitchauhan1409",
-    "systemPrompt": "empty",
-    "JSON": false,
-    "temperature": 0,
-    "localChat": "empty task-only conversation after authorized baseline reset",
-    "serverLogs": "historical synthetic requests retained; not visible initial chat population"
+    "targetTabs": 1,
+    "localChat": "Actual populated synthetic CD-300 conversation; coordinator verified before capture",
+    "prompt": "Summarize this support ticket in one sentence: CD-300 needs a delivery update.",
+    "reply": "The support ticket requests a delivery status update for item CD-300.",
+    "evidence": "Baseline prompt/reply also retained in final log Input history; preparation not on-camera Nova work",
+    "initialSettings": "System Prompt empty; JSON off; Temperature 1, changed to 0 on camera; Top P 1; Max Completion Tokens 32000; Reasoning Off."
   },
   "inputs": [
     {
       "text": "Run this prompt: Classify a cracked mug as damage, delivery or other. Reply with one word.",
-      "typingStartedAt": 1790049477081,
-      "submittedAt": 1790049489813,
-      "sourceSeconds": 20.784,
-      "typingSeconds": 12.732
+      "typingStartedAt": 1790054972547,
+      "submittedAt": 1790054985215,
+      "sourceSeconds": 21.09,
+      "typingSeconds": 12.668
     },
     {
       "text": "Turn this into JSON triage for Cedar Desk at temperature zero.",
-      "typingStartedAt": 1790049550141,
-      "submittedAt": 1790049558862,
-      "sourceSeconds": 89.833,
-      "typingSeconds": 8.721
+      "typingStartedAt": 1790055024934,
+      "submittedAt": 1790055033607,
+      "sourceSeconds": 69.482,
+      "typingSeconds": 8.673
     },
     {
-      "text": "Test this prompt: CD-104 arrived with a cracked mug. Check Logs.",
-      "typingStartedAt": 1790049718554,
-      "submittedAt": 1790049727562,
-      "sourceSeconds": 258.533,
-      "typingSeconds": 9.008
+      "text": "Add required boolean escalate: damage or delays over seven days. Test this prompt: CD-305 is nine days late, no damage. Check Logs.",
+      "typingStartedAt": 1790055198949,
+      "submittedAt": 1790055217608,
+      "sourceSeconds": 253.483,
+      "typingSeconds": 18.659
     },
     {
-      "text": "Add required boolean escalate: damage or delays over seven days. Test this prompt: CD-105 is nine days late, no damage. Check Logs.",
-      "typingStartedAt": 1790049790844,
-      "submittedAt": 1790049809522,
-      "sourceSeconds": 340.493,
-      "typingSeconds": 18.678
+      "text": "Test this prompt: CD-306 is exactly seven days late, no damage. Check Logs.",
+      "typingStartedAt": 1790055313436,
+      "submittedAt": 1790055323977,
+      "sourceSeconds": 359.852,
+      "typingSeconds": 10.541
     },
     {
-      "text": "Scroll the settings pane to the new field, then finish this test and check Logs.",
-      "typingStartedAt": 1790049920910,
-      "submittedAt": 1790049932081,
-      "sourceSeconds": 463.052,
-      "typingSeconds": 11.171
-    },
-    {
-      "text": "Test this prompt: CD-106 is exactly seven days late, no damage. Check Logs.",
-      "typingStartedAt": 1790050054917,
-      "submittedAt": 1790050065433,
-      "sourceSeconds": 596.404,
-      "typingSeconds": 10.516
-    },
-    {
-      "text": "Which rule escalated CD-105? Does zero temperature guarantee accuracy?",
-      "typingStartedAt": 1790050172904,
-      "submittedAt": 1790050182759,
-      "sourceSeconds": 713.73,
-      "typingSeconds": 9.855
-    },
-    {
-      "text": "Show the saved output.",
-      "typingStartedAt": 1790050207546,
-      "submittedAt": 1790050210638,
-      "sourceSeconds": 741.609,
-      "typingSeconds": 3.092
+      "text": "Which rule escalated CD-305? Does zero temperature guarantee accuracy?",
+      "typingStartedAt": 1790055390111,
+      "submittedAt": 1790055399948,
+      "sourceSeconds": 435.823,
+      "typingSeconds": 9.837
     },
     {
       "text": "Scroll the log dialog down to Output.",
-      "typingStartedAt": 1790050243121,
-      "submittedAt": 1790050248314,
-      "sourceSeconds": 779.285,
-      "typingSeconds": 5.193
+      "typingStartedAt": 1790055420261,
+      "submittedAt": 1790055425469,
+      "sourceSeconds": 461.344,
+      "typingSeconds": 5.208
     }
   ],
   "card": {
-    "title": "Choose JSON output",
-    "helpClickedAt": 1790049582328,
-    "helpAction": "Help me choose",
-    "selectedAnswer": "Category + summary",
-    "selectedAt": 1790049611438,
-    "continuedAt": 1790049624389,
-    "firstCardStatus": "superseded by genuine help explanation",
-    "answeredQuestion": "Which fields should each triage result return?"
+    "id": "32f798e6-974f-40b0-acdf-53ea0d54958e",
+    "title": "Choose Cedar Desk\u2019s JSON fields",
+    "description": "Category only returns damage, delivery, or other. Category + summary also gives a short human-readable explanation and is recommended for basic triage. Category + confidence adds the model\u2019s self-reported confidence, which is not a calibrated or verified probability.",
+    "questions": [
+      {
+        "id": "output_fields",
+        "label": "Which JSON output should each result include?",
+        "description": "This is the only remaining choice; Cedar Desk, the existing categories, and temperature zero are already known.",
+        "type": "single_choice",
+        "required": true,
+        "placeholder": "Choose an output format",
+        "options": [
+          {
+            "label": "Category only",
+            "description": "Smallest output: damage, delivery, or other."
+          },
+          {
+            "label": "Category + summary",
+            "description": "Recommended: category plus a short explanation for quick review."
+          },
+          {
+            "label": "Category + confidence",
+            "description": "Category plus model-reported confidence; treat it as an estimate, not a verified probability."
+          }
+        ]
+      }
+    ],
+    "status": "answered",
+    "answers": [
+      {
+        "questionId": "output_fields",
+        "values": [
+          "Category + summary"
+        ]
+      }
+    ]
   },
   "outputs": [
     {
@@ -106,88 +121,269 @@
       "input": "Classify a cracked mug as damage, delivery or other. Reply with one word.",
       "output": "damage",
       "requestId": null,
-      "requestIdNote": "Not fully retained in final bounded session; do not substitute a rehearsal ID.",
-      "noInitialQuestionCard": true
+      "requestIdNote": "Full opener ID not supplied; do not substitute another request."
     },
     {
-      "kind": "CD-104",
-      "input": "CD-104 arrived with a cracked mug.",
+      "kind": "structured triage setup",
+      "requestId": "req-895b371e-8ab2-4f15-a1f2-d23759ef9608",
+      "input": "A cracked mug.",
       "output": {
         "category": "damage",
-        "summary": "CD-104 arrived with a cracked mug."
+        "summary": "A cracked mug."
       },
       "status": 200,
-      "requestId": null,
-      "requestIdNote": "Full final request ID unavailable in retained session; coordinator confirms exact Logs result."
+      "idSource": "Coordinator exact-ID handoff; full ID not in bounded final session",
+      "independentPersistence": "passed: coordinator independently reopened after fresh reload and verified exact matching request, status 200 and output"
     },
     {
-      "kind": "CD-105",
-      "input": "CD-105 is nine days late, no damage.",
+      "kind": "CD-305 positive escalation",
+      "requestId": "req-e9fe089d-60ff-42a1-b769-c50dd271ee4a",
+      "input": "CD-305 is nine days late, no damage.",
       "output": {
         "category": "delivery",
-        "summary": "CD-105 is nine days late, no damage.",
+        "summary": "CD-305 is nine days late, no damage.",
         "escalate": true
       },
       "status": 200,
-      "requestId": null,
-      "requestIdNote": "Full final request ID unavailable in retained session; coordinator confirms exact Logs result."
+      "idSource": "Coordinator post-capture exact native request readback",
+      "independentPersistence": "passed: coordinator independently reopened after fresh reload and verified exact matching request, status 200 and output"
     },
     {
-      "kind": "CD-106",
-      "input": "CD-106 is exactly seven days late, no damage.",
+      "kind": "CD-306 boundary escalation",
+      "requestId": "req-fe082e31-4460-4468-a82e-90ab9c613ff4",
+      "input": "CD-306 is exactly seven days late, no damage.",
       "output": {
-        "summary": "CD-106 is exactly seven days late, no damage.",
         "category": "delivery",
+        "summary": "CD-306 is exactly seven days late, no damage.",
         "escalate": false
       },
       "status": 200,
-      "requestId": "req-f112ef24-2dff-41ea-b544-8c9e487e25c5",
-      "finalObservedOutputCharacters": 111
+      "idSource": "Full ID retained in immutable final2 session and coordinator native readback",
+      "independentPersistence": "passed: coordinator independently reopened after fresh reload and verified exact matching request, status 200 and output"
     }
   ],
-  "limitations": [
-    "New escalate field needed visible operator follow-up to scroll settings; Nova then performed the remaining website work.",
-    "A routine Send confirmation appeared for CD-105 and the operator clicked it; this take is not entirely approval-free.",
-    "Logs loading/stale-record recovery occurred; Nova verified results after recovery without resubmitting model tests.",
-    "Working final state is not exhaustive or guaranteed dashboard coverage.",
-    "Empty local Playground opening with historical server Logs does not meet the requested visibly populated dashboard baseline.",
-    "Nova cursor label sometimes overlaps controls or clips at the viewport; final QA records sampled cursor observations, not an every-frame pointer audit."
+  "plannedButNotExecuted": "Separate CD-304 test omitted because setup itself already ran A cracked mug. and verified its matching log.",
+  "interactionAcceptance": {
+    "coordinatorReport": "All shown tasks passed without recovery.",
+    "retainedFailedOrUnverifiedSteps": 0,
+    "retainedApprovalTraces": 0,
+    "operatorClicks": 10,
+    "closing": "Actual Nova scroll to Output passed; temperature-zero explanation correctly denied guaranteed accuracy."
+  },
+  "independentPersistence": "passed for all three final2 structured-result requests per coordinator fresh-reload checks",
+  "finalMediaQA": "Passed local decoded audio/video QA and independent selected-frame/hash/probe review",
+  "backup": "pending for final2; old provisional upload is not proof",
+  "historicalCandidates": [
+    {
+      "stage": "provisional candidate: technical media QA passed; replacement required because empty opening fails populated-dashboard baseline; not delivered final",
+      "sessionId": "6608e1ac-cd47-42a1-9bb0-1277db1eeb3f",
+      "runtimeCommit": "18a702d0f167014c46df07bf840223adcd55ed52",
+      "frontendSourceCommit": "68a0957f390289f017aa57e0903cea56ed4bbc43",
+      "frontendIdentityNote": "Coordinator reports later capture-runtime changes were backend/profile only; frontend stayed identical. Latest branch commits are not automatically capture source.",
+      "raw": {
+        "path": "Git checkpoint a5a0c748eebbd54ffe2a47f311045a4aa01e3eb5:artifacts/interfaze/media/nova-interfaze-original.mov",
+        "firstEncodedFrameEpochMs": 1790049469029,
+        "firstEncodedFrameUTC": "2026-09-22T03:57:49.029000+00:00",
+        "capturedFramesReported": 23970,
+        "nominalFps": 30,
+        "nominalDurationSeconds": 799,
+        "width": 3024,
+        "height": 1776,
+        "audio": "none per recorder",
+        "qa": "Historical technical QA at Git checkpoint a5a0c748eebbd54ffe2a47f311045a4aa01e3eb5; current QA paths now concern replacement final2."
+      },
+      "baseline": {
+        "url": "https://interfaze.ai/dashboard/playground",
+        "account": "itsmohitchauhan1409",
+        "systemPrompt": "empty",
+        "JSON": false,
+        "temperature": 0,
+        "localChat": "empty task-only conversation after authorized baseline reset",
+        "serverLogs": "historical synthetic requests retained; not visible initial chat population"
+      },
+      "inputs": [
+        {
+          "text": "Run this prompt: Classify a cracked mug as damage, delivery or other. Reply with one word.",
+          "typingStartedAt": 1790049477081,
+          "submittedAt": 1790049489813,
+          "sourceSeconds": 20.784,
+          "typingSeconds": 12.732
+        },
+        {
+          "text": "Turn this into JSON triage for Cedar Desk at temperature zero.",
+          "typingStartedAt": 1790049550141,
+          "submittedAt": 1790049558862,
+          "sourceSeconds": 89.833,
+          "typingSeconds": 8.721
+        },
+        {
+          "text": "Test this prompt: CD-104 arrived with a cracked mug. Check Logs.",
+          "typingStartedAt": 1790049718554,
+          "submittedAt": 1790049727562,
+          "sourceSeconds": 258.533,
+          "typingSeconds": 9.008
+        },
+        {
+          "text": "Add required boolean escalate: damage or delays over seven days. Test this prompt: CD-105 is nine days late, no damage. Check Logs.",
+          "typingStartedAt": 1790049790844,
+          "submittedAt": 1790049809522,
+          "sourceSeconds": 340.493,
+          "typingSeconds": 18.678
+        },
+        {
+          "text": "Scroll the settings pane to the new field, then finish this test and check Logs.",
+          "typingStartedAt": 1790049920910,
+          "submittedAt": 1790049932081,
+          "sourceSeconds": 463.052,
+          "typingSeconds": 11.171
+        },
+        {
+          "text": "Test this prompt: CD-106 is exactly seven days late, no damage. Check Logs.",
+          "typingStartedAt": 1790050054917,
+          "submittedAt": 1790050065433,
+          "sourceSeconds": 596.404,
+          "typingSeconds": 10.516
+        },
+        {
+          "text": "Which rule escalated CD-105? Does zero temperature guarantee accuracy?",
+          "typingStartedAt": 1790050172904,
+          "submittedAt": 1790050182759,
+          "sourceSeconds": 713.73,
+          "typingSeconds": 9.855
+        },
+        {
+          "text": "Show the saved output.",
+          "typingStartedAt": 1790050207546,
+          "submittedAt": 1790050210638,
+          "sourceSeconds": 741.609,
+          "typingSeconds": 3.092
+        },
+        {
+          "text": "Scroll the log dialog down to Output.",
+          "typingStartedAt": 1790050243121,
+          "submittedAt": 1790050248314,
+          "sourceSeconds": 779.285,
+          "typingSeconds": 5.193
+        }
+      ],
+      "card": {
+        "title": "Choose JSON output",
+        "helpClickedAt": 1790049582328,
+        "helpAction": "Help me choose",
+        "selectedAnswer": "Category + summary",
+        "selectedAt": 1790049611438,
+        "continuedAt": 1790049624389,
+        "firstCardStatus": "superseded by genuine help explanation",
+        "answeredQuestion": "Which fields should each triage result return?"
+      },
+      "outputs": [
+        {
+          "kind": "opener",
+          "input": "Classify a cracked mug as damage, delivery or other. Reply with one word.",
+          "output": "damage",
+          "requestId": null,
+          "requestIdNote": "Not fully retained in final bounded session; do not substitute a rehearsal ID.",
+          "noInitialQuestionCard": true
+        },
+        {
+          "kind": "CD-104",
+          "input": "CD-104 arrived with a cracked mug.",
+          "output": {
+            "category": "damage",
+            "summary": "CD-104 arrived with a cracked mug."
+          },
+          "status": 200,
+          "requestId": null,
+          "requestIdNote": "Full final request ID unavailable in retained session; coordinator confirms exact Logs result."
+        },
+        {
+          "kind": "CD-105",
+          "input": "CD-105 is nine days late, no damage.",
+          "output": {
+            "category": "delivery",
+            "summary": "CD-105 is nine days late, no damage.",
+            "escalate": true
+          },
+          "status": 200,
+          "requestId": null,
+          "requestIdNote": "Full final request ID unavailable in retained session; coordinator confirms exact Logs result."
+        },
+        {
+          "kind": "CD-106",
+          "input": "CD-106 is exactly seven days late, no damage.",
+          "output": {
+            "summary": "CD-106 is exactly seven days late, no damage.",
+            "category": "delivery",
+            "escalate": false
+          },
+          "status": 200,
+          "requestId": "req-f112ef24-2dff-41ea-b544-8c9e487e25c5",
+          "finalObservedOutputCharacters": 111
+        }
+      ],
+      "limitations": [
+        "New escalate field needed visible operator follow-up to scroll settings; Nova then performed the remaining website work.",
+        "A routine Send confirmation appeared for CD-105 and the operator clicked it; this take is not entirely approval-free.",
+        "Logs loading/stale-record recovery occurred; Nova verified results after recovery without resubmitting model tests.",
+        "Working final state is not exhaustive or guaranteed dashboard coverage.",
+        "Empty local Playground opening with historical server Logs does not meet the requested visibly populated dashboard baseline.",
+        "Nova cursor label sometimes overlaps controls or clips at the viewport; final QA records sampled cursor observations, not an every-frame pointer audit."
+      ],
+      "editingConstraints": [
+        "Preserve immutable raw MOV.",
+        "Retain all genuine execution, model processing, typing and recoveries at 1x; compress only allowable operator idle pauses with documented source map.",
+        "Do not remove recovery or confirmation to imply uninterrupted approval-free execution.",
+        "Added effects limited to exact approved click asset with actor/timestamp evidence."
+      ],
+      "sourceReceipts": [
+        "private/interfaze-final-sessions.json",
+        "private/interfaze-final-operator.json",
+        "private/interfaze-final-recorder.log"
+      ],
+      "mediaQA": {
+        "report": "a5a0c748eebbd54ffe2a47f311045a4aa01e3eb5:artifacts/interfaze/qa/media-QA.md",
+        "manifest": "a5a0c748eebbd54ffe2a47f311045a4aa01e3eb5:artifacts/interfaze/qa/media-manifest.json",
+        "status": "provisional candidate passed local technical export/decoded QA; product capture acceptance withheld pending replacement populated opening",
+        "originalSeconds": 799,
+        "editedSeconds": 734,
+        "editedFrames": 22020,
+        "operatorIdleReductionSeconds": 65,
+        "allNovaExecutionSpeed": "1x",
+        "clicks": {
+          "total": 50,
+          "operator": 14,
+          "nova": 36
+        },
+        "timingScope": "Media durations, not measured agent latency."
+      },
+      "remoteBackup": {
+        "uploadedCommit": "a5a0c748eebbd54ffe2a47f311045a4aa01e3eb5",
+        "status": "upload complete per coordinator; independent remote LFS recovery underway, not yet verified"
+      },
+      "replacementRequired": {
+        "reason": "Empty Playground opening does not meet required visibly populated baseline.",
+        "plannedBaseline": "Fresh normal Playground showing a clean real synthetic baseline conversation.",
+        "preserveCandidateRuntimeCommit": "18a702d0f167014c46df07bf840223adcd55ed52",
+        "historicalMediaCheckpoint": "a5a0c748eebbd54ffe2a47f311045a4aa01e3eb5"
+      }
+    }
   ],
-  "editingConstraints": [
-    "Preserve immutable raw MOV.",
-    "Retain all genuine execution, model processing, typing and recoveries at 1x; compress only allowable operator idle pauses with documented source map.",
-    "Do not remove recovery or confirmation to imply uninterrupted approval-free execution.",
-    "Added effects limited to exact approved click asset with actor/timestamp evidence."
-  ],
-  "sourceReceipts": [
-    "private/interfaze-final-sessions.json",
-    "private/interfaze-final-operator.json",
-    "private/interfaze-final-recorder.log"
-  ],
-  "mediaQA": {
-    "report": "artifacts/interfaze/qa/media-QA.md",
-    "manifest": "artifacts/interfaze/qa/media-manifest.json",
-    "status": "provisional candidate passed local technical export/decoded QA; product capture acceptance withheld pending replacement populated opening",
-    "originalSeconds": 799,
-    "editedSeconds": 734,
-    "editedFrames": 22020,
-    "operatorIdleReductionSeconds": 65,
-    "allNovaExecutionSpeed": "1x",
+  "mediaPlan": {
+    "editedFrames": 14175,
+    "editedSeconds": 472.5,
+    "operatorIdleSavedSeconds": 6,
+    "sourceIdleIntervalSeconds": [
+      220,
+      229
+    ],
+    "outputIdleSeconds": 3,
     "clicks": {
-      "total": 50,
-      "operator": 14,
-      "nova": 36
+      "total": 43,
+      "nova": 33,
+      "operator": 10
     },
-    "timingScope": "Media durations, not measured agent latency."
+    "status": "Rendered and locally decoded QA passed"
   },
-  "remoteBackup": {
-    "uploadedCommit": "a5a0c748eebbd54ffe2a47f311045a4aa01e3eb5",
-    "status": "upload complete per coordinator; independent remote LFS recovery underway, not yet verified"
-  },
-  "replacementRequired": {
-    "reason": "Empty Playground opening does not meet required visibly populated baseline.",
-    "plannedBaseline": "Fresh normal Playground showing a clean real synthetic baseline conversation.",
-    "preserveCandidateRuntimeCommit": "18a702d0f167014c46df07bf840223adcd55ed52",
-    "historicalMediaCheckpoint": "a5a0c748eebbd54ffe2a47f311045a4aa01e3eb5"
-  }
+  "qaReport": "artifacts/interfaze/qa/media-QA.md",
+  "mediaManifest": "artifacts/interfaze/qa/media-manifest.json"
 }

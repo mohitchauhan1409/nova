@@ -1,0 +1,11 @@
+# Reproduce Interfaze final2 media
+
+Use the three media files in `../media`, Python 3 with Pillow and NumPy, and ffmpeg/ffprobe. Original MOV is immutable. Renderer and approved tap implementation are unchanged copies of the shared pipeline; checksums are in `pipeline-sha256.json`.
+
+Run in a new scratch directory with writable paths. `validate-receipts.py --source ORIGINAL --recorder-log recorder.log --plan edit-plan.json --receipts reviewed-clicks.json --output-dir NEW_MAPPING` validates the frame map and actual receipts. `edit-recording.py ORIGINAL edit-plan.json SILENT LEGACY_SCRATCH` renders the exact native-size silent edit; the legacy output is scratch, not the approved delivered sound. `add-click-sounds.py --source SILENT --cues NEW_MAPPING/final-cues.json --output CLICKS --report SOUND_REPORT` adds only the established stereo tap with stream-copy video. `verify-click-export.py CLICKS NEW_MAPPING/final-cues.json AUDIO_REPORT --fps 30` verifies actual decoded audio.
+
+`extract-review.py ORIGINAL` regenerates source frame/contact-sheet evidence beside the script. `check-decoded-frames.py CLICKS` extracts final click/response frames and compares against those source images, excluding only the measured debugger row and two scaled pixels of codec ringing. `extract-focused-review.py ORIGINAL` regenerates actual character-entry/scroll samples; its exact ranges are recorded in `focused-review-ranges.json`. Inspect decoded export samples at the mapped times as well. These utilities intentionally create disposable images; retain JSON indices/reports, then remove images after independent review.
+
+All execution is 1×. Only source 220–229 seconds of static operator idle becomes three seconds. Edited length is 14,175 frames / 472.5 seconds. The debugger mask is measured per native frame at insertion and stays confined to the browser row; no product content is masked. The 43 approved tap cues are actual clicks, not typing, key presses, slider changes or scrolls. Media time is not agent latency.
+
+Private remote recovery uses an empty bare Git repository and a separate empty `lfs.storage`, fetches the delivered branch and all three exact media paths, then compares downloaded object SHA256 and size to the manifest. `remote-recovery.json` records the actual checked commit/objects. No account credentials are included.

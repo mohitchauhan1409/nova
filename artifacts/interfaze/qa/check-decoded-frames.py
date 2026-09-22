@@ -1,28 +1,27 @@
 from pathlib import Path
-from PIL import Image, ImageDraw
-import json,subprocess,numpy as np
+from PIL import Image
+import json,subprocess,numpy as np,sys
 q=Path(__file__).resolve().parent;root=q.parent
-pairs=json.loads((q/'export-frame-pairs.json').read_text())
-fs=sorted({0,30,22019,*range(747,765),*[p['output_frame'] for p in pairs]})
+receipts=json.loads((q/'reviewed-clicks.json').read_text());rawfs=json.loads((q/'frame-indices.json').read_text())
+pairs=[]
+for r in receipts:
+ for d in (0,30):
+  n=r['source_frame']+d
+  pairs.append({'id':r['id'],'source_frame':n,'output_frame':n if n<6600 else n-180,'raw_image':f'frames/frame-{rawfs.index(n)+1:03d}.png'})
+(q/'export-frame-pairs.json').write_text(json.dumps(pairs,indent=2)+'\n')
+fs=sorted({0,30,14174,*range(715,724),*[p['output_frame'] for p in pairs]})
 def expr(a):
  if len(a)==1:return f'eq(n,{a[0]})'
- n=len(a)//2;return '('+expr(a[:n])+'+'+expr(a[n:])+')'
+ m=len(a)//2;return '('+expr(a[:m])+'+'+expr(a[m:])+')'
 folder=q/'decoded-final-frames';folder.mkdir(exist_ok=True)
-subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-i',str(root/'media/nova-interfaze-clicks.mp4'),'-vf',"select='"+expr(fs)+"',scale=1512:888",'-fps_mode','vfr',str(folder/'frame-%03d.png')],check=True)
+subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-i',sys.argv[1],'-vf',"select='"+expr(fs)+"',scale=1512:888",'-fps_mode','vfr',str(folder/'frame-%03d.png')],check=True)
 (q/'decoded-final-frame-indices.json').write_text(json.dumps(fs))
 reports=[]
 for p in pairs:
- src=np.asarray(Image.open(q/p['raw_image']).convert('RGB'),dtype=np.int16)
- dst=np.asarray(Image.open(folder/f'frame-{fs.index(p["output_frame"])+1:03d}.png').convert('RGB'),dtype=np.int16)
- # Ignore only the measured debugging-row region plus two scaled pixels for codec boundary ringing.
- delta=np.abs(src-dst); delta[85:146,6:1119]=0
+ src=np.asarray(Image.open(q/p['raw_image']).convert('RGB'),dtype=np.int16);dst=np.asarray(Image.open(folder/f'frame-{fs.index(p["output_frame"])+1:03d}.png').convert('RGB'),dtype=np.int16)
+ delta=np.abs(src-dst);delta[85:146,6:1119]=0
  reports.append({**p,'mean_absolute_rgb_error':float(delta.mean()),'p99_absolute_rgb_error':float(np.quantile(delta,.99))})
-result={'compared_click_and_response_frames':len(reports),'maximum_mean_absolute_rgb_error':max(x['mean_absolute_rgb_error'] for x in reports),'maximum_p99_absolute_rgb_error':max(x['p99_absolute_rgb_error'] for x in reports),'mask_excluded_comparison_only':'x6..1118,y85..145 at1512x888 (source-measured debugger region plus2scaled-pixel codec-boundary allowance; output mask itself remains exact)','frames':reports}
-(q/'decoded-frame-comparison.json').write_text(json.dumps(result,indent=2)+'\n')
-for start in range(0,50,3):
- out=Image.new('RGB',(1512,3*468),'white');d=ImageDraw.Draw(out)
- for row,ci in enumerate(range(start,min(start+3,50))):
-  for col,p in enumerate(pairs[ci*2:ci*2+2]):
-   im=Image.open(folder/f'frame-{fs.index(p["output_frame"])+1:03d}.png').resize((756,444));out.paste(im,(col*756,row*468+24));d.text((col*756+4,row*468+4),f'{p["id"]} source{p["source_frame"]} -> output{p["output_frame"]}',fill='black')
- out.save(q/f'decoded-click-sheet-{start//3+1:02d}.png')
-print(json.dumps({k:v for k,v in result.items() if k!='frames'},indent=2))
+assert max(x['mean_absolute_rgb_error'] for x in reports)<1, 'Excessive decoded pixel difference'
+assert max(x['p99_absolute_rgb_error'] for x in reports)<=8, 'Excessive p99 decoded difference'
+result={'compared_click_and_response_frames':len(reports),'maximum_mean_absolute_rgb_error':max(x['mean_absolute_rgb_error'] for x in reports),'maximum_p99_absolute_rgb_error':max(x['p99_absolute_rgb_error'] for x in reports),'comparison_exclusion':'Measured debugger row plus2scaledpixels for codec ringing; actual output mask exact.','frames':reports}
+(q/'decoded-frame-comparison.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({k:v for k,v in result.items() if k!='frames'}))

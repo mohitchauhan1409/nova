@@ -1,0 +1,17 @@
+{
+  "batchStartedAtApproximate": "2026-09-22T02:22:00Z",
+  "batchFirstExactClockAt": "2026-09-22T02:24:34Z",
+  "startupWorkBegunAt": "2026-09-22T02:36:28.482039Z",
+  "preflightPassedExceptCoarseScrollAt": "2026-09-22T03:56:20.550591Z",
+  "smallerWheelCheckPassedBy": "2026-09-22T03:59:27.133354Z",
+  "finalCaptureFirstFrameAt": "2026-09-22T05:29:24.125Z",
+  "finalCaptureLastAssistantResponseAt": "2026-09-22T05:37:11.847Z",
+  "finalCaptureDurationSeconds": 478.5,
+  "finalCaptureTimelineEndAt": "2026-09-22T05:37:22.625Z",
+  "timelineEndNote": "Calculated first-frame anchor plus actual frame count/30; not an independent recorder-process stop timestamp.",
+  "exportsReadyAt": "2026-09-22T06:36:11.977518+00:00",
+  "remoteBackupVerifiedAt": null,
+  "classifiedEngineeringAndInterruptionTotals": "Unavailable; no trustworthy categorized totals in batch manifest.",
+  "elapsedScope": "Wall-clock span includes access recovery, work on other startups, shared repairs, rehearsals, rejected captures, and user/model interruptions. It is not exclusive Interfaze labor. The approximately 30-minute planning target was exceeded.",
+  "elapsedWallSecondsThroughExports": 14383.496421
+}
