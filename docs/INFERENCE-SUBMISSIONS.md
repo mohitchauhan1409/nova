@@ -19,10 +19,13 @@ after confirming that the model returns inference output rather than dispatching
 tools, messages or actions to external recipients. Live rehearsal must still
 verify the submitted result and absence of duplicate runs.
 
-An explicit new inference request on a registered endpoint also requires a
+An explicit new inference request on a registered HTTPS origin also requires a
 verified inference-submission receipt in the current command before successful
 completion. Prior chat output, session actions and verified draft entry cannot
 satisfy it. The requirement remains active while navigating to a result/log;
 receipts reset for each command. Completion while visibly processing is rejected
 without asking for another submission. Read-only inspection of prior results is
 unaffected.
+This applies when the command starts on Logs or an earlier result page, too.
+It only restricts completion: actual submission permission and its receipt still
+require the exact reviewed playground endpoint and observed controls.
