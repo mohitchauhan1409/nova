@@ -1,0 +1,111 @@
+{
+  "fps": 30,
+  "duration": 602.1666666666666,
+  "segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 1125,
+      "output_frames": 1125,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 1125,
+      "end_frame": 1560,
+      "output_frames": 60,
+      "kind": "operator-idle",
+      "reason": "Idle completed-state hold before the next operator action; reduce 14.50s to 2.00s while retaining readable context and all following work."
+    },
+    {
+      "start_frame": 1560,
+      "end_frame": 1890,
+      "output_frames": 330,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 1890,
+      "end_frame": 2085,
+      "output_frames": 45,
+      "kind": "operator-idle",
+      "reason": "Idle completed-state hold before the next operator action; reduce 6.50s to 1.50s while retaining readable context and all following work."
+    },
+    {
+      "start_frame": 2085,
+      "end_frame": 6015,
+      "output_frames": 3930,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 6015,
+      "end_frame": 6081,
+      "output_frames": 53,
+      "kind": "ui-scroll",
+      "reason": "Visually slow sidebar/card scrolling only; modest 1.25x acceleration preserves every state and does not overlap Nova website execution."
+    },
+    {
+      "start_frame": 6081,
+      "end_frame": 6855,
+      "output_frames": 774,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 6855,
+      "end_frame": 7110,
+      "output_frames": 45,
+      "kind": "operator-idle",
+      "reason": "Idle completed-state hold before the next operator action; reduce 8.50s to 1.50s while retaining readable context and all following work."
+    },
+    {
+      "start_frame": 7110,
+      "end_frame": 12555,
+      "output_frames": 5445,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 12555,
+      "end_frame": 13140,
+      "output_frames": 60,
+      "kind": "operator-idle",
+      "reason": "Idle completed-state hold before the next operator action; reduce 19.50s to 2.00s while retaining readable context and all following work."
+    },
+    {
+      "start_frame": 13140,
+      "end_frame": 15444,
+      "output_frames": 2304,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 15444,
+      "end_frame": 15810,
+      "output_frames": 45,
+      "kind": "operator-idle",
+      "reason": "Idle completed-state hold before the next operator action; reduce 12.20s to 1.50s while retaining readable context and all following work."
+    },
+    {
+      "start_frame": 15810,
+      "end_frame": 18990,
+      "output_frames": 3180,
+      "kind": "agent",
+      "reason": "Retain Nova work, website behavior, typing, clicks, results and readable transitions at real time."
+    },
+    {
+      "start_frame": 18990,
+      "end_frame": 19581,
+      "output_frames": 60,
+      "kind": "operator-idle",
+      "reason": "Idle completed-state hold before the next operator action; reduce 19.70s to 2.00s while retaining readable context and all following work."
+    },
+    {
+      "start_frame": 19581,
+      "end_frame": 20190,
+      "output_frames": 609,
+      "kind": "agent",
+      "reason": "Retain final Nova work and a concise readable closing hold at real time."
+    }
+  ]
+}

@@ -1,3 +1,7 @@
+# Click-only pacing revision — 2026-09-22
+
+The current `nova-firecrawl-clicks.mp4` supersedes the initial click-only export described later in this historical QA report. It reduces the click-only runtime from 681.533s to 602.167s (11.65% shorter) by compressing completed-state operator waits and accelerating only unusually slow sidebar/card scrolling, capped at 1.25×. Every Nova/website execution segment, typing sequence, click frame, result and verification remains at 1×. The original and silent files are unchanged. All 55 cues were remapped from source frames; zero click frames overlap accelerated segments. Decoded click QA passes with zero audio outside tap windows and maximum onset error 0.041667ms. See `clicks-v2/pacing-audit.json` and `clicks-v2/edit-plan.json`. Later statements that the click file shares the initial silent duration or video stream describe the superseded first export.
+
 # Firecrawl accepted final4 media QA
 
 Accepted with the timing and source-build limitations below. This is the completed Firecrawl deliverable, not a rehearsal. All four jobs and saved-run comparisons were performed in the recorded dashboard.
