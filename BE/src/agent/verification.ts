@@ -14,7 +14,7 @@ export function completionSnapshotChanged(before:Snapshot,after:Snapshot,action:
       e.tag,e.role,text(e.name),e.type,e.href,text(e.context),e.disabled,e.sensitive,
       e.state?.filter(s=>!/^(scroll(?:Max)?[XY]|focused|draft):/.test(s)).sort()||[],e.edit,
     ])).sort();
-    return JSON.stringify([snapshot.url,text(snapshot.title),snapshot.blocked,text(snapshot.text),elements,snapshot.observation?.omittedControls]);
+    return JSON.stringify([snapshot.url,text(snapshot.title),snapshot.blocked,text(snapshot.text),elements,snapshot.observation?.omittedControls,snapshot.textRegions?.map(region=>text(region.text)).sort()]);
   };
   return semantic(before)!==semantic(after);
 }
@@ -44,7 +44,9 @@ export function actionEffect(action: Action, before: Snapshot, after: Snapshot, 
     after.elements.some(next => next.ref === e.ref && next.edit?.empty === false && next.edit.revision === e.edit?.revision));
   const semanticState = (states?: string[]) => states?.filter(s => /^(checked|selected|pressed|expanded|value):/.test(s));
   const controlChanged = JSON.stringify(semanticState(targetBefore?.state)) !== JSON.stringify(semanticState(targetAfter?.state));
-  if (mayCommit && !controlChanged && (['click','double_click'].includes(action.kind)||action.kind==='press'&&['Enter',' '].includes(action.value||'')) && targetAfter && retainedDraft &&
+  const commitControl = action.kind === 'press' && action.value === 'Enter' || !!targetBefore && (
+    targetBefore.type === 'submit' || /^(?:send|save|submit|create|add|update|import|start|run|publish|confirm|apply|upload|delete|remove|checkout|purchase|order|book|schedule|invite|authorize|connect|install|deploy|launch)\b/i.test(targetBefore.name));
+  if (mayCommit && commitControl && !controlChanged && (['click','double_click'].includes(action.kind)||action.kind==='press'&&action.value==='Enter') && targetAfter && retainedDraft &&
       (targetAfter.disabled || normalize(before.text) === normalize(after.text))) {
     return {action:action.kind,verified:false,detail:'The submitted draft is still present without a saved result. Wait for the website before planning another submission.'};
   }

@@ -10,7 +10,7 @@ function snapshot(prompt=receipt.prompt,output='{"category":"damage"}',stamp='22
   const element=(ref:string,name:string,role='',tag='p')=>({ref,name,role,tag,type:'',context:'',disabled:false,sensitive:false});
   return {id:'snapshot',url:logUrl,title:'Logs',text:['Log detail','request-old-or-new',stamp,'200','Input','4 messages','system','Classify the order.','user',receipt.prompt,'assistant','{"category":"damage"}','user',prompt,'Output',`${output.length} chars`,output,'Get help with this request','Logs'].join('\n'),elements:[element('dialog','Log detail','dialog','div'),element('help','Get help with this request','','button'),element('history','{"category":"damage"}'),element('output-label','Output'),element('result',output)],viewport:{width:1000,height:800},theme:{color:'#fff',font:'sans'},frames:0,capturedAt:receipt.submittedAt+10_000};
 }
-const check=(page=snapshot(),action=done,submitted:InferenceSubmissionReceipt|undefined=receipt,intent='Test this prompt. Check Logs.')=>inferenceLogCompletionProblem(action,page,intent,submitted,rules);
+const check=(page=snapshot(),action=done,submitted:InferenceSubmissionReceipt|undefined=receipt,intent='Test this prompt. Check Logs.')=>inferenceLogCompletionProblem(action,{...page,textRegions:[{ref:'dialog',text:page.text,elementRefs:page.elements.map(e=>e.ref)}]},intent,submitted,rules);
 describe('same-request Input and Output completion proof',()=>{
   it('rejects the reported historical-input trap even when the requested prompt and damage response occur in history',()=>{
     expect(check(snapshot('Order 106 is exactly seven days late.','{"category":"delivery","escalate":false}','22/09/2026, 09:38:24'))).toContain('final Input user message');
@@ -27,7 +27,14 @@ describe('same-request Input and Output completion proof',()=>{
   });
   it('rejects missing/ambiguous sections, role boundaries and timestamp',()=>{
     for(const text of [snapshot().text.replace('4 messages','5 messages'),snapshot().text.replace('\nOutput\n','\nOutput\nOutput\n'),snapshot().text.replace('22/09/2026, 10:13:12','Unknown time'),snapshot().text.replace('22/09/2026, 10:13:12','31/02/2026, 10:13:12')])expect(check({...snapshot(),text})).toBeDefined();
-    expect(check({...snapshot(),elements:[]})).toContain('missing or ambiguous');
+    expect(check({...snapshot(),elements:[]})).toBeDefined();
+  });
+  it('ignores underlying table text before and after a DOM-scoped dialog',()=>{
+    const page=snapshot();const region={ref:'dialog',text:page.text,elementRefs:page.elements.map(e=>e.ref)};
+    const mixed={...page,text:'Logs table\nOld row\n'+page.text.replace('\nGet help with this request','\nOld row 200 delivery\nGet help with this request'),textRegions:[region]};
+    expect(inferenceLogCompletionProblem(done,mixed,'Check Logs.',receipt,rules)).toBeUndefined();
+    expect(inferenceLogCompletionProblem(done,{...mixed,textRegions:undefined},'Check Logs.',receipt,rules)).toContain('scoped Input and Output');
+    expect(inferenceLogCompletionProblem(done,{...mixed,textRegions:[{...region,text:snapshot('Order 106 is late.','delivery','22/09/2026, 09:38:24').text}]},'Check Logs.',receipt,rules)).toContain('final Input user message');
   });
   it('requires opening the log if requested, while an ordinary playground answer is outside this contract',()=>{
     expect(check({...snapshot(),url},done,receipt)).toContain('not been inspected');
