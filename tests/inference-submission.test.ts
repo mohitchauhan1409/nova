@@ -21,6 +21,16 @@ describe('reviewed inference-only submission semantics',()=>{
     expect(check({...snapshot,url}).outcome).not.toBe('allow');
   });
   it.each(['Do not run this prompt','Draft this prompt','How do I run this prompt?','Run this prompt after my confirmation','Run this prompt\nWait','Run this prompt\nDo not send','Run this prompt\nAsk me before sending','Run this prompt\nStop'])('retains explicit user limits: %s',request=>expect(check(snapshot,request).outcome).toBe('approve'));
+  it('recognizes a current prompt run after an unrelated configuration colon',()=>{
+    expect(check(snapshot,'Add required boolean escalate: damage or delays over seven days. Test this prompt: CD-105 is nine days late, no damage. Check Logs.').outcome).toBe('allow');
+  });
+  it.each(['Configure X: change the format, do not run','Revision: wait for my approval','Configuration: never send','Notes: stop the test'])('keeps revocation after an ordinary colon instead of falling back to older permission: %s',revision=>{
+    expect(check(snapshot,`${intent}\n${revision}`).outcome).toBe('approve');
+  });
+  it.each(['Run this prompt: "Do not run the machine. Classify this sentence."','Test the prompt: "Stop and wait."','Submit this prompt: "Never send."','Send the prompt: "Ask me before sending."'])('distinguishes supplied model input from a later user stop: %s',request=>{
+    expect(check(snapshot,request).outcome).toBe('allow');
+    expect(check(snapshot,`${request}\nReview: do not run`).outcome).toBe('approve');
+  });
   it.each([
     {state:[]},{edit:{revision:'r2',empty:false}},{edit:{revision:'r1',empty:true}},{covered:true},{sensitive:true},{name:'Recipient'},{context:'Send to customer email'}
   ])('does not authorize an unverified or consequential prompt field: %j',patch=>{

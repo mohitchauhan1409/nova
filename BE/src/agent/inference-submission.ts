@@ -26,7 +26,12 @@ export function requestedInferenceSubmission(action:Action,snapshot:Snapshot,sco
   if(!matched)return false;
   // Later stop/review instructions win. Text following “Run this prompt:” is
   // model input, not an instruction to reinterpret as permission or revocation.
-  const request=intent.split('\n').map(line=>line.split(':',1)[0]).reverse().find(line=>/\b(run|test|submit|send|stop|cancel|wait|never|hold|review|approve|approval|confirmation|don['’]?t|do not|ask|check with)\b/i.test(line))||'';
+  const request=intent.split('\n').map(line=>{
+    const boundary=/\b(?:run|test|submit|send)\s+(?:this|the)\s+prompt\s*:/i.exec(line);
+    // Ordinary field labels and configuration clauses may also contain colons;
+    // keep those intact, including any explicit instruction not to run.
+    return boundary?line.slice(0,boundary.index+boundary[0].length-1):line;
+  }).reverse().find(line=>/\b(run|test|submit|send|stop|cancel|wait|never|hold|review|approve|approval|confirmation|don['’]?t|do not|ask|check with)\b/i.test(line))||'';
   return /\b(run|test|submit|send)\b.{0,100}\b(prompt|model|playground|inference|classification)\b/i.test(request)&&
     !/\b(don['’]?t|do not|never|without|stop|cancel|wait|hold|draft|prepare|only|how|what if|explain|after|until|review|approve|approval|confirmation)\b|\b(ask|check with) me\b/i.test(request);
 }
