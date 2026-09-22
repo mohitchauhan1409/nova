@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "properties": {
+    "title": { "type": "string" },
+    "price_gbp": { "type": "number" }
+  },
+  "required": ["title", "price_gbp"]
+}

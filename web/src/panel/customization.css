@@ -1,2 +1,31 @@
-/* Customer branches add scoped website theme overrides here.
-   Keep the shared panel layout and behavior in panel.css / PanelApp.tsx. */
+/* Live Firecrawl palette: #f9f9f9 canvas, white cards, neutral gray, orange.
+   Every selector is scoped; shared layout, state and action behavior are intact. */
+.np-app[data-site="firecrawl.dev"]{background:#f9f9f9;color:#262626;color-scheme:light}
+.np-app[data-site="firecrawl.dev"] :is(.np-header,.np-tabs,.np-suggestions,.np-suggestions>button,.np-composer,.np-question-card,.np-question-options>button,.np-question-card input,.np-question-card textarea){background:#ffffff;border-color:#eeeeee}
+.np-app[data-site="firecrawl.dev"] :is(.np-brand,.np-welcome h1,.np-suggestions strong,.np-message-body,.np-message-body strong,.np-message-body h1,.np-message-body h2,.np-message-body h3,.np-message-author strong,.np-question-card h3,.np-question-fields legend,.np-question-options strong,.np-composer textarea,.np-question-card input,.np-question-card textarea,.np-action-heading,.np-action-timeline p){color:#262626}
+.np-app[data-site="firecrawl.dev"] :is(.np-brand small,.np-icon-button,.np-welcome>p,.np-suggestions small,.np-message.user,.np-page-context,.np-composer-foot,.np-composer-foot>button,.np-copy,.np-question-fields fieldset>p,.np-question-options small,.np-question-help,.np-question-card footer>p,.np-question-receipt summary,.np-question-receipt dd,.np-action-timeline small,.np-action-timeline .np-step-detail,.np-action-heading>span:not(.np-action-status),.np-earlier-steps,.np-new-chat,.np-thread-start){color:#707070}
+.np-app[data-site="firecrawl.dev"] :is(.np-message-author,.np-thinking,.np-clarification,.np-working,.np-eyebrow,.np-welcome h1 span,.np-art-spark,.np-suggestion-icon,.np-tabs>button[aria-selected=true],.np-message-body a,.np-question-kicker,.np-custom-choice,.np-voice-heading h1,.np-voice-heading p,.np-live-caption,.np-voice-topline,.np-voice-topline time){color:var(--site-ink)}
+.np-app[data-site="firecrawl.dev"] :is(.np-icon-button:hover,.np-suggestions>button:hover,.np-new-chat:hover,.np-question-options>button:hover){background:#f1f1f1;color:#262626}
+.np-app[data-site="firecrawl.dev"] :is(.np-message.user,.np-question-receipt,.np-action-timeline,.np-question-card>footer,.np-message-body pre,.np-message-body th){background:#f1f1f1;border-color:#eeeeee;color:#262626}
+.np-app[data-site="firecrawl.dev"] :is(.np-suggestions>button+button,.np-question-card>header,.np-question-card>footer,.np-question-receipt dl,.np-message-body td,.np-message-body th){border-color:#eeeeee}
+.np-app[data-site="firecrawl.dev"] :is(.np-orbit,.np-voice-ring,.np-voice-ring.r2){border-color:#e7e7e7}
+.np-app[data-site="firecrawl.dev"] .np-art-spark{background:#f9f9f9}
+.np-app[data-site="firecrawl.dev"] .np-composer-area{background:linear-gradient(#f9f9f900,#f9f9f9 10px)}
+.np-app[data-site="firecrawl.dev"] .np-composer:focus-within{border-color:var(--site-ink);box-shadow:0 0 0 3px var(--site-soft)}
+.np-app[data-site="firecrawl.dev"] .np-composer textarea::placeholder,.np-app[data-site="firecrawl.dev"] .np-question-card input::placeholder,.np-app[data-site="firecrawl.dev"] .np-question-card textarea::placeholder{color:#858585}
+.np-app[data-site="firecrawl.dev"] :is(button:focus-visible,a:focus-visible,.np-question-card input:focus,.np-question-card textarea:focus){outline:2px solid var(--site-ink);outline-offset:3px;border-color:var(--site-ink)}
+.np-app[data-site="firecrawl.dev"] :is(.np-send,.np-button-dark,.np-question-continue){background:var(--site-ink);border-color:var(--site-ink);color:#ffffff}
+.np-app[data-site="firecrawl.dev"] :is(.np-send:hover:not(:disabled),.np-button-dark:hover){background:var(--site-ink);filter:brightness(.92)}
+.np-app[data-site="firecrawl.dev"] .np-send:disabled{background:#efefef;color:#999999}
+.np-app[data-site="firecrawl.dev"] .np-question-options>button.selected{background:var(--site-soft);border-color:var(--site-ink)}
+.np-app[data-site="firecrawl.dev"] .np-choice-dot{border-color:#d6d6d6}
+.np-app[data-site="firecrawl.dev"] .selected .np-choice-dot{background:var(--site-ink);border-color:var(--site-ink)}
+.np-app[data-site="firecrawl.dev"] :is(.np-thinking>i,.np-waveform i,.np-voice-speck){background:var(--site-ink)}
+.np-app[data-site="firecrawl.dev"] :is(.np-message-body code,.np-activity-log){background:var(--site-soft);border-color:#f2d9cf;color:var(--site-ink)}
+.np-app[data-site="firecrawl.dev"] .np-activity-log p{color:var(--site-ink)}
+.np-app[data-site="firecrawl.dev"] .np-message-author{--mark-hole:#f9f9f9}
+.np-app[data-site="firecrawl.dev"] .np-message-body a{text-decoration-color:#dfb4a5}
+.np-app[data-site="firecrawl.dev"] .np-message-body blockquote{border-color:#dfb4a5;color:#707070}
+.np-app[data-site="firecrawl.dev"] .np-message-body li::marker{color:var(--site-ink)}
+.np-app[data-site="firecrawl.dev"] .np-voice-orb{--mark-hole:#ee5829;background:radial-gradient(circle at 28% 22%,#ffdbca 0,#ee5829 60%,#a53a1d 95%);box-shadow:inset -5px -10px 22px #69271025,inset 4px 4px 10px #ffffff70,0 8px 30px #ee582925}
+.np-app[data-site="firecrawl.dev"] ::selection{background:#f8d7ca;color:#262626}

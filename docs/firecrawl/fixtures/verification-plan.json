@@ -1,0 +1,18 @@
+{
+  "status": "unverified",
+  "sourceUrl": "https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html",
+  "crawlSeedUrl": "https://books.toscrape.com/",
+  "crawlPageLimit": 2,
+  "crawlMaxDiscoveryDepth": 1,
+  "crawlEntireWebsite": false,
+  "comparisonOnly": {
+    "title": "A Light in the Attic",
+    "price_gbp": 51.77,
+    "stock_count": 22
+  },
+  "comparisonNote": "Expected public sandbox values, checked 2026-09-22. Never use as live output or inject into the result. Compare actual fresh source and service responses.",
+  "requiredReceipts": ["observed run ID", "actual Recent Runs URL", "stored input where exposed", "stored output", "source page status if exposed", "independent reopen", "correlated Logs status/time/credits"],
+  "createdObjects": [],
+  "successfulLivePasses": [],
+  "revision": "Add stock_count as Number through the visual schema, run a new request, then reopen its distinct Recent Runs result."
+}
