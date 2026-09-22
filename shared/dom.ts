@@ -1,7 +1,7 @@
 import type { Action, Snapshot, ElementRef, ActionResult, PreparedInput } from './types';
 import { readPageColorScheme } from './page-theme';
 
-export type PreparedTarget = { x: number; y: number; editable: boolean; focused?: boolean; valueLength?: number; checked?: boolean; paused?: boolean; tag: string; type: string };
+export type PreparedTarget = { newlineKey?:'Enter'; x: number; y: number; editable: boolean; focused?: boolean; valueLength?: number; checked?: boolean; paused?: boolean; tag: string; type: string };
 export type DomBridge = { snapshot(preparedInputs?:PreparedInput[]): Snapshot; execute(action: Action): Promise<ActionResult & { text?: string }>; inspect(x:number,y:number): ActionResult; prepare(ref: string, append?: boolean, semanticMedia?: boolean, focus?: boolean): PreparedTarget; point(x:number,y:number): {x:number;y:number}; startInput(ref:string,append?:boolean): {x:number;y:number}; inputPosition(ref:string): {x:number;y:number}|undefined; prepareInputCorrection(ref:string,prefix:string,character:string): boolean; verify(action: Action, expectedLength?: number): ActionResult; };
 declare global { interface Window { __novaDOM?: DomBridge } }
 
@@ -17,9 +17,48 @@ export function installNovaDOM() {
   let editSequence=0;
   const edits=new WeakMap<Element,{value:string;revision:string}>();
   const nodeId=(el:Element)=>{let id=ids.get(el);if(!id){id=`${prefix}-${++sequence}`;ids.set(el,id);}return id;};
-  // Empty rich editors often retain a structural line/br for caret placement.
-  // It contains no text characters; never strip whitespace from actual text.
-  const editableValue=(el:HTMLElement)=>el.textContent===''&&[...el.querySelectorAll('*')].every(node=>['DIV','SPAN','BR'].includes(node.tagName))?'':el.innerText;
+  // CodeMirror's rendered line DOM is public content, not an editor model API.
+  // innerText doubles blank lines, while Range.toString omits line boundaries.
+  // Read only a complete plain line tree; gaps, widgets and hidden replacements
+  // cannot prove the full authored value and must not be normalized away.
+  const codeLines=(el:HTMLElement):HTMLElement[]|undefined=>{
+    if(!el.matches('.cm-content'))return;
+    const lines=[...el.children];
+    if(!lines.length||el.childNodes.length!==lines.length||lines.some(line=>!line.matches('div.cm-line')))return;
+    for(const line of lines){
+      if(line.matches('[hidden],[aria-hidden="true"]')||getComputedStyle(line).display==='none'||getComputedStyle(line).visibility==='hidden')return;
+      for(const node of line.querySelectorAll('*')){
+        if(!['SPAN','BR'].includes(node.tagName)||node.matches('[contenteditable="false"],[aria-hidden="true"],[hidden],.cm-widgetBuffer,.cm-specialChar')||getComputedStyle(node).display==='none'||getComputedStyle(node).visibility==='hidden')return;
+        if(node.tagName==='BR'&&(line.childNodes.length!==1||node.parentElement!==line))return;
+      }
+    }
+    return lines as HTMLElement[];
+  };
+  const lineValue=(line:HTMLElement)=>line.textContent||'';
+  const editableValue=(el:HTMLElement)=>{
+    const lines=codeLines(el);
+    if(lines)return lines.map(lineValue).join('\n');
+    // A sole structural blank line is an empty generic editor. Multiple blank
+    // lines or authored whitespace are data, never trim them away.
+    return el.textContent===''&&el.querySelectorAll('br').length<=1&&[...el.querySelectorAll('*')].every(node=>['DIV','SPAN','BR'].includes(node.tagName))?'':el.innerText;
+  };
+  const editorOffset=(el:HTMLElement,node:Node,offset:number):number|undefined=>{
+    const lines=codeLines(el);
+    if(!lines){
+      if(el.matches('.cm-content'))return;
+      const range=document.createRange();range.selectNodeContents(el);range.setEnd(node,offset);
+      return range.toString().length;
+    }
+    if(node===el)return offset===0?0:offset===lines.length?editableValue(el).length:undefined;
+    let start=0;
+    for(const line of lines){
+      if(node===line||line.contains(node)){
+        const range=document.createRange();range.selectNodeContents(line);range.setEnd(node,offset);
+        return start+range.toString().length;
+      }
+      start+=lineValue(line).length+1;
+    }
+  };
   const fieldValue=(el:Element)=>el instanceof HTMLInputElement&&['checkbox','radio'].includes(el.type)?`${el.checked}:${el.value}`:el instanceof HTMLInputElement||el instanceof HTMLTextAreaElement||el instanceof HTMLSelectElement?el.value:el instanceof HTMLElement&&el.isContentEditable?editableValue(el):undefined;
   const editState=(el:Element)=>{const value=fieldValue(el);if(value===undefined||sensitive(el))return;let old=edits.get(el);if(!old||old.value!==value){old={value,revision:`${prefix}:edit:${++editSequence}`};edits.set(el,old);}return {revision:old.revision,empty:value.length===0};};
   const visualTargets = new Map<Element,{x:number;y:number;rect:number[];visual:boolean}>();
@@ -168,7 +207,7 @@ export function installNovaDOM() {
         [x,y]=point;
       }
       if (el instanceof HTMLAnchorElement && el.target === '_blank') el.target = '_self';
-      return { x, y, focused:el.getRootNode() instanceof ShadowRoot ? (el.getRootNode() as ShadowRoot).activeElement===el : document.activeElement===el, valueLength:el instanceof HTMLInputElement||el instanceof HTMLTextAreaElement?el.value.length:el instanceof HTMLElement&&el.isContentEditable?editableValue(el).length:undefined, editable: (el instanceof HTMLInputElement && !['file','hidden','password','submit','button','checkbox','radio','range','color'].includes(el.type)) || el instanceof HTMLTextAreaElement || (el instanceof HTMLElement&&el.isContentEditable), tag: el.tagName.toLowerCase(), type: el.getAttribute('type') || '', ...(el instanceof HTMLMediaElement?{paused:el.paused}:{}), ...(el instanceof HTMLInputElement && ['checkbox','radio'].includes(el.type) ? {checked:el.checked} : /checkbox|switch|radio/.test(el.getAttribute('role') || '') ? {checked:el.getAttribute('aria-checked') === 'true'} : {}) };
+      return { x, y, ...(el instanceof HTMLElement&&codeLines(el)?{newlineKey:'Enter' as const}:{}), focused:el.getRootNode() instanceof ShadowRoot ? (el.getRootNode() as ShadowRoot).activeElement===el : document.activeElement===el, valueLength:el instanceof HTMLInputElement||el instanceof HTMLTextAreaElement?el.value.length:el instanceof HTMLElement&&el.isContentEditable?editableValue(el).length:undefined, editable: (el instanceof HTMLInputElement && !['file','hidden','password','submit','button','checkbox','radio','range','color'].includes(el.type)) || el instanceof HTMLTextAreaElement || (el instanceof HTMLElement&&el.isContentEditable), tag: el.tagName.toLowerCase(), type: el.getAttribute('type') || '', ...(el instanceof HTMLMediaElement?{paused:el.paused}:{}), ...(el instanceof HTMLInputElement && ['checkbox','radio'].includes(el.type) ? {checked:el.checked} : /checkbox|switch|radio/.test(el.getAttribute('role') || '') ? {checked:el.getAttribute('aria-checked') === 'true'} : {}) };
     },
     startInput(ref,append=false) {
       // Validate the original observed field before focusing it once. A trusted
@@ -197,30 +236,38 @@ export function installNovaDOM() {
       const closer:Record<string,string>={'{':'}','[':']','(':')','"':'"',"'":"'",'`':'`'};
       const el=refs.get(ref);
       if(!(el instanceof HTMLElement)||!el.isContentEditable||!inputBaselines.has(el)||!this.inputPosition(ref))throw new Error('The original editor lost focus during text entry.');
+      if(el.matches('.cm-content')&&!codeLines(el))throw new Error('The rendered editor does not expose complete plain lines. Inspect it before continuing.');
       const expected=inputBaselines.get(el)!+prefix,actual=fieldValue(el)!;
-      if(actual===expected)return false;
       const selection=getSelection();
-      if(!selection?.isCollapsed||!selection.focusNode||!el.contains(selection.focusNode))throw new Error('The editor selection changed during text entry.');
+      let tailLength:number|null=null;
+      const diagnostic=(code:string)=>JSON.stringify({code,expectedLength:expected.length,actualLength:actual.length,textContentLength:el.textContent?.length??0,exactPrefix:actual.startsWith(expected),selectionCollapsed:selection?.isCollapsed??false,caretInside:!!selection?.focusNode&&el.contains(selection.focusNode),caretOffset:selection?.focusOffset??null,tailLength});
+      if(!selection?.isCollapsed||!selection.focusNode||!el.contains(selection.focusNode))throw new Error('The editor selection changed during text entry. editorInput='+diagnostic('selection-mismatch'));
+      if(actual===expected){
+        if(editorOffset(el,selection.focusNode,selection.focusOffset)!==expected.length)throw new Error('The editor caret moved during text entry. editorInput='+diagnostic('caret-mismatch'));
+        return false;
+      }
       // Only remove an editor-generated single matching closer or indentation
       // after a newline. Bind the entire visible field to the exact authored
       // prefix; never normalize whitespace (including inside quoted strings).
       const extra=actual.startsWith(expected)?actual.slice(expected.length):'';
       if(extra&&extra===closer[character]){
         const tail=document.createRange();tail.selectNodeContents(el);tail.setStart(selection.focusNode,selection.focusOffset);
-        if(tail.toString()===extra){selection.removeAllRanges();selection.addRange(tail);return true;}
+        const offset=editorOffset(el,selection.focusNode,selection.focusOffset);
+        tailLength=offset===undefined?null:actual.length-offset;
+        if(offset===expected.length&&actual.slice(offset)===extra){selection.removeAllRanges();selection.addRange(tail);return true;}
       }
-      if(character==='\n'&&/^[ \t]{1,64}$/.test(extra)){
+      if(character==='\n'&&/^[ \t]{1,64}$/.test(extra)&&editorOffset(el,selection.focusNode,selection.focusOffset)===actual.length){
         for(let i=0;i<extra.length;i++)selection.modify('extend','backward','character');
         if(selection.toString()===extra)return true;
         selection.collapseToEnd();
       }
-      throw new Error('The editor changed the requested text unexpectedly. Inspect the partial value before continuing; no submission was sent.');
+      throw new Error('The editor changed the requested text unexpectedly. Inspect the partial value before continuing; no submission was sent. editorInput='+diagnostic('text-mismatch'));
     },
     verify(action,expectedLength) {
       const el = refs.get(action.ref || '');
       let matches: boolean | undefined;
       if (el && !sensitive(el) && ['fill','clear','paste','type'].includes(action.kind)) {
-        const value = el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement ? el.value : (el as HTMLElement).isContentEditable ? editableValue(el as HTMLElement) : undefined;
+        const value = el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement ? el.value : (el as HTMLElement).isContentEditable && (!el.matches('.cm-content')||codeLines(el as HTMLElement)) ? editableValue(el as HTMLElement) : undefined;
         matches = action.kind==='type'?typeof value==='string'&&expectedLength!==undefined&&value.length===expectedLength&&(inputBaselines.has(el as HTMLElement)?value===inputBaselines.get(el as HTMLElement)!+(action.value||''):value.endsWith(action.value||'')):value === (action.kind === 'clear' ? '' : action.value || '');
       }
       if (el && action.kind === 'check') matches = (el instanceof HTMLInputElement ? el.checked : el.getAttribute('aria-checked') === 'true') === (action.value !== 'false');

@@ -15,6 +15,7 @@ import {observeProgress,recordProgress,beforeProgressAction,repeatedTabInspectio
 import {makeClarification,questionText,validateAnswers} from './clarification';
 import {hasProcessingEvidence,ProcessingWaitBudget} from './processing-wait';
 import {requestsFreshInference} from './inference-submission';
+import {inferenceLogCompletionProblem,type InferenceSubmissionReceipt} from './inference-result';
 import {inferencePlaygrounds} from '../sites/action-semantics';
 
 export class AgentRunner {
@@ -143,6 +144,7 @@ export class AgentRunner {
     const waitBudget=new ProcessingWaitBudget();
     let freshInferenceRequired=false;
     let verifiedInferenceSubmission=false;
+    let inferenceReceipt:InferenceSubmissionReceipt|undefined;
     const rejectRevalidation=(message:string,fresh:Snapshot)=>{
       this.trace('info',message);observed=fresh;
       if(++revalidationFailures<3)return true;
@@ -182,7 +184,8 @@ export class AgentRunner {
             !verifiedInferenceSubmission?'The user requested a new inference run. Submit the requested prompt once and verify its new result or log. An old identical prompt/output does not fulfill this request; no verified submission occurred in this command.':
             hasProcessingEvidence(snapshot)?'The current inference was submitted and is still processing. Wait and inspect its new result or log; do not submit it again or use an earlier result.':undefined
           ):undefined;
-          const problem=freshnessProblem||completionProblem(action,snapshot,effect,attempted,this.session.progress,latestTask(this.session));
+          const logProblem=action.completion?.status!=='blocked'&&freshInferenceRequired&&verifiedInferenceSubmission?inferenceLogCompletionProblem(action,snapshot,latestTask(this.session),inferenceReceipt,inferencePlaygrounds):undefined;
+          const problem=freshnessProblem||logProblem||completionProblem(action,snapshot,effect,attempted,this.session.progress,latestTask(this.session));
           if(problem){this.trace('error',`Completion rejected: ${problem}`);if(++completionFailures<2)continue;this.say('I could not verify that the requested result happened. Please check the page before retrying; I have not marked this task complete.');this.session.status='stopped';return;}
           this.session.awaitingAnswer=false;this.say(action.summary);this.session.status=action.completion?.status==='blocked'?'stopped':'ready';return;
         }
@@ -283,6 +286,7 @@ export class AgentRunner {
         }
         const actionStep=this.beginStep(action);
         const actionStart = performance.now();
+        const submittedAt=Date.now();
         try {
           beforeProgressAction(this.session,action);
           const result=await this.driver.execute(action);
@@ -328,7 +332,12 @@ export class AgentRunner {
             }
             this.stepResult(actionStep,effect.verified?'verified':'unverified',effect.detail);
             if(effect.verified)revalidationFailures=0;
-            if(policy.semantic==='inference-submission'&&effect.verified)verifiedInferenceSubmission=true;
+            if(policy.semantic==='inference-submission'&&effect.verified){
+              verifiedInferenceSubmission=true;
+              const field=snapshot.elements.find(e=>e.ref===action.ref)?.submission?.fields[0];
+              const draft=this.session.preparedInputs?.find(d=>d.url===snapshot.url&&d.ref===field?.ref&&d.revision===field.revision);
+              inferenceReceipt=draft?{prompt:draft.value,submittedAt,url:snapshot.url}:undefined;
+            }
             this.trace('verify',`${effect.verified?'Verified change':'Unverified action'} ${action.kind}: ${effect.detail}`);
             if((result as ActionResult)?.verification?.status==='verified'&&action.ref&&['fill','type','paste','clear'].includes(action.kind)){
               written.add(`${snapshot.url}|${action.ref}`);
