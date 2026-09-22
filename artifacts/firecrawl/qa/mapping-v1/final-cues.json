@@ -1,0 +1,335 @@
+{
+  "duration": 681.5333333333333,
+  "events": [
+    {
+      "time": 16.133333333333333,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-000; I\u2019m opening the Scrape playground in the verified Personal Team workspace.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 0d21b424-4424-4645-b0a9-3a8ec11c142b. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 484: Original frames488 and514 visually inspected in click-sheet-01; adjacent action-start484 and494 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Scrape sidebar link opens the Scrape playground."
+    },
+    {
+      "time": 115.06666666666666,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-001; I\u2019m opening the format menu to add structured JSON alongside Markdown.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 051d8a6b-b1a5-41e4-8741-f6ed2e0b7828. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 3452: Original frames3456 and3482 visually inspected in click-sheet-01; adjacent action-start3452 and3462 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Format menu opens from Markdown."
+    },
+    {
+      "time": 118.36666666666666,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-002; I\u2019m adding structured JSON while preserving Markdown.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt b08b9ea2-5459-4c1b-86f9-be951269b648. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 3551: Original frames3555 and3581 visually inspected in click-sheet-01; adjacent action-start3551 and3561 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: JSON is added alongside Markdown and the visual schema dialog opens."
+    },
+    {
+      "time": 129.53333333333333,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-003; I\u2019m changing price_gbp from String to Number.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 0776e5af-5f61-4769-8e34-7306d69ff0c2. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 3886: Original frames3890 and3916 visually inspected in click-sheet-01; adjacent action-start3886 and3896 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: String type menu opens for price_gbp."
+    },
+    {
+      "time": 133.0,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-004; I\u2019m selecting Number for the price_gbp field.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 55ac64f1-c053-449e-b4d9-6f872dbe006d. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 3990: Original frames3994 and4020 visually inspected in click-sheet-02; adjacent action-start3990 and4000 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Number is selected for price_gbp."
+    },
+    {
+      "time": 143.93333333333334,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-005; I\u2019m saving the structured extraction options before verifying them.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 8d4d505c-2380-4325-82b6-1924fd37c811. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 4318: Original frames4322 and4348 visually inspected in click-sheet-02; adjacent action-start4318 and4328 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Save options closes the configured two-field dialog."
+    },
+    {
+      "time": 147.2,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-006; I\u2019m reopening the format options to verify the saved JSON configuration before running the scrape.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 32b9e994-1f00-4065-969b-b9abc569d3df. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 4416: Original frames4420 and4446 visually inspected in click-sheet-02; adjacent action-start4416 and4426 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Format menu reopens showing two enabled formats."
+    },
+    {
+      "time": 151.33333333333334,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-007; I\u2019m opening the saved JSON options to verify the prompt and schema before starting the scrape.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 90936683-4e25-447a-bb55-6df691873871. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 4540: Original frames4544 and4570 visually inspected in click-sheet-02; adjacent action-start4540 and4550 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Edit options reopens saved JSON prompt/title/price schema."
+    },
+    {
+      "time": 160.23333333333332,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-008; I\u2019m confirming the verified JSON options before starting the scrape.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt f4736da2-f09a-4905-a9fd-7040f0cfd423. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 4807: Original frames4811 and4837 visually inspected in click-sheet-03; adjacent action-start4807 and4817 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Save options closes the verified JSON dialog."
+    },
+    {
+      "time": 163.7,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-009; I\u2019m starting the configured scrape so I can inspect and independently reopen its saved result.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt c693f620-80ad-4ced-b2be-a8306014c2f5. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 4911: Original frames4915 and4941 visually inspected in click-sheet-03; adjacent action-start4911 and4921 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Start scraping changes to Loading and runs configured job."
+    },
+    {
+      "time": 181.33333333333334,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-010; I\u2019m reopening the exact new saved run to verify its persisted output.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 7c60e9fa-8c67-4fae-8ada-f225315231ba. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 5440: Original frames5444 and5470 visually inspected in click-sheet-03; adjacent action-start5440 and5450 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Newest Recent Runs entry opens saved base scrape N5aXjuX8lhZKI0RYWSH56."
+    },
+    {
+      "time": 186.8,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-011; I\u2019m opening the persisted JSON result to verify the requested title and price fields.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 114cd5ad-9ea2-402e-a64b-e7d0ffe35f05. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 5604: Original frames5608 and5634 visually inspected in click-sheet-03; adjacent action-start5604 and5614 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Nova clicks the JSON download control, opening the browser downloads popover instead of changing the result tab. Genuine misclick retained."
+    },
+    {
+      "time": 190.9,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-012; I\u2019m switching the persisted result viewer to the structured JSON output.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt edaa8870-edf2-4781-be24-b48a5655fc1e. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 5727: Original frames5731 and5757 visually inspected in click-sheet-04; adjacent action-start5727 and5737 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: JSON result tab displays structured title A Light in the Attic and price_gbp51.77."
+    },
+    {
+      "time": 203.66666666666666,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-013; I\u2019m opening Activity Logs to correlate the saved scrape with its request record.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 8d2ca213-d7be-4511-909a-d5a46541fbdf. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 6110: Original frames6114 and6140 visually inspected in click-sheet-04; adjacent action-start6110 and6120 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Activity Logs navigation opens the request list/loading state."
+    },
+    {
+      "time": 220.63333333333333,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-014; I\u2019m opening the saved structured output to verify the exact title and price values.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 5ae99547-2c33-4b20-a50c-c017c900806e. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 6619: Original frames6623 and6649 visually inspected in click-sheet-04; adjacent action-start6619 and6629 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: After Back, the actual JSON tab displays the same saved base output."
+    },
+    {
+      "time": 254.06666666666666,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-015; I\u2019m returning to the Scrape playground to configure the separate stock-count revision.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 5bec888b-a4bf-4949-84cc-8d4b90e1c82e. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 7622: Original frames7626 and7652 visually inspected in click-sheet-04; adjacent action-start7622 and7632 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Go back activates; the public Playground loads shortly afterward."
+    },
+    {
+      "time": 261.1333333333333,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-016; I\u2019m opening the dashboard so I can verify the Personal Team before running the revision.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 3a24cc01-db7c-49cc-b032-a966581a2280. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 7834: Original frames7838 and7864 visually inspected in click-sheet-05; adjacent action-start7834 and7844 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Dashboard navigation returns to the Personal Team account."
+    },
+    {
+      "time": 266.9,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-017; I\u2019m opening Scrape in the verified Personal Team to configure the stock-count revision.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt f90a1243-4f89-4e16-a56b-77d971121d35. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 8007: Original frames8011 and8037 visually inspected in click-sheet-05; adjacent action-start8007 and8017 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Scrape sidebar navigation opens the team playground for revision."
+    },
+    {
+      "time": 278.3333333333333,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-018; I\u2019m opening the format menu to add and configure the structured JSON revision.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 5e66dc0f-9ff1-4c24-b5cd-9271948adfd6. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 8350: Original frames8354 and8380 visually inspected in click-sheet-05; adjacent action-start8350 and8360 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Format menu opens for the stock revision."
+    },
+    {
+      "time": 281.7,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-019; I\u2019m adding JSON alongside Markdown so I can configure the stock-count revision.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 1fc5f25c-6042-46f5-8ee2-bcda4203941c. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 8451: Original frames8455 and8481 visually inspected in click-sheet-05; adjacent action-start8451 and8461 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: JSON enables and opens the default visual schema dialog."
+    },
+    {
+      "time": 294.56666666666666,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-020; I\u2019m changing price_gbp from String to Number before adding the stock field.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 05b8216f-56ad-47ca-a7d0-5b89caec7541. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 8837: Original frames8841 and8867 visually inspected in click-sheet-06; adjacent action-start8837 and8847 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Price field String type menu opens."
+    },
+    {
+      "time": 298.5,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-021; I\u2019m setting price_gbp to Number before adding the stock-count field.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 09cc36b6-a194-460e-bd90-5ca8c9a083d6. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 8955: Original frames8959 and8985 visually inspected in click-sheet-06; adjacent action-start8955 and8965 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Price field type becomes Number."
+    },
+    {
+      "time": 302.03333333333336,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-022; I\u2019m adding a third schema field for stock_count.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 654fa853-072b-40cf-a28f-7d640ac8b289. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 9061: Original frames9065 and9091 visually inspected in click-sheet-06; adjacent action-start9061 and9071 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Add-row control appends a third empty String field."
+    },
+    {
+      "time": 310.1666666666667,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-023; I\u2019m changing stock_count from String to Number.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 5e9c3e1b-161b-4ddf-9638-4efadea62cf6. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 9305: Original frames9309 and9335 visually inspected in click-sheet-06; adjacent action-start9305 and9315 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Stock_count String type menu opens."
+    },
+    {
+      "time": 313.3666666666667,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-024; I\u2019m setting stock_count to Number, completing the revised schema.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 9ff9372b-ab47-438f-951c-7866ae4a6565. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 9401: Original frames9405 and9431 visually inspected in click-sheet-07; adjacent action-start9401 and9411 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Stock_count type becomes Number."
+    },
+    {
+      "time": 328.3,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-025; I\u2019m saving the revised JSON options before reopening them for verification.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 0e456f92-e7d2-4579-a4f3-aac074aaaada. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 9849: Original frames9853 and9879 visually inspected in click-sheet-07; adjacent action-start9849 and9859 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Save options closes the title/price_gbp/stock_count dialog."
+    },
+    {
+      "time": 331.8333333333333,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-026; I\u2019m reopening the format options to verify the saved prompt and three-field schema before running the revision.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 379a925a-129f-407d-b9b0-fb31e1f9c6fc. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 9955: Original frames9959 and9985 visually inspected in click-sheet-07; adjacent action-start9955 and9965 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Format menu reopens for configuration verification."
+    },
+    {
+      "time": 335.93333333333334,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-027; I\u2019m opening the saved JSON options to verify the prompt and revised schema before running it.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt d6fddde2-409d-4497-a274-7a486682c557. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 10078: Original frames10082 and10108 visually inspected in click-sheet-07; adjacent action-start10078 and10088 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Edit options reopens the saved three-field schema."
+    },
+    {
+      "time": 343.93333333333334,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-028; I\u2019m confirming the verified title, price, and stock schema before starting the separate revision.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 5aa7cf22-dee9-4642-9bb7-ec98b1c14753. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 10318: Original frames10322 and10348 visually inspected in click-sheet-08; adjacent action-start10318 and10328 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Save options closes verified revised schema."
+    },
+    {
+      "time": 348.06666666666666,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-029; I\u2019m starting the separate scrape revision with title, price, and numeric stock count.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 1fda25e5-c5ff-4b1a-b3bb-250817478c1d. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 10442: Original frames10446 and10472 visually inspected in click-sheet-08; adjacent action-start10442 and10452 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Start scraping changes to Loading for separate stock revision."
+    },
+    {
+      "time": 364.93333333333334,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-030; I\u2019m opening the structured output to verify the revised title, price, and stock values.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 3dd39de3-3848-4be5-8c4d-24d21e3a2c68. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 10948: Original frames10952 and10978 visually inspected in click-sheet-08; adjacent action-start10948 and10958 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: JSON download control triggers a download/popover; it does not switch result tab. Retained."
+    },
+    {
+      "time": 368.6333333333333,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-031; I\u2019m reopening the newest saved revision to verify its structured result independently.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 86e6ec8f-133b-41cf-ab83-3612cdc760e3. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 11059: Original frames11063 and11089 visually inspected in click-sheet-08; adjacent action-start11059 and11069 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Newest Recent Runs entry opens saved revision htmPdl4_f8Macad7e6Cod."
+    },
+    {
+      "time": 373.03333333333336,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-032; I\u2019m opening the independently reopened revision\u2019s JSON output to verify all three fields.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 4a2a426b-dc41-4fb0-9cfd-81b35d2acbce. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 11191: Original frames11195 and11221 visually inspected in click-sheet-09; adjacent action-start11191 and11201 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: JSON download control is clicked again while Markdown remains selected. Retained."
+    },
+    {
+      "time": 376.96666666666664,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-033; I\u2019m switching the reopened revision to its structured JSON output to verify the three extracted values.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt adf5561c-f46a-4a0a-8ecc-0a8cd3a7de5f. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 11309: Original frames11313 and11339 visually inspected in click-sheet-09; adjacent action-start11309 and11319 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Actual JSON tab displays title,price_gbp51.77 and stock_count22."
+    },
+    {
+      "time": 380.3666666666667,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-034; I\u2019m returning to Recent Runs to open and inspect the original saved scrape.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt fbf6f464-c4af-4f75-9f5d-505ca49fba20. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 11411: Original frames11415 and11441 visually inspected in click-sheet-09; adjacent action-start11411 and11421 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Go back returns to public Playground/Recent Runs."
+    },
+    {
+      "time": 387.6666666666667,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-035; I\u2019m opening the original 11:44 saved scrape to compare its structured output with the revision.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 0fdc2f92-bb9f-4f1e-825f-146d095b65bd. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 11630: Original frames11634 and11660 visually inspected in click-sheet-09; adjacent action-start11630 and11640 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Original11:44 Recent Runs entry reopens base saved scrape."
+    },
+    {
+      "time": 392.7,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-036; I\u2019m opening the original saved run\u2019s structured JSON to compare its extracted fields with the revision.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 5ef2229d-7efd-4a14-9eb1-a846190e2897. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 11781: Original frames11785 and11811 visually inspected in click-sheet-10; adjacent action-start11781 and11791 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Actual JSON tab shows original title/price output without stock_count."
+    },
+    {
+      "time": 397.73333333333335,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-037; I\u2019m returning to Recent Runs to recheck the revised saved result and capture its exact stock value.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 9c33eb9a-a43a-4a8f-94dd-98224464ab69. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 11932: Original frames11936 and11962 visually inspected in click-sheet-10; adjacent action-start11932 and11942 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Go back returns to public Playground/Recent Runs."
+    },
+    {
+      "time": 401.06666666666666,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-038; I\u2019m reopening the 11:47 revision to capture its exact structured stock value.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 6b3e8068-ab5f-4876-b7d7-f06bf1aa1af0. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 12032: Original frames12036 and12062 visually inspected in click-sheet-10; adjacent action-start12032 and12042 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Revision11:47 entry reopens stock revision."
+    },
+    {
+      "time": 405.8,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-039; I\u2019m opening the revised saved run\u2019s JSON output to capture the exact extracted stock count.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt c17096f2-82de-4389-8c30-7ad427e13e38. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 12174: Original frames12178 and12204 visually inspected in click-sheet-10; adjacent action-start12174 and12184 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: JSON download control again opens downloads popover. Retained."
+    },
+    {
+      "time": 409.23333333333335,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-040; I\u2019m switching the reopened revision from Markdown to its structured JSON output.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt fb775682-9e7a-48d4-afd5-e0c8378470b2. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 12277: Original frames12281 and12307 visually inspected in click-sheet-11; adjacent action-start12277 and12287 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Actual JSON result tab exposes stock_count22 alongside title and price."
+    },
+    {
+      "time": 459.6666666666667,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-041; I\u2019m returning to the dashboard to verify the active team and configure the bounded crawl.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 48b54511-186a-47aa-860c-7d2d5c1170d3. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 13790: Original frames13794 and13820 visually inspected in click-sheet-11; adjacent action-start13790 and13800 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Dashboard navigation returns from saved public result to verified Personal Team."
+    },
+    {
+      "time": 465.8333333333333,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-042; I\u2019m opening the Crawl playground in the verified Personal Team.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 680464cf-8867-4b5c-8524-fafd9b67f861. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 13975: Original frames13979 and14005 visually inspected in click-sheet-11; adjacent action-start13975 and13985 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Crawl endpoint card opens the team Crawl playground."
+    },
+    {
+      "time": 473.9,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-043; I\u2019m opening the crawl settings to apply the page and depth bounds.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt e0c7bd64-99a6-4781-a2ea-0dbd86b6d22b. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 14217: Original frames14221 and14247 visually inspected in click-sheet-11; adjacent action-start14217 and14227 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Crawl options popover opens with defaults."
+    },
+    {
+      "time": 486.46666666666664,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-044; I\u2019m closing the settings after verifying limit 2, depth 1, Markdown, and entire-website crawling off.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 3bc71ad0-be50-49d2-8570-429c89f2472f. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 14594: Original frames14598 and14624 visually inspected in click-sheet-12; adjacent action-start14594 and14604 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Close options dismisses verified limit2,depth1,entireWebsiteoff configuration."
+    },
+    {
+      "time": 490.6666666666667,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-045; I\u2019m starting the bounded two-page Markdown crawl with depth 1 and entire-website mode off.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 49f4e511-2a1f-4099-bfc1-31ee9520ec29. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 14720: Original frames14724 and14750 visually inspected in click-sheet-12; adjacent action-start14720 and14730 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Start crawling runs bounded two-page job; new Recent Runs entry initially Pending."
+    },
+    {
+      "time": 506.3333333333333,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-046; I\u2019m reopening the exact successful crawl from Recent Runs to inspect its saved result independently.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 52b56fde-9db6-4d26-be1f-0ce227d78ff9. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 15190: Original frames15194 and15220 visually inspected in click-sheet-12; adjacent action-start15190 and15200 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Newest successful crawl entry opens persisted two-page crawl01a0c7c5-8ba1-749d-977a-02db35a0d6cb."
+    },
+    {
+      "time": 546.9,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-047; I\u2019m returning to the crawl playground to configure the separate one-page revision.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 9e79ac1c-02f4-4233-8d6b-cb493106ffc7. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 16407: Original frames16411 and16437 visually inspected in click-sheet-12; adjacent action-start16407 and16417 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Go back leaves two-page saved result for public Playground."
+    },
+    {
+      "time": 554.6,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-048; I\u2019m opening the dashboard to verify the Personal Team before running the one-page crawl revision.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 67dd1d69-647c-49f9-b64d-4ced67c7e036. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 16638: Original frames16642 and16668 visually inspected in click-sheet-13; adjacent action-start16638 and16648 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Dashboard navigation returns to Personal Team for separate revision."
+    },
+    {
+      "time": 560.8333333333334,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-049; I\u2019m opening the crawl playground to configure the one-page revision.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt b2b99443-fb52-40cf-9b86-82c211f81e5e. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 16825: Original frames16829 and16855 visually inspected in click-sheet-13; adjacent action-start16825 and16835 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Crawl endpoint card opens fresh team playground."
+    },
+    {
+      "time": 571.6666666666666,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-050; I\u2019m opening the crawl settings to set the one-page limit and depth.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 1b9a083f-c089-4eb5-9a77-fc2d5fbac73a. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 17150: Original frames17154 and17180 visually inspected in click-sheet-13; adjacent action-start17150 and17160 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Crawl options opens for one-page revision."
+    },
+    {
+      "time": 582.9333333333333,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-051; I\u2019m starting the verified one-page Markdown crawl with depth 1 and entireWebsite off.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 56418094-12b3-47b4-b45c-fcc4c38d2c95. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 17488: Original frames17492 and17518 visually inspected in click-sheet-13; adjacent action-start17488 and17498 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Start crawling runs with visible limit1,depth1,entireWebsiteoff; new run initially Pending."
+    },
+    {
+      "time": 611.5,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-052; I\u2019m reopening the new one-page crawl from Recent Runs to verify its saved result.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt 9413a74f-27a2-43ba-a745-ae64ae85b726. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 18345: Original frames18349 and18375 visually inspected in click-sheet-14; adjacent action-start18345 and18355 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Newest successful entry opens saved one-page crawl01a0c7c6-f402-739b-8f6f-9c013cd29001."
+    },
+    {
+      "time": 617.0,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-053; I\u2019m returning to Recent Runs to reopen the earlier two-page crawl for comparison.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt d059b0be-45a0-4700-ba27-fba4abf89105. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 18510: Original frames18514 and18540 visually inspected in click-sheet-14; adjacent action-start18510 and18520 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Go back leaves one-page result, whose Results(1) and native coverage hint remain visible during transition."
+    },
+    {
+      "time": 624.6333333333333,
+      "actor": "nova",
+      "strength": 1.0,
+      "evidence": "nova-action-click-054; I\u2019m reopening the earlier two-page crawl so I can compare its saved results with the one-page revision.; Immutable accepted session 7d506f11-282e-472e-92cf-8e27626f11b6, verified actionSteps click receipt c18e197b-95c6-4b12-87ae-a1624f16277e. Timestamp is beginStep/action-start before driver.execute, NOT trusted mouse-dispatch time. Coordinator explicitly requested this available receipt basis.; source frame 18739: Original frames18743 and18769 visually inspected in click-sheet-14; adjacent action-start18739 and18749 extracted. Index map retained. Cursor/response support real action; cannot establish one-frame physical dispatch timing.; response: Earlier two-page entry reopens persisted Results(2), with All products and Books pages visible."
+    }
+  ]
+}

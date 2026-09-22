@@ -1,0 +1,2871 @@
+{
+  "id": "7d506f11-282e-472e-92cf-8e27626f11b6",
+  "siteId": "firecrawl",
+  "mode": "extension",
+  "tabId": 1436186277,
+  "status": "ready",
+  "url": "https://www.firecrawl.dev/playground/01a0c7c5-8ba1-749d-977a-02db35a0d6cb",
+  "title": "Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+  "messages": [
+    {
+      "id": "d8f62651-7bc7-4b72-a1a5-f2beaa6a73d2",
+      "role": "user",
+      "text": "Scrape a page and inspect its saved result",
+      "at": 1790057528272
+    },
+    {
+      "id": "03708bc7-00cd-44c8-a829-3a910607257b",
+      "role": "assistant",
+      "text": "Scrape details\nSpecify the page and what the saved result should contain.\nPage URL\nOutput Choices: Markdown; Structured JSON; Both.\nJSON fields (if applicable)",
+      "at": 1790057551381,
+      "clarification": {
+        "id": "49d1dcf8-86d6-43f0-8764-c2eb4edba9e5",
+        "title": "Scrape details",
+        "description": "Specify the page and what the saved result should contain.",
+        "questions": [
+          {
+            "id": "source_url",
+            "label": "Page URL",
+            "description": "Enter the public page to scrape.",
+            "type": "text",
+            "required": true,
+            "placeholder": "https://example.com/page",
+            "options": []
+          },
+          {
+            "id": "output_format",
+            "label": "Output",
+            "description": "Choose the result format.",
+            "type": "single_choice",
+            "required": true,
+            "placeholder": "",
+            "options": [
+              {
+                "label": "Markdown",
+                "description": "Return the page content as Markdown."
+              },
+              {
+                "label": "Structured JSON",
+                "description": "Extract specific fields into JSON."
+              },
+              {
+                "label": "Both",
+                "description": "Save Markdown and structured JSON."
+              }
+            ]
+          },
+          {
+            "id": "json_fields",
+            "label": "JSON fields (if applicable)",
+            "description": "List the fields to extract when using structured JSON.",
+            "type": "long_text",
+            "required": false,
+            "placeholder": "Example: title, price, stock count",
+            "options": []
+          }
+        ],
+        "status": "superseded"
+      }
+    },
+    {
+      "id": "b8358484-3607-4cab-ae16-2bb3f452845c",
+      "role": "user",
+      "text": "Help me choose: explain the remaining questions in plain language. Keep my original task and the details I already provided.",
+      "at": 1790057570330
+    },
+    {
+      "id": "71d0d49d-77f1-4178-8206-cad4ade09a1c",
+      "role": "assistant",
+      "text": "Choose what to scrape\nThe page URL is the exact public webpage Firecrawl should read. Markdown returns readable page content; Structured JSON returns only named data fields; Both provides both versions.\nPage URL\nOutput format Choices: Markdown; Structured JSON; Both.\nJSON fields (only if applicable)",
+      "at": 1790057577361,
+      "clarification": {
+        "id": "9cc6939c-3f7b-4e16-a61e-a32d3a18b6b8",
+        "title": "Choose what to scrape",
+        "description": "The page URL is the exact public webpage Firecrawl should read. Markdown returns readable page content; Structured JSON returns only named data fields; Both provides both versions.",
+        "questions": [
+          {
+            "id": "page_url",
+            "label": "Page URL",
+            "description": "Paste the exact public webpage to scrape, including https://.",
+            "type": "text",
+            "required": true,
+            "placeholder": "https://example.com/page",
+            "options": []
+          },
+          {
+            "id": "output_format",
+            "label": "Output format",
+            "description": "Choose Markdown for general reading, Structured JSON for specific facts, or Both if you want both the page text and extracted fields.",
+            "type": "single_choice",
+            "required": true,
+            "placeholder": "",
+            "options": [
+              {
+                "label": "Markdown",
+                "description": "Readable page content with headings and links."
+              },
+              {
+                "label": "Structured JSON",
+                "description": "Only the specific fields you name."
+              },
+              {
+                "label": "Both",
+                "description": "Readable content plus named structured fields."
+              }
+            ]
+          },
+          {
+            "id": "json_fields",
+            "label": "JSON fields (only if applicable)",
+            "description": "If you choose Structured JSON or Both, list the facts to extract, such as title, price, and stock count. Leave blank for Markdown.",
+            "type": "text",
+            "required": false,
+            "placeholder": "title, price, stock_count",
+            "options": []
+          }
+        ],
+        "status": "answered",
+        "answers": [
+          {
+            "questionId": "page_url",
+            "values": [
+              "https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
+            ]
+          },
+          {
+            "questionId": "output_format",
+            "values": [
+              "Both"
+            ]
+          },
+          {
+            "questionId": "json_fields",
+            "values": [
+              "title (String), price_gbp (Number)"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "role": "user",
+      "text": "Details for Choose what to scrape:\nPage URL: https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html\nOutput format: Both\nJSON fields (only if applicable): title (String), price_gbp (Number)",
+      "at": 1790057624678
+    },
+    {
+      "id": "8482ec55-5cfb-4e4b-8a08-28528ed1198e",
+      "role": "assistant",
+      "text": "I\u2019m saving the structured extraction options before verifying them.",
+      "at": 1790057652623
+    },
+    {
+      "id": "936f9f00-8b7d-4674-bfb1-0aa5dfc46175",
+      "role": "assistant",
+      "text": "I\u2019m confirming the verified JSON options before starting the scrape.",
+      "at": 1790057671235
+    },
+    {
+      "id": "3e05002b-f963-456d-a70b-63997c5007ca",
+      "role": "assistant",
+      "text": "The saved scrape succeeded and was independently reopened.",
+      "at": 1790057742455
+    },
+    {
+      "id": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "role": "user",
+      "text": "Run a separate revision for the same URL and add stock_count as Number, then inspect both saved runs.",
+      "at": 1790057766381
+    },
+    {
+      "id": "2af25baa-dc5b-4fd1-9432-dd10324f3d5a",
+      "role": "assistant",
+      "text": "I\u2019m saving the revised JSON options before reopening them for verification.",
+      "at": 1790057832791
+    },
+    {
+      "id": "2a0f3711-f43b-42fe-b5bc-9b20340d780a",
+      "role": "assistant",
+      "text": "I\u2019m confirming the verified title, price, and stock schema before starting the separate revision.",
+      "at": 1790057856394
+    },
+    {
+      "id": "e042fba8-c5cd-4ae3-965c-3fb79eda4bca",
+      "role": "assistant",
+      "text": "Both saved runs were inspected. The original contains title and price; the separate revision adds numeric stock_count.",
+      "at": 1790057932110
+    },
+    {
+      "id": "d439c104-8d94-4fa3-be7c-548caaf5a005",
+      "role": "user",
+      "text": "Run a separate Markdown crawl of https://books.toscrape.com/ with page limit 2, maximum discovery depth 1, and entireWebsite off. Inspect the saved result.",
+      "at": 1790057973491
+    },
+    {
+      "id": "e44bac57-a019-47c4-9c59-245b66767a71",
+      "role": "assistant",
+      "text": "The saved Markdown crawl succeeded and was independently reopened with two results.",
+      "at": 1790058028677
+    },
+    {
+      "id": "36d35a92-6478-4cdf-b677-168c10d9445f",
+      "role": "user",
+      "text": "Run a separate one-page revision of that crawl with page limit 1, keeping depth 1 and entireWebsite off, then compare the two saved runs.",
+      "at": 1790058060079
+    },
+    {
+      "id": "fb5b0f8c-0878-4f4a-96e5-c99267dad926",
+      "role": "assistant",
+      "text": "Both saved crawl runs were inspected: the original returned 2 Markdown pages, while the separate revision returned 1 Markdown page.",
+      "at": 1790058146749
+    },
+    {
+      "id": "b8714342-dd05-43a2-b0a3-427016f63ab9",
+      "role": "user",
+      "text": "Which saved result should feed an inventory system, and how does Nova differ from Firecrawl Agent here?",
+      "at": 1790058180387
+    },
+    {
+      "id": "4525ae30-5fa1-4feb-88c6-f6cde53e0467",
+      "role": "assistant",
+      "text": "The structured JSON revision with title, price_gbp, and stock_count is the best inventory input because it provides typed fields; the Markdown crawls are better for discovery or archival content. Nova operates and verifies jobs in the Firecrawl dashboard, while Firecrawl Agent is Firecrawl\u2019s own product for autonomously researching and acting on target websites.",
+      "at": 1790058185514
+    }
+  ],
+  "traces": [
+    {
+      "id": "55bdfd22-7139-4707-8ca5-400aee377cfd",
+      "at": 1790058022807,
+      "kind": "act",
+      "text": "I\u2019m reopening the exact successful crawl from Recent Runs to inspect its saved result independently.",
+      "ms": 144
+    },
+    {
+      "id": "55a4692f-7707-4f34-98aa-e3e61fc24527",
+      "at": 1790058022849,
+      "kind": "observe",
+      "text": "Read 80 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 39
+    },
+    {
+      "id": "63c0e2b2-2029-4f94-95b9-13ff9c98d138",
+      "at": 1790058023009,
+      "kind": "observe",
+      "text": "Read 80 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 38
+    },
+    {
+      "id": "7d487fa9-c086-48ef-bd8d-0615a5363e98",
+      "at": 1790058023302,
+      "kind": "observe",
+      "text": "Read 80 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 50
+    },
+    {
+      "id": "950eeca2-42a3-4767-a0c4-d0d508e77193",
+      "at": 1790058023816,
+      "kind": "observe",
+      "text": "Read 80 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 32
+    },
+    {
+      "id": "b093b71f-aba3-4ddc-80e5-26498cb4b6e9",
+      "at": 1790058024567,
+      "kind": "observe",
+      "text": "Read 45 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 48
+    },
+    {
+      "id": "873be764-4d6d-487b-93c3-0a5b78be568f",
+      "at": 1790058024570,
+      "kind": "verify",
+      "text": "Verified change click: Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground/01a0c7c5-8ba1-749d-977a-02db35a0d6cb"
+    },
+    {
+      "id": "da7d31b9-3eb8-4d0c-b5a8-08a8dabd6090",
+      "at": 1790058024571,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "a5c8e90c-7498-4039-8953-3afac52c07a9",
+      "at": 1790058028669,
+      "kind": "observe",
+      "text": "Read 45 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 45
+    },
+    {
+      "id": "c70c07f6-d59e-4b0f-986f-6771c5bb9bab",
+      "at": 1790058028671,
+      "kind": "think",
+      "text": "The saved Markdown crawl succeeded and was independently reopened with two results.",
+      "ms": 4051
+    },
+    {
+      "id": "3e5523ff-8025-408d-a56f-73db44aaf752",
+      "at": 1790058060137,
+      "kind": "observe",
+      "text": "Read 45 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 56
+    },
+    {
+      "id": "403a0a19-2667-4485-b059-3d22d6d8cd38",
+      "at": 1790058060139,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "cc9416d4-2cf7-4322-9f4c-2d8748270017",
+      "at": 1790058063188,
+      "kind": "think",
+      "text": "I\u2019m returning to the crawl playground to configure the separate one-page revision.",
+      "ms": 3047
+    },
+    {
+      "id": "4000a9e7-750b-4102-bc99-67b3a9425a59",
+      "at": 1790058063246,
+      "kind": "observe",
+      "text": "Read 45 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 57
+    },
+    {
+      "id": "83eaaad2-f790-4e2e-a8ba-504434d29cbd",
+      "at": 1790058063385,
+      "kind": "act",
+      "text": "I\u2019m returning to the crawl playground to configure the separate one-page revision.",
+      "ms": 137
+    },
+    {
+      "id": "a7c8f45a-251c-425a-937e-bcf4675947b8",
+      "at": 1790058063425,
+      "kind": "observe",
+      "text": "Read 45 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 37
+    },
+    {
+      "id": "c4654cf6-2c1d-421c-acc5-2a18741e215d",
+      "at": 1790058064126,
+      "kind": "observe",
+      "text": "Read 45 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 50
+    },
+    {
+      "id": "fac4e9cc-50c6-46b0-ab21-abcb8377079b",
+      "at": 1790058064129,
+      "kind": "verify",
+      "text": "Verified change click: Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "53a6566f-54fe-4647-9d33-cf37d896dae3",
+      "at": 1790058064130,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "e6138d4a-672d-47e4-8719-4ca8dfe6e366",
+      "at": 1790058067239,
+      "kind": "think",
+      "text": "I\u2019m opening the crawl playground to configure the one-page revision.",
+      "ms": 3107
+    },
+    {
+      "id": "b5917d98-984f-4393-81ea-708f6fffcee0",
+      "at": 1790058067259,
+      "kind": "observe",
+      "text": "Read 103 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 19
+    },
+    {
+      "id": "965b90fc-5d78-473b-9212-c91338675344",
+      "at": 1790058067260,
+      "kind": "info",
+      "text": "An editor appeared while planning. Inspecting its current controls before another click; no input was sent."
+    },
+    {
+      "id": "34167d5e-463d-48c6-b8ae-87aa077e6a97",
+      "at": 1790058067261,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "89670e7a-4694-40b8-8830-42cbdbb35616",
+      "at": 1790058070908,
+      "kind": "think",
+      "text": "I\u2019m opening the dashboard to verify the Personal Team before running the one-page crawl revision.",
+      "ms": 3646
+    },
+    {
+      "id": "e4583885-34d2-45fb-a1ce-e59a4c378daf",
+      "at": 1790058070924,
+      "kind": "observe",
+      "text": "Read 103 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 14
+    },
+    {
+      "id": "b9de749c-c07a-495a-a74a-fe74b537dcdc",
+      "at": 1790058071069,
+      "kind": "act",
+      "text": "I\u2019m opening the dashboard to verify the Personal Team before running the one-page crawl revision.",
+      "ms": 142
+    },
+    {
+      "id": "690a5c26-a5cc-4242-b39f-56020a1ef49d",
+      "at": 1790058073101,
+      "kind": "observe",
+      "text": "Read 122 controls on Dashboard | Firecrawl",
+      "ms": 2029
+    },
+    {
+      "id": "2dc3e577-2b4b-4597-b0d7-5172f431bba9",
+      "at": 1790058073765,
+      "kind": "observe",
+      "text": "Read 123 controls on Dashboard | Firecrawl",
+      "ms": 12
+    },
+    {
+      "id": "b5ef7246-684d-4b03-bd28-739bd16a980f",
+      "at": 1790058073769,
+      "kind": "verify",
+      "text": "Verified change click: Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK"
+    },
+    {
+      "id": "2dfc735d-5e98-48ee-828e-e0256a540f46",
+      "at": 1790058073770,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "02e14270-53fa-4287-aa59-979039641f9f",
+      "at": 1790058077151,
+      "kind": "think",
+      "text": "I\u2019m opening the crawl playground to configure the one-page revision.",
+      "ms": 3380
+    },
+    {
+      "id": "888a79a8-d3e2-4c5d-919a-20700cf6d3cc",
+      "at": 1790058077170,
+      "kind": "observe",
+      "text": "Read 123 controls on Dashboard | Firecrawl",
+      "ms": 17
+    },
+    {
+      "id": "ce8c723e-0dad-4293-836d-e62a033c4ee4",
+      "at": 1790058077307,
+      "kind": "act",
+      "text": "I\u2019m opening the crawl playground to configure the one-page revision.",
+      "ms": 135
+    },
+    {
+      "id": "7f901531-2199-4866-a119-664c9cba60de",
+      "at": 1790058077323,
+      "kind": "observe",
+      "text": "Read 123 controls on Dashboard | Firecrawl",
+      "ms": 13
+    },
+    {
+      "id": "ad32751c-4024-4570-8b15-47b6673762a5",
+      "at": 1790058077456,
+      "kind": "observe",
+      "text": "Read 123 controls on Dashboard | Firecrawl",
+      "ms": 10
+    },
+    {
+      "id": "53654cfc-8284-49a7-85e6-a629ddb03c56",
+      "at": 1790058077713,
+      "kind": "observe",
+      "text": "Read 123 controls on Dashboard | Firecrawl",
+      "ms": 13
+    },
+    {
+      "id": "088e2259-7a1c-4c01-bdbd-a60a4b11171f",
+      "at": 1790058078204,
+      "kind": "observe",
+      "text": "Read 124 controls on Dashboard | Firecrawl",
+      "ms": 9
+    },
+    {
+      "id": "0d260c38-e1cb-4b4c-9d3e-ea3625b7a2f4",
+      "at": 1790058078914,
+      "kind": "observe",
+      "text": "Read 67 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 8
+    },
+    {
+      "id": "e546f58e-4626-4454-8da9-70c9367cf8a8",
+      "at": 1790058078917,
+      "kind": "verify",
+      "text": "Verified change click: Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=crawl"
+    },
+    {
+      "id": "609bf040-6fb9-4ce2-9e95-08a2d987b05a",
+      "at": 1790058078918,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "5913c41e-0abf-49d3-aa83-dc6c81780edd",
+      "at": 1790058081750,
+      "kind": "think",
+      "text": "I\u2019m setting the bookstore root as the source for the separate one-page crawl.",
+      "ms": 2830
+    },
+    {
+      "id": "3670a4d5-612b-4dad-a6d9-f6ee9d835fc6",
+      "at": 1790058081774,
+      "kind": "observe",
+      "text": "Read 67 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 23
+    },
+    {
+      "id": "8c8c0c56-4ee7-4e70-bac9-51ea7195b74a",
+      "at": 1790058081918,
+      "kind": "act",
+      "text": "I\u2019m setting the bookstore root as the source for the separate one-page crawl.",
+      "ms": 143
+    },
+    {
+      "id": "7529b927-381e-4c41-97e5-98bc0f1ca24e",
+      "at": 1790058081930,
+      "kind": "observe",
+      "text": "Read 67 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 10
+    },
+    {
+      "id": "ce8d18e4-5179-4d71-abef-f2d9876c2ece",
+      "at": 1790058081931,
+      "kind": "verify",
+      "text": "Verified change fill: The target matches the requested value."
+    },
+    {
+      "id": "d18805c5-7b09-473d-b573-a4133776d435",
+      "at": 1790058081933,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "369613c1-8540-4730-90f4-de8d9df80a46",
+      "at": 1790058084995,
+      "kind": "think",
+      "text": "I\u2019m locating the crawl settings controls so I can set the one-page limit and depth safely.",
+      "ms": 3061
+    },
+    {
+      "id": "a2cb9113-28ab-4a2e-b0c4-76556f598b7d",
+      "at": 1790058084997,
+      "kind": "error",
+      "text": "Visual capture blocked because incidental private text would bypass text redaction. Continue with semantic controls."
+    },
+    {
+      "id": "6185700c-680b-4263-8282-4f7311127d88",
+      "at": 1790058085019,
+      "kind": "observe",
+      "text": "Read 67 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 21
+    },
+    {
+      "id": "67557297-8516-414b-bd2b-ae8302893fa0",
+      "at": 1790058085020,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "b0e1c5ef-98a7-4770-b0bb-369ebfd1997b",
+      "at": 1790058087980,
+      "kind": "think",
+      "text": "I\u2019m opening the crawl settings to set the one-page limit and depth.",
+      "ms": 2959
+    },
+    {
+      "id": "70291772-8037-405d-9509-7f04463c05b9",
+      "at": 1790058087996,
+      "kind": "observe",
+      "text": "Read 67 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 15
+    },
+    {
+      "id": "ddf9bc63-e441-4e0b-9391-2235cf1664dd",
+      "at": 1790058088135,
+      "kind": "act",
+      "text": "I\u2019m opening the crawl settings to set the one-page limit and depth.",
+      "ms": 137
+    },
+    {
+      "id": "f3a60dd6-b2d0-47ae-a702-a7266af462cc",
+      "at": 1790058088165,
+      "kind": "observe",
+      "text": "Read 87 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 27
+    },
+    {
+      "id": "97eb9aa6-529c-40c8-b539-1e8c705861ac",
+      "at": 1790058088840,
+      "kind": "observe",
+      "text": "Read 87 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 23
+    },
+    {
+      "id": "2b8cec78-700c-4d2f-a3f3-3ffa53e1452f",
+      "at": 1790058088844,
+      "kind": "verify",
+      "text": "Verified change click: Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "77b93b11-b933-4c63-a33b-9906c4cf5b30",
+      "at": 1790058088846,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "c1d9804e-bf6f-45d9-b96d-131382cace78",
+      "at": 1790058091754,
+      "kind": "think",
+      "text": "I\u2019m setting the separate crawl revision to a one-page limit.",
+      "ms": 2907
+    },
+    {
+      "id": "8dfb8cfa-ff04-4475-a3d2-e0214716e49c",
+      "at": 1790058091784,
+      "kind": "observe",
+      "text": "Read 87 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 29
+    },
+    {
+      "id": "f66d381a-7654-4342-b7f4-a3ffaccb6ab6",
+      "at": 1790058091953,
+      "kind": "act",
+      "text": "I\u2019m setting the separate crawl revision to a one-page limit.",
+      "ms": 167
+    },
+    {
+      "id": "e5954171-7230-4491-a589-b39f798078a9",
+      "at": 1790058091966,
+      "kind": "observe",
+      "text": "Read 87 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 10
+    },
+    {
+      "id": "625520d7-ab8e-4ad2-9b55-be92a981286b",
+      "at": 1790058091969,
+      "kind": "verify",
+      "text": "Verified change fill: The target matches the requested value."
+    },
+    {
+      "id": "60c756fb-be3a-4df6-96e5-706f2cda07f5",
+      "at": 1790058091970,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "28686bba-e497-48b8-86ce-c94b0f394255",
+      "at": 1790058095199,
+      "kind": "think",
+      "text": "I\u2019m setting maximum discovery depth to 1 for the one-page revision.",
+      "ms": 3228
+    },
+    {
+      "id": "d962e782-96a6-4145-8ff6-1be405042767",
+      "at": 1790058095226,
+      "kind": "observe",
+      "text": "Read 87 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 26
+    },
+    {
+      "id": "d43f5ee6-ff92-4970-9fd5-e1f08f30e5cd",
+      "at": 1790058095380,
+      "kind": "act",
+      "text": "I\u2019m setting maximum discovery depth to 1 for the one-page revision.",
+      "ms": 151
+    },
+    {
+      "id": "e6d6ff4e-aaa8-4543-8fdb-cbae53d71bf3",
+      "at": 1790058095394,
+      "kind": "observe",
+      "text": "Read 87 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 12
+    },
+    {
+      "id": "22972841-cc10-4073-a258-52bfc321042c",
+      "at": 1790058095397,
+      "kind": "verify",
+      "text": "Verified change fill: The target matches the requested value."
+    },
+    {
+      "id": "e61f2d02-cdc4-416a-bdec-75a371ec06b4",
+      "at": 1790058095398,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "002bf0a3-e3f2-42fd-aeba-cd896a136d4f",
+      "at": 1790058099238,
+      "kind": "think",
+      "text": "I\u2019m starting the verified one-page Markdown crawl with depth 1 and entireWebsite off.",
+      "ms": 3839
+    },
+    {
+      "id": "2374f240-bf31-4f1f-924a-b49559809d54",
+      "at": 1790058099268,
+      "kind": "observe",
+      "text": "Read 87 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 28
+    },
+    {
+      "id": "b1640c98-dbc7-4379-8d71-8dca22e7d8ba",
+      "at": 1790058099426,
+      "kind": "act",
+      "text": "I\u2019m starting the verified one-page Markdown crawl with depth 1 and entireWebsite off.",
+      "ms": 157
+    },
+    {
+      "id": "c73865f9-b1aa-4e8f-9ecb-14034c2a7683",
+      "at": 1790058099442,
+      "kind": "observe",
+      "text": "Read 87 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 14
+    },
+    {
+      "id": "1babeedf-2b0d-43a0-b59e-bc95d6a218dd",
+      "at": 1790058100105,
+      "kind": "observe",
+      "text": "Read 94 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 10
+    },
+    {
+      "id": "5c305b7b-c181-4183-a46b-500e9eadf41a",
+      "at": 1790058100108,
+      "kind": "verify",
+      "text": "Verified change click: Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "86c5a652-a76d-4ab6-8201-bc4be96a5474",
+      "at": 1790058100109,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "6fbe54dc-8754-4d5a-b80c-97f666b2944a",
+      "at": 1790058102246,
+      "kind": "think",
+      "text": "I\u2019m waiting for the one-page crawl revision to finish.",
+      "ms": 2134
+    },
+    {
+      "id": "a6f3ec8e-9ecb-488e-a45d-b1088dedf023",
+      "at": 1790058112256,
+      "kind": "act",
+      "text": "I\u2019m waiting for the one-page crawl revision to finish.",
+      "ms": 10008
+    },
+    {
+      "id": "99c86e95-1819-4002-ad47-d86a395a5de2",
+      "at": 1790058112295,
+      "kind": "observe",
+      "text": "Read 80 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 38
+    },
+    {
+      "id": "2f49a467-1e9d-427d-a814-708c28d0a795",
+      "at": 1790058112296,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "f184ba1e-fe91-4322-9ba7-c1d6f0f595b2",
+      "at": 1790058114394,
+      "kind": "think",
+      "text": "I\u2019m waiting for the one-page crawl revision to reach a terminal status.",
+      "ms": 2096
+    },
+    {
+      "id": "d7cdfab3-3e12-4ca3-98c1-846dc28ccab4",
+      "at": 1790058124402,
+      "kind": "act",
+      "text": "I\u2019m waiting for the one-page crawl revision to reach a terminal status.",
+      "ms": 10006
+    },
+    {
+      "id": "4a418a1d-8718-4c4e-bff9-a25eb507d6ec",
+      "at": 1790058124431,
+      "kind": "observe",
+      "text": "Read 78 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 28
+    },
+    {
+      "id": "03478ec1-9e7e-4c3e-962f-a433966aeff6",
+      "at": 1790058124432,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "21787700-367d-47ae-9842-b68263b224ef",
+      "at": 1790058127788,
+      "kind": "think",
+      "text": "I\u2019m reopening the new one-page crawl from Recent Runs to verify its saved result.",
+      "ms": 3354
+    },
+    {
+      "id": "e08230ac-aa67-4d44-b24f-b5051f91cc2e",
+      "at": 1790058127838,
+      "kind": "observe",
+      "text": "Read 78 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 48
+    },
+    {
+      "id": "afe4f849-f8b0-45b6-a530-b1907da62cb2",
+      "at": 1790058127978,
+      "kind": "act",
+      "text": "I\u2019m reopening the new one-page crawl from Recent Runs to verify its saved result.",
+      "ms": 138
+    },
+    {
+      "id": "455bbea1-d002-4488-97c3-490548e2bdf4",
+      "at": 1790058128005,
+      "kind": "observe",
+      "text": "Read 78 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 25
+    },
+    {
+      "id": "7ad969ec-24b6-4517-9e01-44c7f6ac5b8d",
+      "at": 1790058128153,
+      "kind": "observe",
+      "text": "Read 78 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 25
+    },
+    {
+      "id": "a2fd19e0-68d4-4074-9d6d-336b1d153358",
+      "at": 1790058128431,
+      "kind": "observe",
+      "text": "Read 78 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 36
+    },
+    {
+      "id": "f011808d-2350-4812-8783-09645012e6f8",
+      "at": 1790058128935,
+      "kind": "observe",
+      "text": "Read 78 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 21
+    },
+    {
+      "id": "b5c080bb-da24-4cbb-9bbd-0b3d097c0faf",
+      "at": 1790058129663,
+      "kind": "observe",
+      "text": "Read 41 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 26
+    },
+    {
+      "id": "b30f359b-ce5d-4bc7-ac30-b70e6f75b7ef",
+      "at": 1790058129665,
+      "kind": "verify",
+      "text": "Verified change click: Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground/01a0c7c6-f402-739b-8f6f-9c013cd29001"
+    },
+    {
+      "id": "39eddc7d-acdc-427b-8d16-d4c902b43683",
+      "at": 1790058129667,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "4425294e-6459-4a14-b195-754a7c2fc925",
+      "at": 1790058133308,
+      "kind": "think",
+      "text": "I\u2019m returning to Recent Runs to reopen the earlier two-page crawl for comparison.",
+      "ms": 3639
+    },
+    {
+      "id": "2ee17e97-ec79-4d09-bc7d-7773117f2053",
+      "at": 1790058133335,
+      "kind": "observe",
+      "text": "Read 41 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 26
+    },
+    {
+      "id": "4f839ac8-5a03-460c-a857-cdad109f35fd",
+      "at": 1790058133473,
+      "kind": "act",
+      "text": "I\u2019m returning to Recent Runs to reopen the earlier two-page crawl for comparison.",
+      "ms": 135
+    },
+    {
+      "id": "6f7a8202-8916-4b38-8f69-5625171a0345",
+      "at": 1790058133497,
+      "kind": "observe",
+      "text": "Read 41 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 22
+    },
+    {
+      "id": "f43ea370-08f8-4f06-bfe9-f6b84cb58202",
+      "at": 1790058134169,
+      "kind": "observe",
+      "text": "Read 41 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 18
+    },
+    {
+      "id": "a85499b3-369f-4c1d-af0d-72c8bc15d78a",
+      "at": 1790058134171,
+      "kind": "verify",
+      "text": "Verified change click: Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "6a5e38fe-43fc-4cf8-87e7-ef7203ad3bb5",
+      "at": 1790058134173,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "9928d050-e6a7-4d3a-9651-ada1cac3f8b6",
+      "at": 1790058136974,
+      "kind": "think",
+      "text": "I\u2019m returning to Recent Runs so I can open the earlier two-page crawl for comparison.",
+      "ms": 2799
+    },
+    {
+      "id": "c065f9b6-ab15-4091-82a8-bfb84af9c29b",
+      "at": 1790058136994,
+      "kind": "observe",
+      "text": "Read 105 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 19
+    },
+    {
+      "id": "cedd3216-4238-4e04-9fc5-d9e21fcb665b",
+      "at": 1790058136995,
+      "kind": "info",
+      "text": "An editor appeared while planning. Inspecting its current controls before another click; no input was sent."
+    },
+    {
+      "id": "8857aae3-6698-4319-b6f6-ecbd06cf937b",
+      "at": 1790058136996,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "50ff25e4-f356-4497-809d-1c14ba276267",
+      "at": 1790058140961,
+      "kind": "think",
+      "text": "I\u2019m reopening the earlier two-page crawl so I can compare its saved results with the one-page revision.",
+      "ms": 3964
+    },
+    {
+      "id": "39d4dd51-7f43-4826-ba6b-26946b62fedf",
+      "at": 1790058140971,
+      "kind": "observe",
+      "text": "Read 105 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 9
+    },
+    {
+      "id": "48b095df-9534-427c-8e46-7bc0e5d7d94a",
+      "at": 1790058141096,
+      "kind": "act",
+      "text": "I\u2019m reopening the earlier two-page crawl so I can compare its saved results with the one-page revision.",
+      "ms": 122
+    },
+    {
+      "id": "9c16415f-ae36-41b2-a34f-efba2f461589",
+      "at": 1790058141112,
+      "kind": "observe",
+      "text": "Read 105 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 13
+    },
+    {
+      "id": "aba763f0-d1ee-4d73-9160-ed34aa1db887",
+      "at": 1790058141242,
+      "kind": "observe",
+      "text": "Read 105 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 8
+    },
+    {
+      "id": "ecdfc406-35d4-4d80-86c2-ba72b845335e",
+      "at": 1790058141498,
+      "kind": "observe",
+      "text": "Read 105 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 14
+    },
+    {
+      "id": "a349d193-408c-4983-ba8f-b31533719e33",
+      "at": 1790058142013,
+      "kind": "observe",
+      "text": "Read 71 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 31
+    },
+    {
+      "id": "0e7bf45f-e443-405b-8a75-fb65e88f2fe7",
+      "at": 1790058142016,
+      "kind": "verify",
+      "text": "Verified change click: Navigation observed: https://www.firecrawl.dev/playground/01a0c7c5-8ba1-749d-977a-02db35a0d6cb"
+    },
+    {
+      "id": "e46f1a31-1d26-4f46-b1dc-81c2a7ff1aaa",
+      "at": 1790058142017,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "a5cc4ac5-ffd8-44a2-ba69-3bbff060bac3",
+      "at": 1790058146742,
+      "kind": "observe",
+      "text": "Read 71 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 46
+    },
+    {
+      "id": "5fcf0923-d14a-4800-b3a4-1c6c4a22f0f0",
+      "at": 1790058146745,
+      "kind": "think",
+      "text": "Both saved crawl runs were inspected: the original returned 2 Markdown pages, while the separate revision returned 1 Markdown page.",
+      "ms": 4677
+    },
+    {
+      "id": "a1bd2e82-c013-46a1-b1c1-e109a256f4b8",
+      "at": 1790058180437,
+      "kind": "observe",
+      "text": "Read 71 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 48
+    },
+    {
+      "id": "39423be9-5e66-48f6-b244-a5ef8147d84f",
+      "at": 1790058180438,
+      "kind": "think",
+      "text": "Planning the next website action."
+    },
+    {
+      "id": "1b5f6c47-fec3-45c2-91ca-c64cf40aa8f1",
+      "at": 1790058185510,
+      "kind": "observe",
+      "text": "Read 71 controls on Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+      "ms": 45
+    },
+    {
+      "id": "5f647f03-2981-48f2-9b0c-0697c47854d6",
+      "at": 1790058185512,
+      "kind": "think",
+      "text": "The structured JSON revision with title, price_gbp, and stock_count is the best inventory input because it provides typed fields; the Markdown crawls are better for discovery or archival content. Nova operates and verifies jobs in the Firecrawl dashboard, while Firecrawl Agent is Firecrawl\u2019s own product for autonomously researching and acting on target websites.",
+      "ms": 5024
+    }
+  ],
+  "steps": 79,
+  "model": "gpt-5.6-sol",
+  "startedAt": 1790057489637,
+  "experience": {
+    "name": "Firecrawl",
+    "accent": "#ee5829",
+    "greeting": "Turn a web-data task into a configured run and an inspectable result.",
+    "suggestions": [
+      {
+        "title": "Configure a scrape",
+        "prompt": "Scrape a page and inspect its saved result"
+      },
+      {
+        "title": "Run a bounded crawl",
+        "prompt": "Collect a small website sample and check every result"
+      }
+    ]
+  },
+  "progress": {
+    "url": "https://www.firecrawl.dev/playground/01a0c7c5-8ba1-749d-977a-02db35a0d6cb",
+    "reloads": 0,
+    "actions": [],
+    "settings": []
+  },
+  "lastSnapshot": {
+    "id": "p500wa3:1790058185508",
+    "url": "https://www.firecrawl.dev/playground/01a0c7c5-8ba1-749d-977a-02db35a0d6cb",
+    "title": "Firecrawl - The web data API to search, scrape, and interact with the web at scale. \ud83d\udd25",
+    "text": "Products\nResources\nPricing\nDocs\nBlog\nPlayground\n183.1K\nDashboard\nbooks.toscrape.com/\nMarkdown\n~\n93\n% tokens\nJSON\n-\n[\nHome\n](\nhttps://books.toscrape.com/index.html\n)\n-\nAll products\n#\nAll products\n**\n1000\n**\nresults - showing\n**\n1\n**\nto\n**\n20\n**\n.\n**\nWarning!\n**\nThis is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.\n01.\n[\n![A Light in the Attic\n](\nhttps://books.toscrape.com/media/cache/2c/da/2cdad67c44b002e7ead0cc35693c0e8b.jpg\n)\n](https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html)\n### [A Light in the ...](https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html \"A Light in the Attic\")\n-\nPage 1 of 50\nCopy as Markdown\n#\n2\nBooks | Books to Scrape - Sandbox\nbooks.toscrape.com/catalogue/category/books_1/index.html\nMarkdown\n~\n93\n% tokens\nJSON\nIntroducing the Firecrawl Developer Index, built for supercharging coding agents.\nRead the announcement \u2192\nGo back\nbooks.toscrape.com/\nShare\nResults\n(\n2\n)\nYou can see the rest of the results in the JSON data on right, or below.\nDebug issue\nMarkdown\nJSON\n#\n1\nAll products | Books to Scrape - Sandbox\n\u00a351.77\nIn stock\nAdd to basket\n02.\n[\n![Tipping the Velvet\n](\nhttps://books.toscrape.com/media/cache/26/0c/260c6ae16bce31c8f8c95daddd9f4a1c.jpg\n)\n](https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html)\n### [Tipping the Velvet](https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html \"Tipping the Velvet\")\n\u00a353.74\nIn stock\nAdd to basket\n03.\n[\n![Soumission\n](\nhttps://books.toscrape.com/media/cache/3e/ef/3eef99c9d9adef34639f510662022830.jpg\n)\n](https://books.toscrape.com/catalogue/soumission_998/index.html)\n### [Soumission](https://books.toscrape.com/catalogue/soumission_998/index.html \"Soumission\")\n\u00a350.10\nIn stock\nAdd to basket\n04.\n[\n![Sharp Objects\n](\nhttps://books.toscrape.com/media/cache/32/51/3251cf3a3412f53f339e42cac2134093.jpg\n)\n](https://books.toscrape.com/catalogue/sharp-objects_997/index.html)\n### [Sharp Objects](https://books.toscrape.com/catalogue/sharp-objects_997/index.html \"Sharp Objects\")\n\u00a347.82\nIn stock\nAdd to basket\n05.\n[\n![Sapiens: A Brief History of Humankind\n](\nhttps://books.toscrape.com/media/cache/be/a5/bea5697f2534a2f86a3ef27b5a8c12a6.jpg\n)\n](https://books.toscrape.com/catalogue/sapiens-a-brief-history-of-humankind_996/index.html)\n### [Sapiens: A Brief History ...](https://books.toscrape.com/catalogue/sapiens-a-brief-history-of-humankind_996/index.html \"Sapiens: A Brief History of Humankind\")\n\u00a354.23\nIn stock\nAdd to basket\n06.\n[\n![The Requiem Red\n](\nhttps://books.toscrape.com/media/cache/68/33/68339b4c9bc034267e1da611ab3b34f8.jpg\n)\n](https://books.toscrape.com/catalogue/the-requiem-red_995/index.html)\n### [The Requiem Red](https://books.toscrape.com/catalogue/the-requiem-red_995/index.html \"The Requiem Red\")\n\u00a322.65\nIn stock\nAdd to basket\n07.\n[\n![The Dirty Little Secrets of Getting Your Dream Job\n](\nhttps://books.toscrape.com/media/cache/92/27/92274a95b7c251fea59a2b8a78275ab4.jpg\n)\n](https://books.toscrape.com/catalogue/the-dirty-little-secrets-of-getting-your-dream-job_994/index.html)\n### [The Dirty Little Secrets ...](https://books.toscrape.com/catalogue/the-dirty-little-secrets-of-getting-your-dream-job_994/index.html \"The Dirty Little Secrets of Getting Your Dream Job\")\n\u00a333.34\nIn stock\nAdd to basket\n08.\n[\n![The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull\n](\nhttps://books.toscrape.com/media/cache/3d/54/3d54940e57e662c4dd1f3ff00c78cc64.jpg\n)\n](https://books.toscrape.com/catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html)\n### [The Coming Woman: A ...](https://books.toscrape.com/catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html \"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull\")\n\u00a317.93\nIn stock\nAdd to basket\n09.\n[\n![The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics\n](\nhttps://books.toscrape.com/media/cache/66/88/66883b91f6804b2323c8369331cb7dd1.jpg\n)\n](https://books.toscrape.com/catalogue/the-boys-in-the-boat-nine-americans-and-their-epic-quest-for-gold-at-the-1936-berlin-olympics_992/index.html)\n### [The Boys in the ...](https://books.toscrape.com/catalogue/the-boys-in-the-boat-nine-americans-and-their-epic-quest-for-gold-at-the-1936-berlin-olympics_992/index.html \"The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics\")\n\u00a322.60\nIn stock\nAdd to basket\n10.\n[\n![The Black Maria\n](\nhttps://books.toscrape.com/media/cache/58/46/5846057e28022268153beff6d352b06c.jpg\n)\n](https://books.toscrape.com/catalogue/the-black-maria_991/index.html)\n### [The Black Maria](https://books.toscrape.com/catalogue/the-black-maria_991/index.html \"The Black Maria\")\n\u00a352.15\nIn stock\nAdd to basket\n11.\n[\n![Starving Hearts (Triangular Trade Trilogy, #1)\n](\nhttps://books.toscrape.com/media/cache/be/f4/bef44da28c98f905a3ebec0b87be8530.jpg\n)\n](https://books.toscrape.com/catalogue/starving-hearts-triangular-trade-trilogy-1_990/index.html)\n### [Starving Hearts (Triangular Trade ...](https://books.toscrape.com/catalogue/starving-hearts-triangular-trade-trilogy-1_990/index.html \"Starving Hearts (Triangular Trade Trilogy, \\#1)\")\n\u00a313.99\nIn stock\nAdd to basket\n12.\n[\n![Shakespeare's Sonnets\n](\nhttps://books.toscrape.com/media/cache/10/48/1048f63d3b5061cd2f424d20b3f9b666.jpg\n)\n](https://books.toscrape.com/catalogue/shakespeares-sonnets_989/index.html)\n### [Shakespeare's Sonnets](https://books.toscrape.com/catalogue/shakespeares-sonnets_989/index.html \"Shakespeare's Sonnets\")\n\u00a320.66\nIn stock\nAdd to basket\n13.\n[\n![Set Me Free\n](\nhttps://books.toscrape.com/media/cache/5b/88/5b88c52633f53cacf162c15f4f823153.jpg\n)\n](https://books.toscrape.com/catalogue/set-me-free_988/index.html)\n### [Set Me Free](https://books.toscrape.com/catalogue/set-me-free_988/index.html \"Set Me Free\")\n\u00a317.46\nIn stock\nAdd to basket\n14.\n[\n![Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)\n](\nhttps://books.toscrape.com/media/cache/94/b1/94b1b8b244bce9677c2f29ccc890d4d2.jpg\n)\n](https://books.toscrape.com/catalogue/scott-pilgrims-precious-little-life-scott-pilgrim-1_987/index.html)\n### [Scott Pilgrim's Precious Little ...](https://books.toscrape.com/catalogue/scott-pilgrims-precious-little-life-scott-pilgrim-1_987/index.html \"Scott Pilgrim's Precious Little Life (Scott Pilgrim \\#1)\")\n\u00a352.29\nIn stock\nAdd to basket\n15.\n[\n![Rip it Up and Start Again\n](\nhttps://books.toscrape.com/media/cache/81/c4/81c4a973364e17d01f217e1188253d5e.jpg\n)\n](https://books.toscrape.com/catalogue/rip-it-up-and-start-again_986/index.html)\n### [Rip it Up and ...](https://books.toscrape.com/catalogue/rip-it-up-and-start-again_986/index.html \"Rip it Up and Start Again\")\n\u00a335.02\nIn stock\nAdd to basket\n16.\n[\n![Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991\n](\nhttps://books.toscrape.com/media/cache/54/60/54607fe8945897cdcced0044103b10b6.jpg\n)\n](https://books.toscrape.com/catalogue/our-band-could-be-your-life-scenes-from-the-american-indie-underground-1981-1991_985/index.html)\n### [Our Band Could Be ...](https://books.toscrape.com/catalogue/our-band-could-be-your-life-scenes-from-the-american-indie-underground-1981-1991_985/index.html \"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991\")\n\u00a357.25\nIn stock\nAdd to basket\n17.\n[\n![Olio\n](\nhttps://books.toscrape.com/media/cache/55/33/553310a7162dfbc2c6d19a84da0df9e1.jpg\n)\n](https://books.toscrape.com/catalogue/olio_984/index.html)\n### [Olio](https://books.toscrape.com/catalogue/olio_984/index.html \"Olio\")\n\u00a323.88\nIn stock\nAdd to basket\n18.\n[\n![Mesaerion: The Best Science Fiction Stories 1800-1849\n](\nhttps://books.toscrape.com/media/cache/09/a3/09a3aef48557576e1a85ba7efea8ecb7.jpg\n)\n](https://books.toscrape.com/catalogue/mesaerion-the-best-science-fiction-stories-1800-1849_983/index.html)\n### [Mesaerion: The Best Science ...](https://books.toscrape.com/catalogue/mesaerion-the-best-science-fiction-stories-1800-1849_983/index.html \"Mesaerion: The Best Science Fiction Stories 1800-1849\")\n\u00a337.59\nIn stock\nAdd to basket\n19.\n[\n![Libertarianism for Beginners\n](\nhttps://books.toscrape.com/media/cache/0b/bc/0bbcd0a6f4bcd81ccb1049a52736406e.jpg\n)\n](https://books.toscrape.com/catalogue/libertarianism-for-beginners_982/index.html)\n### [Libertarianism for Beginners](https://books.toscrape.com/catalogue/libertarianism-for-beginners_982/index.html \"Libertarianism for Beginners\")\n\u00a351.33\nIn stock\nAdd to basket\n20.\n[\n![It's Only the Himalayas\n](\nhttps://books.toscrape.com/media/cache/27/a5/27a53d0bb95bdd88288eaf66c9230d7e.jpg\n)\n](https://books.toscrape.com/catalogue/its-only-the-himalayas_981/index.html)\n### [It's Only the Himalayas](https://books.toscrape.com/catalogue/its-only-the-himalayas_981/index.html \"It's Only the Himalayas\")\n\u00a345.17\nIn stock\nAdd to basket\n-\n[\nnext\n](\nhttps://books.toscrape.com/catalogue/page-2.html\n)\n-\n[\nHome\n](\nhttps://books.toscrape.com/index.html\n)\n-\nBooks\n#\nBooks\n**\n1000\n**\nresults - showing\n**\n1\n**\nto\n**\n20\n**\n.\n**\nWarning!\n**\nThis is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.\n01.\n[\n![A Light in the Attic\n](\nhttps://books.toscrape.com/media/cache/2c/da/2cdad67c44b002e7ead0cc35693c0e8b.jpg\n)\n](https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html)\n### [A Light in the ...](https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html \"A Light in the Attic\")\n\u00a351.77\nIn stock\nAdd to basket\n02.\n[\n![Tipping the Velvet\n](\nhttps://books.toscrape.com/media/cache/26/0c/260c6ae16bce31c8f8c95daddd9f4a1c.jpg\n)\n](https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html)\n### [Tipping the Velvet](https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html \"Tipping the Velvet\")\n\u00a353.74\nIn stock\nAdd to basket\n03.\n[\n![Soumission\n](\nhttps://books.toscrape.com/media/cache/3e/ef/3eef99c9d9adef34639f510662022830.jpg\n)\n](https://books.toscrape.com/catalogue/soumission_998/index.html)\n### [Soumission](https://books.toscrape.com/catalogue/soumission_998/index.html \"Soumission\")\n\u00a350.10\nIn stock\nAdd to basket\n04.\n[\n![Sharp Objects\n](\nhttps://books.toscrape.com/media/cache/32/51/3251cf3a3412f53f339e42cac2134093.jpg\n)\n](https://books.toscrape.com/catalogue/sharp-objects_997/index.html)\n### [Sharp Objects](https://books.toscrape.com/catalogue/sharp-objects_997/index.html \"Sharp Objects\")\n\u00a347.82\nIn stock\nAdd to basket\n05.\n[\n![Sapiens: A Brief History of Humankind\n](\nhttps://books.toscrape.com/media/cache/be/a5/bea5697f2534a2f86a3ef27b5a8c12a6.jpg\n)\n](https://books.toscrape.com/catalogue/sapiens-a-brief-history-of-humankind_996/index.html)\n### [Sapiens: A Brief History ...](https://books.toscrape.com/catalogue/sapiens-a-brief-history-of-humankind_996/index.html \"Sapiens: A Brief History of Humankind\")\n\u00a354.23\nIn stock\nAdd to basket\n06.\n[\n![The Requiem Red\n](\nhttps://books.toscrape.com/media/cache/68/33/68339b4c9bc034267e1da611ab3b34f8.jpg\n)\n](https://books.toscrape.com/catalogue/the-requiem-red_995/index.html)\n### [The Requiem Red](https://books.toscrape.com/catalogue/the-requiem-red_995/index.html \"The Requiem Red\")\n\u00a322.65\nIn stock\nAdd to basket\n07.\n[\n![The Dirty Little Secrets of Getting Your Dream Job\n](\nhttps://books.toscrape.com/media/cache/92/27/92274a95b7c251fea59a2b8a78275ab4.jpg\n)\n](https://books.toscrape.com/catalogue/the-dirty-little-secrets-of-getting-your-dream-job_994/index.html)\n### [The Dirty Little Secrets ...](https://books.toscrape.com/catalogue/the-dirty-little-secrets-of-getting-your-dream-job_994/index.html \"The Dirty Little Secrets of Getting Your Dream Job\")\n\u00a333.34\nIn stock\nAdd to basket\n08.\n[\n![The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull\n](\nhttps://books.toscrape.com/media/cache/3d/54/3d54940e57e662c4dd1f3ff00c78cc64.jpg\n)\n](https://books.toscrape.com/catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html)\n### [The Coming Woman: A ...](https://books.toscrape.com/catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html \"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull\")\n\u00a317.93\nIn stock\nAdd to basket\n09.\n[\n![The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics\n](\nhttps://books.toscrape.com/media/cache/66/88/66883b91f6804b2323c8369331cb7dd1.jpg\n)\n](https://books.toscrape.com/catalogue/the-boys-in-the-boat-nine-americans-and-their-epic-quest-for-gold-at-the-1936-berlin-olympics_992/index.html)\n### [The Boys in the ...](https://books.toscrape.com/catalogue/the-boys-in-the-boat-nine-americans-and-their-epic-quest-for-gold-at-the-1936-berlin-olympics_992/index.html \"The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics\")\n\u00a322.60\nIn stock\nAdd to basket\n10.\n[\n![The Black Maria\n](\nhttps://books.toscrape.com/media/cache/58/46/5846057e28022268153beff6d352b06c.jpg\n)\n](https://books.toscrape.com/catalogue/the-black-maria_991/index.html)\n### [The Black Maria](https://books.toscrape.com/catalogue/the-black-maria_991/index.html \"The Black Maria\")\n\u00a352.15\nIn stock\nAdd to basket\n11.\n[\n![Starving Hearts (Triangular Trade Trilogy, #1)\n](\nhttps://books.toscrape.com/media/cache/be/f4/bef44da28c98f905a3ebec0b87be8530.jpg\n)\n](https://books.toscrape.com/catalogue/starving-hearts-triangular-trade-trilogy-1_990/index.html)\n### [Starving Hearts (Triangular Trade ...](https://books.toscrape.com/catalogue/starving-hearts-triangular-trade-trilogy-1_990/index.html \"Starving Hearts (Triangular Trade Trilogy, \\#1)\")\n\u00a313.99\nIn stock\nAdd to basket\n12.\n[\n![Shakespeare's Sonnets\n](\nhttps://books.toscrape.com/media/cache/10/48/1048f63d3b5061cd2f424d20b3f9b666.jpg\n)\n](https://books.toscrape.com/catalogue/shakespeares-sonnets_989/index.html)\n### [Shakespeare's Sonnets](https://books.toscrape.com/catalogue/shakespeares-sonnets_989/index.html \"Shakespeare's Sonnets\")\n\u00a320.66\nIn stock\nAdd to basket\n13.\n[\n![Set Me Free\n](\nhttps://books.toscrape.com/media/cache/5b/88/5b88c52633f53cacf162c15f4f823153.jpg\n)\n](https://books.toscrape.com/catalogue/set-me-free_988/index.html)\n### [Set Me Free](https://books.toscrape.com/catalogue/set-me-free_988/index.html \"Set Me Free\")\n\u00a317.46\nIn stock\nAdd to basket\n14.\n[\n![Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)\n](\nhttps://books.toscrape.com/media/cache/94/b1/94b1b8b244bce9677c2f29ccc890d4d2.jpg\n)\n](https://books.toscrape.com/catalogue/scott-pilgrims-precious-little-life-scott-pilgrim-1_987/index.html)\n### [Scott Pilgrim's Precious Little ...](https://books.toscrape.com/catalogue/scott-pilgrims-precious-little-life-scott-pilgrim-1_987/index.html \"Scott Pilgrim's Precious Little Life (Scott Pilgrim \\#1)\")\n\u00a352.29\nIn stock\nAdd to basket\n15.\n[\n![Rip it Up and Start Again\n](\nhttps://books.toscrape.com/media/cache/81/c4/81c4a973364e17d01f217e1188253d5e.jpg\n)\n](https://books.toscrape.com/catalogue/rip-it-up-and-start-again_986/index.html)\n### [Rip it Up and ...](https://books.toscrape.com/catalogue/rip-it-up-and-start-again_986/index.html \"Rip it Up and Start Again\")\n\u00a335.02\nIn stock\nAdd to basket\n16.\n[\n![Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991\n](\nhttps://books.toscrape.com/media/cache/54/60/54607fe8945897cdcced0044103b10b6.jpg\n)\n](https://books.toscrape.com/catalogue/our-band-could-be-your-life-scenes-from-the-american-indie-underground-1981-1991_985/index.html)\n### [Our Band Could Be ...](https://books.toscrape.com/catalogue/our-band-could-be-your-life-scenes-from-the-american-indie-underground-1981-1991_985/index.html \"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991\")\n\u00a357.25\nIn stock\nAdd to basket\n17.\n[\n![Olio\n](\nhttps://books.toscrape.com/media/cache/55/33/553310a7162dfbc2c6d19a84da0df9e1.jpg\n)\n](https://books.toscrape.com/catalogue/olio_984/index.html)\n### [Olio](https://books.toscrape.com/catalogue/olio_984/index.html \"Olio\")\n\u00a323.88\nIn stock\nAdd to basket\n18.\n[\n![Mesaerion: The Best Science Fiction Stories 1800-1849\n](\nhttps://books.toscrape.com/media/cache/09/a3/09a3aef48557576e1a85ba7efea8ecb7.jpg\n)\n](https://books.toscrape.com/catalogue/mesaerion-the-best-science-fiction-stories-1800-1849_983/index.html)\n### [Mesaerion: The Best Science ...](https://books.toscrape.com/catalogue/mesaerion-the-best-science-fiction-stories-1800-1849_983/index.html \"Mesaerion: The Best Science Fiction Stories 1800-1849\")\n\u00a337.59\nIn stock\nAdd to basket\n19.\n[\n![Libertarianism for Beginners\n](\nhttps://books.toscrape.com/media/cache/0b/bc/0bbcd0a6f4bcd81ccb1049a52736406e.jpg\n)\n](https://books.toscrape.com/catalogue/libertarianism-for-beginners_982/index.html)\n### [Libertarianism for Beginners](https://books.toscrape.com/catalogue/libertarianism-for-beginners_982/index.html \"Libertarianism for Beginners\")\n\u00a351.33\nIn stock\nAdd to basket\n20.\n[\n![It's Only the Himalayas\n](\nhttps://books.toscrape.com/media/cache/27/a5/27a53d0bb95bdd88288eaf66c9230d7e.jpg\n)\n](https://books.toscrape.com/catalogue/its-only-the-himalayas_981/index.html)\n### [It's Only the Himalayas](https://books.toscrape.com/catalogue/its-only-the-himalayas_981/index.html \"It's Only the Himalayas\")\n\u00a345.17\nIn stock\nAdd to basket\n-\nPage 1 of 50\n-\n[\nnext\n](\nhttps://books.toscrape.com/catalogue/category/books_1/page-2.html\n)\nCopy as Markdown\nFOOTER\nThe easiest way to get\ncontext from the web\nBacked by\nY Combinator\nLinkedin\nGithub\nYouTube\nSOC II \u00b7 Type 2\nAICPA\nSOC 2\nX\n(Twitter)\nInstagram\nCommunity\nProducts\nWeb Scraping API\nDocument Parsing API\nWeb Search API\nDeveloper Index\nWeb Crawling API\nBrowser Interaction\nWeb Monitoring\nPlayground\nPricing\nTemplates\nChangelog\nFree Tools\nUse Cases\nDeep research\nSmarter AI chats\nAI agent tools\nOnboarding\nLead enrichment\nDocumentation\nGetting started\nAPI Reference\n",
+    "elements": [
+      {
+        "ref": "p500wa3-207",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "",
+        "type": "",
+        "href": "https://www.firecrawl.dev/",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-208",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Products",
+        "type": "",
+        "href": "https://www.firecrawl.dev/playground/01a0c7c5-8ba1-749d-977a-02db35a0d6cb#",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-209",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Resources",
+        "type": "",
+        "href": "https://www.firecrawl.dev/playground/01a0c7c5-8ba1-749d-977a-02db35a0d6cb#",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-210",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Pricing",
+        "type": "",
+        "href": "https://www.firecrawl.dev/pricing",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-211",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Docs",
+        "type": "",
+        "href": "https://docs.firecrawl.dev/",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-212",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Blog",
+        "type": "",
+        "href": "https://www.firecrawl.dev/blog",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-213",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Playground",
+        "type": "",
+        "href": "https://www.firecrawl.dev/playground",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-214",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "183.1K",
+        "type": "button",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-215",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Dashboard",
+        "type": "",
+        "href": "https://www.firecrawl.dev/app",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-216",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "Dashboard",
+        "type": "button",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-310",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "Markdown ~93% tokens",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-311",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "JSON",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-312",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "Copy as Markdown",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-313",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "Markdown ~93% tokens",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-314",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "JSON",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-124",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "Open Firecrawl Support Agent",
+        "type": "button",
+        "state": [
+          "expanded:false"
+        ],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-315",
+        "covered": false,
+        "tag": "div",
+        "role": "",
+        "name": "- [Home](https://books.toscrape.com/index.html) - All products # All products **1000** results - showing **1** to **20**. **Warning!** This is a demo website for web scraping purposes. Prices and ratings here were random",
+        "type": "",
+        "state": [
+          "scrollX:0",
+          "scrollY:0",
+          "scrollMaxX:0",
+          "scrollMaxY:12696"
+        ],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-316",
+        "covered": false,
+        "tag": "div",
+        "role": "",
+        "name": "- [Home](https://books.toscrape.com/index.html) - Books # Books **1000** results - showing **1** to **20**. **Warning!** This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned an",
+        "type": "",
+        "state": [
+          "scrollX:0",
+          "scrollY:0",
+          "scrollMaxX:0",
+          "scrollMaxY:12696"
+        ],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-206",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Read the announcement \u2192",
+        "type": "",
+        "href": "https://www.firecrawl.dev/blog/developer-index-launch?utm_source=firecrawl-web&utm_medium=banner&utm_campaign=developer-index-launch",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-317",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "Go back",
+        "type": "button",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-318",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "Share",
+        "type": "button",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-319",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "Debug issue",
+        "type": "button",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-320",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "Markdown",
+        "type": "button",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-321",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "JSON",
+        "type": "button",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-322",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "Copy as Markdown",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-263",
+        "covered": false,
+        "tag": "canvas",
+        "role": "",
+        "name": "",
+        "type": "",
+        "state": [],
+        "visual": true,
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-264",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Linkedin",
+        "type": "",
+        "href": "https://www.linkedin.com/company/firecrawl",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-265",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Github",
+        "type": "",
+        "href": "https://github.com/firecrawl/firecrawl",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-266",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "YouTube",
+        "type": "",
+        "href": "https://www.youtube.com/@Firecrawl_dev",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-267",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "X (Twitter)",
+        "type": "",
+        "href": "https://x.com/firecrawl",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-268",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Instagram",
+        "type": "",
+        "href": "https://www.instagram.com/firecrawl_dev/",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-269",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Community",
+        "type": "",
+        "href": "https://community.firecrawl.dev/",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-270",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Web Scraping API",
+        "type": "",
+        "href": "https://www.firecrawl.dev/scrape",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-271",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Document Parsing API",
+        "type": "",
+        "href": "https://www.firecrawl.dev/parse",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-272",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Web Search API",
+        "type": "",
+        "href": "https://www.firecrawl.dev/search",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-273",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Developer Index",
+        "type": "",
+        "href": "https://www.firecrawl.dev/developer-index",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-274",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Web Crawling API",
+        "type": "",
+        "href": "https://www.firecrawl.dev/crawl",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-275",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Browser Interaction",
+        "type": "",
+        "href": "https://www.firecrawl.dev/interact",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-276",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Web Monitoring",
+        "type": "",
+        "href": "https://www.firecrawl.dev/monitor",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-277",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Playground",
+        "type": "",
+        "href": "https://www.firecrawl.dev/playground",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-278",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Pricing",
+        "type": "",
+        "href": "https://www.firecrawl.dev/pricing",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-279",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Templates",
+        "type": "",
+        "href": "https://github.com/orgs/firecrawl/repositories?q=sort%3Astars",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-280",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Changelog",
+        "type": "",
+        "href": "https://www.firecrawl.dev/changelog",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-281",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Free Tools",
+        "type": "",
+        "href": "https://www.firecrawl.dev/tools",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-282",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Deep research",
+        "type": "",
+        "href": "https://www.firecrawl.dev/use-cases/deep-research",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-283",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Smarter AI chats",
+        "type": "",
+        "href": "https://www.firecrawl.dev/use-cases/ai-chats",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-284",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "AI agent tools",
+        "type": "",
+        "href": "https://www.firecrawl.dev/use-cases/ai-mcps",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-285",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Onboarding",
+        "type": "",
+        "href": "https://www.firecrawl.dev/use-cases",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-286",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Lead enrichment",
+        "type": "",
+        "href": "https://www.firecrawl.dev/use-cases/lead-enrichment",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-287",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Getting started",
+        "type": "",
+        "href": "https://docs.firecrawl.dev/introduction",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-288",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "API Reference",
+        "type": "",
+        "href": "https://docs.firecrawl.dev/api-reference/introduction",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-289",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Integrations",
+        "type": "",
+        "href": "https://www.firecrawl.dev/app",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-290",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Examples",
+        "type": "",
+        "href": "https://docs.firecrawl.dev/use-cases/overview",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-291",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "SDKs",
+        "type": "",
+        "href": "https://docs.firecrawl.dev/sdks/overview",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-292",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "About",
+        "type": "",
+        "href": "https://www.firecrawl.dev/about",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-293",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Blog",
+        "type": "",
+        "href": "https://www.firecrawl.dev/blog",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-294",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Press & Brand",
+        "type": "",
+        "href": "https://www.firecrawl.dev/press-brand",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-295",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Careers",
+        "type": "",
+        "href": "https://www.firecrawl.dev/careers",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-296",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Community",
+        "type": "",
+        "href": "https://community.firecrawl.dev/",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-297",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Firestarters",
+        "type": "",
+        "href": "https://www.firecrawl.dev/firestarters",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-298",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Ambassadors",
+        "type": "",
+        "href": "https://www.firecrawl.dev/ambassadors",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-299",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Affiliates",
+        "type": "",
+        "href": "https://www.firecrawl.dev/affiliates",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-300",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Firecrawl Alternatives",
+        "type": "",
+        "href": "https://www.firecrawl.dev/alternatives",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-301",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Benchmarks",
+        "type": "",
+        "href": "https://www.firecrawl.dev/benchmarks",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-302",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Student program",
+        "type": "",
+        "href": "https://www.firecrawl.dev/student-program",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-303",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Web Extraction Glossary",
+        "type": "",
+        "href": "https://www.firecrawl.dev/glossary",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-304",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Security",
+        "type": "",
+        "href": "https://www.firecrawl.dev/security",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-305",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Terms of Service",
+        "type": "",
+        "href": "https://www.firecrawl.dev/terms-of-service",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-306",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Privacy Policy",
+        "type": "",
+        "href": "https://www.firecrawl.dev/privacy-policy",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-307",
+        "covered": false,
+        "tag": "a",
+        "role": "",
+        "name": "Report Abuse",
+        "type": "",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      },
+      {
+        "ref": "p500wa3-308",
+        "covered": false,
+        "tag": "button",
+        "role": "",
+        "name": "All systems normal",
+        "type": "button",
+        "state": [],
+        "context": "",
+        "form": false,
+        "disabled": false,
+        "sensitive": false
+      }
+    ],
+    "viewport": {
+      "width": 1109,
+      "height": 737,
+      "scrollX": 0,
+      "scrollY": 492,
+      "zoom": 1
+    },
+    "theme": {
+      "color": "rgba(0, 0, 0, 0)",
+      "font": "suisse, \"suisse Fallback\", system-ui, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "scheme": "light"
+    },
+    "frames": 3,
+    "capturedAt": 1790058185508,
+    "observation": {
+      "totalControls": 71,
+      "omittedControls": 0,
+      "viewportFirst": true,
+      "sensitiveFieldsPresent": false
+    },
+    "capabilities": [
+      "click",
+      "double_click",
+      "right_click",
+      "hover",
+      "drag",
+      "fill",
+      "type",
+      "clear",
+      "check",
+      "press",
+      "select",
+      "scroll",
+      "scroll_to",
+      "zoom",
+      "media",
+      "select_text",
+      "copy",
+      "paste",
+      "search",
+      "inspect",
+      "point",
+      "bounded-processing-wait",
+      "trusted-browser-input"
+    ]
+  },
+  "usage": {
+    "calls": 92,
+    "inputTokens": 1055015,
+    "cachedInputTokens": 384376,
+    "outputTokens": 10638
+  },
+  "actionSteps": [
+    {
+      "id": "0d21b424-4424-4645-b0a9-3a8ec11c142b",
+      "taskId": "d8f62651-7bc7-4b72-a1a5-f2beaa6a73d2",
+      "at": 1790057532477,
+      "kind": "click",
+      "title": "I\u2019m opening the Scrape playground in the verified Personal Team workspace.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=scrape"
+    },
+    {
+      "id": "adb68d21-6fe3-4847-a20c-d4e76592cda2",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057629116,
+      "kind": "fill",
+      "title": "I\u2019m entering the specified bookstore page as the scrape source.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "051d8a6b-b1a5-41e4-8741-f6ed2e0b7828",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057631397,
+      "kind": "click",
+      "title": "I\u2019m opening the format menu to add structured JSON alongside Markdown.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "b08b9ea2-5459-4c1b-86f9-be951269b648",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057634720,
+      "kind": "click",
+      "title": "I\u2019m adding structured JSON while preserving Markdown.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=scrape&url=books.toscrape.com%2Fcatalogue%2Fa-light-in-the-attic_1000%2Findex.html&formats=%5B%22markdown%22%2C%22json%22%5D&jsonSchema=%7B%22type%22%3A%22object%22%2C%22required%22%3A%5B%5D%2C%22properties%22%3A%7B%22company_name%22%3A%7B%22type%22%3A%22string%22%7D%2C%22company_description%22%3A%7B%22type%22%3A%22string%22%7D%7D%7D"
+    },
+    {
+      "id": "4ff91e18-6767-4691-a471-9e6c0b7393a5",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057638357,
+      "kind": "fill",
+      "title": "I\u2019m setting the JSON extraction prompt for the requested book fields.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "4c5ae474-72ce-4c85-a843-7a4f0d65ad8e",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057640573,
+      "kind": "fill",
+      "title": "I\u2019m replacing the first default schema field with the requested title field.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "f4c545b1-bbad-489b-8e7b-ff3aaefe3faa",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057643219,
+      "kind": "fill",
+      "title": "I\u2019m replacing the remaining default schema field with price_gbp.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "0776e5af-5f61-4769-8e34-7306d69ff0c2",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057645882,
+      "kind": "click",
+      "title": "I\u2019m changing price_gbp from String to Number.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "55ac64f1-c053-449e-b4d9-6f872dbe006d",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057649348,
+      "kind": "click",
+      "title": "I\u2019m selecting Number for the price_gbp field.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=scrape&url=books.toscrape.com%2Fcatalogue%2Fa-light-in-the-attic_1000%2Findex.html&formats=%5B%22markdown%22%2C%22json%22%5D&jsonSchema=%7B%22type%22%3A%22object%22%2C%22required%22%3A%5B%5D%2C%22properties%22%3A%7B%22title%22%3A%7B%22type%22%3A%22string%22%7D%2C%22price_gbp%22%3A%7B%22type%22%3A%22number%22%7D%7D%7D&jsonPrompt=Extract+the+book+title+and+GBP+price."
+    },
+    {
+      "id": "8d4d505c-2380-4325-82b6-1924fd37c811",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057660261,
+      "kind": "click",
+      "title": "I\u2019m saving the structured extraction options before verifying them.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "32b9e994-1f00-4065-969b-b9abc569d3df",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057663545,
+      "kind": "click",
+      "title": "I\u2019m reopening the format options to verify the saved JSON configuration before running the scrape.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "90936683-4e25-447a-bb55-6df691873871",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057667660,
+      "kind": "click",
+      "title": "I\u2019m opening the saved JSON options to verify the prompt and schema before starting the scrape.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "f4736da2-f09a-4905-a9fd-7040f0cfd423",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057676580,
+      "kind": "click",
+      "title": "I\u2019m confirming the verified JSON options before starting the scrape.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "c693f620-80ad-4ced-b2be-a8306014c2f5",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057680027,
+      "kind": "click",
+      "title": "I\u2019m starting the configured scrape so I can inspect and independently reopen its saved result.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "7c60e9fa-8c67-4fae-8ada-f225315231ba",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057697664,
+      "kind": "click",
+      "title": "I\u2019m reopening the exact new saved run to verify its persisted output.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground/N5aXjuX8lhZKI0RYWSH56"
+    },
+    {
+      "id": "114cd5ad-9ea2-402e-a64b-e7d0ffe35f05",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057703145,
+      "kind": "click",
+      "title": "I\u2019m opening the persisted JSON result to verify the requested title and price fields.",
+      "status": "verified",
+      "detail": "Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "edaa8870-edf2-4781-be24-b48a5655fc1e",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057707245,
+      "kind": "click",
+      "title": "I\u2019m switching the persisted result viewer to the structured JSON output.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "6420deb5-367d-4fef-ae62-7601c11eb9b9",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057716982,
+      "kind": "scroll",
+      "title": "I\u2019m scrolling the dashboard navigation so I can open Activity Logs and correlate this saved scrape.",
+      "status": "verified",
+      "detail": "Control state changed: Overview Add Firecrawl to your agent PLAYGROUND Search the web /search Scrape a web page /scrape Interact with a page /interact Parse a file /parse Crawl entire website Monitor the web RESEARCH PREVIEW Agent /agent ACCOU scrollX:0, scrollY:190, scrollMaxX:0, scrollMaxY:201"
+    },
+    {
+      "id": "8d2ca213-d7be-4511-909a-d5a46541fbdf",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057720016,
+      "kind": "click",
+      "title": "I\u2019m opening Activity Logs to correlate the saved scrape with its request record.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/logs"
+    },
+    {
+      "id": "4778a771-9850-4581-b7e1-5a7841117881",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057732283,
+      "kind": "back",
+      "title": "I\u2019m returning to the independently reopened run to capture the exact saved JSON values.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground/N5aXjuX8lhZKI0RYWSH56"
+    },
+    {
+      "id": "5ae99547-2c33-4b20-a50c-c017c900806e",
+      "taskId": "c9b4851c-15da-4911-832d-9ed10c58f36f",
+      "at": 1790057736989,
+      "kind": "click",
+      "title": "I\u2019m opening the saved structured output to verify the exact title and price values.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "5bec888b-a4bf-4949-84cc-8d4b90e1c82e",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057770413,
+      "kind": "click",
+      "title": "I\u2019m returning to the Scrape playground to configure the separate stock-count revision.",
+      "status": "verified",
+      "detail": "Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "3a24cc01-db7c-49cc-b032-a966581a2280",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057777461,
+      "kind": "click",
+      "title": "I\u2019m opening the dashboard so I can verify the Personal Team before running the revision.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK"
+    },
+    {
+      "id": "f90a1243-4f89-4e16-a56b-77d971121d35",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057783250,
+      "kind": "click",
+      "title": "I\u2019m opening Scrape in the verified Personal Team to configure the stock-count revision.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=scrape"
+    },
+    {
+      "id": "cf47f5b1-1990-41eb-93aa-99f2e8b860a4",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057791194,
+      "kind": "fill",
+      "title": "I\u2019m setting the same book page as the source for the separate stock-count revision.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "5e66dc0f-9ff1-4c24-b5cd-9271948adfd6",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057794662,
+      "kind": "click",
+      "title": "I\u2019m opening the format menu to add and configure the structured JSON revision.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "1fc5f25c-6042-46f5-8ee2-bcda4203941c",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057798043,
+      "kind": "click",
+      "title": "I\u2019m adding JSON alongside Markdown so I can configure the stock-count revision.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=scrape&url=books.toscrape.com%2Fcatalogue%2Fa-light-in-the-attic_1000%2Findex.html&formats=%5B%22markdown%22%2C%22json%22%5D&jsonSchema=%7B%22type%22%3A%22object%22%2C%22required%22%3A%5B%5D%2C%22properties%22%3A%7B%22company_name%22%3A%7B%22type%22%3A%22string%22%7D%2C%22company_description%22%3A%7B%22type%22%3A%22string%22%7D%7D%7D"
+    },
+    {
+      "id": "2ddeafff-60a6-4bf7-97b3-1f3940222536",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057801764,
+      "kind": "fill",
+      "title": "I\u2019m setting the extraction prompt for title, GBP price, and available stock.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "822b0394-c4e8-4890-be9a-03b1da53ff0b",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057804461,
+      "kind": "fill",
+      "title": "I\u2019m replacing the first default schema field with the book title field.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "c1b6e6e0-24e8-4919-905a-4eb6e9d69ff2",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057807102,
+      "kind": "fill",
+      "title": "I\u2019m replacing the second default schema field with the GBP price field.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "05b8216f-56ad-47ca-a7d0-5b89caec7541",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057810898,
+      "kind": "click",
+      "title": "I\u2019m changing price_gbp from String to Number before adding the stock field.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "09cc36b6-a194-460e-bd90-5ca8c9a083d6",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057814850,
+      "kind": "click",
+      "title": "I\u2019m setting price_gbp to Number before adding the stock-count field.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=scrape&url=books.toscrape.com%2Fcatalogue%2Fa-light-in-the-attic_1000%2Findex.html&formats=%5B%22markdown%22%2C%22json%22%5D&jsonSchema=%7B%22type%22%3A%22object%22%2C%22required%22%3A%5B%5D%2C%22properties%22%3A%7B%22title%22%3A%7B%22type%22%3A%22string%22%7D%2C%22price_gbp%22%3A%7B%22type%22%3A%22number%22%7D%7D%7D&jsonPrompt=Extract+the+book+title%2C+GBP+price+and+available+stock."
+    },
+    {
+      "id": "654fa853-072b-40cf-a28f-7d640ac8b289",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057818369,
+      "kind": "click",
+      "title": "I\u2019m adding a third schema field for stock_count.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=scrape&url=books.toscrape.com%2Fcatalogue%2Fa-light-in-the-attic_1000%2Findex.html&formats=%5B%22markdown%22%2C%22json%22%5D&jsonSchema=%7B%22type%22%3A%22object%22%2C%22required%22%3A%5B%5D%2C%22properties%22%3A%7B%22title%22%3A%7B%22type%22%3A%22string%22%7D%2C%22price_gbp%22%3A%7B%22type%22%3A%22number%22%7D%2C%22%22%3A%7B%22type%22%3A%22string%22%7D%7D%7D&jsonPrompt=Extract+the+book+title%2C+GBP+price+and+available+stock."
+    },
+    {
+      "id": "d27dd979-70d7-4b66-bd0c-b4062cf78831",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057822895,
+      "kind": "fill",
+      "title": "I\u2019m naming the new schema field stock_count before setting it to Number.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "5e9c3e1b-161b-4ddf-9638-4efadea62cf6",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057826511,
+      "kind": "click",
+      "title": "I\u2019m changing stock_count from String to Number.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "9ff9372b-ab47-438f-951c-7866ae4a6565",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057829712,
+      "kind": "click",
+      "title": "I\u2019m setting stock_count to Number, completing the revised schema.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=scrape&url=books.toscrape.com%2Fcatalogue%2Fa-light-in-the-attic_1000%2Findex.html&formats=%5B%22markdown%22%2C%22json%22%5D&jsonSchema=%7B%22type%22%3A%22object%22%2C%22required%22%3A%5B%5D%2C%22properties%22%3A%7B%22title%22%3A%7B%22type%22%3A%22string%22%7D%2C%22price_gbp%22%3A%7B%22type%22%3A%22number%22%7D%2C%22stock_count%22%3A%7B%22type%22%3A%22number%22%7D%7D%7D&jsonPrompt=Extract+the+book+title%2C+GBP+price+and+available+stock."
+    },
+    {
+      "id": "0e456f92-e7d2-4579-a4f3-aac074aaaada",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057844645,
+      "kind": "click",
+      "title": "I\u2019m saving the revised JSON options before reopening them for verification.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "379a925a-129f-407d-b9b0-fb31e1f9c6fc",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057848179,
+      "kind": "click",
+      "title": "I\u2019m reopening the format options to verify the saved prompt and three-field schema before running the revision.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "d6fddde2-409d-4497-a274-7a486682c557",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057852291,
+      "kind": "click",
+      "title": "I\u2019m opening the saved JSON options to verify the prompt and revised schema before running it.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "5aa7cf22-dee9-4642-9bb7-ec98b1c14753",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057860280,
+      "kind": "click",
+      "title": "I\u2019m confirming the verified title, price, and stock schema before starting the separate revision.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "1fda25e5-c5ff-4b1a-b3bb-250817478c1d",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057864394,
+      "kind": "click",
+      "title": "I\u2019m starting the separate scrape revision with title, price, and numeric stock count.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "3dd39de3-3848-4be5-8c4d-24d21e3a2c68",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057881291,
+      "kind": "click",
+      "title": "I\u2019m opening the structured output to verify the revised title, price, and stock values.",
+      "status": "verified",
+      "detail": "Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "86e6ec8f-133b-41cf-ab83-3612cdc760e3",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057884973,
+      "kind": "click",
+      "title": "I\u2019m reopening the newest saved revision to verify its structured result independently.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground/htmPdl4_f8Macad7e6Cod"
+    },
+    {
+      "id": "4a2a426b-dc41-4fb0-9cfd-81b35d2acbce",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057889383,
+      "kind": "click",
+      "title": "I\u2019m opening the independently reopened revision\u2019s JSON output to verify all three fields.",
+      "status": "verified",
+      "detail": "Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "adf5561c-f46a-4a0a-8ecc-0a8cd3a7de5f",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057893325,
+      "kind": "click",
+      "title": "I\u2019m switching the reopened revision to its structured JSON output to verify the three extracted values.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "fbf6f464-c4af-4f75-9f5d-505ca49fba20",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057896703,
+      "kind": "click",
+      "title": "I\u2019m returning to Recent Runs to open and inspect the original saved scrape.",
+      "status": "verified",
+      "detail": "Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "0fdc2f92-bb9f-4f1e-825f-146d095b65bd",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057904002,
+      "kind": "click",
+      "title": "I\u2019m opening the original 11:44 saved scrape to compare its structured output with the revision.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/playground/N5aXjuX8lhZKI0RYWSH56"
+    },
+    {
+      "id": "5ef2229d-7efd-4a14-9eb1-a846190e2897",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057909049,
+      "kind": "click",
+      "title": "I\u2019m opening the original saved run\u2019s structured JSON to compare its extracted fields with the revision.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "9c33eb9a-a43a-4a8f-94dd-98224464ab69",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057914075,
+      "kind": "click",
+      "title": "I\u2019m returning to Recent Runs to recheck the revised saved result and capture its exact stock value.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/playground"
+    },
+    {
+      "id": "6b3e8068-ab5f-4876-b7d7-f06bf1aa1af0",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057917393,
+      "kind": "click",
+      "title": "I\u2019m reopening the 11:47 revision to capture its exact structured stock value.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/playground/htmPdl4_f8Macad7e6Cod"
+    },
+    {
+      "id": "c17096f2-82de-4389-8c30-7ad427e13e38",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057922148,
+      "kind": "click",
+      "title": "I\u2019m opening the revised saved run\u2019s JSON output to capture the exact extracted stock count.",
+      "status": "verified",
+      "detail": "Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "fb775682-9e7a-48d4-afd5-e0c8378470b2",
+      "taskId": "86b02c9b-c686-4d48-bd2d-47d1bc478226",
+      "at": 1790057925566,
+      "kind": "click",
+      "title": "I\u2019m switching the reopened revision from Markdown to its structured JSON output.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "48b54511-186a-47aa-860c-7d2d5c1170d3",
+      "taskId": "d439c104-8d94-4fa3-be7c-548caaf5a005",
+      "at": 1790057975992,
+      "kind": "click",
+      "title": "I\u2019m returning to the dashboard to verify the active team and configure the bounded crawl.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK"
+    },
+    {
+      "id": "680464cf-8867-4b5c-8524-fafd9b67f861",
+      "taskId": "d439c104-8d94-4fa3-be7c-548caaf5a005",
+      "at": 1790057982172,
+      "kind": "click",
+      "title": "I\u2019m opening the Crawl playground in the verified Personal Team.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=crawl"
+    },
+    {
+      "id": "fa98052d-f7b1-458d-a3b0-16ed1a229a27",
+      "taskId": "d439c104-8d94-4fa3-be7c-548caaf5a005",
+      "at": 1790057986704,
+      "kind": "fill",
+      "title": "I\u2019m setting the crawl seed to the requested site root without the separate HTTPS prefix.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "e0c7bd64-99a6-4781-a2ea-0dbd86b6d22b",
+      "taskId": "d439c104-8d94-4fa3-be7c-548caaf5a005",
+      "at": 1790057990250,
+      "kind": "click",
+      "title": "I\u2019m opening the crawl settings to apply the page and depth bounds.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "75295f2e-39a3-4903-b019-502421f851ad",
+      "taskId": "d439c104-8d94-4fa3-be7c-548caaf5a005",
+      "at": 1790057995272,
+      "kind": "fill",
+      "title": "I\u2019m setting the crawl page limit to 2.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "52cfe300-188d-4ae5-8a0e-65bfe1da8933",
+      "taskId": "d439c104-8d94-4fa3-be7c-548caaf5a005",
+      "at": 1790057998249,
+      "kind": "fill",
+      "title": "I\u2019m setting the maximum discovery depth to 1.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "3bc71ad0-be50-49d2-8570-429c89f2472f",
+      "taskId": "d439c104-8d94-4fa3-be7c-548caaf5a005",
+      "at": 1790058002807,
+      "kind": "click",
+      "title": "I\u2019m closing the settings after verifying limit 2, depth 1, Markdown, and entire-website crawling off.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "49f4e511-2a1f-4099-bfc1-31ee9520ec29",
+      "taskId": "d439c104-8d94-4fa3-be7c-548caaf5a005",
+      "at": 1790058006994,
+      "kind": "click",
+      "title": "I\u2019m starting the bounded two-page Markdown crawl with depth 1 and entire-website mode off.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "52b56fde-9db6-4d26-be1f-0ce227d78ff9",
+      "taskId": "d439c104-8d94-4fa3-be7c-548caaf5a005",
+      "at": 1790058022661,
+      "kind": "click",
+      "title": "I\u2019m reopening the exact successful crawl from Recent Runs to inspect its saved result independently.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground/01a0c7c5-8ba1-749d-977a-02db35a0d6cb"
+    },
+    {
+      "id": "9e79ac1c-02f4-4233-8d6b-cb493106ffc7",
+      "taskId": "36d35a92-6478-4cdf-b677-168c10d9445f",
+      "at": 1790058063247,
+      "kind": "click",
+      "title": "I\u2019m returning to the crawl playground to configure the separate one-page revision.",
+      "status": "verified",
+      "detail": "Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "67dd1d69-647c-49f9-b64d-4ced67c7e036",
+      "taskId": "36d35a92-6478-4cdf-b677-168c10d9445f",
+      "at": 1790058070926,
+      "kind": "click",
+      "title": "I\u2019m opening the dashboard to verify the Personal Team before running the one-page crawl revision.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK"
+    },
+    {
+      "id": "b2b99443-fb52-40cf-9b86-82c211f81e5e",
+      "taskId": "36d35a92-6478-4cdf-b677-168c10d9445f",
+      "at": 1790058077171,
+      "kind": "click",
+      "title": "I\u2019m opening the crawl playground to configure the one-page revision.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=crawl"
+    },
+    {
+      "id": "d1cfb8ca-d4c5-4b11-bbae-152258ee361c",
+      "taskId": "36d35a92-6478-4cdf-b677-168c10d9445f",
+      "at": 1790058081775,
+      "kind": "fill",
+      "title": "I\u2019m setting the bookstore root as the source for the separate one-page crawl.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "1b9a083f-c089-4eb5-9a77-fc2d5fbac73a",
+      "taskId": "36d35a92-6478-4cdf-b677-168c10d9445f",
+      "at": 1790058087997,
+      "kind": "click",
+      "title": "I\u2019m opening the crawl settings to set the one-page limit and depth.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "e83b03ee-7569-4b4a-b836-dfceb0898560",
+      "taskId": "36d35a92-6478-4cdf-b677-168c10d9445f",
+      "at": 1790058091786,
+      "kind": "fill",
+      "title": "I\u2019m setting the separate crawl revision to a one-page limit.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "c5685952-7e4a-4800-8473-822f8a4172eb",
+      "taskId": "36d35a92-6478-4cdf-b677-168c10d9445f",
+      "at": 1790058095227,
+      "kind": "fill",
+      "title": "I\u2019m setting maximum discovery depth to 1 for the one-page revision.",
+      "status": "verified",
+      "detail": "The target matches the requested value."
+    },
+    {
+      "id": "56418094-12b3-47b4-b45c-fcc4c38d2c95",
+      "taskId": "36d35a92-6478-4cdf-b677-168c10d9445f",
+      "at": 1790058099269,
+      "kind": "click",
+      "title": "I\u2019m starting the verified one-page Markdown crawl with depth 1 and entireWebsite off.",
+      "status": "verified",
+      "detail": "Visible page content changed. Completion still requires evidence of the requested outcome."
+    },
+    {
+      "id": "9413a74f-27a2-43ba-a745-ae64ae85b726",
+      "taskId": "36d35a92-6478-4cdf-b677-168c10d9445f",
+      "at": 1790058127839,
+      "kind": "click",
+      "title": "I\u2019m reopening the new one-page crawl from Recent Runs to verify its saved result.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground/01a0c7c6-f402-739b-8f6f-9c013cd29001"
+    },
+    {
+      "id": "d059b0be-45a0-4700-ba27-fba4abf89105",
+      "taskId": "36d35a92-6478-4cdf-b677-168c10d9445f",
+      "at": 1790058133337,
+      "kind": "click",
+      "title": "I\u2019m returning to Recent Runs to reopen the earlier two-page crawl for comparison.",
+      "status": "verified",
+      "detail": "Visible controls changed. Check that they match the requested outcome."
+    },
+    {
+      "id": "c18e197b-95c6-4b12-87ae-a1624f16277e",
+      "taskId": "36d35a92-6478-4cdf-b677-168c10d9445f",
+      "at": 1790058140973,
+      "kind": "click",
+      "title": "I\u2019m reopening the earlier two-page crawl so I can compare its saved results with the one-page revision.",
+      "status": "verified",
+      "detail": "Navigation observed: https://www.firecrawl.dev/playground/01a0c7c5-8ba1-749d-977a-02db35a0d6cb"
+    }
+  ],
+  "preparedInputs": [
+    {
+      "ref": "jnfyxbw-187",
+      "url": "https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=scrape&url=books.toscrape.com%2Fcatalogue%2Fa-light-in-the-attic_1000%2Findex.html&formats=%5B%22markdown%22%2C%22json%22%5D&jsonSchema=%7B%22type%22%3A%22object%22%2C%22required%22%3A%5B%5D%2C%22properties%22%3A%7B%22title%22%3A%7B%22type%22%3A%22string%22%7D%2C%22company_description%22%3A%7B%22type%22%3A%22string%22%7D%7D%7D&jsonPrompt=Extract+the+book+title%2C+GBP+price+and+available+stock.",
+      "revision": "jnfyxbw:edit:9",
+      "value": "price_gbp",
+      "kind": "fill",
+      "target": {
+        "name": "Field name",
+        "tag": "input",
+        "type": "",
+        "context": ""
+      }
+    },
+    {
+      "ref": "jnfyxbw-200",
+      "url": "https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=scrape&url=books.toscrape.com%2Fcatalogue%2Fa-light-in-the-attic_1000%2Findex.html&formats=%5B%22markdown%22%2C%22json%22%5D&jsonSchema=%7B%22type%22%3A%22object%22%2C%22required%22%3A%5B%5D%2C%22properties%22%3A%7B%22title%22%3A%7B%22type%22%3A%22string%22%7D%2C%22price_gbp%22%3A%7B%22type%22%3A%22number%22%7D%2C%22%22%3A%7B%22type%22%3A%22string%22%7D%7D%7D&jsonPrompt=Extract+the+book+title%2C+GBP+price+and+available+stock.",
+      "revision": "jnfyxbw:edit:11",
+      "value": "stock_count",
+      "kind": "fill",
+      "target": {
+        "name": "Field name",
+        "tag": "input",
+        "type": "",
+        "context": ""
+      }
+    },
+    {
+      "ref": "vdm52m1-135",
+      "url": "https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=crawl",
+      "revision": "vdm52m1:edit:3",
+      "value": "books.toscrape.com/",
+      "kind": "fill",
+      "target": {
+        "name": "https://",
+        "tag": "input",
+        "type": "",
+        "context": ""
+      }
+    },
+    {
+      "ref": "vdm52m1-164",
+      "url": "https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=crawl&url=books.toscrape.com%2F",
+      "revision": "vdm52m1:edit:9",
+      "value": "2",
+      "kind": "fill",
+      "target": {
+        "name": "10",
+        "tag": "input",
+        "type": "",
+        "context": ""
+      }
+    },
+    {
+      "ref": "vdm52m1-165",
+      "url": "https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=crawl&url=books.toscrape.com%2F&limit=2",
+      "revision": "vdm52m1:edit:10",
+      "value": "1",
+      "kind": "fill",
+      "target": {
+        "name": "No limit",
+        "tag": "input",
+        "type": "",
+        "context": ""
+      }
+    },
+    {
+      "ref": "p500wa3-135",
+      "url": "https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=crawl",
+      "revision": "p500wa3:edit:3",
+      "value": "books.toscrape.com/",
+      "kind": "fill",
+      "target": {
+        "name": "https://",
+        "tag": "input",
+        "type": "",
+        "context": ""
+      }
+    },
+    {
+      "ref": "p500wa3-166",
+      "url": "https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=crawl&url=books.toscrape.com%2F",
+      "revision": "p500wa3:edit:9",
+      "value": "1",
+      "kind": "fill",
+      "target": {
+        "name": "10",
+        "tag": "input",
+        "type": "",
+        "context": ""
+      }
+    },
+    {
+      "ref": "p500wa3-167",
+      "url": "https://www.firecrawl.dev/app/t/jMrRDaLBFKK/playground?endpoint=crawl&url=books.toscrape.com%2F&limit=1",
+      "revision": "p500wa3:edit:10",
+      "value": "1",
+      "kind": "fill",
+      "target": {
+        "name": "No limit",
+        "tag": "input",
+        "type": "",
+        "context": ""
+      }
+    }
+  ],
+  "awaitingAnswer": false
+}

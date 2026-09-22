@@ -1,0 +1,149 @@
+{
+  "fps": 30,
+  "width": 3024,
+  "height": 1776,
+  "segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 20446,
+      "output_frames": 20446,
+      "kind": "agent",
+      "reason": "Entire accepted final4 recording retained at1x: opening, inputs/cards, all actual Nova configuration/execution/verification, navigation and closing comparison. No cuts or speedup."
+    }
+  ],
+  "masks": [
+    {
+      "x": 0,
+      "y": 174,
+      "width": 3024,
+      "height": 114,
+      "color": "#f9f8ff",
+      "start_frame": 0,
+      "end_frame": 154,
+      "purpose": "debugger-strip",
+      "evidence": "Actual final4 full-width debugging infobar already exists atframe0. Native strip frames153\u2013164 measure shrinking row through Nova sidebar opening, including closeicon and border. Stable rectangle x16..2233 thereafter. No product or Nova title covered."
+    },
+    {
+      "x": 0,
+      "y": 174,
+      "width": 3022,
+      "height": 114,
+      "color": "#f9f8ff",
+      "start_frame": 154,
+      "end_frame": 155,
+      "purpose": "debugger-strip",
+      "evidence": "Actual final4 full-width debugging infobar already exists atframe0. Native strip frames153\u2013164 measure shrinking row through Nova sidebar opening, including closeicon and border. Stable rectangle x16..2233 thereafter. No product or Nova title covered."
+    },
+    {
+      "x": 2,
+      "y": 174,
+      "width": 2970,
+      "height": 114,
+      "color": "#f9f8ff",
+      "start_frame": 155,
+      "end_frame": 156,
+      "purpose": "debugger-strip",
+      "evidence": "Actual final4 full-width debugging infobar already exists atframe0. Native strip frames153\u2013164 measure shrinking row through Nova sidebar opening, including closeicon and border. Stable rectangle x16..2233 thereafter. No product or Nova title covered."
+    },
+    {
+      "x": 4,
+      "y": 174,
+      "width": 2828,
+      "height": 114,
+      "color": "#f9f8ff",
+      "start_frame": 156,
+      "end_frame": 157,
+      "purpose": "debugger-strip",
+      "evidence": "Actual final4 full-width debugging infobar already exists atframe0. Native strip frames153\u2013164 measure shrinking row through Nova sidebar opening, including closeicon and border. Stable rectangle x16..2233 thereafter. No product or Nova title covered."
+    },
+    {
+      "x": 8,
+      "y": 174,
+      "width": 2594,
+      "height": 114,
+      "color": "#f9f8ff",
+      "start_frame": 157,
+      "end_frame": 158,
+      "purpose": "debugger-strip",
+      "evidence": "Actual final4 full-width debugging infobar already exists atframe0. Native strip frames153\u2013164 measure shrinking row through Nova sidebar opening, including closeicon and border. Stable rectangle x16..2233 thereafter. No product or Nova title covered."
+    },
+    {
+      "x": 12,
+      "y": 174,
+      "width": 2402,
+      "height": 114,
+      "color": "#f9f8ff",
+      "start_frame": 158,
+      "end_frame": 159,
+      "purpose": "debugger-strip",
+      "evidence": "Actual final4 full-width debugging infobar already exists atframe0. Native strip frames153\u2013164 measure shrinking row through Nova sidebar opening, including closeicon and border. Stable rectangle x16..2233 thereafter. No product or Nova title covered."
+    },
+    {
+      "x": 12,
+      "y": 174,
+      "width": 2342,
+      "height": 114,
+      "color": "#f9f8ff",
+      "start_frame": 159,
+      "end_frame": 160,
+      "purpose": "debugger-strip",
+      "evidence": "Actual final4 full-width debugging infobar already exists atframe0. Native strip frames153\u2013164 measure shrinking row through Nova sidebar opening, including closeicon and border. Stable rectangle x16..2233 thereafter. No product or Nova title covered."
+    },
+    {
+      "x": 12,
+      "y": 174,
+      "width": 2290,
+      "height": 114,
+      "color": "#f9f8ff",
+      "start_frame": 160,
+      "end_frame": 161,
+      "purpose": "debugger-strip",
+      "evidence": "Actual final4 full-width debugging infobar already exists atframe0. Native strip frames153\u2013164 measure shrinking row through Nova sidebar opening, including closeicon and border. Stable rectangle x16..2233 thereafter. No product or Nova title covered."
+    },
+    {
+      "x": 12,
+      "y": 174,
+      "width": 2252,
+      "height": 114,
+      "color": "#f9f8ff",
+      "start_frame": 161,
+      "end_frame": 162,
+      "purpose": "debugger-strip",
+      "evidence": "Actual final4 full-width debugging infobar already exists atframe0. Native strip frames153\u2013164 measure shrinking row through Nova sidebar opening, including closeicon and border. Stable rectangle x16..2233 thereafter. No product or Nova title covered."
+    },
+    {
+      "x": 12,
+      "y": 174,
+      "width": 2232,
+      "height": 114,
+      "color": "#f9f8ff",
+      "start_frame": 162,
+      "end_frame": 163,
+      "purpose": "debugger-strip",
+      "evidence": "Actual final4 full-width debugging infobar already exists atframe0. Native strip frames153\u2013164 measure shrinking row through Nova sidebar opening, including closeicon and border. Stable rectangle x16..2233 thereafter. No product or Nova title covered."
+    },
+    {
+      "x": 12,
+      "y": 174,
+      "width": 2228,
+      "height": 114,
+      "color": "#f9f8ff",
+      "start_frame": 163,
+      "end_frame": 164,
+      "purpose": "debugger-strip",
+      "evidence": "Actual final4 full-width debugging infobar already exists atframe0. Native strip frames153\u2013164 measure shrinking row through Nova sidebar opening, including closeicon and border. Stable rectangle x16..2233 thereafter. No product or Nova title covered."
+    },
+    {
+      "x": 16,
+      "y": 174,
+      "width": 2218,
+      "height": 114,
+      "color": "#f9f8ff",
+      "start_frame": 164,
+      "end_frame": 20446,
+      "purpose": "debugger-strip",
+      "evidence": "Actual final4 full-width debugging infobar already exists atframe0. Native strip frames153\u2013164 measure shrinking row through Nova sidebar opening, including closeicon and border. Stable rectangle x16..2233 thereafter. No product or Nova title covered."
+    }
+  ],
+  "clicks": []
+}

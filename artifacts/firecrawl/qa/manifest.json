@@ -1,0 +1,80 @@
+[
+  {
+    "path": "/Users/macbook/Desktop/Nova-batch-20260922/worktrees/firecrawl/artifacts/firecrawl/media/nova-firecrawl-clicks.mp4",
+    "bytes": 52102761,
+    "sha256": "02a8dc266848d16447134e8c63709f8e32b72b38839297772041a2c5ec10df28",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 3024,
+          "height": 1776,
+          "r_frame_rate": "30/1",
+          "avg_frame_rate": "30/1",
+          "nb_frames": "20446"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "nb_frames": "31948"
+        }
+      ],
+      "format": {
+        "duration": "681.533333"
+      }
+    }
+  },
+  {
+    "path": "/Users/macbook/Desktop/Nova-batch-20260922/worktrees/firecrawl/artifacts/firecrawl/media/nova-firecrawl-original.mov",
+    "bytes": 155812041,
+    "sha256": "8dfb8984e949dfe4d275edea3e00c435679c941f4dd1b6733bd965ed94b4f816",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 3024,
+          "height": 1776,
+          "r_frame_rate": "30/1",
+          "avg_frame_rate": "30/1",
+          "nb_frames": "20446"
+        }
+      ],
+      "format": {
+        "duration": "681.533333"
+      }
+    }
+  },
+  {
+    "path": "/Users/macbook/Desktop/Nova-batch-20260922/worktrees/firecrawl/artifacts/firecrawl/media/nova-firecrawl-silent.mp4",
+    "bytes": 51256302,
+    "sha256": "8cfd3e8e3936445becd1f1a6256b2dc0eb509ac6cf5b99c1920611850484179d",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 3024,
+          "height": 1776,
+          "r_frame_rate": "30/1",
+          "avg_frame_rate": "30/1",
+          "nb_frames": "20446"
+        }
+      ],
+      "format": {
+        "duration": "681.533333"
+      }
+    }
+  }
+]

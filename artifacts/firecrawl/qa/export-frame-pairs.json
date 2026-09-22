@@ -1,0 +1,992 @@
+[
+  {
+    "id": "nova-action-click-000",
+    "source_frame": 484,
+    "output_frame": 484,
+    "raw_image": "frames/frame-003.png"
+  },
+  {
+    "id": "nova-action-click-000",
+    "source_frame": 488,
+    "output_frame": 488,
+    "raw_image": "frames/frame-004.png"
+  },
+  {
+    "id": "nova-action-click-000",
+    "source_frame": 514,
+    "output_frame": 514,
+    "raw_image": "frames/frame-006.png"
+  },
+  {
+    "id": "nova-action-click-001",
+    "source_frame": 3452,
+    "output_frame": 3452,
+    "raw_image": "frames/frame-015.png"
+  },
+  {
+    "id": "nova-action-click-001",
+    "source_frame": 3456,
+    "output_frame": 3456,
+    "raw_image": "frames/frame-016.png"
+  },
+  {
+    "id": "nova-action-click-001",
+    "source_frame": 3482,
+    "output_frame": 3482,
+    "raw_image": "frames/frame-018.png"
+  },
+  {
+    "id": "nova-action-click-002",
+    "source_frame": 3551,
+    "output_frame": 3551,
+    "raw_image": "frames/frame-019.png"
+  },
+  {
+    "id": "nova-action-click-002",
+    "source_frame": 3555,
+    "output_frame": 3555,
+    "raw_image": "frames/frame-020.png"
+  },
+  {
+    "id": "nova-action-click-002",
+    "source_frame": 3581,
+    "output_frame": 3581,
+    "raw_image": "frames/frame-022.png"
+  },
+  {
+    "id": "nova-action-click-003",
+    "source_frame": 3886,
+    "output_frame": 3886,
+    "raw_image": "frames/frame-035.png"
+  },
+  {
+    "id": "nova-action-click-003",
+    "source_frame": 3890,
+    "output_frame": 3890,
+    "raw_image": "frames/frame-036.png"
+  },
+  {
+    "id": "nova-action-click-003",
+    "source_frame": 3916,
+    "output_frame": 3916,
+    "raw_image": "frames/frame-038.png"
+  },
+  {
+    "id": "nova-action-click-004",
+    "source_frame": 3990,
+    "output_frame": 3990,
+    "raw_image": "frames/frame-039.png"
+  },
+  {
+    "id": "nova-action-click-004",
+    "source_frame": 3994,
+    "output_frame": 3994,
+    "raw_image": "frames/frame-040.png"
+  },
+  {
+    "id": "nova-action-click-004",
+    "source_frame": 4020,
+    "output_frame": 4020,
+    "raw_image": "frames/frame-042.png"
+  },
+  {
+    "id": "nova-action-click-005",
+    "source_frame": 4318,
+    "output_frame": 4318,
+    "raw_image": "frames/frame-044.png"
+  },
+  {
+    "id": "nova-action-click-005",
+    "source_frame": 4322,
+    "output_frame": 4322,
+    "raw_image": "frames/frame-045.png"
+  },
+  {
+    "id": "nova-action-click-005",
+    "source_frame": 4348,
+    "output_frame": 4348,
+    "raw_image": "frames/frame-047.png"
+  },
+  {
+    "id": "nova-action-click-006",
+    "source_frame": 4416,
+    "output_frame": 4416,
+    "raw_image": "frames/frame-048.png"
+  },
+  {
+    "id": "nova-action-click-006",
+    "source_frame": 4420,
+    "output_frame": 4420,
+    "raw_image": "frames/frame-049.png"
+  },
+  {
+    "id": "nova-action-click-006",
+    "source_frame": 4446,
+    "output_frame": 4446,
+    "raw_image": "frames/frame-051.png"
+  },
+  {
+    "id": "nova-action-click-007",
+    "source_frame": 4540,
+    "output_frame": 4540,
+    "raw_image": "frames/frame-052.png"
+  },
+  {
+    "id": "nova-action-click-007",
+    "source_frame": 4544,
+    "output_frame": 4544,
+    "raw_image": "frames/frame-053.png"
+  },
+  {
+    "id": "nova-action-click-007",
+    "source_frame": 4570,
+    "output_frame": 4570,
+    "raw_image": "frames/frame-055.png"
+  },
+  {
+    "id": "nova-action-click-008",
+    "source_frame": 4807,
+    "output_frame": 4807,
+    "raw_image": "frames/frame-056.png"
+  },
+  {
+    "id": "nova-action-click-008",
+    "source_frame": 4811,
+    "output_frame": 4811,
+    "raw_image": "frames/frame-057.png"
+  },
+  {
+    "id": "nova-action-click-008",
+    "source_frame": 4837,
+    "output_frame": 4837,
+    "raw_image": "frames/frame-059.png"
+  },
+  {
+    "id": "nova-action-click-009",
+    "source_frame": 4911,
+    "output_frame": 4911,
+    "raw_image": "frames/frame-060.png"
+  },
+  {
+    "id": "nova-action-click-009",
+    "source_frame": 4915,
+    "output_frame": 4915,
+    "raw_image": "frames/frame-061.png"
+  },
+  {
+    "id": "nova-action-click-009",
+    "source_frame": 4941,
+    "output_frame": 4941,
+    "raw_image": "frames/frame-063.png"
+  },
+  {
+    "id": "nova-action-click-010",
+    "source_frame": 5440,
+    "output_frame": 5440,
+    "raw_image": "frames/frame-065.png"
+  },
+  {
+    "id": "nova-action-click-010",
+    "source_frame": 5444,
+    "output_frame": 5444,
+    "raw_image": "frames/frame-066.png"
+  },
+  {
+    "id": "nova-action-click-010",
+    "source_frame": 5470,
+    "output_frame": 5470,
+    "raw_image": "frames/frame-068.png"
+  },
+  {
+    "id": "nova-action-click-011",
+    "source_frame": 5604,
+    "output_frame": 5604,
+    "raw_image": "frames/frame-069.png"
+  },
+  {
+    "id": "nova-action-click-011",
+    "source_frame": 5608,
+    "output_frame": 5608,
+    "raw_image": "frames/frame-070.png"
+  },
+  {
+    "id": "nova-action-click-011",
+    "source_frame": 5634,
+    "output_frame": 5634,
+    "raw_image": "frames/frame-072.png"
+  },
+  {
+    "id": "nova-action-click-012",
+    "source_frame": 5727,
+    "output_frame": 5727,
+    "raw_image": "frames/frame-073.png"
+  },
+  {
+    "id": "nova-action-click-012",
+    "source_frame": 5731,
+    "output_frame": 5731,
+    "raw_image": "frames/frame-074.png"
+  },
+  {
+    "id": "nova-action-click-012",
+    "source_frame": 5757,
+    "output_frame": 5757,
+    "raw_image": "frames/frame-076.png"
+  },
+  {
+    "id": "nova-action-click-013",
+    "source_frame": 6110,
+    "output_frame": 6110,
+    "raw_image": "frames/frame-081.png"
+  },
+  {
+    "id": "nova-action-click-013",
+    "source_frame": 6114,
+    "output_frame": 6114,
+    "raw_image": "frames/frame-082.png"
+  },
+  {
+    "id": "nova-action-click-013",
+    "source_frame": 6140,
+    "output_frame": 6140,
+    "raw_image": "frames/frame-084.png"
+  },
+  {
+    "id": "nova-action-click-014",
+    "source_frame": 6619,
+    "output_frame": 6619,
+    "raw_image": "frames/frame-090.png"
+  },
+  {
+    "id": "nova-action-click-014",
+    "source_frame": 6623,
+    "output_frame": 6623,
+    "raw_image": "frames/frame-091.png"
+  },
+  {
+    "id": "nova-action-click-014",
+    "source_frame": 6649,
+    "output_frame": 6649,
+    "raw_image": "frames/frame-093.png"
+  },
+  {
+    "id": "nova-action-click-015",
+    "source_frame": 7622,
+    "output_frame": 7622,
+    "raw_image": "frames/frame-094.png"
+  },
+  {
+    "id": "nova-action-click-015",
+    "source_frame": 7626,
+    "output_frame": 7626,
+    "raw_image": "frames/frame-095.png"
+  },
+  {
+    "id": "nova-action-click-015",
+    "source_frame": 7652,
+    "output_frame": 7652,
+    "raw_image": "frames/frame-097.png"
+  },
+  {
+    "id": "nova-action-click-016",
+    "source_frame": 7834,
+    "output_frame": 7834,
+    "raw_image": "frames/frame-099.png"
+  },
+  {
+    "id": "nova-action-click-016",
+    "source_frame": 7838,
+    "output_frame": 7838,
+    "raw_image": "frames/frame-100.png"
+  },
+  {
+    "id": "nova-action-click-016",
+    "source_frame": 7864,
+    "output_frame": 7864,
+    "raw_image": "frames/frame-102.png"
+  },
+  {
+    "id": "nova-action-click-017",
+    "source_frame": 8007,
+    "output_frame": 8007,
+    "raw_image": "frames/frame-103.png"
+  },
+  {
+    "id": "nova-action-click-017",
+    "source_frame": 8011,
+    "output_frame": 8011,
+    "raw_image": "frames/frame-104.png"
+  },
+  {
+    "id": "nova-action-click-017",
+    "source_frame": 8037,
+    "output_frame": 8037,
+    "raw_image": "frames/frame-106.png"
+  },
+  {
+    "id": "nova-action-click-018",
+    "source_frame": 8350,
+    "output_frame": 8350,
+    "raw_image": "frames/frame-111.png"
+  },
+  {
+    "id": "nova-action-click-018",
+    "source_frame": 8354,
+    "output_frame": 8354,
+    "raw_image": "frames/frame-112.png"
+  },
+  {
+    "id": "nova-action-click-018",
+    "source_frame": 8380,
+    "output_frame": 8380,
+    "raw_image": "frames/frame-114.png"
+  },
+  {
+    "id": "nova-action-click-019",
+    "source_frame": 8451,
+    "output_frame": 8451,
+    "raw_image": "frames/frame-115.png"
+  },
+  {
+    "id": "nova-action-click-019",
+    "source_frame": 8455,
+    "output_frame": 8455,
+    "raw_image": "frames/frame-116.png"
+  },
+  {
+    "id": "nova-action-click-019",
+    "source_frame": 8481,
+    "output_frame": 8481,
+    "raw_image": "frames/frame-118.png"
+  },
+  {
+    "id": "nova-action-click-020",
+    "source_frame": 8837,
+    "output_frame": 8837,
+    "raw_image": "frames/frame-131.png"
+  },
+  {
+    "id": "nova-action-click-020",
+    "source_frame": 8841,
+    "output_frame": 8841,
+    "raw_image": "frames/frame-132.png"
+  },
+  {
+    "id": "nova-action-click-020",
+    "source_frame": 8867,
+    "output_frame": 8867,
+    "raw_image": "frames/frame-134.png"
+  },
+  {
+    "id": "nova-action-click-021",
+    "source_frame": 8955,
+    "output_frame": 8955,
+    "raw_image": "frames/frame-135.png"
+  },
+  {
+    "id": "nova-action-click-021",
+    "source_frame": 8959,
+    "output_frame": 8959,
+    "raw_image": "frames/frame-136.png"
+  },
+  {
+    "id": "nova-action-click-021",
+    "source_frame": 8985,
+    "output_frame": 8985,
+    "raw_image": "frames/frame-138.png"
+  },
+  {
+    "id": "nova-action-click-022",
+    "source_frame": 9061,
+    "output_frame": 9061,
+    "raw_image": "frames/frame-140.png"
+  },
+  {
+    "id": "nova-action-click-022",
+    "source_frame": 9065,
+    "output_frame": 9065,
+    "raw_image": "frames/frame-141.png"
+  },
+  {
+    "id": "nova-action-click-022",
+    "source_frame": 9091,
+    "output_frame": 9091,
+    "raw_image": "frames/frame-143.png"
+  },
+  {
+    "id": "nova-action-click-023",
+    "source_frame": 9305,
+    "output_frame": 9305,
+    "raw_image": "frames/frame-148.png"
+  },
+  {
+    "id": "nova-action-click-023",
+    "source_frame": 9309,
+    "output_frame": 9309,
+    "raw_image": "frames/frame-149.png"
+  },
+  {
+    "id": "nova-action-click-023",
+    "source_frame": 9335,
+    "output_frame": 9335,
+    "raw_image": "frames/frame-151.png"
+  },
+  {
+    "id": "nova-action-click-024",
+    "source_frame": 9401,
+    "output_frame": 9401,
+    "raw_image": "frames/frame-152.png"
+  },
+  {
+    "id": "nova-action-click-024",
+    "source_frame": 9405,
+    "output_frame": 9405,
+    "raw_image": "frames/frame-153.png"
+  },
+  {
+    "id": "nova-action-click-024",
+    "source_frame": 9431,
+    "output_frame": 9431,
+    "raw_image": "frames/frame-155.png"
+  },
+  {
+    "id": "nova-action-click-025",
+    "source_frame": 9849,
+    "output_frame": 9849,
+    "raw_image": "frames/frame-156.png"
+  },
+  {
+    "id": "nova-action-click-025",
+    "source_frame": 9853,
+    "output_frame": 9853,
+    "raw_image": "frames/frame-157.png"
+  },
+  {
+    "id": "nova-action-click-025",
+    "source_frame": 9879,
+    "output_frame": 9879,
+    "raw_image": "frames/frame-159.png"
+  },
+  {
+    "id": "nova-action-click-026",
+    "source_frame": 9955,
+    "output_frame": 9955,
+    "raw_image": "frames/frame-160.png"
+  },
+  {
+    "id": "nova-action-click-026",
+    "source_frame": 9959,
+    "output_frame": 9959,
+    "raw_image": "frames/frame-161.png"
+  },
+  {
+    "id": "nova-action-click-026",
+    "source_frame": 9985,
+    "output_frame": 9985,
+    "raw_image": "frames/frame-163.png"
+  },
+  {
+    "id": "nova-action-click-027",
+    "source_frame": 10078,
+    "output_frame": 10078,
+    "raw_image": "frames/frame-164.png"
+  },
+  {
+    "id": "nova-action-click-027",
+    "source_frame": 10082,
+    "output_frame": 10082,
+    "raw_image": "frames/frame-165.png"
+  },
+  {
+    "id": "nova-action-click-027",
+    "source_frame": 10108,
+    "output_frame": 10108,
+    "raw_image": "frames/frame-167.png"
+  },
+  {
+    "id": "nova-action-click-028",
+    "source_frame": 10318,
+    "output_frame": 10318,
+    "raw_image": "frames/frame-169.png"
+  },
+  {
+    "id": "nova-action-click-028",
+    "source_frame": 10322,
+    "output_frame": 10322,
+    "raw_image": "frames/frame-170.png"
+  },
+  {
+    "id": "nova-action-click-028",
+    "source_frame": 10348,
+    "output_frame": 10348,
+    "raw_image": "frames/frame-172.png"
+  },
+  {
+    "id": "nova-action-click-029",
+    "source_frame": 10442,
+    "output_frame": 10442,
+    "raw_image": "frames/frame-173.png"
+  },
+  {
+    "id": "nova-action-click-029",
+    "source_frame": 10446,
+    "output_frame": 10446,
+    "raw_image": "frames/frame-174.png"
+  },
+  {
+    "id": "nova-action-click-029",
+    "source_frame": 10472,
+    "output_frame": 10472,
+    "raw_image": "frames/frame-176.png"
+  },
+  {
+    "id": "nova-action-click-030",
+    "source_frame": 10948,
+    "output_frame": 10948,
+    "raw_image": "frames/frame-177.png"
+  },
+  {
+    "id": "nova-action-click-030",
+    "source_frame": 10952,
+    "output_frame": 10952,
+    "raw_image": "frames/frame-178.png"
+  },
+  {
+    "id": "nova-action-click-030",
+    "source_frame": 10978,
+    "output_frame": 10978,
+    "raw_image": "frames/frame-180.png"
+  },
+  {
+    "id": "nova-action-click-031",
+    "source_frame": 11059,
+    "output_frame": 11059,
+    "raw_image": "frames/frame-181.png"
+  },
+  {
+    "id": "nova-action-click-031",
+    "source_frame": 11063,
+    "output_frame": 11063,
+    "raw_image": "frames/frame-182.png"
+  },
+  {
+    "id": "nova-action-click-031",
+    "source_frame": 11089,
+    "output_frame": 11089,
+    "raw_image": "frames/frame-184.png"
+  },
+  {
+    "id": "nova-action-click-032",
+    "source_frame": 11191,
+    "output_frame": 11191,
+    "raw_image": "frames/frame-185.png"
+  },
+  {
+    "id": "nova-action-click-032",
+    "source_frame": 11195,
+    "output_frame": 11195,
+    "raw_image": "frames/frame-186.png"
+  },
+  {
+    "id": "nova-action-click-032",
+    "source_frame": 11221,
+    "output_frame": 11221,
+    "raw_image": "frames/frame-188.png"
+  },
+  {
+    "id": "nova-action-click-033",
+    "source_frame": 11309,
+    "output_frame": 11309,
+    "raw_image": "frames/frame-189.png"
+  },
+  {
+    "id": "nova-action-click-033",
+    "source_frame": 11313,
+    "output_frame": 11313,
+    "raw_image": "frames/frame-190.png"
+  },
+  {
+    "id": "nova-action-click-033",
+    "source_frame": 11339,
+    "output_frame": 11339,
+    "raw_image": "frames/frame-192.png"
+  },
+  {
+    "id": "nova-action-click-034",
+    "source_frame": 11411,
+    "output_frame": 11411,
+    "raw_image": "frames/frame-194.png"
+  },
+  {
+    "id": "nova-action-click-034",
+    "source_frame": 11415,
+    "output_frame": 11415,
+    "raw_image": "frames/frame-195.png"
+  },
+  {
+    "id": "nova-action-click-034",
+    "source_frame": 11441,
+    "output_frame": 11441,
+    "raw_image": "frames/frame-197.png"
+  },
+  {
+    "id": "nova-action-click-035",
+    "source_frame": 11630,
+    "output_frame": 11630,
+    "raw_image": "frames/frame-198.png"
+  },
+  {
+    "id": "nova-action-click-035",
+    "source_frame": 11634,
+    "output_frame": 11634,
+    "raw_image": "frames/frame-199.png"
+  },
+  {
+    "id": "nova-action-click-035",
+    "source_frame": 11660,
+    "output_frame": 11660,
+    "raw_image": "frames/frame-201.png"
+  },
+  {
+    "id": "nova-action-click-036",
+    "source_frame": 11781,
+    "output_frame": 11781,
+    "raw_image": "frames/frame-202.png"
+  },
+  {
+    "id": "nova-action-click-036",
+    "source_frame": 11785,
+    "output_frame": 11785,
+    "raw_image": "frames/frame-203.png"
+  },
+  {
+    "id": "nova-action-click-036",
+    "source_frame": 11811,
+    "output_frame": 11811,
+    "raw_image": "frames/frame-205.png"
+  },
+  {
+    "id": "nova-action-click-037",
+    "source_frame": 11932,
+    "output_frame": 11932,
+    "raw_image": "frames/frame-206.png"
+  },
+  {
+    "id": "nova-action-click-037",
+    "source_frame": 11936,
+    "output_frame": 11936,
+    "raw_image": "frames/frame-207.png"
+  },
+  {
+    "id": "nova-action-click-037",
+    "source_frame": 11962,
+    "output_frame": 11962,
+    "raw_image": "frames/frame-209.png"
+  },
+  {
+    "id": "nova-action-click-038",
+    "source_frame": 12032,
+    "output_frame": 12032,
+    "raw_image": "frames/frame-210.png"
+  },
+  {
+    "id": "nova-action-click-038",
+    "source_frame": 12036,
+    "output_frame": 12036,
+    "raw_image": "frames/frame-211.png"
+  },
+  {
+    "id": "nova-action-click-038",
+    "source_frame": 12062,
+    "output_frame": 12062,
+    "raw_image": "frames/frame-213.png"
+  },
+  {
+    "id": "nova-action-click-039",
+    "source_frame": 12174,
+    "output_frame": 12174,
+    "raw_image": "frames/frame-214.png"
+  },
+  {
+    "id": "nova-action-click-039",
+    "source_frame": 12178,
+    "output_frame": 12178,
+    "raw_image": "frames/frame-215.png"
+  },
+  {
+    "id": "nova-action-click-039",
+    "source_frame": 12204,
+    "output_frame": 12204,
+    "raw_image": "frames/frame-217.png"
+  },
+  {
+    "id": "nova-action-click-040",
+    "source_frame": 12277,
+    "output_frame": 12277,
+    "raw_image": "frames/frame-218.png"
+  },
+  {
+    "id": "nova-action-click-040",
+    "source_frame": 12281,
+    "output_frame": 12281,
+    "raw_image": "frames/frame-219.png"
+  },
+  {
+    "id": "nova-action-click-040",
+    "source_frame": 12307,
+    "output_frame": 12307,
+    "raw_image": "frames/frame-221.png"
+  },
+  {
+    "id": "nova-action-click-041",
+    "source_frame": 13790,
+    "output_frame": 13790,
+    "raw_image": "frames/frame-223.png"
+  },
+  {
+    "id": "nova-action-click-041",
+    "source_frame": 13794,
+    "output_frame": 13794,
+    "raw_image": "frames/frame-224.png"
+  },
+  {
+    "id": "nova-action-click-041",
+    "source_frame": 13820,
+    "output_frame": 13820,
+    "raw_image": "frames/frame-226.png"
+  },
+  {
+    "id": "nova-action-click-042",
+    "source_frame": 13975,
+    "output_frame": 13975,
+    "raw_image": "frames/frame-227.png"
+  },
+  {
+    "id": "nova-action-click-042",
+    "source_frame": 13979,
+    "output_frame": 13979,
+    "raw_image": "frames/frame-228.png"
+  },
+  {
+    "id": "nova-action-click-042",
+    "source_frame": 14005,
+    "output_frame": 14005,
+    "raw_image": "frames/frame-230.png"
+  },
+  {
+    "id": "nova-action-click-043",
+    "source_frame": 14217,
+    "output_frame": 14217,
+    "raw_image": "frames/frame-235.png"
+  },
+  {
+    "id": "nova-action-click-043",
+    "source_frame": 14221,
+    "output_frame": 14221,
+    "raw_image": "frames/frame-236.png"
+  },
+  {
+    "id": "nova-action-click-043",
+    "source_frame": 14247,
+    "output_frame": 14247,
+    "raw_image": "frames/frame-238.png"
+  },
+  {
+    "id": "nova-action-click-044",
+    "source_frame": 14594,
+    "output_frame": 14594,
+    "raw_image": "frames/frame-247.png"
+  },
+  {
+    "id": "nova-action-click-044",
+    "source_frame": 14598,
+    "output_frame": 14598,
+    "raw_image": "frames/frame-248.png"
+  },
+  {
+    "id": "nova-action-click-044",
+    "source_frame": 14624,
+    "output_frame": 14624,
+    "raw_image": "frames/frame-250.png"
+  },
+  {
+    "id": "nova-action-click-045",
+    "source_frame": 14720,
+    "output_frame": 14720,
+    "raw_image": "frames/frame-251.png"
+  },
+  {
+    "id": "nova-action-click-045",
+    "source_frame": 14724,
+    "output_frame": 14724,
+    "raw_image": "frames/frame-252.png"
+  },
+  {
+    "id": "nova-action-click-045",
+    "source_frame": 14750,
+    "output_frame": 14750,
+    "raw_image": "frames/frame-254.png"
+  },
+  {
+    "id": "nova-action-click-046",
+    "source_frame": 15190,
+    "output_frame": 15190,
+    "raw_image": "frames/frame-256.png"
+  },
+  {
+    "id": "nova-action-click-046",
+    "source_frame": 15194,
+    "output_frame": 15194,
+    "raw_image": "frames/frame-257.png"
+  },
+  {
+    "id": "nova-action-click-046",
+    "source_frame": 15220,
+    "output_frame": 15220,
+    "raw_image": "frames/frame-259.png"
+  },
+  {
+    "id": "nova-action-click-047",
+    "source_frame": 16407,
+    "output_frame": 16407,
+    "raw_image": "frames/frame-261.png"
+  },
+  {
+    "id": "nova-action-click-047",
+    "source_frame": 16411,
+    "output_frame": 16411,
+    "raw_image": "frames/frame-262.png"
+  },
+  {
+    "id": "nova-action-click-047",
+    "source_frame": 16437,
+    "output_frame": 16437,
+    "raw_image": "frames/frame-264.png"
+  },
+  {
+    "id": "nova-action-click-048",
+    "source_frame": 16638,
+    "output_frame": 16638,
+    "raw_image": "frames/frame-265.png"
+  },
+  {
+    "id": "nova-action-click-048",
+    "source_frame": 16642,
+    "output_frame": 16642,
+    "raw_image": "frames/frame-266.png"
+  },
+  {
+    "id": "nova-action-click-048",
+    "source_frame": 16668,
+    "output_frame": 16668,
+    "raw_image": "frames/frame-268.png"
+  },
+  {
+    "id": "nova-action-click-049",
+    "source_frame": 16825,
+    "output_frame": 16825,
+    "raw_image": "frames/frame-269.png"
+  },
+  {
+    "id": "nova-action-click-049",
+    "source_frame": 16829,
+    "output_frame": 16829,
+    "raw_image": "frames/frame-270.png"
+  },
+  {
+    "id": "nova-action-click-049",
+    "source_frame": 16855,
+    "output_frame": 16855,
+    "raw_image": "frames/frame-272.png"
+  },
+  {
+    "id": "nova-action-click-050",
+    "source_frame": 17150,
+    "output_frame": 17150,
+    "raw_image": "frames/frame-277.png"
+  },
+  {
+    "id": "nova-action-click-050",
+    "source_frame": 17154,
+    "output_frame": 17154,
+    "raw_image": "frames/frame-278.png"
+  },
+  {
+    "id": "nova-action-click-050",
+    "source_frame": 17180,
+    "output_frame": 17180,
+    "raw_image": "frames/frame-280.png"
+  },
+  {
+    "id": "nova-action-click-051",
+    "source_frame": 17488,
+    "output_frame": 17488,
+    "raw_image": "frames/frame-290.png"
+  },
+  {
+    "id": "nova-action-click-051",
+    "source_frame": 17492,
+    "output_frame": 17492,
+    "raw_image": "frames/frame-291.png"
+  },
+  {
+    "id": "nova-action-click-051",
+    "source_frame": 17518,
+    "output_frame": 17518,
+    "raw_image": "frames/frame-293.png"
+  },
+  {
+    "id": "nova-action-click-052",
+    "source_frame": 18345,
+    "output_frame": 18345,
+    "raw_image": "frames/frame-294.png"
+  },
+  {
+    "id": "nova-action-click-052",
+    "source_frame": 18349,
+    "output_frame": 18349,
+    "raw_image": "frames/frame-295.png"
+  },
+  {
+    "id": "nova-action-click-052",
+    "source_frame": 18375,
+    "output_frame": 18375,
+    "raw_image": "frames/frame-297.png"
+  },
+  {
+    "id": "nova-action-click-053",
+    "source_frame": 18510,
+    "output_frame": 18510,
+    "raw_image": "frames/frame-298.png"
+  },
+  {
+    "id": "nova-action-click-053",
+    "source_frame": 18514,
+    "output_frame": 18514,
+    "raw_image": "frames/frame-299.png"
+  },
+  {
+    "id": "nova-action-click-053",
+    "source_frame": 18540,
+    "output_frame": 18540,
+    "raw_image": "frames/frame-301.png"
+  },
+  {
+    "id": "nova-action-click-054",
+    "source_frame": 18739,
+    "output_frame": 18739,
+    "raw_image": "frames/frame-303.png"
+  },
+  {
+    "id": "nova-action-click-054",
+    "source_frame": 18743,
+    "output_frame": 18743,
+    "raw_image": "frames/frame-304.png"
+  },
+  {
+    "id": "nova-action-click-054",
+    "source_frame": 18769,
+    "output_frame": 18769,
+    "raw_image": "frames/frame-306.png"
+  }
+]

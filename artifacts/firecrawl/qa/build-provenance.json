@@ -1,0 +1,7 @@
+{
+  "backend_commit": "9ae243425dcf1a124babc2ce0b44cf74dffcfe7b",
+  "frontend_exact_commit": null,
+  "frontend_description": "Installed working-tree build immediately preceding a1f3393838ca70c1502d0e1e65798d647a2fafbd; not cryptographically frozen.",
+  "frontend_manifest_mtime": "2026-09-22T11:16:35+05:30",
+  "coordinator_confirmed": true
+}

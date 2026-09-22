@@ -1,0 +1,14 @@
+{
+  "session_id": "7d506f11-282e-472e-92cf-8e27626f11b6",
+  "action_steps": 72,
+  "verified_click_actions": 55,
+  "excluded": {
+    "fills": 15,
+    "scroll": 1,
+    "back": 1,
+    "operator_clicks": "all, no trustworthy ledger"
+  },
+  "recordingClicks": "absent in accepted session",
+  "timing_limitation": "actionSteps.at is created before driver.execute, so sound timing is aligned to recorded action start, not proven actual dispatch. No fabricated fixed delay is applied. Decoded onset QA measures chosen cues only.",
+  "duplicate_action_ids": 0
+}

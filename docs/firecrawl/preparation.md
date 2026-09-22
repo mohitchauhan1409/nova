@@ -1,5 +1,7 @@
 # Firecrawl eligibility preparation — 2026-09-22
 
+> Historical preparation/source-check notes. The completed accepted final4 recording, actual results and current limitations are documented in [delivery.md](delivery.md). Earlier pending/unverified statuses below describe the preparation stage.
+
 Update: **coordinator resolved the dashboard-specific criterion live and authorized an unverified declarative profile/scenario.** The live Support Agent said it cannot control the browser, click dashboard links or open pages. See `scenario.md` for the bounded implementation and remaining live checks. The research below is retained as the original eligibility record; its initial hold is superseded by that coordinator decision. Public-source research still establishes multiple real execution agents, including browser interaction. Neither an unconditional lack-of-agents claim nor a docs-only-bot characterization would be accurate.
 
 Starting URL supplied by user: https://www.firecrawl.dev/app/t/jMrRDaLBFKK . Treat its team token as a requested scope, not proof of signed-in account/team membership. No browser, API job, account mutation, implementation, build, runtime activation or Git mutation was performed by this worker.

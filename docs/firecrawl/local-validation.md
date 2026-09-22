@@ -1,5 +1,7 @@
 # Local preparation checks
 
+> Historical preparation/source-check notes. The completed accepted final4 recording, actual results and current limitations are documented in [delivery.md](delivery.md). Earlier pending/unverified statuses below describe the preparation stage.
+
 2026-09-22. These are isolated source checks, not live workflow evidence.
 
 - `npm run typecheck`: passed.

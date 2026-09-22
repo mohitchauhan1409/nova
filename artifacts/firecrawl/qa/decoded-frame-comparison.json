@@ -1,0 +1,1328 @@
+{
+  "compared_action_and_response_frames": 165,
+  "maximum_mean_absolute_rgb_error": 0.16288907955574622,
+  "maximum_p99_absolute_rgb_error": 3.0,
+  "comparison_exclusion": "Only measured stable debugger row plus2scaledpixels codec-edge allowance; all action frames follow completed sidebar opening.",
+  "frames": [
+    {
+      "id": "nova-action-click-000",
+      "source_frame": 484,
+      "output_frame": 484,
+      "raw_image": "frames/frame-003.png",
+      "mean_absolute_rgb_error": 0.06422742186631075,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-000",
+      "source_frame": 488,
+      "output_frame": 488,
+      "raw_image": "frames/frame-004.png",
+      "mean_absolute_rgb_error": 0.07922605144827367,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-000",
+      "source_frame": 514,
+      "output_frame": 514,
+      "raw_image": "frames/frame-006.png",
+      "mean_absolute_rgb_error": 0.08897290147290147,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-001",
+      "source_frame": 3452,
+      "output_frame": 3452,
+      "raw_image": "frames/frame-015.png",
+      "mean_absolute_rgb_error": 0.07581738484516262,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-001",
+      "source_frame": 3456,
+      "output_frame": 3456,
+      "raw_image": "frames/frame-016.png",
+      "mean_absolute_rgb_error": 0.09008239390183835,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-001",
+      "source_frame": 3482,
+      "output_frame": 3482,
+      "raw_image": "frames/frame-018.png",
+      "mean_absolute_rgb_error": 0.09171646845257957,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-002",
+      "source_frame": 3551,
+      "output_frame": 3551,
+      "raw_image": "frames/frame-019.png",
+      "mean_absolute_rgb_error": 0.0634925600203378,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-002",
+      "source_frame": 3555,
+      "output_frame": 3555,
+      "raw_image": "frames/frame-020.png",
+      "mean_absolute_rgb_error": 0.07975882628660406,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-002",
+      "source_frame": 3581,
+      "output_frame": 3581,
+      "raw_image": "frames/frame-022.png",
+      "mean_absolute_rgb_error": 0.09185177240732796,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-003",
+      "source_frame": 3886,
+      "output_frame": 3886,
+      "raw_image": "frames/frame-035.png",
+      "mean_absolute_rgb_error": 0.06942979686035242,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-003",
+      "source_frame": 3890,
+      "output_frame": 3890,
+      "raw_image": "frames/frame-036.png",
+      "mean_absolute_rgb_error": 0.08671369782480894,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-003",
+      "source_frame": 3916,
+      "output_frame": 3916,
+      "raw_image": "frames/frame-038.png",
+      "mean_absolute_rgb_error": 0.0803030212752435,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-004",
+      "source_frame": 3990,
+      "output_frame": 3990,
+      "raw_image": "frames/frame-039.png",
+      "mean_absolute_rgb_error": 0.06976569823792046,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-004",
+      "source_frame": 3994,
+      "output_frame": 3994,
+      "raw_image": "frames/frame-040.png",
+      "mean_absolute_rgb_error": 0.09818126658404436,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-004",
+      "source_frame": 4020,
+      "output_frame": 4020,
+      "raw_image": "frames/frame-042.png",
+      "mean_absolute_rgb_error": 0.07477020671465116,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-005",
+      "source_frame": 4318,
+      "output_frame": 4318,
+      "raw_image": "frames/frame-044.png",
+      "mean_absolute_rgb_error": 0.0609662241606686,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-005",
+      "source_frame": 4322,
+      "output_frame": 4322,
+      "raw_image": "frames/frame-045.png",
+      "mean_absolute_rgb_error": 0.07627791481958149,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-005",
+      "source_frame": 4348,
+      "output_frame": 4348,
+      "raw_image": "frames/frame-047.png",
+      "mean_absolute_rgb_error": 0.10616568949902283,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-006",
+      "source_frame": 4416,
+      "output_frame": 4416,
+      "raw_image": "frames/frame-048.png",
+      "mean_absolute_rgb_error": 0.11466079174412508,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-006",
+      "source_frame": 4420,
+      "output_frame": 4420,
+      "raw_image": "frames/frame-049.png",
+      "mean_absolute_rgb_error": 0.12149550343994789,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-006",
+      "source_frame": 4446,
+      "output_frame": 4446,
+      "raw_image": "frames/frame-051.png",
+      "mean_absolute_rgb_error": 0.10827767251378362,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-007",
+      "source_frame": 4540,
+      "output_frame": 4540,
+      "raw_image": "frames/frame-052.png",
+      "mean_absolute_rgb_error": 0.07521459952015508,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-007",
+      "source_frame": 4544,
+      "output_frame": 4544,
+      "raw_image": "frames/frame-053.png",
+      "mean_absolute_rgb_error": 0.08755134102356324,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-007",
+      "source_frame": 4570,
+      "output_frame": 4570,
+      "raw_image": "frames/frame-055.png",
+      "mean_absolute_rgb_error": 0.09551068926068926,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-008",
+      "source_frame": 4807,
+      "output_frame": 4807,
+      "raw_image": "frames/frame-056.png",
+      "mean_absolute_rgb_error": 0.08291922875256208,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-008",
+      "source_frame": 4811,
+      "output_frame": 4811,
+      "raw_image": "frames/frame-057.png",
+      "mean_absolute_rgb_error": 0.09274304065970733,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-008",
+      "source_frame": 4837,
+      "output_frame": 4837,
+      "raw_image": "frames/frame-059.png",
+      "mean_absolute_rgb_error": 0.1144080588525033,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-009",
+      "source_frame": 4911,
+      "output_frame": 4911,
+      "raw_image": "frames/frame-060.png",
+      "mean_absolute_rgb_error": 0.10588242011853123,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-009",
+      "source_frame": 4915,
+      "output_frame": 4915,
+      "raw_image": "frames/frame-061.png",
+      "mean_absolute_rgb_error": 0.11325760284093618,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-009",
+      "source_frame": 4941,
+      "output_frame": 4941,
+      "raw_image": "frames/frame-063.png",
+      "mean_absolute_rgb_error": 0.10833402847291736,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-010",
+      "source_frame": 5440,
+      "output_frame": 5440,
+      "raw_image": "frames/frame-065.png",
+      "mean_absolute_rgb_error": 0.07336304558526781,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-010",
+      "source_frame": 5444,
+      "output_frame": 5444,
+      "raw_image": "frames/frame-066.png",
+      "mean_absolute_rgb_error": 0.0910704851677074,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-010",
+      "source_frame": 5470,
+      "output_frame": 5470,
+      "raw_image": "frames/frame-068.png",
+      "mean_absolute_rgb_error": 0.0830237479543035,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-011",
+      "source_frame": 5604,
+      "output_frame": 5604,
+      "raw_image": "frames/frame-069.png",
+      "mean_absolute_rgb_error": 0.07108894608894609,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-011",
+      "source_frame": 5608,
+      "output_frame": 5608,
+      "raw_image": "frames/frame-070.png",
+      "mean_absolute_rgb_error": 0.08556497966220189,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-011",
+      "source_frame": 5634,
+      "output_frame": 5634,
+      "raw_image": "frames/frame-072.png",
+      "mean_absolute_rgb_error": 0.09477607567885346,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-012",
+      "source_frame": 5727,
+      "output_frame": 5727,
+      "raw_image": "frames/frame-073.png",
+      "mean_absolute_rgb_error": 0.0950665447193225,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-012",
+      "source_frame": 5731,
+      "output_frame": 5731,
+      "raw_image": "frames/frame-074.png",
+      "mean_absolute_rgb_error": 0.0971462533962534,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-012",
+      "source_frame": 5757,
+      "output_frame": 5757,
+      "raw_image": "frames/frame-076.png",
+      "mean_absolute_rgb_error": 0.07988271009104342,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-013",
+      "source_frame": 6110,
+      "output_frame": 6110,
+      "raw_image": "frames/frame-081.png",
+      "mean_absolute_rgb_error": 0.06359658269380492,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-013",
+      "source_frame": 6114,
+      "output_frame": 6114,
+      "raw_image": "frames/frame-082.png",
+      "mean_absolute_rgb_error": 0.07555149395427173,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-013",
+      "source_frame": 6140,
+      "output_frame": 6140,
+      "raw_image": "frames/frame-084.png",
+      "mean_absolute_rgb_error": 0.07916572326294548,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-014",
+      "source_frame": 6619,
+      "output_frame": 6619,
+      "raw_image": "frames/frame-090.png",
+      "mean_absolute_rgb_error": 0.10068923089756424,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-014",
+      "source_frame": 6623,
+      "output_frame": 6623,
+      "raw_image": "frames/frame-091.png",
+      "mean_absolute_rgb_error": 0.10370266099432766,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-014",
+      "source_frame": 6649,
+      "output_frame": 6649,
+      "raw_image": "frames/frame-093.png",
+      "mean_absolute_rgb_error": 0.08919609093220204,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-015",
+      "source_frame": 7622,
+      "output_frame": 7622,
+      "raw_image": "frames/frame-094.png",
+      "mean_absolute_rgb_error": 0.06969866692088915,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-015",
+      "source_frame": 7626,
+      "output_frame": 7626,
+      "raw_image": "frames/frame-095.png",
+      "mean_absolute_rgb_error": 0.07767762802485025,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-015",
+      "source_frame": 7652,
+      "output_frame": 7652,
+      "raw_image": "frames/frame-097.png",
+      "mean_absolute_rgb_error": 0.06983198476254032,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-016",
+      "source_frame": 7834,
+      "output_frame": 7834,
+      "raw_image": "frames/frame-099.png",
+      "mean_absolute_rgb_error": 0.07799416479972035,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-016",
+      "source_frame": 7838,
+      "output_frame": 7838,
+      "raw_image": "frames/frame-100.png",
+      "mean_absolute_rgb_error": 0.08414068830735498,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-016",
+      "source_frame": 7864,
+      "output_frame": 7864,
+      "raw_image": "frames/frame-102.png",
+      "mean_absolute_rgb_error": 0.07995396189840634,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-017",
+      "source_frame": 8007,
+      "output_frame": 8007,
+      "raw_image": "frames/frame-103.png",
+      "mean_absolute_rgb_error": 0.06751940432495988,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-017",
+      "source_frame": 8011,
+      "output_frame": 8011,
+      "raw_image": "frames/frame-104.png",
+      "mean_absolute_rgb_error": 0.08000684215961994,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-017",
+      "source_frame": 8037,
+      "output_frame": 8037,
+      "raw_image": "frames/frame-106.png",
+      "mean_absolute_rgb_error": 0.07878811351033574,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-018",
+      "source_frame": 8350,
+      "output_frame": 8350,
+      "raw_image": "frames/frame-111.png",
+      "mean_absolute_rgb_error": 0.07928166261499595,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-018",
+      "source_frame": 8354,
+      "output_frame": 8354,
+      "raw_image": "frames/frame-112.png",
+      "mean_absolute_rgb_error": 0.0798611111111111,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-018",
+      "source_frame": 8380,
+      "output_frame": 8380,
+      "raw_image": "frames/frame-114.png",
+      "mean_absolute_rgb_error": 0.09326787104564882,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-019",
+      "source_frame": 8451,
+      "output_frame": 8451,
+      "raw_image": "frames/frame-115.png",
+      "mean_absolute_rgb_error": 0.09698711608433831,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-019",
+      "source_frame": 8455,
+      "output_frame": 8455,
+      "raw_image": "frames/frame-116.png",
+      "mean_absolute_rgb_error": 0.09980491404102515,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-019",
+      "source_frame": 8481,
+      "output_frame": 8481,
+      "raw_image": "frames/frame-118.png",
+      "mean_absolute_rgb_error": 0.06698240899629788,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-020",
+      "source_frame": 8837,
+      "output_frame": 8837,
+      "raw_image": "frames/frame-131.png",
+      "mean_absolute_rgb_error": 0.07025502685224908,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-020",
+      "source_frame": 8841,
+      "output_frame": 8841,
+      "raw_image": "frames/frame-132.png",
+      "mean_absolute_rgb_error": 0.09202928126539238,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-020",
+      "source_frame": 8867,
+      "output_frame": 8867,
+      "raw_image": "frames/frame-134.png",
+      "mean_absolute_rgb_error": 0.07948846664124441,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-021",
+      "source_frame": 8955,
+      "output_frame": 8955,
+      "raw_image": "frames/frame-135.png",
+      "mean_absolute_rgb_error": 0.07395515555237778,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-021",
+      "source_frame": 8959,
+      "output_frame": 8959,
+      "raw_image": "frames/frame-136.png",
+      "mean_absolute_rgb_error": 0.08713574685796908,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-021",
+      "source_frame": 8985,
+      "output_frame": 8985,
+      "raw_image": "frames/frame-138.png",
+      "mean_absolute_rgb_error": 0.07443132616743728,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-022",
+      "source_frame": 9061,
+      "output_frame": 9061,
+      "raw_image": "frames/frame-140.png",
+      "mean_absolute_rgb_error": 0.07402268339768339,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-022",
+      "source_frame": 9065,
+      "output_frame": 9065,
+      "raw_image": "frames/frame-141.png",
+      "mean_absolute_rgb_error": 0.08407936706547818,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-022",
+      "source_frame": 9091,
+      "output_frame": 9091,
+      "raw_image": "frames/frame-143.png",
+      "mean_absolute_rgb_error": 0.07655969461525017,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-023",
+      "source_frame": 9305,
+      "output_frame": 9305,
+      "raw_image": "frames/frame-148.png",
+      "mean_absolute_rgb_error": 0.0660278333889445,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-023",
+      "source_frame": 9309,
+      "output_frame": 9309,
+      "raw_image": "frames/frame-149.png",
+      "mean_absolute_rgb_error": 0.08103813138535361,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-023",
+      "source_frame": 9335,
+      "output_frame": 9335,
+      "raw_image": "frames/frame-151.png",
+      "mean_absolute_rgb_error": 0.08012551241717908,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-024",
+      "source_frame": 9401,
+      "output_frame": 9401,
+      "raw_image": "frames/frame-152.png",
+      "mean_absolute_rgb_error": 0.07542363792363792,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-024",
+      "source_frame": 9405,
+      "output_frame": 9405,
+      "raw_image": "frames/frame-153.png",
+      "mean_absolute_rgb_error": 0.08500564056119611,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-024",
+      "source_frame": 9431,
+      "output_frame": 9431,
+      "raw_image": "frames/frame-155.png",
+      "mean_absolute_rgb_error": 0.08589343311565534,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-025",
+      "source_frame": 9849,
+      "output_frame": 9849,
+      "raw_image": "frames/frame-156.png",
+      "mean_absolute_rgb_error": 0.06345556866390199,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-025",
+      "source_frame": 9853,
+      "output_frame": 9853,
+      "raw_image": "frames/frame-157.png",
+      "mean_absolute_rgb_error": 0.08647958474347363,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-025",
+      "source_frame": 9879,
+      "output_frame": 9879,
+      "raw_image": "frames/frame-159.png",
+      "mean_absolute_rgb_error": 0.11893912761968317,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-026",
+      "source_frame": 9955,
+      "output_frame": 9955,
+      "raw_image": "frames/frame-160.png",
+      "mean_absolute_rgb_error": 0.12120826183326183,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-026",
+      "source_frame": 9959,
+      "output_frame": 9959,
+      "raw_image": "frames/frame-161.png",
+      "mean_absolute_rgb_error": 0.12412362759584981,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-026",
+      "source_frame": 9985,
+      "output_frame": 9985,
+      "raw_image": "frames/frame-163.png",
+      "mean_absolute_rgb_error": 0.08211510121232343,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-027",
+      "source_frame": 10078,
+      "output_frame": 10078,
+      "raw_image": "frames/frame-164.png",
+      "mean_absolute_rgb_error": 0.08719235108123997,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-027",
+      "source_frame": 10082,
+      "output_frame": 10082,
+      "raw_image": "frames/frame-165.png",
+      "mean_absolute_rgb_error": 0.09191632108298775,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-027",
+      "source_frame": 10108,
+      "output_frame": 10108,
+      "raw_image": "frames/frame-167.png",
+      "mean_absolute_rgb_error": 0.10060606241161797,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-028",
+      "source_frame": 10318,
+      "output_frame": 10318,
+      "raw_image": "frames/frame-169.png",
+      "mean_absolute_rgb_error": 0.05901164060886283,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-028",
+      "source_frame": 10322,
+      "output_frame": 10322,
+      "raw_image": "frames/frame-170.png",
+      "mean_absolute_rgb_error": 0.08452946994613661,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-028",
+      "source_frame": 10348,
+      "output_frame": 10348,
+      "raw_image": "frames/frame-172.png",
+      "mean_absolute_rgb_error": 0.10321258758758758,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-029",
+      "source_frame": 10442,
+      "output_frame": 10442,
+      "raw_image": "frames/frame-173.png",
+      "mean_absolute_rgb_error": 0.1023970398970399,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-029",
+      "source_frame": 10446,
+      "output_frame": 10446,
+      "raw_image": "frames/frame-174.png",
+      "mean_absolute_rgb_error": 0.10915330012552235,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-029",
+      "source_frame": 10472,
+      "output_frame": 10472,
+      "raw_image": "frames/frame-176.png",
+      "mean_absolute_rgb_error": 0.10686306346028568,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-030",
+      "source_frame": 10948,
+      "output_frame": 10948,
+      "raw_image": "frames/frame-177.png",
+      "mean_absolute_rgb_error": 0.06438060083893417,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-030",
+      "source_frame": 10952,
+      "output_frame": 10952,
+      "raw_image": "frames/frame-178.png",
+      "mean_absolute_rgb_error": 0.0847457080095969,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-030",
+      "source_frame": 10978,
+      "output_frame": 10978,
+      "raw_image": "frames/frame-180.png",
+      "mean_absolute_rgb_error": 0.11742173721340388,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-031",
+      "source_frame": 11059,
+      "output_frame": 11059,
+      "raw_image": "frames/frame-181.png",
+      "mean_absolute_rgb_error": 0.11630951387895833,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-031",
+      "source_frame": 11063,
+      "output_frame": 11063,
+      "raw_image": "frames/frame-182.png",
+      "mean_absolute_rgb_error": 0.14314140529418307,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-031",
+      "source_frame": 11089,
+      "output_frame": 11089,
+      "raw_image": "frames/frame-184.png",
+      "mean_absolute_rgb_error": 0.12736521243465687,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-032",
+      "source_frame": 11191,
+      "output_frame": 11191,
+      "raw_image": "frames/frame-185.png",
+      "mean_absolute_rgb_error": 0.09878951372006928,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-032",
+      "source_frame": 11195,
+      "output_frame": 11195,
+      "raw_image": "frames/frame-186.png",
+      "mean_absolute_rgb_error": 0.10691495066495066,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-032",
+      "source_frame": 11221,
+      "output_frame": 11221,
+      "raw_image": "frames/frame-188.png",
+      "mean_absolute_rgb_error": 0.06445334223112001,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-033",
+      "source_frame": 11309,
+      "output_frame": 11309,
+      "raw_image": "frames/frame-189.png",
+      "mean_absolute_rgb_error": 0.06154120390231501,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-033",
+      "source_frame": 11313,
+      "output_frame": 11313,
+      "raw_image": "frames/frame-190.png",
+      "mean_absolute_rgb_error": 0.0840406378600823,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-033",
+      "source_frame": 11339,
+      "output_frame": 11339,
+      "raw_image": "frames/frame-192.png",
+      "mean_absolute_rgb_error": 0.06647793626960294,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-034",
+      "source_frame": 11411,
+      "output_frame": 11411,
+      "raw_image": "frames/frame-194.png",
+      "mean_absolute_rgb_error": 0.07097747549136438,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-034",
+      "source_frame": 11415,
+      "output_frame": 11415,
+      "raw_image": "frames/frame-195.png",
+      "mean_absolute_rgb_error": 0.07880449894338783,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-034",
+      "source_frame": 11441,
+      "output_frame": 11441,
+      "raw_image": "frames/frame-197.png",
+      "mean_absolute_rgb_error": 0.10148268307990531,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-035",
+      "source_frame": 11630,
+      "output_frame": 11630,
+      "raw_image": "frames/frame-198.png",
+      "mean_absolute_rgb_error": 0.0719884070578515,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-035",
+      "source_frame": 11634,
+      "output_frame": 11634,
+      "raw_image": "frames/frame-199.png",
+      "mean_absolute_rgb_error": 0.09306950800006356,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-035",
+      "source_frame": 11660,
+      "output_frame": 11660,
+      "raw_image": "frames/frame-201.png",
+      "mean_absolute_rgb_error": 0.08610172672672672,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-036",
+      "source_frame": 11781,
+      "output_frame": 11781,
+      "raw_image": "frames/frame-202.png",
+      "mean_absolute_rgb_error": 0.0777481350398017,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-036",
+      "source_frame": 11785,
+      "output_frame": 11785,
+      "raw_image": "frames/frame-203.png",
+      "mean_absolute_rgb_error": 0.1066589903395459,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-036",
+      "source_frame": 11811,
+      "output_frame": 11811,
+      "raw_image": "frames/frame-205.png",
+      "mean_absolute_rgb_error": 0.10957659047936825,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-037",
+      "source_frame": 11932,
+      "output_frame": 11932,
+      "raw_image": "frames/frame-206.png",
+      "mean_absolute_rgb_error": 0.068411913898025,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-037",
+      "source_frame": 11936,
+      "output_frame": 11936,
+      "raw_image": "frames/frame-207.png",
+      "mean_absolute_rgb_error": 0.07823200184311295,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-037",
+      "source_frame": 11962,
+      "output_frame": 11962,
+      "raw_image": "frames/frame-209.png",
+      "mean_absolute_rgb_error": 0.09873266123266124,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-038",
+      "source_frame": 12032,
+      "output_frame": 12032,
+      "raw_image": "frames/frame-210.png",
+      "mean_absolute_rgb_error": 0.06823564636064636,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-038",
+      "source_frame": 12036,
+      "output_frame": 12036,
+      "raw_image": "frames/frame-211.png",
+      "mean_absolute_rgb_error": 0.09979399041899042,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-038",
+      "source_frame": 12062,
+      "output_frame": 12062,
+      "raw_image": "frames/frame-213.png",
+      "mean_absolute_rgb_error": 0.0845485862846974,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-039",
+      "source_frame": 12174,
+      "output_frame": 12174,
+      "raw_image": "frames/frame-214.png",
+      "mean_absolute_rgb_error": 0.08976411927800816,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-039",
+      "source_frame": 12178,
+      "output_frame": 12178,
+      "raw_image": "frames/frame-215.png",
+      "mean_absolute_rgb_error": 0.09422244665300221,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-039",
+      "source_frame": 12204,
+      "output_frame": 12204,
+      "raw_image": "frames/frame-217.png",
+      "mean_absolute_rgb_error": 0.09193792006292006,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-040",
+      "source_frame": 12277,
+      "output_frame": 12277,
+      "raw_image": "frames/frame-218.png",
+      "mean_absolute_rgb_error": 0.08364416003304892,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-040",
+      "source_frame": 12281,
+      "output_frame": 12281,
+      "raw_image": "frames/frame-219.png",
+      "mean_absolute_rgb_error": 0.16288907955574622,
+      "p99_absolute_rgb_error": 3.0
+    },
+    {
+      "id": "nova-action-click-040",
+      "source_frame": 12307,
+      "output_frame": 12307,
+      "raw_image": "frames/frame-221.png",
+      "mean_absolute_rgb_error": 0.08094552886219553,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-041",
+      "source_frame": 13790,
+      "output_frame": 13790,
+      "raw_image": "frames/frame-223.png",
+      "mean_absolute_rgb_error": 0.09329294572350127,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-041",
+      "source_frame": 13794,
+      "output_frame": 13794,
+      "raw_image": "frames/frame-224.png",
+      "mean_absolute_rgb_error": 0.09338207254873922,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-041",
+      "source_frame": 13820,
+      "output_frame": 13820,
+      "raw_image": "frames/frame-226.png",
+      "mean_absolute_rgb_error": 0.09219760435038213,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-042",
+      "source_frame": 13975,
+      "output_frame": 13975,
+      "raw_image": "frames/frame-227.png",
+      "mean_absolute_rgb_error": 0.09854447701669924,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-042",
+      "source_frame": 13979,
+      "output_frame": 13979,
+      "raw_image": "frames/frame-228.png",
+      "mean_absolute_rgb_error": 0.10977768443046221,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-042",
+      "source_frame": 14005,
+      "output_frame": 14005,
+      "raw_image": "frames/frame-230.png",
+      "mean_absolute_rgb_error": 0.10949739421961645,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-043",
+      "source_frame": 14217,
+      "output_frame": 14217,
+      "raw_image": "frames/frame-235.png",
+      "mean_absolute_rgb_error": 0.09073979733701956,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-043",
+      "source_frame": 14221,
+      "output_frame": 14221,
+      "raw_image": "frames/frame-236.png",
+      "mean_absolute_rgb_error": 0.09892953469342358,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-043",
+      "source_frame": 14247,
+      "output_frame": 14247,
+      "raw_image": "frames/frame-238.png",
+      "mean_absolute_rgb_error": 0.090656132322799,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-044",
+      "source_frame": 14594,
+      "output_frame": 14594,
+      "raw_image": "frames/frame-247.png",
+      "mean_absolute_rgb_error": 0.08028092576703688,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-044",
+      "source_frame": 14598,
+      "output_frame": 14598,
+      "raw_image": "frames/frame-248.png",
+      "mean_absolute_rgb_error": 0.08730208382986161,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-044",
+      "source_frame": 14624,
+      "output_frame": 14624,
+      "raw_image": "frames/frame-250.png",
+      "mean_absolute_rgb_error": 0.08511065629121185,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-045",
+      "source_frame": 14720,
+      "output_frame": 14720,
+      "raw_image": "frames/frame-251.png",
+      "mean_absolute_rgb_error": 0.08807170265503599,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-045",
+      "source_frame": 14724,
+      "output_frame": 14724,
+      "raw_image": "frames/frame-252.png",
+      "mean_absolute_rgb_error": 0.09114719878608768,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-045",
+      "source_frame": 14750,
+      "output_frame": 14750,
+      "raw_image": "frames/frame-254.png",
+      "mean_absolute_rgb_error": 0.10932336105947217,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-046",
+      "source_frame": 15190,
+      "output_frame": 15190,
+      "raw_image": "frames/frame-256.png",
+      "mean_absolute_rgb_error": 0.0630702627230405,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-046",
+      "source_frame": 15194,
+      "output_frame": 15194,
+      "raw_image": "frames/frame-257.png",
+      "mean_absolute_rgb_error": 0.09915967554856443,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-046",
+      "source_frame": 15220,
+      "output_frame": 15220,
+      "raw_image": "frames/frame-259.png",
+      "mean_absolute_rgb_error": 0.08721891534391535,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-047",
+      "source_frame": 16407,
+      "output_frame": 16407,
+      "raw_image": "frames/frame-261.png",
+      "mean_absolute_rgb_error": 0.06707153582153583,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-047",
+      "source_frame": 16411,
+      "output_frame": 16411,
+      "raw_image": "frames/frame-262.png",
+      "mean_absolute_rgb_error": 0.0747774063746286,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-047",
+      "source_frame": 16437,
+      "output_frame": 16437,
+      "raw_image": "frames/frame-264.png",
+      "mean_absolute_rgb_error": 0.07440178273511606,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-048",
+      "source_frame": 16638,
+      "output_frame": 16638,
+      "raw_image": "frames/frame-265.png",
+      "mean_absolute_rgb_error": 0.08593787239620573,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-048",
+      "source_frame": 16642,
+      "output_frame": 16642,
+      "raw_image": "frames/frame-266.png",
+      "mean_absolute_rgb_error": 0.08813203084036417,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-048",
+      "source_frame": 16668,
+      "output_frame": 16668,
+      "raw_image": "frames/frame-268.png",
+      "mean_absolute_rgb_error": 0.08276729110062443,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-049",
+      "source_frame": 16825,
+      "output_frame": 16825,
+      "raw_image": "frames/frame-269.png",
+      "mean_absolute_rgb_error": 0.0709794616044616,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-049",
+      "source_frame": 16829,
+      "output_frame": 16829,
+      "raw_image": "frames/frame-270.png",
+      "mean_absolute_rgb_error": 0.08261560171282394,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-049",
+      "source_frame": 16855,
+      "output_frame": 16855,
+      "raw_image": "frames/frame-272.png",
+      "mean_absolute_rgb_error": 0.08094254969254969,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-050",
+      "source_frame": 17150,
+      "output_frame": 17150,
+      "raw_image": "frames/frame-277.png",
+      "mean_absolute_rgb_error": 0.06843003718003718,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-050",
+      "source_frame": 17154,
+      "output_frame": 17154,
+      "raw_image": "frames/frame-278.png",
+      "mean_absolute_rgb_error": 0.07609221324499102,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-050",
+      "source_frame": 17180,
+      "output_frame": 17180,
+      "raw_image": "frames/frame-280.png",
+      "mean_absolute_rgb_error": 0.08634775648664537,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-051",
+      "source_frame": 17488,
+      "output_frame": 17488,
+      "raw_image": "frames/frame-290.png",
+      "mean_absolute_rgb_error": 0.08437182221904443,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-051",
+      "source_frame": 17492,
+      "output_frame": 17492,
+      "raw_image": "frames/frame-291.png",
+      "mean_absolute_rgb_error": 0.10087815990593768,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-051",
+      "source_frame": 17518,
+      "output_frame": 17518,
+      "raw_image": "frames/frame-293.png",
+      "mean_absolute_rgb_error": 0.11326182333126777,
+      "p99_absolute_rgb_error": 3.0
+    },
+    {
+      "id": "nova-action-click-052",
+      "source_frame": 18345,
+      "output_frame": 18345,
+      "raw_image": "frames/frame-294.png",
+      "mean_absolute_rgb_error": 0.07586654114431893,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-052",
+      "source_frame": 18349,
+      "output_frame": 18349,
+      "raw_image": "frames/frame-295.png",
+      "mean_absolute_rgb_error": 0.10594001739835072,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-052",
+      "source_frame": 18375,
+      "output_frame": 18375,
+      "raw_image": "frames/frame-297.png",
+      "mean_absolute_rgb_error": 0.1024958490236268,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-053",
+      "source_frame": 18510,
+      "output_frame": 18510,
+      "raw_image": "frames/frame-298.png",
+      "mean_absolute_rgb_error": 0.09287809635031857,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-053",
+      "source_frame": 18514,
+      "output_frame": 18514,
+      "raw_image": "frames/frame-299.png",
+      "mean_absolute_rgb_error": 0.09549082812971701,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-053",
+      "source_frame": 18540,
+      "output_frame": 18540,
+      "raw_image": "frames/frame-301.png",
+      "mean_absolute_rgb_error": 0.08773158078713635,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-054",
+      "source_frame": 18739,
+      "output_frame": 18739,
+      "raw_image": "frames/frame-303.png",
+      "mean_absolute_rgb_error": 0.10847777340832897,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-054",
+      "source_frame": 18743,
+      "output_frame": 18743,
+      "raw_image": "frames/frame-304.png",
+      "mean_absolute_rgb_error": 0.09868921500865946,
+      "p99_absolute_rgb_error": 2.0
+    },
+    {
+      "id": "nova-action-click-054",
+      "source_frame": 18769,
+      "output_frame": 18769,
+      "raw_image": "frames/frame-306.png",
+      "mean_absolute_rgb_error": 0.0754876900710234,
+      "p99_absolute_rgb_error": 2.0
+    }
+  ]
+}

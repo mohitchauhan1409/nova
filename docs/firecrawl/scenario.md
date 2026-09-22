@@ -1,5 +1,7 @@
 # Firecrawl — bookstore ingestion QA
 
+> Historical preparation/source-check notes. The completed accepted final4 recording, actual results and current limitations are documented in [delivery.md](delivery.md). Earlier pending/unverified statuses below describe the preparation stage.
+
 Status: **prepared, not rehearsed or recording-ready**. All registered flows remain `verified: false`. No job has been run by this worker. Coordinator owns Chrome, live Nova, builds and recording.
 
 ## Eligibility and scope
