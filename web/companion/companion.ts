@@ -5,7 +5,7 @@ import { appendTemplate } from './template';
 
 export type CompanionOptions = { send(message: unknown): void; color?: string; workletUrl?: string };
 export type CompanionEvent = ServerEvent | PageThemeEvent | { type: 'panel-visibility'; visible: boolean };
-export type Companion = { receive(event: CompanionEvent): void; open(): void; action(x: number, y: number, label: string, kind?: string): Promise<void>; clearCursor(): void; destroy(): void };
+export type Companion = { receive(event: CompanionEvent): void; open(): void; action(x: number, y: number, label: string, kind?: string, hold?:boolean): Promise<void>; positionCursor?(x:number,y:number):void; clearCursor(): void; destroy(): void };
 declare global { interface Window { __novaCompanion?: Companion; __novaRelay?: (message: string) => void } }
 
 const mark = '<svg viewBox="0 0 64 64" aria-hidden="true"><g fill="currentColor"><ellipse cx="32" cy="32" rx="8" ry="26"/><ellipse cx="32" cy="32" rx="8" ry="26" transform="rotate(60 32 32)"/><ellipse cx="32" cy="32" rx="8" ry="26" transform="rotate(120 32 32)"/></g><circle cx="32" cy="32" r="5" fill="white"/></svg>';

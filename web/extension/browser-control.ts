@@ -1,4 +1,5 @@
-import type { RecordingClick } from '../../shared/recording';
+import { recordingMode, type RecordingClick } from '../../shared/recording';
+import { inputActionKinds, insertPacedText, pacedCharacters, pacedActionTimeout } from '../../shared/paced-input';
 import type { Action, ActionResult } from '../../shared/types';
 import type { PreparedTarget } from '../../shared/dom';
 
@@ -9,12 +10,22 @@ const permissionMessage = 'Reload Nova 0.6.7 on your browser’s extensions page
 // JavaScript, network requests, or a different target to this controller.
 export class BrowserControl {
   private attached?: number;
+  private inputGeneration = 0;
+  private cursorSequence = 0;
+  private activeInputCursor?: {tabId:number; id:number};
+  captureInputToken() { return this.inputGeneration; }
+  assertInputToken(token:number) { if (token !== this.inputGeneration) throw new Error('Text entry stopped. Inspect the current field before continuing.'); }
+  private clearInputCursor(cursor:{tabId:number;id:number}) {
+    return chrome.tabs.sendMessage(cursor.tabId, {type:'nova-dom',method:'native-input-end',cursorId:cursor.id}).catch(()=>{});
+  }
+  cancelInput() { this.inputGeneration++; if(this.activeInputCursor)void this.clearInputCursor(this.activeInputCursor); }
   private attaching?: Promise<void>;
   private suspended = new Set<number>();
-  constructor(private current: () => number | undefined, private onInterrupted: () => void, private onClick?: (event:RecordingClick)=>void) {
+  constructor(private current: () => number | undefined, private onInterrupted: () => void, private onClick?: (event:RecordingClick)=>void, private pacedInput = recordingMode) {
     chrome.debugger?.onDetach.addListener(source => {
       if (source.tabId !== this.attached) return;
       this.attached = undefined;
+      this.cancelInput();
       if (source.tabId !== undefined) this.suspended.add(source.tabId);
       this.onInterrupted();
     });
@@ -26,16 +37,25 @@ export class BrowserControl {
   }
   async resume() { const id = this.current(); if (id === undefined) throw new Error('Open a Nova website first.'); this.suspended.delete(id); await this.ensure(id); }
   async detach(tabId?: number) {
+    this.cancelInput();
     if (tabId === undefined) return;
     if (this.attached === tabId) { this.attached = undefined; await chrome.debugger.detach({tabId}).catch(()=>{}); }
     this.suspended.delete(tabId);
   }
-  private async guard(tabId: number, expectedUrl?: string) {
+  private async guard(tabId: number, expectedUrl?: string, allowSameDocumentUrlChange = false) {
     if (this.current() !== tabId) throw new Error('This Nova session ended. No further input was sent.');
     const tab = await chrome.tabs.get(tabId);
     if (!tab.active) throw new Error('Return to the attached website tab before Nova performs this action.');
     if (!tab.url || !/^https?:/.test(tab.url)) throw new Error('Nova cannot control this browser-protected page.');
-    if (expectedUrl && tab.url !== expectedUrl) throw new Error('The page navigated during this action. Inspect it before continuing.');
+    if (expectedUrl && tab.url !== expectedUrl) {
+      const sameDocument = (() => {
+        try {
+          const expected = new URL(expectedUrl), current = new URL(tab.url!);
+          return expected.origin === current.origin && expected.pathname === current.pathname;
+        } catch { return false; }
+      })();
+      if (!allowSameDocumentUrlChange || !sameDocument) throw new Error('The page navigated during this action. Inspect it before continuing.');
+    }
     if (this.suspended.has(tabId)) throw new Error('Browser control was disconnected. Click Resume browser control in Nova to continue.');
     return tab;
   }
@@ -60,8 +80,18 @@ export class BrowserControl {
     return result.data;
   }
   supports(action: Action) { return nativeActions.has(action.kind); }
-  async execute(tabId: number, action: Action): Promise<ActionResult> {
+  async execute(tabId: number, action: Action, generation = this.captureInputToken()): Promise<ActionResult> {
+    this.assertInputToken(generation);
+    if (this.pacedInput && inputActionKinds.has(action.kind)) pacedCharacters(action.value || '');
+    const cursor = this.pacedInput && inputActionKinds.has(action.kind) ? {tabId,id:++this.cursorSequence} : undefined;
+    if(cursor)this.activeInputCursor=cursor;
+    try { return await this.executeAction(tabId,action,generation,cursor?.id); }
+    finally { if(cursor){await this.clearInputCursor(cursor);if(this.activeInputCursor===cursor)this.activeInputCursor=undefined;} }
+  }
+  private async executeAction(tabId:number, action:Action, generation:number, cursorId?:number):Promise<ActionResult> {
+    const checkGeneration = () => this.assertInputToken(generation);
     await this.ensure(tabId);
+    checkGeneration();
     const tab = await this.guard(tabId);
     if(action.kind==='press'&&action.value==='Escape'&&!action.ref){
       const params={key:'Escape',code:'Escape',windowsVirtualKeyCode:27};
@@ -70,7 +100,8 @@ export class BrowserControl {
       await this.command({tabId},'Input.dispatchKeyEvent',{type:'keyUp',...params});
       return {ok:true,detail:'Escape sent to the attached page; inspect whether the menu closed.'};
     }
-    const prepared = await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'native-prepare',action}) as PreparedTarget & {error?:string;destination?:PreparedTarget};
+    checkGeneration();
+    const prepared = await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'native-prepare',action,cursorId}) as PreparedTarget & {error?:string;destination?:PreparedTarget};
     if (prepared?.error) {
       // These preparations do not focus or type. A rejected target has sent no
       // input, so the runner can re-observe safely. Keyboard focus remains ambiguous.
@@ -78,7 +109,11 @@ export class BrowserControl {
       throw new Error(prepared.error);
     }
     if (!prepared || !Number.isFinite(prepared.x) || !Number.isFinite(prepared.y)) throw new Error('The target could not be located. Observe again.');
-    const send = async (method: string, params: Record<string,unknown>) => { await this.guard(tabId, tab.url); return this.command({tabId},method,params); };
+    // Some controlled inputs mirror their draft into the current route's query
+    // string after every character. Keep the prepared field and input token, but
+    // still stop on an origin or pathname change.
+    const allowSameDocumentUrlChange = inputActionKinds.has(action.kind);
+    const send = async (method: string, params: Record<string,unknown>) => { checkGeneration(); await this.guard(tabId, tab.url, allowSameDocumentUrlChange); checkGeneration(); return this.command({tabId},method,params); };
     const mouse = (type: string, point = prepared, extra: object = {}) => send('Input.dispatchMouseEvent',{type,x:point.x,y:point.y,...extra});
     const click = async (button='left', count=1) => {
       await mouse('mouseMoved');
@@ -91,9 +126,10 @@ export class BrowserControl {
     const press = async (value: string) => {
       const keys: Record<string,[string,string,number]> = {Enter:['Enter','Enter',13],Escape:['Escape','Escape',27],Tab:['Tab','Tab',9],ArrowDown:['ArrowDown','ArrowDown',40],ArrowUp:['ArrowUp','ArrowUp',38],ArrowLeft:['ArrowLeft','ArrowLeft',37],ArrowRight:['ArrowRight','ArrowRight',39],Home:['Home','Home',36],End:['End','End',35],PageUp:['PageUp','PageUp',33],PageDown:['PageDown','PageDown',34],Backspace:['Backspace','Backspace',8],Delete:['Delete','Delete',46],' ':[' ','Space',32]};
       const command = ({'ControlOrMeta+A':'selectAll','ControlOrMeta+Z':'undo','ControlOrMeta+Y':'redo'} as Record<string,string>)[value];
-      const key = value === 'Shift+Tab' ? keys.Tab : command ? [value.slice(-1).toLowerCase(),`Key${value.slice(-1)}`,value.charCodeAt(value.length-1)] as [string,string,number] : keys[value];
+      const navigation=/^(ControlOrMeta|Control)\+(Home|End)$/.exec(value);
+      const key = navigation ? keys[navigation[2]] : value === 'Shift+Tab' ? keys.Tab : command ? [value.slice(-1).toLowerCase(),`Key${value.slice(-1)}`,value.charCodeAt(value.length-1)] as [string,string,number] : keys[value];
       if (!key) throw new Error('This keyboard shortcut is not supported.');
-      const params = {key:key[0],code:key[1],windowsVirtualKeyCode:key[2],modifiers:value==='Shift+Tab'?8:command?(/Mac/.test(navigator.userAgent)?4:2):0};
+      const params = {key:key[0],code:key[1],windowsVirtualKeyCode:key[2],modifiers:value==='Shift+Tab'?8:navigation?.[1]==='Control'?2:command||navigation?(/Mac/.test(navigator.userAgent)?4:2):0};
       const text=!command&&['Enter',' '].includes(value)?(value==='Enter'?'\r':' '):undefined;
       await send('Input.dispatchKeyEvent',{type:text?'keyDown':'rawKeyDown',...params,...(command?{commands:[command]}:{}),...(text?{text,unmodifiedText:text}:{})});
       await this.command({tabId},'Input.dispatchKeyEvent',{type:'keyUp',...params});
@@ -106,14 +142,60 @@ export class BrowserControl {
       if (!prepared.editable) throw new Error('This target is not an editable, non-sensitive field.');
       if (action.kind === 'paste' && action.value === null) throw new Error('Provide the text to paste. Nova does not read your private clipboard.');
       await click();
-      if(action.kind==='type'){const focus=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'native-append',action});if(focus?.error)throw new Error(focus.error);}
-      if (action.kind !== 'type') await press('ControlOrMeta+A');
+      checkGeneration();
+      await this.guard(tabId,tab.url);
+      checkGeneration();
+      const focus=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'native-input-start',action,cursorId});
+      checkGeneration();
+      if(focus?.error || !focus?.ok)throw new Error(focus?.error || 'The original text field did not accept focus. No selection or text was sent.');
+      if (action.kind !== 'type') {
+        // Code editors can wrap a selection when the first character is a
+        // delimiter. Clear it through trusted input before authoring any text.
+        await press('ControlOrMeta+A');
+        await press('Backspace');
+        const empty=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'native-input-empty',action,cursorId});
+        checkGeneration();
+        if(empty?.error||!empty?.ok)throw new Error(empty?.error||'The original text field did not become empty with focus intact. No replacement text or submission was sent.');
+      }
       const value = action.kind === 'clear' ? '' : action.value || '';
-      if (value) await send('Input.insertText',{text:value}); else await press('Backspace');
+      if (value && this.pacedInput) {
+        const deadline = Date.now() + pacedActionTimeout(value) - 5_000;
+        let prefix='';
+        await insertPacedText(value, async character => {
+          // Only a recognized plain code-editor DOM opts into keyboard Enter.
+          // Do not risk submitting an unrelated contenteditable chat composer.
+          // insertText('\n') can create two rendered lines in CodeMirror.
+          if(prepared.newlineKey==='Enter'&&character==='\n')await press('Enter');
+          else await send('Input.insertText', {text:character});
+          prefix+=character;
+          if(prepared.editable&&prepared.tag&&!['input','textarea'].includes(prepared.tag)){
+            checkGeneration();
+            const pair=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'native-input-correction',action,cursorId,prefix,character});
+            checkGeneration();if(pair?.error)throw new Error(pair.error);
+            if(pair?.remove){
+              await press('Delete');
+              const corrected=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'verify',action:{...action,kind:'type',value:prefix},expectedLength:(action.kind==='type'?(prepared.valueLength||0):0)+prefix.length});
+              checkGeneration();
+              if(corrected?.verification?.status!=='verified')throw new Error('The editor correction could not be verified. Inspect the partial value before continuing; no submission was sent.');
+            }
+          }
+        }, async () => {
+          checkGeneration();
+          const focus = await chrome.tabs.sendMessage(tabId, {type:'nova-dom', method:'native-input-focus', action, cursorId});
+          if (focus?.error || !focus?.ok) throw new Error(focus?.error || 'The text field lost focus. Inspect partial input before continuing.');
+          checkGeneration();
+        }, deadline);
+      } else if (value) await send('Input.insertText',{text:value});
       if (action.kind === 'search') await press('Enter');
     } else if (action.kind === 'press') {
       // prepare focuses only the grounded target, never an arbitrary private field.
-      if (prepared.editable) await click();
+      if (prepared.editable) {
+        // Keep a preceding End/selection action intact in this same editor.
+        if(!prepared.focused)await click();
+        const focus=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'native-input-start',action});
+        checkGeneration();
+        if(focus?.error||!focus?.ok)throw new Error(focus?.error||'The original editor did not accept keyboard focus.');
+      }
       else if(!prepared.focused)throw new Error('This control could not receive keyboard focus. Choose its observed clickable control instead.');
       await press(action.value || 'Enter');
     } else if (action.kind === 'check') {
@@ -129,6 +211,7 @@ export class BrowserControl {
     if (['fill','clear','paste','type','check'].includes(action.kind)) {
       const verified = await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'verify',action,expectedLength:action.kind==='type'?(prepared.valueLength||0)+(action.value||'').length:undefined});
       if (verified?.error) throw new Error(verified.error);
+      if(['fill','clear','paste','type'].includes(action.kind)&&verified?.verification?.status==='unverified')throw new Error('The text field does not exactly match the requested value. Inspect the current editor before continuing; no submission was sent.');
       return verified;
     }
     return {ok:true,detail:'Trusted browser input sent. The page outcome must still be checked.'};

@@ -14,7 +14,7 @@ export function completionSnapshotChanged(before:Snapshot,after:Snapshot,action:
       e.tag,e.role,text(e.name),e.type,e.href,text(e.context),e.disabled,e.sensitive,
       e.state?.filter(s=>!/^(scroll(?:Max)?[XY]|focused|draft):/.test(s)).sort()||[],e.edit,
     ])).sort();
-    return JSON.stringify([snapshot.url,text(snapshot.title),snapshot.blocked,text(snapshot.text),elements,snapshot.observation?.omittedControls]);
+    return JSON.stringify([snapshot.url,text(snapshot.title),snapshot.blocked,text(snapshot.text),elements,snapshot.observation?.omittedControls,snapshot.textRegions?.map(region=>text(region.text)).sort()]);
   };
   return semantic(before)!==semantic(after);
 }
@@ -22,6 +22,7 @@ export function actionEffect(action: Action, before: Snapshot, after: Snapshot, 
   const receipt = result as ActionResult | undefined;
   if(receipt?.ok === false) return {action:action.kind,verified:false,detail:receipt.detail || 'The browser rejected this action.'};
   if(receipt?.verification?.status === 'verified') return {action:action.kind,verified:true,detail:receipt.verification.detail};
+  if(['fill','type','clear','paste'].includes(action.kind))return {action:action.kind,verified:false,detail:'The field value has not been verified to match the requested text. Page or control changes cannot verify text entry.'};
   const targetBefore = before.elements.find(e=>e.ref===action.ref);
   const targetAfter = after.elements.find(e=>e.ref===action.ref);
   if(before.url!==after.url) return {action:action.kind,verified:true,detail:`Navigation observed: ${after.url}`};
@@ -43,7 +44,9 @@ export function actionEffect(action: Action, before: Snapshot, after: Snapshot, 
     after.elements.some(next => next.ref === e.ref && next.edit?.empty === false && next.edit.revision === e.edit?.revision));
   const semanticState = (states?: string[]) => states?.filter(s => /^(checked|selected|pressed|expanded|value):/.test(s));
   const controlChanged = JSON.stringify(semanticState(targetBefore?.state)) !== JSON.stringify(semanticState(targetAfter?.state));
-  if (mayCommit && !controlChanged && ['click','double_click','press'].includes(action.kind) && targetAfter && retainedDraft &&
+  const commitControl = action.kind === 'press' && action.value === 'Enter' || !!targetBefore && (
+    targetBefore.type === 'submit' || /^(?:send|save|submit|create|add|update|import|start|run|publish|confirm|apply|upload|delete|remove|checkout|purchase|order|book|schedule|invite|authorize|connect|install|deploy|launch)\b/i.test(targetBefore.name));
+  if (mayCommit && commitControl && !controlChanged && (['click','double_click'].includes(action.kind)||action.kind==='press'&&action.value==='Enter') && targetAfter && retainedDraft &&
       (targetAfter.disabled || normalize(before.text) === normalize(after.text))) {
     return {action:action.kind,verified:false,detail:'The submitted draft is still present without a saved result. Wait for the website before planning another submission.'};
   }
@@ -57,6 +60,8 @@ export function actionEffect(action: Action, before: Snapshot, after: Snapshot, 
     return {action:action.kind,verified:false,detail:'The form is still submitting. Wait for the saved result without submitting again.'};
   }
   if(['scroll','scroll_to','zoom'].includes(action.kind)&&JSON.stringify(before.viewport)!==JSON.stringify(after.viewport)) return {action:action.kind,verified:true,detail:'The browser viewport changed.'};
+  if(action.kind==='press'&&['Backspace','Delete','ControlOrMeta+Z','ControlOrMeta+Y'].includes(action.value||'')&&targetBefore?.edit&&targetAfter?.edit&&targetBefore.edit.revision!==targetAfter.edit.revision)
+    return {action:action.kind,verified:true,detail:'The observed editor value changed after the editing key. Verify its intended contents before submission.'};
   // Pointer focus/scroll alone does not prove a row opened. Focusing an
   // editable field remains a useful result before a following typing action.
   const clicking=['click','double_click'].includes(action.kind);

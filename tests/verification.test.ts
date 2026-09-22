@@ -10,7 +10,7 @@ describe('observed outcome verification',()=>{
     const request='Change dispatch to October 5, 2026 and keep everything else.';
     const rawName='recipient@customer.example Delivery notice — Dispatch October 5, 2026. Tracking follows dispatch.';
     const projectedName='[email hidden] Delivery notice — Dispatch October 5, 2026. Tracking follows dispatch.';
-    const page:Snapshot={...before,url:'https://workspace.example/drafts/recipient@customer.example',text:'Drafts',elements:[{...before.elements[0],ref:'draft',tag:'div',role:'row',name:rawName,state:[]}]};
+    const page:Snapshot={...before,url:'https://workspace.example/drafts/recipient@customer.example',text:'Drafts',textRegions:[{ref:'draft',text:rawName,elementRefs:['draft']}],elements:[{...before.elements[0],ref:'draft',tag:'div',role:'row',name:rawName,state:[]}]};
     const effect={action:'click' as const,verified:true,detail:'The editor closed.'};
     const check=(source:'text'|'url',value:string,snapshot=page,currentRequest=request)=>completionProblem({...action,kind:'done',completion:{status:'completed',evidence:[{source,ref:'draft',value}]}},snapshot,effect,true,undefined,currentRequest);
     it('accepts exact projected row and URL evidence while retaining exact raw matches',()=>{
@@ -68,6 +68,13 @@ describe('observed outcome verification',()=>{
     expect(actionEffect(submit,page,{...pending,elements:[{...button,state:['pressed:true']},draft]},{ok:true},true).verified).toBe(true);
     expect(actionEffect(submit,page,{...pending,url:'https://example.com/records/1',text:'Saved transcript'},{ok:true},true).verified).toBe(true);
   });
+  it('does not treat a result-view tab as resubmitting an unrelated retained draft',()=>{
+    const tab={...before.elements[0],tag:'button',name:'JSON',type:'button',context:'Result',state:['selected:false']};
+    const draft={...tab,ref:'draft',tag:'input',name:'Source URL',type:'text',edit:{revision:'v1',empty:false}};
+    const page={...before,text:'Result',elements:[tab,draft]};
+    const selected={...page,elements:[{...tab,state:['selected:true']},draft]};
+    expect(actionEffect({...action,ref:tab.ref},page,selected,{ok:true},true)).toMatchObject({verified:true,detail:expect.stringContaining('Control state changed')});
+  });
   it('does not mistake a focused link for its delayed navigation', () => {
     const page = {...before,elements:[{...before.elements[0],tag:'a',name:'Settings',href:'https://example.com/settings',state:[]}]};
     const focused = {...page,elements:page.elements.map(e=>({...e,state:['focused:true']}))};
@@ -114,4 +121,25 @@ describe('observed outcome verification',()=>{
     expect(plannerContext(session,site,{...before,elements:[{...field,context:'Changed counter',state:[`draft:matches:${draft.ref}`]}]}).preparedInputs).toHaveLength(1);
   });
   it('packs observations without dropping control information or duplicating contexts',()=>{const session={messages:[],traces:[]} as unknown as Session;const site={name:'Page',instructions:'',flows:[]} as unknown as SiteProfile;const snap={...before,elements:[...before.elements,{...before.elements[0],ref:'v2'}]};const packed=plannerContext(session,site,snap).observation;expect(packed.contexts).toEqual(['']);const e=Object.fromEntries(packed.elementColumns.map((key,i)=>[key,packed.elements[0][i]]));expect(e.ref).toBe('v');expect(e.state).toEqual(['paused:false']);expect(packed.elements).toHaveLength(2);});
+});
+
+
+describe('editable evidence and non-submitting keys',()=>{
+  const field={...before.elements[0],tag:'div',role:'textbox',type:'contenteditable',form:true,edit:{revision:'v1',empty:false}};
+  const page={...before,text:'JSON editor',elements:[field]};
+  it('cannot promote an unverified fill from generic page/control changes',()=>{
+    const fill={...action,kind:'fill' as const,value:'{}'};
+    const changed={...page,text:'Changed JSON',elements:[{...field,name:'{}}',edit:{revision:'v2',empty:false}}]};
+    for(const receipt of [undefined,{ok:true},{ok:true,verification:{status:'unverified',detail:'not exact'}}])expect(actionEffect(fill,page,changed,receipt,true).verified).toBe(false);
+    expect(actionEffect(fill,page,changed,{ok:true,verification:{status:'verified',detail:'Exact field value'}},true).verified).toBe(true);
+  });
+  it.each(['End','ControlOrMeta+End','Control+End','Backspace','Delete'])('does not describe %s as submitting a draft',value=>{
+    expect(actionEffect({...action,kind:'press',value},page,page,{ok:true},true).detail).not.toContain('submitted draft');
+  });
+  it('requires changed editor revision to verify an editing key, retaining Enter submission checks',()=>{
+    const backspace={...action,kind:'press' as const,value:'Backspace'};
+    expect(actionEffect(backspace,page,page,{ok:true},true).verified).toBe(false);
+    expect(actionEffect(backspace,page,{...page,elements:[{...field,edit:{revision:'v2',empty:false}}]},{ok:true},true).verified).toBe(true);
+    expect(actionEffect({...backspace,value:'Enter'},page,page,{ok:true},true).detail).toContain('submitted draft');
+  });
 });

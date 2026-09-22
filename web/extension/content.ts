@@ -1,3 +1,5 @@
+import { recordingMode } from '../../shared/recording';
+import { inputActionKinds, settleEditorInput } from '../../shared/paced-input';
 import { installNovaDOM } from '../../shared/dom';
 import { mountLauncher } from '../companion/launcher';
 import type { Action } from '../../shared/types';
@@ -8,6 +10,7 @@ if (!window.__novaContentInstalled) {
   window.__novaContentInstalled = true;
   let port:chrome.runtime.Port|undefined;
   let active=false;
+  let inputCursor:number|undefined;
   let stopThemeObserver:(()=>void)|undefined;
   const mount=()=>{
     active=true;
@@ -28,14 +31,47 @@ if (!window.__novaContentInstalled) {
       if(!active){respond({error:'This Nova website session has ended.'});return;}
       if(message.method==='snapshot'){try{respond(window.__novaDOM!.snapshot(Array.isArray(message.action)?message.action:[]));}catch(error){respond({error:(error as Error).message});}return;}
       if(message.method==='verify'){try{respond(window.__novaDOM!.verify(message.action,message.expectedLength));}catch(error){respond({error:(error as Error).message});}return;}
-      if(message.method==='native-append'){try{respond(window.__novaDOM!.prepare(message.action.ref,true));}catch(error){respond({error:(error as Error).message});}return;}
+      if(message.method==='native-input-end'){if(inputCursor===message.cursorId){inputCursor=undefined;window.__novaCompanion?.clearCursor();}respond({ok:true});return;}
+      if(message.method==='native-input-focus'){
+        try{
+          const point=inputCursor===message.cursorId?window.__novaDOM!.inputPosition(message.action.ref):undefined;
+          if(point)window.__novaCompanion?.positionCursor?.(point.x,point.y);
+          respond({ok:!!point});
+        }catch(error){respond({error:(error as Error).message});}return;
+      }
+      if(message.method==='native-input-empty'){
+        try{respond({ok:!!window.__novaDOM!.inputPosition(message.action.ref)&&window.__novaDOM!.verify({...message.action,kind:'clear'}).verification?.status==='verified'});}
+        catch(error){respond({error:(error as Error).message});}return;
+      }
+      if(message.method==='native-input-correction'){
+        void (async()=>{
+          await settleEditorInput();
+          if(!active||!Number.isInteger(message.cursorId)||inputCursor!==message.cursorId)throw new Error('Text entry stopped before editor inspection.');
+          return {remove:window.__novaDOM!.prepareInputCorrection(message.action.ref,message.prefix,message.character)};
+        })().then(respond).catch(error=>respond({error:error.message}));return true;
+      }
+      if(message.method==='native-input-start'){
+        try{
+          const point=window.__novaDOM!.startInput(message.action.ref,message.action.kind==='type');
+          if(Number.isInteger(message.cursorId)&&inputCursor===message.cursorId)window.__novaCompanion?.positionCursor?.(point.x,point.y);
+          respond({ok:true});
+        }catch(error){respond({error:(error as Error).message});}return;
+      }
       if(message.method==='native-prepare'){
         void (async()=>{
           const action=message.action as Action;
-          const point=action.ref?window.__novaDOM!.prepare(action.ref,false,action.kind==='media',action.kind==='press'):action.kind==='point'&&action.x!==null&&action.y!==null?{...window.__novaDOM!.point(action.x,action.y),editable:false,tag:'',type:''}:undefined;
+          let point=action.ref?window.__novaDOM!.prepare(action.ref,false,action.kind==='media',action.kind==='press'):action.kind==='point'&&action.x!==null&&action.y!==null?{...window.__novaDOM!.point(action.x,action.y),editable:false,tag:'',type:''}:undefined;
           if(!point)throw new Error('A current observed target is required.');
           const destination=action.kind==='drag'?window.__novaDOM!.prepare(action.value||''):undefined;
-          await window.__novaCompanion?.action(point.x,point.y,action.summary,action.kind);
+          const hold=recordingMode&&inputActionKinds.has(action.kind)&&Number.isInteger(message.cursorId);
+          inputCursor=hold?message.cursorId:undefined;
+          await window.__novaCompanion?.action(point.x,point.y,action.summary,action.kind,hold);
+          // Attaching Chrome's debugger or opening a panel can resize the page
+          // during cursor presentation. Click the same ref's current bounds.
+          if(action.ref && (inputActionKinds.has(action.kind)||action.kind==='clear')){
+            point=window.__novaDOM!.prepare(action.ref);
+            if(hold && inputCursor===message.cursorId)window.__novaCompanion?.positionCursor?.(point.x,point.y);
+          }
           return {...point,...(destination?{destination}:{})};
         })().then(respond).catch(error=>respond({error:error.message}));return true;
       }

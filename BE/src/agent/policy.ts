@@ -1,8 +1,10 @@
 import { createHash } from 'node:crypto';
 import type { Action, Snapshot } from '../../../shared/types';
 import { parseWebUrl } from '../browser/security';
+import { inferencePlaygrounds } from '../sites/action-semantics';
+import { requestedInferenceSubmission } from './inference-submission';
 
-export type PolicyDecision = { outcome: 'allow' | 'approve' | 'block'; reason: string; target: string; mayCommit: boolean };
+export type PolicyDecision = { outcome: 'allow' | 'approve' | 'block'; reason: string; target: string; mayCommit: boolean; semantic?:'inference-submission' };
 export function fingerprint(snapshot: Snapshot, action: Action): string {
   const target = snapshot.elements.find(e => e.ref === action.ref);
   const destination = action.kind === 'drag' ? snapshot.elements.find(e => e.ref === action.value) : undefined;
@@ -169,9 +171,9 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
     if (sensitiveSettings.test(`${target.name} ${target.context}`) && !requestedRecordEdit(action, snapshot, intent)) return result('approve', 'Review this change to sensitive account settings.', true);
     return result('allow', 'Prepare the requested text without submitting it', true);
   }
-  if (action.kind === 'press' && (['Escape', 'Tab', 'Shift+Tab', 'Home', 'End', 'PageUp', 'PageDown', 'Backspace', 'Delete', 'ControlOrMeta+A', 'ControlOrMeta+Z', 'ControlOrMeta+Y'].includes(action.value || '') || /^Arrow/.test(action.value || ''))) {
+  if (action.kind === 'press' && (['Escape', 'Tab', 'Shift+Tab', 'Home', 'End', 'ControlOrMeta+Home', 'ControlOrMeta+End', 'Control+Home', 'Control+End', 'PageUp', 'PageDown', 'Backspace', 'Delete', 'ControlOrMeta+A', 'ControlOrMeta+Z', 'ControlOrMeta+Y'].includes(action.value || '') || /^Arrow/.test(action.value || ''))) {
     if (['Delete', 'Backspace'].includes(action.value || '') && !['input', 'textarea'].includes(target.tag) && target.role !== 'textbox' && target.type !== 'contenteditable') return result('approve', 'This key may delete a selected item.', true);
-    return result('allow', 'Edit or navigate the current control', true);
+    return result('allow', 'Edit or navigate the current control', ['Backspace','Delete','ControlOrMeta+Z','ControlOrMeta+Y'].includes(action.value||''));
   }
   if (action.kind === 'press' && action.value === 'Enter' && /search|query|find/i.test(`${target.name} ${target.type}`)) return result('allow', 'Submit a search query');
   const context = `${target.name} ${target.context}`;
@@ -183,6 +185,7 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
       !serious.test(target.context) && !sensitiveSettings.test(context)) {
     return result('allow', 'Open the import preparation dialog');
   }
+  if (requestedInferenceSubmission(action,snapshot,_scope,intent,inferencePlaygrounds)) return {...result('allow','Run the explicitly requested prompt in the observed inference playground',true),semantic:'inference-submission'};
   if (serious.test(target.name) || action.risk === 'sensitive' || sensitiveSettings.test(context) && !requestedRecordEdit(action, snapshot, intent) || /\b(subscribe|subscription|upgrade)\b/i.test(target.name) && /\b(pay|paid|billing|charge|per month|monthly|annual|trial)\b|[$₹€£]/i.test(target.context)) return result('approve', 'Review this purchase, communication, deletion, agreement, or sensitive account change.', true);
   // Explicit tag-entry instructions describe a local chip commit, separate
   // from submitting a form. Require the value Nova prepared and requested tags.

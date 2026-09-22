@@ -1,3 +1,5 @@
+import { inputActionKinds, pacedInputCapability } from '../../../shared/paced-input';
+import {boundedWaitCapability} from '../../../shared/wait';
 import { randomUUID } from 'node:crypto';
 import type { BrowserDriver } from '../browser/driver';
 import type { Planner } from '../providers/openai';
@@ -11,6 +13,10 @@ import { siteExperience } from '../../../shared/site-experience';
 import { companionOutput, conversationReply, latestTask, pagePrivacy } from './conversation';
 import {observeProgress,recordProgress,beforeProgressAction,repeatedTabInspection} from './progress';
 import {makeClarification,questionText,validateAnswers} from './clarification';
+import {hasProcessingEvidence,ProcessingWaitBudget} from './processing-wait';
+import {requestsFreshInference} from './inference-submission';
+import {inferenceLogCompletionProblem,type InferenceSubmissionReceipt} from './inference-result';
+import {inferencePlaygrounds} from '../sites/action-semantics';
 
 export class AgentRunner {
   private controller?: AbortController;
@@ -131,9 +137,19 @@ export class AgentRunner {
   private async run(signal: AbortSignal) {
     const written=new Set<string>();let preventedWrites=0;
     const tabVisits=new Map<string,number>();let preventedTabCycles=0;
+    const coveredRecoveries=new Set<string>();let revalidationFailures=0;
     let failures = 0; let lastAction = ''; let repeated = 0; let screenshot: string | undefined; let observed: Snapshot | undefined;
     let effect: Effect | undefined; let attempted = false; let completionFailures = 0; let completionRefreshes=0;
     let pendingEffect: {action:Action;before:Snapshot;result:unknown;mayCommit:boolean}|undefined;
+    const waitBudget=new ProcessingWaitBudget();
+    let freshInferenceRequired=false;
+    let verifiedInferenceSubmission=false;
+    let inferenceReceipt:InferenceSubmissionReceipt|undefined;
+    const rejectRevalidation=(message:string,fresh:Snapshot)=>{
+      this.trace('info',message);observed=fresh;
+      if(++revalidationFailures<3)return true;
+      this.say('I could not reach a stable, unobstructed target after rechecking. No pending edit was sent. Please adjust the page before continuing.');this.session.status='stopped';return false;
+    };
     const deadline = Date.now() + 8 * 60 * 1000;
     try {
       for (let step = 0; step < 48 && Date.now() < deadline; step++) {
@@ -143,9 +159,10 @@ export class AgentRunner {
         if (signal.aborted) return;
         if (snapshot.blocked) { this.say(snapshot.blocked); this.session.status = 'stopped'; return; }
         if (!sameSite(this.scope, snapshot.url)) { this.say('The browser moved to another website. Attach that website or start a session there to continue.'); this.session.status = 'stopped'; return; }
+        freshInferenceRequired ||= requestsFreshInference(snapshot,this.scope,latestTask(this.session),inferencePlaygrounds);
         this.trace('think', 'Planning the next website action.');
         const started = performance.now();
-        const action = await this.planner.decide(this.session, this.site, snapshot, signal, screenshot);
+        let action = await this.planner.decide(this.session, this.site, snapshot, signal, screenshot);
         action.summary = companionOutput(action.summary, this.session);
         if (['point','inspect'].includes(action.kind) && (!screenshot || action.x === null || action.y === null || action.x < 0 || action.y < 0 || action.x >= snapshot.viewport.width || action.y >= snapshot.viewport.height)) { this.trace('error', 'A visual target requires a current screenshot and in-bounds coordinates.'); screenshot = undefined; if (++failures >= 3) { this.session.status = 'stopped'; this.say('I could not locate this control reliably. Please handle this step in the browser.'); return; } continue; }
         screenshot = undefined;
@@ -163,7 +180,12 @@ export class AgentRunner {
             snapshot=fresh;
           }
           this.trace('think',action.summary,planningMs);
-          const problem=completionProblem(action,snapshot,effect,attempted,this.session.progress,latestTask(this.session));
+          const freshnessProblem=action.completion?.status!=='blocked'&&freshInferenceRequired?(
+            !verifiedInferenceSubmission?'The user requested a new inference run. Submit the requested prompt once and verify its new result or log. An old identical prompt/output does not fulfill this request; no verified submission occurred in this command.':
+            hasProcessingEvidence(snapshot)?'The current inference was submitted and is still processing. Wait and inspect its new result or log; do not submit it again or use an earlier result.':undefined
+          ):undefined;
+          const logProblem=action.completion?.status!=='blocked'&&freshInferenceRequired&&verifiedInferenceSubmission?inferenceLogCompletionProblem(action,snapshot,latestTask(this.session),inferenceReceipt,inferencePlaygrounds):undefined;
+          const problem=freshnessProblem||logProblem||completionProblem(action,snapshot,effect,attempted,this.session.progress,latestTask(this.session));
           if(problem){this.trace('error',`Completion rejected: ${problem}`);if(++completionFailures<2)continue;this.say('I could not verify that the requested result happened. Please check the page before retrying; I have not marked this task complete.');this.session.status='stopped';return;}
           this.session.awaitingAnswer=false;this.say(action.summary);this.session.status=action.completion?.status==='blocked'?'stopped':'ready';return;
         }
@@ -179,7 +201,7 @@ export class AgentRunner {
         // A page may finish saving while the model is planning. Revalidate its
         // proposed target before recording or dispatching an action against an
         // outgoing dialog. Browser input still performs its own final hit test.
-        if (action.ref && !['copy','select_text','hover','scroll','scroll_to'].includes(action.kind) && performance.now()-started > 750) {
+        if (action.ref && !['copy','select_text','hover','scroll','scroll_to'].includes(action.kind) && (performance.now()-started > 750 || snapshot.elements.find(e=>e.ref===action.ref)?.covered)) {
           const prior = snapshot.elements.find(e => e.ref === action.ref);
           const fresh = await this.observe();
           if (signal.aborted) return;
@@ -187,27 +209,46 @@ export class AgentRunner {
           const dismiss=prior&&/^(cancel|close|dismiss|back)$/i.test(prior.name.trim());
           const editorFields=(page:Snapshot)=>page.elements.filter(e=>e.form&&!e.covered&&(['input','textarea','select'].includes(e.tag)||['checkbox','switch','combobox','radio'].includes(e.role))).map(e=>`${e.ref}:${e.name}:${e.type}`).sort().join('|');
           if (dismiss&&editorFields(fresh)!==editorFields(snapshot)){
-            this.trace('info','The editor gained or changed fields while planning. Reconsidering the dismissal; no input was sent.');
-            observed=fresh;continue;
+            if(!rejectRevalidation('The editor gained or changed fields while planning. Reconsidering the dismissal; no input was sent.',fresh))return;
+            continue;
           }
           // An async editor can appear beside an unchanged, still-clickable row.
           // Reconsider the intent as well as the target before opening it again.
           const editorAppeared=fresh.elements.some(e=>!e.covered&&(e.edit||['input','textarea','select'].includes(e.tag)||['dialog','alertdialog','textbox','combobox'].includes(e.role))&&!snapshot.elements.some(old=>old.ref===e.ref&&!old.covered));
           if(['click','double_click'].includes(action.kind)&&editorAppeared){
-            this.trace('info','An editor appeared while planning. Inspecting its current controls before another click; no input was sent.');
-            observed=fresh;continue;
+            if(!rejectRevalidation('An editor appeared while planning. Inspecting its current controls before another click; no input was sent.',fresh))return;
+            continue;
           }
-          if (fresh.url !== snapshot.url || !prior || !current || current.covered ||
+          if (fresh.url !== snapshot.url || !prior || !current ||
               ['name','tag','role','type','href'].some(key => prior[key as keyof typeof prior] !== current[key as keyof typeof current]) ||
               (prior.edit && prior.context !== current.context) ||
               prior.edit?.revision !== current.edit?.revision) {
-            this.trace('info','The page changed while planning. Refreshing the next step; no input was sent.');
-            observed=fresh;continue;
+            if(!rejectRevalidation('The page changed while planning. Refreshing the next step; no input was sent.',fresh))return;
+            continue;
+          }
+          if(current.covered){
+            const key=`${fresh.url}|${current.ref}`;
+            const editable=current.edit&&(current.tag==='textarea'||current.type==='contenteditable'||current.tag==='input'&&!/^(file|hidden|password|submit|button|checkbox|radio|range|color)$/i.test(current.type));
+            if(['fill','type','paste','clear','search'].includes(action.kind)&&editable&&!current.visual&&!coveredRecoveries.has(key)&&checkAction(action,fresh,this.scope,this.intent()).outcome==='allow'){
+              coveredRecoveries.add(key);
+              this.trace('info','The same editable field is covered or clipped. Scrolling it into view once, then observing again before editing.');
+              action={...action,kind:'scroll_to',value:null,risk:'read',summary:'I’m scrolling the field into view before editing it.'};
+            }else{
+              if(!rejectRevalidation('The target is still covered or clipped. Scroll its pane or dismiss the obstruction before retrying; no edit was sent.',fresh))return;
+              continue;
+            }
           }
           snapshot=fresh;
         }
+        if(action.kind==='wait'){
+          try{action.value=String(waitBudget.reserve(snapshot.capabilities?.includes(boundedWaitCapability)?action.value:null)/1000);}
+          catch(error){this.say(safeError(error));this.session.status='stopped';return;}
+        }
         const signature = JSON.stringify({ kind: action.kind, ref: action.ref, value: action.value, url: action.url });
-        repeated = signature === lastAction ? repeated + 1 : 0; lastAction = signature;
+        // Polling is not another mutation. Retain the previous non-wait
+        // signature so waiting cannot erase its repeat protection.
+        const processingWait=action.kind==='wait'&&snapshot.capabilities?.includes(boundedWaitCapability)&&hasProcessingEvidence(snapshot);
+        if(!processingWait){repeated = signature === lastAction ? repeated + 1 : 0; lastAction = signature;}
         if (repeated >= 2) { this.say('This action is not making progress. Please adjust the page or tell me how you would like to continue.'); this.session.status = 'stopped'; return; }
         const policy = checkAction(action, snapshot, this.scope, this.intent());
         if (policy.outcome === 'block') { this.trace('error', policy.reason); if (++failures >= 3 || snapshot.elements.find(e => e.ref === action.ref)?.sensitive) { this.say(policy.reason); this.session.status = 'stopped'; return; } continue; }
@@ -245,6 +286,7 @@ export class AgentRunner {
         }
         const actionStep=this.beginStep(action);
         const actionStart = performance.now();
+        const submittedAt=Date.now();
         try {
           beforeProgressAction(this.session,action);
           const result=await this.driver.execute(action);
@@ -289,6 +331,13 @@ export class AgentRunner {
               }else this.trace('info','The scroll did not move the view. Do not repeat it; use another semantic control. Visual recovery is unavailable on this page.');
             }
             this.stepResult(actionStep,effect.verified?'verified':'unverified',effect.detail);
+            if(effect.verified)revalidationFailures=0;
+            if(policy.semantic==='inference-submission'&&effect.verified){
+              verifiedInferenceSubmission=true;
+              const field=snapshot.elements.find(e=>e.ref===action.ref)?.submission?.fields[0];
+              const draft=this.session.preparedInputs?.find(d=>d.url===snapshot.url&&d.ref===field?.ref&&d.revision===field.revision);
+              inferenceReceipt=draft?{prompt:draft.value,submittedAt,url:snapshot.url}:undefined;
+            }
             this.trace('verify',`${effect.verified?'Verified change':'Unverified action'} ${action.kind}: ${effect.detail}`);
             if((result as ActionResult)?.verification?.status==='verified'&&action.ref&&['fill','type','paste','clear'].includes(action.kind)){
               written.add(`${snapshot.url}|${action.ref}`);
@@ -317,10 +366,12 @@ export class AgentRunner {
           recordProgress(this.session,action,snapshot.elements.find(e=>e.ref===action.ref),effect?.detail||'Input sent; inspect outcome.');
           observed = after;
         } catch (error) {
+          if (signal.aborted) return;
           this.stepResult(actionStep,'failed',safeError(error));
           attempted=true;effect={action:action.kind,verified:false,detail:safeError(error)};pendingEffect=undefined;
           recordProgress(this.session,action,snapshot.elements.find(e=>e.ref===action.ref),safeError(error));
           this.trace('error', safeError(error));
+          if (inputActionKinds.has(action.kind) && snapshot.capabilities?.includes(pacedInputCapability)) { this.say('Text entry was interrupted. I stopped to avoid duplicating partial input; inspect the field before continuing.'); this.session.status = 'stopped'; return; }
           // Never repeat a potentially committed action after an ambiguous transport failure.
           if (policy.mayCommit) { this.say('The browser did not confirm this action. Check the page before retrying; it may already have taken effect.'); this.session.status = 'stopped'; return; }
           pendingEffect={action,before:snapshot,result:undefined,mayCommit:policy.mayCommit};
