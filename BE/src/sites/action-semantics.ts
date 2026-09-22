@@ -13,6 +13,11 @@ export const inferencePlaygrounds: readonly InferencePlayground[] = [{
   url: 'https://interfaze.ai/dashboard/playground',
   submitName: 'Send',
   promptName: 'Type your message...',
+  resultLog: {
+    url: 'https://interfaze.ai/dashboard/logs', dialogName: 'Log detail',
+    inputLabel: 'Input', outputLabel: 'Output', outputEndLabel: 'Get help with this request',
+    timestamp: { format: 'day-first-24h', utcOffsetMinutes: 330 },
+  },
   requiredControls: [
     { tag: 'button', name: 'System Prompt Define model behavior' },
     { tag: 'button', name: 'Configuration Model parameters' },
