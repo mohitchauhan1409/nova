@@ -1,0 +1,14 @@
+{
+  "verifiedAtUtc": "2026-09-22T07:20:39.476245+00:00",
+  "remote": "https://github.com/mohitchauhan1409/nova.git",
+  "branch": "firecrawl-nova",
+  "mediaCommit": "9df8182508f68b7b6b7b056c2badcda89dae2fb2",
+  "path": "artifacts/firecrawl/media/nova-firecrawl-clicks.mp4",
+  "bytes": 51052844,
+  "sha256": "45190b90ca3322f052e765b49437ff86a6b7856eb79ee0212099fca8f371b80b",
+  "freshClone": true,
+  "lfsStorage": "/Users/macbook/Desktop/Nova-batch-20260922/private/clicks-v2/recovery/firecrawl/empty-lfs",
+  "lfsStoreInitiallyEmpty": true,
+  "objectPresentInIsolatedStore": true,
+  "worktreeHashMatchesAccepted": true
+}
