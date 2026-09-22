@@ -58,3 +58,7 @@ Current external constraint reported by coordinator: Computer lost accessibility
 ## Batch checkpoint
 
 Live verification is blocked by the Computer-to-Chrome connection returning only window titles and no screenshots. Both macOS permissions were verified enabled. User retry and tool reset did not restore access. No startup implementation, final recording or media backup is complete. Resume the eligibility check first after connection recovery.
+
+## Final eligibility decision: skip
+
+Native Copilot executed add_test_memory and search_memories for synthetic user lumen-miraeval, returning memory f04a6af3-b0f5-471d-8d1b-2ff08640256f. Independently navigating to /dashboard/memories showed the saved content “User prefers to do ten minutes of Spanish practice after dinner” under that exact user, lifecycle Active. This establishes genuine native requested-work execution. Skip Nova implementation per user instruction; no universal coverage claim. No recordings required for this excluded startup. Synthetic object retained as evidence; no unrelated data changed.
