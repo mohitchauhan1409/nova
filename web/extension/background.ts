@@ -78,7 +78,10 @@ async function inject(tabId: number) {
   await chrome.tabs.sendMessage(tabId, { type: 'nova-mount', tabId });
 }
 async function driver(method: string, payload: { tabId: number; data?: Action }) {
+  const token = control.captureInputToken();
+  const checkInput = () => { if(method==='execute')control.assertInputToken(token); };
   const {tabId, data} = payload; const tab = await chrome.tabs.get(tabId);
+  checkInput();
   if (tabId !== currentTab) throw new Error('This is not the attached website tab.');
   if (!tab.url || !/^https?:/.test(tab.url)) throw new Error('This tab is no longer a supported website.');
   if(method==='focus'){await chrome.tabs.update(tabId,{active:true});await chrome.windows.update(tab.windowId,{focused:true});return {ok:true};}
@@ -88,16 +91,17 @@ async function driver(method: string, payload: { tabId: number; data?: Action })
   if (method === 'execute' && data?.kind === 'forward') {await chrome.tabs.goForward(tabId);return {ok:true};}
   if (method === 'execute' && data?.kind === 'reload') {await chrome.tabs.reload(tabId);return {ok:true};}
   if(method==='execute'&&data?.kind==='zoom'){
-    const current=await chrome.tabs.getZoom(tabId);const factor=data.value==='in'?current+.2:data.value==='out'?current-.2:data.value==='reset'?1:Number(data.value)/100;
+    const current=await chrome.tabs.getZoom(tabId);checkInput();const factor=data.value==='in'?current+.2:data.value==='out'?current-.2:data.value==='reset'?1:Number(data.value)/100;
     if(!Number.isFinite(factor)||factor<.5||factor>2)throw new Error('Choose a zoom from 50% to 200%.');
     // Chrome defaults to shared host zoom. Keep Nova's adjustment in its tab,
     // so an ordinary visit or the local dashboard does not change with it.
-    await chrome.tabs.setZoomSettings(tabId,{mode:'automatic',scope:'per-tab'});
+    await chrome.tabs.setZoomSettings(tabId,{mode:'automatic',scope:'per-tab'});checkInput();
     await chrome.tabs.setZoom(tabId,factor);const actual=await chrome.tabs.getZoom(tabId);return {ok:true,verification:{status:Math.abs(actual-factor)<.01?'verified':'unverified',detail:`Browser zoom is ${Math.round(actual*100)}%.`}};
   }
   if (method === 'execute' && data?.kind === 'wait') {await new Promise(resolve=>setTimeout(resolve,600));return {ok:true};}
   if (tab.status === 'loading') await new Promise<void>(resolve=>{const listener=(id:number,info:chrome.tabs.OnUpdatedInfo)=>{if(id===tabId&&info.status==='complete'){clearTimeout(timer);chrome.tabs.onUpdated.removeListener(listener);resolve();}};const timer=setTimeout(()=>{chrome.tabs.onUpdated.removeListener(listener);resolve();},5000);chrome.tabs.onUpdated.addListener(listener);});
-  if (method === 'execute' && data && control.supports(data) && (await control.status()).granted) return control.execute(tabId,data);
+  checkInput();
+  if (method === 'execute' && data && control.supports(data)) { const status=await control.status();checkInput();if(status.granted)return control.execute(tabId,data,token); }
   if (recordingMode && method === 'execute' && data && inputActionKinds.has(data.kind)) throw new Error('Recording text entry requires browser-control permission. No text was inserted.');
   let result;
   try { result=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method,action:data}); }

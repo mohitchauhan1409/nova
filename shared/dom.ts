@@ -2,7 +2,7 @@ import type { Action, Snapshot, ElementRef, ActionResult, PreparedInput } from '
 import { readPageColorScheme } from './page-theme';
 
 export type PreparedTarget = { x: number; y: number; editable: boolean; focused?: boolean; valueLength?: number; checked?: boolean; paused?: boolean; tag: string; type: string };
-export type DomBridge = { snapshot(preparedInputs?:PreparedInput[]): Snapshot; execute(action: Action): Promise<ActionResult & { text?: string }>; inspect(x:number,y:number): ActionResult; prepare(ref: string, append?: boolean, semanticMedia?: boolean, focus?: boolean): PreparedTarget; point(x:number,y:number): {x:number;y:number}; inputFocused(ref:string): boolean; verify(action: Action, expectedLength?: number): ActionResult; };
+export type DomBridge = { snapshot(preparedInputs?:PreparedInput[]): Snapshot; execute(action: Action): Promise<ActionResult & { text?: string }>; inspect(x:number,y:number): ActionResult; prepare(ref: string, append?: boolean, semanticMedia?: boolean, focus?: boolean): PreparedTarget; point(x:number,y:number): {x:number;y:number}; inputPosition(ref:string): {x:number;y:number}|undefined; verify(action: Action, expectedLength?: number): ActionResult; };
 declare global { interface Window { __novaDOM?: DomBridge } }
 
 // Runs in an isolated extension world or Nova's dedicated browser context.
@@ -166,12 +166,14 @@ export function installNovaDOM() {
       if (el instanceof HTMLAnchorElement && el.target === '_blank') el.target = '_self';
       return { x, y, focused:el.getRootNode() instanceof ShadowRoot ? (el.getRootNode() as ShadowRoot).activeElement===el : document.activeElement===el, valueLength:el instanceof HTMLInputElement||el instanceof HTMLTextAreaElement?el.value.length:el instanceof HTMLElement&&el.isContentEditable?el.innerText.length:undefined, editable: (el instanceof HTMLInputElement && !['file','hidden','password','submit','button','checkbox','radio','range','color'].includes(el.type)) || el instanceof HTMLTextAreaElement || (el instanceof HTMLElement&&el.isContentEditable), tag: el.tagName.toLowerCase(), type: el.getAttribute('type') || '', ...(el instanceof HTMLMediaElement?{paused:el.paused}:{}), ...(el instanceof HTMLInputElement && ['checkbox','radio'].includes(el.type) ? {checked:el.checked} : /checkbox|switch|radio/.test(el.getAttribute('role') || '') ? {checked:el.getAttribute('aria-checked') === 'true'} : {}) };
     },
-    inputFocused(ref) {
+    inputPosition(ref) {
       const el = refs.get(ref);
-      if (!(el instanceof HTMLElement) || !el.isConnected || !visible(el) || sensitive(el) || el.matches(':disabled,[aria-disabled="true"],[readonly]')) return false;
+      if (!(el instanceof HTMLElement) || !el.isConnected || !visible(el) || !inViewport(el) || sensitive(el) || el.matches(':disabled,[aria-disabled="true"],[readonly]')) return;
       const root = el.getRootNode();
       const active = root instanceof ShadowRoot ? root.activeElement : document.activeElement;
-      return active === el && (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement || el.isContentEditable);
+      if (active !== el || !(el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement || el.isContentEditable)) return;
+      const rect=el.getBoundingClientRect();
+      return {x:(Math.max(0,rect.left)+Math.min(innerWidth-1,rect.right))/2,y:(Math.max(0,rect.top)+Math.min(innerHeight-1,rect.bottom))/2};
     },
     verify(action,expectedLength) {
       const el = refs.get(action.ref || '');

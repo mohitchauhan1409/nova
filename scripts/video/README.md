@@ -246,3 +246,9 @@ disconnection, navigation or lost field focus halts subsequent characters. An
 ambiguous partial-entry failure stops the task instead of automatically retyping.
 Inspect the field before resuming. Keep recording prompts concise and inspect a
 real preflight clip; unit tests do not prove visual pacing in the target editor.
+
+A recording text action owns its cursor until the actual entry finishes or is
+canceled. Each input check refreshes the cursor from the focused field's current
+bounds, without generating a click. Completion and interruption clear only that
+action's cursor. Stop also invalidates requests still awaiting tab loading or
+permission checks, so a delayed request cannot restart entry after cancellation.

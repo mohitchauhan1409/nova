@@ -77,3 +77,21 @@ describe('recording-mode trusted field entry',()=>{
     expect(f.sendMessage).not.toHaveBeenCalled();expect(f.sendCommand).not.toHaveBeenCalled();
   });
 });
+
+describe('paced action cursor ownership',()=>{
+  it('holds and refreshes the same actual target cursor until text entry completes',async()=>{
+    vi.useFakeTimers();const f=setup(undefined,true);f.sendMessage.mockResolvedValue({x:20,y:30,editable:true,ok:true});
+    const task=f.control.execute(1,{...click,kind:'fill',value:'Visible cursor'});await vi.runAllTimersAsync();await task;
+    const messages=f.sendMessage.mock.calls.map(call=>call[1]);const start=messages.find(message=>message.method==='native-prepare');
+    const refresh=messages.filter(message=>message.method==='native-input-focus');const end=messages.at(-1);
+    expect(start.cursorId).toEqual(expect.any(Number));expect(refresh.length).toBe(14);
+    expect(refresh.every(message=>message.cursorId===start.cursorId)).toBe(true);
+    expect(end).toMatchObject({method:'native-input-end',cursorId:start.cursorId});
+  });
+  it('clears the matching cursor when an insertion fails',async()=>{
+    vi.useFakeTimers();const f=setup(undefined,true);f.sendMessage.mockResolvedValue({x:20,y:30,editable:true,ok:true});
+    f.sendCommand.mockImplementation(async(_target,method)=>{if(method==='Input.insertText')throw new Error('Input failed');return {};});
+    const failure=expect(f.control.execute(1,{...click,kind:'fill',value:'abc'})).rejects.toThrow('Input failed');await vi.runAllTimersAsync();await failure;
+    expect(f.sendMessage.mock.calls.at(-1)?.[1]).toMatchObject({method:'native-input-end',cursorId:expect.any(Number)});
+  });
+});
