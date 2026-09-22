@@ -26,6 +26,7 @@ export function plannerContext(session: Session, site: SiteProfile, raw: Snapsho
   // Execution, approval fingerprints and verification retain the actual observation.
   const snapshot: Snapshot = {...raw, text:clean(raw.text), title:clean(raw.title), url:clean(raw.url),
     blocked:raw.blocked ? clean(raw.blocked) : raw.blocked,
+    textRegions:raw.textRegions?.map(region=>({...region,text:clean(region.text)})),
     elements:raw.elements.map(e=>({...e,name:clean(e.name),context:clean(e.context),
       href:e.href ? clean(e.href) : e.href, options:e.options?.map(clean),state:e.state?.map(clean)}))};
   const contexts = [...new Set(snapshot.elements.map(e=>e.context))];

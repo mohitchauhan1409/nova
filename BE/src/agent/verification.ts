@@ -14,7 +14,7 @@ export function completionSnapshotChanged(before:Snapshot,after:Snapshot,action:
       e.tag,e.role,text(e.name),e.type,e.href,text(e.context),e.disabled,e.sensitive,
       e.state?.filter(s=>!/^(scroll(?:Max)?[XY]|focused|draft):/.test(s)).sort()||[],e.edit,
     ])).sort();
-    return JSON.stringify([snapshot.url,text(snapshot.title),snapshot.blocked,text(snapshot.text),elements,snapshot.observation?.omittedControls]);
+    return JSON.stringify([snapshot.url,text(snapshot.title),snapshot.blocked,text(snapshot.text),elements,snapshot.observation?.omittedControls,snapshot.textRegions?.map(region=>text(region.text)).sort()]);
   };
   return semantic(before)!==semantic(after);
 }

@@ -10,7 +10,7 @@ describe('observed outcome verification',()=>{
     const request='Change dispatch to October 5, 2026 and keep everything else.';
     const rawName='recipient@customer.example Delivery notice — Dispatch October 5, 2026. Tracking follows dispatch.';
     const projectedName='[email hidden] Delivery notice — Dispatch October 5, 2026. Tracking follows dispatch.';
-    const page:Snapshot={...before,url:'https://workspace.example/drafts/recipient@customer.example',text:'Drafts',elements:[{...before.elements[0],ref:'draft',tag:'div',role:'row',name:rawName,state:[]}]};
+    const page:Snapshot={...before,url:'https://workspace.example/drafts/recipient@customer.example',text:'Drafts',textRegions:[{ref:'draft',text:rawName,elementRefs:['draft']}],elements:[{...before.elements[0],ref:'draft',tag:'div',role:'row',name:rawName,state:[]}]};
     const effect={action:'click' as const,verified:true,detail:'The editor closed.'};
     const check=(source:'text'|'url',value:string,snapshot=page,currentRequest=request)=>completionProblem({...action,kind:'done',completion:{status:'completed',evidence:[{source,ref:'draft',value}]}},snapshot,effect,true,undefined,currentRequest);
     it('accepts exact projected row and URL evidence while retaining exact raw matches',()=>{
