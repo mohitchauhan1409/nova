@@ -4,6 +4,7 @@ import type {BrowserDriver} from '../BE/src/browser/driver';
 import type {Planner} from '../BE/src/providers/openai';
 vi.mock('../BE/src/sites/action-semantics',()=>({inferencePlaygrounds:[{url:'https://inference.example.test/dashboard/playground',submitName:'Send',promptName:'Type your prompt...',requiredControls:[{tag:'button',name:'System Prompt'},{tag:'button',name:'Model parameters'}]}]}));
 import {AgentRunner} from '../BE/src/agent/runner';
+import {requestsFreshInference} from '../BE/src/agent/inference-submission';
 const url='https://inference.example.test/dashboard/playground';
 const base:Snapshot={id:'s',url,title:'Playground',text:'Previous identical prompt. Result: damage.',viewport:{width:1000,height:800},theme:{color:'#fff',font:'sans-serif'},frames:0,capturedAt:0,elements:[
   {ref:'send',tag:'button',role:'',type:'button',name:'Send',context:'',disabled:false,sensitive:false,submission:{scope:'composer',label:'',fields:[{ref:'prompt',revision:'r1'}]}},
@@ -37,6 +38,24 @@ describe('current-command inference completion receipts',()=>{
   it('permits read-only inspection of previous inference results',async()=>{
     const f=fixture();await f.runner.command('Inspect the previous prompt result and tell me what it returned.');
     expect(f.execute).not.toHaveBeenCalled();expect(f.session.status).toBe('ready');
+  });
+  it('rejects zero-action new-run completion when the command starts on Logs',async()=>{
+    const f=fixture();f.setState({...base,url:'https://inference.example.test/dashboard/logs'});
+    await f.runner.command('Test this prompt: Classify the sample.');
+    expect(f.execute).not.toHaveBeenCalled();expect(f.session.status).toBe('stopped');
+    expect(f.session.traces.some(t=>t.text.includes('no verified submission occurred'))).toBe(true);
+  });
+  it('keeps legitimate read-only Logs inspection at zero actions',async()=>{
+    const f=fixture();f.setState({...base,url:'https://inference.example.test/dashboard/logs'});
+    await f.runner.command('Inspect the previous result in Logs and report its response.');
+    expect(f.execute).not.toHaveBeenCalled();expect(f.session.status).toBe('ready');
+  });
+  it('does not match another origin or a different attached scope',()=>{
+    const rules=[{url,submitName:'Send',promptName:'Type your prompt...',requiredControls:[]}];
+    expect(requestsFreshInference({...base,url:'https://inference.example.test/dashboard/logs'},url,request,rules)).toBe(true);
+    expect(requestsFreshInference({...base,url:'https://other.example.test/dashboard/logs'},url,request,rules)).toBe(false);
+    expect(requestsFreshInference(base,'https://other.example.test',request,rules)).toBe(false);
+    expect(requestsFreshInference({...base,url:'https://inference.example.test.evil.test/dashboard/logs'},'https://inference.example.test.evil.test',request,rules)).toBe(false);
   });
   it('does not mistake a verified fill for an actual submission',async()=>{
     const f=fixture();f.planner.decide=vi.fn().mockResolvedValueOnce(action({kind:'fill',ref:'prompt',value:'Classify the sample',risk:'change',summary:'Enter prompt',completion:undefined})).mockResolvedValue(action({}));

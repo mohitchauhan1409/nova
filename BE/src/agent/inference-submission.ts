@@ -26,13 +26,14 @@ export function requestedInferenceSubmission(action:Action,snapshot:Snapshot,sco
   return matched&&inferenceRunRequested(intent);
 }
 
-// A reviewed endpoint identifies this request as new inference work even before
-// the composer is filled. It does not authorize any input or submission.
+// A reviewed origin identifies new inference work even from its Logs/results
+// page. This completion-only requirement never authorizes input or submission;
+// the submission matcher above still requires the exact reviewed endpoint.
 export function requestsFreshInference(snapshot:Snapshot,scope:string,intent:string,rules:readonly InferencePlayground[]):boolean {
   if(!inferenceRunRequested(intent))return false;
   try {
     const current=new URL(snapshot.url),attached=new URL(scope);
-    return current.protocol==='https:'&&!current.username&&!current.password&&current.origin===attached.origin&&rules.some(rule=>new URL(rule.url).href===current.href);
+    return current.protocol==='https:'&&!current.username&&!current.password&&current.origin===attached.origin&&rules.some(rule=>new URL(rule.url).origin===current.origin);
   }catch{return false;}
 }
 
