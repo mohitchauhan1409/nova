@@ -18,3 +18,11 @@ Keep the observed customer URL and labels in that customer branch. Register only
 after confirming that the model returns inference output rather than dispatching
 tools, messages or actions to external recipients. Live rehearsal must still
 verify the submitted result and absence of duplicate runs.
+
+An explicit new inference request on a registered endpoint also requires a
+verified inference-submission receipt in the current command before successful
+completion. Prior chat output, session actions and verified draft entry cannot
+satisfy it. The requirement remains active while navigating to a result/log;
+receipts reset for each command. Completion while visibly processing is rejected
+without asking for another submission. Read-only inspection of prior results is
+unaffected.

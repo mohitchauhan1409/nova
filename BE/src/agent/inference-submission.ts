@@ -23,7 +23,20 @@ export function requestedInferenceSubmission(action:Action,snapshot:Snapshot,sco
     return configured.href===current.href&&target.name===rule.submitName&&prompt.name===rule.promptName&&rule.requiredControls.length>=2&&
       rule.requiredControls.every(marker=>snapshot.elements.some(element=>element.tag===marker.tag&&element.name===marker.name&&!element.covered&&!element.disabled&&!element.sensitive));
   });
-  if(!matched)return false;
+  return matched&&inferenceRunRequested(intent);
+}
+
+// A reviewed endpoint identifies this request as new inference work even before
+// the composer is filled. It does not authorize any input or submission.
+export function requestsFreshInference(snapshot:Snapshot,scope:string,intent:string,rules:readonly InferencePlayground[]):boolean {
+  if(!inferenceRunRequested(intent))return false;
+  try {
+    const current=new URL(snapshot.url),attached=new URL(scope);
+    return current.protocol==='https:'&&!current.username&&!current.password&&current.origin===attached.origin&&rules.some(rule=>new URL(rule.url).href===current.href);
+  }catch{return false;}
+}
+
+function inferenceRunRequested(intent:string):boolean {
   // Later stop/review instructions win. Text following “Run this prompt:” is
   // model input, not an instruction to reinterpret as permission or revocation.
   const request=intent.split('\n').map(line=>{
