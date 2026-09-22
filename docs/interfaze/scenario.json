@@ -1,0 +1,77 @@
+{
+  "status": "candidate; live runs and retention unverified",
+  "scenario": "Cedar Desk synthetic support triage",
+  "account": "itsmohitchauhan1409",
+  "url": "https://interfaze.ai/dashboard/playground",
+  "opening": "Set the temperature to zero.",
+  "larger_request": "Build a support ticket classifier for Cedar Desk.",
+  "clarification_answers": {
+    "categories": "damage, delivery, other",
+    "output_fields": "category and summary, both required strings",
+    "summary_style": "One short sentence"
+  },
+  "initial_system_prompt": "Classify tickets as damage, delivery, or other. Return category and a short summary.",
+  "first_ticket": "Order CD-104 arrived with a cracked mug. Please replace it.",
+  "initial_schema": {
+    "type": "object",
+    "properties": {
+      "category": {
+        "type": "string"
+      },
+      "summary": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "category",
+      "summary"
+    ],
+    "additionalProperties": false
+  },
+  "revision_request": "Add a required escalate boolean. Escalate damage or delays over seven days.",
+  "revised_system_prompt": "Classify tickets as damage, delivery, or other. Return category, a short summary, and escalate. Escalate damage or delays over seven days.",
+  "second_ticket": "Order CD-105 is nine days late. No damage reported.",
+  "revised_schema": {
+    "type": "object",
+    "properties": {
+      "category": {
+        "type": "string"
+      },
+      "summary": {
+        "type": "string"
+      },
+      "escalate": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "category",
+      "summary",
+      "escalate"
+    ],
+    "additionalProperties": false
+  },
+  "verification_requests": [
+    "Open the request log and verify the input and JSON result.",
+    "Reload and check that the result is still here.",
+    "Which rule escalated the second ticket?",
+    "Does zero temperature guarantee correct answers?"
+  ],
+  "rehearsal_variations": {
+    "first_ticket": "CD-104: the mug arrived broken. I need a replacement.",
+    "second_ticket": "CD-105 is three days late. Nothing is damaged.",
+    "second_ticket_expected_escalate": false
+  },
+  "expectations_not_recorded_outputs": {
+    "first_category": "damage",
+    "second_category": "delivery",
+    "second_escalate": true
+  },
+  "configuration": {
+    "temperature": 0,
+    "top_p": "retain observed value",
+    "max_completion_tokens": "retain observed value unless user requests otherwise",
+    "reasoning": "retain observed Off"
+  },
+  "persistence": "Server request logs verified by coordinator. Open actual matching request detail to verify input/output/status; keep JSON under 500 characters to avoid detail truncation. Playground chat is locally retained; configuration persistence unverified."
+}

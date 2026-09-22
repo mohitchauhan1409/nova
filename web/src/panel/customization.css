@@ -1,2 +1,54 @@
-/* Customer branches add scoped website theme overrides here.
-   Keep the shared panel layout and behavior in panel.css / PanelApp.tsx. */
+/* Verified Interfaze light surfaces and neutral control palette.
+   Scoped presentation only; preserve shared layout, interactions and status colors. */
+.np-app[data-site="interfaze.ai"] {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  background: #fff;
+  color: #18181b;
+}
+.np-app[data-site="interfaze.ai"] :is(.np-header,.np-tabs,.np-composer,.np-question-card,.np-question-options>button,.np-suggestions,.np-suggestions>button) {
+  background: #fff;
+  border-color: #e8e8e8;
+}
+.np-app[data-site="interfaze.ai"] :is(.np-context,.np-message.user,.np-question-card>header,.np-question-card>footer,.np-question-receipt,.np-action-timeline,.np-activity-log) {
+  background: #fafafa;
+  border-color: #e8e8e8;
+}
+.np-app[data-site="interfaze.ai"] :is(.np-brand,.np-context strong,.np-welcome h1,.np-suggestions strong,.np-message-body,.np-message-body strong,.np-message-body h1,.np-message-body h2,.np-message-body h3,.np-message-author strong,.np-question-card h3,.np-question-fields legend,.np-question-options strong,.np-question-receipt dd,.np-action-timeline p,.np-action-heading) {
+  color: #18181b;
+}
+.np-app[data-site="interfaze.ai"] :is(.np-brand small,.np-context div span,.np-welcome>p,.np-suggestions small,.np-thread-start,.np-icon-button,.np-copy,.np-thinking,.np-working,.np-question-kicker,.np-question-progress,.np-question-card header>p,.np-question-fields fieldset>p,.np-question-options small,.np-question-help,.np-custom-choice,.np-question-receipt summary,.np-question-receipt dt,.np-action-timeline small,.np-page-context,.np-composer-foot,.np-activity-log p) {
+  color: #666;
+}
+.np-app[data-site="interfaze.ai"] :is(.np-question-fields fieldset,.np-question-receipt dl,.np-suggestions>button+button,.np-orbit,.np-author-ai,.np-choice-dot) {
+  border-color: #e8e8e8;
+}
+.np-app[data-site="interfaze.ai"] :is(.np-question-card input,.np-question-card textarea,.np-composer textarea) {
+  color: #18181b;
+  border-color: #e8e8e8;
+}
+.np-app[data-site="interfaze.ai"] :is(.np-question-card input,.np-question-card textarea):focus {
+  outline-color: #ccc;
+  border-color: #18181b;
+}
+.np-app[data-site="interfaze.ai"] :is(.np-question-options>button,.np-suggestions>button,.np-icon-button,.np-new-chat):hover {
+  background: #fafafa;
+  border-color: #bbb;
+  color: #18181b;
+}
+.np-app[data-site="interfaze.ai"] .np-question-options>button.selected {
+  background: #f2f2f2;
+  border-color: #18181b;
+}
+.np-app[data-site="interfaze.ai"] :is(.np-message-body code,.np-message-body pre,.np-message-body th) {
+  color: #333;
+  background: #fafafa;
+  border-color: #e8e8e8;
+}
+.np-app[data-site="interfaze.ai"] :is(.np-message-body a,.np-suggestion-icon,.np-suggestions>button>svg,.np-art-spark,.np-message-author,.np-clarification,.np-jump) { color: #18181b; }
+.np-app[data-site="interfaze.ai"] .np-message-author { --mark-hole: #fff; }
+.np-app[data-site="interfaze.ai"] .np-art-spark { background: #fff; }
+.np-app[data-site="interfaze.ai"] .np-composer-area { background: linear-gradient(#ffffff00,#fff 15%); }
+.np-app[data-site="interfaze.ai"] .np-send:disabled { background: #eee; color: #999; }
+.np-app[data-site="interfaze.ai"] .np-button-dark { background: #18181b; border-color: #18181b; color: #fff; }
+.np-app[data-site="interfaze.ai"] :is(button,a):focus-visible { outline-color: #18181b; }
+.np-app[data-site="interfaze.ai"] ::selection { background: #ddd; }
