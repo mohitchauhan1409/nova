@@ -15,7 +15,11 @@ export function inferenceLogCompletionProblem(action:Action,snapshot:Snapshot,in
   if(!receipt)return 'The exact submitted prompt has no current verified draft receipt. '+again;
   if(snapshot.url!==log.url)return 'The requested log has not been inspected for this submission. '+again;
   const dialogs=snapshot.elements.filter(e=>e.role==='dialog'&&e.name===log.dialogName&&!e.covered&&!e.sensitive);
-  const lines=snapshot.text.trim().split('\n');
+  const regions=snapshot.textRegions?.filter(region=>region.ref===dialogs[0]?.ref)||[];
+  if(dialogs.length!==1||regions.length!==1)return 'Observe the current log dialog again to obtain its scoped Input and Output text; background table text is not result proof. '+again;
+  const region=regions[0];
+  const scopedElements=snapshot.elements.filter(element=>region.elementRefs.includes(element.ref));
+  const lines=region.text.trim().split('\n');
   const unique=(label:string)=>{const found=lines.flatMap((line,i)=>line===label?[i]:[]);return found.length===1?found[0]:-1;};
   const input=unique(log.inputLabel),output=unique(log.outputLabel),end=unique(log.outputEndLabel);
   if(dialogs.length!==1||lines[0]!==log.dialogName||input<1||output<=input+2||end<=output+2)return 'The current log Input and Output sections are missing or ambiguous. '+again;
@@ -40,9 +44,9 @@ export function inferenceLogCompletionProblem(action:Action,snapshot:Snapshot,in
   if(loggedAt<Math.floor(receipt.submittedAt/1000)*1000||loggedAt>snapshot.capturedAt+1000)return 'This log timestamp does not belong to the current submission. An older identical prompt/result is insufficient. '+again;
   const result=lines.slice(output+2,end).join('\n');
   if(!result.trim())return 'The current matching log has no Output result yet. '+again;
-  const outputIndex=snapshot.elements.findIndex(e=>e.name===log.outputLabel);
+  const outputIndex=scopedElements.findIndex(e=>e.name===log.outputLabel);
   // Snapshot controls can precede text leaves, so the end button need not be
   // after the output text in this array. Input-history leaves precede Output.
-  const outputRefs=new Set(outputIndex>=0?snapshot.elements.slice(outputIndex+1).filter(e=>!e.sensitive&&normalized(result).includes(normalized(e.name))).map(e=>e.ref):[]);
+  const outputRefs=new Set(outputIndex>=0?scopedElements.slice(outputIndex+1).filter(e=>!e.sensitive&&normalized(result).includes(normalized(e.name))).map(e=>e.ref):[]);
   if(!action.completion?.evidence.some(proof=>proof.source==='text'&&proof.value.trim()&&normalized(result).includes(normalized(proof.value))&&(!proof.ref||outputRefs.has(proof.ref))))return 'Cite the actual Output section of this matching log. Quoted assistant history inside Input and status 200 alone are not output proof. '+again;
 }

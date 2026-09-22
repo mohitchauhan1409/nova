@@ -26,7 +26,7 @@ function fixture(){
   const session:Session={id:'s',siteId:'site',mode:'browser',status:'ready',url,title:'Playground',messages:[],traces:[],steps:0,model:'fixture',startedAt:0};
   const site:SiteProfile={id:'site',name:'Playground',domain:'inference.example.test',url,color:'#000000',description:'',instructions:'',flows:[],observations:0};
   const runner=new AgentRunner(session,driver,planner,site,()=>{});
-  return {runner,session,execute,planner,setState:(snapshot:Snapshot)=>{state=snapshot;}};
+  return {runner,session,execute,planner,setState:(snapshot:Snapshot)=>{state=snapshot.elements.some(e=>e.ref==='dialog')?{...snapshot,textRegions:[{ref:'dialog',text:snapshot.text,elementRefs:snapshot.elements.map(e=>e.ref)}]}:snapshot;}};
 }
 describe('current-command inference completion receipts',()=>{
   it.each(['completed','answer'] as const)('rejects %s using an identical old output with zero current actions',async status=>{
