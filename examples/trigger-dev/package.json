@@ -1,0 +1,21 @@
+{
+  "name": "harbor-and-vale-order-operations",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "trigger dev start --skip-update-check --skip-telemetry --max-concurrent-runs 1",
+    "check": "tsc --noEmit",
+    "test": "tsx --test src/lib/order-summary.test.ts"
+  },
+  "dependencies": {
+    "@trigger.dev/sdk": "4.6.3"
+  },
+  "devDependencies": {
+    "@trigger.dev/build": "4.6.3",
+    "trigger.dev": "4.6.3",
+    "@types/node": "^22.18.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "origin": "Wholly synthetic local business/order fixtures for this authorized demonstration",
+  "scope": {"organizationSlug":"nova-56d7","projectSlug":"nova-YcS4","environment":"dev","projectRef":"proj_futnuhorkbwfxqmsvsgv"},
+  "business":"Harbor & Vale",
+  "taskId":"harbor-order-summary",
+  "batch":"harbor-september",
+  "orderIds":["HV-101","HV-102","HV-103","HV-104","HV-105","HV-106"],
+  "sourceLedger":"examples/trigger-dev/src/lib/order-summary.ts",
+  "remoteTaskRegistered":false,
+  "runs":[],
+  "cleanupPolicy":"Only specifically recorded owned run IDs are eligible; preserve useful baseline, never infer ownership from names. No unrelated cleanup."
+}

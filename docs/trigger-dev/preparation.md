@@ -1,6 +1,6 @@
 # Trigger.dev preparation — 2026-09-22
 
-Status: public research and local inspection complete; signed-in eligibility and workflows require coordinator verification. No implementation, live browser activity, task execution, runtime changes, or Git mutations performed by this worker.
+Status update: coordinator verified native Ask Trigger reports read-only tools and cannot execute, trigger, retry, cancel or change configuration. Supplied org/project/dev scope and project ref were verified. Trigger.dev retained. Isolated pure task and unverified declarative guide are now prepared; see scenario.md. No live browser, worker/backend activation or Git mutations were performed by this worker. The research below records the original public-source assessment.
 
 ## Eligibility assessment
 
@@ -42,3 +42,16 @@ Next handoff: coordinator confirms eligibility, scope, current dashboard theme, 
 ## Batch checkpoint
 
 Live verification is blocked by the Computer-to-Chrome connection returning only window titles and no screenshots. Both macOS permissions were verified enabled. User retry and tool reset did not restore access. No startup implementation, final recording or media backup is complete. Resume the eligibility check first after connection recovery.
+
+
+## Customization handoff — 2026-09-22
+
+Registered the existing Trigger.dev profile factory in `BE/src/sites/customizations.ts` with native primary purple `#5a24e4` and isolated `sites.trigger-dev.json`. Existing guides and Development scope restrictions remain intact; both flows remain unverified. No task connection or successful run is implied. Current dependency from coordinator: official CLI authorization grant awaits completion; no task connected yet.
+
+Native theme evidence: coordinator screenshot `private/trigger-theme.png`, background approximately `#17161b`, secondary surface `#1b1a1f`, borders `#222126`, primary purple `#5a24e4`. Scoped panel and launcher styles use these surfaces. Readable light text and lavender text accents accompany the purple controls. The action arrow, label and click ring use one solid primary purple. Cursor lifecycle/input remain shared; no overlays or substitute cursor path added. Meaningful success/error colors remain distinguishable.
+
+Validation: TypeScript no-emit check passed; site-experience, page-theme and extension-theme suites passed (7 tests). No build, UI operation, runtime/extension activation or git commit performed. Coordinator must inspect the native dark panel, initial launcher, clarification cards and cursor in actual preflight, then finish the worker/task/run prerequisites and required live rehearsals.
+
+## Runtime checkpoint
+
+2026-09-22: user completed official CLI authorization. `whoami` confirmed requested account and project. Coordinator started Development worker20260922.1 with inspected synthetic-only task. Root recording build passed after main8407291 integration. Task dashboard registration, live baseline and Nova rehearsals still pending; this is setup, not a Nova-completed workflow.

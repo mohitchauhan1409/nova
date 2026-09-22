@@ -1,6 +1,6 @@
 import type { SiteProfile } from '../../../shared/types';
+import { createTriggerDevProfile } from './trigger-dev';
 
-// Customer branches register their presets here; the engine stays shared.
-export const customSiteProfiles: SiteProfile[] = [];
-// Keep locally edited profiles separate when switching customer branches.
-export const siteStoreFilename = 'sites.core.json';
+// Customer-only preset; observed purple primary from the native dashboard.
+export const customSiteProfiles: SiteProfile[] = [createTriggerDevProfile('#5a24e4')];
+export const siteStoreFilename = 'sites.trigger-dev.json';

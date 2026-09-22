@@ -1,2 +1,57 @@
-/* Customer branches add scoped website theme overrides here.
-   Keep the shared panel layout and behavior in panel.css / PanelApp.tsx. */
+/* Native Trigger.dev dark surfaces, scoped to this customer hostname.
+   Layout, input behavior and meaningful error states remain shared. */
+.np-app[data-site="cloud.trigger.dev"] {
+  color-scheme: dark;
+  color: #f1f0f3;
+  background: #17161b;
+}
+.np-app[data-site="cloud.trigger.dev"] :is(.np-header,.np-tabs,.np-context,.np-composer,.np-question-card,.np-question-options>button,.np-suggestions,.np-suggestions>button,.np-message.user,.np-action-timeline,.np-activity-log,.np-question-receipt,.np-jump) {
+  background: #1b1a1f;
+  border-color: #222126;
+}
+.np-app[data-site="cloud.trigger.dev"] :is(.np-question-card>header,.np-question-card>footer,.np-message-body code,.np-message-body pre,.np-message-body th) {
+  background: #17161b;
+  border-color: #222126;
+}
+.np-app[data-site="cloud.trigger.dev"] :is(.np-brand,.np-context strong,.np-welcome h1,.np-suggestions strong,.np-message-body,.np-message-body strong,.np-message-body h1,.np-message-body h2,.np-message-body h3,.np-message-author strong,.np-question-card h3,.np-question-fields legend,.np-question-options strong,.np-question-receipt dd,.np-action-timeline p,.np-action-heading,.np-message.user,.np-message-body code,.np-message-body pre) {
+  color: #f1f0f3;
+}
+.np-app[data-site="cloud.trigger.dev"] :is(.np-brand small,.np-context div span,.np-welcome>p,.np-suggestions small,.np-thread-start,.np-icon-button,.np-copy,.np-thinking,.np-working,.np-question-kicker,.np-question-progress,.np-question-card header>p,.np-question-fields fieldset>p,.np-question-options small,.np-question-help,.np-custom-choice,.np-question-receipt summary,.np-question-receipt dt,.np-action-timeline small,.np-action-heading>span:not(.np-action-status),.np-page-context,.np-composer-foot,.np-composer-foot>button,.np-activity-log p,.np-tabs>button,.np-tabs>span,.np-new-chat,.np-question-card footer>p,.np-question-fields legend>span,.np-question-fields legend>small,.np-question-receipt summary>small) {
+  color: #aaa5b6;
+}
+.np-app[data-site="cloud.trigger.dev"] :is(.np-question-fields fieldset,.np-question-receipt dl,.np-suggestions>button+button,.np-orbit,.np-author-ai,.np-choice-dot,.np-message-body td,.np-message-body th,.np-message-body hr) {
+  border-color: #222126;
+}
+.np-app[data-site="cloud.trigger.dev"] :is(.np-question-card input,.np-question-card textarea,.np-composer textarea) {
+  color: #f1f0f3;
+  background: #17161b;
+  border-color: #222126;
+}
+.np-app[data-site="cloud.trigger.dev"] :is(.np-question-card input,.np-question-card textarea):focus {
+  outline-color: #9065ef;
+  border-color: #9065ef;
+}
+.np-app[data-site="cloud.trigger.dev"] :is(.np-question-card input,.np-question-card textarea,.np-composer textarea)::placeholder { color: #918a9f; }
+.np-app[data-site="cloud.trigger.dev"] :is(.np-question-options>button,.np-suggestions>button,.np-icon-button,.np-new-chat):hover {
+  background: #25222c;
+  border-color: #615674;
+  color: #f1f0f3;
+}
+.np-app[data-site="cloud.trigger.dev"] .np-question-options>button.selected { background: #2c2045; border-color: #9065ef; }
+.np-app[data-site="cloud.trigger.dev"] :is(.np-tabs button[aria-selected=true],.np-site-symbol,.np-brand-mark,.np-welcome-art .np-welcome-mark) { background: #2c2045; color: #c5acff; }
+.np-app[data-site="cloud.trigger.dev"] :is(.np-brand-mark,.np-welcome-mark) { --mark-hole: #2c2045; border-color: #493561; }
+.np-app[data-site="cloud.trigger.dev"] :is(.np-message-body a,.np-suggestion-icon,.np-suggestions>button>svg,.np-art-spark,.np-message-author,.np-clarification,.np-jump,.np-welcome h1 span,.np-eyebrow) { color: #c5acff; }
+.np-app[data-site="cloud.trigger.dev"] .np-message-author { --mark-hole: #17161b; }
+.np-app[data-site="cloud.trigger.dev"] .np-art-spark { background: #17161b; }
+.np-app[data-site="cloud.trigger.dev"] .np-composer-area { background: linear-gradient(#17161b00,#17161b 15%); }
+.np-app[data-site="cloud.trigger.dev"] .np-composer:focus-within { border-color: #9065ef; box-shadow: 0 0 0 3px #292038; }
+.np-app[data-site="cloud.trigger.dev"] .np-send:disabled { background: #222126; color: #918a9f; }
+.np-app[data-site="cloud.trigger.dev"] :is(.np-button-dark,.np-send,.np-question-continue) { background: #5a24e4; border-color: #5a24e4; color: #fff; }
+.np-app[data-site="cloud.trigger.dev"] :is(.np-question-progress>div,.np-thread-start span,.np-action-timeline li:not(:last-child):before) { background: #222126; }
+.np-app[data-site="cloud.trigger.dev"] .np-step-icon { background: #17161b; border-color: #222126; color: #aaa5b6; }
+.np-app[data-site="cloud.trigger.dev"] .np-action-timeline li[data-status=verified] .np-step-icon { background: #193429; border-color: #285641; color: #8ac7a7; }
+.np-app[data-site="cloud.trigger.dev"] :is(.np-action-timeline li[data-status=running],.np-action-timeline li[data-status=checking]) .np-step-icon { background: #2c2045; color: #c5acff; }
+.np-app[data-site="cloud.trigger.dev"] .np-action-timeline li[data-status=failed] .np-step-icon { background: #39291d; color: #e6b889; }
+.np-app[data-site="cloud.trigger.dev"] :is(button,a):focus-visible { outline-color: #c5acff; }
+.np-app[data-site="cloud.trigger.dev"] ::selection { background: #5a24e4; color: #fff; }
+.np-app[data-site="cloud.trigger.dev"] ::-webkit-scrollbar-thumb { background: #51485f; }
