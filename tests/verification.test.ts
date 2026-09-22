@@ -115,3 +115,24 @@ describe('observed outcome verification',()=>{
   });
   it('packs observations without dropping control information or duplicating contexts',()=>{const session={messages:[],traces:[]} as unknown as Session;const site={name:'Page',instructions:'',flows:[]} as unknown as SiteProfile;const snap={...before,elements:[...before.elements,{...before.elements[0],ref:'v2'}]};const packed=plannerContext(session,site,snap).observation;expect(packed.contexts).toEqual(['']);const e=Object.fromEntries(packed.elementColumns.map((key,i)=>[key,packed.elements[0][i]]));expect(e.ref).toBe('v');expect(e.state).toEqual(['paused:false']);expect(packed.elements).toHaveLength(2);});
 });
+
+
+describe('editable evidence and non-submitting keys',()=>{
+  const field={...before.elements[0],tag:'div',role:'textbox',type:'contenteditable',form:true,edit:{revision:'v1',empty:false}};
+  const page={...before,text:'JSON editor',elements:[field]};
+  it('cannot promote an unverified fill from generic page/control changes',()=>{
+    const fill={...action,kind:'fill' as const,value:'{}'};
+    const changed={...page,text:'Changed JSON',elements:[{...field,name:'{}}',edit:{revision:'v2',empty:false}}]};
+    for(const receipt of [undefined,{ok:true},{ok:true,verification:{status:'unverified',detail:'not exact'}}])expect(actionEffect(fill,page,changed,receipt,true).verified).toBe(false);
+    expect(actionEffect(fill,page,changed,{ok:true,verification:{status:'verified',detail:'Exact field value'}},true).verified).toBe(true);
+  });
+  it.each(['End','ControlOrMeta+End','Control+End','Backspace','Delete'])('does not describe %s as submitting a draft',value=>{
+    expect(actionEffect({...action,kind:'press',value},page,page,{ok:true},true).detail).not.toContain('submitted draft');
+  });
+  it('requires changed editor revision to verify an editing key, retaining Enter submission checks',()=>{
+    const backspace={...action,kind:'press' as const,value:'Backspace'};
+    expect(actionEffect(backspace,page,page,{ok:true},true).verified).toBe(false);
+    expect(actionEffect(backspace,page,{...page,elements:[{...field,edit:{revision:'v2',empty:false}}]},{ok:true},true).verified).toBe(true);
+    expect(actionEffect({...backspace,value:'Enter'},page,page,{ok:true},true).detail).toContain('submitted draft');
+  });
+});
