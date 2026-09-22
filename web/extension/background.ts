@@ -1,5 +1,6 @@
 import { recordingMode, type RecordingClick } from '../../shared/recording';
 import { pacedInputCapability, inputActionKinds } from '../../shared/paced-input';
+import {waitDurationMs,boundedWaitCapability} from '../../shared/wait';
 import type { Action, Session, ServerEvent } from '../../shared/types';
 import { BrowserControl } from './browser-control';
 import { isNovaDashboard, websitePermission, type TabLaunch } from '../../shared/browser-launch';
@@ -98,7 +99,7 @@ async function driver(method: string, payload: { tabId: number; data?: Action })
     await chrome.tabs.setZoomSettings(tabId,{mode:'automatic',scope:'per-tab'});checkInput();
     await chrome.tabs.setZoom(tabId,factor);const actual=await chrome.tabs.getZoom(tabId);return {ok:true,verification:{status:Math.abs(actual-factor)<.01?'verified':'unverified',detail:`Browser zoom is ${Math.round(actual*100)}%.`}};
   }
-  if (method === 'execute' && data?.kind === 'wait') {await new Promise(resolve=>setTimeout(resolve,600));return {ok:true};}
+  if (method === 'execute' && data?.kind === 'wait') {await new Promise(resolve=>setTimeout(resolve,waitDurationMs(data.value)));checkInput();return {ok:true};}
   if (tab.status === 'loading') await new Promise<void>(resolve=>{const listener=(id:number,info:chrome.tabs.OnUpdatedInfo)=>{if(id===tabId&&info.status==='complete'){clearTimeout(timer);chrome.tabs.onUpdated.removeListener(listener);resolve();}};const timer=setTimeout(()=>{chrome.tabs.onUpdated.removeListener(listener);resolve();},5000);chrome.tabs.onUpdated.addListener(listener);});
   checkInput();
   if (method === 'execute' && data && control.supports(data)) { const status=await control.status();checkInput();if(status.granted)return control.execute(tabId,data,token); }
@@ -107,7 +108,7 @@ async function driver(method: string, payload: { tabId: number; data?: Action })
   try { result=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method,action:data}); }
   catch(error) { if(method==='execute')throw new Error('The website connection changed during this action. Inspect the page before retrying.');if(tabId!==currentTab)throw new Error('This website session has ended.');await inject(tabId); result=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method,action:data}); }
   if(result?.error)throw new Error(result.error);
-  if(method==='snapshot'&&result){result.viewport.zoom=await chrome.tabs.getZoom(tabId);result.capabilities=[...(result.capabilities||[]),(await control.status()).granted?'trusted-browser-input':'basic-dom-input',...(recordingMode?[pacedInputCapability]:[])];}
+  if(method==='snapshot'&&result){result.viewport.zoom=await chrome.tabs.getZoom(tabId);result.capabilities=[...(result.capabilities||[]),boundedWaitCapability,(await control.status()).granted?'trusted-browser-input':'basic-dom-input',...(recordingMode?[pacedInputCapability]:[])];}
   return result;
 }
 function connect(token: string, port: chrome.runtime.Port) {
