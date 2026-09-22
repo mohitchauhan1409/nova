@@ -171,9 +171,9 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
     if (sensitiveSettings.test(`${target.name} ${target.context}`) && !requestedRecordEdit(action, snapshot, intent)) return result('approve', 'Review this change to sensitive account settings.', true);
     return result('allow', 'Prepare the requested text without submitting it', true);
   }
-  if (action.kind === 'press' && (['Escape', 'Tab', 'Shift+Tab', 'Home', 'End', 'PageUp', 'PageDown', 'Backspace', 'Delete', 'ControlOrMeta+A', 'ControlOrMeta+Z', 'ControlOrMeta+Y'].includes(action.value || '') || /^Arrow/.test(action.value || ''))) {
+  if (action.kind === 'press' && (['Escape', 'Tab', 'Shift+Tab', 'Home', 'End', 'ControlOrMeta+Home', 'ControlOrMeta+End', 'Control+Home', 'Control+End', 'PageUp', 'PageDown', 'Backspace', 'Delete', 'ControlOrMeta+A', 'ControlOrMeta+Z', 'ControlOrMeta+Y'].includes(action.value || '') || /^Arrow/.test(action.value || ''))) {
     if (['Delete', 'Backspace'].includes(action.value || '') && !['input', 'textarea'].includes(target.tag) && target.role !== 'textbox' && target.type !== 'contenteditable') return result('approve', 'This key may delete a selected item.', true);
-    return result('allow', 'Edit or navigate the current control', true);
+    return result('allow', 'Edit or navigate the current control', ['Backspace','Delete','ControlOrMeta+Z','ControlOrMeta+Y'].includes(action.value||''));
   }
   if (action.kind === 'press' && action.value === 'Enter' && /search|query|find/i.test(`${target.name} ${target.type}`)) return result('allow', 'Submit a search query');
   const context = `${target.name} ${target.context}`;
