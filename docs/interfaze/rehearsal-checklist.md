@@ -27,7 +27,7 @@ Actual website prompt is the text after “Run this prompt:”. No configuration
 ### Pass A
 
 1. Operator: **“Turn this into JSON triage for Cedar Desk, at temperature zero.”**
-2. After a card answer, resume the unfinished setup immediately; do not repeat the opener’s already-verified Logs check. A genuine card can ask desired output fields; the categories are already known. If choosing fields needs help, operator asks **“Which fields are enough for basic triage?”** Nova should explain briefly while retaining the task/card. Then select an actually rendered option equivalent to **Category and short summary**, or type that concise custom answer. Do not demand a particular generated card layout or create fake choices.
+2. After a card answer, resume the unfinished setup immediately; do not repeat the opener’s already-verified Logs check. A genuine card can ask desired output fields; the categories are already known. If choosing fields needs help, operator asks **“Which fields are enough for basic triage?”** Nova should explain briefly while retaining the task/card. Then select the actually rendered **Category + summary** option. Suitable alternatives are Category only and Category + confidence; the latter must be described as uncalibrated model confidence. If those exact labels are absent, use a semantically matching option or custom answer “Category and a short summary”; do not pretend the rendered card had different labels. Do not demand a particular generated card layout or create fake choices.
 3. Acceptance configuration: use the concise System Prompt **“Classify as damage, delivery, or other. Return category and a short summary.”**; Temperature `0`; JSON enabled; exactly two requested scalar fields, `category` and `summary`, both `string` and required. Leave Top P, token limit and Reasoning unchanged. Inspect each row once. Do not assert `additionalProperties:false` unless the real editor exposes/verifies it.
 4. Operator: **“Test this prompt: Order CD-104 arrived with a cracked mug. Please replace it.”**
 5. Expected result: JSON with `category: "damage"` and a faithful short summary. Actual summary wording is not prescribed. Verify the matching request through Logs.
@@ -78,7 +78,7 @@ Fresh Nova launch must use the normal verified dashboard route with exactly one 
 
 1. **Run this prompt: Classify a cracked mug as damage, delivery or other. Reply with one word.**
 2. **Turn this into JSON triage for Cedar Desk, at temperature zero.**
-3. If fields card appears: **Which fields are enough for basic triage?** Read answer, then choose **Category and short summary** using the actual card/custom answer. Do not add a card if Nova can safely use sufficient prior information.
+3. If fields card appears: **Which fields are enough for basic triage?** Read answer, then choose **Category + summary** using the actual card/custom answer. Do not add a card if Nova can safely use sufficient prior information.
 4. **Test this prompt: Order CD-104 arrived with a cracked mug. Please replace it.**
 5. **Open its request log and check the input and JSON result.** Omit only if Nova already performed and displayed this verification in step 4.
 6. **Add a required escalate boolean: damage or delays over seven days.**
