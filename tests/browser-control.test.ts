@@ -134,6 +134,18 @@ describe('editor corrections and caret keys',()=>{
     expect(f.sendCommand.mock.calls.some(c=>c[1]==='Input.dispatchMouseEvent')).toBe(false);
     expect(f.sendCommand.mock.calls.filter(c=>c[2].type==='rawKeyDown').map(c=>c[2].key)).toEqual(['End','Backspace']);
   });
+  it.each(['fill','paste','search'] as const)('sends no replacement or submission when %s cannot prove focused empty content',async kind=>{
+    const f=setup();f.sendMessage.mockImplementation(async(_tab,message)=>message.method==='native-input-empty'?{ok:false}:{x:20,y:30,editable:true,ok:true});
+    await expect(f.control.execute(1,{...click,kind,value:'{}'})).rejects.toThrow('did not become empty');
+    expect(f.sendCommand.mock.calls.some(c=>c[1]==='Input.insertText'||c[2].key==='Enter')).toBe(false);
+    expect(f.sendCommand.mock.calls.filter(c=>c[2].type==='rawKeyDown').map(c=>c[2].key)).toEqual(['a','Backspace']);
+  });
+  it.each(['clear','fill'] as const)('clears an empty-valued %s only once',async kind=>{
+    const f=setup();f.sendMessage.mockResolvedValue({x:20,y:30,editable:true,ok:true});
+    await f.control.execute(1,{...click,kind,value:''});
+    expect(f.sendCommand.mock.calls.filter(c=>c[2].type==='rawKeyDown'&&c[2].key==='Backspace')).toHaveLength(1);
+    expect(f.sendCommand.mock.calls.some(c=>c[1]==='Input.insertText')).toBe(false);
+  });
   it('rejects a malformed final value without retrying the fill',async()=>{
     const f=setup();f.sendMessage.mockImplementation(async(_tab,message)=>message.method==='verify'?{ok:true,verification:{status:'unverified'}}:{x:20,y:30,editable:true,ok:true});
     await expect(f.control.execute(1,{...click,kind:'fill',value:'{}'})).rejects.toThrow('does not exactly match');
