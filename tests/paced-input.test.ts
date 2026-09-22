@@ -1,15 +1,23 @@
 import {afterEach, describe, expect, it, vi} from 'vitest';
-import {insertPacedText, pacedActionTimeout, pacedCharacters, maxPacedActionMs} from '../shared/paced-input';
+import {characterPause, insertPacedText, pacedActionTimeout, pacedCharacters, maxPacedActionMs} from '../shared/paced-input';
 
 afterEach(() => vi.useRealTimers());
 describe('recording input rhythm and bounds', () => {
+  it('runs the full rhythm and punctuation pauses exactly 1.25x faster', () => {
+    for (let index = 0; index < 10; index++) {
+      expect(characterPause('a', index) * 1.25).toBe(150 + (index % 5) * 10);
+      for (const punctuation of '.,!?;:\n') {
+        expect(characterPause(punctuation, index) * 1.25).toBe(240 + (index % 5) * 10);
+      }
+    }
+  });
   it('dispatches actual graphemes separately with pauses, including intact emoji and combining marks', async () => {
     vi.useFakeTimers(); vi.setSystemTime(0);
     const sent: {text:string; at:number}[] = [];
     const task = insertPacedText('A, 👨‍👩‍👧‍👦e\u0301', async text => {sent.push({text, at:Date.now()});}, async () => {}, 10000);
     await vi.runAllTimersAsync(); await task;
     expect(sent.map(item => item.text)).toEqual(['A', ',', ' ', '👨‍👩‍👧‍👦', 'e\u0301']);
-    expect(sent.map(item => item.at)).toEqual([0,150,400,570,750]);
+    expect(sent.map(item => item.at)).toEqual([0,120,320,456,600]);
   });
   it('stops after the first ambiguous insertion failure, without retry or later text', async () => {
     vi.useFakeTimers(); const insert = vi.fn().mockResolvedValueOnce(undefined).mockRejectedValueOnce(new Error('Lost acknowledgement'));
