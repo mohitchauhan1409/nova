@@ -5,6 +5,7 @@ import { config, root } from '../config';
 import { assertPublicUrl } from './security';
 import type { BrowserDriver } from './driver';
 import type { Action, Snapshot, ServerEvent, Session, PreparedInput } from '../../../shared/types';
+import {waitDurationMs,boundedWaitCapability} from '../../../shared/wait';
 
 const domScript = buildSync({ entryPoints: [path.join(root, 'shared/dom.ts')], bundle: true, write: false, format: 'iife', target: 'es2022' }).outputFiles[0].text;
 export class ControlledBrowser implements BrowserDriver {
@@ -82,6 +83,7 @@ export class ControlledBrowser implements BrowserDriver {
         await page.waitForFunction(() => !!document.body, undefined, { timeout: 8000 });
         let snapshot=await this.evaluate<Snapshot>(`window.__novaDOM.snapshot(${JSON.stringify(preparedInputs)})`);
         for(let attempt=0;attempt<6&&snapshot.text.length<80&&snapshot.elements.length<2;attempt++){await page.waitForTimeout(150);snapshot=await this.evaluate<Snapshot>(`window.__novaDOM.snapshot(${JSON.stringify(preparedInputs)})`);}
+        snapshot.capabilities=[...(snapshot.capabilities||[]),boundedWaitCapability];
         return snapshot;
       } catch (error) {
         const changedContext = /cannot find context|execution context was destroyed|cannot find.*context|frame with the given id was not found|no frame for given id/i.test(String(error));
@@ -117,7 +119,7 @@ export class ControlledBrowser implements BrowserDriver {
     else if (action.kind === 'back') await page.goBack({ waitUntil: 'domcontentloaded', timeout: 15000 });
     else if (action.kind === 'forward') await page.goForward({ waitUntil:'domcontentloaded',timeout:15000 });
     else if (action.kind === 'reload') await page.reload({waitUntil:'domcontentloaded',timeout:15000});
-    else if (action.kind === 'wait') { await page.waitForLoadState('domcontentloaded'); await page.waitForTimeout(600); }
+    else if (action.kind === 'wait') { await page.waitForLoadState('domcontentloaded'); await page.waitForTimeout(waitDurationMs(action.value)); }
     else if (action.kind === 'point') { if (action.x === null || action.y === null) throw new Error('Coordinates are required');await this.evaluate(`window.__novaDOM.point(${action.x},${action.y})`);await page.mouse.click(action.x, action.y); }
     else if (['search','fill','type','clear','paste'].includes(action.kind)) {
       const value=action.kind==='clear'?'':action.kind==='paste'?(action.value??this.copiedText):(action.value||'');
