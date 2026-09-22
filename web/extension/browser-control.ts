@@ -150,7 +150,12 @@ export class BrowserControl {
         const deadline = Date.now() + pacedActionTimeout(value) - 5_000;
         let prefix='';
         await insertPacedText(value, async character => {
-          await send('Input.insertText', {text:character});prefix+=character;
+          // Only a recognized plain code-editor DOM opts into keyboard Enter.
+          // Do not risk submitting an unrelated contenteditable chat composer.
+          // insertText('\n') can create two rendered lines in CodeMirror.
+          if(prepared.newlineKey==='Enter'&&character==='\n')await press('Enter');
+          else await send('Input.insertText', {text:character});
+          prefix+=character;
           if(prepared.editable&&prepared.tag&&!['input','textarea'].includes(prepared.tag)){
             checkGeneration();
             const pair=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'native-input-correction',action,cursorId,prefix,character});

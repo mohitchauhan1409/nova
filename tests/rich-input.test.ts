@@ -5,13 +5,16 @@ import {BrowserControl} from '../web/extension/browser-control';
 import type {Action} from '../shared/types';
 const domScript=buildSync({entryPoints:['shared/dom.ts'],bundle:true,write:false,format:'iife'}).outputFiles[0].text;
 const settleScript=buildSync({entryPoints:['shared/paced-input.ts'],bundle:true,write:false,format:'iife',globalName:'NovaPaced'}).outputFiles[0].text;
+const codeMirrorScript=buildSync({stdin:{contents:`import {EditorView,basicSetup} from 'codemirror';import {json} from '@codemirror/lang-json';new EditorView({doc:'Old JSON',extensions:[basicSetup,json(),EditorView.contentAttributes.of({'aria-label':'JSON'})],parent:document.body});`,resolveDir:process.cwd()},bundle:true,write:false,format:'iife'}).outputFiles[0].text;
 let browser:Browser;let page:Page;
 beforeAll(async()=>{browser=await chromium.launch({headless:true});page=await browser.newPage();});
 afterAll(async()=>{await browser?.close();});
 afterEach(()=>vi.unstubAllGlobals());
 const action:Action={kind:'fill',ref:null,value:null,url:null,x:null,y:null,risk:'change',summary:'Edit JSON'};
-async function fixture(unexpected=false,asyncCaret=false){
+async function fixture(unexpected=false,asyncCaret=false,codeMirror=false){
   await page.goto('about:blank');
+  if(codeMirror){await page.setContent('<style>.cm-editor{height:300px}</style>');await page.addScriptTag({content:codeMirrorScript});}
+  else {
   await page.setContent('<div role="textbox" contenteditable="true" aria-label="JSON" style="white-space:pre;min-height:200px">Old JSON</div>');
   // A representative contenteditable code editor: auto-closes delimiters and
   // auto-indents new lines. Only its own input handling renders the document.
@@ -26,10 +29,10 @@ async function fixture(unexpected=false,asyncCaret=false){
         else {const walker=document.createTreeWalker(editor,NodeFilter.SHOW_TEXT);let last:Node|null=null;while(walker.nextNode())last=walker.currentNode;if(last)range.setStart(last,last.textContent!.length);}
         range.collapse(true);getSelection()!.removeAllRanges();getSelection()!.addRange(range);return;
       }
-      if(input.inputType!=='insertText')return;
+      if(!['insertText','insertParagraph'].includes(input.inputType))return;
       event.preventDefault();(window as any).trusted.push(input.isTrusted);
       const selection=getSelection()!,range=selection.getRangeAt(0);
-      const data=input.data||'',closer:Record<string,string>={'{':'}','[':']','"':'"'};
+      const data=input.inputType==='insertParagraph'?'\n':input.data||'',closer:Record<string,string>={'{':'}','[':']','"':'"'};
       if(!selection.isCollapsed&&closer[data]){
         const selected=selection.toString();range.deleteContents();const node=document.createTextNode(data+selected+closer[data]);range.insertNode(node);
         range.setStart(node,data.length);range.setEnd(node,data.length+selected.length);selection.removeAllRanges();selection.addRange(range);return;
@@ -48,12 +51,13 @@ async function fixture(unexpected=false,asyncCaret=false){
       }
     });
   },{unexpected,asyncCaret});
+  }
   await page.evaluate(domScript);
   const ref=(await page.evaluate(()=>window.__novaDOM!.snapshot())).elements.find(e=>e.name==='JSON')!.ref;
   await page.addScriptTag({content:settleScript});
   await page.evaluate(ref=>{(window as any).inputRef=ref;},ref);
-  const cdp=await page.context().newCDPSession(page);const sent:string[]=[];let deletes=0;
-  vi.stubGlobal('navigator',{userAgent:'Linux'});
+  const cdp=await page.context().newCDPSession(page);const sent:string[]=[];const pressed:string[]=[];let deletes=0;
+  vi.stubGlobal('navigator',{userAgent:codeMirror?await page.evaluate(()=>navigator.userAgent):'Linux'});
   vi.stubGlobal('chrome',{
     permissions:{contains:async()=>true},
     tabs:{get:async()=>({active:true,url:'https://fixture.test/'}),sendMessage:async(_id:number,message:any)=>page.evaluate(async message=>{
@@ -70,19 +74,54 @@ async function fixture(unexpected=false,asyncCaret=false){
     },message)},
     debugger:{attach:async()=>{},onDetach:{addListener:()=>{}},sendCommand:async(_target:unknown,method:string,params:any)=>{
       if(method==='Input.insertText')sent.push(params.text);
+      if(method==='Input.dispatchKeyEvent'&&['rawKeyDown','keyDown'].includes(params.type))pressed.push(params.key);
       if(method==='Input.dispatchKeyEvent'&&params.type==='rawKeyDown'&&params.key==='Delete')deletes++;
       return cdp.send(method as any,params);
     }},
   });
-  return {control:new BrowserControl(()=>1,()=>{},undefined,true),ref,sent,cdp,deletes:()=>deletes};
+  return {control:new BrowserControl(()=>1,()=>{},undefined,true),ref,sent,pressed,cdp,deletes:()=>deletes};
 }
 describe('trusted rich-editor text entry',()=>{
+  it('writes multiline JSON through real CodeMirror DOM with exact spaces and blank lines',async()=>{
+    const f=await fixture(false,false,true);const value='{\n  \"a\": \" x \"\n\n}';
+    const result=await f.control.execute(1,{...action,ref:f.ref,value});
+    expect(result.verification?.status).toBe('verified');
+    expect(await page.locator('.cm-line').allTextContents()).toEqual(value.split('\n'));
+    expect(f.sent).toEqual([...value].filter(character=>character!=='\n'));
+    expect(f.pressed.filter(key=>key==='Enter')).toHaveLength(value.split('\n').length-1);await f.cdp.detach();
+  });
+  it.each(['\n\n', '\n{\n\t"a": " x  y ",\n\t"b": ["", "😀"]\n}\n\n'])('preserves exact leading/trailing blank lines and authored tabs: %j',async value=>{
+    const f=await fixture(false,false,true);
+    const result=await f.control.execute(1,{...action,ref:f.ref,value});
+    expect(result.verification?.status).toBe('verified');
+    expect(await page.locator('.cm-line').allTextContents()).toEqual(value.split('\n'));
+    expect(f.sent).not.toContain('\n');await f.cdp.detach();
+  });
+  it('rejects a moved caret even when rendered text matches the authored prefix',async()=>{
+    const f=await fixture(false,false,true);
+    await page.evaluate(ref=>{
+      window.__novaDOM!.startInput(ref,true);
+      const line=document.querySelector('.cm-line')!,range=document.createRange();range.selectNodeContents(line);range.collapse(true);
+      const selection=getSelection()!;selection.removeAllRanges();selection.addRange(range);
+    },f.ref);
+    await expect(page.evaluate(ref=>window.__novaDOM!.prepareInputCorrection(ref,'',''),f.ref)).rejects.toThrow('caret-mismatch');
+    await f.cdp.detach();
+  });
+  it('rejects partial or decorated line trees instead of proving text from a hidden editor model',async()=>{
+    const f=await fixture(false,false,true);
+    const failure=await page.evaluate(ref=>{
+      window.__novaDOM!.startInput(ref,true);
+      const gap=document.createElement('div');gap.className='cm-gap';document.querySelector('.cm-content')!.append(gap);
+      try{window.__novaDOM!.prepareInputCorrection(ref,'','');return '';}catch(error){return (error as Error).message;}
+    },f.ref);
+    expect(failure).toContain('does not expose complete plain lines');await f.cdp.detach();
+  });
   it('removes only proven generated pairs and newline indentation, preserving authored whitespace inside strings',async()=>{
     const f=await fixture();const value='{\n"a":[" x "]\n}';
     const result=await f.control.execute(1,{...action,ref:f.ref,value});
     expect(result.verification?.status).toBe('verified');
     expect(await page.getByRole('textbox').innerText()).toBe(value);
-    expect(f.sent).toEqual([...value]);expect(f.deletes()).toBeGreaterThan(3);
+    expect(f.sent).toEqual([...value]);expect(f.pressed).not.toContain('Enter');expect(f.deletes()).toBeGreaterThan(3);
     expect(await page.evaluate(()=>(window as any).trusted.every(Boolean))).toBe(true);
     await f.cdp.detach();
   });
