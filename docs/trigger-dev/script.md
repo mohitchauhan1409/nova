@@ -1,6 +1,6 @@
 # Trigger.dev recording script — plan retained alongside actual captured sequence
 
-The final take is now captured. Its actual prompts, card choices, interruptions and recovery are documented in [final-capture.md](final-capture.md). The sequence below is the planning script, not a verbatim claim about what occurred. Independent final-run persistence checks passed; final final media QA is accepted with disclosed limitations; see [delivery.md](delivery.md) for media and backup status.
+The final take is now captured. Its actual prompts, card choices, interruptions and recovery are documented in [final-capture.md](final-capture.md). The sequence below is the planning script, not a verbatim claim about what occurred. Independent final-run persistence checks passed; final media QA is accepted with disclosed limitations; see [delivery.md](delivery.md) for media and backup status.
 
 Use the real Development task `harbor-order-summary` in the verified Nova project. This script supplies user prompts and evidence gates, not fabricated Nova answers. Retain genuine waits, clarification, errors and recovery. Only root/coordinator operates the live browser.
 
@@ -28,6 +28,6 @@ Use the real Development task `harbor-order-summary` in the verified Nova projec
 - **“Show the successful runs for this task.”** Verify the actual list/filter state and identify the observed runs; filtering alone does not prove their outputs.
 - **“Open the paid-only product review again.”** Reopen the exact saved ID from step 7 and confirm its original cancellation setting/totals persist.
 
-Before calling the take final, reconcile every claim against the recorded UI and frozen session evidence. `verification.md` lists completed rehearsals and remaining gates; `synthetic-objects.json` separates manual baselines from Nova-created runs. Final raw capture is complete; final final media QA is accepted with disclosed limitations; see [delivery.md](delivery.md) for media and backup status.
+Before calling the take final, reconcile every claim against the recorded UI and frozen session evidence. `verification.md` lists completed rehearsals and remaining gates; `synthetic-objects.json` separates manual baselines from Nova-created runs. Final raw capture is complete; final media QA is accepted with disclosed limitations; see [delivery.md](delivery.md) for media and backup status.
 
 Rehearsal checkpoint: both critical flows have two accepted passes; the sales-flow second pass is the fully specified cancellation variation, not a duplicate paid-only run. Radio-question clarification was separately rehearsed live. Preflight media QA is accepted. Preserve real recovery if it occurs in the final take rather than representing every rehearsal as uninterrupted success.

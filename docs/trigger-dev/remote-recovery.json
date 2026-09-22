@@ -1,0 +1,41 @@
+{
+  "verifiedAtUtc": "2026-09-22T06:32:47.825185+00:00",
+  "remote": "https://github.com/mohitchauhan1409/nova.git",
+  "branch": "trigger-dev-nova",
+  "artifactCommit": "83c131ee58d078040b5f42ace2c20d77b3a4f5ab",
+  "remoteBranchAtVerification": "83c131ee58d078040b5f42ace2c20d77b3a4f5ab",
+  "recoveryClone": "/Users/macbook/Desktop/Nova-batch-20260922/private/trigger-final-remote-recovery-83c131e",
+  "method": [
+    "Fresh depth-1 HTTPS clone, smudge disabled; no git object alternates.",
+    "Before download all three working files verified to be LFS pointers, isolated custom object store did not exist.",
+    "git -c lfs.storage=<clone>/.git/independent-delivery-lfs lfs pull --include=artifacts/trigger-dev/media/* --exclude= downloaded all three objects.",
+    "Local-only git lfs install followed by explicit checkout from the isolated downloaded store; no shared local cache used.",
+    "Recovered full file bytes and downloaded LFS objects independently hashed against accepted manifest.",
+    "git lfs fsck --objects --pointers passed in recovered clone; worktree clean."
+  ],
+  "media": [
+    {
+      "path": "artifacts/trigger-dev/media/nova-trigger-dev-clicks.mp4",
+      "bytes": 30924910,
+      "sha256": "7c03e4f79ed3d06a567cb689d0c4ee62cdeef075e2e28b59a37ab348021aaf93",
+      "matchesAcceptedLocalFile": true,
+      "downloadedLfsObjectMatches": true
+    },
+    {
+      "path": "artifacts/trigger-dev/media/nova-trigger-dev-original.mov",
+      "bytes": 129245723,
+      "sha256": "91291323571689815caf603339b25b43d2ad4faea40eb4115addd24d250d33f9",
+      "matchesAcceptedLocalFile": true,
+      "downloadedLfsObjectMatches": true
+    },
+    {
+      "path": "artifacts/trigger-dev/media/nova-trigger-dev-silent.mp4",
+      "bytes": 30247644,
+      "sha256": "089833a418dcf24dd60b88168c3c76340f44943bbeda9b9067eb9226679fdd12",
+      "matchesAcceptedLocalFile": true,
+      "downloadedLfsObjectMatches": true
+    }
+  ],
+  "status": "PASS: all three full media files independently recovered from remote and SHA-256/size verified",
+  "scope": "Verifies artifact commit and its media bytes; subsequent receipt-only commit preserves these media unchanged."
+}

@@ -5,7 +5,8 @@
     "freshFfprobeMatchesAcceptedMetadata": true,
     "freshReceiptMapEqualsAccepted34Cues": true,
     "decodedAudio": "decoded-audio-delivery-check.json",
-    "visualReview": "media-QA.md and independent-review.md; prior genuine decoded/source review, not repeated in delivery pass"
+    "visualReview": "media-QA.md and independent-review.md; prior genuine decoded/source review, not repeated in delivery pass",
+    "freshEncodedVideoStreamHashesMatch": "a9b525a72ed7e27fadacfb9b3d7d7a907eb26e65ecbd0c1edfbabd7641736c3b"
   },
   "sourceBuild": "c1db2d16de27cd42b0b5f3490288ea70417edccf",
   "media": [

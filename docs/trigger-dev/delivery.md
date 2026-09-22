@@ -34,4 +34,4 @@ From `examples/trigger-dev`, `npm ci --ignore-scripts`, normal Trigger CLI login
 
 ## Backup
 
-Target: `https://github.com/mohitchauhan1409/nova.git`, branch `trigger-dev-nova`. Independent fresh-clone Git LFS recovery is pending this delivery commit; its measured receipt will be recorded in `remote-recovery.json`. Local hashes alone are not a remote backup check.
+Target: `https://github.com/mohitchauhan1409/nova.git`, branch `trigger-dev-nova`. Independent fresh-clone recovery **passed** for artifact commit `83c131ee58d078040b5f42ace2c20d77b3a4f5ab`. All three complete movies were downloaded from GitHub into a previously absent isolated LFS store, checked out and independently hashed. All hashes and sizes match; LFS object/pointer integrity checks passed. The measured receipt is `remote-recovery.json`. The later receipt-only commit preserves the media unchanged.
