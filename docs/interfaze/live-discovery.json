@@ -1,0 +1,109 @@
+{
+  "stage": "setup A/B and revision A/B positive and boundary cases verified; clean opener and capture preflight pending",
+  "buildBeforeRepairs": "339f12a",
+  "session": "afd45275-be12-4532-9922-461257a50364",
+  "opener": {
+    "prompt": "Classify a cracked mug as damage, delivery or other. Reply with one word.",
+    "actualOutput": "damage",
+    "requestId": "req-15007b9e-b715-4f9c-9e15-835ce115a87c",
+    "status": 200,
+    "independentLogReopened": true,
+    "acceptance": "failed: routine approval and premature waiting stop"
+  },
+  "configuration": {
+    "actor": "Nova",
+    "temperature": 0,
+    "schema": {
+      "category": "required scalar string",
+      "summary": "required scalar string"
+    },
+    "systemPromptRetained": true,
+    "independentlyReopened": true,
+    "testRunPending": false
+  },
+  "typing": {
+    "operatorPace": "120ms per individual character; observed86char13.6sec",
+    "novaPace": "120\u2013152ms plus punctuation delay, actual trusted native input"
+  },
+  "newActivatedBuild": "5fb4a039077a54040b7a64c6cf1a1b359909f58b",
+  "updatedAt": "2026-09-22T03:33:37.663779+00:00",
+  "tests": [
+    {
+      "kind": "setup pass A",
+      "requestId": "req-75fb9430-96c0-4512-aef2-c43c51e6cfd2",
+      "status": 200,
+      "input": "CD-104 arrived with a cracked mug.",
+      "output": {
+        "summary": "The customer reported that item CD-104 arrived with a cracked mug.",
+        "category": "damage"
+      },
+      "novaSubmissionAndLogsVerified": true,
+      "independentVisibleLogRead": true
+    },
+    {
+      "kind": "setup pass B targeted revision",
+      "requestId": "req-b1461ba7-1829-4b1e-bfac-b81d80a782c4",
+      "status": 200,
+      "input": "CD-104's mug arrived broken.",
+      "output": {
+        "summary": "CD-104's mug arrived broken.",
+        "category": "damage"
+      },
+      "summaryWordCount": 4,
+      "summaryLimit": 12,
+      "independentlyReopened": true,
+      "reportingIssue": "Nova counted five words, whitespace count four; hyphenated order ID may explain tokenization difference. Limit invariant passes."
+    },
+    {
+      "kind": "revision pass A positive",
+      "requestId": "req-c4ebeb4f-8275-4213-90a0-ae5490d9fcd5",
+      "status": 200,
+      "input": "CD-105 is nine days late, no damage.",
+      "output": {
+        "summary": "CD-105 is nine days late, no damage.",
+        "category": "delivery",
+        "escalate": true
+      },
+      "independentlyReopened": true,
+      "schemaObserved": "category and summary required scalar strings; escalate required scalar boolean; arrays off",
+      "policyObserved": "escalate damage or delays over7days"
+    },
+    {
+      "kind": "revision pass A boundary",
+      "requestId": "req-0d3cebe9-5cf1-4cb8-bd57-7a17166724eb",
+      "status": 200,
+      "input": "CD-106 is exactly seven days late, no damage.",
+      "output": {
+        "summary": "CD-106 is exactly seven days late, no damage.",
+        "category": "delivery",
+        "escalate": false
+      },
+      "independentlyReopened": true
+    },
+    {
+      "kind": "revision pass B positive",
+      "requestId": "req-d515c2d8-336a-4de3-af11-c74cda89d7bd",
+      "status": 200,
+      "input": "CD-107 is six days late, no damage.",
+      "output": {
+        "summary": "CD-107 is six days late, no damage.",
+        "category": "delivery",
+        "escalate": true
+      },
+      "independentlyReopened": true,
+      "policyObserved": "escalate damage or delays over5days"
+    },
+    {
+      "kind": "revision pass B boundary",
+      "requestId": "req-f3f839d7-6d11-4675-991d-592f0b0f749b",
+      "status": 200,
+      "input": "CD-108 is exactly five days late, no damage.",
+      "output": {
+        "summary": "CD-108 is exactly five days late, no damage.",
+        "category": "delivery",
+        "escalate": false
+      },
+      "independentlyReopened": true
+    }
+  ]
+}
