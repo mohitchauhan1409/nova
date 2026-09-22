@@ -129,7 +129,12 @@ export class BrowserControl {
       if (!prepared.editable) throw new Error('This target is not an editable, non-sensitive field.');
       if (action.kind === 'paste' && action.value === null) throw new Error('Provide the text to paste. Nova does not read your private clipboard.');
       await click();
-      if(action.kind==='type'){const focus=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'native-append',action});if(focus?.error)throw new Error(focus.error);}
+      checkGeneration();
+      await this.guard(tabId,tab.url);
+      checkGeneration();
+      const focus=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'native-input-start',action,cursorId});
+      checkGeneration();
+      if(focus?.error || !focus?.ok)throw new Error(focus?.error || 'The original text field did not accept focus. No selection or text was sent.');
       if (action.kind !== 'type') await press('ControlOrMeta+A');
       const value = action.kind === 'clear' ? '' : action.value || '';
       if (value && this.pacedInput) {
