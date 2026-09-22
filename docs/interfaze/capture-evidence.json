@@ -1,5 +1,5 @@
 {
-  "stage": "raw captured; final media QA and remote recovery not yet asserted",
+  "stage": "provisional candidate: technical media QA passed; replacement required because empty opening fails populated-dashboard baseline; not delivered final",
   "sessionId": "6608e1ac-cd47-42a1-9bb0-1277db1eeb3f",
   "runtimeCommit": "18a702d0f167014c46df07bf840223adcd55ed52",
   "frontendSourceCommit": "68a0957f390289f017aa57e0903cea56ed4bbc43",
@@ -14,7 +14,7 @@
     "width": 3024,
     "height": 1776,
     "audio": "none per recorder",
-    "qa": "Recorder metadata only; CFR/duration/decoded media checks remain separately required."
+    "qa": "Final local probe/decoded QA accepted in artifacts/interfaze/qa/media-QA.md and media-manifest.json; original preserved unchanged."
   },
   "baseline": {
     "url": "https://interfaze.ai/dashboard/playground",
@@ -149,7 +149,9 @@
     "New escalate field needed visible operator follow-up to scroll settings; Nova then performed the remaining website work.",
     "A routine Send confirmation appeared for CD-105 and the operator clicked it; this take is not entirely approval-free.",
     "Logs loading/stale-record recovery occurred; Nova verified results after recovery without resubmitting model tests.",
-    "Working final state is not exhaustive or guaranteed dashboard coverage."
+    "Working final state is not exhaustive or guaranteed dashboard coverage.",
+    "Empty local Playground opening with historical server Logs does not meet the requested visibly populated dashboard baseline.",
+    "Nova cursor label sometimes overlaps controls or clips at the viewport; final QA records sampled cursor observations, not an every-frame pointer audit."
   ],
   "editingConstraints": [
     "Preserve immutable raw MOV.",
@@ -161,5 +163,31 @@
     "private/interfaze-final-sessions.json",
     "private/interfaze-final-operator.json",
     "private/interfaze-final-recorder.log"
-  ]
+  ],
+  "mediaQA": {
+    "report": "artifacts/interfaze/qa/media-QA.md",
+    "manifest": "artifacts/interfaze/qa/media-manifest.json",
+    "status": "provisional candidate passed local technical export/decoded QA; product capture acceptance withheld pending replacement populated opening",
+    "originalSeconds": 799,
+    "editedSeconds": 734,
+    "editedFrames": 22020,
+    "operatorIdleReductionSeconds": 65,
+    "allNovaExecutionSpeed": "1x",
+    "clicks": {
+      "total": 50,
+      "operator": 14,
+      "nova": 36
+    },
+    "timingScope": "Media durations, not measured agent latency."
+  },
+  "remoteBackup": {
+    "uploadedCommit": "a5a0c748eebbd54ffe2a47f311045a4aa01e3eb5",
+    "status": "upload complete per coordinator; independent remote LFS recovery underway, not yet verified"
+  },
+  "replacementRequired": {
+    "reason": "Empty Playground opening does not meet required visibly populated baseline.",
+    "plannedBaseline": "Fresh normal Playground showing a clean real synthetic baseline conversation.",
+    "preserveCandidateRuntimeCommit": "18a702d0f167014c46df07bf840223adcd55ed52",
+    "historicalMediaCheckpoint": "a5a0c748eebbd54ffe2a47f311045a4aa01e3eb5"
+  }
 }

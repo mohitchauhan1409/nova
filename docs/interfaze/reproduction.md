@@ -1,5 +1,7 @@
 # Reproduce the recorded Interfaze setup
 
+**Provisional capture — replacement required:** This take passed local technical media QA and was uploaded at checkpoint `a5a0c748eebbd54ffe2a47f311045a4aa01e3eb5`, but its empty Playground opening fails the required visibly populated baseline. It is not the delivered final or full acceptance. The coordinator is preparing a replacement with a real synthetic baseline conversation. References below to the final take identify this historical candidate at runtime `18a702d`; preserve its exact evidence. Independent remote recovery was underway at this documentation checkpoint.
+
 This documents the actual capture source and product setup. It is not a claim that current third-party UI labels, quota, model output or timing will remain identical.
 
 ## Source and activation
@@ -44,4 +46,4 @@ The captured run required a visible instruction to scroll to the new schema row,
 
 `capture-evidence.json` records raw frame timing, actual messages, output and source commits. Source receipts reside in the private batch paths named there. Full retained final boundary ID: `req-f112ef24-2dff-41ea-b544-8c9e487e25c5`. Other final full request IDs are unavailable in bounded final snapshots; do not substitute rehearsal IDs.
 
-The original MOV is immutable. All execution, model processing, typing and recovery remain at 1x in planned edits; only permitted prolonged operator idle pauses may be shortened with a documented mapping. Media worker evidence must establish masking, precise approved click cues and decoded audiovisual QA. Private remote recovery with checksums is still required before calling the backup complete. This document does not assert those gates passed.
+The original MOV is immutable. All execution, model processing, typing and recovery remain at 1x in the accepted local edits; only permitted prolonged operator idle pauses may be shortened with a documented mapping. The [final media QA](../../artifacts/interfaze/qa/media-QA.md) and [media manifest](../../artifacts/interfaze/qa/media-manifest.json) establish local masking, precise approved click cues and decoded audiovisual QA acceptance with the documented deviations. The original is 799 seconds; both edits are 734 seconds after 65 seconds of static operator-wait compression. Upload commit `a5a0c748eebbd54ffe2a47f311045a4aa01e3eb5` is complete per coordinator; independent remote LFS recovery with checksums is still underway and required before calling the backup verified.
