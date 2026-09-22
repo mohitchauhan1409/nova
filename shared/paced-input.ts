@@ -11,9 +11,10 @@ export function pacedCharacters(value: string): string[] {
   return result;
 }
 
-// 1.25x the original recording rhythm; punctuation keeps its proportional pause.
+// Nova is an AI operator, so its website entry stays visibly progressive without
+// imitating human typing speed. Punctuation keeps a small readability pause.
 export function characterPause(character: string, index: number): number {
-  return 120 + (index % 5) * 8 + (/[.,!?;:\n]$/.test(character) ? 72 : 0);
+  return 32 + (index % 5) * 2 + (/[.,!?;:\n]$/.test(character) ? 18 : 0);
 }
 
 export function pacedActionTimeout(value: string): number {
