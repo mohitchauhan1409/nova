@@ -1,0 +1,14 @@
+{
+  "verifiedAtUtc": "2026-09-22T07:20:39.509932+00:00",
+  "remote": "https://github.com/mohitchauhan1409/nova.git",
+  "branch": "interfaze-nova",
+  "mediaCommit": "4e4c80597a1807d9e6a1139dcedb9fb7d3cd7a72",
+  "path": "artifacts/interfaze/media/nova-interfaze-clicks.mp4",
+  "bytes": 26006976,
+  "sha256": "13ba90e64aec8bba35c0a2f8e2fdf35cd34d236278f584708817e89ded35f804",
+  "freshClone": true,
+  "lfsStorage": "/Users/macbook/Desktop/Nova-batch-20260922/private/clicks-v2/recovery/interfaze/empty-lfs",
+  "lfsStoreInitiallyEmpty": true,
+  "objectPresentInIsolatedStore": true,
+  "worktreeHashMatchesAccepted": true
+}

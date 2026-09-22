@@ -1,7 +1,7 @@
 {
   "startup": "Interfaze",
   "branch": "interfaze-nova",
-  "status": "Delivered locally: click-only pacing revision decoded QA passed; remote LFS recovery pending",
+  "status": "Delivered: click-only pacing revision decoded QA and isolated remote LFS recovery passed",
   "sessionId": "afbb051f-28e4-496d-a4e1-dc228e111c1a",
   "recordedBackendCommit": "bd98d2500625f8821aa38836272b2568cb0fb4e5",
   "recordedFrontendCommit": "1f7c8755a8cf1133534272c0083615156639d91e",
@@ -226,5 +226,7 @@
   },
   "silentEditedSeconds": 472.5,
   "clickEditedFrames": 12165,
-  "clickEditedSeconds": 405.5
+  "clickEditedSeconds": 405.5,
+  "verifiedClickPacingMediaCommit": "4e4c80597a1807d9e6a1139dcedb9fb7d3cd7a72",
+  "clicksPacingRemoteRecovery": "clicks-v2/remote-recovery.json"
 }
