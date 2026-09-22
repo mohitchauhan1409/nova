@@ -90,6 +90,16 @@ describe('passive extension theme routing', () => {
 });
 
 describe('cancellation before trusted input dispatch',()=>{
+  it('honors capped wait seconds without native input and rejects the result after Stop',async()=>{
+    const f=await setup();const page=f.port('nova-page',1);page.onMessage.emit({type:'nova-page-connect'});
+    const panel=f.port('nova-panel',1);panel.onMessage.emit({type:'nova-panel-connect'});await Promise.resolve();
+    const socket=f.sockets[0];socket.receive({type:'ready',role:'extension'});socket.receive({type:'session',session:{...session,status:'running'}});
+    socket.send.mockClear();socket.receive({type:'driver',id:'bounded-wait',method:'execute',payload:{tabId:1,data:{kind:'wait',value:'10'}}});
+    await vi.advanceTimersByTimeAsync(9999);expect(socket.send.mock.calls.map(call=>JSON.parse(call[0]))).not.toContainEqual(expect.objectContaining({id:'bounded-wait'}));
+    panel.onMessage.emit({type:'nova-relay',data:{type:'stop',sessionId:session.id}});await vi.advanceTimersByTimeAsync(1);
+    expect(socket.send.mock.calls.map(call=>JSON.parse(call[0]))).toContainEqual(expect.objectContaining({id:'bounded-wait',error:expect.stringContaining('stopped')}));
+    expect(f.sendCommand).not.toHaveBeenCalled();expect(f.attach).not.toHaveBeenCalled();
+  });
   it.each(['stop','disconnect'])('does not enter text after %s while the tab is loading',async(interruption)=>{
     const f=await setup();const page=f.port('nova-page',1);page.onMessage.emit({type:'nova-page-connect',scheme:'dark'});
     const panel=f.port('nova-panel',1);panel.onMessage.emit({type:'nova-panel-connect'});await Promise.resolve();
