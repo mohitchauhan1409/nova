@@ -2,13 +2,13 @@ import {afterEach,describe,expect,it,vi} from 'vitest';
 import {BrowserControl} from '../web/extension/browser-control';
 import type {Action} from '../shared/types';
 const click:Action={kind:'click',ref:'validate',value:null,url:null,x:null,y:null,risk:'read',summary:'Validate'};
-function setup(onClick?:ConstructorParameters<typeof BrowserControl>[2]){
+function setup(onClick?:ConstructorParameters<typeof BrowserControl>[2], pacedInput=false){
   vi.stubGlobal('navigator',{platform:'MacIntel'});
   const sendMessage=vi.fn();const sendCommand=vi.fn().mockResolvedValue({});
   vi.stubGlobal('chrome',{permissions:{contains:vi.fn().mockResolvedValue(true)},tabs:{get:vi.fn().mockResolvedValue({active:true,url:'https://example.test/'}),sendMessage},debugger:{attach:vi.fn().mockResolvedValue(undefined),sendCommand,onDetach:{addListener:vi.fn()}}});
-  return {control:new BrowserControl(()=>1,()=>{},onClick),sendMessage,sendCommand};
+  return {control:new BrowserControl(()=>1,()=>{},onClick,pacedInput),sendMessage,sendCommand};
 }
-afterEach(()=>vi.unstubAllGlobals());
+afterEach(()=>{vi.unstubAllGlobals();vi.useRealTimers();});
 describe('pointer dispatch receipts',()=>{
   it('records only completed native clicks, including actual input-focus clicks',async()=>{
     const record=vi.fn();const f=setup(record);f.sendMessage.mockResolvedValue({x:20,y:30,editable:true,ok:true});
@@ -42,5 +42,38 @@ describe('pointer dispatch receipts',()=>{
   });
   it('does not give focus-bearing keyboard preparation a pointer receipt',async()=>{
     const f=setup();f.sendMessage.mockResolvedValue({error:'Focus changed the page'});await expect(f.control.execute(1,{...click,kind:'press',value:'Enter'})).rejects.toThrow('Focus changed');
+  });
+});
+
+describe('recording-mode trusted field entry',()=>{
+  it('keeps normal input unchanged and paces every actual recording character',async()=>{
+    const normal=setup();normal.sendMessage.mockResolvedValue({x:20,y:30,editable:true,ok:true});
+    await normal.control.execute(1,{...click,kind:'fill',value:'Two words'});
+    expect(normal.sendCommand.mock.calls.filter(c=>c[1]==='Input.insertText').map(c=>c[2].text)).toEqual(['Two words']);
+    vi.useFakeTimers();vi.setSystemTime(0);
+    const paced=setup(undefined,true);paced.sendMessage.mockResolvedValue({x:20,y:30,editable:true,ok:true});
+    const task=paced.control.execute(1,{...click,kind:'fill',value:'Two words'});
+    await vi.runAllTimersAsync();await task;
+    expect(paced.sendCommand.mock.calls.filter(c=>c[1]==='Input.insertText').map(c=>c[2].text)).toEqual([... 'Two words']);
+    expect(paced.sendMessage.mock.calls.filter(c=>c[1].method==='native-input-focus')).toHaveLength(9);
+  });
+  it('cancels during a typing pause without emitting the next character',async()=>{
+    vi.useFakeTimers();const f=setup(undefined,true);f.sendMessage.mockResolvedValue({x:20,y:30,editable:true,ok:true});
+    f.sendCommand.mockImplementation(async(_target,method)=>{if(method==='Input.insertText')f.control.cancelInput();return {};});
+    const failure=expect(f.control.execute(1,{...click,kind:'type',value:'abc'})).rejects.toThrow('stopped');
+    await vi.runAllTimersAsync();await failure;
+    expect(f.sendCommand.mock.calls.filter(c=>c[1]==='Input.insertText').map(c=>c[2].text)).toEqual(['a']);
+  });
+  it('stops when focus changes, without refocusing a different field or sending remaining text',async()=>{
+    vi.useFakeTimers();const f=setup(undefined,true);let focusChecks=0;
+    f.sendMessage.mockImplementation(async(_tab,message)=>message.method==='native-input-focus'?{ok:++focusChecks===1}:{x:20,y:30,editable:true,ok:true});
+    const failure=expect(f.control.execute(1,{...click,kind:'fill',value:'ab'})).rejects.toThrow('lost focus');
+    await vi.runAllTimersAsync();await failure;
+    expect(f.sendCommand.mock.calls.filter(c=>c[1]==='Input.insertText').map(c=>c[2].text)).toEqual(['a']);
+  });
+  it('rejects oversized recording input before clicking or selecting existing text',async()=>{
+    const f=setup(undefined,true);
+    await expect(f.control.execute(1,{...click,kind:'fill',value:'x'.repeat(1001)})).rejects.toThrow('limited');
+    expect(f.sendMessage).not.toHaveBeenCalled();expect(f.sendCommand).not.toHaveBeenCalled();
   });
 });

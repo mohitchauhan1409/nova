@@ -323,3 +323,14 @@ describe('browser agent execution boundaries',()=>{
     const f=fixture();f.planner.decide=async()=>({...act('inspect'),x:10,y:10});await f.runner.command('Find that custom control');expect(f.execute).not.toHaveBeenCalled();expect(f.session.status).toBe('stopped');
   });
 });
+
+describe('interrupted recording text entry',()=>{
+  it('does not ask the planner to retry a field that may contain partial text',async()=>{
+    const f=fixture();f.setState({...base,capabilities:['paced-recording-input'],elements:[{...base.elements[0],ref:'message',tag:'textarea',role:'textbox',name:'Message',type:'',edit:{revision:'empty',empty:true}}]});
+    f.driver.execute=vi.fn().mockRejectedValue(new Error('Text field lost focus after partial input'));
+    f.planner.decide=vi.fn().mockResolvedValue({...act('fill'),ref:'message',value:'A short update',summary:'Write the requested update'});
+    await f.runner.command('Write A short update in the Message field.');
+    expect(f.driver.execute).toHaveBeenCalledTimes(1);expect(f.planner.decide).toHaveBeenCalledTimes(1);
+    expect(f.session.status).toBe('stopped');expect(f.session.messages.at(-1)?.text).toContain('duplicating partial input');
+  });
+});

@@ -28,6 +28,7 @@ if (!window.__novaContentInstalled) {
       if(!active){respond({error:'This Nova website session has ended.'});return;}
       if(message.method==='snapshot'){try{respond(window.__novaDOM!.snapshot(Array.isArray(message.action)?message.action:[]));}catch(error){respond({error:(error as Error).message});}return;}
       if(message.method==='verify'){try{respond(window.__novaDOM!.verify(message.action,message.expectedLength));}catch(error){respond({error:(error as Error).message});}return;}
+      if(message.method==='native-input-focus'){try{respond({ok:window.__novaDOM!.inputFocused(message.action.ref)});}catch(error){respond({error:(error as Error).message});}return;}
       if(message.method==='native-append'){try{respond(window.__novaDOM!.prepare(message.action.ref,true));}catch(error){respond({error:(error as Error).message});}return;}
       if(message.method==='native-prepare'){
         void (async()=>{

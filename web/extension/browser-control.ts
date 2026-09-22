@@ -1,4 +1,5 @@
-import type { RecordingClick } from '../../shared/recording';
+import { recordingMode, type RecordingClick } from '../../shared/recording';
+import { inputActionKinds, insertPacedText, pacedCharacters, pacedActionTimeout } from '../../shared/paced-input';
 import type { Action, ActionResult } from '../../shared/types';
 import type { PreparedTarget } from '../../shared/dom';
 
@@ -9,12 +10,15 @@ const permissionMessage = 'Reload Nova 0.6.7 on your browser’s extensions page
 // JavaScript, network requests, or a different target to this controller.
 export class BrowserControl {
   private attached?: number;
+  private inputGeneration = 0;
+  cancelInput() { this.inputGeneration++; }
   private attaching?: Promise<void>;
   private suspended = new Set<number>();
-  constructor(private current: () => number | undefined, private onInterrupted: () => void, private onClick?: (event:RecordingClick)=>void) {
+  constructor(private current: () => number | undefined, private onInterrupted: () => void, private onClick?: (event:RecordingClick)=>void, private pacedInput = recordingMode) {
     chrome.debugger?.onDetach.addListener(source => {
       if (source.tabId !== this.attached) return;
       this.attached = undefined;
+      this.cancelInput();
       if (source.tabId !== undefined) this.suspended.add(source.tabId);
       this.onInterrupted();
     });
@@ -26,6 +30,7 @@ export class BrowserControl {
   }
   async resume() { const id = this.current(); if (id === undefined) throw new Error('Open a Nova website first.'); this.suspended.delete(id); await this.ensure(id); }
   async detach(tabId?: number) {
+    this.cancelInput();
     if (tabId === undefined) return;
     if (this.attached === tabId) { this.attached = undefined; await chrome.debugger.detach({tabId}).catch(()=>{}); }
     this.suspended.delete(tabId);
@@ -61,7 +66,11 @@ export class BrowserControl {
   }
   supports(action: Action) { return nativeActions.has(action.kind); }
   async execute(tabId: number, action: Action): Promise<ActionResult> {
+    const generation = this.inputGeneration;
+    const checkGeneration = () => { if (generation !== this.inputGeneration) throw new Error('Text entry stopped. Inspect the current field before continuing.'); };
+    if (this.pacedInput && inputActionKinds.has(action.kind)) pacedCharacters(action.value || '');
     await this.ensure(tabId);
+    checkGeneration();
     const tab = await this.guard(tabId);
     if(action.kind==='press'&&action.value==='Escape'&&!action.ref){
       const params={key:'Escape',code:'Escape',windowsVirtualKeyCode:27};
@@ -78,7 +87,7 @@ export class BrowserControl {
       throw new Error(prepared.error);
     }
     if (!prepared || !Number.isFinite(prepared.x) || !Number.isFinite(prepared.y)) throw new Error('The target could not be located. Observe again.');
-    const send = async (method: string, params: Record<string,unknown>) => { await this.guard(tabId, tab.url); return this.command({tabId},method,params); };
+    const send = async (method: string, params: Record<string,unknown>) => { checkGeneration(); await this.guard(tabId, tab.url); checkGeneration(); return this.command({tabId},method,params); };
     const mouse = (type: string, point = prepared, extra: object = {}) => send('Input.dispatchMouseEvent',{type,x:point.x,y:point.y,...extra});
     const click = async (button='left', count=1) => {
       await mouse('mouseMoved');
@@ -109,7 +118,15 @@ export class BrowserControl {
       if(action.kind==='type'){const focus=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'native-append',action});if(focus?.error)throw new Error(focus.error);}
       if (action.kind !== 'type') await press('ControlOrMeta+A');
       const value = action.kind === 'clear' ? '' : action.value || '';
-      if (value) await send('Input.insertText',{text:value}); else await press('Backspace');
+      if (value && this.pacedInput) {
+        const deadline = Date.now() + pacedActionTimeout(value) - 5_000;
+        await insertPacedText(value, character => send('Input.insertText', {text:character}), async () => {
+          checkGeneration();
+          const focus = await chrome.tabs.sendMessage(tabId, {type:'nova-dom', method:'native-input-focus', action});
+          if (focus?.error || !focus?.ok) throw new Error(focus?.error || 'The text field lost focus. Inspect partial input before continuing.');
+          checkGeneration();
+        }, deadline);
+      } else if (value) await send('Input.insertText',{text:value}); else await press('Backspace');
       if (action.kind === 'search') await press('Enter');
     } else if (action.kind === 'press') {
       // prepare focuses only the grounded target, never an arbitrary private field.

@@ -1,3 +1,4 @@
+import { inputActionKinds, pacedInputCapability } from '../../../shared/paced-input';
 import { randomUUID } from 'node:crypto';
 import type { BrowserDriver } from '../browser/driver';
 import type { Planner } from '../providers/openai';
@@ -317,10 +318,12 @@ export class AgentRunner {
           recordProgress(this.session,action,snapshot.elements.find(e=>e.ref===action.ref),effect?.detail||'Input sent; inspect outcome.');
           observed = after;
         } catch (error) {
+          if (signal.aborted) return;
           this.stepResult(actionStep,'failed',safeError(error));
           attempted=true;effect={action:action.kind,verified:false,detail:safeError(error)};pendingEffect=undefined;
           recordProgress(this.session,action,snapshot.elements.find(e=>e.ref===action.ref),safeError(error));
           this.trace('error', safeError(error));
+          if (inputActionKinds.has(action.kind) && snapshot.capabilities?.includes(pacedInputCapability)) { this.say('Text entry was interrupted. I stopped to avoid duplicating partial input; inspect the field before continuing.'); this.session.status = 'stopped'; return; }
           // Never repeat a potentially committed action after an ambiguous transport failure.
           if (policy.mayCommit) { this.say('The browser did not confirm this action. Check the page before retrying; it may already have taken effect.'); this.session.status = 'stopped'; return; }
           pendingEffect={action,before:snapshot,result:undefined,mayCommit:policy.mayCommit};
