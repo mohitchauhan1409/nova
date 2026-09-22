@@ -136,12 +136,18 @@ export class AgentRunner {
   private async run(signal: AbortSignal) {
     const written=new Set<string>();let preventedWrites=0;
     const tabVisits=new Map<string,number>();let preventedTabCycles=0;
+    const coveredRecoveries=new Set<string>();let revalidationFailures=0;
     let failures = 0; let lastAction = ''; let repeated = 0; let screenshot: string | undefined; let observed: Snapshot | undefined;
     let effect: Effect | undefined; let attempted = false; let completionFailures = 0; let completionRefreshes=0;
     let pendingEffect: {action:Action;before:Snapshot;result:unknown;mayCommit:boolean}|undefined;
     const waitBudget=new ProcessingWaitBudget();
     let freshInferenceRequired=false;
     let verifiedInferenceSubmission=false;
+    const rejectRevalidation=(message:string,fresh:Snapshot)=>{
+      this.trace('info',message);observed=fresh;
+      if(++revalidationFailures<3)return true;
+      this.say('I could not reach a stable, unobstructed target after rechecking. No pending edit was sent. Please adjust the page before continuing.');this.session.status='stopped';return false;
+    };
     const deadline = Date.now() + 8 * 60 * 1000;
     try {
       for (let step = 0; step < 48 && Date.now() < deadline; step++) {
@@ -154,7 +160,7 @@ export class AgentRunner {
         freshInferenceRequired ||= requestsFreshInference(snapshot,this.scope,latestTask(this.session),inferencePlaygrounds);
         this.trace('think', 'Planning the next website action.');
         const started = performance.now();
-        const action = await this.planner.decide(this.session, this.site, snapshot, signal, screenshot);
+        let action = await this.planner.decide(this.session, this.site, snapshot, signal, screenshot);
         action.summary = companionOutput(action.summary, this.session);
         if (['point','inspect'].includes(action.kind) && (!screenshot || action.x === null || action.y === null || action.x < 0 || action.y < 0 || action.x >= snapshot.viewport.width || action.y >= snapshot.viewport.height)) { this.trace('error', 'A visual target requires a current screenshot and in-bounds coordinates.'); screenshot = undefined; if (++failures >= 3) { this.session.status = 'stopped'; this.say('I could not locate this control reliably. Please handle this step in the browser.'); return; } continue; }
         screenshot = undefined;
@@ -192,7 +198,7 @@ export class AgentRunner {
         // A page may finish saving while the model is planning. Revalidate its
         // proposed target before recording or dispatching an action against an
         // outgoing dialog. Browser input still performs its own final hit test.
-        if (action.ref && !['copy','select_text','hover','scroll','scroll_to'].includes(action.kind) && performance.now()-started > 750) {
+        if (action.ref && !['copy','select_text','hover','scroll','scroll_to'].includes(action.kind) && (performance.now()-started > 750 || snapshot.elements.find(e=>e.ref===action.ref)?.covered)) {
           const prior = snapshot.elements.find(e => e.ref === action.ref);
           const fresh = await this.observe();
           if (signal.aborted) return;
@@ -200,22 +206,34 @@ export class AgentRunner {
           const dismiss=prior&&/^(cancel|close|dismiss|back)$/i.test(prior.name.trim());
           const editorFields=(page:Snapshot)=>page.elements.filter(e=>e.form&&!e.covered&&(['input','textarea','select'].includes(e.tag)||['checkbox','switch','combobox','radio'].includes(e.role))).map(e=>`${e.ref}:${e.name}:${e.type}`).sort().join('|');
           if (dismiss&&editorFields(fresh)!==editorFields(snapshot)){
-            this.trace('info','The editor gained or changed fields while planning. Reconsidering the dismissal; no input was sent.');
-            observed=fresh;continue;
+            if(!rejectRevalidation('The editor gained or changed fields while planning. Reconsidering the dismissal; no input was sent.',fresh))return;
+            continue;
           }
           // An async editor can appear beside an unchanged, still-clickable row.
           // Reconsider the intent as well as the target before opening it again.
           const editorAppeared=fresh.elements.some(e=>!e.covered&&(e.edit||['input','textarea','select'].includes(e.tag)||['dialog','alertdialog','textbox','combobox'].includes(e.role))&&!snapshot.elements.some(old=>old.ref===e.ref&&!old.covered));
           if(['click','double_click'].includes(action.kind)&&editorAppeared){
-            this.trace('info','An editor appeared while planning. Inspecting its current controls before another click; no input was sent.');
-            observed=fresh;continue;
+            if(!rejectRevalidation('An editor appeared while planning. Inspecting its current controls before another click; no input was sent.',fresh))return;
+            continue;
           }
-          if (fresh.url !== snapshot.url || !prior || !current || current.covered ||
+          if (fresh.url !== snapshot.url || !prior || !current ||
               ['name','tag','role','type','href'].some(key => prior[key as keyof typeof prior] !== current[key as keyof typeof current]) ||
               (prior.edit && prior.context !== current.context) ||
               prior.edit?.revision !== current.edit?.revision) {
-            this.trace('info','The page changed while planning. Refreshing the next step; no input was sent.');
-            observed=fresh;continue;
+            if(!rejectRevalidation('The page changed while planning. Refreshing the next step; no input was sent.',fresh))return;
+            continue;
+          }
+          if(current.covered){
+            const key=`${fresh.url}|${current.ref}`;
+            const editable=current.edit&&(current.tag==='textarea'||current.type==='contenteditable'||current.tag==='input'&&!/^(file|hidden|password|submit|button|checkbox|radio|range|color)$/i.test(current.type));
+            if(['fill','type','paste','clear','search'].includes(action.kind)&&editable&&!current.visual&&!coveredRecoveries.has(key)&&checkAction(action,fresh,this.scope,this.intent()).outcome==='allow'){
+              coveredRecoveries.add(key);
+              this.trace('info','The same editable field is covered or clipped. Scrolling it into view once, then observing again before editing.');
+              action={...action,kind:'scroll_to',value:null,risk:'read',summary:'I’m scrolling the field into view before editing it.'};
+            }else{
+              if(!rejectRevalidation('The target is still covered or clipped. Scroll its pane or dismiss the obstruction before retrying; no edit was sent.',fresh))return;
+              continue;
+            }
           }
           snapshot=fresh;
         }
@@ -309,6 +327,7 @@ export class AgentRunner {
               }else this.trace('info','The scroll did not move the view. Do not repeat it; use another semantic control. Visual recovery is unavailable on this page.');
             }
             this.stepResult(actionStep,effect.verified?'verified':'unverified',effect.detail);
+            if(effect.verified)revalidationFailures=0;
             if(policy.semantic==='inference-submission'&&effect.verified)verifiedInferenceSubmission=true;
             this.trace('verify',`${effect.verified?'Verified change':'Unverified action'} ${action.kind}: ${effect.detail}`);
             if((result as ActionResult)?.verification?.status==='verified'&&action.ref&&['fill','type','paste','clear'].includes(action.kind)){
