@@ -29,7 +29,7 @@ Actual website prompt is the text after “Run this prompt:”. No configuration
 1. Operator: **“Turn this into JSON triage for Cedar Desk, at temperature zero.”**
 2. After a card answer, resume the unfinished setup immediately; do not repeat the opener’s already-verified Logs check. A genuine card can ask desired output fields; the categories are already known. If choosing fields needs help, operator asks **“Which fields are enough for basic triage?”** Nova should explain briefly while retaining the task/card. Then select an actually rendered option equivalent to **Category and short summary**, or type that concise custom answer. Do not demand a particular generated card layout or create fake choices.
 3. Acceptance configuration: use the concise System Prompt **“Classify as damage, delivery, or other. Return category and a short summary.”**; Temperature `0`; JSON enabled; exactly two requested scalar fields, `category` and `summary`, both `string` and required. Leave Top P, token limit and Reasoning unchanged. Inspect each row once. Do not assert `additionalProperties:false` unless the real editor exposes/verifies it.
-4. Operator: **“Test: Order CD-104 arrived with a cracked mug. Please replace it.”**
+4. Operator: **“Test this prompt: Order CD-104 arrived with a cracked mug. Please replace it.”**
 5. Expected result: JSON with `category: "damage"` and a faithful short summary. Actual summary wording is not prescribed. Verify the matching request through Logs.
 
 - [ ] Pass A configuration + model result + saved Logs readback; ID: ______
@@ -38,7 +38,7 @@ Actual website prompt is the text after “Run this prompt:”. No configuration
 
 1. Operator: **“Limit the summary to 12 words. Keep the JSON fields and temperature.”**
 2. Verify the actual System Prompt revision and retained required field types/settings.
-3. Operator: **“Test: CD-104's mug arrived broken. I need a replacement.”**
+3. Operator: **“Test this prompt: CD-104's mug arrived broken. I need a replacement.”**
 4. Expected: `category: "damage"`; faithful summary of at most 12 whitespace-separated words; both required fields still present. Inspect the new exact request in Logs.
 
 - [ ] Pass B targeted revision + wording variation + saved Logs readback; ID: ______
@@ -51,9 +51,9 @@ If a supplied configuration value is already correct, Nova should read it once a
 
 1. Operator: **“Add a required escalate boolean: damage or delays over seven days.”**
 2. Acceptance: `category` and `summary` remain required strings; new scalar `escalate` is a required boolean, not an array/string. Use concise System Prompt **“Classify as damage, delivery, or other. Return category, summary, escalate. Escalate damage or delays over 7 days.”** No escalation card needed because policy is supplied.
-3. Operator: **“Test: Order CD-105 is nine days late. No damage reported.”**
+3. Operator: **“Test this prompt: Order CD-105 is nine days late. No damage reported.”**
 4. Expected: `category: "delivery"`, `escalate: true`, faithful short summary. Inspect exact Logs record.
-5. Operator: **“Test the boundary: CD-106 is seven days late, with no damage.”**
+5. Operator: **“Test this prompt at the boundary: CD-106 is seven days late, with no damage.”**
 6. Expected: `category: "delivery"`, `escalate: false`. Inspect its separate Logs record. “Over seven” excludes exactly seven.
 
 - [ ] Pass A policy/schema change + positive and boundary outcomes; IDs: ______ / ______
@@ -62,8 +62,8 @@ If a supplied configuration value is already correct, Nova should read it once a
 
 1. Operator: **“Change the delay threshold to over five days. Keep damage escalation.”**
 2. Inspect actual System Prompt; retain all three field types/required states and temperature.
-3. Operator: **“Test: CD-107 is six days late, with no damage.”** Expected `delivery`, `true`.
-4. Operator: **“Test: CD-108 is five days late, with no damage.”** Expected `delivery`, `false`.
+3. Operator: **“Test this prompt: CD-107 is six days late, with no damage.”** Expected `delivery`, `true`.
+4. Operator: **“Test this prompt: CD-108 is five days late, with no damage.”** Expected `delivery`, `false`.
 5. Independently verify both actual saved Logs records. A wrong model output is a failed test even if settings saved correctly; investigate before capture.
 
 - [ ] Pass B policy revision + changed-threshold outcomes; IDs: ______ / ______
@@ -79,11 +79,11 @@ Fresh Nova launch must use the normal verified dashboard route with exactly one 
 1. **Run this prompt: Classify a cracked mug as damage, delivery or other. Reply with one word.**
 2. **Turn this into JSON triage for Cedar Desk, at temperature zero.**
 3. If fields card appears: **Which fields are enough for basic triage?** Read answer, then choose **Category and short summary** using the actual card/custom answer. Do not add a card if Nova can safely use sufficient prior information.
-4. **Test: Order CD-104 arrived with a cracked mug. Please replace it.**
+4. **Test this prompt: Order CD-104 arrived with a cracked mug. Please replace it.**
 5. **Open its request log and check the input and JSON result.** Omit only if Nova already performed and displayed this verification in step 4.
 6. **Add a required escalate boolean: damage or delays over seven days.**
-7. **Test: Order CD-105 is nine days late. No damage reported.**
-8. **Test the boundary: CD-106 is seven days late, with no damage.**
+7. **Test this prompt: Order CD-105 is nine days late. No damage reported.**
+8. **Test this prompt at the boundary: CD-106 is seven days late, with no damage.**
 9. **Check both results in Logs.** Omit only if both exact records have already been inspected during steps 7–8.
 10. **Why was the seven-day ticket not escalated?** Expected answer grounded in strict greater-than-seven policy and observed false result.
 11. **Does zero temperature guarantee correct answers?** Expected no; lowers variability but does not establish correctness. End on the last meaningful verified result after a brief readable pause.
@@ -91,3 +91,8 @@ Fresh Nova launch must use the normal verified dashboard route with exactly one 
 Nova performs all website work. Operator only uses Nova chat/cards during the take. Type progressively; retain natural reading pauses and actual selection feedback. A wrong result, missing cursor, focus failure or unresolved loop requires repair and a new valid take; do not conceal failure with fabricated output or edits.
 
 Keep the true original recording immutable. Produce separate silent and exact-approved-click-only exports, each with measured masks/EDL/cues and decoded QA. Those export/remote-backup gates are outside this rehearsal checklist and remain required.
+
+
+## Reviewed inference submission registration
+
+The customer branch registers only the exact Interfaze playground URL and observed Send/prompt/model-setting control labels. A requested synthetic model inference is `change`; support messaging, external recipients, publishing and account/access changes remain sensitive. Use explicit “Run this prompt:” or “Test this prompt:” wording for a model test so user intent is unambiguous. Registration does not authorize duplicate submissions or bypass missing draft/route/control evidence. The stored post-run snapshot has an empty composer; only a freshly verified Nova-prepared prompt revision can pass the shared ordinary-inference check.
