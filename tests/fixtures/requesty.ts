@@ -13,9 +13,14 @@ export const requestyPolicyDraftSnapshot: Snapshot = {
   viewport:{width:1440,height:900},theme:{color:'#0d1f1a',font:'Inter',scheme:'dark'},frames:0,capturedAt:1,
 };
 
-export const requestyLogSnapshot: Snapshot = {
-  id:'requesty-log',url:'https://app.requesty.ai/fixture/requests/synthetic',title:'Synthetic request fixture',
-  text:'Request req_synthetic Status 200 Policy nova-demo-fallback Provider synthetic Latency 420 ms Cost $0.0000',
-  elements:[{ref:'request',tag:'button',role:'',name:'req_synthetic',type:'',context:'Request logs',disabled:false,sensitive:false}],
+export const requestyPromptSnapshot: Snapshot = {
+  id:'requesty-prompt',url:'https://app.requesty.ai/prompts/new',title:'Synthetic Requesty prompt fixture',
+  text:'New Prompt Name Messages SYSTEM Model optional Parameters Create',
+  elements:[
+    {ref:'prompt-name',tag:'input',role:'',name:'Name',type:'text',context:'New Prompt',disabled:false,sensitive:false,form:true},
+    {ref:'system-message',tag:'textarea',role:'',name:'You are a helpful assistant...',type:'',context:'SYSTEM message',disabled:false,sensitive:false,form:true},
+    {ref:'model-search',tag:'input',role:'',name:'Search models...',type:'text',context:'Model optional',disabled:false,sensitive:false,form:true},
+    {ref:'create',tag:'button',role:'',name:'Create',type:'submit',context:'New Prompt',disabled:false,sensitive:false,form:true},
+  ],
   viewport:{width:1440,height:900},theme:{color:'#0d1f1a',font:'Inter',scheme:'dark'},frames:0,capturedAt:2,
 };

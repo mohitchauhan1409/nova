@@ -1,40 +1,28 @@
 # Private Requesty demonstration scenario
 
-Status: preparation only. No direct live dashboard evidence was collected in this worktree, and both profile flows remain unverified.
-
-Update from the separate live-session owner on 2026-09-23: the signed-in Overview showed a zero balance and zero requests. Visible navigation included Overview, Analytics, Leaderboard, Logs, Model Library, Model Analytics, MCP Gateway, Playground, Prompts, API Keys, Routing Policies, BYOK, and Settings. No native assistant was present. This is volatile account evidence, not a value to hardcode or a reason to generate a paid request. Re-observe it at rehearsal time.
-
 ## Goal
 
-Show Nova helping an operator reason about gateway reliability and spend without making a production change or issuing a paid inference request.
+Show Nova helping a user who is lost in a large gateway catalog create two connected, reversible synthetic objects without spending credits or running inference.
 
-The recording uses two connected, synthetic tasks:
+## Flow A — resilient synthetic route
 
-1. Prepare an unsaved ordered-failover policy named with a `nova-demo-` prefix. Use only choices explicitly supplied during rehearsal or visibly available in the account. Stop before Save/Create/Enable and do not test it.
-2. Inspect a designated synthetic request log, report only visible routing and usage evidence, then prepare an unsaved scoped budget proposal. Stop before Save/Apply.
+Nova inspects Custom Routing Policies, starts a new policy, and helps choose exact visible model rows for a synthetic support-triage workload. The user may accept or revise the recommendation. After a concrete creation confirmation, Nova saves a uniquely named `nova-demo-` Fallback policy, reopens it, and verifies the ordered primary and fallback routes plus provider and attempt settings.
 
-## Intended narrative
+## Flow B — reusable triage prompt
 
-The operator asks Nova to prepare a resilient route for a synthetic ticket-triage workload. Nova checks the active organization and existing policies, gathers only missing choices, and completes the visible draft. It reads back the strategy and order and points out that the policy is unsaved.
-
-The operator then provides a synthetic request ID or selects a task-owned request. Nova preserves the active time window, opens the record, and distinguishes the final request outcome from actual fallback-attempt evidence. It inspects the relevant spend scope and prepares a proposed cap without applying it.
-
-The current zero-request account cannot support the request-log scene without spending, so that scene is presently ineligible. Do not create traffic to manufacture evidence. If no pre-existing synthetic request is supplied later, replace the scene with read-only inspection of the empty Logs state and say why request-detail claims cannot be demonstrated.
+In the same account, Nova creates a uniquely named `nova-demo-` Prompt with a synthetic-only system message that returns a small JSON triage schema and prohibits external action. If the new policy is available in the optional Model search, Nova selects it; otherwise it leaves Model optional and states the limitation. After confirmation, Nova saves and reopens the prompt to verify the persisted name, message role/content, optional route, tags, and default parameters.
 
 ## Hard boundaries
 
-- No API/provider key creation, display, copy, or rotation.
-- No real model request, playground run, or use of paid credits.
-- No policy, budget, billing, membership, or production configuration persistence.
-- No support message or external communication.
-- No claim that fallback occurred unless an attempt trail visibly proves it.
-- No account cleanup unless a separately authorized, task-owned persisted object exists.
+- No inference, Playground run, API key, BYOK credential, billing, top-up, auto top-up, invitation, support message, or external communication.
+- No edits or deletion of unrelated records.
+- Every persistent change uses a task-owned synthetic name and a concrete action confirmation.
+- A configured fallback is never described as observed failover traffic.
 
 ## Acceptance evidence
 
-- The visible hostname is `app.requesty.ai` and Nova uses the Requesty theme.
-- Nova reads the organization/workspace and avoids unrelated records.
-- The policy form shows the synthetic name, strategy, order, and constraints while the persistence control remains untouched.
-- The request review includes the visible request identifier, selected date range, and only fields actually present.
-- The budget proposal shows scope, period, units, amount, and alert behavior, or Nova clearly reports unavailable fields.
-- The closing summary explicitly says both drafts remain unsaved and no inference was run.
+- Hostname is `app.requesty.ai` and Nova uses the Requesty theme.
+- Custom Routing Policies renders and the saved policy is reopened from Custom.
+- Exact provider rows and route order are visible; no similarly named flex, Azure, or regional variant is substituted.
+- The saved Prompt is reopened and its message is visible.
+- Overview remains at zero requests and zero tokens after both flows.

@@ -1,0 +1,226 @@
+[
+  {
+    "id": "706d2937-5b7f-46e3-a2d1-d2152bf2f3ee",
+    "siteId": "requesty",
+    "status": "ready",
+    "startedAt": 1790194205791,
+    "recordingClicks": [
+      {
+        "at": 1790194212907,
+        "actor": "operator",
+        "button": "left",
+        "target": "Message Nova"
+      },
+      {
+        "at": 1790194235836,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-14"
+      },
+      {
+        "at": 1790194239305,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-47"
+      },
+      {
+        "at": 1790194243081,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-202"
+      },
+      {
+        "at": 1790194247715,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-203"
+      },
+      {
+        "at": 1790194267088,
+        "actor": "operator",
+        "button": "left",
+        "target": "Message Nova"
+      },
+      {
+        "at": 1790194285204,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-213"
+      },
+      {
+        "at": 1790194289071,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-381"
+      },
+      {
+        "at": 1790194294404,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-382"
+      },
+      {
+        "at": 1790194299679,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-395"
+      },
+      {
+        "at": 1790194305046,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-402"
+      },
+      {
+        "at": 1790194309129,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-455"
+      },
+      {
+        "at": 1790194313038,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-402"
+      },
+      {
+        "at": 1790194317929,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-576"
+      },
+      {
+        "at": 1790194330771,
+        "actor": "operator",
+        "button": "left",
+        "target": "button"
+      },
+      {
+        "at": 1790194330896,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-401"
+      },
+      {
+        "at": 1790194352722,
+        "actor": "operator",
+        "button": "left",
+        "target": "Message Nova"
+      },
+      {
+        "at": 1790194404445,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-12"
+      },
+      {
+        "at": 1790194422037,
+        "actor": "operator",
+        "button": "left",
+        "target": "Message Nova"
+      },
+      {
+        "at": 1790194422045,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-749"
+      },
+      {
+        "at": 1790194426245,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-748"
+      },
+      {
+        "at": 1790194430813,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-762"
+      },
+      {
+        "at": 1790194436129,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-769"
+      },
+      {
+        "at": 1790194447704,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-776"
+      },
+      {
+        "at": 1790194459336,
+        "actor": "operator",
+        "button": "left",
+        "target": "Message Nova"
+      },
+      {
+        "at": 1790194473803,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-769"
+      },
+      {
+        "at": 1790194504069,
+        "actor": "operator",
+        "button": "left",
+        "target": "button"
+      },
+      {
+        "at": 1790194504195,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-761"
+      },
+      {
+        "at": 1790194511087,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-12"
+      },
+      {
+        "at": 1790194514279,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-829"
+      },
+      {
+        "at": 1790194518478,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-829"
+      },
+      {
+        "at": 1790194533498,
+        "actor": "operator",
+        "button": "left",
+        "target": "Message Nova"
+      },
+      {
+        "at": 1790194561470,
+        "actor": "nova",
+        "button": "left",
+        "target": "hlo6mb2-829"
+      },
+      {
+        "at": 1790194601212,
+        "actor": "operator",
+        "button": "left",
+        "target": "Message Nova"
+      },
+      {
+        "at": 1790194617998,
+        "actor": "nova",
+        "button": "left",
+        "target": "raxbpr0-4"
+      },
+      {
+        "at": 1790194644136,
+        "actor": "operator",
+        "button": "left",
+        "target": "Message Nova"
+      }
+    ]
+  }
+]

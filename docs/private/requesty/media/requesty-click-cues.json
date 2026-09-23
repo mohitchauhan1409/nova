@@ -1,0 +1,293 @@
+{
+  "duration": 469.133333,
+  "events": [
+    {
+      "time": 19.766666666666666,
+      "source_frame": 593,
+      "receipt_at": 1790194212907,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Recorded operator click receipt on Message Nova; mapped from source frame 593 and visually inspected in the decoded source contact sheet."
+    },
+    {
+      "time": 42.7,
+      "source_frame": 1281,
+      "receipt_at": 1790194235836,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-14; mapped from source frame 1281 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 46.166666666666664,
+      "source_frame": 1385,
+      "receipt_at": 1790194239305,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-47; mapped from source frame 1385 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 49.96666666666667,
+      "source_frame": 1499,
+      "receipt_at": 1790194243081,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-202; mapped from source frame 1499 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 54.6,
+      "source_frame": 1638,
+      "receipt_at": 1790194247715,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-203; mapped from source frame 1638 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 73.96666666666667,
+      "source_frame": 2219,
+      "receipt_at": 1790194267088,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Recorded operator click receipt on Message Nova; mapped from source frame 2219 and visually inspected in the decoded source contact sheet."
+    },
+    {
+      "time": 92.06666666666666,
+      "source_frame": 2762,
+      "receipt_at": 1790194285204,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-213; mapped from source frame 2762 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 95.93333333333334,
+      "source_frame": 2878,
+      "receipt_at": 1790194289071,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-381; mapped from source frame 2878 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 101.26666666666667,
+      "source_frame": 3038,
+      "receipt_at": 1790194294404,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-382; mapped from source frame 3038 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 106.56666666666666,
+      "source_frame": 3197,
+      "receipt_at": 1790194299679,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-395; mapped from source frame 3197 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 111.93333333333334,
+      "source_frame": 3358,
+      "receipt_at": 1790194305046,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-402; mapped from source frame 3358 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 116,
+      "source_frame": 3480,
+      "receipt_at": 1790194309129,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-455; mapped from source frame 3480 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 119.9,
+      "source_frame": 3597,
+      "receipt_at": 1790194313038,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-402; mapped from source frame 3597 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 124.8,
+      "source_frame": 3744,
+      "receipt_at": 1790194317929,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-576; mapped from source frame 3744 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 137.63333333333333,
+      "source_frame": 4129,
+      "receipt_at": 1790194330771,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Recorded operator click receipt on button; mapped from source frame 4129 and visually inspected in the decoded source contact sheet."
+    },
+    {
+      "time": 137.76666666666668,
+      "source_frame": 4133,
+      "receipt_at": 1790194330896,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-401; mapped from source frame 4133 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 159.6,
+      "source_frame": 4788,
+      "receipt_at": 1790194352722,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Recorded operator click receipt on Message Nova; mapped from source frame 4788 and visually inspected in the decoded source contact sheet."
+    },
+    {
+      "time": 211.33333333333334,
+      "source_frame": 6340,
+      "receipt_at": 1790194404445,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-12; mapped from source frame 6340 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 228.9,
+      "source_frame": 6867,
+      "receipt_at": 1790194422037,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Recorded operator click receipt on Message Nova; mapped from source frame 6867 and visually inspected in the decoded source contact sheet."
+    },
+    {
+      "time": 228.93333333333334,
+      "source_frame": 6868,
+      "receipt_at": 1790194422045,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-749; mapped from source frame 6868 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 233.13333333333333,
+      "source_frame": 6994,
+      "receipt_at": 1790194426245,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-748; mapped from source frame 6994 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 237.7,
+      "source_frame": 7131,
+      "receipt_at": 1790194430813,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-762; mapped from source frame 7131 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 243,
+      "source_frame": 7290,
+      "receipt_at": 1790194436129,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-769; mapped from source frame 7290 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 254.56666666666666,
+      "source_frame": 7637,
+      "receipt_at": 1790194447704,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-776; mapped from source frame 7637 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 266.2,
+      "source_frame": 7986,
+      "receipt_at": 1790194459336,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Recorded operator click receipt on Message Nova; mapped from source frame 7986 and visually inspected in the decoded source contact sheet."
+    },
+    {
+      "time": 280.6666666666667,
+      "source_frame": 8420,
+      "receipt_at": 1790194473803,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-769; mapped from source frame 8420 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 310.93333333333334,
+      "source_frame": 9328,
+      "receipt_at": 1790194504069,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Recorded operator click receipt on button; mapped from source frame 9328 and visually inspected in the decoded source contact sheet."
+    },
+    {
+      "time": 311.06666666666666,
+      "source_frame": 9332,
+      "receipt_at": 1790194504195,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-761; mapped from source frame 9332 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 317.96666666666664,
+      "source_frame": 9539,
+      "receipt_at": 1790194511087,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-12; mapped from source frame 9539 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 321.1666666666667,
+      "source_frame": 9635,
+      "receipt_at": 1790194514279,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-829; mapped from source frame 9635 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 325.3666666666667,
+      "source_frame": 9761,
+      "receipt_at": 1790194518478,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-829; mapped from source frame 9761 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 340.3666666666667,
+      "source_frame": 10211,
+      "receipt_at": 1790194533498,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Recorded operator click receipt on Message Nova; mapped from source frame 10211 and visually inspected in the decoded source contact sheet."
+    },
+    {
+      "time": 368.3333333333333,
+      "source_frame": 11050,
+      "receipt_at": 1790194561470,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for hlo6mb2-829; mapped from source frame 11050 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 408.1,
+      "source_frame": 12243,
+      "receipt_at": 1790194601212,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Recorded operator click receipt on Message Nova; mapped from source frame 12243 and visually inspected in the decoded source contact sheet."
+    },
+    {
+      "time": 424.8666666666667,
+      "source_frame": 12746,
+      "receipt_at": 1790194617998,
+      "actor": "nova",
+      "strength": 0.70,
+      "evidence": "Recorded successful Nova browser click receipt for raxbpr0-4; mapped from source frame 12746 and visually inspected with the themed Nova cursor in the decoded source contact sheet."
+    },
+    {
+      "time": 451,
+      "source_frame": 13530,
+      "receipt_at": 1790194644136,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Recorded operator click receipt on Message Nova; mapped from source frame 13530 and visually inspected in the decoded source contact sheet."
+    }
+  ]
+}

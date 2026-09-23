@@ -1,38 +1,40 @@
-# Provenance and evidence plan
+# Requesty provenance and evidence plan
 
-## Product claims allowed before rehearsal
+## Product sources
 
-Only Requesty-controlled public sources support the initial vocabulary:
+- Requesty's routing documentation defines named policies, ordered failover, load balancing, latency routing, and provider routes.
+- The signed-in Custom surface verifies the current Create policy form, exact model catalog rows, provider/region/context/price fields, ordered route cards, attempts, and persistence control.
+- The signed-in Prompts surface verifies the current New Prompt form, message roles/editors, tags, optional model search, parameters, response format, and persistence control.
 
-- [Requesty routing](https://www.requesty.ai/product/routing) describes named policies, ordered failover, weighted load balancing, latency routing, scoping, and regional gateways.
-- [Requesty gateway](https://www.requesty.ai/gateway) describes real-time observability, usage governance, and automatic failover.
-- [Requesty spend management](https://www.requesty.ai/product/spend-management) describes budgets, alerts, attribution, and scoped ceilings.
-- [Requesty pricing](https://www.requesty.ai/pricing) lists routing policies, fallbacks, spend limits, budget caps, and advanced observability among product capabilities.
+Public documentation supplies vocabulary only. Current account state and saved results must be observed in the dashboard.
 
-These sources do not prove the controls, routes, entitlements, or data present in the recording account. Copy exact UI labels only after observing them.
+## Live evidence ledger
 
-## Account evidence handed off for preparation
+| Evidence | Required observation |
+| --- | --- |
+| Account boundary | Overview balance, requests, tokens, and hostname |
+| Name isolation | Custom/Prompts lists checked before each unique name |
+| Model identity | Exact selected row plus provider, region, context, and displayed price |
+| Policy persistence | Reopened Custom policy with saved strategy and order |
+| Prompt persistence | Reopened Prompt with saved name, role, message, optional route, and defaults |
+| No execution | Closing Overview still shows zero requests and zero tokens |
 
-On 2026-09-23 the separate live-session owner reported a signed-in Overview with a zero balance and zero requests. The observed navigation was Overview, Analytics, Leaderboard, Logs, Model Library, Model Analytics, MCP Gateway, Playground, Prompts, API Keys, Routing Policies, BYOK, and Settings. No native Requesty assistant was present. This handoff is enough to avoid proposing an assistant-chat workflow, but it is not independent evidence that an unsaved policy or budget draft exists. Re-observe all volatile values and controls before recording; do not create a paid request merely to populate Logs.
+## Observed rehearsal evidence — 2026-09-24
 
-## Live evidence ledger to collect
+- Exact OpenAI Global `gpt-5.6-luna` row: 1.1M context, `$0.200/M` input, `$1.20/M` output.
+- Exact OpenAI Global `gpt-5.4-mini` row: 400K context, `$0.750/M` input, `$4.50/M` output.
+- Two fallback-policy passes and two prompt passes were created under unique `nova-demo-` names and independently reopened.
+- The complete script-order run persisted `nova-demo-triage-fallback-script1` and `nova-demo-triage-prompt-script1`; the latter contains the revised `owner_queue` schema, Model unset, and model defaults.
+- Closing Overview visibly reported zero requests and zero tokens for the month, with `$0.00` spend and `$0.00` balance.
 
-Record a timestamped, secret-free note for each item:
+## Accepted final evidence — 2026-09-24
 
-| Evidence | Required observation | Permitted conclusion |
-| --- | --- | --- |
-| Account context | Visible organization/workspace/environment | Nova operated in the named visible context |
-| Routing surface | Visible navigation and policy form labels | Those controls existed in this account at rehearsal time |
-| Draft state | Populated values and untouched persistence control | A complete unsaved proposal was prepared |
-| Request record | ID, filters/date range, visible detail fields | Those exact fields were observed for the designated synthetic request |
-| Attempt evidence | Provider/attempt trail, if present | Fallback occurred only if the trail directly shows it |
-| Spend scope | Visible hierarchy, period, units, current limit | The proposal was framed against the observed scope |
-| Budget draft | Populated values and untouched persistence control | A complete unsaved budget proposal was prepared |
+- `nova-demo-triage-fallback-final-01` persisted the exact OpenAI Global order `gpt-5.6-luna` then `gpt-5.4-mini`, one attempt each.
+- `nova-demo-triage-prompt-final-01` persisted the revised `owner_queue` SYSTEM message; the optional Model search did not expose the new policy, so Model remained unset rather than being inferred.
+- The final Overview again showed zero requests, zero tokens, `$0.00` spend, and `$0.00` balance.
+- Source capture anchor: first encoded frame epoch `1790194193125`; the authenticated session retained 36 successful click receipts (10 operator, 26 Nova), mapped to source frames and visually checked before audio rendering.
+- The original capture is immutable. The one-segment EDL keeps every source frame at real speed, and the silent/click exports share encoded video-stream SHA-256 `d5694c30f9f8bd47bbffae02cb21fb3f0eef3ee2e42e3db852c891c8c8308c26`.
 
 ## Capture hygiene
 
-- Crop or blur account email, keys, authorization headers, prompt bodies, and unrelated request content.
-- Do not record API key or provider credential pages.
-- Use the date range visible in the shot; do not normalize or reinterpret currency.
-- Keep original capture, edit manifest, and final render hashes separate from source control if they contain account data.
-- Every voiceover claim must map to a frame range or an official source above. Product marketing claims should not be recited as measured account results.
+Do not open API Keys, BYOK, billing portals, referral links, raw request bodies, or unrelated objects. Ordinary account label and product content may remain in this private recording. Every saved-state claim must map to a reopened dashboard object; every click sound must map to a recorded action receipt or inspected frame transition.

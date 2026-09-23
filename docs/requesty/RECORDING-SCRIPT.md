@@ -1,33 +1,21 @@
-# Recording script draft
-
-This is a rehearsal script, not evidence that the current dashboard has these exact labels. Replace bracketed phrases only after read-only discovery.
+# Requesty recording script
 
 ## Opening
 
-Operator: “Help me prepare a resilient route for our synthetic ticket-triage demo. Use the visible choices I give you, keep it unsaved, and do not run inference.”
+Show the normal Overview with zero requests/tokens and Nova closed. Open Nova and enter a concise lost-user request asking for a safe synthetic support-triage fallback route without running inference.
 
-Nova should acknowledge the unsaved/no-inference boundary, read the visible account context, inspect existing task-owned policies, and ask one grouped question only if primary, fallback, scope, or constraints are genuinely missing.
+## Scene 1 — policy recommendation and creation
 
-## Scene 1 — fallback proposal
+Nova inspects Custom Routing Policies, confirms no name collision, and opens Create policy. If material choices are missing, it asks one focused card. The user delegates or chooses between visible alternatives. Nova explains the recommendation using visible catalog facts, enters the unique name, adds exact model rows in order, and pauses for concrete confirmation. After confirmation it creates, reopens, and verifies the saved policy.
 
-Operator supplies `[visible primary]`, `[visible fallback]`, `[scope]`, and `[constraint]` if Nova asked.
+## Scene 2 — connected prompt and revision
 
-Nova opens the observed policy-creation surface, enters `nova-demo-ticket-fallback-[short-date]`, chooses the observed ordered-failover strategy, and sets the supplied order. The cursor pauses near—but never activates—the persistence control.
+The user asks for a reusable synthetic triage prompt connected to the new route, with no external actions or test run. Nova drafts the system message, creates the unique name, and selects the exact policy only if visible in Model search. Before save, the user requests one genuine revision to the output schema; Nova updates the real message field progressively and reads back the final intent. After confirmation it creates and reopens the prompt.
 
-Nova: “The draft shows [strategy], with [primary] first and [fallback] second, scoped to [scope] with [constraint]. It is still unsaved, and I did not run a model request.”
+## Closing
 
-## Scene 2 — request evidence
+Nova returns to Overview and verifies requests and tokens remain zero. The closing summary names both saved synthetic objects, states whether the prompt route was linked, and confirms that no inference, credit, credential, billing, or unrelated change occurred.
 
-Operator: “Now inspect synthetic request `[ID]`. Tell me what the log proves, then draft—but do not apply—a monthly cap of `[amount and unit]` for `[scope]` with `[alert behavior]`.”
+## Editing
 
-Nova preserves the visible date range, locates the designated record, and reports only visible fields. If no attempt trail exists, Nova says the log does not independently prove fallback. It does not expose unrelated prompt content.
-
-## Scene 3 — budget proposal
-
-Nova inspects the visible scope hierarchy and current limit, opens the observed spend-control form only if it can remain unsaved, and enters the supplied period, cap, and alert behavior. It stops before the persistence control.
-
-Nova: “The proposal is for [scope], [period], [amount/unit], with [alert behavior]. It remains unsaved. No budget, policy, billing setting, or production traffic was changed, and no inference was run.”
-
-## Closing shot
-
-Hold on Nova's summary and the visible unsaved proposal. Do not navigate to credentials or billing. End before session timeout could obscure the final evidence.
+Preserve the original. Compress only prolonged operator idle holds; keep Nova work, typing, navigation, page responses, and meaningful reading at real speed. Deliver silent and click-only edits with frame-mapped cues.

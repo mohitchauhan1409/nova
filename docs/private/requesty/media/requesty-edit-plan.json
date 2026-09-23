@@ -1,0 +1,15 @@
+{
+  "fps": 30,
+  "width": 3024,
+  "height": 1776,
+  "segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 14074,
+      "output_frames": 14074,
+      "kind": "agent",
+      "reason": "Retain the clean Overview opening, both complete object-creation workflows, exact model and prompt evidence, save/reopen verification, and zero-usage closing at real speed. Visual inspection found no prolonged operator-idle interval suitable for compression."
+    }
+  ],
+  "clicks": []
+}
