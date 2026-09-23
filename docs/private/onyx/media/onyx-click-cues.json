@@ -1,0 +1,26 @@
+{
+  "duration": 339.566667,
+  "events": [
+    {"time": 102.966667, "actor": "operator", "strength": 0.85, "evidence": "Project-create confirmation; inspected source-frame transition."},
+    {"time": 142.433333, "actor": "operator", "strength": 0.85, "evidence": "Project-instructions confirmation; inspected source-frame transition."},
+    {"time": 171.933333, "actor": "operator", "strength": 0.85, "evidence": "Approved fixture-upload confirmation; inspected source-frame transition."},
+    {"time": 219.400000, "actor": "operator", "strength": 0.85, "evidence": "Recorded click receipt: Agent suggestion button."},
+    {"time": 220.100000, "actor": "operator", "strength": 0.85, "evidence": "Recorded click receipt: Send message."},
+    {"time": 243.233333, "actor": "operator", "strength": 0.75, "evidence": "Recorded click receipt: Agent name field."},
+    {"time": 243.500000, "actor": "operator", "strength": 0.75, "evidence": "Recorded click receipt: Description field."},
+    {"time": 243.733333, "actor": "operator", "strength": 0.75, "evidence": "Recorded click receipt: Instructions field."},
+    {"time": 243.966667, "actor": "operator", "strength": 0.75, "evidence": "Recorded click receipt: Conversation starter field."},
+    {"time": 244.200000, "actor": "operator", "strength": 0.85, "evidence": "Recorded click receipt: Continue."},
+    {"time": 246.800000, "actor": "nova", "strength": 0.70, "evidence": "Recorded Nova click receipt: agent name input."},
+    {"time": 250.900000, "actor": "nova", "strength": 0.70, "evidence": "Recorded Nova click receipt: description input."},
+    {"time": 254.866667, "actor": "nova", "strength": 0.70, "evidence": "Recorded Nova click receipt: instructions input."},
+    {"time": 260.600000, "actor": "nova", "strength": 0.70, "evidence": "Recorded Nova click receipt: conversation starter input."},
+    {"time": 268.000000, "actor": "nova", "strength": 0.70, "evidence": "Recorded Nova click receipt: create-agent control."},
+    {"time": 279.100000, "actor": "nova", "strength": 0.70, "evidence": "Recorded Nova click receipt: agent workflow control."},
+    {"time": 296.466667, "actor": "operator", "strength": 0.85, "evidence": "Recorded click receipt: Agent confirmation."},
+    {"time": 296.600000, "actor": "nova", "strength": 0.70, "evidence": "Recorded Nova click receipt: confirmed action."},
+    {"time": 303.400000, "actor": "nova", "strength": 0.70, "evidence": "Recorded Nova click receipt: reopen agent."},
+    {"time": 310.900000, "actor": "nova", "strength": 0.70, "evidence": "Recorded Nova click receipt: inspect knowledge configuration."},
+    {"time": 317.200000, "actor": "nova", "strength": 0.70, "evidence": "Recorded Nova click receipt: inspect actions configuration."}
+  ]
+}

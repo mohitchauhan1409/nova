@@ -1,0 +1,32 @@
+{
+  "fps": 30,
+  "width": 3024,
+  "height": 1776,
+  "segments": [
+    {"start_frame": 0, "end_frame": 3000, "output_frames": 3000, "kind": "agent", "reason": "Retain the opening, request, clarification, and Nova's structural navigation."},
+    {"start_frame": 3000, "end_frame": 3256, "output_frames": 90, "kind": "operator-idle", "reason": "Compress the operator's review pause at the Project creation approval."},
+    {"start_frame": 3256, "end_frame": 4350, "output_frames": 1094, "kind": "agent", "reason": "Retain Project creation, visible progressive instructions entry, and verification."},
+    {"start_frame": 4350, "end_frame": 4640, "output_frames": 90, "kind": "operator-idle", "reason": "Compress the operator's review pause at the instruction-save approval."},
+    {"start_frame": 4640, "end_frame": 5250, "output_frames": 610, "kind": "agent", "reason": "Retain instruction save verification and the approved-file upload preparation."},
+    {"start_frame": 5250, "end_frame": 5470, "output_frames": 90, "kind": "operator-idle", "reason": "Compress the operator's review pause at the exact-file upload approval."},
+    {"start_frame": 5470, "end_frame": 6750, "output_frames": 1280, "kind": "agent", "reason": "Retain direct upload processing and the persisted Project outcome."},
+    {"start_frame": 6750, "end_frame": 7350, "output_frames": 150, "kind": "operator-idle", "reason": "Compress the operator's hold after the Project result and before starting the Agent flow."},
+    {"start_frame": 7350, "end_frame": 9750, "output_frames": 2400, "kind": "agent", "reason": "Retain Agent clarification, navigation, progressive website input, and capability review."},
+    {"start_frame": 9750, "end_frame": 10107, "output_frames": 90, "kind": "operator-idle", "reason": "Compress the operator's review pause at the Agent creation approval."},
+    {"start_frame": 10107, "end_frame": 11250, "output_frames": 1143, "kind": "agent", "reason": "Retain Agent creation and persisted-state verification."},
+    {"start_frame": 11250, "end_frame": 11819, "output_frames": 150, "kind": "operator-idle", "reason": "Shorten the closing hold while preserving the verified final Agent state."}
+  ],
+  "masks": [
+    {"x": 20, "y": 1680, "width": 320, "height": 96, "color": "#f5f4f0", "reason": "Hide the unrelated signed-in account label in the Onyx sidebar."},
+    {"x": 580, "y": 1140, "width": 420, "height": 80, "color": "#ffffff", "start_frame": 8360, "end_frame": 8800, "reason": "Hide an unrelated owner email while the Agent list first opens."},
+    {"x": 1390, "y": 1140, "width": 440, "height": 80, "color": "#ffffff", "start_frame": 8360, "end_frame": 8800, "reason": "Hide an unrelated owner email while the Agent list first opens."},
+    {"x": 580, "y": 1460, "width": 430, "height": 80, "color": "#ffffff", "start_frame": 8360, "end_frame": 8800, "reason": "Hide an unrelated owner email while the Agent list first opens."},
+    {"x": 1390, "y": 1460, "width": 440, "height": 80, "color": "#ffffff", "start_frame": 8360, "end_frame": 8800, "reason": "Hide an unrelated owner email while the Agent list first opens."},
+    {"x": 580, "y": 1140, "width": 420, "height": 80, "color": "#ffffff", "start_frame": 10200, "end_frame": 10740, "reason": "Hide an unrelated owner email on the Agent list."},
+    {"x": 1390, "y": 1140, "width": 440, "height": 80, "color": "#ffffff", "start_frame": 10200, "end_frame": 10740, "reason": "Hide an unrelated owner email on the Agent list."},
+    {"x": 580, "y": 1460, "width": 430, "height": 80, "color": "#ffffff", "start_frame": 10200, "end_frame": 10740, "reason": "Hide an unrelated owner email on the Agent list."},
+    {"x": 1390, "y": 1460, "width": 440, "height": 80, "color": "#ffffff", "start_frame": 10200, "end_frame": 10740, "reason": "Hide an unrelated owner email on the Agent list."},
+    {"x": 350, "y": 520, "width": 520, "height": 90, "color": "#ffffff", "start_frame": 10740, "end_frame": 11819, "reason": "Hide the unrelated owner email in the reopened Agent details."}
+  ],
+  "clicks": []
+}

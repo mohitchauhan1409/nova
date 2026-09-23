@@ -37,6 +37,11 @@ const intentAllows = (intent: string, category: 'cart' | 'preference' | 'drag') 
   }
   return false;
 };
+const intentAllowsZoom = (intent: string) => {
+  const request = intent.split('\n').reverse().find(line => /\bzoom\b/i.test(line));
+  if (!request || /\b(how|what if|explain|would|could|might|whether)\b/i.test(request)) return false;
+  return !/\b(don['’]?t|do not|never|without|stop|cancel|avoid)\b.{0,30}\bzoom\b/i.test(request);
+};
 // A small, observed terminology form is a reversible metadata edit, not an
 // arbitrary submission. This rule has no domain, route, or site-guide override.
 function requestedTerminologyEdit(action: Action, snapshot: Snapshot, intent: string): boolean {
@@ -121,7 +126,10 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
   const result = (outcome: PolicyDecision['outcome'], reason: string, mayCommit = false) => ({ outcome, reason, target: name, mayCommit });
   if (snapshot.blocked && !['done', 'ask'].includes(action.kind)) return result('block', snapshot.blocked);
   if(action.kind==='press'&&action.value==='Escape'&&!action.ref)return result('allow','Dismiss the current menu or dialog');
-  if (['done', 'ask', 'wait', 'zoom', 'back', 'forward', 'reload'].includes(action.kind)) return result('allow', 'Continue the requested browsing task');
+  if(action.kind==='zoom')return intentAllowsZoom(intent)
+    ?result('allow','Apply the user-requested page zoom')
+    :result('block','Only change page zoom when the user explicitly requests it. Use observed controls or keyboard navigation instead.');
+  if (['done', 'ask', 'wait', 'back', 'forward', 'reload'].includes(action.kind)) return result('allow', 'Continue the requested browsing task');
   if (action.kind === 'scroll' && !action.ref) return result('allow', 'Scroll the page');
   if (action.kind === 'screenshot') return snapshot.observation?.sensitiveFieldsPresent || snapshot.elements.some(e => e.sensitive) ? result('block', 'Visual capture is unavailable on a page containing sensitive input fields.') : result('allow', 'Inspect the visible page');
   if (action.kind === 'inspect') return result('allow', 'Inspect a screenshot point without sending input');

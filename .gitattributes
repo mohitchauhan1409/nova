@@ -1,0 +1,2 @@
+docs/private/**/media/*.mov filter=lfs diff=lfs merge=lfs -text
+docs/private/**/media/*.mp4 filter=lfs diff=lfs merge=lfs -text
