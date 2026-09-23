@@ -1,7 +1,7 @@
 import type { Action, Snapshot, ElementRef, ActionResult, PreparedInput } from './types';
 import { readPageColorScheme } from './page-theme';
 
-export type PreparedTarget = { newlineKey?:'Enter'; x: number; y: number; editable: boolean; focused?: boolean; valueLength?: number; checked?: boolean; paused?: boolean; tag: string; type: string };
+export type PreparedTarget = { newlineKey?:'Enter'; editor?:'monaco'; href?:string; x: number; y: number; editable: boolean; focused?: boolean; valueLength?: number; checked?: boolean; paused?: boolean; tag: string; type: string };
 export type DomBridge = { snapshot(preparedInputs?:PreparedInput[]): Snapshot; execute(action: Action): Promise<ActionResult & { text?: string }>; inspect(x:number,y:number): ActionResult; prepare(ref: string, append?: boolean, semanticMedia?: boolean, focus?: boolean): PreparedTarget; point(x:number,y:number): {x:number;y:number}; startInput(ref:string,append?:boolean): {x:number;y:number}; inputPosition(ref:string): {x:number;y:number}|undefined; prepareInputCorrection(ref:string,prefix:string,character:string): boolean; verify(action: Action, expectedLength?: number): ActionResult; };
 declare global { interface Window { __novaDOM?: DomBridge } }
 
@@ -42,6 +42,20 @@ export function installNovaDOM() {
     // lines or authored whitespace are data, never trim them away.
     return el.textContent===''&&el.querySelectorAll('br').length<=1&&[...el.querySelectorAll('*')].every(node=>['DIV','SPAN','BR'].includes(node.tagName))?'':el.innerText;
   };
+  // Monaco keeps trusted keyboard focus in a tiny textarea while rendering the
+  // document as ordinary visible line DOM. Ground the textarea in its visible
+  // editor box and verify only when every rendered line is present.
+  const monacoRoot=(el:Element):HTMLElement|undefined=>el instanceof HTMLTextAreaElement?el.closest<HTMLElement>('.monaco-editor')||undefined:undefined;
+  const monacoValue=(el:Element):string|undefined=>{
+    const root=monacoRoot(el);if(!root)return;
+    const lines=[...root.querySelectorAll<HTMLElement>('.view-lines > .view-line')];
+    const numbers=[...root.querySelectorAll<HTMLElement>('.margin-view-overlays .line-numbers')].filter(node=>getComputedStyle(node).display!=='none'&&getComputedStyle(node).visibility!=='hidden');
+    if(!lines.length||numbers.length&&numbers.length!==lines.length)return;
+    return lines.map(line=>(line.textContent||'').replaceAll('\u00a0',' ')).join('\n');
+  };
+  const equivalentJson=(actual:string,expected:string)=>{
+    try{const a=JSON.parse(actual),b=JSON.parse(expected);return !!a&&!!b&&typeof a==='object'&&typeof b==='object'&&JSON.stringify(a)===JSON.stringify(b);}catch{return false;}
+  };
   const editorOffset=(el:HTMLElement,node:Node,offset:number):number|undefined=>{
     const lines=codeLines(el);
     if(!lines){
@@ -59,7 +73,7 @@ export function installNovaDOM() {
       start+=lineValue(line).length+1;
     }
   };
-  const fieldValue=(el:Element)=>el instanceof HTMLInputElement&&['checkbox','radio'].includes(el.type)?`${el.checked}:${el.value}`:el instanceof HTMLInputElement||el instanceof HTMLTextAreaElement||el instanceof HTMLSelectElement?el.value:el instanceof HTMLElement&&el.isContentEditable?editableValue(el):undefined;
+  const fieldValue=(el:Element)=>el instanceof HTMLInputElement&&['checkbox','radio'].includes(el.type)?`${el.checked}:${el.value}`:monacoValue(el)??(el instanceof HTMLInputElement||el instanceof HTMLTextAreaElement||el instanceof HTMLSelectElement?el.value:el instanceof HTMLElement&&el.isContentEditable?editableValue(el):undefined);
   const editState=(el:Element)=>{const value=fieldValue(el);if(value===undefined||sensitive(el))return;let old=edits.get(el);if(!old||old.value!==value){old={value,revision:`${prefix}:edit:${++editSequence}`};edits.set(el,old);}return {revision:old.revision,empty:value.length===0};};
   const visualTargets = new Map<Element,{x:number;y:number;rect:number[];visual:boolean}>();
   const controls='a[href],button,input:not([type="hidden"]),textarea,select,[role="button"],[role="link"],[role="textbox"],[role="searchbox"],[role="combobox"],[role="tab"],[role="checkbox"],[role="switch"],[role="radio"],[role="slider"],[role="spinbutton"],[role="option"],[role="menuitem"],[role="menuitemcheckbox"],[role="menuitemradio"],[role="treeitem"],[role="list"],[role="listbox"],[role="feed"],[role="grid"],[contenteditable]:not([contenteditable="false"]),[draggable="true"],video,audio,canvas,summary,[tabindex],[onclick],[data-action]';
@@ -72,12 +86,18 @@ export function installNovaDOM() {
   const isNova = (el: Element) => {let node:Element|undefined=el;while(node){if(node.closest('[data-nova-root]'))return true;const root=node.getRootNode();node=root instanceof ShadowRoot?root.host:undefined;}return false;};
   const hitAt = (x:number,y:number) => {let hit=document.elementFromPoint(x,y);for(let i=0;i<40&&hit?.shadowRoot;i++){const inner=hit.shadowRoot.elementFromPoint(x,y);if(!inner||inner===hit)break;hit=inner;}return hit;};
   const visible = (el: Element) => {
-    const rect = el.getBoundingClientRect(); const style = getComputedStyle(el);
-    return rect.width > 0 && rect.height > 0 && style.visibility !== 'hidden' && style.display !== 'none' && style.opacity !== '0' && !el.closest('[hidden],[inert],[aria-hidden="true"]') && !isNova(el);
+    const exposed=monacoRoot(el)||el;
+    const rect = exposed.getBoundingClientRect(); const style = getComputedStyle(exposed);
+    const ariaHidden = el.closest('[aria-hidden="true"]');
+    const cx=Math.max(0,Math.min(innerWidth-1,rect.x+rect.width/2));
+    const cy=Math.max(0,Math.min(innerHeight-1,rect.y+rect.height/2));
+    const hit=ariaHidden&&rect.width>0&&rect.height>0?hitAt(cx,cy):null;
+    const actuallyExposed=!ariaHidden||!!hit&&(hit===exposed||exposed.contains(hit));
+    return rect.width > 0 && rect.height > 0 && style.visibility !== 'hidden' && style.display !== 'none' && style.opacity !== '0' && !el.closest('[hidden],[inert]') && actuallyExposed && !isNova(el);
   };
   const sensitive = (el: Element) => /password|one.?time|cc-|credit.?card|cvv|cvc|security.?code|otp|social.?security|api.?key|access.?token|auth.?token|client.?secret|private.?key/i.test([el.getAttribute('type'), el.getAttribute('autocomplete'), el.getAttribute('name'), el.id, el.getAttribute('aria-label'), el.getAttribute('placeholder'), (el as HTMLInputElement).labels?.[0]?.textContent].join(' '));
-  const inViewport=(el:Element)=>{const r=el.getBoundingClientRect();return r.bottom>0&&r.right>0&&r.top<innerHeight&&r.left<innerWidth;};
-  const bounds=(el:Element)=>{const r=el.getBoundingClientRect();return [r.x,r.y,r.width,r.height];};
+  const inViewport=(el:Element)=>{const r=(monacoRoot(el)||el).getBoundingClientRect();return r.bottom>0&&r.right>0&&r.top<innerHeight&&r.left<innerWidth;};
+  const bounds=(el:Element)=>{const r=(monacoRoot(el)||el).getBoundingClientRect();return [r.x,r.y,r.width,r.height];};
   const label = (el: Element) => {
     const labelled = el.getAttribute('aria-labelledby')?.split(' ').map(id => (el.getRootNode() as Document|ShadowRoot).getElementById(id)?.textContent || '').join(' ');
     let nearbyLabel='';
@@ -136,6 +156,7 @@ export function installNovaDOM() {
     if(el instanceof HTMLInputElement&&!sensitive(el)&&/^field(?: \d+)? name$/i.test(settingLabel)
       && /^[a-z][a-z0-9_]{0,79}$/i.test(el.value))state.push(`value:${el.value}`);
     if (el instanceof HTMLSelectElement) state.push(`selected:${compact(el.selectedOptions[0]?.text, 100)}`);
+    if(monacoRoot(el))state.push('editor:monaco');
     if (el instanceof HTMLMediaElement) state.push(`paused:${el.paused}`,`muted:${el.muted}`);
     if (el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth) state.push(`scrollX:${Math.round(el.scrollLeft)}`,`scrollY:${Math.round(el.scrollTop)}`,`scrollMaxX:${Math.max(0,el.scrollWidth-el.clientWidth)}`,`scrollMaxY:${Math.max(0,el.scrollHeight-el.clientHeight)}`);
     const edit=editState(el);
@@ -148,9 +169,10 @@ export function installNovaDOM() {
         if(fields.length)submission={scope:nodeId(scope),label:compact(scope.getAttribute('aria-label')||scope.querySelector('h1,h2,h3,[role="heading"]')?.textContent,180),fields};
       }
     }
-    const rect=el.getBoundingClientRect();const cx=rect.x+rect.width/2,cy=rect.y+rect.height/2;
+    const exposed=monacoRoot(el)||el;
+    const rect=exposed.getBoundingClientRect();const cx=rect.x+rect.width/2,cy=rect.y+rect.height/2;
     const hit=cx>=0&&cy>=0&&cx<innerWidth&&cy<innerHeight?hitAt(cx,cy):null;
-    const covered=!!hit&&hit!==el&&!el.contains(hit);
+    const covered=!!hit&&hit!==exposed&&!exposed.contains(hit);
     return { ref, covered, tag: el.tagName.toLowerCase(), role: el.getAttribute('role') || '', name: label(el), type, href, state, ...(el instanceof HTMLCanvasElement||visualTargets.get(el)?.visual?{visual:true}:{}),
       ...(edit?{edit}:{}),...(submission?{submission}:{}),
       context: fieldContext(el),
@@ -186,10 +208,11 @@ export function installNovaDOM() {
     prepare(ref,append=false,semanticMedia=false,focus=false) {
       const el = refs.get(ref);
       if (!(el instanceof HTMLElement || el instanceof SVGElement) || !el.isConnected || !visible(el) || sensitive(el) || el.matches(':disabled,[aria-disabled="true"]')) throw new Error('The target is unavailable or sensitive. Observe again.');
-      el.scrollIntoView({ block: 'nearest', inline:'nearest', behavior: 'instant' });
+      const exposed=monacoRoot(el)||el;
+      exposed.scrollIntoView({ block: 'nearest', inline:'nearest', behavior: 'instant' });
       if(focus||append)el.focus({preventScroll:true});
       if(append){if(el instanceof HTMLInputElement||el instanceof HTMLTextAreaElement)el.setSelectionRange(el.value.length,el.value.length);else if(el instanceof HTMLElement&&el.isContentEditable){const range=document.createRange();range.selectNodeContents(el);range.collapse(false);const selection=getSelection();selection?.removeAllRanges();selection?.addRange(range);}}
-      const rect = el.getBoundingClientRect();
+      const rect = exposed.getBoundingClientRect();
       const visual=visualTargets.get(el);
       if(visual&&bounds(el).some((v,i)=>Math.abs(v-visual.rect[i])>1)){visualTargets.delete(el);throw new Error('The visually inspected target moved. Take a new screenshot and inspect it again.');}
       // A tall editor can extend behind a sticky footer. Aim inside its visible
@@ -197,7 +220,7 @@ export function installNovaDOM() {
       const left=Math.max(0,rect.left),right=Math.min(innerWidth-1,rect.right);
       const top=Math.max(0,rect.top),bottom=Math.min(innerHeight-1,rect.bottom);
       let x=visual?.x??(left+right)/2,y=visual?.y??(top+bottom)/2;
-      const reaches=(px:number,py:number)=>{const hit=hitAt(px,py);return !!hit&&(hit===el||el.contains(hit)||hit===el.getRootNode()||!!hit.shadowRoot?.contains(el));};
+      const reaches=(px:number,py:number)=>{const hit=hitAt(px,py);return !!hit&&(hit===exposed||exposed.contains(hit)||hit===el.getRootNode()||!!hit.shadowRoot?.contains(el));};
       if(!(semanticMedia&&el instanceof HTMLMediaElement)&&!reaches(x,y)){
         window.__novaCompanion?.clearCursor();
         const card=document.querySelector('[data-nova-root]')?.shadowRoot?.querySelector<HTMLElement>('.card');if(card)card.hidden=true;
@@ -206,8 +229,18 @@ export function installNovaDOM() {
         if(!point)throw new Error('Another element is covering the target. Close the overlay and observe again.');
         [x,y]=point;
       }
-      if (el instanceof HTMLAnchorElement && el.target === '_blank') el.target = '_self';
-      return { x, y, ...(el instanceof HTMLElement&&codeLines(el)?{newlineKey:'Enter' as const}:{}), focused:el.getRootNode() instanceof ShadowRoot ? (el.getRootNode() as ShadowRoot).activeElement===el : document.activeElement===el, valueLength:el instanceof HTMLInputElement||el instanceof HTMLTextAreaElement?el.value.length:el instanceof HTMLElement&&el.isContentEditable?editableValue(el).length:undefined, editable: (el instanceof HTMLInputElement && !['file','hidden','password','submit','button','checkbox','radio','range','color'].includes(el.type)) || el instanceof HTMLTextAreaElement || (el instanceof HTMLElement&&el.isContentEditable), tag: el.tagName.toLowerCase(), type: el.getAttribute('type') || '', ...(el instanceof HTMLMediaElement?{paused:el.paused}:{}), ...(el instanceof HTMLInputElement && ['checkbox','radio'].includes(el.type) ? {checked:el.checked} : /checkbox|switch|radio/.test(el.getAttribute('role') || '') ? {checked:el.getAttribute('aria-checked') === 'true'} : {}) };
+      let sameOriginHref:string|undefined;
+      if(el instanceof HTMLAnchorElement){
+        const opensNewTab=el.target==='_blank';
+        el.target='_self';
+        // Keep Nova attached to the recorded tab even when a site's delegated
+        // click handler calls window.open for an ordinary same-origin link.
+        // The one-shot capture listener applies only to the exact grounded link.
+        try{const destination=new URL(el.href,location.href);if(opensNewTab&&destination.origin===location.origin){sameOriginHref=destination.href;
+          el.addEventListener('click',event=>{event.preventDefault();event.stopImmediatePropagation();location.assign(destination.href);},{capture:true,once:true});
+        }}catch{}
+      }
+      return { x, y, ...(el instanceof HTMLElement&&codeLines(el)?{newlineKey:'Enter' as const}:{}), ...(monacoRoot(el)?{editor:'monaco' as const}:{}), ...(sameOriginHref?{href:sameOriginHref}:{}), focused:el.getRootNode() instanceof ShadowRoot ? (el.getRootNode() as ShadowRoot).activeElement===el : document.activeElement===el, valueLength:fieldValue(el)?.length, editable: (el instanceof HTMLInputElement && !['file','hidden','password','submit','button','checkbox','radio','range','color'].includes(el.type)) || el instanceof HTMLTextAreaElement || (el instanceof HTMLElement&&el.isContentEditable), tag: el.tagName.toLowerCase(), type: el.getAttribute('type') || '', ...(el instanceof HTMLMediaElement?{paused:el.paused}:{}), ...(el instanceof HTMLInputElement && ['checkbox','radio'].includes(el.type) ? {checked:el.checked} : /checkbox|switch|radio/.test(el.getAttribute('role') || '') ? {checked:el.getAttribute('aria-checked') === 'true'} : {}) };
     },
     startInput(ref,append=false) {
       // Validate the original observed field before focusing it once. A trusted
@@ -229,7 +262,7 @@ export function installNovaDOM() {
       const root = el.getRootNode();
       const active = root instanceof ShadowRoot ? root.activeElement : document.activeElement;
       if (active !== el || !(el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement || el.isContentEditable)) return;
-      const rect=el.getBoundingClientRect();
+      const rect=(monacoRoot(el)||el).getBoundingClientRect();
       return {x:(Math.max(0,rect.left)+Math.min(innerWidth-1,rect.right))/2,y:(Math.max(0,rect.top)+Math.min(innerHeight-1,rect.bottom))/2};
     },
     prepareInputCorrection(ref,prefix,character) {
@@ -267,8 +300,9 @@ export function installNovaDOM() {
       const el = refs.get(action.ref || '');
       let matches: boolean | undefined;
       if (el && !sensitive(el) && ['fill','clear','paste','type'].includes(action.kind)) {
-        const value = el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement ? el.value : (el as HTMLElement).isContentEditable && (!el.matches('.cm-content')||codeLines(el as HTMLElement)) ? editableValue(el as HTMLElement) : undefined;
-        matches = action.kind==='type'?typeof value==='string'&&expectedLength!==undefined&&value.length===expectedLength&&(inputBaselines.has(el as HTMLElement)?value===inputBaselines.get(el as HTMLElement)!+(action.value||''):value.endsWith(action.value||'')):value === (action.kind === 'clear' ? '' : action.value || '');
+        const value = monacoValue(el)??(el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement ? el.value : (el as HTMLElement).isContentEditable && (!el.matches('.cm-content')||codeLines(el as HTMLElement)) ? editableValue(el as HTMLElement) : undefined);
+        const expected=action.kind === 'clear' ? '' : action.value || '';
+        matches = action.kind==='type'?typeof value==='string'&&expectedLength!==undefined&&value.length===expectedLength&&(inputBaselines.has(el as HTMLElement)?value===inputBaselines.get(el as HTMLElement)!+(action.value||''):value.endsWith(action.value||'')):value === expected||typeof value==='string'&&!!monacoRoot(el)&&equivalentJson(value,expected);
       }
       if (el && action.kind === 'check') matches = (el instanceof HTMLInputElement ? el.checked : el.getAttribute('aria-checked') === 'true') === (action.value !== 'false');
       if (el instanceof HTMLSelectElement && action.kind === 'select') matches = el.value === action.value || el.selectedOptions[0]?.text === action.value;
@@ -306,7 +340,7 @@ export function installNovaDOM() {
         if(matches.length!==1||matches[0].sensitive)continue;
         const item=matches[0],el=refs.get(item.ref);if(!el||sensitive(el)||!el.matches('input,textarea,[contenteditable]'))continue;
         const actual=fieldValue(el);if(actual===undefined)continue;
-        item.state!.push(`draft:${actual===draft.value?'matches':'different'}:${draft.ref}`);
+        item.state!.push(`draft:${actual===draft.value||!!monacoRoot(el)&&equivalentJson(actual,draft.value)?'matches':'different'}:${draft.ref}`);
       }
       // Text nodes exclude all form values, executable content, hidden content, and Nova itself.
       const chunks: string[] = [], distant:string[]=[]; let length = 0, distantLength=0, scanned=0;

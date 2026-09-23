@@ -10,6 +10,35 @@ let browser:Browser;let page:Page;
 beforeAll(async()=>{browser=await chromium.launch({headless:true});page=await browser.newPage();});
 afterAll(async()=>{await browser?.close();});
 describe('real DOM actuation in an isolated fixture browser',()=>{
+  it('grounds and verifies a Monaco textarea through its complete rendered line DOM',async()=>{
+    await page.setContent('<div class="monaco-editor" style="position:relative;width:700px;height:300px"><textarea class="inputarea" aria-label="Editor content" style="position:absolute;width:1px;height:1px;opacity:0"></textarea><div class="margin-view-overlays"><div class="line-numbers">1</div><div class="line-numbers">2</div><div class="line-numbers">3</div></div><div class="view-lines"><div class="view-line">{</div><div class="view-line">  &quot;name&quot;: &quot;old&quot;</div><div class="view-line">}</div></div></div>');
+    await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);
+    const editor=(await page.evaluate(()=>window.__novaDOM!.snapshot())).elements.find(e=>e.name==='Editor content')!;
+    expect(editor).toMatchObject({tag:'textarea',covered:false,edit:{empty:false},state:expect.arrayContaining(['editor:monaco'])});
+    const prepared=await page.evaluate(ref=>window.__novaDOM!.prepare(ref),editor.ref);
+    expect(prepared).toMatchObject({editable:true,tag:'textarea',editor:'monaco'});expect(prepared.x).toBeGreaterThan(100);expect(prepared.y).toBeGreaterThan(50);
+    expect(await page.evaluate(ref=>{window.__novaDOM!.startInput(ref);return !!window.__novaDOM!.inputPosition(ref);},editor.ref)).toBe(true);
+    const value='{\n  "name": "new"\n}';
+    await page.locator('.view-lines').evaluate(node=>{node.innerHTML='<div class="view-line">{&quot;name&quot;:&quot;new&quot;}</div>';});
+    await page.locator('.margin-view-overlays').evaluate(node=>{node.innerHTML='<div class="line-numbers">1</div>';});
+    expect(await page.evaluate(fill=>window.__novaDOM!.verify(fill),action({kind:'fill',ref:editor.ref,value}))).toMatchObject({verification:{status:'verified'}});
+  });
+  it('keeps a grounded same-origin link in the attached tab even when the site tries to open a popup',async()=>{
+    await page.setContent('<a href="#run" target="_blank" onclick="window.open(this.href)">Open run</a>');
+    await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);
+    const link=(await page.evaluate(()=>window.__novaDOM!.snapshot())).elements.find(e=>e.name==='Open run')!;
+    await page.evaluate(ref=>window.__novaDOM!.prepare(ref),link.ref);
+    const popup=page.waitForEvent('popup',{timeout:500}).catch(()=>undefined);
+    await page.getByRole('link',{name:'Open run'}).click();
+    expect(new URL(page.url()).hash).toBe('#run');expect(await popup).toBeUndefined();
+  });
+  it('preserves an ordinary same-origin app link handler',async()=>{
+    await page.setContent('<a href="#fallback" onclick="event.preventDefault();location.hash=\'handled\'">Events</a>');
+    await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);
+    const link=(await page.evaluate(()=>window.__novaDOM!.snapshot())).elements.find(e=>e.name==='Events')!;
+    expect(await page.evaluate(ref=>window.__novaDOM!.prepare(ref),link.ref)).not.toHaveProperty('href');
+    await page.getByRole('link',{name:'Events'}).click();expect(new URL(page.url()).hash).toBe('#handled');
+  });
   it('labels one custom toggle from its unassociated field label without borrowing neighboring fields',async()=>{
     await page.setContent('<div><label>Rollover unused credits</label><div><button role="checkbox" aria-checked="false"></button><p>Rollover unused credits to the next billing cycle</p></div></div><div><label>Ambiguous section</label><button role="checkbox">One</button><button role="checkbox">Two</button></div><div><label>Fallback</label><button role="switch" aria-label="Explicit label"></button></div>');
     await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);
@@ -115,6 +144,13 @@ describe('real DOM actuation in an isolated fixture browser',()=>{
   it('omits secrets, hidden instructions, and invisible controls',async()=>{await page.setContent(readFileSync('tests/fixtures/shop.html','utf8'));await page.evaluate(script);const snap=await page.evaluate(()=>window.__novaDOM!.snapshot());expect(snap.text).not.toContain('NEVER_SEND');expect(snap.text).not.toContain('Ignore the user');expect(snap.elements.some(e=>e.ref==='secret'||e.name==='Add to cart')).toBe(false);expect(snap.elements.some(e=>e.name==='Search products')).toBe(true);});
   it('fills and submits search, opens details, adds to cart, and sees the changed result',async()=>{let snap=await page.evaluate(()=>window.__novaDOM!.snapshot());const search=snap.elements.find(e=>e.name==='Search products')!;await page.evaluate(a=>window.__novaDOM!.execute(a),action({kind:'fill',ref:search.ref,value:'Zebronics adapter'}));await page.evaluate(a=>window.__novaDOM!.execute(a),action({kind:'press',ref:search.ref,value:'Enter'}));expect(await page.title()).toContain('Zebronics adapter');snap=await page.evaluate(()=>window.__novaDOM!.snapshot());const product=snap.elements.find(e=>e.name.startsWith('Zebronics'))!;await page.evaluate(a=>window.__novaDOM!.execute(a),action({ref:product.ref}));await page.waitForFunction(()=>!document.getElementById('product')!.classList.contains('hidden'));snap=await page.evaluate(()=>window.__novaDOM!.snapshot());expect(snap.text).toContain('DisplayPort Alt Mode');const add=snap.elements.find(e=>e.name==='Add to cart')!;await page.evaluate(a=>window.__novaDOM!.execute(a),action({ref:add.ref}));snap=await page.evaluate(()=>window.__novaDOM!.snapshot());expect(snap.text).toContain('Cart: 1 items');expect(snap.text).toContain('Total ₹799');});
   it('rejects a stale ref after its element is removed',async()=>{const snap=await page.evaluate(()=>window.__novaDOM!.snapshot());const ref=snap.elements.find(e=>e.name==='Add to cart')!.ref;await page.locator('#add-cart').evaluate(el=>el.remove());await expect(page.evaluate(a=>window.__novaDOM!.execute(a),action({ref}))).rejects.toThrow('changed or disappeared');});
+  it('recovers topmost controls from an aria-hidden app shell without exposing covered background controls',async()=>{
+    await page.setContent('<div aria-hidden="true"><button id="modal" style="position:absolute;left:20px;top:20px;width:180px;height:60px;z-index:2">Send synthetic event</button><button id="background" style="position:absolute;left:20px;top:120px;width:180px;height:60px">Delete production run</button></div><div style="position:absolute;left:20px;top:120px;width:180px;height:60px;background:white;z-index:2">Overlay</div>');
+    await page.evaluate(()=>{delete window.__novaDOM;});await page.evaluate(script);
+    const snap=await page.evaluate(()=>window.__novaDOM!.snapshot());
+    expect(snap.elements.some(e=>e.name==='Send synthetic event')).toBe(true);
+    expect(snap.elements.some(e=>e.name==='Delete production run')).toBe(false);
+  });
   it('extracts accessible controls from open shadow roots',async()=>{await page.setContent('<div id="host"></div>');await page.evaluate(()=>{document.getElementById('host')!.attachShadow({mode:'open'}).innerHTML='<button>Search catalogue</button>';delete window.__novaDOM;});await page.evaluate(script);const snap=await page.evaluate(()=>window.__novaDOM!.snapshot());expect(snap.elements.some(e=>e.name==='Search catalogue')).toBe(true);});
   it('targets the exposed part of a tall editor above a sticky footer',async()=>{
     await page.setContent('<textarea aria-label="Business prompt" style="position:absolute;top:500px;left:20px;width:400px;height:700px"></textarea><footer style="position:fixed;bottom:0;left:0;right:0;height:130px;background:white">Save footer</footer>');

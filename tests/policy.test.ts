@@ -14,7 +14,7 @@ describe('deterministic action policy', () => {
   describe('ordinary editable focus',()=>{
     const editor={ref:'editor',tag:'div',role:'',name:'Returns policy: preserve proof of purchase. Do not send refunds or delete records.',type:'contenteditable',context:'',form:false,disabled:false,sensitive:false,edit:{revision:'v1',empty:false},submission:{scope:'editor-region',label:'',fields:[{ref:'editor',revision:'v1'}]}};
     const page={...snapshot,elements:[editor]};
-    it.each([{tag:'div',type:'contenteditable',role:''},{tag:'textarea',type:'',role:''},{tag:'input',type:'text',role:'textbox'}])('allows one focus click on the observed editor: %o',shape=>{
+    it.each([{tag:'div',type:'contenteditable',role:''},{tag:'div',type:'contenteditable',role:'',visual:true},{tag:'textarea',type:'',role:''},{tag:'input',type:'text',role:'textbox'}])('allows one focus click on the observed editor: %o',shape=>{
       expect(checkAction(action({ref:'editor'}),{...page,elements:[{...editor,...shape}]},page.url,'Revise the returns policy').outcome).toBe('allow');
     });
     it('does not bypass actual commitments, private fields or uncertain editable metadata',()=>{

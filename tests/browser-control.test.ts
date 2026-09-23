@@ -5,7 +5,7 @@ const click:Action={kind:'click',ref:'validate',value:null,url:null,x:null,y:nul
 function setup(onClick?:ConstructorParameters<typeof BrowserControl>[2], pacedInput=false){
   vi.stubGlobal('navigator',{platform:'MacIntel'});
   const sendMessage=vi.fn();const sendCommand=vi.fn().mockResolvedValue({});
-  vi.stubGlobal('chrome',{permissions:{contains:vi.fn().mockResolvedValue(true)},tabs:{get:vi.fn().mockResolvedValue({active:true,url:'https://example.test/'}),sendMessage},debugger:{attach:vi.fn().mockResolvedValue(undefined),sendCommand,onDetach:{addListener:vi.fn()}}});
+  vi.stubGlobal('chrome',{permissions:{contains:vi.fn().mockResolvedValue(true)},tabs:{get:vi.fn().mockResolvedValue({active:true,url:'https://example.test/'}),update:vi.fn().mockResolvedValue({}),sendMessage},debugger:{attach:vi.fn().mockResolvedValue(undefined),sendCommand,onDetach:{addListener:vi.fn()}}});
   return {control:new BrowserControl(()=>1,()=>{},onClick,pacedInput),sendMessage,sendCommand};
 }
 afterEach(()=>{vi.unstubAllGlobals();vi.useRealTimers();});
@@ -18,6 +18,12 @@ describe('pointer dispatch receipts',()=>{
     expect(record).toHaveBeenCalledTimes(1);
     record.mockClear();await f.control.execute(1,{...click,kind:'hover'});
     expect(record).not.toHaveBeenCalled();
+  });
+  it('opens a grounded same-origin link in the attached tab without a remount-sensitive click',async()=>{
+    const record=vi.fn();const f=setup(record);f.sendMessage.mockResolvedValue({x:20,y:30,editable:false,href:'https://example.test/run'});
+    expect(await f.control.execute(1,click)).toMatchObject({ok:true});
+    expect(chrome.tabs.update).toHaveBeenCalledWith(1,{url:'https://example.test/run'});expect(record).toHaveBeenCalledTimes(1);
+    expect(f.sendCommand.mock.calls.map(call=>call[2].type)).toEqual(['mouseMoved']);
   });
   it('does not invent click evidence for rejected targets or failed release',async()=>{
     const record=vi.fn();const f=setup(record);f.sendMessage.mockResolvedValue({error:'Covered target'});
@@ -78,6 +84,12 @@ describe('recording-mode trusted field entry',()=>{
     await vi.runAllTimersAsync();await task;
     expect(paced.sendCommand.mock.calls.filter(c=>c[1]==='Input.insertText').map(c=>c[2].text)).toEqual([... 'Two words']);
     expect(paced.sendMessage.mock.calls.filter(c=>c[1].method==='native-input-focus')).toHaveLength(9);
+  });
+  it('replaces Monaco content atomically so editor auto-pairs cannot rewrite paced JSON',async()=>{
+    const f=setup(undefined,true);f.sendMessage.mockResolvedValue({x:20,y:30,editable:true,editor:'monaco',tag:'textarea',type:'',ok:true});
+    const value='{\n  "name": "nova/demo"\n}';
+    await f.control.execute(1,{...click,kind:'fill',value});
+    expect(f.sendCommand.mock.calls.filter(c=>c[1]==='Input.insertText').map(c=>c[2].text)).toEqual(['{"name":"nova/demo"']);
   });
   it('allows query-only draft updates during paced input but rejects path navigation',async()=>{
     vi.useFakeTimers();

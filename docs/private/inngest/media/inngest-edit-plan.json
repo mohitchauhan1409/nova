@@ -1,0 +1,29 @@
+{
+  "fps": 30,
+  "width": 3024,
+  "height": 1776,
+  "segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 3900,
+      "output_frames": 3900,
+      "kind": "agent",
+      "reason": "Retain the opening, exact release-review flow, completed run verification, risk-check request, progressive website input, and both review cards at real speed."
+    },
+    {
+      "start_frame": 3900,
+      "end_frame": 5240,
+      "output_frames": 90,
+      "kind": "operator-idle",
+      "reason": "Compress only the operator's extended review pause at the final risk-event confirmation."
+    },
+    {
+      "start_frame": 5240,
+      "end_frame": 7000,
+      "output_frames": 1760,
+      "kind": "agent",
+      "reason": "Retain the confirmed local send, intentional retry wait, failed run inspection, exact error evidence, and Nova's closing diagnosis at real speed."
+    }
+  ],
+  "clicks": []
+}

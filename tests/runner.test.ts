@@ -162,6 +162,17 @@ describe('browser agent execution boundaries',()=>{
     expect(f.session.traces.some(t=>t.text.includes('page changed while planning'))).toBe(true);
     expect(f.session.status).toBe('ready');
   });
+  it('revalidates one exact remounted link identity before dispatching',async()=>{
+    const f=fixture();const link={...base.elements[0],ref:'run-1',tag:'a',name:'northstar-release-review',href:'https://shop.example.com/run?id=1',type:'',context:''};
+    f.setState({...base,text:'Events',elements:[link]});let plans=0;
+    f.planner.decide=async()=>{
+      if(++plans===1){await new Promise(resolve=>setTimeout(resolve,780));f.setState({...base,text:'Events',elements:[{...link,ref:'run-2'}]});return {...act('click'),ref:'run-1',risk:'read',summary:'Open the resulting run'};}
+      return {...act('done'),summary:'The run opened.',completion:{status:'blocked',evidence:[]}};
+    };
+    await f.runner.command('Open the resulting run');
+    expect(f.execute).toHaveBeenCalledTimes(1);expect(f.execute.mock.calls[0][0].ref).toBe('run-2');
+    expect(f.session.traces.some(t=>t.text.includes('exact identity'))).toBe(true);
+  });
   it('replans when an unchanged value input is reused for a different structural key',async()=>{
     const f=fixture();const field={...base.elements[0],ref:'value',tag:'input',name:'Value',type:'text',context:'Field key: purpose. Edit properties',edit:{revision:'same-value',empty:false}};
     f.setState({...base,elements:[field]});let plans=0;
@@ -284,6 +295,12 @@ describe('browser agent execution boundaries',()=>{
     const f=fixture();f.setState({...base,elements:[{...base.elements[0],ref:'editor',tag:'textarea',name:'Ask assistant',edit:{revision:'user-draft',empty:false}}]});
     f.planner.decide=async()=>({...act('fill'),ref:'editor',value:'Unrequested replacement'});
     await f.runner.command('Send it');expect(f.execute).not.toHaveBeenCalled();expect(f.session.status).toBe('ready');
+  });
+  it('replaces a structured editor default when sending an exact requested payload',async()=>{
+    const f=fixture();f.setState({...base,elements:[{...base.elements[0],ref:'editor',tag:'textarea',name:'Editor content',state:['editor:monaco'],edit:{revision:'default-json',empty:false}}]});
+    f.driver.execute=vi.fn(async()=>({ok:true,verification:{status:'verified' as const,detail:'Payload matches'}}));
+    f.planner.decide=vi.fn().mockResolvedValueOnce({...act('fill'),ref:'editor',value:'{"name":"nova/example"}'}).mockResolvedValueOnce({...act('done'),summary:'Prepared',completion:{status:'completed',evidence:[{source:'action',ref:null,value:'fill'}]}});
+    await f.runner.command('Send exactly this JSON event');expect(f.driver.execute).toHaveBeenCalledTimes(1);expect(f.session.preparedInputs?.[0].value).toBe('{"name":"nova/example"}');
   });
   it('accepts a send approval after unrelated text updates, but stops if the draft changed',async()=>{
     for(const changed of [false,true]){

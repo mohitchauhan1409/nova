@@ -1,27 +1,20 @@
 # Inngest evidence and provenance plan
 
-## Official sources
+## Sources of truth
 
-- `https://www.inngest.com/docs/platform/environments` defines Production, Branch, Custom, and Local environments, isolation, switching, and credential boundaries.
-- `https://www.inngest.com/docs/platform/monitor/observability-metrics` documents Functions-list triggers, failure rate, volume, backlog, and event observability.
-- `https://www.inngest.com/docs/platform/monitor/inspecting-function-runs` documents Runs filters, run detail, step timelines, retry/error evidence, and the adjacent rerun/Dev Server actions that this rehearsal must avoid.
-- `https://www.inngest.com/docs/platform/monitor/traces` documents run info, timings, trace layout, step detail, retries, and input/output visibility.
-- `https://www.inngest.com/docs/platform/manage/rerun-function-runs` confirms that reruns create a new run and may repeat side effects; it is provenance for the prohibition, not an instruction to rerun.
+- The Local Dev Server at `http://localhost:8288` supplies run, event, step, retry, timing, and error evidence.
+- `fixtures/local-demo/server.mjs` defines the two synthetic functions and the intentional failure token.
+- Nova session action steps identify verified navigation and execution actions without storing field values.
+- The original capture is immutable; the frame EDL, click cues, and audio reports document every derived export.
 
-These sources establish product vocabulary and risk boundaries. They do not prove the current account’s state or any individual live result.
+## Required visible evidence
 
-## Live evidence requirements
-
-1. Address bar shows the exact `app.inngest.com` hostname.
-2. Nova displays Inngest identity and both read-only suggestions.
-3. Workspace/account and environment switcher are visible, with Production unambiguous.
-4. The user-named app/function/run and selected time range are visible.
-5. Run metadata, trace timeline, failed step, retry count, and redacted error category are visible without sensitive payload values.
-6. Function trigger, failure rate, volume, backlog/throughput, version, and configuration are captured only where the dashboard exposes them.
-7. Final frames show no execution or mutation was initiated.
-
-Do not record account identifiers, member lists, event keys, signing keys, environment variables, integrations, billing, raw customer payloads, secrets, tokens, or unrelated run data. Crop, redact, or stop before those values enter the frame.
+1. The address bar shows `localhost:8288` and the page identifies itself as the Development Server.
+2. The exact event names and final synthetic IDs are visible before confirmation.
+3. The release run is completed and both named steps are visible.
+4. The risk run is failed, `validate-risk` shows one retry, and `SYNTHETIC_RISK_REVIEW_FAILURE` is visible.
+5. Nova's summaries distinguish the intentional fixture failure from a product incident and state that no rerun occurred.
 
 ## Claim discipline
 
-Both flows remain `verified: false` until checked against the live, authorized account. Use current visible labels rather than assumed navigation. Generated summaries must cite visible state and explicitly mark inferred causes. Never use fixture values as live evidence.
+The recording proves only these local synthetic runs. It does not claim Production access, deployment, real telemetry, customer impact, or a successful rerun. Generated click sounds are post-production effects tied to recorded action timestamps or inspected frame transitions; they are not ambient audio.

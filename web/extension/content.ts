@@ -30,7 +30,10 @@ if (!window.__novaContentInstalled) {
     if(message.type==='nova-dom'){
       if(!active){respond({error:'This Nova website session has ended.'});return;}
       if(message.method==='snapshot'){try{respond(window.__novaDOM!.snapshot(Array.isArray(message.action)?message.action:[]));}catch(error){respond({error:(error as Error).message});}return;}
-      if(message.method==='verify'){try{respond(window.__novaDOM!.verify(message.action,message.expectedLength));}catch(error){respond({error:(error as Error).message});}return;}
+      if(message.method==='verify'){
+        void (async()=>{if(inputActionKinds.has(message.action.kind))await settleEditorInput();return window.__novaDOM!.verify(message.action,message.expectedLength);})()
+          .then(respond).catch(error=>respond({error:error.message}));return true;
+      }
       if(message.method==='native-input-end'){if(inputCursor===message.cursorId){inputCursor=undefined;window.__novaCompanion?.clearCursor();}respond({ok:true});return;}
       if(message.method==='native-input-focus'){
         try{
@@ -40,8 +43,8 @@ if (!window.__novaContentInstalled) {
         }catch(error){respond({error:(error as Error).message});}return;
       }
       if(message.method==='native-input-empty'){
-        try{respond({ok:!!window.__novaDOM!.inputPosition(message.action.ref)&&window.__novaDOM!.verify({...message.action,kind:'clear'}).verification?.status==='verified'});}
-        catch(error){respond({error:(error as Error).message});}return;
+        void (async()=>{await settleEditorInput();return {ok:!!window.__novaDOM!.inputPosition(message.action.ref)&&window.__novaDOM!.verify({...message.action,kind:'clear'}).verification?.status==='verified'};})()
+          .then(respond).catch(error=>respond({error:error.message}));return true;
       }
       if(message.method==='native-input-correction'){
         void (async()=>{

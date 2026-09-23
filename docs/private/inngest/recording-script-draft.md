@@ -1,36 +1,27 @@
-# Inngest read-only recording script draft
+# Inngest Local recording script
 
-## Opening (5–8 seconds)
+## Opening
 
-Show the exact `app.inngest.com` host and open Nova. Hold on the Inngest-specific identity and both read-only suggestions. Frame or redact the account control so its identifier is not recorded.
+Show one Chrome tab at `localhost:8288/events`, the Development Server label, an empty fresh event list, and the Nova panel.
 
-## Take 1 — failed-run investigation (60–90 seconds)
+## Flow 1 — completed release review
 
-1. Choose **Investigate a failed run** in Nova.
-2. Show the authorized workspace context and Production environment.
-3. Open Runs and apply only the named read-only filters.
-4. Open the named failed run; frame status, function/app, version, and timing without raw payload values.
-5. Expand the trace and failed step to show prior completed steps, retry attempts, and a redacted error category.
-6. Hold on Nova’s evidence summary, including any explicit inference or missing evidence.
-7. End with the same run detail visible and no action in progress. Keep Rerun, Replay, Cancel, and Send to Dev Server untouched.
+1. Ask Nova to send the exact `nova/release.review.requested` fixture for `final-release-01`.
+2. Show progressive entry in the structured editor.
+3. Review the question card and concrete action confirmation.
+4. Confirm once.
+5. Open the exact `northstar-release-review` result in the attached tab.
+6. Hold on Completed, `validate-release`, `compose-summary`, and Nova's evidence summary.
 
-Suggested narration: “Nova stays inside the named production run, correlates the failed step with its retry history, and reports evidence without replaying work or exposing payload data.”
+## Flow 2 — intentional risk failure
 
-## Take 2 — function-health review (45–75 seconds)
+1. Start a new Nova conversation and ask for the exact `nova/risk.review.requested` fixture for `final-risk-01` with `mode: fail`.
+2. Show progressive input and both confirmation layers.
+3. Confirm once and wait for the one retry to finish.
+4. Open the exact `northstar-risk-check` run and `validate-risk` step.
+5. Hold on Failed, `1 retry`, `SYNTHETIC_RISK_REVIEW_FAILURE`, and Nova's diagnosis.
+6. End without using Rerun or Rerun from step.
 
-1. Choose **Review function health** in Nova.
-2. Reconfirm Production, then open Functions and the named function.
-3. Frame the trigger, app, failure rate, volume, and selected time range.
-4. Show backlog/throughput, status distribution, version, or read-only configuration only where available.
-5. Hold on Nova’s health summary and limitations.
-6. End on the function detail with no edit, deploy, sync, invocation, event send, or run action initiated.
+## Editing
 
-Suggested narration: “Nova anchors every health observation to the selected environment and time range, and stops at evidence—no production execution or configuration change.”
-
-## Empty-state alternative
-
-If the authorized account has no functions or runs, record the scoped empty state and Nova’s honest blocked summary. Do not create an app, environment, event, deployment, or run to fill the demo.
-
-## Editing notes
-
-Prefer cuts over showing raw payload panels. Blur sensitive identifiers and remove any take where an execution/mutation control was activated. Do not claim live workflow verification until the rehearsal checklist is complete.
+Preserve the original. Shorten only operator review holds. Keep Nova execution, progressive typing, the retry wait, and evidence reading at real speed. The silent export has no audio; the click-only export uses only frame-verified mechanical taps.

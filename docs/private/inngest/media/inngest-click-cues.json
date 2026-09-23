@@ -1,0 +1,119 @@
+{
+  "duration": 191.666667,
+  "events": [
+    {
+      "time": 20.6,
+      "actor": "nova",
+      "strength": 0.7,
+      "evidence": "Frame-inspected Nova cursor transition opening the Local Send Event form for the release-review flow."
+    },
+    {
+      "time": 24.8,
+      "actor": "nova",
+      "strength": 0.7,
+      "evidence": "Frame-inspected Nova cursor transition focusing the structured event editor before progressive input."
+    },
+    {
+      "time": 32.0,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Frame-inspected selection of the release-review Send event answer."
+    },
+    {
+      "time": 38.0,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Frame-inspected release-review answer continuation."
+    },
+    {
+      "time": 53.2,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Frame-inspected confirmation of the exact local release-review event."
+    },
+    {
+      "time": 54.1,
+      "actor": "nova",
+      "strength": 0.7,
+      "evidence": "Frame-inspected Nova send transition that produced the accepted release-review event."
+    },
+    {
+      "time": 57.8,
+      "actor": "nova",
+      "strength": 0.7,
+      "evidence": "Frame-inspected Nova cursor transition opening the exact northstar-release-review run."
+    },
+    {
+      "time": 73.0,
+      "actor": "operator",
+      "strength": 0.8,
+      "evidence": "Frame-inspected New conversation control between the two independent workflows."
+    },
+    {
+      "time": 80.24,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Recorded session timestamp and inspected transition for submitting the risk-check request."
+    },
+    {
+      "time": 84.269,
+      "actor": "nova",
+      "strength": 0.7,
+      "evidence": "Recorded verified action step opening Events in the attached Local Dev Server."
+    },
+    {
+      "time": 100.689,
+      "actor": "nova",
+      "strength": 0.7,
+      "evidence": "Recorded verified action step opening the Local Send Event form for the risk check."
+    },
+    {
+      "time": 104.524,
+      "actor": "nova",
+      "strength": 0.7,
+      "evidence": "Recorded verified input step and inspected Nova editor-focus cursor before progressive input."
+    },
+    {
+      "time": 120.9,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Frame-inspected selection of the risk-check Send event answer."
+    },
+    {
+      "time": 121.28,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Recorded session timestamp and inspected continuation to the concrete risk-event confirmation."
+    },
+    {
+      "time": 134.63,
+      "actor": "operator",
+      "strength": 0.85,
+      "evidence": "Frame-inspected operator confirmation of the exact local synthetic risk event after EDL mapping."
+    },
+    {
+      "time": 134.847,
+      "actor": "nova",
+      "strength": 0.7,
+      "evidence": "Recorded verified action step sending the confirmed risk event after EDL mapping."
+    },
+    {
+      "time": 140.613,
+      "actor": "nova",
+      "strength": 0.7,
+      "evidence": "Recorded verified action step opening Local Runs after EDL mapping."
+    },
+    {
+      "time": 171.209,
+      "actor": "nova",
+      "strength": 0.7,
+      "evidence": "Recorded verified action step opening the exact failed northstar-risk-check run after EDL mapping."
+    },
+    {
+      "time": 175.155,
+      "actor": "nova",
+      "strength": 0.7,
+      "evidence": "Recorded verified action step opening validate-risk to inspect retry and error evidence after EDL mapping."
+    }
+  ]
+}

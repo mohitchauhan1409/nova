@@ -1,12 +1,12 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { inngestProfile } from '../BE/src/sites/inngest';
+import { inngestLocalProfile, inngestProfile } from '../BE/src/sites/inngest';
 import { customSiteProfiles, siteStoreFilename } from '../BE/src/sites/customizations';
 import { launcherStylesFor } from '../web/companion/customization';
 
 describe('Inngest customer customization', () => {
   it('registers a production-read-only profile with two substantial flows', () => {
-    expect(customSiteProfiles).toEqual([inngestProfile]);
+    expect(customSiteProfiles).toEqual([inngestProfile, inngestLocalProfile]);
     expect(siteStoreFilename).toBe('sites.inngest.json');
     expect(inngestProfile).toMatchObject({
       id: 'inngest', domain: 'app.inngest.com', url: 'https://app.inngest.com', builtIn: true,
@@ -18,8 +18,19 @@ describe('Inngest customer customization', () => {
     }
   });
 
+  it('registers a localhost-only synthetic action profile', () => {
+    expect(inngestLocalProfile).toMatchObject({
+      id: 'inngest-local', domain: 'localhost', url: 'http://localhost:8288', builtIn: true,
+    });
+    expect(inngestLocalProfile.flows).toHaveLength(2);
+    expect(inngestLocalProfile.instructions).toContain('Local synthetic event sends');
+    expect(inngestLocalProfile.instructions).toContain('Do not rerun, replay, cancel');
+    expect(inngestLocalProfile.flows.every(flow => flow.steps.length >= 6)).toBe(true);
+  });
+
   it('scopes launcher styling to the exact Inngest app hostname', () => {
     expect(launcherStylesFor('https://app.inngest.com/env/production/functions')).toContain('.launch');
+    expect(launcherStylesFor('http://localhost:8288/functions')).toContain('.launch');
     expect(launcherStylesFor('https://app.inngest.com.evil.example/')).toBe('');
     expect(launcherStylesFor('https://www.inngest.com/docs')).toBe('');
     expect(launcherStylesFor('not a url')).toBe('');

@@ -1,26 +1,25 @@
-# Inngest synthetic baseline plan
+# Inngest Local synthetic baseline
 
-## Offline fixtures
+## Fixture
 
-- `tests/fixtures/inngest-synthetic-failed-run.json`
-- `tests/fixtures/inngest-synthetic-function-health.json`
+`fixtures/local-demo/server.mjs` exposes an Inngest-compatible endpoint with two deterministic functions:
 
-The fixtures are entirely synthetic, contain no credentials or real customer data, and are intentionally not compatible with an event-send workflow. They are evaluation references for evidence structure, redaction, and cautious interpretation only.
+- `northstar-release-review` handles `nova/release.review.requested` through `validate-release` and `compose-summary`.
+- `northstar-risk-check` handles `nova/risk.review.requested`; `mode: fail` deliberately throws `SYNTHETIC_RISK_REVIEW_FAILURE` inside `validate-risk` and allows exactly one retry.
 
-## Failed-run assertions
+The fixture contains no credentials, customer data, external calls, production targets, or persistent business records.
 
-A useful investigation identifies environment, app, function, status, timing, failed step, attempts, and error category while omitting raw payload and customer identifiers. It correlates the failed step with retries and labels any root-cause statement as direct evidence or inference. It never claims a rerun outcome.
+## Baseline and reset
 
-## Function-health assertions
+Start a fresh in-memory Dev Server, start the fixture on `127.0.0.1:3000`, and register it once through the Local Apps surface before recording. Reset by stopping the two local processes and starting a fresh in-memory Dev Server; no Production cleanup is involved.
 
-A useful review anchors every metric to the visible environment and time range. It reports the trigger and available health signals without inferring configuration that is not shown. One window is not enough to claim a trend. Missing charts or access restrictions are valid results.
+## Final identifiers
 
-## Live baseline and reset
+- Release: `final-release-01`
+- Risk: `final-risk-01`
 
-Production is read-only and therefore needs no reset. Filtering, opening details, expanding trace steps, and changing a local chart range should not create product state; confirm the UI does not offer a “save view” side effect before using it.
+These identifiers are unique to the accepted take and are asserted in the visible event payloads and Nova summaries.
 
-Do not create synthetic activity in Production. If a live-safe mutation demo is ever needed, the account owner must first supply an authorized Branch, Custom, or Local environment, deployed synthetic function, and synthetic events. That setup may require deployment, keys, integration configuration, usage, or a paid plan and is outside this preparation.
+## Guardrails
 
-## Drift handling
-
-Dashboard labels, layouts, plan entitlements, retention windows, and trace fields may change. Locate controls by current accessible labels, preserve the strict prohibited-action list, and verify end state from the current page rather than hardcoded fixture answers.
+Never open Production, use event/signing keys, deploy, connect integrations, create billing usage, rerun, or represent local fixture evidence as live customer telemetry.

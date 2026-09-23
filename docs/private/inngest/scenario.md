@@ -1,23 +1,29 @@
-# Inngest production-safe rehearsal scenario
+# Inngest Local synthetic scenario
 
 ## Purpose
 
-Demonstrate that Nova can investigate durable-function evidence in the Inngest dashboard without causing execution, dispatch, deployment, configuration, credential, integration, or billing changes.
+Demonstrate two substantial Nova-controlled workflows in an isolated Inngest Local Dev Server. All functions, events, IDs, and failures are synthetic and stay on `localhost`; Production remains untouched.
 
-## Scenario A — failed-run investigation
+## Scenario A — successful release review
 
-In the exact user-authorized workspace and Production environment, open a specifically named failed run. Use read-only Runs filters and the trace timeline to identify the function/app, status, version, timing, failed step, retry history, and redacted error category. Summarize the observed failure boundary and clearly separate direct evidence from a likely cause.
+Nova opens Events and prepares exactly:
 
-The flow never presses Rerun, Replay, Cancel, Send to Dev Server, or any equivalent control. It does not inspect unrelated runs or reproduce raw event payloads, step inputs, outputs, customer data, or secrets.
+```json
+{"name":"nova/release.review.requested","data":{"synthetic":true,"releaseId":"final-release-01"}}
+```
 
-## Scenario B — function-health review
+After the operator reviews and confirms the concrete event send, Nova sends it once, opens only the resulting `northstar-release-review` run, and verifies the completed `validate-release` and `compose-summary` steps. It does not rerun the function.
 
-In the same authorized Production scope, inspect one specifically named function. Read its trigger, app, failure rate, volume, selected time range, backlog/throughput signal, current version, and configuration only where visible. Summarize health indicators and missing evidence without modifying configuration or executing anything.
+## Scenario B — intentional risk failure
 
-The committed JSON fixtures provide an offline synthetic reference for the type of evidence and guardrails expected. They are not payloads to upload or send to Inngest and must never be represented as live dashboard results.
+In a fresh conversation, Nova prepares exactly:
 
-## Stop conditions
+```json
+{"name":"nova/risk.review.requested","data":{"synthetic":true,"mode":"fail","reviewId":"final-risk-01"}}
+```
 
-Stop if the hostname is not exactly `app.inngest.com`, workspace/environment/function/run scope is ambiguous, the user has not named the production object to inspect, necessary evidence requires opening unrelated payload data, or the next control could execute, dispatch, rerun, replay, cancel, deploy, sync, create keys, change integrations, or affect billing.
+After confirmation, Nova sends it once, waits for `northstar-risk-check`, and verifies the expected failed `validate-risk` step, its one retry, and `SYNTHETIC_RISK_REVIEW_FAILURE`. It diagnoses the result as an intentional fixture outcome and does not rerun it.
 
-If no suitable named run/function exists, record the empty or unavailable state. Do not manufacture activity. A write rehearsal requires an already-authorized Branch, Custom, or Local environment populated with synthetic data by the owner; Nova does not create that prerequisite.
+## Safety boundary
+
+The fixture binds to `127.0.0.1`, contains no credentials or customer data, and performs no outbound work. Nova never opens Production, creates keys, deploys, changes billing, uses integrations, reruns a function, or sends a non-synthetic event.

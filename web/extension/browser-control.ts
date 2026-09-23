@@ -134,6 +134,12 @@ export class BrowserControl {
       await send('Input.dispatchKeyEvent',{type:text?'keyDown':'rawKeyDown',...params,...(command?{commands:[command]}:{}),...(text?{text,unmodifiedText:text}:{})});
       await this.command({tabId},'Input.dispatchKeyEvent',{type:'keyUp',...params});
     };
+    if(action.kind==='click'&&prepared.href){
+      await mouse('mouseMoved');const at=Date.now();
+      await chrome.tabs.update(tabId,{url:prepared.href});
+      this.onClick?.({at,actor:'nova',button:'left',target:action.ref||action.kind});
+      return {ok:true,detail:'Opened the grounded same-origin link in the attached tab.'};
+    }
     if(action.kind==='media'){
       if(prepared.paused===undefined)throw new Error('Choose an observed video or audio player.');
       const result=await chrome.tabs.sendMessage(tabId,{type:'nova-dom',method:'execute',action});
@@ -158,7 +164,11 @@ export class BrowserControl {
         if(empty?.error||!empty?.ok)throw new Error(empty?.error||'The original text field did not become empty with focus intact. No replacement text or submission was sent.');
       }
       const value = action.kind === 'clear' ? '' : action.value || '';
-      if (value && this.pacedInput) {
+      let dispatchedValue=value;
+      if(prepared.editor==='monaco'&&value){
+        try{const parsed=JSON.parse(value),compact=JSON.stringify(parsed);if(parsed&&typeof parsed==='object'&&(compact.startsWith('{')||compact.startsWith('['))&&(compact.endsWith('}')||compact.endsWith(']')))dispatchedValue=compact.slice(0,-1);}catch{}
+      }
+      if (value && this.pacedInput && prepared.editor!=='monaco') {
         const deadline = Date.now() + pacedActionTimeout(value) - 5_000;
         let prefix='';
         await insertPacedText(value, async character => {
@@ -185,7 +195,7 @@ export class BrowserControl {
           if (focus?.error || !focus?.ok) throw new Error(focus?.error || 'The text field lost focus. Inspect partial input before continuing.');
           checkGeneration();
         }, deadline);
-      } else if (value) await send('Input.insertText',{text:value});
+      } else if (dispatchedValue) await send('Input.insertText',{text:dispatchedValue});
       if (action.kind === 'search') await press('Enter');
     } else if (action.kind === 'press') {
       // prepare focuses only the grounded target, never an arbitrary private field.

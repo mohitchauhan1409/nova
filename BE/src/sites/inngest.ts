@@ -52,3 +52,57 @@ export const inngestProfile: SiteProfile = {
     },
   ],
 };
+
+export const inngestLocalProfile: SiteProfile = {
+  id: 'inngest-local',
+  name: 'Inngest Local',
+  domain: 'localhost',
+  url: 'http://localhost:8288',
+  color: '#3e8f57',
+  description: 'Run and inspect isolated synthetic durable-function workflows on the local Inngest Dev Server.',
+  instructions: [
+    'Work only in the Inngest Dev Server at localhost:8288 and verify the Local environment before every action.',
+    'Use only the exact synthetic Nova demo events and identifiers supplied by the user. Never copy production data, credentials, payloads, or identifiers into Local.',
+    'Local synthetic event sends and their resulting runs are authorized. Do not connect, sync, deploy, or invoke any production, Branch, or Custom environment.',
+    'Before sending an event, show the exact event name and JSON data in Nova and ask for confirmation. Keep synthetic true and use the requested unique final or rehearsal suffix.',
+    'In the Send Event dialog, the visible contenteditable labelled Editor content is already ready for input. Use one direct fill action on that observed editor; do not click or focus it in a separate step.',
+    'After sending, verify the event was accepted, open only its resulting function run, and inspect status, step names, timings, retries, and the deliberately synthetic error text where applicable.',
+    'The Events table can contain older rows. Match the exact requested event name in its own visible row and open the function link from that same row; never treat an older different event as evidence that the new event is missing.',
+    'Never press production-adjacent controls, create keys, reveal signing secrets, add integrations, edit billing, or expose unrelated local payloads.',
+    'A successful release-review run and a deliberately failed risk-check run are both expected synthetic outcomes; do not misrepresent the deliberate failure as a product incident.',
+    'Do not rerun, replay, cancel, or bulk-select runs. Create a fresh uniquely suffixed synthetic event for each rehearsal or final take.',
+    'Verify completion from the current Local dashboard state and clearly separate visible facts from any inference.',
+  ].join(' '),
+  builtIn: true,
+  observations: 0,
+  flows: [
+    {
+      id: 'inngest-local-release-review',
+      name: 'Run local release review',
+      trigger: 'Send one synthetic local Northstar release-review event and verify its successful two-step function run.',
+      verified: false,
+      steps: [
+        'Confirm the address is localhost:8288, the environment is Local, and the registered app is nova-inngest-local-demo.',
+        'Open the event-send control and prepare only nova/release.review.requested with synthetic true and the user-supplied releaseId suffix.',
+        'Present the exact event name and JSON data for confirmation before sending.',
+        'Send the confirmed local event once and verify that the Dev Server accepted it.',
+        'Open the resulting northstar-release-review run and verify successful status plus validate-release and compose-summary steps.',
+        'Summarize the visible Local result and do not rerun, replay, cancel, sync, deploy, or open unrelated payloads.',
+      ],
+    },
+    {
+      id: 'inngest-local-risk-check',
+      name: 'Inspect local risk-check failure',
+      trigger: 'Send one deliberately failing synthetic local Northstar risk-review event and inspect its failed step without rerunning it.',
+      verified: false,
+      steps: [
+        'Confirm localhost:8288, Local, and the nova-inngest-local-demo app before preparing the event.',
+        'Open the event-send control and prepare only nova/risk.review.requested with synthetic true, mode fail, and the user-supplied reviewId suffix.',
+        'Present the exact event name and JSON data for confirmation before sending.',
+        'Send the confirmed local event once, match the new nova/risk.review.requested row exactly even when older release rows remain visible, then open northstar-risk-check from that same row.',
+        'Verify failed status, the validate-risk step, retry evidence, and the deliberate SYNTHETIC_RISK_REVIEW_FAILURE text without exposing unrelated payloads.',
+        'Explain that the failure is an intentional fixture outcome; do not rerun, replay, cancel, sync, deploy, or change configuration.',
+      ],
+    },
+  ],
+};

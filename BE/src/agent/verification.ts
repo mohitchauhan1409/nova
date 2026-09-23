@@ -62,10 +62,13 @@ export function actionEffect(action: Action, before: Snapshot, after: Snapshot, 
   if(['scroll','scroll_to','zoom'].includes(action.kind)&&JSON.stringify(before.viewport)!==JSON.stringify(after.viewport)) return {action:action.kind,verified:true,detail:'The browser viewport changed.'};
   if(action.kind==='press'&&['Backspace','Delete','ControlOrMeta+Z','ControlOrMeta+Y'].includes(action.value||'')&&targetBefore?.edit&&targetAfter?.edit&&targetBefore.edit.revision!==targetAfter.edit.revision)
     return {action:action.kind,verified:true,detail:'The observed editor value changed after the editing key. Verify its intended contents before submission.'};
+  if(action.kind==='press'&&action.value==='ControlOrMeta+A'&&receipt?.ok&&targetBefore?.edit&&targetAfter?.edit&&targetBefore.edit.revision===targetAfter.edit.revision)
+    return {action:action.kind,verified:true,detail:'The browser accepted Select All in the observed editor; its contents are unchanged until the next edit.'};
   // Pointer focus/scroll alone does not prove a row opened. Focusing an
   // editable field remains a useful result before a following typing action.
   const clicking=['click','double_click'].includes(action.kind);
   const focusTarget=targetBefore&&(targetBefore.edit||['textarea','select'].includes(targetBefore.tag)||targetBefore.tag==='input'&&!/^(button|submit|reset|checkbox|radio|hidden|file)$/i.test(targetBefore.type)||['textbox','searchbox','combobox'].includes(targetBefore.role));
+  if(clicking&&receipt?.ok&&focusTarget&&targetAfter)return {action:action.kind,verified:true,detail:'The browser accepted focus on the observed editable field.'};
   const resultState=(states?:string[],includeFocus=false)=>clicking?(states||[]).filter(s=>!/^scroll(?:Max)?[XY]:/.test(s)&&(includeFocus||!/^focused:/.test(s))):states;
   if(targetBefore && targetAfter && JSON.stringify(resultState(targetBefore.state,!!focusTarget))!==JSON.stringify(resultState(targetAfter.state,!!focusTarget))) return {action:action.kind,verified:true,detail:`Control state changed: ${targetAfter.name} ${targetAfter.state?.join(', ') || ''}`};
   if(normalize(before.text)!==normalize(after.text)) return {action:action.kind,verified:true,detail:'Visible page content changed. Completion still requires evidence of the requested outcome.'};

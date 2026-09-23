@@ -205,7 +205,11 @@ export class AgentRunner {
           const prior = snapshot.elements.find(e => e.ref === action.ref);
           const fresh = await this.observe();
           if (signal.aborted) return;
-          const current = fresh.elements.find(e => e.ref === action.ref);
+          let current = fresh.elements.find(e => e.ref === action.ref);
+          if(!current&&prior&&!prior.edit){
+            const matches=fresh.elements.filter(e=>!e.covered&&['name','tag','role','type','href','context'].every(key=>e[key as keyof typeof e]===prior[key as keyof typeof prior]));
+            if(matches.length===1){current=matches[0];action={...action,ref:current.ref};this.trace('info','The same observed control remounted while planning. Revalidated its exact identity before input.');}
+          }
           const dismiss=prior&&/^(cancel|close|dismiss|back)$/i.test(prior.name.trim());
           const editorFields=(page:Snapshot)=>page.elements.filter(e=>e.form&&!e.covered&&(['input','textarea','select'].includes(e.tag)||['checkbox','switch','combobox','radio'].includes(e.role))).map(e=>`${e.ref}:${e.name}:${e.type}`).sort().join('|');
           if (dismiss&&editorFields(fresh)!==editorFields(snapshot)){
@@ -262,7 +266,8 @@ export class AgentRunner {
           const saved=this.session.preparedInputs?.find(d=>d.ref===action.ref&&d.url===snapshot.url);
           const lastRequest=latestTask(this.session);
           const sendingExisting=/\b(send|submit|post)\b/i.test(lastRequest)&&! /\b(write|draft|compose|rewrite|replace|edit|change|append)\b/i.test(lastRequest);
-          if(written.has(key)||sendingExisting&&(target?.edit?!target.edit.empty:!!saved)){
+          const structuredEditor=target?.state?.includes('editor:monaco');
+          if(written.has(key)||sendingExisting&&(!!saved||!structuredEditor&&!!target?.edit&&!target.edit.empty)){
             this.trace('info',`Draft already prepared in ${target?.name||'this field'}. Do not rewrite or append another version. Finish the drafting task or request approval to send the existing draft.`);
             if(++preventedWrites>=2){this.say(target?.edit?.empty===false?'I kept the existing draft and blocked an unnecessary rewrite.':'I stopped a duplicate text-entry step.');this.session.status='ready';return;}
             continue;

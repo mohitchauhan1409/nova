@@ -129,7 +129,7 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
   if (target?.sensitive) return result('block', 'Enter passwords, payment details, and verification codes directly in the browser.');
   // An editable surface's accessible name may be its current document text.
   // Focusing it does not execute purchases, messages or deletions it discusses.
-  if(action.kind==='click'&&action.risk!=='sensitive'&&target?.edit&&!target.href&&!target.visual&&!target.covered&&
+  if(action.kind==='click'&&action.risk!=='sensitive'&&target?.edit&&!target.href&&!target.covered&&
       !['button','a'].includes(target.tag)&&['','textbox','searchbox'].includes(target.role)&&
       (target.tag==='textarea'||target.type==='contenteditable'||target.tag==='input'&&['','text','search'].includes(target.type))&&
       (!target.submission||target.submission.fields.some(field=>field.ref===target.ref&&field.revision===target.edit!.revision))&&

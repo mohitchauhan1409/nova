@@ -1,7 +1,7 @@
 // Optional customer theme. Browser actions and activation rules stay shared.
 export function launcherStylesFor(url: string): string {
   try {
-    if (new URL(url).hostname !== 'app.inngest.com') return '';
+    if (!['app.inngest.com', 'localhost'].includes(new URL(url).hostname)) return '';
   } catch {
     return '';
   }

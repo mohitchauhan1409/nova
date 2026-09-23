@@ -142,4 +142,8 @@ describe('editable evidence and non-submitting keys',()=>{
     expect(actionEffect(backspace,page,{...page,elements:[{...field,edit:{revision:'v2',empty:false}}]},{ok:true},true).verified).toBe(true);
     expect(actionEffect({...backspace,value:'Enter'},page,page,{ok:true},true).detail).toContain('submitted draft');
   });
+  it('verifies grounded editor focus and select-all receipts without claiming a value change',()=>{
+    expect(actionEffect({...action,ref:field.ref},page,page,{ok:true},false)).toMatchObject({verified:true,detail:expect.stringContaining('focus')});
+    expect(actionEffect({...action,ref:field.ref,kind:'press',value:'ControlOrMeta+A'},page,page,{ok:true},false)).toMatchObject({verified:true,detail:expect.stringContaining('Select All')});
+  });
 });
