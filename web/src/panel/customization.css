@@ -1,2 +1,61 @@
 /* Customer branches add scoped website theme overrides here.
    Keep the shared panel layout and behavior in panel.css / PanelApp.tsx. */
+
+/* Autumn's signed-in Sandbox uses dark navy/white with a blue environment accent.
+   Every rule is isolated to the cloud dashboard host. */
+.np-app[data-site="app.useautumn.com"] {
+  --site-accent: #0f9bff !important;
+  --site-ink: #0b1728 !important;
+  --site-soft: #e6f4ff !important;
+  --autumn-bg: #ffffff;
+  --autumn-panel: #ffffff;
+  --autumn-raised: #f3f7fb;
+  --autumn-border: #dce5ef;
+  --autumn-text: #0b1728;
+  --autumn-muted: #5b6b7f;
+  color-scheme: light;
+  background: var(--autumn-bg);
+  color: var(--autumn-text);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.np-app[data-site="app.useautumn.com"] :is(.np-header,.np-tabs,.np-voice-bottom) { background:var(--autumn-bg); border-color:var(--autumn-border); }
+.np-app[data-site="app.useautumn.com"] :is(.np-brand,.np-welcome h1,.np-message-author strong,.np-message-body,.np-suggestions strong,.np-question-card h3,.np-question-fields legend,.np-action-heading,.np-action-timeline p,.np-connect h1) { color:var(--autumn-text); }
+.np-app[data-site="app.useautumn.com"] :is(.np-brand small,.np-icon-button,.np-new-chat,.np-tabs>button,.np-welcome>p,.np-suggestions small,.np-copy,.np-composer-foot,.np-page-context,.np-question-kicker,.np-question-progress,.np-question-card header>p,.np-question-fields fieldset>p,.np-question-help,.np-action-heading>span:not(.np-action-status),.np-action-timeline small,.np-action-timeline .np-step-detail,.np-voice-topline,.np-voice-heading p,.np-connect p,.np-connect label) { color:var(--autumn-muted); }
+.np-app[data-site="app.useautumn.com"] :is(.np-brand-mark,.np-welcome-mark) { background:var(--autumn-raised); color:var(--site-accent); border-color:var(--autumn-border); --mark-hole:var(--autumn-raised); }
+.np-app[data-site="app.useautumn.com"] :is(.np-author-ai,.np-question-receipt,.np-action-timeline,.np-suggestions,.np-question-card,.np-approval) { border-color:var(--autumn-border); background:var(--autumn-panel); color:var(--autumn-text); }
+.np-app[data-site="app.useautumn.com"] :is(.np-icon-button:hover,.np-new-chat:hover,.np-suggestions>button:hover,.np-question-options>button:hover,.np-tabs>button[aria-selected=true]) { background:var(--site-soft); color:var(--autumn-text); }
+.np-app[data-site="app.useautumn.com"] .np-message.user { background:var(--site-soft); color:var(--autumn-text); border-color:#b8dcf7; }
+.np-app[data-site="app.useautumn.com"] :is(.np-suggestion-icon,.np-suggestions>button>svg,.np-thinking,.np-clarification,.np-working,.np-voice-back,.np-voice-heading h1,.np-message-body a,.np-connect a) { color:var(--site-accent); }
+.np-app[data-site="app.useautumn.com"] .np-composer-area { background:linear-gradient(#ffffff00,var(--autumn-bg) 10px); }
+.np-app[data-site="app.useautumn.com"] .np-composer { background:var(--autumn-panel); border-color:#dddddd; box-shadow:0 2px 5px #1212120a; }
+.np-app[data-site="app.useautumn.com"] .np-composer:focus-within { border-color:var(--site-accent); box-shadow:0 0 0 2px #0f9bff20; }
+.np-app[data-site="app.useautumn.com"] .np-composer textarea { color:var(--autumn-text); }
+.np-app[data-site="app.useautumn.com"] :is(input,textarea)::placeholder { color:#888888; }
+.np-app[data-site="app.useautumn.com"] :is(.np-send,.np-send:hover:not(:disabled),.np-question-continue,.np-button-dark,.np-approval-buttons .np-button-dark,.np-browser-control button,.np-voice-toggle) { color:#fff; background:var(--site-accent); border-color:var(--site-accent); box-shadow:none; }
+.np-app[data-site="app.useautumn.com"] .np-send:disabled { background:#e5e5e5; color:#888888; }
+.np-app[data-site="app.useautumn.com"] :is(.np-question-card>header,.np-question-card>footer,.np-activity-log,.np-browser-control) { background:var(--autumn-raised); border-color:var(--autumn-border); }
+.np-app[data-site="app.useautumn.com"] :is(.np-question-card input,.np-question-card textarea,.np-question-options>button,.np-connect input) { background:var(--autumn-panel); border-color:#dddddd; color:var(--autumn-text); }
+.np-app[data-site="app.useautumn.com"] .np-question-options>button.selected { background:var(--site-soft); border-color:var(--site-accent); }
+.np-app[data-site="app.useautumn.com"] .np-selected .np-choice-dot,
+.np-app[data-site="app.useautumn.com"] .selected .np-choice-dot { background:var(--site-accent); color:#fff; border-color:var(--site-accent); }
+.np-app[data-site="app.useautumn.com"] .np-question-progress>div { background:#b8dcf7; }
+.np-app[data-site="app.useautumn.com"] .np-step-icon { background:var(--autumn-panel); border-color:var(--autumn-border); color:var(--autumn-muted); }
+.np-app[data-site="app.useautumn.com"] .np-action-timeline li[data-status=verified] .np-step-icon { background:var(--site-soft); border-color:#8bc9f5; color:var(--site-accent); }
+.np-app[data-site="app.useautumn.com"] .np-action-timeline li:not(:last-child):before { background:var(--autumn-border); }
+.np-app[data-site="app.useautumn.com"] ::selection { background:#b8dcf7; color:#0b1728; }
+.np-app[data-site="app.useautumn.com"] ::-webkit-scrollbar-thumb { background:#cfcfcf; }
+.np-app[data-site="app.useautumn.com"][data-color-scheme="dark"] {
+  --site-accent:#42b0ff !important;
+  --site-ink:#edf6ff !important;
+  --site-soft:#132c46 !important;
+  --autumn-bg:#07111f;
+  --autumn-panel:#0b1728;
+  --autumn-raised:#102238;
+  --autumn-border:#20354c;
+  --autumn-text:#edf6ff;
+  --autumn-muted:#9db0c4;
+  color-scheme:dark;
+}
+.np-app[data-site="app.useautumn.com"][data-color-scheme="dark"] .np-composer-area { background:linear-gradient(#07111f00,var(--autumn-bg) 10px); }
+.np-app[data-site="app.useautumn.com"][data-color-scheme="dark"] :is(.np-composer,.np-question-card input,.np-question-card textarea,.np-question-options>button,.np-connect input) { border-color:var(--autumn-border); }
+.np-app[data-site="app.useautumn.com"][data-color-scheme="dark"] .np-send:disabled { background:#20354c; color:#7890a8; }

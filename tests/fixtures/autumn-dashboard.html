@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"><title>Autumn Sandbox Fixture</title></head>
+  <body data-environment="sandbox">
+    <aside aria-label="Workspace navigation">
+      <a href="/sandbox/products">Products</a>
+      <a href="/sandbox/customers">Customers</a>
+      <a href="/sandbox/analytics">Analytics</a>
+    </aside>
+    <main>
+      <div role="status">Sandbox</div>
+      <button type="button">Deploy to Production</button>
+      <nav aria-label="Catalog tabs">
+        <button aria-selected="true">Plans</button>
+        <button aria-selected="false">Features</button>
+      </nav>
+      <section aria-labelledby="plans-heading">
+        <h1 id="plans-heading">Plans</h1>
+        <button type="button">Create Plan</button>
+      </section>
+      <dialog aria-label="Create Customer">
+        <label>Name <input placeholder="Nova Sandbox Rehearsal"></label>
+        <label>ID <input placeholder="nova-sandbox-rehearsal"></label>
+        <label>Email <input placeholder="nova-rehearsal@example.com"></label>
+        <button type="button">Create Customer</button>
+      </dialog>
+    </main>
+  </body>
+</html>
