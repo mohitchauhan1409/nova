@@ -5,8 +5,9 @@ const click:Action={kind:'click',ref:'validate',value:null,url:null,x:null,y:nul
 function setup(onClick?:ConstructorParameters<typeof BrowserControl>[2], pacedInput=false){
   vi.stubGlobal('navigator',{platform:'MacIntel'});
   const sendMessage=vi.fn();const sendCommand=vi.fn().mockResolvedValue({});
-  vi.stubGlobal('chrome',{permissions:{contains:vi.fn().mockResolvedValue(true)},tabs:{get:vi.fn().mockResolvedValue({active:true,url:'https://example.test/'}),sendMessage},debugger:{attach:vi.fn().mockResolvedValue(undefined),sendCommand,onDetach:{addListener:vi.fn()}}});
-  return {control:new BrowserControl(()=>1,()=>{},onClick,pacedInput),sendMessage,sendCommand};
+  const debuggerEvents=new Set<(source:chrome.debugger.Debuggee,method:string,params?:object)=>void>();
+  vi.stubGlobal('chrome',{permissions:{contains:vi.fn().mockResolvedValue(true)},tabs:{get:vi.fn().mockResolvedValue({active:true,url:'https://example.test/'}),sendMessage},debugger:{attach:vi.fn().mockResolvedValue(undefined),sendCommand,onDetach:{addListener:vi.fn()},onEvent:{addListener:vi.fn(listener=>debuggerEvents.add(listener)),removeListener:vi.fn(listener=>debuggerEvents.delete(listener)),hasListener:vi.fn(listener=>debuggerEvents.has(listener))}}});
+  return {control:new BrowserControl(()=>1,()=>{},onClick,pacedInput),sendMessage,sendCommand,debuggerEvents};
 }
 afterEach(()=>{vi.unstubAllGlobals();vi.useRealTimers();});
 describe('pointer dispatch receipts',()=>{
@@ -42,6 +43,17 @@ describe('pointer dispatch receipts',()=>{
   });
   it('does not give focus-bearing keyboard preparation a pointer receipt',async()=>{
     const f=setup();f.sendMessage.mockResolvedValue({error:'Focus changed the page'});await expect(f.control.execute(1,{...click,kind:'press',value:'Enter'})).rejects.toThrow('Focus changed');
+  });
+});
+
+describe('approved local fixture upload',()=>{
+  it('assigns only the resolved fixture path to the prepared file input without clicking',async()=>{
+    const f=setup();f.sendMessage.mockResolvedValue({x:20,y:30,uploadToken:'nova-upload-1'});
+    f.sendCommand.mockImplementation(async(_target,method)=>method==='DOM.getDocument'?{root:{nodeId:2}}:method==='DOM.querySelector'?{nodeId:44}:{});
+    await expect(f.control.execute(1,{...click,kind:'upload',value:'/approved/onyx-synthetic-launch-brief.md'})).resolves.toMatchObject({ok:true,verification:{status:'verified'}});
+    expect(f.sendCommand.mock.calls.filter(call=>call[1]==='DOM.setFileInputFiles')).toEqual([[{tabId:1},'DOM.setFileInputFiles',{files:['/approved/onyx-synthetic-launch-brief.md'],nodeId:44}]]);
+    expect(f.sendCommand.mock.calls.some(call=>call[1]==='Input.dispatchMouseEvent'||call[1]==='Page.setInterceptFileChooserDialog')).toBe(false);
+    expect(f.sendCommand.mock.calls.at(-1)).toEqual([{tabId:1},'DOM.removeAttribute',{nodeId:44,name:'data-nova-upload-token'}]);
   });
 });
 
