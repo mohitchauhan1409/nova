@@ -27,14 +27,25 @@ shape, not the state of the coordinator's private account.
 
 ## Bounded signed-in observation
 
-On 2026-09-23 the coordinator inspected the approved signed-in workspace without
-mutation. The visible environment was Sandbox. Products exposed Plans, Features
-and Rewards; Plans and Features were both empty. Create Plan exposed Plan Name,
-an automatically derived ID, and Free or Paid type choices. Features exposed
-Create Feature. The surface appeared dark navy/white with a blue accent. These
-facts tailor the safe baseline but do not establish the unvisited feature form,
-customer editor, attachment behavior, or end-to-end workflow support. Those
-remain rehearsal evidence requests.
+On 2026-09-23 the coordinator inspected and populated only the Sandbox in Mohit
+Chauhan's Org.
+Products exposed Plans, Features and Rewards; Plans and Features began empty.
+Create Plan exposed Plan Name, an automatically derived ID, and Free or Paid
+choices. The coordinator created and reopened Workflow Runs (`workflow_runs`),
+type Metered + Consumable, with no separate reset setting. They created and
+reopened Free plan Nova Sandbox Starter (`nova_sandbox_starter`), whose defaults
+were Auto-enable on, trial off and add-on disabled. Add Feature to Plan selected
+Workflow Runs and configured Included quantity 2500 per month. Persistence
+required modal Save followed by page Save; the reopened display read “2,500
+Workflow Runs per month.”
+
+The coordinator then created Northstar Demo Workspace (`northstar_demo`) with
+`northstar-demo@example.com`. Auto-enable immediately produced Nova Sandbox
+Starter, Active, Free, plus Workflow Runs 2,500/2,500 left, resetting 23 Oct
+2026. No billing control, invoice, payment, production deployment, key, usage
+event or real customer action occurred. This validates the connected records and
+dashboard persistence, not Nova panel operation or a Nova-driven rehearsal.
+The surface appeared dark navy/white with a blue accent.
 
 ## Evidence classes
 

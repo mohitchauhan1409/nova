@@ -17,13 +17,29 @@
       <section aria-labelledby="plans-heading">
         <h1 id="plans-heading">Plans</h1>
         <button type="button">Create Plan</button>
+        <article data-plan-id="nova_sandbox_starter" data-plan-type="free">
+          <h2>Nova Sandbox Starter</h2>
+          <p>2,500 Workflow Runs per month</p>
+          <span>Auto-enable plan: On</span>
+          <span>Trial: Off</span>
+          <span>Add-on plan: Disabled</span>
+        </article>
+      </section>
+      <section aria-labelledby="features-heading">
+        <h1 id="features-heading">Features</h1>
+        <article data-feature-id="workflow_runs"><h2>Workflow Runs</h2><p>Metered · Consumable</p></article>
       </section>
       <dialog aria-label="Create Customer">
-        <label>Name <input placeholder="Nova Sandbox Rehearsal"></label>
-        <label>ID <input placeholder="nova-sandbox-rehearsal"></label>
-        <label>Email <input placeholder="nova-rehearsal@example.com"></label>
+        <label>Name <input value="Northstar Demo Workspace"></label>
+        <label>ID <input value="northstar_demo"></label>
+        <label>Email <input value="northstar-demo@example.com"></label>
         <button type="button">Create Customer</button>
       </dialog>
+      <article data-customer-id="northstar_demo">
+        <h2>Northstar Demo Workspace</h2>
+        <p>Nova Sandbox Starter · Active · Free</p>
+        <p>Workflow Runs · 2,500/2,500 left · resets 23 Oct 2026</p>
+      </article>
     </main>
   </body>
 </html>

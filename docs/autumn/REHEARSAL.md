@@ -7,35 +7,37 @@ open or mutate a private account.
 
 - [ ] Confirm hostname is exactly `app.useautumn.com`.
 - [ ] Confirm the path starts with `/sandbox` (including a named sandbox path).
-- [ ] Confirm the visible Sandbox banner and record the selected organization or
-      sandbox name in private run notes.
+- [ ] Confirm the visible Sandbox banner and selected organization is exactly
+      Mohit Chauhan's Org.
 - [ ] Confirm Nova shows Autumn styling and only the first two guided suggestions.
 - [ ] Open Products and verify the currently visible tab labels and creation
       labels. Record wording differences without forcing the old path.
 - [ ] Search exact IDs `workflow_runs`, `nova_sandbox_starter`, and
-      `nova-rehearsal-0923`; decide reuse versus create.
+      `northstar_demo`; reuse the connected baseline rather than creating copies.
 - [ ] Confirm no real email, customer, payment method or billing source is needed.
 
 ## Catalog rehearsal
 
 - [ ] Start from `/sandbox/products`; verify Plans and Features can be reached.
-- [ ] Create or reuse Workflow Runs with a monthly 2,500 allowance.
-- [ ] Create or reuse Nova Sandbox Starter as a Free plan. Keep any unrequested
-      advanced settings unchanged.
-- [ ] Reopen the exact plan and capture field-level evidence of ID, Free type,
-      feature relationship, included quantity and reset.
+- [ ] Reopen Workflow Runs and verify ID, Metered + Consumable, and that the
+      feature itself has no separate reset setting.
+- [ ] Reopen Nova Sandbox Starter and verify Free, Auto-enable on, trial off and
+      add-on disabled.
+- [ ] Verify the persisted plan display reads 2,500 Workflow Runs per month.
+- [ ] If a rehearsal edits the allowance, use modal Save and then page Save,
+      reopen the plan and verify the persisted display.
 - [ ] Confirm there was no Deploy to Production action, checkout, invoice,
       credential access, usage event or live-route navigation.
 
 ## Customer rehearsal
 
 - [ ] Start from `/sandbox/customers` and search the exact synthetic ID first.
-- [ ] Create only if absent, using Nova Rehearsal and the example.com address.
-- [ ] Reopen the customer detail and verify identity, plans and balances.
-- [ ] If explicitly requested and supported without payment, preview attachment
-      of only Nova Sandbox Starter. Apply only when the preview remains Sandbox
-      and shows no checkout or invoice; then reopen and verify the entitlement.
-- [ ] Do not attach a paid plan or open schedule, checkout, invoice, usage or
+- [ ] Reopen Northstar Demo Workspace and verify ID `northstar_demo` and
+      `northstar-demo@example.com`.
+- [ ] Verify Nova Sandbox Starter is Active and Free without manually attaching
+      it; Auto-enable has already applied it.
+- [ ] Verify Workflow Runs reads 2,500/2,500 left and resets 23 Oct 2026.
+- [ ] Do not attach any plan or open schedule, checkout, invoice, usage or
       billing-control actions.
 
 ## Recovery and cleanup

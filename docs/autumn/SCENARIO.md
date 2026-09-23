@@ -1,7 +1,8 @@
 # Autumn Nova scenario
 
-Status: preparation only. No signed-in Autumn account was opened while authoring
-this branch, and no workflow is marked live-verified.
+Status: connected synthetic baseline created and reopened by the coordinator in
+the signed-in Sandbox. Nova panel operation and rehearsals remain unverified, so
+no profile workflow is marked verified.
 
 ## Story
 
@@ -17,11 +18,14 @@ The canonical synthetic catalog is:
 | Object | Value |
 | --- | --- |
 | Feature | `Workflow Runs` (`workflow_runs`) |
-| Semantics | Metered quantity, 2,500 included per month |
+| Semantics | Metered + Consumable; no separate feature reset setting |
 | Plan | `Nova Sandbox Starter` (`nova_sandbox_starter`) |
 | Plan type | Free |
-| Customer | `Nova Rehearsal` (`nova-rehearsal-0923`) |
-| Email | `nova-rehearsal@example.com` |
+| Plan behavior | Auto-enable on; trial off; add-on disabled |
+| Allowance | `2,500 Workflow Runs per month` |
+| Customer | `Northstar Demo Workspace` (`northstar_demo`) |
+| Email | `northstar-demo@example.com` |
+| Customer state | Starter Active Free; 2,500/2,500 left; resets 23 Oct 2026 |
 
 These values are demonstration inputs, not hidden expected answers. Signed-in
 research found the approved Sandbox empty, with Plans, Features and Rewards
@@ -39,10 +43,10 @@ real customer information. No production action is part of a successful take.
 
 ## Completion evidence
 
-The catalog flow is complete only after the exact saved plan is reopened and the
-plan ID, price, interval, linked feature, included quantity and reset are visible.
-The customer flow is complete only after the exact customer detail is reopened
-and identity plus current plans/balances are visible. If the UI safely supports
-direct attachment of the synthetic Free plan without checkout, invoice or any
-payment path, the requested rehearsal may attach it and verify the resulting
-feature balance. A toast, URL change or list count alone is insufficient.
+The catalog flow is complete only after the exact saved plan is reopened and its
+ID, Free type, behavior toggles and linked feature allowance are visible. Adding
+the relationship requires Add Feature to Plan, Included quantity 2500 per month,
+modal Save and then page Save. The customer flow is complete only after the exact
+detail is reopened and identity, Active Free plan, balance and reset date are
+visible. Auto-enable supplied the plan immediately; do not manually attach it.
+A toast, URL change or list count alone is insufficient.

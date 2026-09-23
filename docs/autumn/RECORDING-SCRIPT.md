@@ -3,30 +3,28 @@
 Target length: 90 to 150 seconds. Record the approved browser window only. The
 script assumes the synthetic baseline has passed rehearsal.
 
-## Take A: catalog revision
+## Take A: connected catalog audit
 
-1. Begin on the visible Autumn Sandbox plan detail for Nova Sandbox Starter, with
-   the Sandbox banner and current 1,000 Workflow Runs allowance visible.
-2. Open Nova and say: “In Autumn Sandbox, update only Nova Sandbox Starter so it
-   includes 2,500 Workflow Runs per month. Keep it Free and leave all other
-   settings unchanged. Reopen it and verify every relevant
-   field. Do not deploy, create checkout or touch a real customer.”
-3. Let Nova inspect the route, banner and exact existing record, make the one
-   requested change, save, then reopen the exact plan.
-4. Hold on the reopened evidence while Nova summarizes ID, Free type, Workflow
-   Runs 2,500/month, and exclusions.
+1. Begin on Autumn Sandbox Products with the Sandbox banner visible.
+2. Open Nova and say: “Audit Workflow Runs and Nova Sandbox Starter without
+   changing anything. Verify their IDs, feature type, Free plan settings and the
+   exact included allowance. Reopen each record and do not deploy, track usage,
+   create checkout or touch a real customer.”
+3. Let Nova reopen Workflow Runs and verify Metered + Consumable with no separate
+   feature reset setting, then reopen Nova Sandbox Starter.
+4. Hold on the persisted evidence while Nova summarizes Free, Auto-enable on,
+   trial off, add-on disabled, and 2,500 Workflow Runs per month.
 
 ## Take B: synthetic customer audit
 
 1. Begin on Autumn Sandbox Customers with the exact search clear.
-2. Say: “Find customer nova-rehearsal-0923. If it does not exist, create Nova
-   Rehearsal with nova-rehearsal@example.com. Then reopen it and tell me its
-   saved identity, plans and balances. If the UI supports direct payment-free
-   attachment, attach only Nova Sandbox Starter and verify the Workflow Runs
-   balance. Do not open checkout, send an invoice, track usage or deploy.”
-3. Show exact-ID search, conditional create, reopened detail and either empty
-   state or the directly attached Free plan with its verified balance. Stop if
-   attachment diverts to checkout, invoice, schedule or a payment control.
+2. Say: “Find and reopen customer northstar_demo without changing anything.
+   Verify its saved identity, active plan, price type, Workflow Runs balance and
+   reset date. Explain why the Free plan is present. Do not attach anything,
+   track usage, open checkout, send an invoice or deploy.”
+3. Show exact-ID search and reopened detail. Nova should report Northstar Demo
+   Workspace, the example.com address, Nova Sandbox Starter Active Free,
+   Workflow Runs 2,500/2,500 left, reset 23 Oct 2026, and Auto-enable as cause.
 
 ## Capture rules
 
@@ -40,8 +38,8 @@ script assumes the synthetic baseline has passed rehearsal.
 
 ## End card facts
 
-Safe claims: Nova verified a sandbox plan revision; Nova verified a synthetic
-sandbox customer; no production deployment or transaction occurred.
+Safe claims after a successful Nova take: Nova audited a connected Sandbox plan,
+feature and synthetic customer; no production deployment or transaction occurred.
 
 Unsupported claims: universal Autumn coverage, successful payment, active
 entitlement enforcement, real usage, production readiness, or official Autumn

@@ -24,6 +24,10 @@ describe('Autumn customer customization', () => {
     }
     expect(autumnProfile.instructions).toContain('Never use Deploy to Production');
     expect(autumnProfile.instructions).toContain('Do not delete pre-existing records');
+    expect(autumnProfile.instructions).toContain('Metered and Consumable');
+    expect(autumnProfile.instructions).toContain('modal Save followed by page Save');
+    expect(autumnProfile.instructions).toContain('Auto-enable plan on');
+    expect(autumnProfile.instructions).toContain('2,500/2,500 left');
   });
 
   it('scopes launcher styling to app.useautumn.com only', () => {
@@ -47,6 +51,9 @@ describe('Autumn customer customization', () => {
     expect(fixture).toContain('data-environment="sandbox"');
     expect(fixture).toContain('/sandbox/products');
     expect(fixture).toContain('Deploy to Production');
-    expect(fixture).toContain('nova-rehearsal@example.com');
+    expect(fixture).toContain('northstar-demo@example.com');
+    expect(fixture).toContain('data-feature-id="workflow_runs"');
+    expect(fixture).toContain('data-plan-id="nova_sandbox_starter"');
+    expect(fixture).toContain('2,500/2,500 left');
   });
 });
