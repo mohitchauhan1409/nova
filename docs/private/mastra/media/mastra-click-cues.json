@@ -1,0 +1,23 @@
+{
+  "duration": 231.0,
+  "events": [
+    {"time": 4.3, "source_frame": 129, "actor": "operator", "strength": 0.85, "evidence": "Decoded-frame inspection: operator opened the Nova panel from the clean Workflows list."},
+    {"time": 5.1, "source_frame": 153, "actor": "operator", "strength": 0.85, "evidence": "Decoded-frame inspection: operator focused Message Nova for the release request."},
+    {"time": 15.4, "source_frame": 462, "actor": "nova", "strength": 0.70, "evidence": "Decoded-frame inspection: Nova selected northstar-release-review."},
+    {"time": 19.3, "source_frame": 579, "actor": "nova", "strength": 0.70, "evidence": "Decoded-frame inspection: Nova focused the releaseId input."},
+    {"time": 23.2, "source_frame": 696, "actor": "nova", "strength": 0.70, "evidence": "Decoded-frame inspection: Nova focused the ownerQueue input."},
+    {"time": 35.3, "source_frame": 1059, "actor": "operator", "strength": 0.85, "evidence": "Decoded-frame inspection: operator selected Confirm and run once for the exact release input."},
+    {"time": 38.6, "source_frame": 1158, "actor": "operator", "strength": 0.85, "evidence": "Decoded-frame inspection: operator continued the exact-input confirmation card."},
+    {"time": 55.3, "source_frame": 1659, "actor": "operator", "strength": 0.85, "evidence": "Decoded-frame inspection: operator confirmed the single local release action."},
+    {"time": 55.46666666666667, "source_frame": 1664, "actor": "nova", "strength": 0.70, "evidence": "Mastra run execution began at epoch 1790196826845 immediately after Nova's confirmed Run click."},
+    {"time": 162.995, "source_frame": 4890, "receipt_at": 1790196934386, "actor": "operator", "strength": 0.85, "evidence": "Recorded operator click receipt on Message Nova."},
+    {"time": 166.101, "source_frame": 4983, "receipt_at": 1790196937492, "actor": "nova", "strength": 0.70, "evidence": "Recorded successful Nova browser click receipt for 33r62kz-114."},
+    {"time": 170.46, "source_frame": 5114, "receipt_at": 1790196941851, "actor": "nova", "strength": 0.70, "evidence": "Recorded successful Nova browser click receipt for 33r62kz-209."},
+    {"time": 175.741, "source_frame": 5272, "receipt_at": 1790196947132, "actor": "nova", "strength": 0.70, "evidence": "Recorded successful Nova browser click receipt for 33r62kz-234."},
+    {"time": 182.616, "source_frame": 5478, "receipt_at": 1790196954007, "actor": "nova", "strength": 0.70, "evidence": "Recorded successful Nova browser click receipt for 33r62kz-235."},
+    {"time": 195.1, "source_frame": 5853, "receipt_at": 1790196966491, "actor": "operator", "strength": 0.85, "evidence": "Recorded operator click receipt for Confirm and run once."},
+    {"time": 201.103, "source_frame": 6033, "receipt_at": 1790196972494, "actor": "operator", "strength": 0.85, "evidence": "Recorded operator click receipt for the risk confirmation card Continue action."},
+    {"time": 213.334, "source_frame": 6400, "receipt_at": 1790196984725, "actor": "operator", "strength": 0.85, "evidence": "Recorded operator click receipt for the single local risk action confirmation."},
+    {"time": 213.46666666666667, "source_frame": 6404, "receipt_at": 1790196984849, "actor": "nova", "strength": 0.70, "evidence": "Recorded successful Nova browser click receipt for 33r62kz-239."}
+  ]
+}

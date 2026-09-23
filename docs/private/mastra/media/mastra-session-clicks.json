@@ -1,0 +1,17 @@
+{
+  "firstFrameEpochMs": 1790196771391,
+  "note": "The release conversation was completed before Nova's New conversation control replaced the active local session. Its prominent operator cues were retained from decoded-frame inspection. The risk conversation receipts below are the complete active-session recordingClicks returned by the localhost Nova API.",
+  "sessionId": "ef15a248-c095-481a-a7ea-65d1345376a6",
+  "startedAt": 1790196929655,
+  "recordingClicks": [
+    {"at": 1790196934386, "actor": "operator", "button": "left", "target": "Message Nova"},
+    {"at": 1790196937492, "actor": "nova", "button": "left", "target": "33r62kz-114"},
+    {"at": 1790196941851, "actor": "nova", "button": "left", "target": "33r62kz-209"},
+    {"at": 1790196947132, "actor": "nova", "button": "left", "target": "33r62kz-234"},
+    {"at": 1790196954007, "actor": "nova", "button": "left", "target": "33r62kz-235"},
+    {"at": 1790196966491, "actor": "operator", "button": "left", "target": "button"},
+    {"at": 1790196972494, "actor": "operator", "button": "left", "target": "button"},
+    {"at": 1790196984725, "actor": "operator", "button": "left", "target": "button"},
+    {"at": 1790196984849, "actor": "nova", "button": "left", "target": "33r62kz-239"}
+  ]
+}

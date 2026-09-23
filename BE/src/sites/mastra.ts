@@ -59,3 +59,57 @@ Briefly acknowledge the goal and act when sufficient information exists. Ask one
     },
   ],
 };
+
+export const mastraLocalProfile: SiteProfile = {
+  id: 'mastra-local',
+  name: 'Mastra Studio Local',
+  domain: 'localhost',
+  url: 'http://localhost:4111',
+  color: '#fa7b6a',
+  description: 'Run and inspect deterministic synthetic workflows in a credential-free local Mastra Studio.',
+  builtIn: true,
+  observations: 0,
+  instructions: `You are Nova, assisting only inside Mastra Studio at localhost:4111. This local project is the task-owned nova-mastra-local-demo fixture. It has no agents, model provider, API key, cloud exporter, external request, deployment, billing path, or production data.
+
+LOCAL SAFETY
+Verify localhost:4111 and the two exact workflow names before acting. Local runs of northstar-release-review and northstar-risk-check are authorized only with synthetic true and the exact unique identifiers supplied by the user. Never open Mastra Cloud, add a model/provider, enter a key or secret, enable a cloud exporter, deploy, publish, connect a repository, install an integration, or copy production data. Never use Agents, MCP, Tools, Datasets, Experiments, or external URLs. Do not rerun an existing workflow run; start a new uniquely identified local run when explicitly requested.
+
+RELEASE REVIEW
+Open Workflows and select northstar-release-review. Prepare only synthetic true, the user-supplied releaseId, and the user-supplied ownerQueue. Show the exact input in Nova and request concrete confirmation before activating the local Run control. After confirmation, run once. Verify success from the current workflow result and inspect only the resulting task-owned trace, steps, durations, and local output. The expected steps are validate-release and compose-summary; never claim success unless the visible result proves both.
+
+RISK CHECK
+In a fresh conversation, open northstar-risk-check. Prepare only synthetic true, the user-supplied reviewId, and mode fail. Show the exact input in Nova and request concrete confirmation before activating Run. After confirmation, run once and wait for the expected terminal failure. Inspect only that task-owned run or trace. Verify validate-risk and the exact deliberate SYNTHETIC_RISK_REVIEW_FAILURE token. Explain that this is fixture behavior, not a Mastra product incident, and do not retry or rerun it.
+
+VERIFICATION
+Use visible Studio state after every navigation and run. Older synthetic runs may remain; match the exact current identifier and workflow. Keep input and output synthetic and non-sensitive. Summaries must state that everything stayed on localhost and that no model inference, credential, cloud telemetry, deployment, external action, or spend occurred.`,
+  flows: [
+    {
+      id: 'mastra-local-release-review',
+      name: 'Run local release review',
+      trigger: 'Run one synthetic local release-review workflow and verify its successful two-step trace.',
+      verified: true,
+      steps: [
+        'Confirm localhost:4111 and select northstar-release-review in Workflows.',
+        'Prepare only synthetic true, the user-supplied releaseId, and ownerQueue.',
+        'Present the exact local input for confirmation before Run.',
+        'Run the confirmed workflow once and wait for a terminal result.',
+        'Verify success, validate-release, compose-summary, and the deterministic local output.',
+        'Summarize without rerunning, deploying, adding a provider, or opening unrelated records.',
+      ],
+    },
+    {
+      id: 'mastra-local-risk-check',
+      name: 'Inspect local risk failure',
+      trigger: 'Run one deliberately failing synthetic local risk workflow and inspect its trace without retrying.',
+      verified: true,
+      steps: [
+        'Confirm localhost:4111 and select northstar-risk-check in Workflows.',
+        'Prepare only synthetic true, the user-supplied reviewId, and mode fail.',
+        'Present the exact local input for confirmation before Run.',
+        'Run the confirmed workflow once and wait for its expected terminal failure.',
+        'Verify validate-risk and SYNTHETIC_RISK_REVIEW_FAILURE in the current task-owned trace.',
+        'Explain the fixture failure without retrying, deploying, adding a provider, or changing configuration.',
+      ],
+    },
+  ],
+};

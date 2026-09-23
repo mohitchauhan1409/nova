@@ -2,7 +2,7 @@
 export function launcherStylesFor(url: string): string {
   let hostname: string;
   try { hostname = new URL(url).hostname; } catch { return ''; }
-  if (hostname !== 'projects.mastra.ai') return '';
+  if (!['projects.mastra.ai', 'localhost'].includes(hostname)) return '';
   return `
     .launch{background:#242424;color:#f7f7f7;border-color:#3a3a3a;box-shadow:0 8px 28px #08080840}
     .launch:hover{background:#303030;border-color:#fa7b6a}

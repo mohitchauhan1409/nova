@@ -1,33 +1,21 @@
-# Recording script draft
-
-This script is conditional and must be revised to match observed labels. It is not proof that a project or safe draft surface exists.
+# Recording script
 
 ## Opening
 
-Operator: “Review this Mastra organization and prepare a deployment-readiness plan. Do not connect a repository, create a project, deploy, buy credits, enter secrets, or run anything.”
+Start on the Mastra Studio Workflows list with Nova closed and one clean target tab. Open Nova.
 
-Nova reads the visible organization, credits, and project state. If the reported $0/no-project state remains, Nova names it immediately as a prerequisite.
+Operator: “Run one localhost-only `northstar-release-review` with releaseId `mastra-release-final-01`, ownerQueue `release-review`, and synthetic true. Ask for exact-input confirmation before Run. Then verify both steps, output, trace, and local logs. Do not rerun, use a model, add credentials, deploy, call externally, or spend.”
 
-## Scene A — readiness without persistence
+Nova prepares the form, shows the exact input in the question card, and waits. Confirm once. Nova runs once, verifies success, `validate-release`, `compose-summary`, `ready-for-review`, and `externalActions: 0`, then checks the matching local trace/log rows.
 
-Nova inspects only safe visible prerequisite text. If entering an Add project path would initiate OAuth or create an object, Nova does not activate it.
+## Expected failure
 
-Nova asks once for any missing public metadata: `[repository description, not authorization]`, `[branch]`, `[Mastra directory]`, `[desired environment/region]`, and `[environment-variable names only]`.
+Start a new Nova conversation.
 
-Nova: “I prepared the readiness plan, but this organization currently has [observed credits/project state]. No repository was connected, no key or secret was entered, no project was created, and nothing was deployed or run.”
+Operator: “Run one deliberate localhost-only `northstar-risk-check` with reviewId `mastra-risk-final-01`, mode fail, and synthetic true. Ask for exact-input confirmation before Run. Then verify `validate-risk` and the exact synthetic failure token. Do not retry, use a model, add credentials, deploy, call externally, or spend.”
 
-## Scene B — conditional existing telemetry
+Confirm once. Nova runs once, verifies the expected terminal failure and exact `SYNTHETIC_RISK_REVIEW_FAILURE:mastra-risk-final-01`, and does not retry.
 
-Include this only if an existing accessible project and a pre-existing task-owned synthetic trace/log are supplied without spend.
+## Closing
 
-Operator: “Inspect synthetic `[trace/log ID]` in `[project/environment]`. Keep this read-only and do not run an agent or workflow.”
-
-Nova preserves the visible time range, opens the designated record, reads only safe fields, and labels hypotheses separately from observed span/log evidence.
-
-Nova: “The record directly shows [visible facts]. [Possible explanation] remains a hypothesis because [missing evidence]. I did not generate telemetry, change configuration, deploy, or spend credits.”
-
-## Blocked alternative and closing
-
-If the project route remains blank or no telemetry exists, hold on the honest empty/blocked state.
-
-Nova: “The observability review needs an accessible project and existing safe telemetry. Those prerequisites are not present, so I stopped rather than creating a project or paid run. Here is the checklist for a future read-only review.”
+Nova states that both runs remained on localhost and that no model inference, credential, cloud telemetry, deployment, external action, production data, or spend occurred.

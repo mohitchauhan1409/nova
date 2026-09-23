@@ -1,0 +1,15 @@
+{
+  "fps": 30,
+  "width": 3024,
+  "height": 1776,
+  "segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 6930,
+      "output_frames": 6930,
+      "kind": "agent",
+      "reason": "Retain the clean Workflows opening, exact-input confirmations, one successful two-step release run, detailed output verification, one deliberate risk failure, and the no-retry closing at real speed. Visual inspection found no prolonged operator-idle interval suitable for compression."
+    }
+  ],
+  "clicks": []
+}

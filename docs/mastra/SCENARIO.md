@@ -1,30 +1,24 @@
-# Private Mastra Platform demonstration scenario
+# Private Mastra Studio Local demonstration scenario
 
-Status: preparation only. Both flows remain unverified.
+Status: verified locally on 2026-09-24.
 
-## Account evidence and eligibility
+## Scope
 
-The separate live-session owner reported organization `org_01M37BE91MZ17RXN6RKR4MNH5S`, $0 credits, no project, and a blank project route on 2026-09-23. These are volatile observations to re-check, not future answers to hardcode.
+The recording uses the task-owned `nova-mastra-local-demo` fixture at `http://localhost:4111`. It contains two deterministic workflows and local DuckDB/LibSQL observability. It has no agent, model provider, API key, cloud exporter, external request, deployment, billing path, or production data.
 
-The currently eligible recording is a prerequisite/readiness review only. Project import, deployment, Studio interaction, agent chat, workflow runs, and observability drill-down are ineligible until an existing safe project and existing synthetic telemetry are independently available. Do not buy credits or create activity to unlock a scene.
+## Scene A — successful release review
 
-## Scene A — deployment-readiness plan
+Nova opens `northstar-release-review`, prepares `synthetic: true`, a unique operator-supplied `releaseId`, and `ownerQueue`, and asks for exact-input confirmation before Run. The workflow runs once. Nova verifies `validate-release`, `compose-summary`, `decision: ready-for-review`, and `externalActions: 0`, then correlates the task-owned local trace and logs.
 
-Nova reads the visible organization, credits, and project empty state. It may inspect a visible project/import entry point only if this does not initiate OAuth, connect a repository, create an object, reserve resources, or change billing. Nova records actual prerequisites and prepares a written plan containing only public repository metadata, branch, Mastra directory, intended environment/region, and environment-variable names without values.
+## Scene B — expected risk failure
 
-Nova stops before Connect, Import, Create, Deploy, Publish, or any credential flow, and closes with an explicit account of what remains blocked.
-
-## Scene B — read-only observability investigation
-
-This scene is conditional on a separately supplied existing project plus a task-owned synthetic trace or log. Nova verifies project, environment/deploy, and time range, then inspects only existing telemetry. It separates visible spans/logs/metrics from hypotheses and does not run an agent, workflow, tool, prompt, or evaluation.
-
-If prerequisites remain absent, Nova shows the honest blocked/empty state and produces a diagnostic checklist instead of fabricating a trace.
+In a fresh conversation, Nova opens `northstar-risk-check`, prepares `synthetic: true`, a unique operator-supplied `reviewId`, and `mode: fail`, and asks for confirmation before Run. The workflow runs once and intentionally fails with `SYNTHETIC_RISK_REVIEW_FAILURE:<reviewId>`. Nova verifies `validate-risk`, explains the fixture behavior, and does not retry.
 
 ## Acceptance criteria
 
-- Hostname is exactly `projects.mastra.ai` and the Mastra theme appears only there.
-- The live organization, credits, and project state are freshly observed.
-- No repository/provider connection, key, secret, billing, purchase, project creation, deployment, publication, or hosted run occurs.
-- The readiness plan contains no secret values and does not claim deployment.
-- Telemetry claims appear only if backed by an existing designated synthetic record.
-- Nova names each unmet prerequisite and keeps both profile flows unverified until safely exercised.
+- Host is exactly `localhost:4111` and both exact workflow names are visible.
+- Each unique run is explicitly confirmed and executed once.
+- The success output proves both steps and `externalActions: 0`.
+- The failure output proves the exact synthetic token and is not retried.
+- Local Traces/Logs show only the task-owned synthetic identifiers.
+- No model inference, credential, cloud telemetry, repository connection, deployment, external action, production data, or spend occurs.
