@@ -1,2 +1,49 @@
 /* Customer branches add scoped website theme overrides here.
    Keep the shared panel layout and behavior in panel.css / PanelApp.tsx. */
+.np-app[data-site="app.requesty.ai"] {
+  --site-accent: #34d399 !important;
+  --site-ink: #0d1f1a !important;
+  --site-soft: #dff8ee !important;
+  --requesty-bg: #f7fbf9;
+  --requesty-surface: #ffffff;
+  --requesty-raised: #edf8f3;
+  --requesty-border: #cfe8dd;
+  --requesty-text: #0d1f1a;
+  --requesty-muted: #547066;
+  background: var(--requesty-bg);
+  color: var(--requesty-text);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.np-app[data-site="app.requesty.ai"] :is(.np-header,.np-tabs,.np-voice-bottom) { background:var(--requesty-surface);border-color:var(--requesty-border); }
+.np-app[data-site="app.requesty.ai"] :is(.np-brand,.np-welcome h1,.np-message-body,.np-message-author strong,.np-suggestions strong,.np-question-card h3,.np-question-fields legend,.np-action-heading,.np-action-timeline p) { color:var(--requesty-text); }
+.np-app[data-site="app.requesty.ai"] :is(.np-brand small,.np-icon-button,.np-new-chat,.np-tabs>button,.np-welcome>p,.np-suggestions small,.np-composer-foot,.np-composer-foot>button,.np-page-context,.np-question-kicker,.np-question-progress,.np-question-card header>p,.np-question-fields fieldset>p,.np-question-options small,.np-action-heading>span:not(.np-action-status),.np-action-timeline small,.np-step-detail) { color:var(--requesty-muted); }
+.np-app[data-site="app.requesty.ai"] :is(.np-author-ai,.np-question-receipt,.np-action-timeline,.np-suggestions,.np-question-card,.np-approval) { background:var(--requesty-surface);border-color:var(--requesty-border); }
+.np-app[data-site="app.requesty.ai"] :is(.np-brand-mark,.np-welcome-mark) { background:var(--requesty-raised);color:var(--requesty-ink);border-color:var(--requesty-border);--mark-hole:var(--requesty-raised); }
+.np-app[data-site="app.requesty.ai"] :is(.np-icon-button:hover,.np-new-chat:hover,.np-suggestions>button:hover,.np-question-options>button:hover,.np-tabs>button[aria-selected=true]) { background:var(--requesty-raised);color:var(--requesty-text); }
+.np-app[data-site="app.requesty.ai"] .np-message.user { background:#0d1f1a;color:#ecfdf5;border-color:#0d1f1a; }
+.np-app[data-site="app.requesty.ai"] .np-composer-area { background:linear-gradient(#f7fbf900,var(--requesty-bg) 10px); }
+.np-app[data-site="app.requesty.ai"] .np-composer { background:var(--requesty-surface);border-color:var(--requesty-border);box-shadow:0 6px 24px #0d1f1a0d; }
+.np-app[data-site="app.requesty.ai"] .np-composer:focus-within { border-color:#34d399;box-shadow:0 0 0 2px #34d39924; }
+.np-app[data-site="app.requesty.ai"] :is(.np-send,.np-send:hover:not(:disabled),.np-question-continue,.np-button-dark,.np-approval-buttons .np-button-dark,.np-browser-control button) { background:#0d1f1a;color:#ecfdf5;border-color:#0d1f1a;box-shadow:none; }
+.np-app[data-site="app.requesty.ai"] .np-send:disabled { background:#cfe8dd;color:#6f8b80; }
+.np-app[data-site="app.requesty.ai"] :is(.np-question-card input,.np-question-card textarea,.np-question-options>button) { background:var(--requesty-surface);border-color:var(--requesty-border);color:var(--requesty-text); }
+.np-app[data-site="app.requesty.ai"] .np-question-options>button.selected { background:var(--requesty-raised);border-color:#34d399; }
+.np-app[data-site="app.requesty.ai"] .selected .np-choice-dot { background:#34d399;border-color:#34d399;color:#0d1f1a; }
+.np-app[data-site="app.requesty.ai"] :is(.np-action-timeline,.np-activity-log,.np-browser-control) { border-color:var(--requesty-border); }
+.np-app[data-site="app.requesty.ai"] .np-step-icon { background:var(--requesty-surface);border-color:var(--requesty-border);color:var(--requesty-muted); }
+.np-app[data-site="app.requesty.ai"] ::selection { background:#a7f3d0;color:#0d1f1a; }
+.np-app[data-site="app.requesty.ai"][data-color-scheme="dark"] {
+  --site-accent:#6ee7b7 !important;
+  --site-ink:#ecfdf5 !important;
+  --site-soft:#163b30 !important;
+  --requesty-bg:#091510;
+  --requesty-surface:#0d1f1a;
+  --requesty-raised:#163b30;
+  --requesty-border:#245246;
+  --requesty-text:#ecfdf5;
+  --requesty-muted:#9bc1b2;
+  color-scheme:dark;
+}
+.np-app[data-site="app.requesty.ai"][data-color-scheme="dark"] .np-composer-area { background:linear-gradient(#09151000,var(--requesty-bg) 10px); }
+.np-app[data-site="app.requesty.ai"][data-color-scheme="dark"] .np-message.user { background:#34d399;color:#0d1f1a;border-color:#34d399; }
+.np-app[data-site="app.requesty.ai"][data-color-scheme="dark"] :is(.np-send,.np-send:hover:not(:disabled),.np-question-continue,.np-button-dark,.np-approval-buttons .np-button-dark,.np-browser-control button) { background:#34d399;color:#0d1f1a;border-color:#34d399; }
