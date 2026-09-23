@@ -1,0 +1,19 @@
+{
+  "fixture_notice": "Entirely synthetic read-only health baseline; not a live Inngest export.",
+  "environment": "Synthetic branch environment",
+  "app": "northstar-rehearsal",
+  "function": "prepare-readiness-digest",
+  "time_range": "Synthetic 24 hour window",
+  "trigger": "northstar/rehearsal.requested",
+  "visible_indicators": {
+    "runs": 20,
+    "failed_runs": 1,
+    "failure_rate_percent": 5,
+    "backlog_at_end": 0
+  },
+  "interpretation_guardrails": [
+    "Do not claim a trend from one synthetic window.",
+    "Do not infer concurrency or retry configuration unless it is visible.",
+    "Do not invoke, rerun, replay, cancel, deploy, sync, or send events."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "fixture_notice": "Entirely synthetic Inngest rehearsal data; never send this as an event.",
+  "environment": "Synthetic branch environment",
+  "app": "northstar-rehearsal",
+  "function": "prepare-readiness-digest",
+  "run_id": "01SYNTHETICRUN000000000000",
+  "status": "Failed",
+  "timing": {
+    "queued_at": "2026-10-09T09:00:00Z",
+    "started_at": "2026-10-09T09:00:02Z",
+    "ended_at": "2026-10-09T09:00:12Z"
+  },
+  "steps": [
+    { "name": "load-synthetic-brief", "status": "Completed", "attempts": 1 },
+    { "name": "render-synthetic-digest", "status": "Failed", "attempts": 3, "error_category": "SyntheticTemplateError" }
+  ],
+  "deliberately_absent": ["raw event payload", "customer identifiers", "secrets", "rerun result"]
+}

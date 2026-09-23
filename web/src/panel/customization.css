@@ -1,2 +1,36 @@
 /* Customer branches add scoped website theme overrides here.
    Keep the shared panel layout and behavior in panel.css / PanelApp.tsx. */
+.np-app[data-site="app.inngest.com"]{
+  background:#fbfdfb;
+}
+.np-app[data-site="app.inngest.com"] .np-header,
+.np-app[data-site="app.inngest.com"] .np-tabs{
+  background:#ffffff;
+  border-color:#e0ebe2;
+}
+.np-app[data-site="app.inngest.com"] .np-context{
+  background:#f1f7f2;
+  border-color:#d9e8dc;
+}
+.np-app[data-site="app.inngest.com"] .np-site-symbol,
+.np-app[data-site="app.inngest.com"] .np-welcome-mark,
+.np-app[data-site="app.inngest.com"] .np-brand-mark{
+  border-radius:7px;
+}
+.np-app[data-site="app.inngest.com"] .np-suggestions,
+.np-app[data-site="app.inngest.com"] .np-composer,
+.np-app[data-site="app.inngest.com"] .np-question-card{
+  border-color:#d9e8dc;
+  box-shadow:0 8px 24px #184a2908;
+}
+.np-app[data-site="app.inngest.com"] .np-suggestions>button:hover{
+  background:#f3f9f4;
+}
+.np-app[data-site="app.inngest.com"] .np-message.user{
+  background:#eef5ef;
+  border-color:#dce9de;
+}
+.np-app[data-site="app.inngest.com"] .np-action-timeline{
+  background:#f5f9f5;
+  border-color:#d9e8dc;
+}
