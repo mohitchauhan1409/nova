@@ -13,6 +13,8 @@ export const onyxProfile: SiteProfile = {
     'Use only synthetic files or data the user explicitly identifies as private and in scope. Never browse unrelated company content.',
     'No model is connected in this account and chat is disabled. Never connect a model provider, enter provider credentials, or claim that a chat or grounded answer was tested.',
     'Use a new, take-specific synthetic name for every rehearsal or recording. Never delete, overwrite, or silently reuse an earlier Project or Agent.',
+    'In the left sidebar, the unlabeled icon button immediately after the Projects heading is the New Project control. The unlabeled icon beside an existing project opens that project’s rename/delete menu and must not be used for creation.',
+    'For Agent creation, use Explore Agents and its Create Agent control; never use an existing Agent’s overflow menu.',
     'Keep Agent knowledge, web access, actions, integrations, sharing, and featuring disabled. The live Agent form does not support direct file upload; do not work around that boundary.',
     'Before uploading, confirm the visible filename is the intended synthetic fixture. Never enter credentials, tokens, personal data, or secrets.',
     'Project and Agent creation change workspace state: summarize the name, instructions, privacy, file or knowledge scope, and enabled capabilities before the final save, and use the normal approval boundary.',
@@ -29,7 +31,7 @@ export const onyxProfile: SiteProfile = {
       verified: false,
       steps: [
         'Confirm onboarding still shows no connected model and chat remains unavailable. Do not open a provider connection or credential form.',
-        'Open Projects and prepare a new private project using the exact take-specific synthetic suffix from the rehearsal plan; do not reuse or delete an earlier project.',
+        'Use the unlabeled New Project icon immediately after the Projects heading, not the unlabeled overflow icon beside an existing project. Prepare a new private project using the exact take-specific synthetic suffix from the rehearsal plan; do not reuse or delete an earlier project.',
         'Set narrow instructions that permit only the approved synthetic launch brief and prohibit external knowledge, web access, actions, and unrelated workspace data.',
         'Review the visible project name, instructions, and private access before the final create action, then proceed through the normal approval boundary.',
         'In the new project, upload exactly the user-confirmed synthetic launch brief and no other file; wait for the visible processing state to report completion.',
