@@ -1,2 +1,48 @@
 /* Customer branches add scoped website theme overrides here.
    Keep the shared panel layout and behavior in panel.css / PanelApp.tsx. */
+.np-app[data-site="projects.mastra.ai"] {
+  --site-accent:#fa7b6a !important;
+  --site-ink:#242424 !important;
+  --site-soft:#fff0ed !important;
+  --mastra-bg:#f7f7f5;
+  --mastra-surface:#ffffff;
+  --mastra-raised:#f1efec;
+  --mastra-border:#ddd9d4;
+  --mastra-text:#242424;
+  --mastra-muted:#62666d;
+  background:var(--mastra-bg);
+  color:var(--mastra-text);
+  font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.np-app[data-site="projects.mastra.ai"] :is(.np-header,.np-tabs,.np-voice-bottom) { background:var(--mastra-surface);border-color:var(--mastra-border); }
+.np-app[data-site="projects.mastra.ai"] :is(.np-brand,.np-welcome h1,.np-message-body,.np-message-author strong,.np-suggestions strong,.np-question-card h3,.np-question-fields legend,.np-action-heading,.np-action-timeline p) { color:var(--mastra-text); }
+.np-app[data-site="projects.mastra.ai"] :is(.np-brand small,.np-icon-button,.np-new-chat,.np-tabs>button,.np-welcome>p,.np-suggestions small,.np-composer-foot,.np-composer-foot>button,.np-page-context,.np-question-kicker,.np-question-progress,.np-question-card header>p,.np-question-fields fieldset>p,.np-question-options small,.np-action-heading>span:not(.np-action-status),.np-action-timeline small,.np-step-detail) { color:var(--mastra-muted); }
+.np-app[data-site="projects.mastra.ai"] :is(.np-author-ai,.np-question-receipt,.np-action-timeline,.np-suggestions,.np-question-card,.np-approval) { background:var(--mastra-surface);border-color:var(--mastra-border); }
+.np-app[data-site="projects.mastra.ai"] :is(.np-brand-mark,.np-welcome-mark) { background:#fff0ed;color:#242424;border-color:#ffd0c8;--mark-hole:#fff0ed; }
+.np-app[data-site="projects.mastra.ai"] :is(.np-icon-button:hover,.np-new-chat:hover,.np-suggestions>button:hover,.np-question-options>button:hover,.np-tabs>button[aria-selected=true]) { background:var(--mastra-raised);color:var(--mastra-text); }
+.np-app[data-site="projects.mastra.ai"] .np-message.user { background:#242424;color:#f7f7f7;border-color:#242424; }
+.np-app[data-site="projects.mastra.ai"] .np-composer-area { background:linear-gradient(#f7f7f500,var(--mastra-bg) 10px); }
+.np-app[data-site="projects.mastra.ai"] .np-composer { background:var(--mastra-surface);border-color:var(--mastra-border);box-shadow:0 6px 24px #2424240d; }
+.np-app[data-site="projects.mastra.ai"] .np-composer:focus-within { border-color:#fa7b6a;box-shadow:0 0 0 2px #fa7b6a25; }
+.np-app[data-site="projects.mastra.ai"] :is(.np-send,.np-send:hover:not(:disabled),.np-question-continue,.np-button-dark,.np-approval-buttons .np-button-dark,.np-browser-control button) { background:#242424;color:#f7f7f7;border-color:#242424;box-shadow:none; }
+.np-app[data-site="projects.mastra.ai"] .np-send:disabled { background:#ddd9d4;color:#868686; }
+.np-app[data-site="projects.mastra.ai"] :is(.np-question-card input,.np-question-card textarea,.np-question-options>button) { background:var(--mastra-surface);border-color:var(--mastra-border);color:var(--mastra-text); }
+.np-app[data-site="projects.mastra.ai"] .np-question-options>button.selected { background:#fff0ed;border-color:#fa7b6a; }
+.np-app[data-site="projects.mastra.ai"] .selected .np-choice-dot { background:#fa7b6a;border-color:#fa7b6a;color:#242424; }
+.np-app[data-site="projects.mastra.ai"] .np-step-icon { background:var(--mastra-surface);border-color:var(--mastra-border);color:var(--mastra-muted); }
+.np-app[data-site="projects.mastra.ai"] ::selection { background:#ffd0c8;color:#242424; }
+.np-app[data-site="projects.mastra.ai"][data-color-scheme="dark"] {
+  --site-accent:#fa7b6a !important;
+  --site-ink:#f7f7f7 !important;
+  --site-soft:#4a1c20 !important;
+  --mastra-bg:#0f0f0f;
+  --mastra-surface:#1c1c1c;
+  --mastra-raised:#2b2b2b;
+  --mastra-border:#3a3a3a;
+  --mastra-text:#f0f0f0;
+  --mastra-muted:#a5a5a5;
+  color-scheme:dark;
+}
+.np-app[data-site="projects.mastra.ai"][data-color-scheme="dark"] .np-composer-area { background:linear-gradient(#0f0f0f00,var(--mastra-bg) 10px); }
+.np-app[data-site="projects.mastra.ai"][data-color-scheme="dark"] .np-message.user { background:#fa7b6a;color:#242424;border-color:#fa7b6a; }
+.np-app[data-site="projects.mastra.ai"][data-color-scheme="dark"] :is(.np-send,.np-send:hover:not(:disabled),.np-question-continue,.np-button-dark,.np-approval-buttons .np-button-dark,.np-browser-control button) { background:#fa7b6a;color:#242424;border-color:#fa7b6a; }
