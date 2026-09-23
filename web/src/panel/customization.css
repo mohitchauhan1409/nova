@@ -1,2 +1,36 @@
 /* Customer branches add scoped website theme overrides here.
    Keep the shared panel layout and behavior in panel.css / PanelApp.tsx. */
+.np-app[data-site="cloud.onyx.app"]{
+  background:#fafaff;
+}
+.np-app[data-site="cloud.onyx.app"] .np-header,
+.np-app[data-site="cloud.onyx.app"] .np-tabs{
+  background:#ffffff;
+  border-color:#e8e8f6;
+}
+.np-app[data-site="cloud.onyx.app"] .np-context{
+  background:#f4f4fc;
+  border-color:#e1e1f3;
+}
+.np-app[data-site="cloud.onyx.app"] .np-site-symbol,
+.np-app[data-site="cloud.onyx.app"] .np-welcome-mark,
+.np-app[data-site="cloud.onyx.app"] .np-brand-mark{
+  border-radius:8px;
+}
+.np-app[data-site="cloud.onyx.app"] .np-suggestions,
+.np-app[data-site="cloud.onyx.app"] .np-composer,
+.np-app[data-site="cloud.onyx.app"] .np-question-card{
+  border-color:#ddddf2;
+  box-shadow:0 8px 24px #312e810a;
+}
+.np-app[data-site="cloud.onyx.app"] .np-suggestions>button:hover{
+  background:#f6f6ff;
+}
+.np-app[data-site="cloud.onyx.app"] .np-message.user{
+  background:#f0f0fb;
+  border-color:#e0e0f2;
+}
+.np-app[data-site="cloud.onyx.app"] .np-action-timeline{
+  background:#f7f7fd;
+  border-color:#e1e1f3;
+}

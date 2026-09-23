@@ -1,0 +1,55 @@
+import type { SiteProfile } from '../../../shared/types';
+
+export const onyxProfile: SiteProfile = {
+  id: 'onyx',
+  name: 'Onyx',
+  domain: 'cloud.onyx.app',
+  url: 'https://cloud.onyx.app',
+  color: '#4f46e5',
+  description: 'Ground private work in trusted knowledge with reviewable, source-backed answers.',
+  instructions: [
+    'Work only in the signed-in Onyx workspace at cloud.onyx.app.',
+    'Treat projects, chats, agents, uploads, connectors, actions, sharing, and workspace settings as separate scopes.',
+    'Use only synthetic files or data the user explicitly identifies as private and in scope. Never browse unrelated company content.',
+    'Prefer a private project or chat and uploaded synthetic files. Keep web search, external actions, connectors, sharing, and publishing disabled unless the user explicitly requests them.',
+    'Before uploading, confirm the visible filename is the intended synthetic fixture. Never enter credentials, tokens, personal data, or secrets.',
+    'When evaluating an answer, inspect its visible sources and state uncertainty instead of inventing document facts.',
+    'Project and agent creation change workspace state: summarize their name, knowledge, visibility, and enabled capabilities before the final save, and use the normal approval boundary.',
+    'Do not send messages, invoke actions, connect external sources, invite users, or broaden visibility as a side effect of a rehearsal.',
+    'Verify completion from visible Onyx state; do not rely on remembered labels or hardcoded generated answers.',
+  ].join(' '),
+  observations: 0,
+  builtIn: true,
+  flows: [
+    {
+      id: 'onyx-grounded-brief',
+      name: 'Create a grounded review project',
+      trigger: 'Create a private Onyx project for my synthetic launch brief and produce a source-grounded readiness summary.',
+      verified: false,
+      steps: [
+        'Open Projects and prepare a new project with a clearly synthetic name and private access. Review the visible name and access scope before the final create action.',
+        'Inside the private project, start a new chat and verify that no external action, web-search mode, or unrelated knowledge source is selected.',
+        'Attach only the user-confirmed synthetic launch brief to the project, then wait for the visible upload or indexing state to finish.',
+        'Ask for a concise readiness summary covering the brief’s stated milestone, open risks, owners, and next review; request citations or source references where the interface supports them.',
+        'Inspect the response and its visible source details. Compare claims with the uploaded brief rather than expecting fixed wording or values.',
+        'Ask one follow-up that requires distinguishing a documented fact from missing information, and verify the answer acknowledges any gap.',
+        'Leave the project and chat private. Do not share, publish, invoke an action, or connect another source.',
+      ],
+    },
+    {
+      id: 'onyx-private-agent',
+      name: 'Build a private support agent',
+      trigger: 'Configure a private Onyx agent for synthetic support questions, with external actions disabled.',
+      verified: false,
+      steps: [
+        'Open agent creation and use a clearly synthetic name and description from the rehearsal plan.',
+        'Add instructions that answer only from the selected synthetic support handbook, cite available sources, and explicitly say when the handbook does not contain an answer.',
+        'Select or upload only the confirmed synthetic handbook. Do not add organization-wide connectors, unrelated document sets, or web search.',
+        'Inspect every capability and visibility control. Keep actions and external integrations disabled, and keep access private to the current user.',
+        'Review the visible name, instructions, knowledge scope, visibility, and capability summary before saving; proceed only through the normal approval boundary.',
+        'Open the saved agent and ask one covered and one deliberately unsupported synthetic question. Verify the responses are grounded and the unsupported answer does not invent policy.',
+        'Record the visible agent identity and privacy/capability state. Do not share it, publish it, or trigger an external action.',
+      ],
+    },
+  ],
+};
