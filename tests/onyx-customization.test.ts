@@ -17,7 +17,16 @@ describe('Onyx customer customization', () => {
     expect(onyxProfile.flows).toHaveLength(2);
     expect(onyxProfile.flows.every(flow => !flow.verified && flow.steps.length >= 6)).toBe(true);
     expect(onyxProfile.instructions).toContain('Never enter credentials');
-    expect(onyxProfile.instructions).toContain('Keep web search, external actions, connectors, sharing, and publishing disabled');
+    expect(onyxProfile.instructions).toContain('Never connect a model provider');
+    expect(onyxProfile.instructions).toContain('claim that a chat or grounded answer was tested');
+    expect(onyxProfile.instructions).toContain('Agent knowledge, web access, actions, integrations, sharing, and featuring disabled');
+    expect(onyxProfile.flows.map(flow => flow.id)).toEqual(['onyx-private-project', 'onyx-private-agent']);
+    const [project, agent] = onyxProfile.flows;
+    expect(project.trigger).not.toMatch(/answer|chat|citation/i);
+    expect(project.steps.join(' ')).toContain('visible processing state to report completion');
+    expect(agent.trigger).not.toMatch(/answer|chat|knowledge/i);
+    expect(agent.steps.join(' ')).toContain('Keep Knowledge empty');
+    expect(agent.steps.join(' ')).toContain('without starting chat');
   });
 
   it('scopes launcher styling to the exact Onyx cloud hostname', () => {
@@ -37,12 +46,9 @@ describe('Onyx customer customization', () => {
     }
   });
 
-  it('ships synthetic fixtures that include both supported facts and explicit gaps', () => {
+  it('ships only the approved synthetic project upload fixture', () => {
     const brief = readFileSync('tests/fixtures/onyx-synthetic-launch-brief.md', 'utf8');
-    const handbook = readFileSync('tests/fixtures/onyx-synthetic-support-handbook.md', 'utf8');
     expect(brief).toContain('entirely synthetic');
     expect(brief).toContain('does not name a meeting room or video link');
-    expect(handbook).toContain('fictional policies');
-    expect(handbook).toContain('does not specify refund, billing, legal, or production incident policies');
   });
 });

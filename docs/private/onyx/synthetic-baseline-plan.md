@@ -1,26 +1,29 @@
 # Onyx synthetic baseline plan
 
-## Inputs
+## Approved input
 
-The committed fixtures are the sole baseline inputs:
+The sole upload fixture is `tests/fixtures/onyx-synthetic-launch-brief.md`. It is entirely synthetic and contains no credentials, production URLs, customers, or real company data. The removed support-handbook fixture is not part of the Agent flow because the live Agent form has no direct upload control and Knowledge must remain off.
 
-- `tests/fixtures/onyx-synthetic-launch-brief.md`
-- `tests/fixtures/onyx-synthetic-support-handbook.md`
+## Existing baselines
 
-Both describe the fictional Northstar rehearsal. They contain no real people, customers, credentials, production URLs, or company data.
+- Project `Northstar Launch Review (Synthetic)`, `projectId=1`; the approved launch brief was uploaded and observed processing.
+- Agent `Northstar Handbook Guide (Synthetic)`, `agentId=1`.
 
-## Baseline assertions
+Preserve both. They are not Nova rehearsal evidence, must not be renamed or deleted, and must not be silently reused for final recording.
 
-For the launch brief, evaluate whether the response identifies the document’s milestone category, open-risk structure, named ownership, and next-review concept. Do not compare exact prose. The location follow-up must be treated as unsupported because the fixture intentionally omits it.
+## Take-specific names
 
-For the support handbook, evaluate whether the covered response uses the stated reset path, synthetic-data boundary, and approval requirement. The refund question must be treated as unsupported because the fixture intentionally excludes refund policy.
+- Rehearsal Project: `Northstar Launch Review (Synthetic) [Nova Rehearsal 01]`
+- Final Project: `Northstar Launch Review (Synthetic) [Nova Final 01]`
+- Rehearsal Agent: `Northstar Rehearsal Guide (Synthetic) [Nova Rehearsal 01]`
+- Final Agent: `Northstar Rehearsal Guide (Synthetic) [Nova Final 01]`
 
-The baseline requires no connector credentials, action credentials, external data source, or organization content. If the current Agent form cannot accept a direct file upload or private knowledge resource, stop and record that UI prerequisite; do not substitute a connector or browse existing workspace data.
+Increment the numeric suffix if an exact name already exists. Never clean up duplicates during recording; deletion is a separate consequential action.
 
-## Reset strategy
+## Assertions
 
-Start the first take in a new private project and project chat. For project or agent takes, use a visibly synthetic, take-specific suffix only if the product does not permit clean reuse. Do not delete prior objects merely to make the recording tidy; deletion is a separate consequential action. If duplicate projects or agents would create account clutter, stop and ask the account owner to choose reuse or cleanup.
+Project success is limited to persisted object evidence: new assigned ID, exact name, private state, narrow instructions, sole approved filename, and visible completed processing after reopen.
 
-## Drift handling
+Agent success is limited to persisted configuration evidence: new assigned ID, exact name, description, instructions, conversation starter, empty Knowledge, private state, and all external capabilities off after reopen.
 
-UI labels, layouts, model outputs, and indexing durations may change. Rehearsal checks should locate controls by their current accessible names and verify visible end state. Never update the fixtures to match a hallucinated answer, and never hardcode future generated text as test evidence.
+No connected model means there is no answer baseline. Do not send chat, test the conversation starter, evaluate grounding, expect citations, or connect a provider. Processing completion is not an answer-quality result.

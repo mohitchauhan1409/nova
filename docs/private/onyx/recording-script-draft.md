@@ -1,35 +1,34 @@
-# Onyx recording script draft
+# Onyx no-model recording script draft
 
-## Opening (5–8 seconds)
+## Opening (8–12 seconds)
 
-Show the `cloud.onyx.app` address and open Nova. Hold briefly on the Onyx-specific identity, greeting, and the two workflow suggestions. Do not show the workspace sidebar if it contains unrelated content.
+Show the exact `cloud.onyx.app` host and Nova’s updated suggestions. Briefly show onboarding Step 2 with no connected model and disabled chat, but do not open a provider card or credential form.
 
-## Take 1 — grounded launch project (60–90 seconds)
+## Take 1 — private synthetic Project (60–90 seconds)
 
-1. Choose **Create a grounded review project** in Nova.
-2. Prepare `Northstar Launch Review (Synthetic)` and hold on the private access state before approving creation.
-3. Enter the new project chat and show the absence of external capabilities.
-4. Select `onyx-synthetic-launch-brief.md`; hold on the filename and completed upload/index state.
-5. Let Nova request the readiness summary. Keep the response and source indicator in frame.
-6. Inspect the source evidence briefly.
-7. Ask where the next review takes place. Hold on the response that identifies the missing information.
-8. End on the private project/chat state; do not open Share or Publish.
+1. Choose **Create a private review project** in Nova.
+2. Enter the exact unused rehearsal/final Project name from the baseline plan.
+3. Add narrow synthetic-only instructions and show private access.
+4. Hold on Nova’s review summary before approving creation.
+5. Upload exactly `onyx-synthetic-launch-brief.md` and hold on visible completed processing.
+6. Return to Projects and reopen the newly suffixed item.
+7. Frame its assigned Project ID, exact name, private state, instructions, filename, and completed processing.
+8. End without opening chat, model setup, Share, or Delete.
 
-Suggested narration: “Nova keeps the task bounded to one synthetic brief, checks the visible sources, and tests whether Onyx distinguishes documented facts from a deliberate gap.”
+Suggested narration: “With no model connected, Nova verifies the useful state Onyx can safely persist: a private, narrowly scoped Project and one completed synthetic file.”
 
-## Take 2 — private handbook agent (60–90 seconds)
+## Take 2 — private capability-disabled Agent (60–90 seconds)
 
-1. Choose **Build a private support agent** in Nova.
-2. Enter `Northstar Handbook Guide (Synthetic)` and the rehearsal instructions.
-3. Select only `onyx-synthetic-support-handbook.md`.
-4. Show private visibility and disabled actions, integrations, and web search.
-5. Hold on Nova’s review summary before approving the final save/create action.
-6. Ask how to reset demo data; briefly show its source evidence.
-7. Ask for the refund policy; hold on the response that says the handbook lacks it.
-8. End with the synthetic agent identity and private/capability state visible.
+1. Choose **Create a capability-disabled agent** in Nova.
+2. Enter the exact unused rehearsal/final Agent name, approved description, instructions, and conversation starter.
+3. Show Knowledge empty and actions, web access, integrations, sharing, and featuring off.
+4. Hold on Nova’s full review summary before approving save.
+5. Return to the Agent list and reopen the newly suffixed item.
+6. Frame its assigned Agent ID, exact name, persisted text fields, empty Knowledge, private state, and disabled capabilities.
+7. End without opening chat, testing the starter, connecting a model, sharing/featuring, or deleting anything.
 
-Suggested narration: “The agent is private, grounded in one fictional handbook, and has no outward-facing actions. A covered question is answered from source; an unsupported one is not invented.”
+Suggested narration: “Nova creates a private Agent shell with every outward-facing capability disabled, then reopens it to verify exactly what persisted.”
 
 ## Editing notes
 
-Use cuts rather than speeding through approval or privacy controls. Blur or remove any frame containing unrelated account data. Do not imply live workflow verification until the checklist has been completed against the current account. Generated prose is illustrative; the recorded evidence is the visible scope, sources, privacy, and capability state.
+Do not imply that either object can answer questions in the current account. Processing completion is not grounding evidence. Use cuts instead of navigating near provider credentials, and remove any frame containing unrelated account data.

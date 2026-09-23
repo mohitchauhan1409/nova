@@ -1,45 +1,44 @@
-# Onyx rehearsal checklist
+# Onyx no-model rehearsal checklist
 
-## Before opening the account
+## Before account access
 
-- [ ] Build and test the Onyx branch; restart its local backend and frontend.
-- [ ] Rebuild and reload the unpacked extension from this checkout.
-- [ ] Confirm both fixtures contain only synthetic data.
-- [ ] Prepare a clean browser window and hide bookmarks, notifications, and unrelated tabs.
-- [ ] Confirm recording captures only the intended browser window and Nova panel.
+- [ ] Build/test the Onyx branch; restart its services and reload its extension build.
+- [ ] Confirm `onyx-synthetic-launch-brief.md` is the sole approved upload.
+- [ ] Prepare a clean recording window with unrelated account content hidden.
+- [ ] Confirm baseline Agent `agentId=1` and Project `projectId=1` will not be edited or deleted.
+- [ ] Choose the exact unused rehearsal/final suffix from the baseline plan.
 
-## Account and scope
+## Account boundary
 
-- [ ] Address bar shows `https://cloud.onyx.app/...` with no lookalike hostname.
-- [ ] No unrelated company chat, connector, member, or document is visible in the recording frame.
-- [ ] Onyx profile name, accent, greeting, and both suggested flows appear in Nova.
-- [ ] The account has a private project/chat path and a private agent path; otherwise stop.
+- [ ] Hostname is exactly `cloud.onyx.app`.
+- [ ] Nova shows the updated Project and capability-disabled Agent suggestions.
+- [ ] Onboarding Step 2 shows no connected model and chat is unavailable.
+- [ ] No provider connection or credential form is opened.
 
-## Flow A
+## Project flow
 
-- [ ] `Northstar Launch Review (Synthetic)` is reviewed before creation and access is private.
-- [ ] New chat is inside that project and no external capability is selected.
-- [ ] `onyx-synthetic-launch-brief.md` is the only uploaded/selected knowledge.
-- [ ] Upload/indexing reaches a visible ready state.
-- [ ] Readiness response refers to visible file evidence.
-- [ ] Source details are inspected without opening unrelated knowledge.
-- [ ] Missing-location follow-up yields an acknowledged gap rather than a fabricated location.
-- [ ] Project and chat are not shared or published.
+- [ ] New Project name contains the exact take-specific suffix.
+- [ ] Instructions restrict scope to the synthetic brief and prohibit external knowledge/actions.
+- [ ] Access is visibly private before creation.
+- [ ] Name, instructions, and privacy are reviewed at the approval boundary.
+- [ ] Exactly `onyx-synthetic-launch-brief.md` is uploaded.
+- [ ] Processing visibly reaches completed state within the bounded wait.
+- [ ] Newly assigned Project ID, suffix, privacy, instructions, filename, and completion persist after reopening from Projects.
+- [ ] Chat, model setup, sharing, actions, and deletion remain untouched.
 
-## Flow B
+## Agent flow
 
-- [ ] Agent name is visibly synthetic.
-- [ ] Instructions enforce handbook-only answers and explicit uncertainty.
-- [ ] `onyx-synthetic-support-handbook.md` is the only selected knowledge.
-- [ ] Actions, integrations, and web search remain off.
-- [ ] Visibility remains private to the current user.
-- [ ] Final create/save summary is reviewed before approval.
-- [ ] Covered and unsupported questions are both tested.
-- [ ] Agent is not shared, published, or used to dispatch anything.
+- [ ] New Agent name contains the exact take-specific suffix.
+- [ ] Approved synthetic description, instructions, and conversation starter are entered.
+- [ ] Knowledge remains empty; no connector or document set is selected.
+- [ ] Actions, web access, integrations, sharing, and featuring are visibly off.
+- [ ] All fields and disabled capabilities are reviewed at the approval boundary.
+- [ ] Newly assigned Agent ID, suffix, fields, empty Knowledge, privacy, and disabled capabilities persist after reopening from the Agent list.
+- [ ] Chat/starter testing, model setup, sharing/featuring, and deletion remain untouched.
 
 ## After recording
 
-- [ ] Review every frame for private account or company information.
-- [ ] Verify both results from visible state, not expected wording.
-- [ ] Note current UI labels and any deviations without changing the generic flow contract.
-- [ ] Keep raw captures, credentials, and account-specific notes out of Git.
+- [ ] Review every frame for credentials, account identifiers, and unrelated content.
+- [ ] Confirm no provider, model, connector, action, share, feature, or chat was activated.
+- [ ] Make no grounded-answer, citation, or chat-quality claim.
+- [ ] Keep raw recordings and account-specific secrets out of Git.

@@ -4,28 +4,26 @@
 
 Use only official Onyx sources:
 
-- `https://onyx.app/chat` for chat, files, models, web research, and collaboration concepts.
-- `https://onyx.app/agents-actions` for agent instructions, knowledge, actions, and access concepts.
-- `https://docs.onyx.app/overview/core_features/connectors` for connector/indexing behavior and permission-aware knowledge.
-- `https://github.com/onyx-dot-app/onyx/blob/main/backend/onyx/chat/README.md` for the official implementation’s documented Project, file-upload, and citation context model.
-- `https://docs.onyx.app/developers/api_reference/user_management/remove_invited_user` only as official evidence that the hosted product uses `cloud.onyx.app`.
+- `https://onyx.app/agents-actions` for Agent instructions, knowledge, actions, and access concepts.
+- `https://docs.onyx.app/overview/core_features/connectors` for connector/file-upload vocabulary.
+- `https://github.com/onyx-dot-app/onyx/blob/main/backend/onyx/chat/README.md` for the official implementation’s Project and file-processing context model.
+- `https://docs.onyx.app/developers/api_reference/user_management/remove_invited_user` only as official evidence for the `cloud.onyx.app` hostname.
 
-These sources justify vocabulary and scope only. They do not prove the current account UI, workspace configuration, or live workflow result.
+Live observation, not public documentation, establishes the decisive boundary: onboarding Step 2 shows no connected model and disabled chat; the Agent form has no direct file-upload path. Do not generalize those account-specific facts beyond this rehearsal.
 
-## Rehearsal evidence
+## Required live evidence
 
-Capture visible evidence for each material claim:
+1. Exact `cloud.onyx.app` hostname and Nova’s two updated suggestions.
+2. Onboarding Step 2 showing no connected model and unavailable chat, without opening any provider credential form.
+3. New Project’s take-specific name, instructions, and private access before creation.
+4. Normal approval boundary for Project creation.
+5. Exactly `onyx-synthetic-launch-brief.md`, its visible completed processing state, and the reopened new Project’s assigned ID.
+6. New Agent’s take-specific name, description, instructions, and conversation starter before save.
+7. Empty Knowledge plus actions, web access, integrations, sharing, and featuring visibly off.
+8. Normal approval boundary for Agent creation and the reopened new Agent’s assigned ID and persisted settings.
 
-1. Browser address bar shows the exact `cloud.onyx.app` host.
-2. Nova’s panel displays the Onyx identity and the expected two suggestions.
-3. The intended synthetic filename is visible before or after upload.
-4. The selected project/chat/agent knowledge scope and privacy state are visible.
-5. External actions, web search, connectors, sharing, and publishing are visibly off or absent.
-6. The generated response and source detail are visible together where possible.
-7. The deliberate unsupported question and Onyx’s non-invented response are visible.
-
-Do not record secrets, tokens, account identifiers, unrelated chats, organization documents, connector names, member lists, or notification content. Crop or pause recording if any appears.
+Do not record provider choices, credential fields, tokens, account identifiers, unrelated chats/documents, connectors, members, or notifications. No generated answer, citation, starter response, or chat state belongs in the evidence set.
 
 ## Claim discipline
 
-The two flows remain `verified: false` until the current account has been exercised and the visible results have been checked. Generated response text and UI labels may change; record observed state and timestamps instead of encoding future answers in tests or guidance.
+Both profile flows remain `verified: false` until Nova completes the rehearsal against newly suffixed objects. Baseline object creation by an operator proves UI availability, not Nova execution. Processing completion proves only file processing—not answer grounding or model readiness.
