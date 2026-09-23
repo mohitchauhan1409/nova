@@ -1,52 +1,40 @@
-# Autumn signed-in rehearsal checklist
+# Autumn Nova rehearsal checklist
 
-Run this only in the coordinator's approved browser. Preparation code did not
-open or mutate a private account.
+## Preflight
 
-## Before mutation
+- [ ] Confirm `app.useautumn.com`, `/sandbox`, Sandbox banner and Mohit Chauhan's Org.
+- [ ] Confirm only authorized synthetic customers exist before another
+      auto-enabled plan. Stop for any real or ambiguous customer.
+- [ ] Reserve `rehearsal-01`, then increment for later attempts.
+- [ ] Search all three derived IDs. All must be absent. Any match consumes the
+      suffix; increment rather than reusing or deleting it.
+- [ ] Confirm Nova shows Autumn styling and two creation suggestions.
 
-- [ ] Confirm hostname is exactly `app.useautumn.com`.
-- [ ] Confirm the path starts with `/sandbox` (including a named sandbox path).
-- [ ] Confirm the visible Sandbox banner and selected organization is exactly
-      Mohit Chauhan's Org.
-- [ ] Confirm Nova shows Autumn styling and only the first two guided suggestions.
-- [ ] Open Products and verify the currently visible tab labels and creation
-      labels. Record wording differences without forcing the old path.
-- [ ] Search exact IDs `workflow_runs`, `nova_sandbox_starter`, and
-      `northstar_demo`; reuse the connected baseline rather than creating copies.
-- [ ] Confirm no real email, customer, payment method or billing source is needed.
+## Flow one: create catalog
 
-## Catalog rehearsal
+- [ ] Nova creates Workflow Runs <Suffix> with its exact ID as Metered +
+      Consumable. There is no separate feature reset.
+- [ ] Nova reopens and verifies the exact feature.
+- [ ] Nova creates Nova Sandbox Starter <Suffix>, Free, Auto-enable on, trial off
+      and add-on disabled.
+- [ ] Nova adds only the matching feature with Included quantity 2500 per month.
+- [ ] Observe modal Save then page Save.
+- [ ] Nova reopens the plan and verifies exact ID, settings and persisted allowance.
 
-- [ ] Start from `/sandbox/products`; verify Plans and Features can be reached.
-- [ ] Reopen Workflow Runs and verify ID, Metered + Consumable, and that the
-      feature itself has no separate reset setting.
-- [ ] Reopen Nova Sandbox Starter and verify Free, Auto-enable on, trial off and
-      add-on disabled.
-- [ ] Verify the persisted plan display reads 2,500 Workflow Runs per month.
-- [ ] If a rehearsal edits the allowance, use modal Save and then page Save,
-      reopen the plan and verify the persisted display.
-- [ ] Confirm there was no Deploy to Production action, checkout, invoice,
-      credential access, usage event or live-route navigation.
+## Flow two: create customer
 
-## Customer rehearsal
+- [ ] Use the same suffix only after flow one succeeds.
+- [ ] Nova creates Northstar Demo <Suffix>, derived ID and matching
+      `northstar-demo-<suffix>@example.com` email.
+- [ ] Nova reopens the exact customer, not merely the toast.
+- [ ] Verify matching plan Active Free via Auto-enable; no manual attachment.
+- [ ] Verify matching feature 2,500/2,500 left and record visible reset date.
 
-- [ ] Start from `/sandbox/customers` and search the exact synthetic ID first.
-- [ ] Reopen Northstar Demo Workspace and verify ID `northstar_demo` and
-      `northstar-demo@example.com`.
-- [ ] Verify Nova Sandbox Starter is Active and Free without manually attaching
-      it; Auto-enable has already applied it.
-- [ ] Verify Workflow Runs reads 2,500/2,500 left and resets 23 Oct 2026.
-- [ ] Do not attach any plan or open schedule, checkout, invoice, usage or
-      billing-control actions.
+## Failure and retention
 
-## Recovery and cleanup
-
-- [ ] One unchanged wait or scroll triggers inspection, not repetition.
-- [ ] If the route or banner loses Sandbox identity, stop immediately.
-- [ ] If an exact synthetic baseline already exists but differs, record the
-      mismatch; do not overwrite until the scenario owner chooses reuse/revision.
-- [ ] Keep synthetic records for the final take when authorized. Do not delete
-      anything as part of rehearsal or recording.
-- [ ] Mark a profile flow verified only after a successful signed-in run with
-      exact reopened-state evidence.
+- [ ] A partial/failed run consumes its suffix. Advance for the next attempt.
+- [ ] Never delete earlier objects to recycle a suffix.
+- [ ] Confirm no deploy, checkout, invoice, key, schedule, usage event, billing
+      control, payment or real-customer action occurred.
+- [ ] Keep both flows `verified:false` until successful Nova rehearsals reopen
+      and verify every final object.

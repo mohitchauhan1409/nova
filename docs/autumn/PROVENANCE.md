@@ -47,6 +47,16 @@ event or real customer action occurred. This validates the connected records and
 dashboard persistence, not Nova panel operation or a Nova-driven rehearsal.
 The surface appeared dark navy/white with a blue accent.
 
+## Recording provenance and reset
+
+The reference objects above are not acceptable as the visible result of a
+selected video. A selected recording must show Nova creating a new feature/plan
+set and then a new customer using one explicit unused rehearsal/final suffix.
+Exact-ID absence checks, creation controls, both plan saves and reopened final
+states belong in the evidence. Any partial attempt consumes its suffix. Objects
+are retained; the next attempt increments the suffix rather than deleting or
+silently completing them off camera.
+
 ## Evidence classes
 
 1. **Public product evidence** supports routes, labels, concepts and visual tokens.

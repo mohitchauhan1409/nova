@@ -1,46 +1,43 @@
-# Autumn recording script draft
+# Autumn final recording script draft
 
-Target length: 90 to 150 seconds. Record the approved browser window only. The
-script assumes the synthetic baseline has passed rehearsal.
+Record two genuine Nova-driven flows. Preflight reserves the next unused final
+suffix. This example uses `final-01`; replace it everywhere if consumed.
 
-## Take A: connected catalog audit
+## Video one: create feature and Free plan
 
-1. Begin on Autumn Sandbox Products with the Sandbox banner visible.
-2. Open Nova and say: “Audit Workflow Runs and Nova Sandbox Starter without
-   changing anything. Verify their IDs, feature type, Free plan settings and the
-   exact included allowance. Reopen each record and do not deploy, track usage,
-   create checkout or touch a real customer.”
-3. Let Nova reopen Workflow Runs and verify Metered + Consumable with no separate
-   feature reset setting, then reopen Nova Sandbox Starter.
-4. Hold on the persisted evidence while Nova summarizes Free, Auto-enable on,
-   trial off, add-on disabled, and 2,500 Workflow Runs per month.
+Start on Sandbox Products with the banner visible. Say:
 
-## Take B: synthetic customer audit
+> In Mohit Chauhan's Org Sandbox, use suffix final-01. Confirm IDs
+> workflow_runs_final_01 and nova_sandbox_starter_final_01 do not exist. Create
+> Workflow Runs Final 01 as Metered + Consumable. Create Nova Sandbox Starter
+> Final 01 as Free with Auto-enable on, trial off and add-on disabled. Add the
+> matching feature with 2,500 included per month. Complete both saves, reopen the
+> plan and verify every field. Do not deploy, use keys, checkout, invoice, track
+> usage or touch production.
 
-1. Begin on Autumn Sandbox Customers with the exact search clear.
-2. Say: “Find and reopen customer northstar_demo without changing anything.
-   Verify its saved identity, active plan, price type, Workflow Runs balance and
-   reset date. Explain why the Free plan is present. Do not attach anything,
-   track usage, open checkout, send an invoice or deploy.”
-3. Show exact-ID search and reopened detail. Nova should report Northstar Demo
-   Workspace, the example.com address, Nova Sandbox Starter Active Free,
-   Workflow Runs 2,500/2,500 left, reset 23 Oct 2026, and Auto-enable as cause.
+The take must visibly show exact-ID checks, both new creations, Add Feature to
+Plan, modal Save, page Save and the reopened take-specific relationship. The
+reference baseline is not the result.
 
-## Capture rules
+## Video two: create customer and verify auto-enable
 
-- Keep the Sandbox banner or sandbox path visible at the beginning and end.
-- Keep Nova's pointer/ring visible on meaningful clicks; avoid idle cursor loops.
-- Do not show profile menus, cookies, API keys, network payloads or private org IDs.
-- Do not edit out confirmations or errors in a way that misrepresents the run.
-- A failed or ambiguous environment check invalidates the take.
-- Final narration must call the result Sandbox configuration, not a deployed or
-  paid integration.
+After video one succeeds, start on Sandbox Customers and say:
 
-## End card facts
+> Using final-01, confirm northstar_demo_final_01 does not exist. Create Northstar
+> Demo Final 01 with ID northstar_demo_final_01 and email
+> northstar-demo-final-01@example.com. Do not attach a plan manually. Reopen the
+> customer and verify the matching plan is Active and Free, then read the
+> matching Workflow Runs balance and reset date. Do not track usage, change
+> billing controls, checkout, invoice or deploy.
 
-Safe claims after a successful Nova take: Nova audited a connected Sandbox plan,
-feature and synthetic customer; no production deployment or transaction occurred.
+The take must show new customer creation and reopened detail with the exact
+take-specific plan/feature, 2,500/2,500 left and visible reset date.
 
-Unsupported claims: universal Autumn coverage, successful payment, active
-entitlement enforcement, real usage, production readiness, or official Autumn
-partnership.
+## Capture/reset rules
+
+- Keep Sandbox identity visible at start and end; preserve Nova's real clicks.
+- Do not expose cookies, keys, payloads or unrelated private data.
+- If an ID exists or a take partially fails, retain all objects, increment to
+  `final-02`, and record a fresh complete take. Never delete to recycle a suffix.
+- Final claims are limited to the two observed Sandbox flows. No payment, usage,
+  production deployment or real customer action occurred.
