@@ -4,7 +4,7 @@ import type { SiteExperience } from './site-experience';
 import type { PageColorScheme } from './page-theme';
 
 export const actionSchema = z.object({
-  kind: z.enum(['navigate', 'search', 'click', 'double_click', 'right_click', 'hover', 'drag', 'fill', 'type', 'clear', 'press', 'select', 'check', 'scroll', 'scroll_to', 'zoom', 'media', 'copy', 'paste', 'select_text', 'back', 'forward', 'reload', 'wait', 'screenshot', 'inspect', 'point', 'done', 'ask']),
+  kind: z.enum(['navigate', 'search', 'click', 'double_click', 'right_click', 'hover', 'drag', 'fill', 'type', 'clear', 'press', 'select', 'check', 'upload', 'scroll', 'scroll_to', 'zoom', 'media', 'copy', 'paste', 'select_text', 'back', 'forward', 'reload', 'wait', 'screenshot', 'inspect', 'point', 'done', 'ask']),
   ref: z.string().nullable(), value: z.string().nullable(), url: z.string().nullable(),
   x: z.number().nullable(), y: z.number().nullable(),
   summary: z.string(), risk: z.enum(['read', 'change', 'sensitive']),

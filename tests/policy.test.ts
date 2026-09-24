@@ -184,7 +184,11 @@ describe('deterministic action policy', () => {
   it('allows combined search only for an observed search input',()=>{expect(checkAction(action({kind:'search',ref:'search',value:'adapter'}),snapshot,snapshot.url).outcome).toBe('allow');expect(checkAction(action({kind:'search',ref:'cart',value:'adapter'}),snapshot,snapshot.url).outcome).toBe('block');});
   it('does not reconfirm an explicitly requested cart change, including after a clarification',()=>{for(const intent of ['Add this adapter to my cart','Add this adapter to my cart\nThe black one','Add this to cart, but do not checkout'])expect(checkAction(action({risk:'change'}),snapshot,snapshot.url,intent)).toMatchObject({outcome:'allow',mayCommit:true});});
   it.each(['Find an adapter','Do not add it to my cart','What happens if I add it to cart?'])('does not invent cart permission from %s',intent=>{expect(checkAction(action(),snapshot,snapshot.url,intent).outcome).toBe('approve');});
-  it.each(['back','forward','reload','zoom'] as const)('does not reconfirm routine %s',kind=>expect(checkAction(action({kind,ref:null}),snapshot,snapshot.url).outcome).toBe('allow'));
+  it.each(['back','forward','reload'] as const)('does not reconfirm routine %s',kind=>expect(checkAction(action({kind,ref:null}),snapshot,snapshot.url).outcome).toBe('allow'));
+  it('changes page zoom only for an explicit user request',()=>{
+    expect(checkAction(action({kind:'zoom',ref:null,value:'80'}),snapshot,snapshot.url,'Zoom to 80%.').outcome).toBe('allow');
+    for(const intent of ['Create a project','Do not change zoom','What if I zoom out?'])expect(checkAction(action({kind:'zoom',ref:null,value:'80'}),snapshot,snapshot.url,intent).outcome).toBe('block');
+  });
   it.each([
     {kind:'fill',tag:'input',name:'Message draft',type:'text'},
     {kind:'select',tag:'select',name:'Sort by',type:''},

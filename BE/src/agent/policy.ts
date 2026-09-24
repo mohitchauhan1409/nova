@@ -37,6 +37,11 @@ const intentAllows = (intent: string, category: 'cart' | 'preference' | 'drag') 
   }
   return false;
 };
+const intentAllowsZoom = (intent: string) => {
+  const request = intent.split('\n').reverse().find(line => /\bzoom\b/i.test(line));
+  if (!request || /\b(how|what if|explain|would|could|might|whether)\b/i.test(request)) return false;
+  return !/\b(don['’]?t|do not|never|without|stop|cancel|avoid)\b.{0,30}\bzoom\b/i.test(request);
+};
 // A small, observed terminology form is a reversible metadata edit, not an
 // arbitrary submission. This rule has no domain, route, or site-guide override.
 function requestedTerminologyEdit(action: Action, snapshot: Snapshot, intent: string): boolean {
@@ -121,7 +126,10 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
   const result = (outcome: PolicyDecision['outcome'], reason: string, mayCommit = false) => ({ outcome, reason, target: name, mayCommit });
   if (snapshot.blocked && !['done', 'ask'].includes(action.kind)) return result('block', snapshot.blocked);
   if(action.kind==='press'&&action.value==='Escape'&&!action.ref)return result('allow','Dismiss the current menu or dialog');
-  if (['done', 'ask', 'wait', 'zoom', 'back', 'forward', 'reload'].includes(action.kind)) return result('allow', 'Continue the requested browsing task');
+  if(action.kind==='zoom')return intentAllowsZoom(intent)
+    ?result('allow','Apply the user-requested page zoom')
+    :result('block','Only change page zoom when the user explicitly requests it. Use observed controls or keyboard navigation instead.');
+  if (['done', 'ask', 'wait', 'back', 'forward', 'reload'].includes(action.kind)) return result('allow', 'Continue the requested browsing task');
   if (action.kind === 'scroll' && !action.ref) return result('allow', 'Scroll the page');
   if (action.kind === 'screenshot') return snapshot.observation?.sensitiveFieldsPresent || snapshot.elements.some(e => e.sensitive) ? result('block', 'Visual capture is unavailable on a page containing sensitive input fields.') : result('allow', 'Inspect the visible page');
   if (action.kind === 'inspect') return result('allow', 'Inspect a screenshot point without sending input');
@@ -136,6 +144,11 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
       !sensitiveSettings.test(`${target.name} ${target.context}`)&&
       !/\b(api key|access token|client secret|private key|credentials?|credit card|card number|cvv|cvc|security code|one.time code|otp)\b/i.test(`${target.name} ${target.context}`))
     return result('allow','Focus the observed text editor without submitting it');
+  if(['click','double_click'].includes(action.kind)&&target&&(
+      target.tag==='input'&&target.type==='file'||
+      /^(?:upload|choose|browse|attach)(?:\s+(?:a\s+)?files?)?\b/i.test(target.name.trim())&&
+        /\b(?:from your device|device upload|local file|file chooser)\b/i.test(`${target.name} ${target.context}`)
+    ))return result('block','Use the approved upload action directly on this device-file control; do not open the browser-owned chooser with a click.');
   if (target && ['click','double_click','press','check','select'].includes(action.kind) && (action.kind!=='press'||action.value==='Enter') && (dispatchControl.test(target.name)||accountCommit.test(target.name))) return result('approve','Review the exact recipients, live operation, timing and any charges or access changes before committing.',true);
   if (action.kind === 'navigate' || target?.href && ['click', 'double_click'].includes(action.kind)) {
     const url = action.kind === 'navigate' ? action.url || '' : target!.href!;
@@ -157,6 +170,12 @@ export function checkAction(action: Action, snapshot: Snapshot, _scope: string, 
       !target.submission && /^(cancel|close|dismiss|back)$/i.test(target.name.trim())) return result('allow', 'Dismiss the current form without submitting it');
   if(target.visual&&!['scroll','scroll_to','hover','copy','select_text'].includes(action.kind))return result('approve','This unlabeled or canvas control has an unclear effect. Review it before input is sent.',true);
   if(action.kind==='media')return ['video','audio'].includes(target.tag)&&(['play','pause','mute','unmute'].includes(action.value||'')||/^seek:[+-]?\d{1,5}(?:\.\d+)?$/.test(action.value||''))?result('allow','Control the observed media player'):result('block','Choose an observed media player and a supported playback action.');
+  if(action.kind==='upload'){
+    const filename=(action.value||'').trim();
+    if(!filename||filename!==filename.split(/[\\/]/).at(-1)||filename.length>180)return result('block','Choose an approved local fixture by filename only.');
+    if(!/\b(upload|choose|browse|attach|file)\b/i.test(`${target.name} ${target.context}`))return result('block','Choose an observed file upload or chooser control.');
+    return result('approve',`Review the approved local fixture before uploading ${filename}.`,true);
+  }
   if (['scroll', 'scroll_to', 'hover', 'right_click'].includes(action.kind)) return result('allow', 'Inspect an observed page control');
   if (['copy', 'select_text'].includes(action.kind)) return ['input', 'textarea'].includes(target.tag) || target.role === 'textbox' ? result('block', 'Copy visible page text, not private input values.') : result('allow', 'Select or copy visible page text');
   if (action.kind === 'drag') {

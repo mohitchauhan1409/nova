@@ -5,15 +5,47 @@ import { chromium, type Browser } from 'playwright';
 let browser: Browser;
 let contentScript: string;
 let panelScript: string;
+let themeScript: string;
 beforeAll(async () => {
   browser = await chromium.launch({ headless: true });
   const options = { bundle: true, write: false, format: 'iife' as const, target: 'chrome120' };
   contentScript = (await build({ ...options, entryPoints: ['web/extension/content.ts'] })).outputFiles![0].text;
+  themeScript = (await build({ ...options, stdin: { contents: "import {readPageColorScheme, observePageColorScheme} from './shared/page-theme'; Object.assign(window, {readPageColorScheme, observePageColorScheme});", resolveDir: process.cwd(), loader: 'ts' } })).outputFiles![0].text;
   panelScript = (await build({ ...options, stdin: { contents: "import React from 'react'; import {createRoot} from 'react-dom/client'; import {PanelApp} from './web/src/panel/PanelApp'; createRoot(document.getElementById('app')).render(React.createElement(PanelApp));", resolveDir: process.cwd(), loader: 'tsx' } })).outputFiles![0].text;
 });
 afterAll(async () => { await browser?.close(); });
 
 describe('initial website theme', () => {
+  it('uses the painted SPA surface rather than the opposite OS preference', async () => {
+    const page = await browser.newPage({ colorScheme: 'dark' });
+    try {
+      await page.setContent('<style>html,body { margin:0 } #root { min-height:100vh; background:#fafafa } [data-nova-root] { position:fixed; inset:0; background:#111 }</style><main id="root">App</main><div data-nova-root="launcher">Nova overlay</div>');
+      await page.addScriptTag({ content: themeScript });
+      expect(await page.evaluate(() => (window as any).readPageColorScheme())).toBe('light');
+      await page.evaluate(() => { document.getElementById('root')!.style.backgroundColor = '#121212'; });
+      expect(await page.evaluate(() => (window as any).readPageColorScheme())).toBe('dark');
+    } finally { await page.close(); }
+  });
+
+  it('follows app-root theme changes and stops observing on cleanup', async () => {
+    const page = await browser.newPage({ colorScheme: 'dark' });
+    try {
+      await page.setContent('<style>html,body { margin:0 } main { min-height:100vh; background:#fafafa } main.dark { background:#141414 }</style><main>App</main>');
+      await page.addScriptTag({ content: themeScript });
+      await page.evaluate(() => {
+        (window as any).themes = [];
+        (window as any).stopTheme = (window as any).observePageColorScheme((scheme: string) => (window as any).themes.push(scheme));
+      });
+      expect(await page.evaluate(() => (window as any).themes)).toEqual(['light']);
+      await page.evaluate(() => document.querySelector('main')!.classList.add('dark'));
+      await page.waitForFunction(() => (window as any).themes.length === 2);
+      expect(await page.evaluate(() => (window as any).themes)).toEqual(['light', 'dark']);
+      await page.evaluate(() => { (window as any).stopTheme(); document.querySelector('main')!.classList.remove('dark'); });
+      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+      expect(await page.evaluate(() => (window as any).themes)).toEqual(['light', 'dark']);
+    } finally { await page.close(); }
+  });
+
   it('mounts a dark launcher before any snapshot, follows CSS changes, and cleans up on unmount', async () => {
     const page = await browser.newPage({ colorScheme: 'light' });
     try {

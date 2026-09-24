@@ -22,6 +22,7 @@ export const config = {
   sttModel: process.env.SARVAM_STT_MODEL || 'saaras:v3-realtime', ttsModel: process.env.SARVAM_TTS_MODEL || 'bulbul:v3',
   speaker: process.env.SARVAM_SPEAKER || 'shubh', headless: process.env.BROWSER_HEADLESS === 'true',
   allowLocalTests: process.env.NOVA_ALLOW_LOCAL_TESTS === 'true',
+  uploadRoot: process.env.NOVA_UPLOAD_ROOT || '',
 };
 export function safeError(error: unknown): string {
   return redactSecrets(error instanceof Error ? error.message : String(error)).slice(0, 600);

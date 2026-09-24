@@ -3,7 +3,7 @@ import { inputActionKinds, insertPacedText, pacedCharacters, pacedActionTimeout 
 import type { Action, ActionResult } from '../../shared/types';
 import type { PreparedTarget } from '../../shared/dom';
 
-const nativeActions = new Set(['click','double_click','right_click','hover','drag','fill','type','clear','paste','search','press','check','point','media']);
+const nativeActions = new Set(['click','double_click','right_click','hover','drag','fill','type','clear','paste','search','press','check','upload','point','media']);
 const permissionMessage = 'Reload Nova 0.6.7 on your browser’s extensions page and accept its browser-control permission to enable reliable input and screenshots.';
 
 // Fixed protocol commands only. Neither the model nor a webpage can submit CDP,
@@ -201,6 +201,20 @@ export class BrowserControl {
     } else if (action.kind === 'check') {
       if (prepared.checked === undefined) throw new Error('Choose an observed checkbox, switch, or radio button.');
       if (prepared.checked !== (action.value !== 'false')) await click();
+    } else if (action.kind === 'upload') {
+      if(!action.value)throw new Error('Choose an approved local fixture.');
+      if(!prepared.uploadToken||!/^[a-z0-9-]+$/i.test(prepared.uploadToken))throw new Error('Nova could not identify the approved file input.');
+      let nodeId:number|undefined;
+      try{
+        const document=await this.command({tabId},'DOM.getDocument',{depth:-1,pierce:true}) as {root?:{nodeId?:number}};
+        const rootNodeId=document.root?.nodeId;if(!rootNodeId)throw new Error('Chrome did not expose the current document for upload.');
+        const found=await this.command({tabId},'DOM.querySelector',{nodeId:rootNodeId,selector:`[data-nova-upload-token="${prepared.uploadToken}"]`}) as {nodeId?:number};
+        nodeId=found.nodeId;if(!nodeId)throw new Error('The approved file input changed before upload. Observe again.');
+        await this.command({tabId},'DOM.setFileInputFiles',{files:[action.value],nodeId});
+      }finally{
+        if(nodeId)await this.command({tabId},'DOM.removeAttribute',{nodeId,name:'data-nova-upload-token'}).catch(()=>{});
+      }
+      return {ok:true,verification:{status:'verified',detail:'Browser populated the website file chooser with the approved local fixture.'}};
     } else if (action.kind === 'hover') await mouse('mouseMoved');
     else if (action.kind === 'drag') {
       if (!prepared.destination) throw new Error('The drop target could not be located.');

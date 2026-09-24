@@ -1,8 +1,8 @@
 import type { Action, Snapshot, ElementRef, ActionResult, PreparedInput } from './types';
 import { readPageColorScheme } from './page-theme';
 
-export type PreparedTarget = { newlineKey?:'Enter'; x: number; y: number; editable: boolean; focused?: boolean; valueLength?: number; checked?: boolean; paused?: boolean; tag: string; type: string };
-export type DomBridge = { snapshot(preparedInputs?:PreparedInput[]): Snapshot; execute(action: Action): Promise<ActionResult & { text?: string }>; inspect(x:number,y:number): ActionResult; prepare(ref: string, append?: boolean, semanticMedia?: boolean, focus?: boolean): PreparedTarget; point(x:number,y:number): {x:number;y:number}; startInput(ref:string,append?:boolean): {x:number;y:number}; inputPosition(ref:string): {x:number;y:number}|undefined; prepareInputCorrection(ref:string,prefix:string,character:string): boolean; verify(action: Action, expectedLength?: number): ActionResult; };
+export type PreparedTarget = { newlineKey?:'Enter'; x: number; y: number; editable: boolean; focused?: boolean; valueLength?: number; checked?: boolean; paused?: boolean; tag: string; type: string; uploadToken?:string };
+export type DomBridge = { snapshot(preparedInputs?:PreparedInput[]): Snapshot; execute(action: Action): Promise<ActionResult & { text?: string }>; inspect(x:number,y:number): ActionResult; prepare(ref: string, append?: boolean, semanticMedia?: boolean, focus?: boolean, allowCoveredHover?:boolean): PreparedTarget; prepareUpload(ref:string):string; point(x:number,y:number): {x:number;y:number}; startInput(ref:string,append?:boolean): {x:number;y:number}; inputPosition(ref:string): {x:number;y:number}|undefined; prepareInputCorrection(ref:string,prefix:string,character:string): boolean; verify(action: Action, expectedLength?: number): ActionResult; };
 declare global { interface Window { __novaDOM?: DomBridge } }
 
 // Runs in an isolated extension world or Nova's dedicated browser context.
@@ -78,7 +78,7 @@ export function installNovaDOM() {
   const sensitive = (el: Element) => /password|one.?time|cc-|credit.?card|cvv|cvc|security.?code|otp|social.?security|api.?key|access.?token|auth.?token|client.?secret|private.?key/i.test([el.getAttribute('type'), el.getAttribute('autocomplete'), el.getAttribute('name'), el.id, el.getAttribute('aria-label'), el.getAttribute('placeholder'), (el as HTMLInputElement).labels?.[0]?.textContent].join(' '));
   const inViewport=(el:Element)=>{const r=el.getBoundingClientRect();return r.bottom>0&&r.right>0&&r.top<innerHeight&&r.left<innerWidth;};
   const bounds=(el:Element)=>{const r=el.getBoundingClientRect();return [r.x,r.y,r.width,r.height];};
-  const label = (el: Element) => {
+  const rawLabel = (el: Element) => {
     const labelled = el.getAttribute('aria-labelledby')?.split(' ').map(id => (el.getRootNode() as Document|ShadowRoot).getElementById(id)?.textContent || '').join(' ');
     let nearbyLabel='';
     if(el.matches('[role="checkbox"],[role="switch"],input[type="checkbox"]')){
@@ -88,8 +88,34 @@ export function installNovaDOM() {
         if(toggles.length===1&&labels.length===1){nearbyLabel=compact(labels[0].textContent,120);break;}
       }
     }
-    return compact(el.getAttribute('aria-label') || labelled || (el as HTMLInputElement).labels?.[0]?.textContent || nearbyLabel || el.getAttribute('placeholder') || (el instanceof HTMLInputElement && /submit|button/.test(el.type) ? el.value : '') || (el as HTMLElement).innerText || el.getAttribute('title') || el.getAttribute('alt') || el.getAttribute('name') || (el.matches('input,textarea') ? el.id : ''));
+    const described=el.getAttribute('aria-describedby')?.split(' ').map(id => (el.getRootNode() as Document|ShadowRoot).getElementById(id)?.textContent || '').join(' ');
+    const testId=el.getAttribute('data-testid')?.split('/').at(-1)?.replace(/[-_]+/g,' ');
+    return compact(el.getAttribute('aria-label') || labelled || (el as HTMLInputElement).labels?.[0]?.textContent || nearbyLabel || el.getAttribute('placeholder') || (el instanceof HTMLInputElement && /submit|button/.test(el.type) ? el.value : '') || (el as HTMLElement).innerText || el.getAttribute('title') || el.getAttribute('data-tooltip-content') || el.getAttribute('data-tooltip') || el.getAttribute('data-tip') || described || testId || el.getAttribute('alt') || el.getAttribute('name') || (el.matches('input,textarea') ? el.id : ''));
   };
+  const outsideControlText=(root:Element)=>{
+    const parts:string[]=[];
+    const visit=(node:Node)=>{
+      for(const child of node.childNodes){
+        if(child.nodeType===Node.TEXT_NODE){const value=compact(child.textContent,100);if(value)parts.push(value);continue;}
+        if(!(child instanceof Element)||!visible(child)||child.matches(directControls))continue;
+        visit(child);
+      }
+    };
+    visit(root);return compact(parts.join(' '),120);
+  };
+  const structuralLabel=(el:Element)=>{
+    if(!el.matches('button,[role="button"],[onclick],[data-action]'))return '';
+    for(let parent=el.parentElement,depth=0;parent&&depth<4&&!parent.matches('body,html');parent=parent.parentElement,depth++){
+      const peers=[...parent.querySelectorAll(directControls)].filter(control=>visible(control));
+      if(!peers.includes(el)||peers.length>4)continue;
+      const heading=outsideControlText(parent);
+      if(heading&&heading.length<=80)return compact(`${heading} section action`,120);
+      const peerNames=[...new Set(peers.filter(peer=>peer!==el).map(rawLabel).filter(Boolean))];
+      if(peerNames.length===1&&peerNames[0].length<=80)return compact(`${peerNames[0]} row action`,120);
+    }
+    return '';
+  };
+  const label=(el:Element)=>rawLabel(el)||structuralLabel(el);
   const roots = (): (Document | ShadowRoot)[] => {
     const result: (Document | ShadowRoot)[] = [document];
     for (let i = 0; i < result.length && i < 40; i++) for (const el of result[i].querySelectorAll('*')) if (el.shadowRoot && !isNova(el)) result.push(el.shadowRoot);
@@ -183,7 +209,7 @@ export function installNovaDOM() {
       return {ok:true,detail:'Inspected the actual element at this point. No input was sent. Use its ref in the next observation.'};
     },
     point(x,y){const target=hitAt(x,y);if(!target||target.closest('iframe')||isNova(target)||sensitive(target))throw new Error('The visual target is unavailable, sensitive, inside an unobserved frame, or part of Nova.');return {x,y};},
-    prepare(ref,append=false,semanticMedia=false,focus=false) {
+    prepare(ref,append=false,semanticMedia=false,focus=false,allowCoveredHover=false) {
       const el = refs.get(ref);
       if (!(el instanceof HTMLElement || el instanceof SVGElement) || !el.isConnected || !visible(el) || sensitive(el) || el.matches(':disabled,[aria-disabled="true"]')) throw new Error('The target is unavailable or sensitive. Observe again.');
       el.scrollIntoView({ block: 'nearest', inline:'nearest', behavior: 'instant' });
@@ -198,7 +224,7 @@ export function installNovaDOM() {
       const top=Math.max(0,rect.top),bottom=Math.min(innerHeight-1,rect.bottom);
       let x=visual?.x??(left+right)/2,y=visual?.y??(top+bottom)/2;
       const reaches=(px:number,py:number)=>{const hit=hitAt(px,py);return !!hit&&(hit===el||el.contains(hit)||hit===el.getRootNode()||!!hit.shadowRoot?.contains(el));};
-      if(!(semanticMedia&&el instanceof HTMLMediaElement)&&!reaches(x,y)){
+      if(!(semanticMedia&&el instanceof HTMLMediaElement)&&!reaches(x,y)&&!allowCoveredHover){
         window.__novaCompanion?.clearCursor();
         const card=document.querySelector('[data-nova-root]')?.shadowRoot?.querySelector<HTMLElement>('.card');if(card)card.hidden=true;
         const candidates=visual?[[x,y]]:[.5,.2,.8,.05,.95].flatMap(fy=>[.5,.2,.8].map(fx=>[left+(right-left)*fx,top+(bottom-top)*fy]));
@@ -208,6 +234,25 @@ export function installNovaDOM() {
       }
       if (el instanceof HTMLAnchorElement && el.target === '_blank') el.target = '_self';
       return { x, y, ...(el instanceof HTMLElement&&codeLines(el)?{newlineKey:'Enter' as const}:{}), focused:el.getRootNode() instanceof ShadowRoot ? (el.getRootNode() as ShadowRoot).activeElement===el : document.activeElement===el, valueLength:el instanceof HTMLInputElement||el instanceof HTMLTextAreaElement?el.value.length:el instanceof HTMLElement&&el.isContentEditable?editableValue(el).length:undefined, editable: (el instanceof HTMLInputElement && !['file','hidden','password','submit','button','checkbox','radio','range','color'].includes(el.type)) || el instanceof HTMLTextAreaElement || (el instanceof HTMLElement&&el.isContentEditable), tag: el.tagName.toLowerCase(), type: el.getAttribute('type') || '', ...(el instanceof HTMLMediaElement?{paused:el.paused}:{}), ...(el instanceof HTMLInputElement && ['checkbox','radio'].includes(el.type) ? {checked:el.checked} : /checkbox|switch|radio/.test(el.getAttribute('role') || '') ? {checked:el.getAttribute('aria-checked') === 'true'} : {}) };
+    },
+    prepareUpload(ref){
+      const target=refs.get(ref);if(!target||!target.isConnected)throw new Error('The upload control is no longer available. Observe again.');
+      const candidates=new Set<HTMLInputElement>();
+      const add=(root:ParentNode|null|undefined)=>root?.querySelectorAll?.('input[type="file"]').forEach(node=>candidates.add(node as HTMLInputElement));
+      if(target instanceof HTMLInputElement&&target.type==='file')candidates.add(target);
+      if(target instanceof HTMLLabelElement&&target.htmlFor){const linked=(target.getRootNode() as Document|ShadowRoot).getElementById(target.htmlFor);if(linked instanceof HTMLInputElement&&linked.type==='file')candidates.add(linked);}
+      add(target.closest('label'));
+      for(let parent=target.parentElement,depth=0;parent&&depth<5;parent=parent.parentElement,depth++){
+        const local=parent.querySelectorAll('input[type="file"]');if(local.length===1){candidates.add(local[0] as HTMLInputElement);break;}
+      }
+      if(candidates.size===0)roots().forEach(add);
+      const usable=[...candidates].filter(input=>input.isConnected&&!input.disabled&&!input.matches('[aria-disabled="true"]')&&!sensitive(input));
+      const visibleInputs=usable.filter(visible);const pool=visibleInputs.length?visibleInputs:usable;
+      const center=(el:Element)=>{const rect=el.getBoundingClientRect();return {x:(rect.left+rect.right)/2,y:(rect.top+rect.bottom)/2};};
+      const origin=center(target);pool.sort((a,b)=>{const first=center(a),second=center(b);return Math.hypot(first.x-origin.x,first.y-origin.y)-Math.hypot(second.x-origin.x,second.y-origin.y);});
+      if(!pool.length)throw new Error('Nova could not bind this control to an available file input.');
+      const input=pool[0];
+      const token=`${prefix}-upload-${++sequence}`;input.setAttribute('data-nova-upload-token',token);return token;
     },
     startInput(ref,append=false) {
       // Validate the original observed field before focusing it once. A trusted

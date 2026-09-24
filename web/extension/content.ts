@@ -60,7 +60,7 @@ if (!window.__novaContentInstalled) {
       if(message.method==='native-prepare'){
         void (async()=>{
           const action=message.action as Action;
-          let point=action.ref?window.__novaDOM!.prepare(action.ref,false,action.kind==='media',action.kind==='press'):action.kind==='point'&&action.x!==null&&action.y!==null?{...window.__novaDOM!.point(action.x,action.y),editable:false,tag:'',type:''}:undefined;
+          let point=action.ref?window.__novaDOM!.prepare(action.ref,false,action.kind==='media',action.kind==='press',action.kind==='hover'):action.kind==='point'&&action.x!==null&&action.y!==null?{...window.__novaDOM!.point(action.x,action.y),editable:false,tag:'',type:''}:undefined;
           if(!point)throw new Error('A current observed target is required.');
           const destination=action.kind==='drag'?window.__novaDOM!.prepare(action.value||''):undefined;
           const hold=recordingMode&&inputActionKinds.has(action.kind)&&Number.isInteger(message.cursorId);
@@ -72,7 +72,8 @@ if (!window.__novaContentInstalled) {
             point=window.__novaDOM!.prepare(action.ref);
             if(hold && inputCursor===message.cursorId)window.__novaCompanion?.positionCursor?.(point.x,point.y);
           }
-          return {...point,...(destination?{destination}:{})};
+          const uploadToken=action.kind==='upload'&&action.ref?window.__novaDOM!.prepareUpload(action.ref):undefined;
+          return {...point,...(destination?{destination}:{}),...(uploadToken?{uploadToken}:{})};
         })().then(respond).catch(error=>respond({error:error.message}));return true;
       }
       if(message.method==='execute'){
