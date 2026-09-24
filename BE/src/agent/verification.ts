@@ -46,6 +46,20 @@ export function actionEffect(action: Action, before: Snapshot, after: Snapshot, 
   const controlChanged = JSON.stringify(semanticState(targetBefore?.state)) !== JSON.stringify(semanticState(targetAfter?.state));
   const commitControl = action.kind === 'press' && action.value === 'Enter' || !!targetBefore && (
     targetBefore.type === 'submit' || /^(?:send|save|submit|create|add|update|import|start|run|publish|confirm|apply|upload|delete|remove|checkout|purchase|order|book|schedule|invite|authorize|connect|install|deploy|launch)\b/i.test(targetBefore.name));
+  // Versioned editors keep their text after saving. A newly incremented version
+  // counter beside the same record heading is a result, not a pending send.
+  // Disabled Save alone is deliberately insufficient (it may be a spinner).
+  const versionCount = (snapshot: Snapshot) => {
+    const counters = snapshot.elements.filter(e => !e.covered && /^(\d+) versions?$/i.test(e.name.trim()));
+    return counters.length === 1 ? Number(counters[0].name.match(/^\d+/)?.[0]) : undefined;
+  };
+  const priorVersion=versionCount(before), savedVersion=versionCount(after);
+  const sameHeading=before.elements.some(e=>!e.covered&&/^h[1-3]$/.test(e.tag)&&e.name.trim()&&
+    after.elements.some(next=>!next.covered&&next.tag===e.tag&&next.name===e.name));
+  if(mayCommit&&['click','double_click'].includes(action.kind)&&/^save(?: changes)?$/i.test(targetBefore?.name.trim()||'')&&
+      targetAfter?.disabled&&sameHeading&&priorVersion!==undefined&&savedVersion===priorVersion+1) {
+    return {action:action.kind,verified:true,detail:`Saved record version increased from ${priorVersion} to ${savedVersion}. Reopen the record to verify the persisted contents.`};
+  }
   if (mayCommit && commitControl && !controlChanged && (['click','double_click'].includes(action.kind)||action.kind==='press'&&action.value==='Enter') && targetAfter && retainedDraft &&
       (targetAfter.disabled || normalize(before.text) === normalize(after.text))) {
     return {action:action.kind,verified:false,detail:'The submitted draft is still present without a saved result. Wait for the website before planning another submission.'};

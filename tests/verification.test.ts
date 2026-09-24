@@ -6,6 +6,20 @@ import type {Action,Snapshot,Session,SiteProfile} from '../shared/types';
 const before:Snapshot={id:'a',url:'https://example.com/',title:'Page',text:'Player',elements:[{ref:'v',tag:'video',role:'',name:'Player',type:'',context:'',disabled:false,sensitive:false,state:['paused:false']}],viewport:{width:1200,height:800,scrollY:0},theme:{color:'#000',font:'Arial'},frames:0,capturedAt:0};
 const action:Action={kind:'click',ref:'v',url:null,value:null,x:null,y:null,summary:'Pause',risk:'read'};
 describe('observed outcome verification',()=>{
+  it('recognizes a saved version while retained form text alone remains insufficient',()=>{
+    const field={...before.elements[0],ref:'body',tag:'textarea',name:'Message',context:'Editor',edit:{empty:false,revision:'draft-2'}};
+    const save={...before.elements[0],ref:'save',tag:'button',name:'Save',type:'submit',context:'Editor'};
+    const heading={...before.elements[0],ref:'heading',tag:'h1',name:'Support reply'};
+    const version={...before.elements[0],ref:'versions',tag:'button',name:'1 version'};
+    const initial={...before,text:'Support reply v1',elements:[field,save,heading,version]};
+    const pending={...initial,elements:[field,{...save,disabled:true},heading,version]};
+    const saved={...pending,text:'Support reply v2',elements:[field,{...save,disabled:true},heading,{...version,name:'2 versions'}]};
+    const click={...action,ref:'save',risk:'change' as const};
+    expect(actionEffect(click,initial,pending,undefined,true).verified).toBe(false);
+    expect(actionEffect(click,initial,saved,undefined,true)).toMatchObject({verified:true,detail:expect.stringContaining('version increased')});
+    expect(actionEffect(click,{...initial,elements:[field,{...save,name:'Send'},heading,version]},saved,undefined,true).verified).toBe(false);
+    expect(actionEffect(click,initial,{...saved,elements:[field,{...save,disabled:true},{...heading,name:'Another record'},{...version,name:'2 versions'}]},undefined,true).verified).toBe(false);
+  });
   describe('completion evidence from the authorized privacy projection',()=>{
     const request='Change dispatch to October 5, 2026 and keep everything else.';
     const rawName='recipient@customer.example Delivery notice — Dispatch October 5, 2026. Tracking follows dispatch.';
@@ -119,6 +133,15 @@ describe('observed outcome verification',()=>{
     expect(plannerContext(session,site,{...before,elements:[{...field,context:'Field key: owner. Edit properties'}]}).preparedInputs).toEqual([]);
     // A fresh equality observation remains sufficient if incidental form text changed.
     expect(plannerContext(session,site,{...before,elements:[{...field,context:'Changed counter',state:[`draft:matches:${draft.ref}`]}]}).preparedInputs).toHaveLength(1);
+  });
+  it('retains authored content across navigation without treating it as current evidence',()=>{
+    const draft={ref:'old',url:'https://example.com/new',value:'Category, priority and next step',kind:'fill' as const,target:{name:'System message',tag:'textarea',type:'',context:''}};
+    const session={messages:[],traces:[],preparedInputs:[draft]} as unknown as Session;
+    const site={name:'Page',instructions:'',flows:[]} as unknown as SiteProfile;
+    const context=plannerContext(session,site,before);
+    expect(context.preparedInputs).toEqual([]);
+    expect(context.authoredInputHistory).toEqual([{url:draft.url,name:'System message',value:draft.value,evidence:'historical-authored-content-not-current-state'}]);
+    expect(context.stateEvidence.some(e=>e.value.includes('draft:matches'))).toBe(false);
   });
   it('packs observations without dropping control information or duplicating contexts',()=>{const session={messages:[],traces:[]} as unknown as Session;const site={name:'Page',instructions:'',flows:[]} as unknown as SiteProfile;const snap={...before,elements:[...before.elements,{...before.elements[0],ref:'v2'}]};const packed=plannerContext(session,site,snap).observation;expect(packed.contexts).toEqual(['']);const e=Object.fromEntries(packed.elementColumns.map((key,i)=>[key,packed.elements[0][i]]));expect(e.ref).toBe('v');expect(e.state).toEqual(['paused:false']);expect(packed.elements).toHaveLength(2);});
 });

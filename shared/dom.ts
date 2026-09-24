@@ -64,6 +64,9 @@ export function installNovaDOM() {
   const visualTargets = new Map<Element,{x:number;y:number;rect:number[];visual:boolean}>();
   const controls='a[href],button,input:not([type="hidden"]),textarea,select,[role="button"],[role="link"],[role="textbox"],[role="searchbox"],[role="combobox"],[role="tab"],[role="checkbox"],[role="switch"],[role="radio"],[role="slider"],[role="spinbutton"],[role="option"],[role="menuitem"],[role="menuitemcheckbox"],[role="menuitemradio"],[role="treeitem"],[role="list"],[role="listbox"],[role="feed"],[role="grid"],[contenteditable]:not([contenteditable="false"]),[draggable="true"],video,audio,canvas,summary,[tabindex],[onclick],[data-action]';
   const groupingControls='[role="list"],[role="listbox"],[role="feed"],[role="grid"]';
+  // A row/card can contain a separately actionable button, link or field. Its
+  // hit point must activate the observed target, not that nested control.
+  const independentControls='a[href],button,input:not([type="hidden"]),textarea,select,summary,[role="button"],[role="link"],[role="textbox"],[role="searchbox"],[role="combobox"],[role="tab"],[role="checkbox"],[role="switch"],[role="radio"],[role="slider"],[role="spinbutton"],[role="option"],[role="menuitem"],[role="menuitemcheckbox"],[role="menuitemradio"],[role="treeitem"],[contenteditable]:not([contenteditable="false"]),[onclick],[data-action]';
   const genericControls=new Set([...groupingControls.split(','),'[tabindex]','[onclick]','[data-action]']);
   const directControls=controls.split(',').filter(selector=>!genericControls.has(selector)).join(',');
   let zoom = 1; let clipboard = '';
@@ -122,7 +125,13 @@ export function installNovaDOM() {
     return result;
   };
   const fieldContext = (el: Element) => {
-    const context=compact((el.closest('article,[role="listitem"],li,form') as HTMLElement|null)?.innerText,280);
+    // Keep the visible name stable, but retain an action tooltip that would
+    // otherwise lose to innerText (for example an ID with "Click to copy").
+    // Never promote an editable field's title/value into observation context.
+    const tooltip=!sensitive(el)&&!el.matches('input,textarea,select,[contenteditable]')
+      ? [...new Set(['title','data-tooltip-content','data-tooltip','data-tip'].map(attribute=>compact(el.getAttribute(attribute),140)).filter(value=>value&&value!==rawLabel(el)))].join('; ')
+      : '';
+    const context=compact(`${tooltip?`Tooltip: ${tooltip}. `:''}${(el.closest('article,[role="listitem"],li,form') as HTMLElement|null)?.innerText||''}`,280);
     // Generic key/value editors often use unlabelled div rows. Their keys are
     // structural identifiers, but their values must remain private. Never infer
     // a row from an ancestor containing multiple pairs or from hidden fields.
@@ -223,11 +232,26 @@ export function installNovaDOM() {
       const left=Math.max(0,rect.left),right=Math.min(innerWidth-1,rect.right);
       const top=Math.max(0,rect.top),bottom=Math.min(innerHeight-1,rect.bottom);
       let x=visual?.x??(left+right)/2,y=visual?.y??(top+bottom)/2;
-      const reaches=(px:number,py:number)=>{const hit=hitAt(px,py);return !!hit&&(hit===el||el.contains(hit)||hit===el.getRootNode()||!!hit.shadowRoot?.contains(el));};
+      const reaches=(px:number,py:number)=>{
+        const hit=hitAt(px,py);if(!hit)return false;
+        if(hit===el)return true;
+        const independentBetween=(target:Element,ancestor:Element)=>{
+          for(let node:Element|null=target;node&&node!==ancestor;node=node.parentElement){
+            // A label and its own native control are one activation target.
+            if(el instanceof HTMLLabelElement&&node===el.control&&!sensitive(node))continue;
+            if(node.matches(independentControls)||node instanceof HTMLLabelElement&&!!node.control||node instanceof HTMLElement&&node.hasAttribute('tabindex')&&node.tabIndex>=0)return true;
+          }
+          return false;
+        };
+        if(el.contains(hit))return !independentBetween(hit,el);
+        const associatedLabel=hit.closest('label');
+        if(associatedLabel instanceof HTMLLabelElement&&associatedLabel.control===el)return !independentBetween(hit,associatedLabel);
+        return hit===el.getRootNode()||!!hit.shadowRoot?.contains(el);
+      };
       if(!(semanticMedia&&el instanceof HTMLMediaElement)&&!reaches(x,y)&&!allowCoveredHover){
         window.__novaCompanion?.clearCursor();
         const card=document.querySelector('[data-nova-root]')?.shadowRoot?.querySelector<HTMLElement>('.card');if(card)card.hidden=true;
-        const candidates=visual?[[x,y]]:[.5,.2,.8,.05,.95].flatMap(fy=>[.5,.2,.8].map(fx=>[left+(right-left)*fx,top+(bottom-top)*fy]));
+        const candidates=visual?[[x,y]]:[.5,.2,.8,.05,.95].flatMap(fy=>[.5,.2,.8,.05,.95].map(fx=>[left+(right-left)*fx,top+(bottom-top)*fy]));
         const point=right>left&&bottom>top?candidates.find(([px,py])=>reaches(px,py)):undefined;
         if(!point)throw new Error('Another element is covering the target. Close the overlay and observe again.');
         [x,y]=point;

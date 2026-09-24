@@ -37,6 +37,11 @@ export function plannerContext(session: Session, site: SiteProfile, raw: Snapsho
       flowCatalog:site.flows.map(f=>({id:f.id,name:clean(f.name)})),
       flows:relevantFlows(session,site,snapshot).map(f=>({...f,name:clean(f.name),trigger:clean(f.trigger),steps:f.steps.map(clean)}))},
     taskProgress:session.progress?{reloads:session.progress.reloads,actions:session.progress.actions.map(a=>({...a,target:clean(a.target),summary:clean(a.summary),result:clean(a.result)})),observedSettings:session.progress.settings.map(s=>({...s,name:clean(s.name),state:s.state.map(clean)}))}:undefined,
+    // These are bounded values Nova itself authored, not newly read private
+    // fields. Keep them across navigation so connected tasks can reuse a draft
+    // contract without mistaking historical content for persistence evidence.
+    authoredInputHistory:(session.preparedInputs||[]).slice(-8)
+      .map(d=>({url:clean(d.url),name:clean(d.target?.name||''),value:clean(d.value),evidence:'historical-authored-content-not-current-state' as const})),
     preparedInputs:(session.preparedInputs||[])
       .filter(d=>d.url===raw.url&&raw.elements.some(e=>e.state?.includes(`draft:matches:${d.ref}`)||e.ref===d.ref&&(!e.edit||e.edit.revision===d.revision)&&(!d.target||e.name===d.target.name&&e.tag===d.target.tag&&e.type===d.target.type&&e.context===d.target.context)))
       .map(d=>({...d,url:clean(d.url),value:clean(d.value)})),
@@ -58,7 +63,7 @@ export class OpenAIPlanner implements Planner {
     const context = plannerContext(session,site,snapshot);
     const response = await this.client.responses.parse({
       model: session.model, reasoning: { effort: config.reasoning }, store: false,
-      instructions: instructions + completionInstructions + generalBrowserInstructions + draftInstructions + clarificationInstructions + conversationInstructions,
+      instructions: instructions + completionInstructions + generalBrowserInstructions + draftInstructions + clarificationInstructions + conversationInstructions + '\nAUTHORED HISTORY: authoredInputHistory contains bounded text you previously wrote in this conversation, including before navigation. Reuse it as source material for connected drafting or revisions, not as proof that an object is currently saved. Only current observations and matching preparedInputs prove current state. Never recreate or rewrite a saved draft merely because its original editor URL changed.',
       input: [{ role: 'user', content: [{ type: 'input_text', text: JSON.stringify(context) }, ...(screenshot ? [{ type: 'input_image' as const, image_url: `data:image/jpeg;base64,${screenshot}`, detail: 'high' as const }] : [])] }],
       text: { format: zodTextFormat(decisionSchema, 'browser_action'), verbosity: 'low' }, max_output_tokens: 2600,
     }, { signal });
